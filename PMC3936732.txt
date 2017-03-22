@@ -1,0 +1,580 @@
+Published online 27 November 2013                                              Nucleic Acids Research, 2014, Vol. 42,  4 2405â€“2414
+                                                                                                                doi:10.1093/nar/gkt1200
+
+
+Genetic robustness functional evolution gene duplicates
+GermaÂ´n Plata1,2 Dennis Vitkup1,3,*
+1
+ Department Systems Biology, Center Computational Biology Bioinformatics, Columbia University,
+New York City, NY 10032, USA, 2Integrated Program Cellular, Molecular, Structural, Genetic Studies,
+Columbia University, New York City, NY 10032, USA 3Department Biomedical Informatics, Columbia
+University, New York City, NY 10032, USA
+
+Received September 5, 2013; Revised November 3, 2013; Accepted November 4, 2013
+
+
+
+ABSTRACT                                                                         duplicates (1,6). Gene duplications frequent evolu-
+                                                                                 tion range size small-scale (SSD) 
+Gene duplications major source evolution-                               genome events (WGD) (7,8). 90  cases
+ary innovations. Understanding functional diver-                             duplicate eventually lost evolution (6), duplicated
+gence duplicates role genetic                                    genes remain genome  partially,
+robustness important challenge biology.                                 backup s functions. Importantly, functional
+Previously, analyses genetic robustness                                  compensation duplicates plays signiï¬ role buf-
+primarily focused duplicates essentiality                                 fering deleterious human mutations (9).
+epistasis laboratory conditions.                                 Genetic robustness gene duplicates inherently
+study, use quantitative data sets                                  tied functional divergence. Duplicates acquire
+understand compensatory interactions                                     distinct molecular functions (MFs) naturally unable Saccharomyces cerevisiae duplicates                                     compensate  addition, MF                                                                                  conserved, incomplete compensation duplicates likely relevant natural biological popula-
+                                                                                 possible owing different expression patterns dosage
+tions.  owing high functional                              effects. Gene duplications major source new
+load, close duplicates unlikely provide sub-                              genes (10) conceptual models duplicatesâ€™
+stantial backup context large natural popu-                            evolution proposed (11,12). neofunctio-
+lations. Interestingly, duplicates diverge                               nalization model duplicate gains new functions, e.  overall functional load reduced.                            functions associated ancestral gene, intermediate divergence distances quantita-                               duplicate retains ancestral functions
+tive decrease fitness removal dupli-                            (10,13,14). contrast, subfunctionalization model
+cate smaller. distances, yeast                                  duplicates indispensable retained duplicates display balanced functional loads                                evolution partitioning ancestral gene functions transcriptional control signifi-                               (15,16). models imply eventual loss                                                                                  ability duplicates fully substitute  cantly complex. yeast duplicates diverge
+                                                                                 likely signiï¬ fraction duplicates ï¬?xed 70  sequence identity, ability                                   retained genomes owing selective advantages,
+compensate similar                                     dosage effects condition-speciï¬?c expression random pairs singletons.                                              patterns, present moment duplication
+                                                                                 (17,18). cases ï¬?xation selective advantage,
+                                                                                 compensation duplicates unlikely.
+INTRODUCTION                                                                        compensation duplicates Survival biological systems crucially depends robust-                      expected long term, ability duplicates
+ness harmful genetic mutations, e. genetic robustness,                      buffer deleterious mutations paralogs changes environmental conditions (1â€“3).                            demonstrated independent observa-
+distinct mechanisms genetic robustness                              tions. include lower expected fraction previously discussed.  alternative signaling meta-                     essential genes close duplicates (1), paucity bolic pathways provide important mechanism                                pairwise epistatic interactions involving duplicated genes
+rerouting molecular networks (4,5). Second,                            (19), excess aggravating genetic interactions
+major role genetic robustness attributed gene                           paralogs (20,21). contribution duplicates
+
+
+ correspondence addressed. Tel: +1 212 851 5152; Fax: +1 212 851 5149; Email: dv2121@columbia.edu
+
+ÃŸ Author(s) 2013. Published Oxford University Press. Open Access article distributed terms Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ nc/3.0/), permits non-commercial use, distribution, reproduction medium, provided original work properly cited. commercial use, contact journals.permissions@oup.com
+2406 Nucleic Acids Research, 2014, Vol. 42,  4
+
+ robustness primarily considered context      DeLuna et al. (34) Costanzo et al. (35). Gene qualitative quantitative growth phenotypes      essentiality data obtained study Giaever
+nutrient rich small number laboratory condi-         et al. (36).
+tions (1,22,23). popular experiments,            functionally characterize duplicated genes, Gene
+conditions unlikely approximate natural           Ontology   (37) annotations collected â€˜milieuâ€™ living systems, constantly bombarded      SGD Enzyme Commission (EC) annotations diverse array environmental stresses stimuli.       Comprehensive Yeast Genome Database (CYGD) importantly, strong com-        (38). Transcription factor binding motifs used pensatory interaction pair duplicates, evo-     work compiled Kafri et al. (39) high-
+lutionary relevant decrease ï¬?tness persist     conï¬?dence predictions Kellis et al. (28). used incomplete buffering damaging mutation         protein localization data Huh et al. (40), Codon duplicates (24). context long-term         Adaptation Index (CAI) calculations based data
+evolution, difference mu-         set Lu et al. (41) annotation protein
+tations leading lethal phenotype mutations           complexes CYGD.
+associated ï¬?tness decrease substantially larger inverse effective population size (25,26).
+Given typical population sizes free-living microbial    RESULTS
+species large (>106â€“108) (27), small ï¬?tness
+                                                                Hillenmeyer et al. (33) quantiï¬?ed growth phenotypes decrease effectively lethal organisms.
+                                                                single-gene yeast deletion strains large collection Consequently, quantitative analyses growth pheno-
+                                                                environmental conditions. assembled data set
+types, preferably multiple environmental conditions,
+                                                                contains 5.5 million phenotypes heterozygous necessary understand extent compen-
+                                                                homozygous mutants 400 conditions. sampled
+sation duplicates plays important role                                                                 conditions represent 27 different environmental stresses
+natural biological populations. perform                                                                 hundreds perturbations diverse chemical com-
+analysis context natural popula-
+                                                                pounds. Environmental stresses comprised different
+tions, genetic buffering mediated duplicates likely                                                                 growth media, media lacking speciï¬?c vitamins amino rare  surprisingly, monotonic function                                                                 acids, different pH temperature regimes.
+duplicatesâ€™ divergence.
+                                                                comprehensive collection phenotypes allowed                                                                 investigate diversiï¬?cation duplicatesâ€™
+                                                                functions contribution genetic robustness MATERIALS METHODS                                           multiple conditions.
+Gene protein sequences Saccharomyces cerevisiae,           ï¬?rst investigated average number sensi-
+Saccharomyces paradoxus, Saccharomyces bayanus,                 tive conditions, e. conditions signiï¬ growth
+Saccharomyces      castelli,    Saccharomyces       mikatae,    decrease deletion duplicate, depends Saccharomyces kudriavzevii Saccharomyces kluyveri           sequence divergence (Ka) duplicated genes obtained Saccharomyces Genome                     (Figure 1A B). considered fraction different
+Database (SGD; http://downloads.yeastgenome.org/)               conditions growth phenotype quantitative study Kellis et al. (28). Pairs gene duplicates   measure compensation capacity duplicates identiï¬?ed sequence homology proteins            various divergence distances. close duplicates genome using BLASTP (29). duplicates           average number sensitive conditions signiï¬?cantly bidirectional best hits aligned       different random pair yeast singletons
+>80  open reading frameâ€™s sequence length          (Figure 1B, horizontal line). Importantly, result does
+considered analysis (30). Following previous studies     imply random gene pairs close duplicates (1), excluded ribosomal genes analysis owing        equivalent terms similarity MF. high expression, dominant impact growth         demonstrate  observed pattern likely strong codon adaptation bias. Evolutionary distances            higher overall functional load close duplicates. duplicated genes estimated using               article use term â€˜functional
+method Yang Nielsen (31) implemented              loadâ€™ gene characterize average ï¬?tness 
+PAML package (32); use methods,            crease considered conditions gene
+maximum likelihood, estimate Ka Ks did sig-          deletion; note  based deï¬?nition  niï¬?cantly change observed patterns (Supplementary           functional load measure total number Figure S1A).                                                    MFs gene  reï¬‚ects geneâ€™s overall ï¬?tness
+   used data obtained Hillenmeyer et al. (33)      contribution.
+measure ï¬?tness contribution duplicates               Interestingly, number sensitive conditions initially
+multiple environmental conditions chemical perturb-         drops duplicates diverge, decreasing 30  ations. Using P-value cutoff 0.01, obtained         distances corresponding Ka & 0.1 (Ks & 1, number experimental conditions growth            Supplementary Figure S2A B). duplicates
+defect observed single gene deletion              diverge  average number sensitive conditions
+mutant. analyzed quantitative growth measure-           increases  reaching average random pair
+ments double single deletion yeast strains obtained     yeast singletons Ka & 0.25. trend shown                                                                                                                                                             Nucleic Acids Research, 2014, Vol. 42,  4 2407
+
+
+      Fraction conditions significant     0.30                                                        B
+                                                                                                                                                          0.12
+
+
+
+
+                                                                                                             Fraction conditions significant
+                                                 0.25
+                                                                                                                                                          0.11
+                                                 0.20
+              growth decrease
+
+
+
+
+                                                                                                                         growth decrease
+                                                                                                                                                          0.10
+                                                 0.15
+                                                                                                                                                          0.09
+                                                 0.10
+                                                                                                                                                          0.08
+
+                                                 0.05                                                                                                     0.07
+                                                                                                                                                                  p=0.01
+                                                 0.00                                                                                                     0.06
+
+                                                         0.0   0.1   0.2     0.3    0.4   0.5    0.6                                                             0.0   0.1   0.2    0.3   0.4    0.5   0.6
+                                                                             Ka                                                                                                     Ka
+
+
+          C 0.25                                                                                             D                                                                                         SSD
+                                                                                                                                                         0.14
+                                                                                                                                                                                                       WGD
+
+
+                                                                                                             Fraction conditions significant
+            Fraction essential duplicates
+
+
+
+
+                                               0.20
+                                                                                                                                                         0.12
+
+                                               0.15                                                                      growth decrease
+                                                                                                                                                         0.10
+
+                                               0.10
+                                                                                                                                                         0.08
+                                               0.05
+                                                                                                                                                         0.06
+                                               0.00
+                                                                                                                                                         0.04
+                                                        0.0    0.2     0.4         0.6     0.8         1.0                                                       0.0   0.1   0. 2   0.3   0. 4   0.5   0.6
+                                                                           Ka
+                                                                                                                                                                                    Ka
+Figure 1. Compensation patterns yeast duplicates function evolutionary divergence, Ka, number nonsynonymous
+substitutions site.   Scatterplot fraction sensitive conditions, e. conditions detectable growth phenotypes resulting duplicate gene deletion, versus Ka. dot ï¬?gure represents pair yeast duplicates. (B) average fraction sensitive conditions duplicate pair. P-value calculated using Mannâ€“Whitney U test. horizontal lines B indicate average fraction sensitive conditions random pair yeast singletons. (C) average fraction essential duplicates, e. duplicates lethal phenotype deletion, function Ka. horizontal line indicates fraction essential yeast singletons. Gene essentiality data obtained Saccharomyces Genome Deletion Project (36). (D) Fraction conditions signiï¬ growth decrease deletion yeast duplicates arising small-scale (SSD) genome duplications (WGD). duplicates classiï¬?ed SSD WGD based study Kellis et al.
+(8) horizontal line shows average fraction sensitive conditions random pair yeast singletons. ï¬?gures, error bars represent standard error mean (SEM).
+
+
+
+Figure 1B sensitive P-value cutoff used                                                     compensation heterozygous homozygous
+determine signiï¬?cance growth decrease observed                                                    mutants similar multiple-drug resistance genes, mutant strains (Supplementary Figure S3). similar                                                       deï¬?ned Hillenmeyer et al. (33), considered
+trend observed average growth decrease                                                      (Supplementary Figure S4C). trends remain
+(functional load), measured log ratios                                                          similar environmental perturbations scores tested conditions (Supplementary                                                         analyzed homozygous experiments (Supplementary
+Figure S4A B). Bin-free analyses data                                                             Figure S4D). checked observed compen-
+(Supplementary Figures S1B C S2B)                                                               sation patterns closest duplicates signiï¬?-
+revealed smaller ï¬?tness cost loss duplicates                                                 cantly inï¬‚uenced additional, e. diverged, intermediate distances (Ka & 0.1).                                                                        paralogs (Supplementary Figure S4E). lack signiï¬?-
+   actively growing wild-type yeast popula-                                                     compensation diverged duplicates results tions diploid (42), mainly focused analysis                                                    approximately linear relationship number heterozygous mutant strains. patterns functional                                                      sensitive conditions yeast protein family 2408 Nucleic Acids Research, 2014, Vol. 42,  4
+
+
+family size (Supplementary Figure S5). Finally,              pairs decreases function sequence divergence
+observed compensation patterns affected              (Figure 2E F)  (21)].
+removal gene pairs high CAI (Supplementary                smaller overall functional load, possible
+Figure S6A), suggesting observed trend           duplicates intermediate distances explained expression-based constraints rate         properties favor genetic robustness. explore duplicate sequence evolution (Ka) (43) high expres-        possibility, duplicate pair, looked gene
+sion levels certain duplicates.                               largest gene smallest number    interesting compare ability duplicates     sensitive conditions (Figure 3A). Notably, dupli-
+buffer mutations leading detectable growth                cate conditions (Figure 3A, sensitive
+decrease given ï¬?tness threshold (Figure 1B)             duplicate) follows average trend duplicates role protecting growth pheno-        (Figure 1B), duplicate fewer conditions (Figure
+type, e. likelihood observe essential genes dupli-   3A, sensitive duplicate) shows steady gain cate pairs. Figure 1C, using data study           number conditions function Ka. Consequently,
+Giaever et al. (36), fraction essential du-       functional load close duplicates, measured plicates function divergence. agreement         number sensitive conditions, different, differ- previous studies (1,22,23)                ence signiï¬?cantly smaller genes diverge
+fraction essential genes remains low approximately        (Figure 3B. Pearsonâ€™s r = 0.64, P = 7  10 4, constant close duplicates, increases substantially       Supplementary Figure S2C). Close duplicates divergence distances corresponding Ka > 0.4.          larger number sensitive conditions higher
+Notably, pattern qualitatively different        evolutionary constraint, evaluated normalized ratio
+compensation quantitative growth phenotypes                  nonsynonymous synonymous substitutions nucleo-
+(Figure 1B), demonstrating aforementioned impact             tide site, Ka/Ks (Wilcoxon Signed Rank test P = 7  10 3, using quantitative phenotypes assess evolution-        Figure 2C). result agrees previous reports arily relevant consequences mutations. contrast       asymmetric evolution duplicates context ex- patterns obtained studies based essential genes         pression, genetic interaction proteinâ€“protein interaction
+(22), observed similar compensation proï¬?les gene          networks (19,44,45). observed asymmetry func-
+pairs originating small-scale genome-wide dupli-        tional load close duplicates make buffering
+cations (Figure 1D). WGD duplicates         difï¬?cult. example, sensitive duplicate                                                                  expressed speciï¬?c environmental conditions. age, result suggests ability duplicates
+                                                                    explore mechanism observed buffer s function multiple conditions
+                                                                 backup patterns, analyzed functional diversiï¬?cation
+depends strongly sequence divergence                                                                  yeast duplicates function sequence diver- time duplication.
+                                                                 gence (Ka).  genes encoding metabolic enzymes
+   likely observed decrease number                                                                  calculated fraction gene pairs conserved EC
+sensitive conditions intermediate divergence distances
+                                                                 numbers (Figure 4A); conservation EC numbers
+(Ka & 0.1) decrease functional load           indicates corresponding proteins catalyze identical
+carried distances union duplicate             biochemical reactions. Second, calculated fraction
+genes. explore possibility, considered quan-      shared terms describing protein MF dupli-
+titative ï¬?tness data DeLuna et al. (34) syn-        cates (Figure 4B). measures showed MF thetic genetic array (SGA) data Costanzo et al. (35).       yeast duplicates typically starts substantially diverge studies, authors performed quantitative             Ka > 0.4. timing divergence ap-
+growth measurements yeast strains individual             proximately coincides signiï¬ increase simultaneous deletions duplicates. Using              fraction essential duplicates (Figure 1C). single deletion phenotypes DeLuna et al.                hand, signiï¬ changes number quantitative
+(Figure 2A) Costanzo et al. studies (Figure 2B),          growth phenotypes observed MF dupli-
+observed ï¬?tness proï¬?les similar obtained based        cates usually conserved. data Hillenmeyer et al. (Figure 1B)                complementary analysis transcription factor
+function Ka, smaller phenotypic effects inter-        binding sites suggests gene regulation plays import-
+mediate distances. Interestingly, overall functional         ant role establishing observed compensation
+load duplicate pairs, measured phenotype            patterns. previously demonstrated duplicated
+double deletions, substantially decreases            yeast genes  average, higher number cis-regu- divergence (Figure 2C D). result suggests         latory motifs singleton genes (46). Using compre- close duplicates likely similar      hensive data set 150 known predicted DNA
+functions, higher functional load makes complete           binding motifs yeast (28,39), average
+compensation likely. overall functional         number different motifs regulating duplicate pair 
+load duplicates remains approximately constant            creases signiï¬?cantly Ka & 0.1 (Figure 4D, dashed line,
+Ka > 0.15, higher fraction detectable growth pheno-       Mannâ€“Whitney U test, P = 0.06). divergence
+types distances likely decreased ability    distance, average number different motifs dupli- functional compensation duplicates diverge.               cate pair twice number motifs pair
+Compensation duplicates quantiï¬?ed                 yeast singletons (Figure 4D, dashed horizontal line).
+presence aggravating interactions duplicate           number regulatory motifs increases                                                                                                                       Nucleic Acids Research, 2014, Vol. 42,  4 2409
+
+
+                                               0.7
+                                                                p=0.01
+                                                                                 B                                  0.20
+                                                                                                                                      p=0.08
+
+
+              Fraction single deletions
+
+
+
+
+                                                                                 Fraction single deletions
+                                                 0.6
+
+
+               growth phenotype
+
+
+
+
+                                                                                  growth phenotype
+                                                                                                                    0.15
+                                                 0.5
+
+                                                 0.4
+                                                                                                                    0.10
+                                                 0.3
+
+                                                 0.2
+                                                                                                                    0.05
+                                                 0.1
+
+                                                 0.0                                                                0.00
+                                                    0.0   0.1        0.2   0.3                                          0.0     0.1            0.2   0.3
+                                                                    Ka                                                                     Ka
+              C                                                                  D                                   1.1
+                                                 1.0
+              Fraction double deletions
+
+
+
+
+                                                                                 Fraction double deletions
+                                                                                                                     1.0
+               growth phenotype
+
+
+
+
+                                                                                  growth phenotype
+                                                 0.8                                                                 0.9
+
+                                                                                                                     0.8
+                                                 0.6
+                                                                                                                     0.7
+                                                 0.4                                                                 0.6
+
+                                                 0.2
+                                                                                                                     0.5
+
+                                                                                                                     0.4
+                                                    0.0   0.1        0.2   0.3                                          0.0     0.1            0.2   0.3
+                                                                    Ka                                                                     Ka
+              E                                                                  F
+                                                                                 Fraction buffering duplicates
+              Fraction buffering duplicates
+
+
+
+
+                                                 1.0                                                                1.0
+
+                                                 0.8                                                                0.8
+
+                                                 0.6
+                                                                                                                    0.6
+
+                                                 0.4
+                                                                                                                    0.4
+                                                 0.2
+                                                                                                                    0.2
+                                                 0.0
+                                                    0.0   0.1        0.2   0.3                                        0.0      0.1         0.2       0.3
+                                                                    Ka                                                                    Ka
+Figure 2. Growth phenotypes individual simultaneous deletion duplicates function sequence divergence (Ka). results ï¬?rst column   C, E) based competition experiments DeLuna et al. (34), second column (B, D, F) synthetic
+genetic arrays (SGA) Costanzo et al. (35).   B) Fractions single duplicate deletions signiï¬ growth decrease. (C, D) Fractions simultaneous (double) duplicate deletions signiï¬ growth decrease. different measurement sensitivities studies, different
+cutoffs used determine signiï¬ growth decrease: 1  DeLuna et al.   C) 10  Costanzo et al. (B, D); presented results sensitive exact cutoff values  Supplementary Figure S7). P-values obtained using Fisherâ€™s exact test. (E, F) Fraction paralogs signiï¬ negative epistatic interaction studies DeLuna et al. Costanzo et al., respectively. ï¬?gures error bars
+represent SEM.
+
+
+
+duplicate highest duplicate                            shared motifs [Supplementary Figure S9A, (48)],
+smallest number sensitive conditions (Supplementary                           overlap terms describing biological processes
+Figure S8A B). increase complexity du-                         (Figure 4C) overlap cellular localization
+plicates regulation Ka & 0.1 conï¬?rmed sig-                       observed ï¬‚uorescence-tagging experiments (40)
+niï¬ increase (Mannâ€“Whitney U test, P = 1  10 3)                          decrease (Supplementary Figure S8B). pattern distances number transcription factor                            suggests increase regulatory complexity
+mutants (47) affecting duplicate gene expression (Figure                         allows duplicates specialize different biological
+4D, solid line).                                                                 processes preserving common MFs.    total number DNA motifs regulating du-                           ability duplicates partially diverged regulatory
+plicates initially increases divergence, fraction                    regions compensate expression
+2410 Nucleic Acids Research, 2014, Vol. 42,  4
+
+
+                                                       0.10                                                                       B
+                                                                                              sensitive duplicate
+             Fraction conditions significant
+
+
+
+
+                                                                                                                                    Relative difference number                                                                                               sensitive duplicate                                                     1.0
+                                                         0.09
+
+                                                         0.08                                                                                                              0.8
+
+
+
+
+                                                                                                                                            sensitive conditions
+                         growth decrease
+
+
+                                                         0.07
+                                                                                                                                                                           0.6
+                                                         0.06
+                                                                                                                                                                           0.4
+                                                         0.05
+
+                                                         0.04                            p=2E-4                                                                            0.2
+
+                                                         0.03
+                                                                                                                                                                           0.0
+                                                         0.02
+                                                                     0.0            0.1        0.2          0.3   0.4   0.5   0.6                                                0.00   0.02   0.04   0.06   0.08   0.10
+                                                                                                      Ka                                                                                          Ka
+             C                                                                      p=0.007
+                                                         0.07
+
+                                                         0.06
+
+                                                         0.05
+
+                                                         0.04
+                                             Ka/Ks
+
+
+
+
+                                                         0.03
+
+                                                         0.02
+
+                                                         0.01
+
+                                                         0.00
+                                                                               te                      te
+                                                                       plica                    pli
+                                                                                                     ca
+                                                                e   du                    e   du
+                                                           itiv                       itiv
+                                                    e    ns                    e    ns
+                                           r     es                        sss
+                   Mo                                                Le
+Figure 3. Differences number sensitive conditions duplicates.   average fraction sensitive conditions duplicates higher lower number sensitive conditions pair; Ka values represent sequence divergence duplicates. P-value Mannâ€“Whitney U test. (B) relative difference number sensitive conditions duplicates function initial
+divergence; Ka values represent sequence divergence duplicates. relative difference calculated absolute difference number sensitive conditions duplicates normalized total number sensitive conditions pair (Spearmanâ€™s r = 0.60,
+P = 2  10 3; Pearsonâ€™s r = 0.64, P = 7  10 4). (C) average Ka/Ks ratio paralogs largest  sensitive) smallest
+ sensitive) number conditions signiï¬ growth decrease. Ka/Ks ratios calculated relative orthologous sequences S. bayanus. duplicates Ka < 0.15 considered. P-value Wilcoxon signed rank test.
+
+
+
+
+changes intact gene previously described                                                                             Finally, patterns diversiï¬?cation functional
+Kafri et al. (39,49).  recent study DeLuna                                                                          compensation described correlate et al. (50) showed deletion duplicate, ex-                                                                       process duplicate loss evolution. investigated pression changes remaining paralog need-                                                                       retention yeast duplicates using complete genomic
+based, e. happen primarily corresponding                                                                        sequences seven species: S. cerevisiae, S. paradoxus,
+function required. regulatory backup circuits                                                                           S. bayanus, S. castelli, S. mikatae, S. kudriavzevii  cases, enable functional compen-                                                                       S. kluyveri. calculated number remaining dupli-
+sation homologs different expression                                                                               cates function sequence divergence (Figure 5,
+patterns wild type. Notably, based data                                                                          Supplementary Figure S10A correspond-
+recent study Springer et al. (51), measured                                                                          ing relationships individual yeast species). analysis
+expression changes yeast genes                                                                               suggests relatively brief initial period high dupli-
+genomic copies deleted diploid cells, observed                                                                        cate loss (6) followed long evolutionary period signiï¬ dosage response genes forming                                                                             (Ka > 0.1) average loss rate decreases
+recently duplicated pairs (Ka < 0.15, Figure 4E).                                                                          >10-fold (red Figure 5). Interestingly, loss rate sig-
+suggests genes close duplicates respon-                                                                      niï¬?cantly decreases approximately divergence
+sive dosage effects.                                                                                                         distance duplicates similar terms
+                                                                                                                                                                                      Nucleic Acids Research, 2014, Vol. 42,  4 2411
+
+
+                                                                                                                                      B 1.0
+                   1.0
+
+
+
+
+                                                                                                                                 Fraction shared molecular functions
+                 Fraction pairs sharing EC numbers
+                                                               0.8                                                                                                           0.9
+
+
+                                                               0.6                                                                                                           0.8
+
+                                                               0.4
+                                                                                                                                                                             0.7
+
+                                                               0.2
+                                                                                                                                                                             0.6
+
+                                                               0.0
+                                                                                                                                                                             0.5
+                                                                 0.0         0.2    0.4         0.6         0.8    1.0                                                          0.0       0.2         0.4          0.6         0.8        1.0
+                   C 0.8                                                                  Ka                                                                                                                Ka
+                  Fraction shared biological processes
+
+
+
+
+                                                                                                                         D                                                                 TF binding motifs
+                                                               0.7                                                                                                                         TF mutations affecting expression
+                                                                                                                                                                                       p=0.06
+
+                                                               0.6                                                                                                                    p=0.001
+
+                                                                                                                                                                              10
+                                                               0.5
+                                                                                                                         Number unique TF associations
+
+
+
+                                                                                                                                                                               9
+
+                                                               0.4                                                                                                             8
+                                                                                                                                duplicate pair
+
+
+
+
+                                                                                                                                                                               7
+                                                               0.3
+                                                                                                                                                                               6
+                                                                 0.0         0.2    0.4        0.6          0.8    1.0
+                                                                                                                                                                               5
+                                                                                          Ka
+                                                                                                                                                                               4
+            E                                                                                          p=0.003
+                                                               0.25
+                                                                                                                                                                               3
+           Expression responsiveness
+
+
+
+
+                                                               0.20                                                                                                            2
+                                                                                                                                                                                0.0             0.1         0.2          0.3         >   0.4
+                                                               0.15                                                                                                                                           Ka
+
+
+                                                               0.10
+
+                                                               0.05
+
+                                                               0.00
+
+                                                           -0.05
+                                                                       0.0    0.1   0.2    0.3        0.4    0.5   0.6
+                                                                                           Ka
+Figure 4. Diversiï¬?cation duplicates function regulation.   Fraction metabolic duplicates sharing EC numbers; conservation EC numbers indicates catalysis identical biochemical reactions. (B) Fraction MF terms shared duplicates. (C) Fraction Biological Process (BP) terms shared duplicates. panels B C considered terms distance corresponding root hierarchy term. (D) Dashed line, average number different transcription factor binding motifs duplicate pair.
+Transcription factor (TF) binding motifs compiled studies Kafri et al. (39) Kellis et al. (28). Solid line, average number transcription factor deletions S. cerevisiae signiï¬?cantly affect expression duplicate genes. data obtained study Hu
+et al. (47). comparison average number motifs TF mutants affecting expression random pairs yeast singletons
+(horizontal dashed solid lines); P-values calculated using Mannâ€“Whitney U test. (E) average dosage compensation (respon-
+siveness) duplicates function sequence divergence (Ka). data average expression responsiveness obtained work Springer et al. (51). study, responsiveness measured diploid yeast strains Log2 ratio (perturbed versus normal) expression
+changes remaining gene copy following deletion equivalent gene copy sister chromosome. P-value calculated using Mannâ€“Whitney U test. ï¬?gures error bars represent SEM.
+2412 Nucleic Acids Research, 2014, Vol. 42,  4
+
+
+                                       100
+                                                                       Ka < 0.1         et al. (35), duplicates annotated redundant                                         80
+                                                                                        signiï¬?cantly different yeast duplicates
+      Number remaining duplicates
+
+                                                                       Ka > 0.1
+       averaged 7 yeast species
+
+                                       60                                               (Mannâ€“Whitney U, P = 0.13 0.35, respectively,
+                                                                                        Supplementary Figure S11). demonstrates 
+                                       40
+                                                                                        yeast duplicates func-
+                                                                                        tional overlap laboratory conditions, com-
+                                                                                        pensation properties probably signiï¬?cantly                                        20
+                                                                                        important large natural populations ability
+                                                                                        purifying selection efï¬?ciently prune mutations
+                                                                                        causing small ï¬?tness decrease.
+                                       10
+                                                                                           likely different factors contribute                                         8
+                                                                                        relative paucity functional compensation                                         6                                               paralogs small divergence distances. signiï¬                                          0.0   0.1   0.2   0.3   0.4     0.5      0.6   fraction duplications likely ï¬?xed owing                                                                                         dosage effects (17), functional compensation
+                                                           Ka
+                                                                                        duplicates context natural popula-
+Figure 5. average number duplicates retained genomes                   tions unlikely. example, lack signiï¬ com-
+yeast species function duplicates divergence Ka, number                 pensation histone pairs, HTA1-HTA2 nonsynonymous substitutions site. number remaining
+duplicates averaged genomes seven yeast species: S.                     HHT1-HHT2, likely consequence role
+cerevisiae, S. paradoxus, S. bayanus, S. castelli, S. mikatae, S.                       maintaining proper histone levels yeast cells. Gene
+kudriavzevii S. kluyveri. Supplementary Figure S10                     dosage explain inability duplicates number remaining duplicates individual species                    backup  unlikely explan- number remaining duplicates function Ks. rate duplicate loss evolution >10 times lower distances
+                                                                                        ation. showed duplicate pairs corresponding Ka > 0.1 compared distances Ka < 0.1.                      high CAI (Supplementary Figure S6A) pairs forming ï¬?gure, error bars represent SEM.                                             known protein complexes (Supplementary Figure S6B)                                                                                         removed analysis, patterns functional com-
+                                                                                        pensation remain similar. Notably, genes high CAI functional load (Figure 2B) regu-                               associated higher frequencies latory complexity signiï¬?cantly increases (Figure 5D).                             interlocus gene conversion (IGC) (53,54). IGC
+likely duplicates surviving initial loss stage                             slow rate duplicates sequence divergence
+develop independent functionalities preserved                                   (55), analyses based WGDs evidence long times genomes yeast species.                                         IGC [using data recently reported Casola et al. (56)]
+                                                                                        revealed essentially identical compensation patterns
+                                                                                        (Supplementary Figure S12).
+DISCUSSION                                                                                 Close duplicates likely compensate                                                                                         probably owing aforementioned dichot- present study, analyzed genetic robustness                                omy functional loads (Figure 3A B). duplicates context quantitative growth pheno-                              close duplicates classiï¬?ed, based activity
+types sensitivities gene deletions multiple envir-                            breadth expression, major minor func-
+onmental conditions. robustness important                                   tional isoforms. example, glyceraldehyde-3-phos-
+understanding buffering deleterious mutations                                 phate dehydrogenase TDH1 active various stress
+large natural biological populations. results demon-                                conditions, isoenzyme TDH2 used primarily
+strate  contrary commonly held view, close gene                                 exponential growth (57). Similarly, ubiquitin
+duplicates unlikely provide high level backup                            conjugating enzyme UBC4 expressed exponen- context large natural populations. Consequently,                              tial growth, duplicate UBC5 active sta- unlikely duplicates ï¬?xed natural popu-                              tionary phase (58). difference functional load
+lations speciï¬?cally selection robustness.                                    close yeast duplicates consistent    analysis suggests duplicate redundancies                               asymmetric partition functions, interactions gene
+described genomics databases, frequently observed                                expression, observed close duplicates  laboratory experiments, considered                                    ganisms, example, Arabidopsis Human (45,59,60).
+caution, respect functions                                    suggests duplicate-dependent compensation natural biological populations. investigate point                               context natural populations limited  analyzed set, compiled Kafri et al. (52),                              species  112 yeast duplicates reported partially                                  analysis suggests typical lifecycle gene
+redundant research publications. duplicates                                    duplicates yeast consists distinct evolutionary described redundant based func-                                   stages (11,12). ï¬?rst stage  duplicate distances cor-
+tional overlap compensatory interactions observed                                   responding Ka < 0.05), duplicates tend high small-scale experimental studies. Interestingly, based                               overall functional loads signiï¬ asymmetry number conditions quantitative growth                                    number sensitive conditions; factors make
+phenotypes study Hillenmeyer et al. (33),                                   complete compensation unlikely. high functional load quantitative growth measurements Costanzo                                    close duplicates suggests adaptive selection plays
+                                                                                 Nucleic Acids Research, 2014, Vol. 42,  4 2413
+
+ important role ï¬?xation. second stage                 10. Ohno,S. (1970) Evolution Gene Duplication. Springer-Verlag,
+(0.05 < Ka < 0.25), duplicates diverge                     Berlin, New York.
+                                                                        11. Conant,G.C. Wolfe,K.H. (2008) Turning hobby job:
+overall functional load usually decreases.                         duplicated genes ï¬?nd new functions. Nat. Rev. Genet., 9,
+happen, example, relaxation environmen-                   938â€“950.
+tal conditions, facilitated original duplicate                12. Innan,H. Kondrashov,F. (2010) evolution gene
+ï¬?xation. vast majority duplicates, likely                        duplications: classifying distinguishing models. Nat.
+                                                                            Rev. Genet., 11, 97â€“108.
+paralogs relatively smaller functional loads                       13. Nadeau,J.H. Sankoff,D. (1997) Comparable rates gene
+(Figure 3C), lost stage (Figure 5). Gene pairs                  loss functional divergence genome duplications early survive period high duplicate loss display                 vertebrate evolution. Genetics, 147, 1259â€“1266.
+balanced functional loads complex regulation;                 14. Sidow  (1996) Genome duplications evolution early
+gene pairs usually retained long evolutionary times                 vertebrates. Curr. Opin. Genet. Dev., 6, 715â€“722.
+                                                                        15. Force , Lynch,M., Pickett,F.B., Amores , Yan,Y.L. yeast genomes (Figure 5). Surviving duplicates                       Postlethwait,J. (1999) Preservation duplicate genes provide partial compensation intermediate di-                   complementary, degenerative mutations. Genetics, 151, 1531â€“1545.
+vergence distances serve important source                16. Lynch,M. Force  (2000) probability duplicate gene new protein functions. stage (Ka > 0.3                   preservation subfunctionalization. Genetics, 154, 459â€“473.
+                                                                        17. Kondrashov,F , Rogozin B., Wolf,Y  Koonin,E.V.
+70  sequence identity), lifecycle duplicates                     (2002) Selection evolution gene duplications. Genome
+completed functional roles diverge,                    Biol., 3, RESEARCH0008.
+quantitative compensation properties indistin-                   18. Bergthorsson,U., Andersson,D  Roth,J.R. (2007) Ohnoâ€™s
+guishable random pairs yeast singletons.                   dilemma: evolution new genes continuous selection.
+                                                                            Proc. Natl Acad. Sci. USA, 104, 17004â€“17009.
+                                                                        19. VanderSluis,B., Bellay,J., Musso,G., Costanzo,M., Papp,B.,
+                                                                            Vizeacoumar,F.J., Baryshnikova , Andrews,B., Boone,C. SUPPLEMENTARY DATA                                                          Myers,C.L. (2010) Genetic interactions reveal evolutionary
+Supplementary Data available NAR Online.                             trajectories duplicate genes. Mol. Syst. Biol., 6, 429.
+                                                                        20. Ihmels,J., Collins,S.R., Schuldiner,M., Krogan,N.J.                                                                             Weissman,J.S. (2007) Backup redundancy: genetic
+                                                                            interactions reveal cost duplicate gene loss. Mol. Syst.
+ACKNOWLEDGEMENTS                                                            Biol., 3, 86.
+                                                                        21. Li,J., Yuan  Zhang  (2010) cellular robustness thank Fyodor Kondrashov (Centre Genomic                              genetic redundancy budding yeast. PLoS Genet., 6,
+Regulation) members Vitup laboratory                         e1001187.
+illuminating discussions regarding manuscript.                      22. Guan,Y., Dunham,M.J. Troyanskaya,O.G. (2007) Functional
+                                                                            analysis gene duplications Saccharomyces cerevisiae.
+                                                                            Genetics, 175, 933â€“943.
+FUNDING                                                                 23. Conant,G.C. Wagner  (2004) Duplicate genes                                                                             robustness transient gene knock-downs Caenorhabditis
+National Institutes Health (NIH) [GM079759]                      elegans. Proc. Biol. Sci., 271, 89â€“96.
+National    Centers        Biomedical  Computing                    24. Thatcher,J.W., Shaw,J.M. Dickinson,W.J. (1998) Marginal
+                                                                            ï¬?tness contributions nonessential genes yeast. Proc. Natl
+[U54CA121852]. Funding open access charge: NIH                          Acad. Sci. USA, 95, 253â€“257.
+[GM079759].                                                             25. Gillespie,J.H. (1998) Population Genetics, Concise Guide. Johns
+                                                                            Hopkins Univ. Press, Baltimore.
+Conï¬‚ict statement. declared.                           26. Hartl,D. Clark  (1997) Principles Population Genetics,
+                                                                            3 edn. Sinauer Associates, Sunderland.
+                                                                        27. Lynch,M. (2006) Streamlining simpliï¬?cation microbial
+REFERENCES                                                                  genome architecture. Annu. Rev. Microbiol., 60, 327â€“349.
+                                                                        28. Kellis,M., Patterson,N., Endrizzi,M., Birren,B. Lander,E.S.
+ 1. Gu , Steinmetz,L.M., Gu,X., Scharfe,C., Davis,R.W.                (2003) Sequencing comparison yeast species identify
+    Li,W.H. (2003) Role duplicate genes genetic robustness            genes regulatory elements. Nature, 423, 241â€“254.
+    null mutations. Nature, 421, 63â€“66.                         29. Altschul,S.F., Madden,T.L., Schaffer , Zhang,J., Zhang ,
+ 2. Stelling,J., Sauer,U., Szallasi , Doyle,F.J. III Doyle,J.         Miller,W. Lipman,D.J. (1997) Gapped BLAST PSI-
+    (2004) Robustness cellular functions. Cell, 118, 675â€“685.            BLAST: new generation protein database search programs.
+ 3. Wagner  (2005) Robustness Evolvability Living Systems.         Nucleic Acids Res., 25, 3389â€“3402.
+    Princeton University Press, Princeton.                              30. Gu , Cavalcanti , Chen,F.C., Bouman,P. Li,W.H. (2002)
+ 4. Wagner  (2000) Robustness mutations genetic                Extent gene duplication genomes Drosophila,
+    networks yeast. Nat. Genet., 24, 355â€“361.                            nematode, yeast. Mol. Biol. Evol., 19, 256â€“262.
+ 5. Papp,B., Pal,C. Hurst,L.D. (2004) Metabolic network             31. Yang  Nielsen,R. (2000) Estimating synonymous     analysis causes evolution enzyme dispensability        nonsynonymous substitution rates realistic evolutionary
+    yeast. Nature, 429, 661â€“664.                                            models. Mol. Biol. Evol., 17, 32â€“43.
+ 6. Lynch,M. Conery,J.S. (2000) evolutio

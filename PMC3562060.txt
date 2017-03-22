@@ -1,0 +1,617 @@
+                                                                                                                      Vol. 29  3 2013, pages 355–364
+BIOINFORMATICS                                            ORIGINAL PAPER                                               doi:10.1093/bioinformatics/bts688
+
+
+Data text mining                                                                                     Advance Access publication December 11, 2012
+
+ novel link prediction algorithm reconstructing
+protein–protein interaction networks topological similarity
+Chengwei Lei Jianhua Ruan*
+Department Science, University Texas San Antonio, San Antonio, TX 78249, USA
+Associate Editor: Jonathan Wren
+
+
+ABSTRACT                                                                         functional genomics data, offering unprecedented opportu-
+Motivation: Recent advances technology dramatically                      nities biological computational scientists 
+increased availability protein–protein interaction (PPI) data         stand cell systems level (Przulj, 2011). example,
+stimulated development methods improving sys-                global analysis PPI networks revealed important connec-
+tems level understanding cell.  efforts              tions topology function (Han et al., 2004; Jeong
+significantly hindered high level noise, sparseness highly         et al., 2001; Yu et al., 2007). PPI networks used
+skewed degree distribution PPI networks.  present novel             predicting gene functions, functional pathways protein
+algorithm reduce noise present PPI networks. key idea           complexes, supervised unsupervised methods algorithm proteins sharing higher-order topo-               (Asthana et al., 2004; Bader Hogue, 2002; Chua et al.,
+logical similarities, measured novel random walk-based proced-              2006; Friedel et al., 2009; King et al., 2004; Lee et al., 2008;
+ure, likely interacting belong           Sharan et al., 2007; Ulitsky Shamir, 2009; Wang et al.,
+protein complex.                                                                 2007a; Wang et al., 2010). Furthermore, effort Results: Applying algorithm yeast PPI network,            devoted recently incorporating PPI networks obtain edges reconstructed network higher biological rele-              better mechanistic understanding complex diseases im-
+vance original network, assessed multiple types             prove diagnosis treatment diseases (Chuang et al.,
+formation, including gene ontology, gene expression, essentiality,               2007; Hannum et al., 2009; Hidalgo et al., 2009; Ideker conservation species known protein complexes.                        Sharan, 2008; Kim et al., 2011).
+Comparison existing methods shows network recon-                       growing size complexity PPI networks
+structed method highest quality. Using independ-              poses multiple challenges biologists.  PPI networks ent graph clustering algorithms, reconstructed                 high false-positive rate higher false-negative
+network resulted significantly improved prediction accuracy            rate (Huang et al., 2007). Second, PPI networks typically
+protein complexes. Furthermore, method applicable PPI net-             sparse, partially high false-negative rate, works obtained different experimental systems, affinity             places hurdle algorithms rely neighbour informa-
+purification, yeast hybrid (Y2H) protein-fragment complemen-             tion, example, gene function prediction (Chua et al., 2006;
+tation assay (PCA), evidence shows predicted edges              Sharan et al., 2007).  PPI networks known likely bona fide physical interactions. Finally, application human       skewed degree distribution, meaning PPI network increased coverage network 100 .              expected quantity hub genes. hub nodes reduce
+Availability: www.cs.utsa.edu/jruan/RWS/.                                       performance existing graph theoretic algorithms (e.g. Contact: Jianhua.Ruan@utsa.edu                                                   predicting protein complexes) designed net-
+Supplementary information: Supplementary data available                   works relatively uniform degree distributions.
+Bioinformatics online.                                                              article, present novel method improve qual-
+                                                                                 ity given PPI network computationally predicting Received June 8, 2012; revised November 2, 2012; accepted               new interactions removing spurious edges. worth noting
+November 26, 2012                                                                idea purely based topology network,
+                                                                                 additional biological information involved. ensures
+                                                                                 algorithm easily combined algorithms
+1 INTRODUCTION                                                                   developed predicting protein com-
+Recent advances high-throughput techniques, yeast                     plexes performing PPI-based studies. hybrid (Y2H) tandem affinity purification, enabled                  studies attempt combine additional biological informa- production large protein–protein interaction                  tion, gene ontology gene expression, PPI net-
+(PPI) data (Gavin et al., 2006; Krogan et al., 2006; Tarassov et                 work protein complex prediction (Asthana et al., 2004;
+al., 2008; Yu et al., 2008). PPI data modelled                   Ulitsky Shamir, 2009; Wang et al., 2010). networks, nodes networks represent proteins edges                   straightforward use method approaches, repla- nodes represent physical interactions pro-                   cing PPI network reconstructed PPI network.
+teins. networks, high-throughput                          assess performance algorithm, tested                                                                                  yeast PPI networks obtained different experimental
+ correspondence addressed.                                     systems, examined biological relevance results
+
+
+ß Author 2012. Published Oxford University Press. rights reserved. Permissions, e-mail: journals.permissions@oup.com         355
+ C.Lei J.Ruan
+
+
+                                                                                                            Topological profiles node 6 node 8
+using multiple information sources, including gene ontology 
+notations, gene expression data, protein complexes, list essen-
+tial genes, conservation species large collection                                                     Compute
+                                                                                                                       topological
+known physical interactions BioGRID database. Results                                                           profiles predicted PPIs higher functional rele-                                                         node
+vance removed ones, likely bona fide phys-                              Original network
+ical interactions. Comparison existing methods
+shows network reconstructed method                                                                      Compute topological
+                                                                                                                                similarities nodes
+highest overall quality. Furthermore, applying independent
+graph clustering algorithms, reconstructed                                                          Reconstruct
+                                                                                                                      network network resulted significantly improved prediction accur-                                                      linking nodes
+acy protein complexes. Finally, application human PPI                                                      high
+network shows encouraging results.                                                                                    similarities
+                                                                                            Reconstructed network
+                                                                                                                       Topological similarity
+2     METHODS                                                                                                          node 6 node 8
+
+2.1    Rationale related works                                                Fig. 1. Basic idea method
+ recent years, computational methods developed predict missing links networks (Fouss et al., 2007; Li Horvath,          created connect nodes topologically similar. frame-
+2007; Ruan Zhang, 2006; Radicchi et al., 2004; Tong et al., 2006),            work general, step multiple designing choices.  reviewed (Lu¨ Zhou, 2011), success-            propose novel random walk procedure computing topological
+fully applied PPI networks. methods basically fall              profiles, handle hub nodes better existing random
+categories: common neighbour based distance based. type             walk-based methods. use simple ideas steps, leaving methods based simple effective idea nodes sharing              room future improvements. common neighbours likely module (Li Horvath, 2007; Ruan Zhang, 2006; Radicchi et al., 2004; Wang
+et al., 2007a). methods limited value PPI networks              2.2    Random walk resistance usually sparse. circumvent problem, Fang et al. (2011)           Let GðV, EÞ undirected graph representing PPI network, V
+generalized idea consider neighbours greater path lengths           set nodes E set edges  convenience, self-loop showed called ‘global geometric affinity’ (GGA) measurement           added node). v 2 V,       letNðvÞ ¼ fu 2 V jfv, ug 2 set help predict new PPI.                                                         neighbours v dðvÞ ¼ NðvÞ degree v.
+   second type methods measures ‘distance’ pairs                simple random walk node graph G walk G
+nodes network taking consideration alternative paths;             node chosen uniformly random set popular examples include algorithms based random walks,                    neighbours current node. Formally, random walker  Euclidean commute time (ECT) (Fouss et al., 2007)                     node  probability step neighbour
+random walk restart (RWR) (Tong et al., 2006). ECT measures                  j Pij ¼ 1=dðiÞ fi, jg 2 E 0  Assume random walk expected number steps needed random walker travel              initiated node v. Let qðkÞv, probability random walker
+tween nodes distance  RWR computes                sitting node discrete time point k.  time point k þ 1, probability random walker starting node reach         probability random walker taking path node node j
+node j. Performance type methods significantly affected         calculated hub nodes connected nodes network.                                                                                                                  fðkþ1Þ
+                                                                                                                  v, ij ¼ qðkÞ
+                                                                                                                           v, Pij ,                          ð1Þ
+method falling category Kuchaiev et al. (2009), attempted embed PPI network low dimensional                probability random walker reach node j time point
+geometric space using multiple dimensional scaling (MDS), assign              k þ 1 calculated edges pairs nodes short distances embedded space.                                                X ðkþ1Þ good performance observed, method work                                           qv,ðkþ1Þ
+                                                                                                                  j   ¼  f v, ij :                    ð2Þ
+                                                                                                                            general easy accurate geometric
+embedding given PPI network.                                                   important note  mild conditions,    work, propose novel method considered            simple random walk, probability reach node j, qv, j , converges generalization simple common neighbour-based method, combin-               value regardless starting point v (Lova´sz, 1993).
+ing ideas distance-based method. hypothesize                  stationary probability distribution obtained nodes having similar ‘distances’  view random walker)          simple random walk used directly measure distance nodes network potentially interact          nodes. provide measurement distance nodes idea general aforementioned types methods              network, modifications proposed. example, ECT
+cause predict links covered aforementioned        measures expected number hops needed travel two types methods predict links nodes            nodes simple random walk (Fouss et al., 2007), RWR far away  random walker)              attempts bias random walk stay close starting node share common neighbours. basic idea method consists             teleporting random walker starting node certain prob- steps illustrated Figure 1.  topological profile,   ability (Tong et al., 2006).
+measures ‘distances’ target node nodes             random walk algorithm, named random walk network, calculated node. Second, similarities topological         resistance (RWS), based key ideas:   bias random walker
+profiles calculated pair nodes. final step, edges     staying close starting point adding small 
+
+
+356
+                                                                                                               Algorithm reconstructing PPI networks
+
+
+
+resistance edge network, (ii) introduce condition           using columns offset matrix topological profiles,  letting discourage random walker roaming new territories               Cij ¼pcc(1jVj, , 1jVj, j ), works slightly better rows. Informally
+hub nodes, adding additional resistance random walker              speaking, row vector represents information passed node
+come meeting new node visited                  nodes network, column vector represents 
+algorithm best described modification simple random              formation node receives network;  walk algorithm. Basically, replace Equation (1)                               accurate way describing position node network.
+                8
+                >         ðkÞ                ðkÞ
+                < maxð0, qv, Pij  Þ, qv, j 40;
+       fðkþ1Þ ¼           ðkÞ                ðkÞ             ðkÞ             ð3Þ    2.4    Reconstructing PPI network
+        v, ij
+                > maxð0, qv, Pij  Þ, qv, j ¼ 0 maxt ðqv, t Ptj Þ  ;
+                :
+                  0,                                                      Finally, network reconstructed topological similarity matrix
+                                                                                    connecting pairs nodes similarity certain thresh-
+   probability reaching node j time point k þ 1 calcu-            old. sophisticated methods possible (e.g. Ruan, 2009),
+lated adding probabilities enter j paths,                 article, choose implement simple strategy easy evalu- normalized probability vector sums 1:                             ation fair comparison methods: simply pick cut                         ðkþ1Þ
+                                X ðkþ1Þ  X ðkþ1Þ                                   value number edges kept original
+                        v, j  ¼   fv, ij      fv,                 ð4Þ
+                                                                               network. simple strategy worked  Section 4,
+                                                                                    discuss future plans improving cut selection,    Equation (3), algorithm checks destination             improve quality reconstructed network, particu-
+node, j, new random walker.   qv,ðkÞj 40, random       larly, reduce false-negative rate PPI networks.
+walker visit node probability qv,ðkÞi Pij  . probability set 0 50. Combined normalization step, purpose introducing  parameter similar teleporting idea RWR
+                                                                                    3     RESULTS DISCUSSION biases random walker stay close starting node, stationary probability vectors different starting nodes             evaluation, applied algorithm yeast PPI converged values.                                                networks obtained different technologies: tandem-affinity
+   node j new random walker, additional param-             purification (Krogan et al., 2006), Y2H (Yu et al., 2008) eter, , introduced discourage random walker visiting            protein-fragment complementation assay (Tarassov et al.,
+new node, unless path v enter j sufficiently      2008). Sections 3.1–3.3, discuss results Krogan
+large probability. main motivation step reduce               dataset, largest, Sections 3.4 3.5, impact hub nodes random walk process. Imagining              present comparative analysis datasets.  parameter, random walker reaching hub node able                                                                                     Section 3.6, present application human PPI network.
+travel, probability, nodes connected hub nodes, functionally related starting node. contrast, algorithm, given scenario,            3.1    Reconstructed PPI network better functional random walker selectively prefer nodes                     relevance
+connected hub nodes connected starting node alternative paths involving hub nodes.                                                                                      performed random walk Krogan PPI network,
+Supplementary Fig. S1 toy example).                                           covers 2708 genes 7123 edges, derived modified
+   experiment,  set jVj=jEj2  set 1=jEj. choice       PPI network choosing 7123 potential connections based analysis minimum average value fv, ij          highest similarities  Section 2). modified network,
+edge. Empirically, values perform              2870 (40 ) edges new  number edges multiple, biological non-biological, networks. Variations               original network removed). evaluate functional values constant multiple significantly change             relevance newly predicted edges, resort types results.                                                                        sources, including gene ontology, gene expression, essentiality,
+   aforementioned procedure applied iteratively starting            known protein complexes conservation interactions node. random walker considered reached stationary dis-
+                                                                                    species. facilitate discussion, group tribution change probability arrive node                                                                                     edges present original network   group, small cut value. experiment, nodes converged 5–20
+iterations, took minutes personal                    modified network   group. Furthermore, ‘new’ edges
+                                                                                    designate edges     group,
+                                                                                    ‘removed’ edges    . Finally, present
+2.3    Calculating topological similarity                                               called ‘confirmed’. gen- applying aforementioned random walk procedure                      erated random networks randomly rewiring procedure
+network, jVj  jVj probability matrix, denoted                         preserves degree node (Ruan Zhang, 2008).
+ ¼ h  j ijVjjVj ,  j represents probability random               interacting proteins likely involved similar biological
+walker started node reach node j convergence.                            processes, expected similar functional annota-
+   magnify difference probability vectors different             tions gene ontology similar gene expression patterns
+nodes, obtain median vector H vectors,                                                                                     diverse conditions.  measure functional
+j-th element H defined Hj ¼median ( 1jVj, j ). median prob-
+                                                                                    relevance pair genes connected ability vector similar stationary probability vector simple
+random walk. calculate jVj  jVj offset matrix ,                 edge using semantic similarity terms anno-
+ij ¼ij Hj .                                                                      tated proteins, using popular method (Wang et al.,
+   Finally, calculate Pearson correlation coefficient           2007b; Yu et al., 2010). Results shown based ‘molecu-
+pair rows columns offset matrix measurement topo-              lar function’ branch Gene Ontology. Using ‘biological pro-
+logical similarity, Cij , nodes. Empirically,            cess’ yielded similar values, ‘cellular localization’ resulted 
+
+                                                                                                                                                            357
+ C.Lei J.Ruan
+
+
+
+slightly lower consistent values (Supplementary Fig. S2).                                            Section 3.2). contrast, measurement measured Pearson correlation coefficient                                            new edges close confirmed PPIs. gene expression profiles pair genes, using                                             looked conservation edges spe-
+yeast stress response microarray data (Gasch et al., 2000).                                          cies. downloaded conserved PPIs yeast used average similarity pairs nodes connected                                       species including Caenorhabditis elegans, fly, mouse human
+edge certain group represent functional relevance                                        InteroLogFinder (http://www.interologfinder.org/) (Wiles edge group. shown Figure 2a, group                                           et al., 2010). shown Figure 2c, considerable fraction higher functional relevance group based                                         confirmed edges conserved species. gene expression.  confirmed group                                           small fraction removed edges conserved
+highest functional similarity compared groups,                                           species, rarely conserved removed group far lower new group.                                              species. comparison, new edges tend conserved
+standard error average measurements 5105 ;                                            removed edges, confirmed  differences highly significant. inves-                                     ones. conservation analysis suggests predicted
+tigation showed based similarity 40:95 36                                            edges bona fide physical interactions functional 32  edges confirmed new groups, respect-                                          links  Section 3.5).
+ively. contrast, 7  removed edges based                                               Finally, shown genes high connectivity similarity 40:95 (Fig. 2b).                                                                             PPI network tend essential, known
+    used essential genes compare different edge                                              connectivity essentiality (percentage genes groups. list essential genes yeast retrieved                                      essential) weakly correlated (Jeong et al., 2001). Saccharomyces Genome Database (Dwight et al., 2004).                                             example, Figure 1d shows essentiality interacting proteins belong protein complex,                                            genes generally increasing genes low intermediate tend essentiality. words,                                         degrees, essentiality genes highest degrees rela-   essential, expected   essential.                                   tively lower expected degrees. pos- shown Figure 2a, percentage removed edges                                         sible explanations, proteins share essentiality actually lower                                          highest degrees ‘sticky’ sense randomly generated edges, suggests removed                                               interact proteins experimental protocol, edges probably connecting genes different complexes                                              interactions exist reality protein 
+
+                                              0.7                                                     (b)                                 0.4
+                                                                                                                                        New
+                                                0.6                                                                              0.35    Removed
+                                                                          New                                                                      Confirmed
+                                                                          Removed                                                           0.3
+                                                                                                         Fraction edges
+
+
+
+
+                                                0.5
+                             Similarity score
+
+
+
+
+                                                                          Confirmed
+                                                                          Random                                                           0.25
+                                                0.4
+                                                                                                                                            0.2
+                                                0.3
+                                                                                                                                           0.15
+                                                0.2
+                                                                                                                                            0.1
+
+                                                0.1                                                                                        0.05
+
+                                                 0                                                                                           0
+                                                      Gene Ontology   Expression         Essentiality                                         0     0.2            0.4      0.6        0.8            1
+                                                                                                                                                      based similarity score
+
+                (c) 0.09                                                                                (d)                                  1
+                                                                                           New                                                                                                                                      0.08                                                Removed                                         0.9                                                                                                                                                            Fraction essential genes
+
+
+
+
+                                                                                           Confirmed
+                                       0.07                                                                                                0.8
+                  Fraction edges
+
+
+
+
+                                       0.06
+                                                                                                                                           0.7
+                                       0.05
+                                                                                                                                           0.6
+                                       0.04
+                                                                                                                                           0.5
+                                       0.03
+                                                                                                                                           0.4
+                                       0.02
+                                                                                                                                           0.3
+                                       0.01
+
+                                                 0                                                                                         0.2 0               1                   2                  3
+                                                             1        2          3         4                                                 10           10                      10              10
+                                                             Number species conserved                                                                           Connectivity
+
+Fig. 2. Results method Krogan PPI network.   Different edge groups evaluated based similarity, gene expression correlation essentiality. (b) Distribution based similarity scores edge groups. (c) Fraction conserved edges edge groups.
+(d) Relationship connectivity essentiality
+
+
+
+358
+                                                                                                                              Algorithm reconstructing PPI networks
+
+
+
+poorly expressed expressed proteins                  0.7
+                                                                                                                                                           MCL
+potentially interact  seen reconstructed
+
+
+
+
+                                                                                Quality predicted complexes
+                                                                                                                 0.6                                       MCL
+network, essentiality degree better correlation                                                                                            HQcut
+                                                                                                                                                           HQcut
+(Fig. 2d).                                                                                                       0.5
+   summary, using multiple independent sources evidence,
+                                                                                                                 0.4 shown new edges clearly higher functional
+relevance removed ones. results suggest                                                  0.3
+algorithm reduce noise PPI network im-
+                                                                                                                 0.2
+prove network quality.
+                                                                                                                 0.1
+3.2   Reconstructed PPI network improves accuracy                                                                                                                   0
+      protein complex prediction                                                                                       Known complex     Gene Ontology    expression
+ investigated improved PPI network                                                                                                                  30
+improve prediction accuracy protein complexes.                       (b)                                                               
+applied network clustering algorithms original                                                                                    
+                                                                                                                 25                             New
+modified PPI networks, compared predicted complexes
+
+
+
+
+                                                                                  Perentage edges
+                                                                                                                                                Removed MIPS known protein complexes (Mewes et al., 2006),                                                      20                             Confirmed
+                                                                                                                                                Random included 767 proteins 170 known complexes inter-
+secting PPI network. Markov Clustering Algorithm                                                        15
+(MCL) known graph clustering algorithm shown outperform protein complex prediction al-                                                    10
+
+gorithms independent evaluation studies (Brohee van
+                                                                                                                  5
+Helden, 2006; Vlasblom Wodak, 2009). HQcut commu-
+nity discovery algorithm developed authors,                                                      0
+based optimization called modularity function                                                                complex             complex
+
+(Ruan Zhang, 2008). MCL, set inflation param-          Fig. 3. Evaluation method based protein complexes.  , eter 1.8 suggested (Brohee van Helden, 2006).     original PPI network   reconstructed counterpart   HQcut does require user-tuned parameters. measure          partitioned using algorithms (MCL HQcut) protein complex accuracy prediction, used Fowlkes–Mallows           predictions. prediction evaluated similarity (F–M
+index comparing clustering (Fowlkes Mallows, 1983;            index, main text) MIPS known complexes, average gene
+Meila, 2005). Formally, let list gene pairs fall     ontology similarity pairs nodes complex,                                                                       average gene expression correlation pairs nodes complex set predicted complexes B
+                                                                      complex. (b), different edge groups evaluated fraction set known     complexes, prediction accuracy                         pﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ                           edges connecting edges different MIPS known protein
+measured jA \ Bj= jAj  jBj, jAj denotes cardin-         complexes
+ality set  shown Figure 3a, prediction accuracy significantly improved MCL HQcut, demonstrat-
+ing improvement general.  MIPS            complex improved network, connectivity database known protein complexes covers 530                increased complex, complex edges proteins PPI network, measured average pair-        removed. Interestingly, anaphase-promoting complex
+wise functional similarity using gene ontology semantic similarity    (APC) complex, algorithm removed external expression  Section 3.1) pair nodes       edges added complex edges predicted inter- predicted complex.  shown      actions non-member protein, MND2 complex results improved significantly modified net-      members. turns MND2 member work MCL HQcut (Fig. 3a).                                APC complex (Hall et al., 2003).
+   investigate reconstructed network result better prediction accuracy protein complexes, dir-
+ectly compared different edge groups fraction edges        3.3   Comparisons previous methods connecting genes known complex                   compared algorithm existing methods, 
+ complex) versus different known complexes       ECT (Fouss et al., 2007), RWR (Tong et al., 2006), MDS
+ complex).  shown Figure 3b, new edges       (Kuchaiev et al., 2009) GGA (Fang et al., 2011). ECT higher complex probability lower             RWR methods known data mining network
+complex probability compared removed edges,          analysis communities, MDS GGA methods confirmed edges highest complex probability       recently proposed improve quality PPI networks
+lowest complex probability.  likely       Section 2.1). algorithms calculate reconstructed PPI network combined exist-         topology-based similarity scores pairs nodes, ing protein complex prediction algorithm improves ac-         use different (ad hoc) approaches determine cut-offs, curacy. Figure 4 shows changes PPI network relevant        fair comparison,  simply took 7123 pairs known protein complexes. prediction Arp2/3        genes having highest scores predicted PPIs. Table 1
+
+
+                                                                                                                                                                          359
+ C.Lei J.Ruan
+
+
+
+shows change network introduced method.                                                                                                      affinity purification (AP) technique used compared functional relevance reconstructed PPI                                                                                                    Krogan et al. (2006) designed capture complex member-
+networks. shown Figure 5, PPI network reconstructed                                                                                                      ships, Y2H PCA directly detect binary interactions method highest similarity, highest fraction                                                                                                   shown higher false-negative rate lower false-positive complex edges lowest fraction complex edges.                                                                                                     rate AP (Yu et al., 2008; Tarassov et al., 2008). fact, algorithm method shows consistent                                                                                                       original Yu Tarassov networks cover 1278 1124
+improvement original network using criteria.                                                                                                     genes 1641 2513 edges, respectively, excluding example, RWR improved similarity scores frac-                                                                                                       self-interacting edges. method, able replace
+tion complex edges, time reduced                                                                                                         (predict remove) 706 (43.0 ) 1203 (47.9 ) edges expression scores increased complex edges.                                                                                                          networks, respectively. shown Figure 6, GGA resulted lower expression scores. network recon-                                                                                                     evaluation results based Gene Ontology datasets
+structed ECT slightly higher expression net-                                                                                                    evaluation results based expression Yu data
+work reconstructed method, similarity score                                                                                                   set consistent Krogan dataset, confirming lower original network, decreased                                                                                                       general applicability method PPI networks regard-
+fraction complex edges increased fraction                                                                                                          experimental systems used infer  complex edges. MDS resulted degraded functional                                                                                                         hand, differences predicted removed edges
+relevance scores according measurements                                                                                                              smaller Yu/Tarassov data Krogan data. fact, complex edges.                                                                                                                                             Tarassov data, removed edges slightly better
+                                                                                                                                                                   expression predicted ones;                                                                                                                                                                     lower confirmed edges significantly higher 3.4          Applicability types PPI networks                                                                                                          randomly predicted ones. deviations applied method datasets, obtained                                                                                                      Krogan dataset likely reflect lower false-positive rate Yu et al. (2008) Tarassov et al. (2008), using Y2H                                                                                                         Y2H PCA data compared AP data (Tarassov et al.,
+protein-fragment complementation assay (PCA), respectively.                                                                                                        2008, Yu et al., 2008). results consistently showed                                                                                                                                                                    removed edges higher functional relevance                              YER064C                                        ARC40
+                                                                                          PAC1
+
+                                                                                                                                             ARC40
+                                                                                                                                                                   random predictions, chances removed
+                                                                                                                                                                   edges really false positives just tend contain
+                                                                                                  ARC18              ARC35
+                                          ARC18          ARC35
+                                                                                                                                                                   false-positive edges confirmed group edges.
+                                                                ARP2
+                                                                              IFA38                                                                                reiterate, chose original number edges                                                                                                ARC19                            ARP2
+                                     ARC19
+                                                                                                                                                                   predicted networks facilitate unbiased comparison                         ASR1
+                                          ARC15           ARP3
+                                                                              RAD23
+                                                                                                       ARC15             ARP3
+                                                                                                                                                                   different approaches, changing parameters sig-
+                                   MSK1                                       SMC1                                                                                 nificantly alter bias evaluation outcomes. practice,
+                                             CRN1 MSS51 RAD1           TAP42
+                                                                                                   MSK1
+                                                                                                                                             TAP42                 high false-negative rate PPI networks, especially
+                                                                                                                                                                   Y2H PCA based networks, prefer choose   (b)                                                                                                                                                              lower similarity threshold make predictions remove
+      FMP52
+                        Mlc1
+                                                                       BSP1
+                                                                                       FMP52
+                                                                                                                                                                   fewer edges  mentioned Section 2
+      OAF3                                MND2
+                                                        APC1
+                                                                                SML1                              MND2
+                                                                                                                                 APC1
+                                                                                                                                                            SML1
+                                                                                                                                                                   later Section 4, aware developing better
+                                                                                                                                                                   ways select cut-offs improve coverage PPI networks,
+                                                                                       OAF3
+
+                 mrp7            APC5                                                                  APC5
+                                                                apc4
+
+                                                                                                                                                                   presented 
+                                                                                                                                          apc4
+                                                                              APC9                                                                   APC9
+
+
+
+
+                                                                                                                                                                      Similarly, Krogan data, predicted edges Yu/
+                                                 Doc1
+                          APC2                                                                                           Doc1
+                                                                                                   APC2
+
+
+
+
+                                                                CDC26
+                                                                                                                                          CDC26                    Tarassov data higher essentiality removed
+                                 cdc27                                                                    cdc27
+
+
+   YRO2
+                                             CDC16      CDC23
+                                                                                                                   CDC16          CDC23
+                                                                                                                                                                   edges, suggesting predicted ones likely                                                                                         ssp2
+          ssp2                                                                                                                                                     complex removed ones. hand, Fig. 4. Subnetworks   Arp2/3 protein complex (b) APC protein
+                                                                                                                                                                   confirmed edges Krogan data high essentiality,
+complex. subnetworks contain interactions known members                                                                                                  Yu/Tarassov data lower essentiality,
+(dark) MIPS protein complexes direct neighbours (light)                                                                                            indicating large portion complex edges original Krogan PPI network (left) reconstructed network                                                                                           datasets preserved algorithm. shown method (right)                                                                                                                                                 Yu et al. (2008), Y2H PCA usually detect 
+
+
+Table 1. Changes network statistics different algorithms
+
+
+Network property                                                                         RWS                                                      RWR                        ECT                   MDS                   GGA
+
+Number nodes/edges                                                             2708/7123                                                2708/7123                  2708/7123             2708/7123             2708/7123
+Number nodes/edges                                                              2549/7123                                                2708/7123                  2016/7123             2241/7123             2173/7123
+Number replaced edges                                                                 2870 (40.3 )                                             2795 (39.2 )               5671 (79.6 )          5468 (76.8 )          4712 (66.2 )
+
+
+
+
+360
+                                                                                                                             Algorithm reconstructing PPI networks
+
+
+               0.7
+                                                                                           Original   functional interactions. answer question, validated
+               0.6
+                                                                                           RWS        edges predicted algorithm yeast datasets
+                                                                                           RWR
+                                                                                           ECT
+                                                                                                      using physical interactions present BioGRID database
+               0.5                                                                         MDS        (Stark et al., 2011). known different PPI assay tech-
+                                                                                           GGA        niques different characteristics produce complemen-
+               0.4                                                                                    tary, largely disjoint, results (Tarassov et al., 2008; Yu et al.,
+       Score
+
+
+
+
+                                                                                                      2008).   classified PPIs BioGRID                0.3
+                                                                                                      categories according experimental systems: AP, Y2H),
+               0.2
+                                                                                                      PCA  Note PPI BioGRID                                                                                                       captured multiple experiments   appear
+               0.1                                                                                    multiple categories. datasets used, Krogan, Yu
+                                                                                                      Tarassov, generated systems, respect-
+                    0
+                                                         Expr         C     C
+                                                                                                      ively, present BioGRID database. ensure
+                                                                                                      fair comparison, evaluating results particular dataset
+Fig. 5. Comparison algorithms.  gene ontology-based                                     (e.g. Krogan), BioGRID entries corresponding publi-
+similarities; Expr: gene expression (Pearson correlation coefficient);
+                                                                                                      cation removed  validation rate C: fraction edges complex; C: fraction edges complex
+                                                                                                      confirmed removed group Krogan dataset                                                                                                       100 ).
+                                                                                                         Table 2 shows number fraction edges different
+                 0.8
+                                                                    
+                                                                                                      groups validated BioGRID, using physical interactions
+                                      0.7                                                   (column  ) using edges detected specific experimental
+                                                                   New
+                                                                   Removed
+                                                                                                      systems (columns ‘AP’, ‘Y2H’, ‘PCA’  ).                                       0.6
+                                                                   Confirmed                          physical interactions considered, datasets,                                                                    Random
+                   Similarity score
+
+
+
+
+                                      0.5                                                             confirmed edges highest validation rate com-
+                                                                                                      pared edge groups. validation rates pre-
+                                      0.4
+                                                                                                      dicted/removed edges lower confirmed ones
+                                      0.3                                                             significantly higher random ones (51                                        0.2
+                                                                                                      cases). Krogan data, predicted edges                                                                                                       higher validation rate removed ones,                                       0.1                                                             Tarassov Yu data, validation rates predicted
+                                        0                                                             edges similar lower removed ones.
+                                            Gene Ontology      Expression         Essentiality
+                                                                                                      results suggest predicted edges data-
+                                                                                                      sets likely bona fide physical interactions, reconfirm
+               (b) 0.8                                                                                removed ones necessarily false-positive results,
+                                                                                           especially Y2H PCA-based data, known                                       0.7                           
+                                                                   New                                lower false-positive rate AP (Tarassov et al., 2008;
+                                      0.6                          Removed                            Yu et al., 2008).  preferred lower
+                                                                   Confirmed
+                                                                   Random                             cut increase coverage PPI networks, discussed                 Similarity score
+
+
+
+
+                                      0.5
+                                                                                                      Section 3.4. Overall, Krogan data highest percentage                                       0.4                                                             validated predictions (36.0  1033/2870), compared Yu
+                                      0.3
+                                                                                                      Tarassov data, 9.2  (65/706) 11.2  (135/
+                                                                                                      1203) predicted edges validated BioGRID, respectively                                        0.2                                                             later text). BioGRID PPI data                                       0.1                                                             high false-negative rate, real validation rate likely
+                                                                                                      underestimated.
+                                       0
+                                            Gene Ontology     Expression          Essentiality           validated results using BioGRID PPIs                                                                                                       specific category. Interestingly, different
+Fig. 6. Results algorithm additional yeast PPI datasets   Yu et al., 2008 (b) Tarassov et al. 2008, evaluated functional                             characteristics different experimental systems carried relevance scores based gene ontology, gene expression gene                                     predicted edges. example, predicted edges essentiality                                                                                          Krogan data validated AP-based interactions
+                                                                                                      BioGRID.  Y2H covers 12.6  complex edges AP. algorithm nicely preserved                                         edges BioGRID, accounts 53.9  (35/65) validated property.                                                                                        predictions Yu data. Similarly, PCA contributes 7.1                                                                                                        edges BioGRID, accounts 17.0  (23/135)                                                                                                       validated predictions Tarassov data.  relatively
+3.5   Predicted edges bona fide physical interactions                                             low validation rate Yu Tarassov data partially
+Finally, interesting ask edges predicted                                  explained insufficient presence Y2H PCA data algorithm bona fide physical interactions simply                                               BioGRID database.
+
+
+                                                                                                                                                                    361
+ C.Lei J.Ruan
+
+
+
+Table 2. Validation BioGRID, breaking according experimental systemsa
+
+
+                                                          BioGRID physical interactions
+
+Edge group               Number edges                                  AP                                     Y2H               PCA                     
+BioGRID                  73 929                           73 929 (1.00)       52 842 (0.71)                          9303 (0.12)       5237 (0.07)             13 080 (0.18)
+Krogan
+  Predicted                2870                            1033   (0.36)         983   (0.34)                         134   (0.05)       35   (0.01)             180   (0.06)
+  Removed                  2870                             412   (0.14)         393   (0.14)                          48   (0.02)       16   (0.01)              67   (0.02)
+  Confirmed                4253                            2732   (0.64)        2682   (0.63)                         595   (0.14)      165   (0.04)             770   (0.18)
+  Random                   7123                              54   (0.01)          33   (0.00)                          13   (0.00)        1   (0.00)              13   (0.00)
+Yu
+  Predicted                 706                              65   (0.09)          52   (0.07)                          35   (0.05)        4   (0.01)              20   (0.03)
+  Removed                   706                             114   (0.16)          53   (0.07)                          85   (0.12)        3   (0.00)              19   (0.03)
+  Confirmed                 935                             405   (0.43)         304   (0.33)                         290   (0.31)       35   (0.04)             169   (0.18)
+  Random                   1641                               7   (0.00)           3   (0.00)                           1   (0.00)        0   (0.00)               3   (0.00)
+Tarassov
+  Predicted                1203                             135   (0.11)          96   (0.08)                          39   (0.03)       23   (0.02)              42   (0.03)
+  Removed                  1203                             109   (0.09)          81   (0.07)                          22   (0.02)       15   (0.01)              26   (0.02)
+  Confirmed                1333                             352   (0.26)         301   (0.23)                         143   (0.11)       34   (0.03)             121   (0.09)
+  Random                   2536                              24   (0.01)          18   (0.01)                           2   (0.00)        1   (0.00)               6   (0.00)
+ Values parentheses fractions edges validated.
+
+
+
+
+                                                                                                              0.45
+3.6   Application human PPI network                                                                                                                  
+Finally, apply method predict novel interactions                                              0.4                                      
+                                                                                                                                                       New
+human PPI network downloaded Human Protein                                                           0.35                                     Removed
+Reference Database (HPRD, version 9) (Keshava Prasad et al.,                                                                                           Confirmed
+                                                                                           Similarity score
+
+
+
+
+                                                                                                               0.3                                     Random
+2009). largest connected component network contains                                                                                        New
+9205 nodes 36 720 edges. tried use idea                                                0.25                                     Removed
+retain number edges, causes 24 187 (65.9 )                                                   0.2
+edges replaced. evaluate result, calculated gene
+                                                                                                              0.15
+ontology-based similarity gene expression different
+edge groups, following logic Section 3.1.                                                   0.1
+gene expression data used purpose downloaded                                                                                                               0.05
+M2 DB contains 878 normal (non-diseased) tissue samples Affymetrix Human U133A platform, following                                                         0
+                                                                                                                       Gene Ontology              Expression
+parameters suggested developers (Cheng et al., 2010).
+Figure 7 shows validation results. Similar yeast                    Fig. 7. Results algorithm human PPI network, evaluated                                                                                    functional relevance scores based gene ontology, gene expression. data set, reconstructed network improved scores using
+                                                                                   main text definitions new removed criteria. confirmed edges highest
+similarities scores, predicted ones better scores removed ones, significantly better                           low based similarity. contrast, average
+random predictions.                                                                based similarity score high-confidence false-negative
+   hand, high replacement rate                         edges high confirmed edges, (65.9 ), non-trivial functional gene expression                     high expression. results indicate topological
+similarity scores, suspect removed edges                   similarity scores used prioritize edges valid-
+probably true interactions.  investigated                 ation. fact, shown Figure 8, 35 000
+distribution topological similarity scores PPIs              (50 000) predicted edges, average gene expression  simi-
+original network, clearly follow bimodal distribution                      larity) interacting genes good original PPI
+(Supplementary Fig. S3).  used topological similar-                   network, indicating increase coverage ity score 50.2 select 4309 edges treated high-confidence               HPRD human PPI network 100 .
+false-positive edges  removed), topological similarity
+score 40.9 select 3802 edges high-confidence false-negative
+edges  new) evaluated using gene ontology gene                    4      CONCLUSIONS expression. shown Figure 7, high-confidence false-                    article, presented novel network topology-based
+positive edges close random gene expression (0.01),                     algorithm improve quality PPI networks, turn
+
+
+362
+                                                                                                                                 Algorithm reconstructing PPI networks
+
+
+
+                                      0.52                                                        reconstruction/clustering algorithms. fact,                                                                      org PPI edges
+                                         0.5                         predicted edges            edges similarity slightly cut                 Average similarity   0.48                                                        higher biological relevance removed, shown                                         0.46
+                                                                                                    human data. biologically understandable                                                                                                     original PPI network higher false-negative rate                                         0.44
+                                                                                                    false-positive rate (Huang et al., 2007; Kuchaiev et al., 2009).
+                                        0.42
+                                                                                                    future work, worthwhile develop methods                                          0.4                                                        guide selection appropriate cut                                         0.38                                                        allow functionally relevant edges included                                         0.36                                                        introducing false-positive edges. possible way                                         0.34
+                                                                                                    examine distribution similarity scores original
+                                             2            3              4                      5
+                                           10        10             10                     10       edges non-edges determine edge weights                                                       Number edges                               represent good separation.
+                                                   Average similarity
+        (b)
+                                        0.24
+                                                                     org PPI edges                  ACKNOWLEDGEMENT
+         Average gene expression
+
+
+
+
+                                        0.22                         predicted edges
+                                                                                                    authors like thank Saleh Tamim assistance
+                                         0.2
+                                                                                                    obtaining human microarray data. thank 
+                                        0.18                                                        onymous reviewers insightful comments sig-
+                                        0.16                                                        nificantly improved manuscript.
+                                        0.14
+
+                                        0.12
+                                                                                                    FUNDING
+                                         0.1
+                                                                                                    NIH      (SC3GM086305,      R01CA152063, U54CA113001,
+                                        0.08
+                                             2         3                4                   5
+                                                                                                    G12MD007591 (Computational Systems Biology Core)), NSF
+                                           10        10             10                     10
+                                                      Number edges                               (IIS-1218201, IOS-0848135).
+                                                 Average gene expression                         Conflict  declared.
+Fig. 8. Quality predicted human PPIs compared original PPIs. Predicted/original PPIs ranked topological
+similarity scores. edges particular rank used                               REFERENCES
+calculate average similarity score   average gene 
+                                                                                                    Asthana,S. et al. (2004) Predicting protein complex membership using probabilistic
+expression (b)                                                                                          network reliability. Genome Res., 14, 1170–1175.
+                                                                                                    Bader,G. Hogue,C. (2002) Analyzing yeast protein-protein interaction data
+                                                                                                        obtained different sources. Nat. Biotechnol., 20, 991–997. improve prediction accuracy protein complexes.                                       Brohee,S. van Helden,J. (2006) Evaluation clustering algorithms key idea algorithm proteins sharing                                             protein-protein interaction networks. BMC Bioinformatics, 7, 488.
+high-order topological similarities, measured                                        Cheng,W.-C. et al. (2010) Microarray meta-analysis database (m2db): uniformly
+                                                                                                        pre-processed, quality controlled, manually curated human clinical micro-
+novel random walk-based procedure, likely interacting                                          array database. BMC Bioinformatics, 11, 421. belong protein complex. Overall,                                     Chua,H.N. et al. (2006) Exploiting indirect neighbours topological weight reconstructed yeast PPI network higher biological                                         predict protein function protein-protein interactions. Bioinformatics, 22,
+relevance original network, better quality                                            1623–1630.
+                                                                                                    Chuang,H.Y. et al. (2007) Network-based classification breast cancer metastasis. reconstructed existing algorithms, assessed                                                                                                         Mol. Syst. Biol., 3, 140–140.
+multiple types information, including gene ontology, gene ex-                                    Dwight,S. et al. (2004) Saccharomyces genome database: underlying principles pression, essentiality conservation species.                                         organisation. Brief. Bioinform., 5, 9–22.
+constructed network resulted significantly improved                                     Fang,Y. et al. (2011) Global geometric affinity revealing high fidelity protein
+protein complex prediction accuracy using different algo-                                           interaction network. PLoS  6, e19349.
+                                                                                                    Fouss,F. et al. (2007) Random-walk computation similarities nodes rithms. Furthermore, method applicable PPI networks                                           graph application collaborative recommendation. IEEE Trans. Knowl.
+obtained different experimental systems, Y2H, af-                                          Data Eng., 19, 355–369.
+finity purification based protein-fragment complementation                                      Fowlkes,E. Mallows,C. (1983) method comparing hierarchical clus-
+assay, evidence shows predicted edges likely                                           terings. J.  Stat. Assoc., 78, 553–569.
+                                                                                                    Friedel,C. et al. (2009) Bootstrapping interactome: unsupervised identification
+bona fide physical interactions. Finally, application                                                                                                         protein complexes yeast. J. Comput. Biol., 16, 1–17.
+human PPI network increased coverage network                                          Gasch  et al. (2000) Genomic expression programs response yeast cells 100 .                                                                                          environmental changes. Mol. Biol. Cell, 11, 4241–4257.
+   method improved directions. ex-                                        Gavin  et al. (2006) Proteome survey reveals modularity yeast cell machin-
+ample, derive network topology-based similarity                                           ery. Nature, 440, 631–636.
+                                                                                                    Hall,M.C. et al. (2003) Mnd2 swm1 core subunits saccharomyces
+matrix, used simple cut based strategy maintain                                        cerevisiae anaphase-promoting complex. J. Biol. Chem., 278, 16698–16705. number edges original network.                                           Hannum,G. et al. (2009) Genome-wide association data reveal global map choice facilitate fair evaluation different network                                             genetic interactions protein complexes. PLoS Genet., 5, e1000782.
+
+
+
+                                                                                                                                                                                  363
+ C.Lei J.Ruan
+
+
+
+Han,J.-D.J. et al. (2004) Evidence dynamically organized modularity yeast   Ruan,J. Zhang,W. (2006) Identification evaluation weak community
+    protein-protein interaction network. Nature, 430, 88–93.                               structures networks. Proceedings National Conference Artificial
+Hidalgo,C. et al. (2009) dynamic network approach study human                 Intelligence (AAAI-06). Boston, MA, AAAI press, pp. 470–475.
+    phenotypes. PLoS Comput. Biol., 5, e1000353.                                       Ruan,J. Zhang,W. (2008) Identifying network community structures Huang,H. et al. (2007) interactions gone? Estimating cover-         

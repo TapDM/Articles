@@ -1,0 +1,818 @@
+                                                          RESEARCH ARTICLE
+
+
+                                                          Protein Complexes Bacteria
+
+                                                          Abstract
+                                                          Large-scale analyses protein complexes recently available Escherichia
+                                                          coli Mycoplasma pneumoniae, yielding 443 116 heteromultimeric soluble protein
+                                                          complexes, respectively. coupled results mass spectrometry-
+                                                          characterized protein complexes 285 “gold standard�? protein complexes identified
+                                                          EcoCyc. comparison databases gene orthology, conservation, essentiality
+                                                          identified proteins conserved lost complexes species. instance, 285
+                                                          “gold standard�? protein complexes E. coli, 10  fully conserved set
+                                                          7 distantly-related bacterial “model�? species. Complex conservation follows                                                           models: conserved complexes, complexes conserved core, complexes     OPEN ACCESS                                           partial conservation conserved core. Expanding comparison 894 distinct bac-
+Citation: Caufield JH, Abreu M, Wimble C, Uetz P
+                                                          terial genomes illustrates fractional conservation limits conservation (2015) Protein Complexes Bacteria. PLoS Comput         components protein complexes: just 14 285 model protein complexes perfectly
+Biol 11(2): e1004107. doi:10.1371/journal.                conserved 95  genomes used, predict 180 partially
+pcbi.1004107
+                                                          conserved half genomes. clear relationship gene essenti-
+Editor: Christine  Orengo, University College           ality protein complex conservation observed, poorly conserved complexes
+London, United Kingdom
+                                                          contain significant number essential proteins. Finally, identify 183 complexes 
+Received: July 31, 2014                                   taining conserved components uncharacterized proteins interesting
+Accepted: January 2, 2015                                 targets future experimental studies.
+Published: February 27, 2015
+
+Copyright: © 2015 Caufield et al. open
+access article distributed terms Creative Commons Attribution License, permits         Author Summary
+unrestricted use, distribution, reproduction                                                             20,000 binary protein-protein interactions published medium, provided original author source credited.
+                                                            studied bacterial species, results rarely capture extent pro-
+                                                            teins complexes.  use experimentally-observed protein complexes
+Data Availability Statement: relevant data                                                             E. coli Mycoplasma pneumoniae, gene orthology, predict protein com- paper Supporting Information files.
+                                                            plexes species bacteria. Surprisingly, majority protein complexes Funding: project supported               conserved, demonstrating unexpected evolutionary flexibility. observe
+National Institutes Health, grant R01GM109895.
+                                                            broader trends protein complex conservation, especially genome-reduced species funders role study design, data
+collection analysis, decision publish,                                                             minimal sets protein complexes.
+preparation manuscript.
+
+Competing Interests: authors declared competing interests exist.
+
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                                 1 / 23
+                                                                                                                Protein Complexes Bacteria
+
+
+
+                                           Introduction
+                                           Abundant genome sequencing revealed astounding diversity bacterial genomes.
+                                           species inhabit environment share fraction genes.                                            raises question organisms adapted environments using limit-
+                                           ed number genes.  investigate protein complements bacterial genomes,
+                                           proteins combined protein complexes species, com-
+                                           plexes conserved diverse branches prokaryotic tree life.
+                                               studies compared interaction networks S. cerevisiae, S. pombe E. coli
+                                           possible systematic screens genetic interactions notable differences
+                                           structure content [1,2]. Studies comparing baker’s yeast fission yeast                                            essentiality varies species [3]. explained functional redun-
+                                           dancy importance mechanism structure. extent differences                                            unexpected make sense seen light evolutionary flexibility [1].
+                                               Numerous studies protein-protein interactions revealed organization prote-
+                                           omes networks interactions protein complexes. Systematic surveys protein
+                                           complexes exist bacterial species, E. coli [4,5] Mycoplasma pneumo-
+                                           niae [6]. list binary protein-protein interactomes clearly larger 
+                                           sidered study. Based limited dataset, investigated complexes
+                                           model organisms sufficient reconstruct homologous protein complexes
+                                           species. particular challenge prokaryotes genomes species
+                                           highly divergent model species used   E. coli Mycoplasma
+                                           provide important paradigms: E. coli generalist live variety condi-
+                                           tions Mycoplasma specialized parasite requires host cells grow. ~4,300
+                                           ~700 genes, respectively, represent medium-sized minimal genomes                                            medium minimal diversity protein complexes.
+                                               studies investigated evolution diversity protein complexes wide
+                                           range taxa. surprising given large-scale experimental data                                            available recent years. combination large number completed genome sequences
+                                           use data evaluate extent protein complexes likely 
+                                           served microbial species. Furthermore, evaluate biological role proteins
+                                           complexes unknown function species.
+                                               Existing studies comparing sets interactome data, including pure bioinformatics ap-
+                                           proaches [7] generally limited comparisons characterized protein-
+                                           protein interaction networks, comparisons S. cerevisiae, S. pombe E. coli [2,7,8].
+                                           Methodological frameworks predicting evolution basis gene presence/absence
+                                           [1,9] employed predict novel interactions species. study,                                            focus distinct bacterial species, seven subject essentiality
+                                           screens comprehensive protein complex surveys available. ex-
+                                           pand focus set 894 bacterial genomes.
+                                               order compare genomes protein complexes species, couple results                                            mass spectrometry-characterized protein complexes [5,6] databases gene orthology
+                                           [10] essentiality [11] characterize interaction conservation protein complexes.
+                                           Furthermore, use perspective genome reduction evaluate patterns levels                                            protein conservation. Comparing sets protein complexes divergent bacterial species
+                                            case, E. coli M. pneumoniae) alleviates bias inherent using single
+                                           species universal model.  observing protein complexes components
+                                           present distinct species allows draw conclusions critical
+                                           components microbial life.
+
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                        2 / 23
+                                                                                                                 Protein Complexes Bacteria
+
+
+
+                                           Results
+                                           Conservation proteins bacterial genomes
+                                           general, small microbial genomes enriched proteins conserved bac-
+                                           teria (Fig. 1; Table 1). trend noticeable paralogy eliminated, 
+                                           moving paralogous group (PG) natural effects genome reduction,
+                                           seen smallest bacterial genomes. cases, average protein conserva-
+                                           tion decreases genome size increases. Genes larger genomes, Pseudomonas
+                                           aeruginosa, conserved 20 30 percent bacteria, average.                                            minimal genomes, including Mycoplasma species, share orthologous
+                                           groups (OGs) 60 80 percent bacterial species, average. results rea-
+                                           sonable expected: reduced genomes, definition, lost sequence space                                            lost loci crucial bacterial life itself. Furthermore, genomes 
+                                           creasing fraction paralogs conserved size increases (Fig. 1),                                            reduced genomes actually greater average conservation potential paralogs 
+                                           moved. paralogous protein-coding loci reduced genomes enriched accessory
+                                           genes broadly-conserved core genes.
+                                               presence multiple members single orthologous group effect aver-
+                                           age gene conservation.  display effect difference average locus 
+                                           servation average OG conservation. (Fig. 1, orange vs. blue dots). difference                                            values approximation level paralogy genome; larger genomes ap-
+                                           pear contain paralogs smaller genomes, especially genome size falls 1
+                                           Mb. effect average gene conservation expected, using orthology-based compari-
+                                           sons compresses paralogs single OGs. data set, 20 genomes  10 unique
+                                           genera) 3 Mb greater average conservation OGs individually-
+                                           considered loci. smallest genome set, cicada endosymbiont Hodgkinia
+                                           cicadicola [12] demonstrates difference average conservation OGs 
+                                           dividual loci. genomes greater 3 Mb higher average conservation individu-
+                                           ally-considered loci OGs.
+
+
+                                           protein complexomes E. coli Mycoplasma pneumoniae
+                                           study, used literature-curated set EcoCyc E. coli protein complexes                                            protein complexes isolated Hu et al. [5] set experimentally-determined complexes                                            E. coli (Fig. 2A). set experimentally-determined Mycoplasma pneumoniae complexes
+                                           identified Kühner et al. [6] included comparison distantly-related, mini-
+                                           mal set. datasets differ content approach, E. coli data sets contain
+                                           300 complexes. complexes EcoCyc set contain 2 4 unique proteins
+                                           Hu set contains comparatively higher number complexes  30) 
+                                           taining 5 unique protein components  e, unique proteins mapping different ortho-
+                                           logous groups). Note Hu et al. complexes appear represent subsets                                            complexes  e., ribosome constitutes single complex EcoCyc represented                                            complexes Hu et al.).  EcoCyc set partially redundant  e., RNA poly-
+                                           merase holoenzyme represented different protein complex, F1 F0 subre-
+                                           gions ATP synthase).
+                                               size complexes data set produced Kühner et al. appears differ                                            distribution characterized Hu et al. (Fig. 2A). Specifically, M. pneumoniae
+                                           complexes unique members contain just unique proteins.                                            cross-species discrepancy result methodology, Kühner et al. suggest 
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                         3 / 23
+                                                                                                                               Protein Complexes Bacteria
+
+
+
+
+Fig 1. Protein complexes enriched highly conserved components. point indicates single genome average conservation loci orthologous groups (OGs) measured presence 898 bacterial genomes. Representative genomes 8 species focused study indicated vertical lines following labels: M. g., Mycoplasma genitalium; M. p., Mycoplasma pneumoniae; H. p., Helicobacter pylori; S. s.,
+Streptococcus sanguinis; C. c., Caulobacter crescentus; B. s., Bacillus subtilis; E. c., E. coli; P. , Pseudomonas aeruginosa. Materials Methods specific genome identities. Average gene conservation specified percentage. Average gene conservation values reduced fraction predicted protein-coding genes present eggNOG v.3 account genes predicted orthology. produce OG conservation instead locus
+conservation, locus set potential paralogs  case, genes sharing OG) removed prior calculating averages. logarithmic regression fitted sets values. Average OG conservation values shown subsets protein-coding genes present protein complexes E. coli [5] M. pneumoniae [6]. species, values representative members complexomes species predicted complexomes using data sets models.
+doi:10.1371/journal.pcbi.1004107.g001
+
+
+
+                                                representative authentic biological differences species. M. pneumoniae 
+                                                tains fewer unique proteins E. coli does difference limits number unique
+                                                proteins seen single complex.
+                                                   exact protein complexes defined data set differ. Pairwise comparison pres-
+                                                ence absence proteins complex improved mapping components ortholo-
+                                                gous groups complexes appear present identical form data
+                                                sets. Fig. 2B provides examples types complex matches seen data sets.
+                                                instance, DNA polymerase III holoenzyme (EcoCyc: CPLX0–3803) contains 9 unique
+                                                proteins EcoCyc closest match Hu set contains 7, including proteins
+                                                EcoCyc complex. “missing�? proteins EcoCyc complex                                                 Hu complexes. Hsp70 chaperone complex (EcoCyc: HSP70-CPLX) provides 
+                                                example: M. pneumoniae complexes provide better match EcoCyc complex
+                                                Hu set does. Topoisomerase IV (EcoCyc: CPLX0–2424) good match                                                 data sets representative Hu complex contains additional protein. Lastly, RecBCD
+                                                serves example good E. coli-specific match components present                                                 M. pneumoniae complexes.
+                                                   aggregate, EcoCyc complexes reliable matches experi-
+                                                mental sets (Fig. 2C). Using 285 EcoCyc complexes guide, best matches                                                 sets classified “good�? contain half unique proteins
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                          4 / 23
+                                                                                                                           Protein Complexes Bacteria
+
+
+
+
+Table 1. Protein conservation 8 species.
+
+                     M. pneumoniae      M. genitalium   B. subtilis     S. sanguinis    H. pylori        C. crescentus     P. aeruginosa    E. coli
+M. pneumoniae        601                517 (86.02 )    430 (71.55 )    427 (71.05 )    336 (55.91 )     379 (63.06 )      395 (65.72 )     408 (67.89 )
+M. genitalium        466 (96.68 )       482             388 (80.50 )    381 (79.05 )    290 (60.17 )     333 (69.09 )      353 (73.23 )     355 (73.65 )
+B. subtilis          644 (15.88 )       627 (15.46 )    4056            1974 (48.67 )   1374 (33.88 )    2101 (51.80 )     2465 (60.77 )    2428 (59.86 )
+S. sanguinis         538 (26.37 )       519 (25.44 )    1514 (74.22 )   2040            804 (39.41 )     1186 (58.14 )     1341 (65.74 )    1379 (67.60 )
+H. pylori            314 (21.43 )       304 (20.75 )    844 (57.61 )    631 (41.21 )    1465             916 (62.53 )      979 (66.83 )     992 (67.71 )
+C. crescentus        454 (12.58 )       440 (12.20 )    2064 (57.21 )   1487 (41.21 )   1401 (38.83 )    3608              2618 (72.56 )    2414 (66.91 )
+P. aeruginosa        678 (11.74 )       655 (11.34 )    3275 (56.72 )   2353 (40.75 )   1963 (34.00 )    3615 (62.61 )     5774             4007 (69.40 )
+E. coli              594 (14.33 )       567 (13.68 )    2418 (58.34 )   1791 (43.21 )   1414 (34.11 )    2409 (58.12 )     3027 (73.03 )    4145
+ leftmost column organism basis comparison row organism compared  organism
+compared itself shows total number proteins organism dataset used. example, M. pneumoniae shares 86.02  proteins M. genitalium M. genitalium shares 96.68  proteins M. pneumoniae. Data species collected Uniprot proteins mapped using common COGs, NOGs, bactNOGs [10]
+
+doi:10.1371/journal.pcbi.1004107.t001
+
+
+
+
+                                                 members orthologous groups) “poor�? contain match half                                                 EcoCyc complex’s components. complex size greater 4 unique proteins                                                 good match Hu et al. Kühner et al. complex sets. 28 complexes (9.8 )                                                 complexes size 4 good matches sets. majority complexes                                                 size class (153 246) contained matching component Hu E. coli
+                                                complexes match Kühner et al. M. pneumoniae complexes.
+                                                   set M. pneumoniae complexes serves rough model complexes com-
+                                                monly bacterial species  S9 Table S10 Table) predicted conserva-
+                                                tion complex). imperfect model: 116 complexes, 28 fully
+                                                conserved   components present orthologs) 7 model spe-
+                                                cies study. 39 M. pneumoniae complexes appear share 2/3 components
+                                                species, 75 complexes share half. Just complex contains
+                                                components entirely specific M. pneumoniae (complex 87, composed uncharacterized
+                                                proteins Mpn036 Mpn676, respective UniProt entries P75078 P75116).
+
+
+
+                                                Using protein complexomes predict complexes conserved                                                 species
+                                                variability EcoCyc Hu datasets direct impact usefulness                                                 complexomes models bacterial species. case, EcoCyc Hu com-
+                                                plex sets provide comprehensive complex set currently available E. coli. inter-
+                                                section sets (Fig. 3A) limited: just 576 unique orthologous groups                                                 shared sets just 132 complexes appear “good�? matches sets.
+                                                Using 132 complexes model P. aeruginosa shows 120                                                 complexes conserved based orthologous components present P. aeruginosa
+                                                genome. uncharacterized P. aeruginosa complexome contains roughly                                                 number complexes E. coli prediction method misses half
+                                                  150) potential complexes unless use unique complexes                                                 set. used results evidence data sets used independent
+                                                models intersecting set: losing half potential model
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                        5 / 23
+                                                                                                                          Protein Complexes Bacteria
+
+
+
+
+Fig 2. Protein complex data sets vary composition.   Count complexes E. coli complex datasets ([5]; EcoCyc [13]) M. pneumoniae
+dataset [6], size  number unique protein components). Multimers single proteins  e., homodimers) included. (B) Examples complex
+matching data sets. mapped orthologous group (OG), components complex directly comparable complex sets perfect matches rare. instances, OG complex present best matching complex OG present different complex. cases, matched complex contain components (OGs) seen query complex  case topoisomerase IV). (C) Summary matching complex quality data sets. EcoCyc complexes used set query complexes experimental data sets used search space.  poor match requires just matching component, good match requires half components query complex present matching complex. number complexes category shown; complex size 
+doi:10.1371/journal.pcbi.1004107.g002
+
+                                              complexes simply inconsistencies data sets limiting broad cross-
+                                              species comparision.
+                                                  Fig. 3B displays distributions protein complex conservation bacterial species
+                                              E. coli. (M. pneumoniae complexes used comparison.) plots
+                                              provide median interquartile range protein complex conservation fractions                                               species, using EcoCyc Hu et al. complexes model complex set. compre-
+                                              hensive set protein complexes identified species  Fol-
+                                              lowing results shown Fig. 1,  predict bacterial protein
+                                              complex component sets share half OGs bacterial ge-
+                                              nomes, average. Basic biology plays role  expect subset crucial protein
+                                              complexes like polymerases conserved species. set EcoCyc com-
+                                              plexes, appears highly-conserved P. aeruginosa  entire interquartile range lies 
+                                              tween 75  complex conservation, showing average EcoCyc complex 
+                                              represented P. aeruginosa) shows greater range conservation                                               species. Hu complexes lower complex conservation median values EcoCyc                                               H. pylori lower variability P. aeruginosa.  median values                                               useful conservation ranges: distance highest lowest values 
+                                              cludes possibility 0 100  conservation using model E. coli complexes.
+                                              species closely related E. coli set—P. aeruginosa C. cres-
+                                              centus—produce different median values interquartile ranges sets 
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                   6 / 23
+                                                                                                                                Protein Complexes Bacteria
+
+
+
+
+Fig 3. Protein complex sets vary conservation bacteria.   Overlap literature-curated (EcoCyc) experimentally-observed (Hu
+et al.) E. coli complex sets limited. data set contains unique proteins, mapped orthologous groups (far left). complex E. coli complex sets appear shared complex set (middle; potentially shared complex half components complex sets). Using just set complexes shared E. coli sets model predicting
+complexomes species (far right; case, P. aeruginosa used example) limiting. 12 complexes shared set appear conserved P. aeruginosa roughly additional 150 complexes expected based seen E. coli. (B) box plot displays range conservation fractions E. coli protein complexes literature curated (EcoCyc) experimental (Hu et al.) sets respect species E. coli. upper lower edges box correspond quartile conservation fraction values, respectively. upper whisker
+corresponds highest value 1.5 times inter-quartile range (IQR) lower whisker corresponds lowest value range. Data points outside 1.5 times IQR represented single data points.
+doi:10.1371/journal.pcbi.1004107.g003
+
+
+                                                protein complexes. Components complexes E. coli sets, used models, clearly
+                                                conserved differently bacterial species. higher-resolution comparison necessary                                                 determine complexes highly-conserved.
+
+
+                                                Protein complexes essentiality poorly conserved bacteria
+                                                size distribution different E. coli Mycoplasma, hypothesized ho-
+                                                mologous complexes similar, size composition.                                                  true: complexes share half components data sets (Fig. 2C). ma-
+                                                jority complexes shows 50  overlap EcoCyc Hu, Hu
+                                                Mycoplasma. suggests technical (E. coli vs E. coli) biologi-
+                                                cal reasons (E. coli vs. Mycoplasma) differences.
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                           7 / 23
+                                                                                                                          Protein Complexes Bacteria
+
+
+
+
+Fig 4. Examples protein complex conservation bacteria. Complexes identified using common EcoCyc ID. complex
+subunit assigned COG ID. Grey areas indicate OG presence, white areas indicate OG absence, blue areas indicate essentiality species-
+specific screen  Materials Methods references). Values spaces indicate presence potential paralogs corresponding
+species; proteins specified values paralogs. Complex structures available PDB: ATP synthase F1, 3OAA; succinate dehydrogenase,
+1NEN; Outer membrane protein assembly complex, (2KM7, 3TGO, 3TGO, 4K3C, 2YH3). Species arranged taxonomy  Materials Methods details) E. coli Mycoplasma serving distant species.
+doi:10.1371/journal.pcbi.1004107.g004
+
+
+                                                 global detailed picture protein complex conservation, com-
+                                              pared conservation 8 bacterial species, including species protein
+                                              complex sets exist. EcoCyc complex set used standard species
+                                              compared. Fig. 4 provides examples ways protein complexes                                               conserved species. Conservation protein complexes roughly grouped                                               categories: conserved complexes, complexes core set proteins conserved,
+                                              core set appears consistently conserved. conservation es-
+                                              sentiality related paralogy, compared components complexes                                               presence absence paralogs.
+                                                 commonly assumed highly conserved proteins important                                               essential cases. Interestingly, true (Fig. 4). example, 
+                                              conserved succinate dehydrogenase components essential 3 species shown.
+                                              components complex  defined default structure E. coli) present
+                                              Pseudomonas aeruginosa Caulobacter crescentus. Helicobacter pylori B. subtilis
+                                              encode 3 4 components 3 species appear lost entire complex.
+                                              Similarly, Bam outer membrane protein assembly complex (EcoCyc: CPLX0–3933) shows
+                                              partial essentiality complex 4 species components conserved                                               3 species. complex similarly patchy pattern conservation, number
+                                              zero 5 components conserved. case H. pylori Bam complex, initially
+                                              like lack conservation result component replacement functionally
+                                              similar proteins [14]. contrast, F1 ATP synthase conserved species examined.                                               examples complexes conserved important functions
+                                              indicate  measured presence essential proteins complexes).
+                                                 Fig. 5A displays EcoCyc E. coli complexes component present M.
+                                              pneumoniae. case, fraction essentiality  number protein components                                               essential protein components present) shown. Fig. 5B displays conservation
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                    8 / 23
+                                                                                                                                Protein Complexes Bacteria
+
+
+
+
+Fig 5. Fractional essentiality conservation protein complexes species.   column represents protein complex  defined EcoCyc E. coli) fraction essentiality species shown left. subset complexes component predicted conserved M. pneumoniae. Black stars complex IDs indicate complexes shown Fig. 3. example complexes predicted present M. pneumoniae shown far right complex list. S1 Table key complexes. species E. coli, complexes predicted using orthologous groups (OGs). Colors indicate fraction essentiality: blue—conserved components essential fraction specified right, grey� components conserved conserved components essential. (B) Conservation complexes shown  . Colors indicate fraction conservation ranging dark green  proteins present) red  protein present). General functional group assignments manually assigned based EcoCyc annotations. Columns panels B correspond complexes. (C)  set EcoCyc E. coli complexes; column single complex. extended version heat map provided S1 Fig. (D) B, set EcoCyc E. coli complexes; column single complex. order complexes identical (C). extended version heat map provided S2 Fig. Columns panels C D correspond complexes.
+doi:10.1371/journal.pcbi.1004107.g005
+
+
+
+
+                                                fractions E. coli complexes protein conserved M. pneumoniae,                                                 necessarily present M. pneumoniae complex. complete survey EcoCyc com-
+                                                plexes species terms conservation essentiality provided S1 Fig.                                                 S2 Fig., respectively. Conservation fraction established fraction unique proteins                                                 defined complex present target species. Notably, proteins 21 complete EcoCyc
+                                                complexes fully conserved 8 species, just 15 complexes subunits al-
+                                                ternate forms  e., RNA polymerase different sigma factors) removed. additional
+                                                19 complexes fully conserved species Mycoplasma species. 
+                                                maining complexes vary extensively degree extent conservation. number                                                 complexes conserved E. coli, P. aeruginosa, C., crescentus, H. pylori, B. subti-
+                                                lis S. sanguinis Mycoplasma (e.g. succinate dehydrogenase, EcoCyc: SUCC-
+                                                DEHASE). Overall, 176 EcoCyc complexes 3 unique proteins (S1 Fig.), 128
+                                                appear lost unique protein component species. demon-
+                                                strates protein complexes far flexible evolutionary terms                                                 previously assumed.
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                           9 / 23
+                                                                                                                 Protein Complexes Bacteria
+
+
+
+                                               Protein complex function varies similar way conservation (Fig. 5B). expected,
+                                           highly conserved complexes directly involved DNA replication, tran-
+                                           scription, translation. protein complexes varying conservation fractions trans-
+                                           port complexes� bacterial membrane structures vary species, degree                                            transporter component evolution expected. distinct complexes involved                                            DNA modification repair demonstrate perfect conservation.
+                                               E. coli complexes serve “gold standard�? protein complexes bacteria                                            cases components complex broadly conserved. property
+                                           true just small fraction complexes. Fig. 5D displays conservation fractions 285
+                                           E. coli complexes EcoCyc set, clustered similarity conservation patterns                                            7 species used study. Just 21 complexes appear fully conserved  
+                                           orthologs components present) species. broad taxo-
+                                           nomic range, relaxed cutoff appropriate predict complex conserved;
+                                            28 complexes contain 2/3 E. coli components species.
+                                           Lowering cutoff half E. coli components yields 34 complexes.                                            lack broad conservation   matter complex presence absence                                            species.  complex components appear conserved independently                                            members complex. Similarly patchy conservation seen essentiality (Fig. 5C),
+                                           broadly conserved complexes (far left) generally retain essentiality spe-
+                                           cies consistently-conserved complexes  retain essentiality
+                                           appearing lose complex components.
+
+
+                                           E. coli protein complexome model species
+                                           E. coli frequently used model organism bacteria general. Using literature-
+                                           curated set protein complexes EcoCyc, sought determine protein
+                                           complexome serves model complexes bacterial species. comparison                                            fractional conservation EcoCyc complex 894 different bacterial genomes                                            result (Fig. 6; S5 Fig. expanded version). genomes comparison ar-
+                                           ranged NCBI taxonomy definitions, revealing patterns complex conservation closely
+                                           corresponding numerous taxonomic boundaries. Hierarchical clustering E. coli
+                                           model complex (specifically, UPGMA) basis fractional conservation                                            species reveals groups complexes similar patterns predicted conservation.
+                                               species overall conservation E. coli complexes  unsurprisingly,
+                                           closely related E. coli. Roughly complex set conserved                                            species minimal Rickettsia Mycoplasma genomes,  serving nota-
+                                           ble exceptions. middle shows difference conservation Pro-
+                                           teobacteria species. Lactobacillales difference conservation
+                                           complexes, degree resemble Cyanobacteria closely                                            subset. (far left Fig. 6) complexes demonstrate variable
+                                           conservation species. complexes missing partially conserved
+                                           Proteobacteria fully present Firmicutes species extrem-
+                                           ophiles like Thermus Thermotoga species. Overall, 285 EcoCyc complexes, 12 (~4 )
+                                           component present 894 bacterial genomes set. perfectly
+                                           conserved genomes 14 complexes appear conserved 95                                             genomes. potential complex conservation generously defined conservation                                            half complex components, 3 EcoCyc complexes potentially conserved                                            894 genomes, 25 potentially conserved 95  genomes, 186 potentially
+                                           conserved half genomes. Variance set complex
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                        10 / 23
+                                                                                                                              Protein Complexes Bacteria
+
+
+
+
+Fig 6. E. coli complex conservation Bacteria corresponds taxonomic boundaries. heat map displays fractional conservation 285
+EcoCyc protein complexes Fig. 5, case 894 different bacterial genomes indicated tree left. Materials Methods taxonomic details. Specific complex names species/strain names S5 Fig. Complexes (columns) clustered basis distance average fractional conservations (average linkage).
+doi:10.1371/journal.pcbi.1004107.g006
+
+                                               conservation fractions 0.189. conservation complexes follows existing
+                                               taxonomy  generally conserved complexes like RNA polymerases miss-
+                                               ing entire genera.
+                                                   experimentally-determined protein complexes identified Hu et al. used                                                model E. coli complexome (S6 Fig.). complexes appear partial conserva-
+                                               tion nearly species using model. Distinctions seen minimal ge-
+                                               nomes Rickettsiales Mycoplasma genomes related species.                                                310 Hu et al. complexes, 16 (~5 ) component present 894 bacterial
+                                               genomes set. EcoCyc complexes, perfectly conserved ge-
+                                               nomes single complex (complex 271) appears conserved 95                                                 genomes. Using 50  cutoff potential complex conservation used  Hu
+                                               complexes appear conserved 894 genomes, 10 potentially conserved 95 
+                                               genomes, 182 potentially conserved half genomes.                                                Hu et al. complex values appear similar Ecocyc complexes, variance
+                                               set Hu complex conservation fractions 0.097, indicating variability
+                                               values seen EcoCyc complexes. lesser variance                                                seen surprising consistency taxonomic lines (S6 Fig.).
+                                                   literature-curated EcoCyc model Hu et al.-based experimental model                                                evaluated comparision randomized version respective components. lit-
+                                               erature-curated model, Pearson correlation 0.185, experimental model,
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                       11 / 23
+                                                                                                                              Protein Complexes Bacteria
+
+
+
+
+Fig 7. Conserved complex components enriched essential proteins. correlation pronounced Mycoplasma (blue). Protein
+complexes E. coli [5] compared complexes M. pneumoniae [6] vice versa. Fraction conservation fraction essentiality calculated described Materials Methods. node represents single protein complex relative size corresponding size complex number components. Kühner complex 50 corresponding Hu complex 77 indicated example complex match.
+doi:10.1371/journal.pcbi.1004107.g007
+
+                                               Pearson correlation 0.293. higher correlation value experimental model indi-
+                                               cates closer random distribution complex correlation fractions species
+                                               set. expect complexes conserved random pattern indicate                                                Hu et al. complex set useful EcoCyc complex set prediction wide
+                                               range genomes.
+
+
+                                               Essentiality proteins complexes impact paralogy
+                                               Mycoplasma species highly reduced genomes generally assumed                                                retained essential proteins. fact, fraction conserved essential proteins                                                higher comparing Mycoplasma pneumoniae E. coli vice-versa (Fig. 7).                                                comparisons, complex components searched genomes essentiality 
+                                               signed based target species. set Hu et al. E. coli complexes, complexes
+                                               average conservation fraction 0.198±0.230 average essentiality fraction                                                0.122±0.196 M. pneumoniae. High variability conservation complexes expected
+                                               complex components, like single proteins, subject broad variety evolutionary pres-
+                                               sures. 53  complexes component present M. pneumoniae,
+                                               average fractions increase 0.375±0.184 0.231±0.218, respectively. set
+                                               Kühner et al. M. pneumoniae complexes, complexes average conservation fraction
+                                               0.716±0.292 average essentiality fraction 0.32±0.332 E. coli. 95                                                 complexes component present E. coli, average fractions increase                                                0.755±0.245 0.337±0.332, respectively. Overall, Mycoplasma protein complex components
+                                               likely present essential E. coli E. coli protein complex components
+                                               Mycoplasma.
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                       12 / 23
+                                                                                                                  Protein Complexes Bacteria
+
+
+
+                                               possible explanation lower fraction conserved essential proteins E. coli                                            presence paralogs renders duplicate genes non-essential, given presence                                            additional copy redundant function. performed comparisons fraction 
+                                           servation complex sum paralogy   total number copies                                            genes coding complex components target species). number paralogs                                            gene broadly defined using orthologous groups, numbers considered maxi-
+                                           mum possible values specific counts known paralogous regions. observed                                            inverse trend E. coli complexes vs. M. pneumoniae (S3A Fig.) vice versa (S3B Fig.):
+                                           paralogs E. coli conserved proteins Mycoplasma
+                                           vice versa. specifically, E. coli complexes conservation fraction greater 0.6
+                                           M. pneumoniae total paralogy sums lower 40 poorly-conserved
+                                           complexes paralogy sums 2 100. M. pneumoniae complexes 
+                                           servation fraction greater 0.6 E. coli range sums paralogy 2                                            nearly 80. poorly-conserved complexes paralogy sums 60  Calculat-
+                                           ed Pearson anti-correlation E. coli complexes vs. M. pneumoniae (S3A Fig.) -0.04                                            Pearson correlation M. pneumoniae complexes model E. coli (S3B Fig.) 0.05, 
+                                           dicating limited overall correlation comparison. case conser-
+                                           vation complexes species (Fig. 6), correlation case-specific.
+                                               fraction essential components protein complexes non-random                                            greater expected, depending complexes compared (Fig. 8). compared                                            random assortment, Hu et al. E. coli complexes essential proteins expected                                            chance (Fig. 8A). Spearman anti-correlation -0.25  E. coli complexes Eco-
+                                           Cyc (Fig. 8B) demonstrate similar trends, Spearman anti-correlation -0.22. M. pneu-
+                                           moniae complexes Kühner et al. (Fig. 8C) trend declining essentiality
+                                           compared randomized essentiality fractions 0.6–08. Spearman anti-correlation -0.03
+                                           M. pneumoniae complex set. E. coli anti-correlations                                            weak relationship.
+                                               Paralogy examined function essentiality (S4 Fig.).  average paralogy
+                                           values determined complex minimize impact complex size, especially                                            components complex essential. E. coli complexes Hu et al.
+                                           (S4A Fig.) decrease average paralogy fraction essentiality decreases. total, com-
+                                           pared random assortment, far E. coli complexes expected appear essenti-
+                                           ality fractions 0.4  E. coli complexes EcoCyc (S4B Fig.) demonstrate similar
+                                           trends. M. pneumoniae complexes Kühner et al. (S4C Fig.),  appear 
+                                           tain relationship essentiality average paralogy. Additionally, M.
+                                           pneumoniae complexes expected essentiality fractions 0.2                                            fewer expected essentiality fractions greater 0.6. Spearman anti-correlation
+                                           statistically significant -0.03. Overall, essentiality average paralogy appear                                            related E. coli M. pneumoniae complexes, probably M. pneumoniae 
+                                           tains relatively paralogs. Example complexes sets OGs shared
+                                           provided S4D Fig.; example, majority complex com-
+                                           ponents essential representative genomes contain paralogs coding redun-
+                                           dant complex components.
+
+
+                                           Proteins unknown function
+                                           Protein complexes attractive targets functional analysis, given proteins embed-
+                                           ded functional context. especially true proteins unknown function                                            complex (Fig. 9A, B).  conservation defined greater 0.5 conservation
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                         13 / 23
+                                                                                                                          Protein Complexes Bacteria
+
+
+
+
+                                           Fig 8. Essentiality proteins complexes. Distribution essential genes E. coli (Hu
+                                           et al.   EcoCyc (B), respectively) M. pneumoniae (C). fraction essential genes protein
+                                           complexes determined complex set. E. coli, essential protein complexes enriched                                            essential proteins. contrast, complexes non-essential proteins represented genome-
+                                           reduced Mycoplasma pneumoniae. distribution expressed binned log2 ratios observed                                            expected frequency. Values indicate observed frequency random results (= 1), respectively.
+                                           doi:10.1371/journal.pcbi.1004107.g008
+
+
+
+
+                                           fraction essential complexes essential component target
+                                           species. highly conserved components, essential 4 8 spe-
+                                           cies. Using species reduces effect noise inconsistency essential-
+                                           ity screens. Starting 39 EcoCyc-defined complexes contain unknown proteins,                                            15 appear conserved species study Mycoplasma. Fig. 9C displays
+                                           example complexes Hu (E. coli) Kühner (Mycoplasma pneumoniae) complexes,
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                   14 / 23
+                                                                                                                              Protein Complexes Bacteria
+
+
+
+
+Fig 9. Protein complexes rich highly-conserved proteins unknown function.   list EcoCyc E. coli protein complexes compared basis component presence vs. absence seven species study. Conserved complexes, figure, orthologous component present target species. Similarly, essential complexes include component essential E.
+coli target species. (B)  , subset EcoCyc complexes containing protein unknown unclear function. instances, complex itself known function roles components remain unclear. (C) Examples experimentally-
+observed protein complexes containing proteins unknown function. E. coli complex examples Hu et al. shown left, M. pneumoniae complexes Kühner et al. shown right. Complexes labeled identifier used corresponding study.
+doi:10.1371/journal.pcbi.1004107.g009
+
+
+
+                                               respectively. Unlike parts B, complexes shown experimental results                                                literature-defined complexes. complex contains component unknown
+                                               unclear function, context protein complex broader cellular function.
+                                               instance, complex 66 Hu et al. (Fig. 9C) consists 6 unique proteins 3 
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                                       15 / 23
+                                                                                                                 Protein Complexes Bacteria
+
+
+
+                                           unknown function  remain annotation). 6 proteins, 3 highly conserved
+                                           1 frequently essential. E. coli protein MraZ, present Hu complex
+                                           149, shown protein unknown function recently transcrip-
+                                           tional regulator involved multiple pathways [15]. 149 Hu et al. E. coli complexes
+                                           34 Kühner et al. Mycoplasma pneumoniae (183 total) complexes contain                                            component unknown function.  109 Hu et al. E. coli complexes 19 Kühner et al.
+                                           M. pneumoniae complexes contain components highly conserved essential proteins.                                            list experimental complexes unknown components available S11 Table.
+
+
+                                           Discussion
+                                           substantial variation protein complexes species supports notion                                            complexes malleable previously thought. possible explanation                                            function complex important content. Complexes serve
+                                           role contain different proteins function lost,                                            gap. studies functional redundancy lead variation                                            little overlap terms protein interaction species [2,3]. mutational change                                            protein complex catastrophic potential, complexes immutable. fact, 
+                                           eral complexes essential species varying composition species.
+                                           instance, 5 9 components E. coli Sec translocation complex (EcoCyc: SEC-SE-
+                                           CRETION-CPLX) conserved species P. aeruginosa M. genitalium.                                            components, SecA, essential species focused work
+                                           exception S. sanguinis; orthologs protein present 894 bacterial ge-
+                                           nomes examined. remaining 4 E. coli components variable conservation                                            species. instance, YajC present 727 894 genomes. Strong selection
+                                           pressure avoid mutations render entire complex ineffectual. explain
+                                           observed higher level conservation protein complex components                                            proteins general (Fig. 1).
+                                               essential “core�? components protein complexes conserved taxonomic
+                                           levels “accessory�? components [1]. Given multiple interactions, proteins
+                                           protein complexes highly conserved “un-complexed�?
+                                           ones, retain essential roles fellow complex members present
+                                           [16,17].
+                                               Components protein complexes  average, likely present bacte-
+                                           rial species proteins complexes [1]. result high conservation sets
+                                           large, essential complexes. 128 285 literature-verified E. coli protein complexes                                            fully present B. subtilis, 30 completely present M. genitalium. 
+                                           stance, components ATP synthase complex (EcoCyc: ATPSYN-CPLX) present                                            species examined, vary essentiality. B. subtilis essentiality screens                                            essential genes ATP synthase, M. pneumoniae compo-
+                                           nent essential. complexes—predominantly transmembrane domains
+                                           transporter functions� variable conservation essentiality,                                            provide examples dispensable accessory proteins 
+                                               protein complexes essential functions E. coli present spe-
+                                           cies. lipopolysaccharide transport complex (EcoCyc: CPLX0–7992) serves excellent
+                                           example: seven Lpt proteins complex essential E. coli
+                                           conservation limited Gram-negative species including C. crescentus
+                                           P. aeruginosa. transmembrane protein complexes follow pattern.
+                                           Interestingly, species partial complex component conservation vs. E. coli highlight
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                        16 / 23
+                                                                                                                   Protein Complexes Bacteria
+
+
+
+                                           situations core elements complex conserved modified carry
+                                           functions adapted special physiological circumstances. example, 3 4
+                                           succinate dehydrogenase complex (EcoCyc: SUCC-DEHASE) components E. coli                                            present B. subtilis S. sanguinis. especially interesting example
+                                           components, SdhC SdhD, inner membrane proteins, SdhC                                            present component B. subtilis succinate dehydrogenase. conclude mem-
+                                           brane proteins complexes particularly malleable, given role signaling                                            transport reflects adaptations specific environments nutrients present
+                                           
+                                               Smaller reduced bacterial genomes   relative E. coli) appear code                                            greater fraction highly-conserved protein complexes. conservation evident com-
+                                           parisons Mycoplasma pneumoniae protein complexes. examination pro-
+                                           tein complex components 800 bacterial genomes, species                                            M. pneumoniae offers better model protein complexes critical bacterial life.
+                                           Protein complexes observed M. pneumoniae retained core set func-
+                                           tions utilized higher degree multifunctionality metabolic enzymes
+                                           [18,19].
+                                               Surprisingly, essential proteins poorly conserved essentiality itself                                            conserved species (Figs. 4 6). suggests functions replaced
+                                           non-homologous displacement [20] genomes malleable evolutionary
+                                           terms previously expected. Clearly, evolutionary flexibility contributed                                            success microbes populate possible environments planet. Variability com-
+                                           plex conservation highlights limitation study: unavoidably limited                                            availability sequenced bacterial genomes. Newly-characterized genomes reveal addi-
+                                           tional variation consistency protein complexes highly reduced                                            respects.
+                                               protein components, individual complexes reveal underlying evolutionary
+                                           processes (Fig. 6 S5 Fig.). highly-conserved complexes functions
+                                           critical microbial life, including transcription, translation, transcript degradation.
+                                           different RNA polymerase (RNAP) holoenzymes   RNA polymerases dif-
+                                           ferent sigma factors) considered distinct complexes study, bacterial species
+                                           unsurprisingly retained type RNAP. ribosome (EcoCyc: CPLX0–3964)                                            conserved size high level conservation obscure cross-
+                                           species differences.
+                                               Variable conservation complexes visible Escherichia genomes.
+                                           CPLX0–7909  RnlA-RnlB toxin-antitoxin complex) appears present K-12
+                                           E. coli single species Shewanella Photobacterium. toxin-antitoxin                                            role bacteriophage resistance E. coli [21] unclear function 
+                                           tained distantly related bacteria. CPLX0–2001  ferric dicitrate transport  provides
+                                           example gradual change. complex spans membrane, suggesting conser-
+                                           vation membrane-dependent. appears case conserved
+                                           Proteobacteria  Rickettsiales Buchnera species) poorly-
+                                           conserved species traditionally considered Gram positive. subset com-
+                                           plexes, including CPLX0–1163 (HslVU protease) ABC-56-CPLX (aliphatic sulfonate ABC
+                                           transporter), fit strict conservation model: complexes present                                            form fraction E. coli model complex. complexes ex-
+                                           ceptions rule. Using E. coli model, complexes conserved perfectly
+                                           wide range species; fact, complexes fractionally conserved.
+
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                          17 / 23
+                                                                                                                   Protein Complexes Bacteria
+
+
+
+                                           Materials Methods
+                                           data management performed using house Python scripts (SPICEDNOG; available                                            http://github.com/caufieldjh/spicednog). Statistical analysis clustering performed
+                                           using R package vegan [22].
+
+                                           Data sources
+                                           set protein complexes Escherichia coli K-12 W3110 defined Hu et al. [5]
+                                           assigned membership orthologous groups (OGs) version 3 eggNOG database
+                                           [10] protein complex assigned single OG. remaining loci                                            referred using original locus identifiers  case, b-codes) retained
+                                           analysis. process repeated protein complexes isolated Kühner
+                                           et al. [6] Mycoplasma pneumoniae M129 E. coli protein complexes defined                                            EcoCyc database [13]. representative set species (Bacillus subtilis 168, Caulobacter
+                                           crescentus, Helicobacter pylori 26695, Mycoplasma genitalium G37, Pseudomonas aeruginosa
+                                           UCBPP-PA14, Streptococcus sanguinis SK36) genome gene essentiality
+                                           data selected depth analysis. species set referred focused set. Lists                                            protein-coding loci species obtained using respective proteome sets
+                                           UniProt  S4 Table taxonomy IDs corresponding genomes used). Essentiality
+                                           data collected Database Essential Genes [11]. Protein structures obtained
+                                           Protein Data Bank (www.rcsb.org, [23]) referenced used.
+                                               set 894 species, referred large set, prepared using bacterial spe-
+                                           cies present eggNOG v.3 NCBI Taxonomy database [24]. trees shown Figs.
+                                           4, 5, 6 cladograms intended general relationship species                                            context consensus taxonomy.
+
+                                           Orthologous groups
+                                           locus genome assigned single orthologous group (OG) eggNOG v.3
+                                           [10], loci assigned COG, NOG, bactNOG, depending                                            widely-conserved group assignment available  Powell et al. [10] details regarding
+                                           OG levels).  presence locus determined entire set bacterial
+                                           species; locus seen half bacterial species assigned conservation value                                            0.5. presence averaged loci generate value average locus conservation
+                                           genome. value adjusted based locus coverage eggNOG  e., 70
+                                           percent loci genome mapped eggNOG OGs, average value reduced 30
+                                           percent.) identical set comparisons performed loci predicted paralogs
+                                             loci OG assignment) removed prior comparison. Subsets selected
+                                           species prepared included loci orthologous groups
+                                           seen Hu et al., EcoCyc, Kühner et al. protein complex sets. Genome sizes
+                                           retrieved NCBI GenBank KEGG GENOME [25].
+
+                                           Comparing complex composition random model observe                                            distribution essentiality
+                                           observed distributions essential genes coding protein complex compo-
+                                           nents obtained using protein complex sets [5,6,13], eggNOG (v. 3) [10], Database
+                                           Essential Genes [11] defined  single protein complex, essentiality fraction
+                                           defined fraction genes complex essential, set                                            unique protein-coding genes complex. conservation scores used judge
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                          18 / 23
+                                                                                                                   Protein Complexes Bacteria
+
+
+
+                                           participation complex dataset, establishing maximum species data-
+                                           set combination. Second, essentiality fraction linking essential protein                                            OG. instances multiple proteins shared OGs essentiality, essentiality 
+                                           sidered primary case OG counted essential.
+                                               random model created purpose comparing data set background
+                                           noise. random model, meant represent collection randomly sized complexes,                                            populated proteins randomly assigned essential status. complex sizes
+                                           randomly assigned value  complex assigned protein val-
+                                           ues essential non-essential status. probability essential determined
+                                           overall percent essential genes organism, random model size                                            equal maximum species dataset compared. random model                                            binning process observed data. mean bin ob-
+                                           tained 10,000 replications. results s bins size longer equal ac-
+                                           tual data set demonstrates appropriate background noise level comparison purposes.
+                                           log2(Observed/Expected) values plotted Fig. 8 significant difference 
+                                           tween observed essentiality expected.
+
+
+                                           Comparative proteome complexome analysis
+                                           general scheme data analysis follows: (1) list orthologous groups (OG)
+                                           produced 894 bacterial species large set defined  (2) Presence
+                                           absence OG determined species. (3) Repeated OGs removed                                            list step 2 repeated. (4) list step 1 used map OGs compo-
+                                           nents sets protein complexes. complexes compared search cross-
+                                           data set complex matches. Gene essentiality mapped OG species-
+                                           dependent basis. (5) list 8 taxonomically-divergent species selected used define
+                                           fractional conservation fractional essentiality protein complex.
+                                               OGs used basis comparison similarity data sets. Complex size
+                                           defined number unique proteins isolated complex; e. complex 
+                                           tain 3 unique OGs 4 distinct protein components, yielding complex size 4.                                            complex, presence OG complex assayed proteome sets                                            seven representative species. resulting binary presence/absence values com-
+                                           bined produce value percent complex conservation. value intentionally disre-
+                                           gards gene context similarity   OG present genomes                                            neighboring genes differ genomes) simply expresses fraction complex
+                                           components specific genome code  target proteome did contain                                            specified complex component, number paralogs component-coding gene 
+                                           termined number proteins list mapping OG. verifica-
+                                           tion, necessary define protein-coding genes true paralogs, simply
+                                           used OGs (including paralogs) determined eggNOG.
+                                               protein complex components assigned binary essentiality values using pub-
+                                           lished assays specific species listed  values used define essentiali-
+                                           ty fraction potentially conserved complex, e. E. coli complex 80                                             components appear conserved M. pneumoniae 60  components                                            essential species.
+                                               broader comparison prepared using list 894 species defined  Genome
+                                           sizes species retrieved KEGG GENOME Database (http://www.genome.
+                                           jp/kegg/genome.html, [25]). species, total number OG-mapped protein-coding
+                                           loci divided total number loci produce value percentage mapped. Using
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                          19 / 23
+                                                                                                                  Protein Complexes Bacteria
+
+
+
+                                           list OGs species, OG compared species determine                                            conservation Bacteria. Adjusted average locus conservation particular genome,
+                                           CAAL(g), calculated 
+                                                                                             P      
+                                                                                                    CL ðgÞ
+                                                                                                   LðgÞ
+                                                                                  CAAL ð g Þ ¼ m
+                                                                                                   N
+                                           CL number genomes locus present, L(g) number loci                                            genome, N total number genomes, m percentage loci mapped egg-
+                                           NOG v.3. Values adjusted using fraction loci actually mapped unmapped loci
+                                           lower effective conservation.
+                                              identical list values, repeated OGs reduced single occurrence, aver-
+                                           aged produce average OG conservation. modification removes effect counting
+                                           loci share OGs, happen loci paralo-
+                                           gous. Adjusted average OG conservation particular genome, CAAO(g), calculated 
+                                                                                              P      
+                                                                                                    CL ðgÞ
+                                                                                                   OðgÞ
+                                                                                  CAAO ð g Þ ¼ m
+                                                                                                   N
+                                           CL number genomes locus present, O(g) number unique
+                                           OGs genome, N total number genomes, m percentage loci mapped
+                                           eggNOG v.3.
+                                              Species/strains sorted genome size compared average conservation val-
+                                           ues. set bacterial genomes, N = 943, Fig. 1 presents results remov-
+                                           ing 45 genomes similar size sequence. subset species, Average Locus
+                                           Average OG Conservation values calculated using OGs published pro-
+                                           tein complex data sets.
+                                              Mapping fractional complex conservation species performed follows                                            focused set (8 species) large set. cladogram species set pre-
+                                           pared using Interactive Tree Life (iTOL, [26]) project NCBI taxonomy. protein
+                                           components mapped eggNOG v.3 OGs complex size determined defined
+                                            Conservation fraction complex species defined number                                            complex component OGs shared model  E. coli complex) target ge-
+                                           nome size model complex. Heatmaps prepared using R heatmap.2
+                                           function gplots package. Randomized models large set heatmaps (Fig. 5, S5 S6
+                                           Figs.) retaining species order randomized distribution conservation frac-
+                                           tions prepared using R function randomizeMatrix  picante package [27])                                            ‘richness’ null model respect overall conservation levels.
+
+
+                                           Supporting Information
+                                           S1 Fig. EcoCyc complexes fractional conservation selected bacterial species.
+                                           extended version Fig. 5. Names blue stars indicate example complexes shown                                            Fig. 4.
+                                           (PDF)
+                                           S2 Fig. EcoCyc complexes fractional essentiality selected bacterial species.
+                                           extended version Fig. 5. Names blue stars indicate example complexes shown                                            Fig. 4.
+                                           (PDF)
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                         20 / 23
+                                                                                                                Protein Complexes Bacteria
+
+
+
+                                           S3 Fig. Cross-species conservation experimentally-observed protein complexes                                            sums counts potential paralogs components.   Proteins E. coli com-
+                                           plexes [5] tend paralogs complexes conserved. (B) contrast,                                            M. pneumoniae complexes [6] conserved complexes tend paralogous pro-
+                                           teins. Fraction conservation sum paralogy calculated described Materials
+                                           Methods. node represents single protein complex relative size corresponding
+                                           size complex number components. E. coli complexes defined Hu et al.
+                                           compared M. pneumoniae proteome M. pneumoniae complexes                                            compared E. coli proteome; cross-species comparison using predicted
+                                           orthologs described Materials Methods.
+                                           (PDF)
+                                           S4 Fig. Essentiality protein complexes average paralogy. essential protein
+                                           complexes tend fewer components paralogs, E. coli literature-curated
+                                           Ecocyc   experimentally-observed Hu et al. (B) complexes.  true                                            reduced genomes Mycoplasma pneumoniae (C). node represents single
+                                           protein complex relative size corresponding size complex number com-
+                                           ponents. Fraction essentiality average paralogy calculated described Materials
+                                           Methods. Data Hu et al. [5]  , EcoCyc [13] (B) [6] (C). (D) example com-
+                                           plex data sets shown. complexes identical composi-
+                                           tion similar components. complex, defined single data set, offer                                            incomplete set protein components overlook impact paralogy.
+                                           (PDF)
+                                           S5 Fig. E. coli literature-curated complex conservation bacteria corresponds taxo-
+                                           nomic boundaries. figure expands Fig. 6. Using EcoCyc set protein
+                                           complexes model, column single complex set row distinct
+                                           bacterial genome. 285 complexes 894 genomes shown total. Genome order corre-
+                                           sponds cladogram produced using NCBI taxonomy Interactive Tree Life (iTOL,
+                                           [26]) tree. Color gradients correspond fractional conservation. Complexes (columns)                                            clustered basis distance average fractional conservations (aver-
+                                           age linkage).
+                                           (PDF)
+                                           S6 Fig. E. coli experimentally-observed complex conservation bacteria corresponds
+                                           taxonomic boundaries. Using Hu et al. set protein complexes model, col-
+                                           umn single complex set row distinct bacterial genome. 310 com-
+                                           plexes 894 genomes shown total. Genome order corresponds cladogram
+                                           produced using NCBI taxonomy Interactive Tree Life (iTOL, [26]) tree. Color gradi-
+                                           ents correspond fractional conservation. Complexes (columns) clustered                                            basis distance average fractional conservations (average linkage).
+                                           (PDF)
+                                           S1 Text. Guide content provided supporting tables.
+                                           (DOCX)
+                                           S1 Table. Key protein complex IDs shown Fig. 5.
+                                           (XLSX)
+                                           S2 Table. Protein complex conservation bacteria.
+                                           (XLSX)
+
+
+
+
+PLOS Computational Biology | DOI:10.1371/journal.pcbi.1004107 February 27, 2015                                                       21 / 23
+                                                                                                                            Protein Complexes Bacteria
+
+
+
+                                           S3 Table. Conservation orthologous groups species pairs.
+                                           (XLSX)
+                                           S4 Table. Conservation numerous bacterial species.
+                                           (XLSX)
+                                           S5 Table. Conservation E. coli complexes Hu et al. (2009).
+                                           (XLSX)
+                                           S6 Table. Essentiality E. coli complexes Hu et al. (2009).
+                                           (XLSX)
+                                           S7 Table. Conservation E. coli complexes EcoCyc.
+                                           (XLSX)
+                                           S8 Table. Essentiality E. coli complexes EcoCyc.
+                                           (XLSX)
+                                           S9 Table. Conservation Mycoplasma pneumoniae complexes Kühner et al. (2009).
+                                           (XLSX)
+                                           S10 Table. Essentiality Mycoplasma pneumoniae complexes Kühner et al. (2009).
+                                           (XLSX)
+                                           S11 Table. Experimental protein complexes containing uncharacterized components.
+                                           (XLSX)
+

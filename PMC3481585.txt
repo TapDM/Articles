@@ -1,0 +1,536 @@
+                                                                                            J. R. Soc. Interface (2012) 9, 3426–3435
+                                                                                                           doi:10.1098/rsif.2012.0490
+                                                                                                    Published online 15 August 2012
+
+
+               Artefacts statistical analyses               network motifs: general framework
+             application metabolic networks
+                 Moritz Emanuel Beber1, Christoph Fretter2,*, Shubham Jain1,
+                   Nikolaus Sonnenschein3, Matthias Mu ¨ ller-Hannemann2
+                                 Marc-Thorsten Hu¨tt1
+                        1
+                       School Engineering Science, Jacobs University, Bremen, Germany
+                 2
+                 Institut fu¨r Informatik, Martin-Luther-Universita¨t Halle-Wittenberg, Halle, Germany
+               3
+                Department Bioengineering, University California, San Diego, La Jolla, CA, USA
+
+             node subgraphs smallest collective units network investigated.
+             scale individual nodes local  example, communities.
+             statistically  represented, called network motifs. Network motifs
+             interpreted building blocks shape dynamic behaviour networks.              promise potentially explaining emergent properties complex systems relatively
+             simple structures led network motifs growing number              studies disciplines.  discuss artefacts analysis network motifs aris-
+             ing discrepancies network investigation pool random
+             graphs serving null model. aim provide clear accessible catalogue              incongruities effect motif signature. case study, explore              metabolic network Escherichia coli excluding artefacts
+             motif signature strong plausible correlation essentiality pro�?le              metabolic reactions emerges.
+
+
+
+1. INTRODUCTION                                                         affect motif signature    modularity
+                                                                        [11–14] (ii) hierarchical structures [15–19]. Analysing node subgraphs network motifs
+                                                                        include:   degree distribution (reviewed Newman indispensable tool understanding
+                                                                        [20]) (ii) degree correlations [21,22].
+complex networks. Network motifs, statistical
+                                                                           crosstalk global local network prop-  representations node subgraphs,
+                                                                        erties effect network motifs assessed insights network organization                                                                         recent studies [6,23,24]. effect motif signatures
+trivial scale individual nodes links.
+                                                                        formally explored scale-free hierarchical
+   study employs perspective network
+                                                                        graphs [24], crosstalk graph proper-
+motifs relate function topology network
+                                                                        ties (assortativity clustering coef�?cient) studied strong evidence following:   sub-
+                                                                        help biased random walk graph composition non-random (compared                                                                         ensemble graphs �?xed degree sequence [25].
+suitable pool reference graphs, e. ‘null model’)
+                                                                        topological analysis doubt, (ii) motifs related function, e. 
+                                                                        functional relevance motifs biological networks
+represented subgraphs assigned plausible functional
+                                                                        called question [5,7,26].
+roles represented subgraphs argued                                                                            work Ginoza & Mugler [8] forward detrimental functioning 
+                                                                        local argument motif correlations induced prop-
+   general concept introduced devel-
+                                                                        erty randomization scheme. argument
+oped Alon workers [1,2], particularly                                                                          form given Ginoza & Mugler [8]) true transcriptional regulatory networks [3,4].                                                                         graphs bidirectional links  early studies network motifs, clear                                                                         reduced motif inventory) small densities  mesoscopic macroscopic network properties affect
+                                                                        wider range randomization steps perceived motif signature. particular, randomiz-
+                                                                        available), argument shows possibility
+ation procedure drawn signi� criticism [5–10].
+                                                                        subtle intrinsic correlations inﬂuencing result examples topological properties considered                                                                         motif analysis. Avetisov et al. [27], algorithm 
+                                                                        structing modular hierarchical graphs described. *Author correspondence (christoph.fretter@gmx .                  authors, particular, observe constructed
+Electronic supplementary material available http://dx.doi.org/    graphs non-random motif composition, resembling
+10.1098/rsif.2012.0490 http://rsif.royalsocietypublishing.org.   superfamilies [2].
+
+Received 19 June 2012
+Accepted 24 July 2012                                               3426                        journal q 2012 Royal Society
+                                                         Artefacts network motif analyses    M. E. Beber et al. 3427
+
+    extend topological arguments          degree correlations  alternatively, retaining global
+earlier-mentioned list provide clear transparent     network features modularity diameter).
+catalogue possible artefacts arising mismatches         subsidiary conditions increase risk network investigation pool           sampling null model search space non-uniformly. randomized graphs serving null model. func-              sorting schemes subgraph types tional relevance motifs investigated             literature. employ Milo et al.
+combining dynamical data.                            [1], subgraphs grouped according criteria
+   running example metabolic network             (cyclic versus acyclic; connectivity number Escherichia coli;  parallel, illustrate         bidirectional links),   problems random graphs.             node subgraphs sorted according ‘identi�?er’ successive removal artefacts strongly mod-          adjacency matrix subgraph, read binary
+i�?es motif signature. Using ﬂux-balance analysis           number [34]). �?gures showing TSP, (FBA) [28], standard method predicting metabolic         indicate subgraph identi�?er underneath ﬂux patterns biomass production,              corresponding subgraph pictogram. corrected motif signatures functionally            important software packages motif plausible.                                           analysis m�?nder, software used original
+   organization text follows: short    works motifs [1], FANMOD [35]. MAVisto [36]
+view motifs, methods employed        additionally ability highlight motifs labelled network representation metabolism, given      networks. Motif �?nding implemented §2; number effects network architecture motif       Pajek network analysis software [37].
+content discussed §3; issues mapping (dynami-            following, impact cal) data motifs focus §4; §5,      large-scale topological properties TSP. implications results analysis complex net-   end, construct random graphs prescribed large-
+works, general, described, aspects   scale properties evaluate subgraph composition. work.                                                  random graphs directed Erdo´´s nyi (ER)
+                                                               graphs generated additional parameter pb                                                                regulates number bidirectional links. 2. METHODS                                                     parameter usual link probability p.                                                                places, analyse ‘randomization error’, sum
+2.1. Terminology software packages
+                                                               squares scores subgraphs. Given paper, discuss induced subgraphs,           purely random graphs, ‘correct’ TSP constitute objects vast lit-    zero subgraphs; randomization error erature network motifs. induced, mean            measures deviation correct TSP. pair nodes subgraph,                 appropriate, analytical predic-
+(directed) link link appears        tions artefactual TSP. cases, employ original graph.                                            formalism developed Fretter et al. [38].
+   general idea motif analysis compare node subgraph counts obtained real net-
+                                                               2.2. Network representations work corresponding counts obtained                                                                     metabolic systems
+randomized versions. case node sub-
+graphs, corresponding scores summarized           Metabolic networks condensed, abstract represen- triad signi�?cance pro�?le (TSP) showing statis-        tation production distribution metabolic
+tical  representation             compounds (metabolites) biochemical reactions
+subgraphs. score subgraph m de�?ned             occur organism owing catalytic
+Zm ¼ ðcm  mm Þ=sm , cm count subgraph         action enzymes. Metabolites reactions belong m original network, mm expectation value         distinct sets nodes. possible connections cm random networks sm standard            links categories  deviation cm random networks.                        forming bipartite network. involved represen-
+   typical randomization scheme preserves                tations metabolism exist, example, including
+number incoming, outgoing bidirectional links           enzymes category nodes [39], choosing node. prominent example switch             hyper-graph structure represent reaction–compound
+randomization, iteratively endpoints randomly         relations [40], representations inaccessible
+selected links swapped (ensuring bidirectional        wide range current graph-analytical tools. unidirectional links randomized independently              topology metabolic networks organized parallel links produced way).          complicated way. degree distribution metabolites exact procedure randomizing graph               typically scale-free, architecture modular retaining degree sequence graph            layered. Ignoring hierarchy functional modules,
+debated �?elds application [29]          uptake reactions, reactions contributing biomass
+mathematical communities [30– 33]. Apart pure             generation reactions result convergence issues iterative randomization pro-         layered organization metabolism. complica-
+cess, individual randomization step         tions present formidable challenge attempt particular, accompany decision sub-          explore interrelations network topology
+sidiary conditions (e.g. enhancing positive negative        dynamical function metabolic systems [41,42].
+
+J. R. Soc. Interface (2012)
+ 3428 Artefacts network motif analyses               M. E. Beber et al.
+
+                                                                                                           (b)
+            C3          C2                                                               R2                               R2
+                                      (b)
+                                                 C4
+
+
+                                                                                         C1                               R1
+             R2
+
+                                       C1         C3
+
+                                                                                                                     R3
+             C5                                                               R4         R3          R1
+
+                                                  C5
+                                                                                                                            R4
+                   R1
+                                                                      Figure 2. Projection metabolic bipartite network                                                                         reaction nodes (b). �?gure 1, reverse direction                                                        C2
+                                                                      reaction represented dashed lines.
+             C4         C1
+
+
+Figure 1. Projection metabolic bipartite network          nature graph, adequate treatment reversible reac- metabolite nodes (b). discussed §2.2, multiple    tions modularity; (ii) incorporating functional
+ways unambiguously storing reaction reversibility information      constraints  mass balance [47] stoichio- network.  solid lines identify substrates products   metric constraints [48]), ensuring  principle, forward reactions dashed lines reverse direction.             randomized graph fully functional metabolism.
+                                                                      paper, pursue �?rst aspect.
+                                                                          Eom et al. [46] neglected important bio-
+    formalisms developed analyse net-                 logical point dealing metabolic network
+works focused general graphs                   structures. think metabolic capabilities
+nodes belong mode category, arbi-                  organism, mind pathway
+trary links possible, henceforth called unipartite                maps procession biochemical reactions
+graphs networks, metabolic networks customarily                required transform substrate taken projected sets nodes                environment �?nal product useful organ- projected unipartite network analysed.                 ism. order preserve pathway structure, Ma & majority, analyses considered metabolism                 Zeng [49] suggested removal currency metab- undirected network  earlier studies [39,43,44]                 olites network, e. compounds critique projection metabolic                     provide energy balance charges, chemical groups
+networks, recent studies [41,45]).                                main metabolites transformation.     method projection directed metabolic net-            opinion, step necessary reveal struc-
+works presented [46]. retain method                   tures dominated connections formed projecting metabolic network metabolite-                 currency metabolites reaction
+centric representation, e. connecting substrate                nodes network. study, highlight product certain reaction introducing               various results stem considering technical- bidirectional link reaction reversible            ities topology-based constraints metabolic
+scheme �?gure 1). directed representation                     null models. reaction-centric network, draw link                   following, use set metabolic networks reaction nodes directed path                     43 different organisms collected length source reaction Ri, exactly                 WIT database1 published recent studies [43,46]. metabolite Ck, reaction R j . link            available online bipartite graphs.2
+drawn direction existing path  depicted                  main object study metabolic net- �?gure 2).                                                          work representation E. coli compiled     Studying node subgraph compositions                        cytosolic components genome-scale metabolic
+metabolic networks suffers issues.                 model iAF1260 [50] manually curated node subgraphs typically de�?ned unipartite                connections currency metabolites removed,
+graphs. Second, choice appropriate null model               cases metabolites main unclear. �?rst publication TSPs metabolic             reactants  example, ATP synthesis [51]. networks [46], metabolite-centric representations                 addition, functional subsystem categories included treated graph, standard switch                  Feist et al. [50], e. core, amino acid, lipid, nucleotide
+randomization applied, ignoring,                       unspeci�?c metabolism used module-  effects caused projection process itself.              aware randomization described later 
+    Attempts de�?ne realistic null models meta-            1
+                                                                       database changed location ERGO, https://
+bolic systems need focus aspects:                         ergo.integratedgenomics.com/
+                                                                      2
+incorporating topological constraints bipartite            http://www.nd.edu/networks/resources/metabolic/
+
+
+J. R. Soc. Interface (2012)
+                                                                    Artefacts network motif analyses                    M. E. Beber et al. 3429
+
+                       0.6                                                                       0.4
+                       0.4
+
+
+
+
+                                                                           normalized score
+ normalized score
+
+                                                                                                 0.2
+                       0.2
+                                                                                                  0
+                        0
+                                                                                                –0.2
+                      –0.2
+                                                                                                –0.4
+                      –0.4
+                                                                                                –0.6
+
+                             6 36 12 74 14 78 38 98 108 46 102 110 238                                 6 36 12 74 14 78 38 98 108 46 102 110 238
+
+Figure 3. Mean standard deviation normalized scores              Figure 4. comparison TSP metabolite-centric node subgraph frequency metabolic networks                projection metabolic network [46], labelled ‘orig- 43 different organisms compared standard                   inal’, TSPs manually curated metabolic
+switch randomization metabolite-centric projection.                network [51] using different null models labelled examples known organisms enter                     ‘unipartite’, ‘bipartite’ ‘modular’. curve labelled ‘uni-
+mean shown. networks used                 partite’ stems switch randomization network
+Eom et al. [46]. Raw scores electronic sup-             projected metabolite nodes. plementary material, �?gure S4. Solid line, mean 43                        ‘bipartite’ curve denotes randomized networks organisms; dashed line, E. coli; dotted line, S. cerevisiae;              generated level bipartite network, treating
+dashed-dotted line,  thaliana. (Online version colour.)              reversible reactions separately counting node
+                                                                          subgraphs metabolite-centric projections. ‘modular’
+                                                                          curve combines ‘bipartite’ switch randomization bio-
+                                                                          logical modules. raw scores seen electronic
+3. FINDING MOTIFS METABOLIC
+                                                                          supplementary material, �?gure S5. Solid line, original; dashed
+   TOPOLOGIES                                                             line, unipartite; dotted line, bipartite; dashed-dotted line, mod- starting point work TSP published                   ular. (Online version colour.)
+Eom et al. [46], recomputed original
+networks �?gure 3 subgraph ordering
+                                                                          function  Depending type used Milo et al. [1]. noteworthy                                                                           dynamic data available metabolite-centric
+result small overall magnitude stan-
+                                                                          reaction-centric, metabolic network represen-
+dard deviation surprisingly small variation
+                                                                          tation motif signature appropriate standard deviation triads. course,
+                                                                          topological information. best knowledge means normalized scores;                                                                           �?rst time, TSP reaction- triad composition appears remarkably similar                                                                           centric network E. coli �?gure 5. curve labelled
+networks vastly different sizes.
+                                                                          ‘unipartite’ deviates extremely used null
+   problems attached database
+                                                                          model. strikingly, TSP separates clearly 43 networks used, example, recent studies
+                                                                          categories. �?rst triads  chain-like sub-
+[43,46] computing TSPs shown �?gure 3.
+                                                                          graphs) extremely represented, given bipartite networks compounds
+                                                                          seven triads (triangular subgraphs) reactions identi�?ed indices,                                                                           represented. Notably, magnitudes
+lack chemical information  Second,                                                                           differ, case metabolite-centric
+related �?rst issue, networks contain cur-
+                                                                          network (�?gure 4). extreme values scores
+rency metabolites.  links compounds
+                                                                          seen electronic supplementary material, �?gure S6 reactions carry additional information. 
+                                                                          indicate ill-formed null model.
+fore impossible determine substrates products reversible reactions network. points matter shown following.                             3.2. Categorizing bidirectional links
+                                                                          include pieces biochemical
+                                                                          information require return bipartite
+3.1. Currency metabolites
+                                                                          network representation metabolism.  point forward, use metabolic network                     mounting evidence projecting bipartite E. coli described §2.2. previously used                   graph set nodes affects number topo-
+Sonnenschein et al. [51]. compare TSP employ-                      logical quantities. case clustering, ing different null models network used                        remarked metabolism Monta nez et al. [45] Eom et al. [46]. �?gure 4, curve labelled ‘unipar-               discussed general level Latapy et al. [52].
+tite’ shows TSP curated E. coli metabolic                      simplest way incorporating effects
+network projecting compound nodes                       null model perform switch randomization using simple switch randomization null model.                    level bipartite graph. com-
+    representations triads particu-                  pare statistics projected metabolic network larly informative related dynamical                           projections randomized bipartite counterparts.
+
+J. R. Soc. Interface (2012)
+ 3430 Artefacts network motif analyses                    M. E. Beber et al.
+
+
+                      0.8                                                            250
+                      0.6
+ normalized score
+
+
+
+                                                                                     200
+                      0.4                                                            150                     scheme 1
+
+
+
+
+                                                                           score
+                      0.2                                                            100
+                       0
+                                                                                      50
+               –0.2                                                                        scheme 2
+                                                                                      0
+               –0.4
+
+                            6 36 12 74 14 78 38 98 108 46 102 110 238                      6 36 12 74 14 78 38 98 108 46 102 110 238
+Figure 5. comparison TSP reaction-centric pro-            Figure 6. TSP graph elevated number bidirec-
+jection metabolic network [46], labelled ‘original’           tional links compared expected value m. (solid line), TSPs manually curated metabolic             different randomization-schemes applied   simple ﬂip-
+network [51] using different null models labelled          ping link-endpoints, (ii) shufﬂing uni- ‘unipartite’, ‘bipartite’ ‘modular’. curve labelled ‘uni-         bidirectional links independently preserving partite’ (dashed line) stems switch randomization               number bidirectional links network. analysed network projected reaction                 network random apart number bidirectional
+nodes. ‘Bipartite’ (dotted line) means randomized net-                links, scores using correct randomization scheme
+works generated bipartite network, treating                   expected close zero. Obtained graphs
+reversible reactions separately, counting node             N ¼ 100 M ¼ 400, number bidirectional
+subgraphs reaction-centric projections. ‘modular’              links forced 90  instead 16  expected ER
+(dashed-dotted line) obtained combining ‘bipar-               graphs connectivity. (Online version colour.)
+tite’ switch randomization biological modules. untransformed scores seen electronic supplemen-
+tary material, �?gure S6. (Online version colour.)                      3.3. Modularity
+                                                                          key observation biological networks    Switch randomization level bipartite                     organization modules (communities) related
+graph allows address issue                         function robustness. shown [53– 55]
+received little attention, bidirectional links.                    metabolism exception. use
+Typically, number bidirectional links conserved                 insights modules effect scores switch randomization, argument                     described electronic supplementary material, unique property network just                     §S1.1 explain effects modules occurrence unidirectional links.                   TSP graphs general.
+noted real networks, types bidirectional                      assemble graph dense modules, links occur, principle. plausible, example,              module directed ER graph. Additionally, assume gene regulatory networks bidirec-                     inter-module links introduced. graphs tional link occurrence                            module inter-module links constructed
+unidirectional links, metabolic networks revers-                 motif-blind way, correct randomization yield
+ible reactions certainly constitute example true                    ﬂat TSP, individual scores close bidirectionality individual category. metab-                     zero. result applying standard switch randomiz-
+olism �?nd,  case distinct                      ation seen �?gure 8. result enzymes responsible opposing direc-                     modularity-aware randomization scheme mixes
+tions converting compounds                           intra-module links inter-module links separately. interpretation bidirectional links.                              real-world networks, modular structure generally
+   Does distinction types bidir-                   known, quality modularity-
+ectional links related distinction                    aware randomization scheme depend quality interpretations classical randomization                        module-detection algorithm employed. order scheme affect observed motif signature? order                      better understand error randomization motivate general point, impact                     scheme module information, perform
+bidirectional links TSP ER graphs (�?gure 6,                     analytical calculation yields prediction electronic supplementary material, §S3                       error signature. obtain predictions artefactual depth information).                                               TSP arising switch randomization, use    Returning metabolic networks, curves labelled                   simple model node subgraphs Fretter et al. [38].
+‘bipartite’ �?gures 4 5 result switch ran-                         essential note  modules domization level bipartite graph                      destroyed, effective local intra-module density subsequent projection respective set nodes.                   network reduced factor number Reversible reactions treated separately                     modules. compared network  occurrence reactions performing                     N nodes M links network twice size
+opposing conversions compounds issue                      N *=2N nodes M *=2M links density bipartite graph.                                                      d  ¼ M  =N  ðN   1Þ  d=2.
+
+
+J. R. Soc. Interface (2012)
+                                                          Artefacts network motif analyses              M. E. Beber et al. 3431
+
+
+                                                                             15
+
+                                                                             10
+
+
+
+
+                                                                  score
+                                                                              5
+
+                                                                              0
+                                                                                                               scheme 2
+                                                                            –15
+                                                                                  prediction
+                                                                            –10
+                                                                                               scheme 1
+                                                                            –15
+
+                                                                                   6 36 12 74 14 78 38 98 108 46 102 110 238
+
+                                                                 Figure 8. TSP graph composed strong modules.
+                                                                 different randomization schemes applied   simple
+                                                                 ﬂipping link-endpoints; (ii) ﬂipping preser-
+Figure 7. graph composed strong modules. (Online       ving module structure. analysed network                     version colour.)                          random apart modularity, score using cor-
+                                                                 rect randomization scheme 0. Additionally,                                                                  analytical prediction score drawn. Network par-
+                                                                 ameters: N ¼ 400, M ¼ 1600, 8  inter-modular links.
+   Let N M number nodes links                                                                  (Online version colour.) modular network consisting modules, shown �?gure 7.  count speci�?c subgraph
+cm original graph estimated                         reaction manually assigned module
+4 cm ðN =4; M =4Þ, expectation value count        based biological function. Ravasz et al. [53], random graphs mm=cm(N,M) standard                 shown topological modules largely 
+deviation counts sm sm(N,M). details,           lap metabolic functional categories. Automated refer electronic supplementary material, §S1.1         assignment reactions modules, based, e.g. Fretter et al. [38]. module-unaware null model cor-      gene ontology classes, plausible. func-
+responds taking subgraph counts               tional groups mentioned §2.2.
+modules, modelled independent networks compar-                Comparing TSPs �?gure 4 �?gure 5,
+ing total network containing nodes         general trends observed. change links. resulting prediction plotted �?gure 8        complete network links currency
+�?ts numerical results  links          metabolites leads greatly increased absolute scores,
+inter-modular, effect modularity vanish;       case reaction-centric projection electronic supplementary material, �?gure S3 shows           inversion general trend curve. Proceeding case experiment prediction.   switch randomization level bipartite
+   results �?gure 8 electronic supplemen-              graph causes change trend TSP,
+tary material, �?gure S3 clearly switch                  absolute scores lower unipartite
+randomization performed graphs regions                level. Using module-aware randomization scheme varying densities leads pathological signals           lowers absolute values scores.
+TSP. Community detection algorithms work                   noted cases modularity
+remedy case, assess quality          (corresponding) non-zero TSP observed real module partition comparing number                   network, clear assign causality. links module expectation value            statement make observed example, de�?ned eqn 5 Newman & Girvan [12].            motif signature  TSP) explained modularity.  quality measure, modularity, detected           helpful appropriate statistical
+communities takes account relevant densities.           methods tests addressing intrinsic causality  community detection broad �?eld                  inter-related network properties: network science, perfect algorithms exist.              non-modular  modular) graph host detailed discussion community detection             motif signature? Does graph’s modularity explain scope study, reader encouraged         ‘signal strength’ observed motif sig-
+look relevant reviews Fortunato [56].               nature amplitude  average score)    like point scores triads         motif signature fully accounted given modular-
+metabolic networks used studies [46,57,58]            ity? addition, overlapping modules, nodes accounted strong modularity                unambiguously assigned individual modules, discussed earlier. curves labelled ‘modular’          different impacts TSP described 
+�?gures 4 5 respective TSPs using switch
+randomization module-aware level                                                                  3.4. Networks hierarchies bipartite network. �?gures 4 5, scores shifted closer zero, result            Similar modularity, hierarchical organization restricted search space null model.                  cause distortions simple switch randomization.
+
+J. R. Soc. Interface (2012)
+ 3432 Artefacts network motif analyses       M. E. Beber et al.
+
+
+
+
+                                                                         5
+                                                                              scheme 2
+
+
+
+
+                                                               score
+                                                                          0
+
+
+Figure 9. example layered random network inspired              –5
+      Kaluza et al. [59]. (Online version colour.)                        scheme 1
+                                                                   –10
+     provide example toy model basic properties metabolic networks.                           6 36 12 74 14 78 38 98 108 46 102 110 238
+metabolism, distinguish input layer provided set uptake reactions  input provided       Figure 10. Average scores 1000 layered random net-
+                                                              works. networks contain 20 input nodes, 50 middle available nutrients environment), set      nodes, 20 output nodes probability link
+middle layers, reactions process nutrients      present 0.3. scores resulting output layer consisting reactions directly      random ensemble created using standard switch
+tributing cell growth  e. ‘biomass vector’     randomization (scheme 1) curve obtained encountered constrained-based modelling meta-           switch randomization additional constraint disal-
+bolic systems). following, discuss             lowing direct links input output layer
+layered random networks (inspired Kaluza –             (scheme 2). (Online version colour.)
+Mikhailov model evolved ﬂow networks; [59]).
+    input layer de�?ned set nodes zero degree; output layer given set nodes      feed-forward loop motif ) explicitly modelling zero degree. Middle nodes receive link         dynamic processes motif classifying input layer. interconnected         signal processing capacities node middle nodes connected             device [60,61]. output nodes. topological restriction             powerful alternative direct modelling input nodes directly connected          analyse systematics dynamic data motif,
+output nodes. example layered random             e. individual node motif distributed
+network shown �?gure 9. �?gure 10, illustrate       motif occurrences network.  effect hierarchical structure TSP using       example, performed Krumov et al. [62] cita- graph layers. Depicted TSPs         tion frequencies (undirected) authorship networks,
+standard switch randomization randomization         Marr et al. [63] gene expression data transcrip-
+disallowing links input output nodes. Note       tional regulatory networks, Sonnenschein et al. randomization methods degree nodes        [64] reaction essentiality categories.
+constant, e. input nodes (output nodes) retain            work, apply FBA identify essential reac-
+zero degree (zero degree). additional       tions metabolic network E. coli. motif bias  bias introduced layer           elegant framework [28,65], optimal steady-state dis-
+structure) entered network generation,            tribution metabolic ﬂuxes predicted using
+correct null model ought yield ﬂat TSP          linear programming, given structure environ- scores close zero.                                       ment  e. availability nutrients) cellular
+                                                              objective function (e.g. biomass production ATP
+                                                              maximization). reactions elimination proved
+                                                              lethal wide range different environmental 
+4. DYNAMIC DATA MOTIFS
+                                                              ditions considered essential. refer purely structural issues, completely new         electronic supplementary material, §S1.2 speci�?cs.
+set complications arises dynamic information              use schemes analysing distribution graphs added. signi�?cance pro�?les discussed         dynamic data motifs:   single counting scheme, far obtained contrasting node sub-        node contribute dynamic information
+graph counts given graph subgraph counts           value attached node, mapping dynamic suitable pool randomized graphs. yields          data graph) subgraph type statistical indicators pointing graph features        (ii) multiple counting scheme, counts node’s functional relevance. biological          dynamic information multiple times, node networks, particularly tangible, deviations        multiple subgraphs type. normalization randomness  right null model)            differences counting schemes, aver-
+interpreted inﬂuence evolutionary shaping       aging dynamic information, yield different network.  statistical observation         results, particular cases dynamic infor-
+needs linked functional level          mation number subgraphs node participates direct manner subsequent investigations. Alon         scale non-trivially node’s degree. workers carried convincingly              �?gure 11, score probability case node subgraphs  particular,      occurrence essential reaction triad 
+
+J. R. Soc. Interface (2012)
+                                                              Artefacts network motif analyses           M. E. Beber et al. 3433
+
+                                                                     (b)
+                                                                        4
+                5
+                4                                                       2
+
+                3                                                       0
+      score
+
+
+
+
+                2                                                      –2
+                1
+                                                                       –4
+                0
+                                                                       –6
+                –1
+                                                                       –8
+
+                     6 36 12 74 14 78 38 98 108 46 102 110 238               6 36 12 74 14 78 38 98 108 46 102 110 238
+Figure 11. Using different methods arti�?cial growth media generation ﬂux balance analysis, plots scores probability �?nding essential reactions certain triads compared 1000 random distributions number essential reactions network. arti�?cial growth media called ‘Random’ viable selections possible
+nutrients, ‘Combinatorial’ minimal combinations nutrients sustain growth.   frequency exactly essential reactions stringent measure occurs random models. exception ‘chain’-like triad id 12. agglomeration essential reactions triad. (b) scores essential reactions
+using single counting scheme shows particular role triad id 12 shows accumulated case, e. exact number essential reactions participating subgraph required, essential reactions occur fre-
+quently compared null model. scenarios seen electronic supplementary material, �?gure S7. Solid
+line, random; dashed line, combinatorial. (Online version colour.)
+
+ network compared random distribution                   motif signature. example, case modu- essential reactions network. surprising                  larity, clear motif signature easily obtained, result essential reactions occur frequently               modular structure network expected types node subgraphs                dif�?cult detect understand. motif signa- exception ‘chain’ (id 12). shows essen-           ture serve marker non-random
+tial reactions occur non-random situations                   network features diverse topological scales.
+metabolic network. exceptional situation triads                    major conceptual step systems biology id 12 remains explored                              reveal systematic signi� deviations biologi-
+    use results electronic supplemen-                 cal randomness, subsequently relate
+tary material, �?gure S7 relate functional role               deviations speci�?c functional features.  triads motif signature. details                analyses attempts lit- electronic supplementary material, §S4.                    erature exploring network motifs metabolism Compared TSP Eom et al. [46] ( positive                  immense dif�?culty disentangling contributions correlations essentiality distribution curves),               motif signatures coming mere network  �?nd systematically negative correlations                    struction coming evolutionary
+re�?ned TSPs. ‘unipartite’ TSP (enhanced treat-                     shaping optimized function.
+ment currency metabolites) shows strongest                         re�?ned TSPs regarded (negative) correlation, ‘bipartite’ (ran-                 better approximations true enhancement domization level bipartite graph)                    suppression node subgraphs metabolic systems ‘modular’ TSP (module-aware randomization)                         evolutionarily acquired, clear display negative correlations.                                         additional re�?nement steps taken account.
+                                                                       recent publications, Basler et al. [42,47] presented
+                                                                       motivated novel method generating chemically
+                                                                       sensible, mass-balanced randomized metabolisms. 5. CONCLUSIONS
+                                                                       main idea physico-chemical constraints systematically explored biases introduced                 null model remaining deviations
+motif signatures variations random                      result evolutionary pressure ground, e. set reference graphs serving                 worth studying. Basler et al. [42] discuss number null models. Making visible cross-talk                     structural properties changed results global local network properties  opinion,                compared new null model. important prerequisite interpretation                        dynamical systems highly sensitive motifs
+motif signatures.                                                      small functional devices. range investi-
+   want point                        gations identi�?ed deep relationship real artefacts  time bound-               network motifs robust functioning systemic
+ary relevant result artefact                processes [7,59,60,66,67]. order understand gen-
+ambiguous. General features networks                         erality fundamental nature links simple explanation visible                   topology dynamics, needs better knowledge 
+J. R. Soc. Interface (2012)
+ 3434 Artefacts network motif analyses          M. E. Beber et al.
+ intrinsic statistical properties node subgraphs            (ed. D. Thilikos). Lecture Notes Science, minimal dynamical situations,                      6410, pp. 220–231. Heidelberg, Germany: Springer. relationship topology                10   Birmele´, E. 2012 Detecting local network motifs. Elec-
+dynamics occur. present investigation,                tronic J. Stat. 6, 908–933. (doi:10.1214/12-EJS698)
+                                                                 11   Girvan, M. & Newman, M. E. J. 2002 Community struc-
+want contribute understanding statistical
+                                                                      ture social biological networks. Proc. Natl Acad.
+signals obtained motif analyses. advocate care-               Sci. USA 99, 7821–7826. (doi:10.1073/pnas.122653799)
+fully chosen null models designed profound grasp          12   Newman, M. E. J. & Girvan, M. 2004 Finding evalu- investigation. means               ating community structure networks. Phys. Rev. E 69, facts discovered,                  026113. (doi:10.1103/PhysRevE.69.026113)
+chosen null model adapted.                        13   Guimera`, R., Sales-Pardo, M. & Amaral, L.  N. 2004
+   paper, emphasized impor-                     Modularity ﬂuctuations random graphs com-
+tance considerations understanding                       plex networks. Phys. Rev. E 70, 25101. (doi:10.1103/
+metabolic systems main case study.                   PhysRevE.70.025101)
+proper treatment cross-talk various topo-           14   Guimera`, R., Sales-Pardo, M. & Amaral, L.  N. 2007
+logical properties complex networks                         Module identi�?cation bipartite directed networks.
+                                                                      Phys. Rev. E 76, 036102. (doi:10.1103/PhysRevE.76.036102)
+particular, evaluation larger-scale properties inﬂu-
+                                                                 15   Baraba´si, -L., Ravasz, E. & Vicsek, T. 2001 Determinis-
+encing subgraph statistics) broader range               tic scale-free networks. Phys. Stat. Mech. Appl. 299,
+application. believe small catalogue                559– 564. (doi:10.1016/S0378-4371(01)00369-7) topological features inﬂuencing interpretation         16   Jung, S., Kim, S. & Kahng, B. 2002 Geometric fractal
+subgraph counts complex networks used                   growth model scale-free networks. Phys. Rev. E 65,
+re�?ning correcting empirical observations TSPs                 056101. (doi:10.1103/PhysRevE.65.056101) starting points expand theoreti-              17   Dorogovtsev, S. N., Goltsev,  V. & Mendes, J. F. F. 2002
+cal understanding crosstalk different                  Pseudofractal scale-free web. Phys. Rev. E 65, 066122.
+topological properties complex networks.                           (doi:10.1103/PhysRevE.65.066122)
+                                                                 18   Va´zquez, , Pastor-Satorras, R. & Vespignani,  2002
+M.T.H. M.M.H. acknowledge support Volkswagen                 Large-scale topological dynamical properties Foundation (grant nos 82 717 83435). M.E.B.               internet. Phys. Rev. E 65, 066130. (doi:10.1103/
+C.F. supported Deutsche Forschungsgemeinschaft                 PhysRevE.65.066130)
+grants MTH (grant nos HU-937/6 HU-937/7).                 19   Ravasz, E. & Baraba´si,  2003 Hierarchical organization
+                                                                      complex networks. Phys. Rev. E 67, 026112. (doi:10.
+                                                                      1103/PhysRevE.67.026112)
+REFERENCES                                                       20   Newman, M. E. 2003 structure function com-
+                                                                      plex networks. SIAM Rev. 45, 167– 256. (doi:10.1137/
+ 1 Milo, R., Shen-Orr, S., Itzkovitz, S., Kashtan, N.,                S003614450342480)
+   Chklovskii, D. & Alon, U. 2002 Network motifs: simple         21   Callaway, D. S., Hopcroft, J. E., Kleinberg, J. M.,
+   building blocks complex networks. Science 298,                  Newman, M. E. J. & Strogatz, S. H. 2001 randomly
+   824– 827. (doi:10.1126/science.298.5594.824)                       grown graphs really random? Phys. Rev. E 64, 041902.
+ 2 Milo, R., Itzkovitz, S., Kashtan, N., Levitt, R., Shen-Orr,        (doi:10.1103/PhysRevE.64.041902)
+   S., Ayzenshtat, , Sheffer, M. & Alon, U. 2004 Super-        22   Newman, M. E. J. 2002 Assortative mixing networks.
+   families evolved designed networks. Science 303,            Phys. Rev. Lett. 89, 208701. (doi:10.1103/PhysRevLett.
+   1538–1542. (doi:10.1126/science.1089167)                           89.208701)
+ 3 Shen-Orr, S. S., Milo, R., Mangan, S. & Alon, U. 2002         23   Jamakovic, , Mahadevan, P., Vahdat, , Boguna, M. &
+   Network motifs transcriptional regulation                   Krioukov, D. small building blocks complex
+   network Escherichia coli. Nat. Genet. 31, 64–68.                networks? (http://arxiv.org/abs/0908.1143)
+   (doi:10.1038/ng881)                                           24   Vazquez, , Dobrin, R., Sergi, D., Eckmann, J. P., Oltvai,
+ 4 Alon, U. 2007 Network motifs: theory experimental               & Baraba´si,  L. 2004 topological relationship
+   approaches. Nat. Rev. Genet. 8, 450 –461. (doi:10.1038/            large-scale attributes local interaction
+   nrg2102)                                                           patterns complex networks. Proc. Natl Acad. Sci.
+ 5 Konagurthu,  & Lesk,  2008 origin distri-            USA 101, 17 940–17 945. (doi:10.1073/pnas.0406024101)
+   bution patterns motifs biological networks. BMC         25   Holme, P. & Zhao, J. 2007 Exploring assortativity-
+   Syst. Biol. 2, 73. (doi:10.1186/1752-0509-2-73)                    clustering space network’s degree sequence. Phys.
+ 6 Artzy-Randrup, Y., Fleishman, S. J., Ben-Tal, N. & Stone,          Rev. E 75, 046111. (doi:10.1103/PhysRevE.75.046111)
+   L. 2004 Comment ‘network motifs: simple building           26   Ingram, P., Stumpf, M. & Stark, J. 2006 Network motifs:
+   blocks complex networks’ ‘superfamilies evolved          structure does determine function. BMC Genomics 7,
+   designed networks’. Science 305, 1107. (doi:10.1126/           108. (doi:10.1186/1471-2164-7-108)
+   science.1099334)                                              27   Avetisov, V., Nechaev, S. & Shkarin,  2010 motif
+ 7 Mazurie, , Bottani, S. & Vergassola, M. 2005 evol-            distribution random block-hierarchical networks. Phys.
+   utionary functional assessment regulatory                   Stat. Mech. Appl. 389, 5895–5902. (doi:10.1016/j.
+   network motifs. Genome Biol. 6, R35. (doi:10.1186/gb-              physa.2010.09.016)
+   2005-6-4-r35)                                                 28   Varma,  & Palsson, B. O. 1994 Metabolic ﬂux balan-
+ 8 Ginoza, R. & Mugler,  2010 Network motifs come                cing: basic concepts, scienti�?c practical use. Nat.
+   sets: correlations randomization process. Phys.             Biotechnol. 12, 994–998. (doi:10.1038/nbt1094-994)
+   Rev. E 82, 011921. (doi:10.1103/PhysRevE.82.011921)           29   Del Genio, C. , Kim, H., Toroczkai,  & Bassler, K. E.
+ 9 Berger,  & Mu¨ller-Hannemann, M. 2010 Uniform                    2010 Ef�?cient exact sampling simple graphs    sampling digraphs �?xed degree sequence.                  given arbitrary degree sequence. PLoS 5, e10012.
+   Graph theoretic concepts science                    (doi:10.1371/journal.pone.0010012)
+
+
+
+J. R. Soc. Interface (2012)
+                                                           Artefacts network motif analyses       M. E. Beber et al. 3435
+
+30 McKay, B. & Wormald, N. C. 1990 Uniform generation          50 Feist,  M., Henry, C. S., Reed, J. L., Krummenacker, M.,
+   random regular graphs moderate degree. J. Algorithms           Joyce,  R., Karp, P. D., Broadbelt, L. J., Hatzimanika-
+   11, 52–67.                                                        tis, V. & Palsson, B. Ø. 2007 genome-scale metabolic
+31 McKay, B. & Wormald, N. C. 1991 Asymptotic enumer-                reconstruction Escherichia coli K-12 MG1655    ation degree sequence graphs degrees o(n 1/2).         accounts 1260 ORFs thermodynamic information.
+   Combinatorica 11, 369 –382. (doi:10.1007/BF01275671)              Mol. Syst. Biol. 3, 121. (doi:10.1038/msb4100155)
+32 Cooper, C., Dyer, M. & Greenhill, C. 2007 Sampling regu-       51 Sonnenschein, N., Geertz, M., Muskhelishvili, G. & Hu¨tt,
+   lar graphs peer peer network. Comb. Probab.              M. T. 2011 Analog regulation metabolic demand. BMC
+   Comput. 16, 557 –593. (doi:10.1017/S0963548306007978)             Syst. Biol. 5, 40. (doi:10.1186/1752-0509-5-40)
+33 Bayati, M., Kim, J. H. & Saberi,  2010 sequential          52 Latapy, M., Magnien, C. & Vecchio, N. D. 2008 Basic
+   algorithm generating random graphs. Algorithmica              notions analysis large mode networks. Soc.
+   58, 860– 910. (doi:10.1007/s00453-009-9340-1)                     Netw. 30, 31 –48. (doi:10.1016/j.socnet.2007.04.006)
+34 Itzkovitz, S., Milo, R., Kashtan, N., Ziv, G. & Alon, U.       53 Ravasz, E., Somera,  L., Monaru, D. , Oltvai,  N. &
+   2003 Subgraphs random networks. Phys. Rev. E 68,               Baraba´si,  2002 Hierarchical organization modularity
+   026127. (doi:10.1103/PhysRevE.68.026127)                          metabolic networks. Science 297, 1551–1555. (doi:10.
+35 Wernicke, S. 2005 FANMOD: tool fast network motif           1126/science.1073374)
+   detection. Bioinformatics 22, 1152– 1153. (doi:10.1093/        54 Guimera, R. & Amaral, L. 2005 Functional cartography    bioinformatics/btl038)                                            complex metabolic networks. Nature 433, 895–900.
+36 Schreiber, F. & Schwo¨bbermeyer, H. 2005 MAVisto: tool          (doi:10.1038/nature03288)
+   exploration network motifs. Bioinformatics 21,      55 Samal, , Singh, S., Giri, V., Krishna, S., Raghuram, N. &
+   3572–3574. (doi:10.1093/bioinformatics/bti556)                    Jain, S. 2006 Low degree metabolites explain essential reac-
+37 Batagelj, V. & Mrvar,  2001 subquadratic triad census         tions enhance modularity biological networks. BMC
+   algorithm large sparse networks small maximum            Bioinformatics 7, 118. (doi:10.1186/1471-2105-7-118)
+   degree. Soc. Netw. 23, 237 –243. (doi:10.1016/S0378-           56 Fortunato, S. 2010 Community detection graphs. Phys.
+   8733(01)00035-1)                                                  Rep. 486, 75– 174. (doi:10.1016/j.physrep.2009.11.002)
+38 Fretter, C., Mu¨ller-Hannemann, M. & Hu¨tt, M. T. 2012         57 Jeong, H. 2009 Analysis E. coli network. Systems
+   Subgraph ﬂuctuations random graphs. Phys. Rev. E               biology biotechnology Escherichia coli (ed. S.Y.
+   85, 056119. (doi:10.1103/PhysRevE.85.056119)                      Lee), pp. 113–132. Netherlands: Springer.
+39 Albert, R. 2005 Scale-free networks cell biology. J. Cell   58 Chang, X., Wang, , Hao, P., Li, Y. & Li, Y. 2010 Exploring
+   Sci. 118, 4947 –4957. (doi:10.1242/jcs.02714)                     mitochondrial evolution metabolism organization prin-
+40 Zhou, W. & Nakhleh, L. 2011 Properties metabolic               ciples comparative analysis metabolic networks.
+   graphs: biological organization representation artifacts?      Genomics 95, 339–344. (doi:10.1016/j.ygeno.2010.03.006)
+   BMC Bioinf. 12, 132. (doi:10.1186/1471-2105-12-132)            59 Kaluza, P., Vingron, M. & Mikhailov,  S. 2008 Self-cor-
+41 Papp, B., Teusink, B. & Notebaart, R.  2009 critical          recting networks: function, robustness, motif
+   view metabolic network adaptations. HFSP J. 3, 24 –35.         distributions biological signal processing. Chaos 18,
+   (doi:10.2976/1.3020599)                                           026113.
+42 Basler, G., Grimbs, S., Ebenho¨h, O., Selbig, J. &             60 Mangan, S. & Alon, U. 2003 Structure function    Nikoloski,  2011 Evolutionary signi�?cance metabolic          feed-forward loop network motif. Proc. Natl Acad. Sci.
+   network properties. J. R. Soc. Interface 9, 1168 –1176            USA 100, 11 980–11 985. (doi:10.1073/pnas.2133841100)
+   (doi:10.1098/rsif.2011.0652)                                   61 Kaplan, S., Bren, , Dekel, E. & Alon, U. 2008 inco-
+43 Jeong, H., Tombor, B., Albert, R., Oltvai,  N. &                herent feed-forward loop generate non-monotonic
+   Barabasi,  2000 large-scale organization meta-           input functions genes. Mol. Syst. Biol. 4, 203. (doi:10.
+   bolic networks. Nature 407, 651 –654. (doi:10.1038/               1038/msb.2008.43)
+   35036627)                                                      62 Krumov, L., Fretter, C., Mu¨ller-Hannemann, M., Weihe,
+44 Wagner,  & Fell, D.  2001 small world inside              K. & Hu¨tt, M. T. 2011 Motifs authorship networks
+   large metabolic networks. Proc. R. Soc. Lond. B 268,              relation impact scienti�?c publications.
+   1803–1810. (doi:10.1098/rspb.2001.1711)                           Eur. Phys. J. B 84, 535–540. (doi:10.1140/epjb/e2011-
+45 Montanez, R., Medina, M. , Sole´, R. V. & Rodrı´guez-           10746-5)
+   Caso, C. 2010 metabolism meets topology:                  63 Marr, C., Theis, F. J., Liebovitch, L. S. & Hu¨tt, M. 2010
+   reconciling metabolite reaction networks. BioEssays           Patterns subnet usage reveal distinct scales regulation
+   32, 246– 256. (doi:10.1002/bies.200900145)                        transcriptional regulatory network Escherichia
+46 Eom, Y., Lee, S. & Jeong, H. 2006 Exploring local struc-          coli. PLoS Comput. Biol. 6, e1000836. (doi:10.1371/
+   tural organization metabolic networks using subgraph           journal.pcbi.1000836)
+   patterns. J. Theor. Biol. 241, 823 –829. (doi:10.1016/j.       64 Sonnenschein, N., Marr, C. & Hu¨tt, M. T. Submitted.
+   jtbi.2006.01.018)                                                 topological characterization medium-dependent
+47 Basler, G., Ebenho¨h, O., Selbig, J. & Nikoloski,  2011         essential metabolic reactions. Metabolites.
+   JMassBalance: mass-balanced randomization metabolic         65 Price, N. D., Reed, J. L. & Palsson, B. Ø. 2004 Genome-
+   networks. Bioinformatics 27, 1397–1403. (doi:10.1093/             scale models microbial cells: evaluating conse-
+   bioinformatics/btr145)                                            quences constraints. Nat. Rev. Microbiol. 2, 886–897.
+48 Riehl, W. J., Krapivsky, P. L., Redner, S. & Segre`, D. 2010      (doi:10.1038/nrmicro1023)
+   Signatures arithmetic simplicity metabolic network       66 Klemm, K. & Bornholdt, S. 2005 Topology biological
+   architecture. PLoS Comput. Biol. 6, e1000725. (doi:10.            networks reliability information processing. Proc.
+   1371/journal.pcbi.1000725)                                        Natl Acad. Sci. USA 102, 18 414– 18 419. (doi:10.1073/
+49 Ma, H. & Zeng,  2003 connectivity structure, giant          pnas.0509132102)
+   strong component centrality metabolic networks.         67 Kittisopikul, M. & Su¨el, G. M. 2010 Biological role noise
+   Bioinformatics 19, 1423 –1430. (doi:10.1093/bioinfor-             encoded genetic network motif. Proc. Natl Acad. Sci.
+   matics/btg177)                        

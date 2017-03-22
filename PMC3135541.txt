@@ -1,0 +1,559 @@
+Ip et al. BMC Systems Biology 2011, 5:91
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                                Open Access
+
+Analysis complex metabolic behavior pathway decomposition
+Kuhn Ip1,2,3,4,5, Caroline Colijn6 Desmond S Lun1,2,3,4,5*
+
+
+  Abstract
+  Background: Understanding complex systems decomposition simple interacting components   pervasive paradigm modern science engineering. cellular metabolism, complexity   reduced decomposition pathways particular biochemical functions, concept elementary
+  flux modes provides systematic way organizing metabolic networks pathways. decomposition
+  using elementary flux modes proven powerful tool understanding manipulating cellular
+  metabolism, utility,  severely limited number modes network increases exponentially
+  size.
+  Results:  present new method decomposition metabolic flux distributions elementary flux
+  modes. method easily operate large, genome-scale networks does require relevant
+  modes metabolic network generated. illustrate utility method metabolic
+  engineering Escherichia coli understanding survival Mycobacterium tuberculosis (MTB)   infection.
+  Conclusions: method achieve computational time improvements exceeding 2000-fold requires   seconds generate elementary mode decompositions genome-scale networks. improvements
+  arise having generate relevant elementary modes prior initiating decomposition.   decompositions method useful understanding complex flux distributions debugging genome-
+  scale models.
+
+
+Background                                                                             computational models analyzed num-
+Computational analysis cellular metabolism                                      ber ways. Flux-balance analysis (FBA) elementary
+recently gained increasing prominence importance.                                  mode analysis popular particular, genome-scale computational models cap-                                  powerful.
+turing stoichiometric thermodynamic constraints                                      FBA determines distribution steady-state reaction published 30 organisms [1] ranging                                  fluxes satisfies constraints model relatively simple prokaryotes E. coli,                                 optimizes biological objective function complex eukaryotes Homo sapiens [2,3].                                     biomass adenosine triphosphate (ATP) production
+application computational models dependent                                  [4]. appropriate constraints biological objec- accuracy tools developed ana-                               tive, FBA shown effective method lysis. maintenance model accuracy, debugging,                                prediction phenotypes associated genetic manip- ongoing process model predictions                                   ulations knockouts [5,6] intracellular
+validated experimental observations discre-                                metabolic fluxes [7]. significant application FBA,
+pancies identified corrected. process                                   metabolic engineering-using computational
+clearly linked use analysis models.                                predictions metabolic phenotype genetic
+                                                                                       manipulations guide engineering metabolically
+* Correspondence: dslun@camden.rutgers.edu
+                                                                                       optimized strains [8] computational methods 1
+ Phenomics Bioinformatics Research Centre, University South                     devised search space genetic manipula-
+Australia, Mawson Lakes, SA 5095, Australia                                            tions silico yield desired phenotype list author information available end article
+
+                                         © 2011 Ip et al; licensee BioMed Central  Open Access article distributed terms Creative Commons
+                                         Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                          medium, provided original work properly cited.
+ Ip et al. BMC Systems Biology 2011, 5:91                                                                      Page 2 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+[9-13].  FBA number successful         analysis, requiring prohibitive computation
+applications, method gives little insight pre-   elementary modes. method dictions, hindering human understanding model             applicable genome-scale models  debugging.                                                    input flux distribution, 
+   Elementary mode analysis, hand, yields        nected particular experimental conditions [26] explicit predictions metabolic behavior, seeks      genetic modifications [10].
+primarily allow understanding organism’s meta-         demonstrate utility method bolic capabilities. elementary mode analysis, ele-     applicability genome-scale models, apply gen-
+mentary flux modes (EFMs) define minimal sets         ome-scale models E. coli MTB reactions capable operating steady state gener-     results used interpret flux distributions related
+ated [14]. Elementary flux modes formalize concept        metabolic engineering E. coli survi- biochemical pathway [15], studying modes         val MTB infection.
+associated given metabolic network shown effective understanding function,         Results Discussion
+regulation, robustness [16,17]. principal draw-       Overview elementary mode analysis number        method takes given steady-state metabolic flux
+EFMs network suffers combinatorial explo-         distribution corresponding metabolic model,
+sion [18], use complete sets EFMs gives         produces decomposition flux distribution
+rise problems scalability applied gen-        elementary flux modes. paper, use flux
+ome-wide models [19]. example, mil-         distributions obtained FBA, method lion modes exist simple model E. coli central        equally applied flux distributions obtained metabolism consisting 112 reactions [20],            alternative means, derived experi-
+increases 26 million modes pos-         mental measurement obtained genetic perturba-
+sible substrates expanded [21]. iAF1260 [6],          tion analysis methods MOMA [27] ROOM recent genome-scale metabolic network E. coli,        [28]. elementary flux mode itself set reac-
+consists 2077 reactions, number reactions       tions operating steady state, flux distribution E. coli metabolic models increased steadily    composed entirely elementary flux modes past decades [22].  computation time         necessarily operate steady state   memory storage required enumerate EFMs          input flux distribution derived experimental mea- detailed genome-scale metabolic networks         surement need balanced produce prohibitively large.                                          steady state flux distribution, regression fit
+   applications,  understanding       measured data alternative means.
+particular metabolic functions organism,          method operates selecting reaction ability produce desired metabolite, greater    non-zero flux maximum magnitude understanding metabolic         given flux distribution. algorithm uses mixed-
+capabilities. case, necessary know   integer linear programming elementary flux EFMs network, simply combine        mode contains selected reaction rise particular behavior. Previous approaches    contained given distribution. contribution problem relied computing modes      elementary flux mode given distribution network [23,24]. recently, approach pre-       determined removed updated flux
+sented Figueiredo et al. [25], biologically       distribution. updated flux distribution used significant EFMs identifying K-shortest EFMs        input distribution iteration algorithm, metabolic network necessarily enumerating         procedure repeated updated flux set. motivation similar       distribution zero  Methods details). concerned generating EFMs net-            Elementary mode decompositions unique. work.  approach differs greatly        goal assist biological interpretation, wish determine elementary modes combine         primarily interested obtaining valid decomposition yield given flux distribution. flux distribution    specific decomposition. valid decom- consist measured computationally pre-         position arise irrespective choice dicted fluxes.                                                iteration reaction non-zero flux,    present algorithm elementary             choice determines specific decom-
+modes combine produce previously-specified        position. choice desirable properties. flux distribution. links advantages elemen-       elementary flux mode mixed-integer
+tary mode analysis advantages flux balance        linear program includes chosen reaction, flux
+ Ip et al. BMC Systems Biology 2011, 5:91                                                                      Page 3 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+ reaction upper bound contribution        increasing size complexity genome-scale elementary flux mode. selecting reaction         models [22] exponential manner non-zero flux maximum magnitude, avoid              number elementary modes increases size possibility generating elementary flux             network, follows cases, advan-
+modes small weightings minimal             tages offered approach simply 
+contribution flux distribution. choice        eral-thousand fold improvement computational time,
+minimizes numerical instabilities arising             difference practical feasibility
+calculations.                                                  infeasibility.
+  mixed-integer linear programming NP-                 iNJ661v [31], recent model modifies
+hard general, large mixed-integer linear pro-          iNJ661 aim accurately modeling MTB
+grams (MILPs) solved modest            vivo infection, slightly larger iNJ661,
+computation solvers SCIP [29], IBM ILOG             1,049 reactions.  complex growth
+CPLEX (International Business Machines Corp.,                  medium resulted significantly larger number rele-
+Armonk, New York), Gurobi (Gurobi Optimization,            vant elementary modes flux distribution obtained
+Houston, Texas). particular, algorithm, imple-          FBA iNJ661, unable mented using Gurobi, successfully terminates        generate using efmtool memory lim- seconds genome-scale applications           itations. Using decomposition method, generated
+mentioned paper.                                       valid elementary mode decomposition consisting 27
+  contrast, previous approaches decomposing flux         modes 2.5 seconds.
+distributions elementary modes [23,24] relied generating complete set relevant elemen-       Metabolic engineering E. coli
+tary modes, calculating weight distribution             demonstrate utility approach meta- modes. elementary mode decomposi-            bolic engineering, consider metabolic engineering
+tions unique [23], principal advantage          E. coli increased acetate production problem previous approaches comparison        received attention owing value acetic capable selecting particular unique decom-       acid industrial food uses [32]. Knockout stra-
+position based criterion (typically minimi-        tegies increased production acetate based FBA
+zation Euclidean norm weight vector),            previously reported Lun et al. [10] using approach simply generates valid decomposi-         genome-scale metabolic reconstruction E. coli tion possibilities. clear,    Feist et al. [6], iAF1260. knockout strategies criteria selecting weight distribution,    generated using GDLS (Genetic Design Local
+minimization Euclidean norm, biologically           Search) [10], efficient heuristic generating meta-
+meaningful. examples           bolic engineering strategies involving multiple knockouts
+paper, simply having valid decomposition itself        genome-scale models, extending capabilities useful.                                                        computationally-expensive optimal search proposed
+  principal drawback previous approaches          OptKnock [9]. strategies chosen using FBA generating complete set relevant elemen-        high predicted production acetate whilst
+tary modes prohibitive, particularly genome-        maintaining required energy production growth scale models. demonstrate fact, used efmtool        ensure viability. Specifically, predicted non-growth-
+[21] efficiently generate relevant elementary           associated ATP maintenance (NGAM) flux modes genome-scale model MTB Jamshidi            8.39 h -1 biomass flux 0.05 h -1 Palsson [30], iNJ661, growth Middlebrook            required.
+7H9 standard growth medium MTB. ele-              proposed strategies make sense biologically [10]
+mentary modes generated efmtool, applied            include experimentally-tested knockouts acetate quadratic programming approach proposed                 production alcohol dehydrogenase ATP
+Schwartz Kanehisa [23] obtain distribution         synthase [32].  cause increased acet-
+weights assign modes. total computa-           ate production immediately clear meta-
+tional time approach 34 minutes 27             bolic phenotype predicted FBA  Table 1 shows
+seconds.                                                       number reactions added   contrast, approach generates valid elementary       removed flux distributions gene-knock-
+mode decomposition consisting 19 modes 1.0 sec-          mutants compared wild-type flux dis-
+onds computational time improvement exceeding                tribution.  changes flux
+2000-fold. iNJ661 consists 1,028 reactions,        distributions quite extensive  particular, modest current genome-scale models [1].           result simply shunts blockages
+ Ip et al. BMC Systems Biology 2011, 5:91                                                                            Page 4 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+Table 1 Number changes reactions used E. coli knockout mutant compared wild-type (WT)
+Gene Knockouts                                                 1          2        3        4        5        6        8
+Reactions zero flux WT non-zero flux mutant     12         12       22       25       25       29       36
+Reactions non-zero flux WT zero flux mutant     9          9        16       21       23       17       24
+
+
+created gene deletions. inherent structure            demand chosen modes need complement network, mechanisms pre-                  seen reported
+dicted metabolic behavior arises, difficult ascertain         decompositions various knockout mutants. flux distribution                    example, biomass-producing modes, applied decomposition algorithm determine                mode arising knockout mutant elementary flux modes make flux distribu-               efficient 1.496 mmol acetate mmol glucose.
+tions knockout strategies. took best             knockouts allowed, overall acetate
+knockout strategies reported Lun et al. [10]                production improved despite decrease acetate
+numbers knockouts ranging 1 8. pur-              production efficiency biomass-producing mode.
+poses strategies, single knockout considered          decrease offset shift using NGAM- consist genes capable catalyzing reaction,         producing modes significantly efficient pro-
+e. enzyme complex complexes                duction acetate. knockout cases,
+metabolic function.                                                 NGAM-producing mode generates 1.690 mmol    Table 2 shows elementary flux modes obtained.             acetate mmol glucose. flux distribution knockout mutant                 Finally, FBA does necessarily yield unique dis-
+decomposed elementary modes,                tribution, implemented recursive MILP algorithm
+supply energy growth requirements                    Lee et al. [33] alternate optima organism. emphasize elementary mode decom-                  obtained decompositions corresponding flux dis-
+position identify structural components           tributions. results  shown) indicate important metabolic phenotype. focus              decomposition modes distinct functions
+NGAM biomass components reflects biologi-                 related NGAM biomass production preserved
+cal importance underlying biology model.              alternate optima.  decomposition flux mode contributes required NGAM                distributions primarily NGAM-producing bio-
+flux, uses relatively reactions. comparison,             mass-producing modes robust quality. second mode solely responsible producing bio-
+mass involves active reactions. cor-             Understanding survival MTB infection
+responds large number metabolites required              illustrate application approach, biomass production. Furthermore, noted Stel-              consider utilization glyoxylate shunt MTB.
+ling et al. [16], unmodified E. coli metabolic network          glyoxylate shunt enzyme isocitrate lyase (ICL), pre-
+displays degree robustness evidenced var-            sent MTB isoforms, believed required
+ied pathways biomass NGAM pro-                     microorganisms utilize fatty acids source duced. knockouts force flux alternative                    carbon energy. shunt previously pathways producing necessary metabolic com-               shown required vivo growth viru-
+ponents, pathways produce acetate               lence MTB [34]. MTB believed subsist product. finding examining elementary                    fatty acids infection [34,35], argued  modes associated acetate-enhancing knockout                removing ICL, MTB longer able utilize fatty
+strategies, uncover mechanism responsible                acids carbon energy unable increased acetate flux, apparent             grow vivo.  strains MTB absent iso- FBA analysis.                                                   forms ICL unable grow fatty acid substrates
+   interestingly, modes examined               unable survive macrophages mice [34].
+terms acetate production, effi-             ICL attracted significant attention cient modes generally contribute             promising drug target treatment MTB infection
+NGAM flux.  biomass-producing mode                     [36].
+necessary satisfy growth viability requirements.               possible,  given robustness  problem selecting knockouts maximize                generally observed metabolic networks [16], acetate production, given limiting resource               vital function simply rest single enzyme-
+glucose, necessarily finding single optimal          present isoforms. Using method,
+elementary mode.  competing constraints                      study metabolic capabilities MTB growing
+ Ip et al. BMC Systems Biology 2011, 5:91                                                                                       Page 5 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+Table 2 Elementary modes acetate-producing E. coli knockout strategiesa
+Knockouts (Number brackets,            Mode Weight Overall conversion (Acetate production bold)         Biomass NGAM        Number
+Separated semi-colons)                                                                                     (g/mmol (mmol/                                                                                                                    Glc)    mmol        reactions
+                                                                                                                      Glc)
+(0)                                    1     2.92   1.000 Glc + 0.005 K + 0.315 NH4 + 0.028 Pi + 0.007   0.029   0.2         412
+                                                         SO4 ® 0.785 Ac + 1.661 CO2 + 0.766 EtOH + 1.073
+                                                         H + 1.675 H2 + 0.010 Succ
+                                            2     7.08   1.000 Glc + 0.297 H2O + 0.004 K + 0.222 NH4 + 0.020 0.021    1.1         414
+                                                         Pi + 0.005 SO4 ® 0.849 Ac + 1.762 CO2 + 0.835
+                                                         EtOH + 1.051 H + 1.772 H2 + 0.007 Succ
+                                            Combined     10.000 Glc + 2.101 H2O + 0.041 K + 0.002 Mg2 +       0.23    8.4         415
+                                                         2.492 NH4 + 0.222 Pi + 0.058 SO4 ® 8.301 Ac +
+                                                         17.322 CO2 + 8.152 EtOH + 10.578 H + 17.434 H2 +
+                                                         0.077 Succ
+(1) frmA, adhE, adhP                        1     4.18   1.000 Glc + 0.667 H2O ® 0.667 12PPD-R + 1.333 Ac     0       2           38
+                                                         + 1.333 CO2 + 1.333 H + 1.333 H2
+                                            2     5.82   1.000 Glc + 0.004 K + 0.228 NH4 + 0.020 Pi + 0.005   0.021   0.0045      414
+                                                         SO4 ® 0.554 12PPD-R + 1.121 Ac + 1.201 CO2 +
+                                                         1.330 H + 1.211 H2 + 0.007 Succ
+                                            Combined     10.000 Glc + 2.788 H2O + 0.022 K + 1.327 NH4 +       0.12    8.4         418
+                                                         0.118 Pi + 0.031 SO4 ® 6.011 12PPD-R + 12.101 Ac
+                                                         + 12.563 CO2 + 13.313 H + 12.623 H2 + 0.041 Succ
+(2) mhpF, adhE; ydfG                        1     4.07   1.000 Glc + 0.750 H2O ® 1.500 Ac + 1.500 CO2 +       0       2.1         54
+                                                         0.750 EtOH + 1.500 H + 1.500 H2
+                                            2     5.93   1.000 Glc + 0.047 H2O + 0.004 K + 0.237 NH4 + 0.021 0.022    0           417
+                                                         Pi + 0.005 SO4 ® 1.296 Ac + 1.306 CO2 + 0.586
+                                                         EtOH + 1.513 H + 1.353 H2 + 0.007 Succ
+                                            Combined     10.000 Glc + 3.331 H2O + 0.023 K + 0.001 Mg2 +       0.13    8.4         418
+                                                         1.406 NH4 + 0.125 Pi + 0.033 SO4 ® 13.791 Ac +
+                                                         13.848 CO2 + 6.529 EtOH + 15.075 H + 14.128 H2 +
+                                                         0.044 Succ
+(3) atpABCDEFGH; frmA, adhE, adhP; pgi      1     2.82   1.000 Glc + 0.444 H2O + 0.167 SO4 ® 0.444 12PPD-R    0       1.3         59
+                                                         + 1.556 Ac + 1.556 CO2 + 1.222 H + 1.556 H2 +
+                                                         0.167 H2S
+                                            2     7.18   1.000 Glc + 0.233 H2O + 0.001 K + 0.077 NH4 + 0.007 0.0071   0.64        418
+                                                         Pi + 0.159 SO4 ® 0.408 12PPD-R + 1.495 Ac + 1.486
+                                                         CO2 + 1.251 H + 1.501 H2 + 0.157 H2S + 0.002 Succ
+                                            Combined     10.000 Glc + 2.926 H2O + 0.009 K + 0.552 NH4 +       0.051   8.4         421
+                                                         0.049 Pi + 1.609 SO4 ® 4.181 12PPD-R + 15.118 Ac
+                                                         + 15.056 CO2 + 12.431 H + 15.166 H2 + 1.596 H2S +
+                                                         0.017 Succ
+(4) atpABCDEFGH; frmA, adhE, adhP; pgi;     1     2.91   1.000 Glc + 0.444 H2O + 0.167 SO4 ® 0.444 12PPD-R    0       1.3         59
+yahI, ybcF, yqeA                                         + 1.556 Ac + 1.556 CO2 + 1.222 H + 1.556 H2 +
+                                                         0.167 H2S
+                                            2     7.09   1.000 Glc + 0.233 H2O + 0.001 K + 0.077 NH4 + 0.007 0.0071   0.64        416
+                                                         Pi + 0.159 SO4 ® 0.408 12PPD-R + 1.495 Ac + 1.486
+                                                         CO2 + 1.251 H + 1.501 H2 + 0.157 H2S + 0.002 Succ
+                                            Combined     10.000 Glc + 2.946 H2O + 0.009 K + 0.545 NH4 +       0.051   8.4         419
+                                                         0.049 Pi + 1.609 SO4 ® 4.185 12PPD-R + 15.124 Ac
+                                                         + 15.062 CO2 + 12.428 H + 15.171 H2 + 1.597 H2S +
+                                                         0.017 Succ
+(5) atpABCDEFGH; frmA, adhE, adhP; pgi;     1     2.87   1.000 Glc + 0.444 H2O + 0.167 SO4 ® 0.444 12PPD-R 0          1.3         59
+tnaA; yahI, ybcF, yqeA                                   + 1.556 Ac + 1.556 CO2 + 1.222 H + 1.556 H2 +
+                                                         0.167 H2S
+                                            2     7.13   1.000 Glc + 0.235 H2O + 0.001 K + 0.076 NH4 + 0.007 0.0071   0.64        413
+                                                         Pi + 0.158 SO4 ® 0.408 12PPD-R + 1.496 Ac + 1.486
+                                                         CO2 + 1.252 H + 1.501 H2 + 0.157 H2S + 0.002 Succ
+                                            Combined     10.000 Glc + 2.949 H2O + 0.009 K + 0.544 NH4 +       0.05    8.4         417
+                                                         0.049 Pi + 1.607 SO4 ® 4.185 12PPD-R + 15.128 Ac
+                                                         + 15.057 CO2 + 12.435 H + 15.168 H2 + 1.595 H2S +
+                                                         0.017 Succ
+ Ip et al. BMC Systems Biology 2011, 5:91                                                                                                   Page 6 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+Table 2 Elementary modes acetate-producing E. coli knockout strategiesa (Continued)
+(6) atpABCDEFGH; galP; mhpF, adhE; pgi;          1        6.53    1.000 Glc + 0.762 H2O ® 0.071 12PPD-R + 1.690 Ac              0    1.3      77
+pitAB; ydfG                                                       + 1.357 CO2 + 0.524 EtOH + 1.690 H + 1.524 H2
+                                                 2        3.47    1.000 Glc + 0.280 H2O + 0.003 K + 0.156 NH4 + 0.014 0.014          0        424
+                                                                  Pi + 0.004 SO4 ® 0.114 12PPD-R + 1.404 Ac + 1.304
+                                                                  CO2 + 0.467 EtOH + 1.546 H + 1.388 H2 + 0.005 Succ
+                                                  Combined        10.000 Glc + 5.945 H2O + 0.009 K + 0.542 NH4 +     0.05            8.4      427
+                                                                  0.048 Pi + 0.013 SO4 ® 0.863 12PPD-R + 15.908 Ac
+                                                                  + 13.386 CO2 + 5.042 EtOH + 16.403 H + 14.766 H2 +
+                                                                  0.017 Succ
+(8) (sapD trkA trkG), (sapD trkA        1        6.53    1.000 Glc + 0.762 H2O ® 0.071 12PPD-R + 1.690 Ac              0    1.3      77 trkH), kch, kup; atpABCDEFGH; galP;                            + 1.357 CO2 + 0.524 EtOH + 1.690 H + 1.524 H2
+guaB; mhpF, adhE; pgi; pitAB; ydfG
+                                                 2        3.47    1.000 Glc + 0.282 H2O + 0.003 K + 0.155 NH4 + 0.014 0.014          0        424
+                                                                  Pi + 0.004 SO4 ® 0.114 12PPD-R + 1.406 Ac + 1.304
+                                                                  CO2 + 0.468 EtOH + 1.547 H + 1.389 H2 + 0.005 Succ
+                                                  Combined        10.000 Glc + 5.953 H2O + 0.009 K + 0.539 NH4 +     0.05            8.4      427
+                                                                  0.048 Pi + 0.013 SO4 ® 0.861 12PPD-R + 15.915 Ac
+                                                                  + 13.387 CO2 + 5.043 EtOH + 16.407 H + 14.769 H2 +
+                                                                  0.017 Succ Metabolite abbreviations: 12PPD-R, (R)-Propane-1,2-diol; Ac, acetate; EtOH, ethanol; Glc, glucose; Pi, phosphate; Succ, succinate.
+
+ fatty acid substrates. particular, determined                          deletion strains E. coli change significantly elementary modes used MTB differing uptake                                    undergoing adaptive evolution. possible existence rates octadecenoate using genome-scale metabolic                             inactive routes metabolizing fatty acids reconstruction MTB Beste et al. [37]  Figure                              use ICL MTB discussed 1). exist modes generate bio-                              [39]  true, imply MTB rapidly
+mass NGAM using using ICL.                                 evolve resistance drugs inhibiting ICL.
+given NGAM flux, modes use ICL generally                                     Closer examination elementary modes reveals
+produce biomass efficiently                                 MTB grows silico ICL provides   given uptake octadecanoate,                              testable means confirming rejecting model’s
+modes produce biomass                               predictions. elementary modes use use ICL.  modes available maximize                             ICL use malate synthase, second enzymes biomass production maintaining given                                    form glyoxylate shunt. modes,
+NGAM requirement depend supply flux                                  flux malate synthase comes HtrA,
+octadecenoate. supply sufficiently high,                            gene predicted code 4-hydroxy-2-oxoglutarate
+NGAM requirement easily met high efficiency                               aldolase complete hydroxyproline degradation
+biomass producing modes use ICL,                                    pathway MTB using Bayesian method Green lower, use ICL allows NGAM require-                               Karp [40]. HtrA supplies glyoxylate used
+ment met efficiently   allows                             substrate malate synthase. MTB biomass produced.                                                             mycobacteria observed grow using hydro-
+   assumption metabolic reconstruc-                              xyproline carbon source [41,42], suggesting tion Beste et al. correct, analysis implies                          pathway exist. studies confirm-
+MTB capable producing carbon energy                                  ing characterizing pathway shed light fatty acids use ICL  lower                              does fact provide MTB viable
+uptake rates fatty acids, ICL allows efficient                          means producing glyoxylate.
+utilization fatty acids.                              elementary mode decomposition analysis optimal growth rate predicted FBA differs                                   presented sheds light mechanics FBA pre-
+slightly ICL present  Figure 1d).                           diction difficult obtain FBA results presents intriguing possibility MTB pos-                               Specifically, HtrA combination malate
+sesses metabolic capability grow fatty acids                              synthase used GSMN-TB generate biomass ICL, does knockout                               NGAM.  space possible biomass
+ICL undergone adaptive evo-                              NGAM production rates achieved lution necessary make use metabolic capabil-                             way smaller possible using ity. possibility consistent work Fong                           glyoxylate shunt. low octadecenoate uptake rates, Palsson [38] showing growth rate gene                               difference important, leading lower biomass
+ Ip et al. BMC Systems Biology 2011, 5:91                                                                                                                            Page 7 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+                                                                                               b
+                                          0.08                                                                            0.08
+
+
+                                          0.06                                                                            0.06
+       Weight
+
+
+
+
+                                                                                                       Weight
+                                          0.04                                                                            0.04
+
+
+                                          0.02                                                                            0.02
+
+
+                                             0                                                                               0
+                                                 0        0.02     0.04     0.06          0.08                                   0        0.02     0.04     0.06          0.08
+                                                                                    −1    −1                                                                        −1    −1
+                                                     Octadecenoate uptake (mmol g        h )                                         Octadecenoate uptake (mmol g        h )
+
+
+ c                                                                                               d
+                                          0.12                                                                              0.01
+       Biomass (g / mmol Octadecenoate)
+
+
+
+
+                                           0.1                                                                            0.008
+                                                                                                         )
+                                                                                                      −1
+                                                                                                         Growth rate (h
+                                          0.08
+                                                                                                                          0.006
+                                          0.06
+                                                                                                                          0.004
+                                          0.04
+                                                                                                                          0.002
+                                          0.02
+
+                                             0                                                                                   0
+                                                 0      50     100      150       200                                                0      0.02    0.04    0.06          0.08
+                                                                                                                                                                    −1
+                                                 NGAM (mmol / mmol Octadecenoate)                                                    Octadecenoate uptake (mmol g        h −1)
+ Figure 1 Elementary modes used MTB growing octadecenoate sole carbon source ICL. unique
+ elementary modes identified overall applying decomposition method representative flux distributions, elementary
+ modes used characterize optimal metabolic behavior octadecenoate uptake varying 0 0.08 mmol g-1 h-1. weights  elementary modes (colored blue, green, red, cyan, magenta) octadecenoate uptake varies shown stacked   (b)
+ ICL present. modes colored blue green use ICL, remainder  mode normalized  octadecenoate uptake mode 1 mmol g-1 h-1. (c) biomass NGAM generated mode 1 mmol octadecenoate.  region enclosed solid line space achievable pairs biomass NGAM ICL present, region enclosed  dotted line ICL present. octadecenoate plentiful, cyan magenta modes used meet NGAM
+ requirement produce biomass; octadecenoate limited, remaining modes needed meet NGAM requirement
+  ICL present, achieved efficiently. (d) FBA-predicted growth rate varying octadecenoate uptake ICL present
+ (solid line) (dotted line).
+
+
+production meet NGAM requirement.                                                 modes. contrast previous approaches, method  demonstrates utility method                                          does require initial generation set identifying potential source discrepancy                                        elementary modes, computationally silico predictions observed experimental results.                                         demanding  cases, computationally infeasi- growth experimentally possible,                                             ble practical purposes. moderately-sized
+adaptive evolution, suggests model                                           instance, observed computational time improve-
+incorrect likely error model comes                                           ment 2000-fold using method. inclusion predicted gene, HtrA.                                                         Overall, elementary mode analysis offers                                                                                                  great deal flux-balance analysis does  FBA
+Conclusions                                                                                      yields predictions overall metabolic behavior, presented method decomposing given                                               elementary mode analysis allows understanding meta-
+flux distribution set constituent elementary                                           bolic capabilities. decomposing flux distributions
+ Ip et al. BMC Systems Biology 2011, 5:91                                                                            Page 8 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+obtained FBA elementary modes, gain               Definition
+insight metabolic networks achieve pre-           say flux mode p conforms flux distribution v dictions. exploit modularity decompose com-              νj > 0 reactions j pj > 0 νj < 0 plex entity simpler entity, enables                 reactions j pj < 0.
+debugging understanding  ultimately,                  finding elementary modes 
+sophisticated design engineering.                            form given flux distribution v ensures                                                                  v decomposed elementary modes reac-
+Methods                                                          tions flowing direction v, pur-
+Genome-scale FBA modeling                                        poses biological interpretation. work genome-scale model E. coli,                    algorithm takes input flux distribution v iAF1260. model consists parts.          feasible set optimization problem (1) outputs
+m metabolites n reactions, form m × n stoi-            elementary mode decomposition v, e. set chiometric matrix S, ijth element Sij stoi-         elementary flux modes {p (k) } conform v chiometric coefficient metabolite reaction j.            corresponding set positive weights {w k } Second, flux distribution v, jth element vj             K
+ flux reaction j, constrained lower            v=      wk p(k). Suppose flux distribution v bound vector  jth element j lower                    k=1
+
+bound flux reaction j, upper               satisfies Sv = 0. Let k: = 1, v(k): = v. Choose jk
+                                                                              (k)
+bound vector b, jth element bj > 0 upper            vjk = 0, solve following mixed-
+bound flux reaction j. Finally, linear        integer linear program (MILP):
+objective formed multiplying fluxes                              n
+objective vector f, jth element fj weight            min            j=0 qj
+reaction j biological objective.  biologically         subject Sp = 0,
+                                                                                             (k)
+optimal flux distribution obtained solving                                 pjk = sgn(vjk ),
+                                                                                 −Mqj ≤ pj ≤ Mqj , j = 1, . . . , n,
+   max        f v                                                               pj = 0,           j ∈ {j|vj = 0},
+                                                                                                                         (2)
+   subject Sv = 0,                                      (1)
+                                                                                 pj ≤ 0,           j ∈ {j|vj < 0},
+              ≤ v ≤ b.                                                         pj ≥ 0,           j ∈ {j|vj > 0},
+                                                                                 qj ∈ {0, 1},      j = 1, . . . , n,
+
+                                                                    M large constant sgn sign func-
+Elementary mode decomposition
+                                                                 tion, taking value 1 argument positive -1 given flux vector ν, use R(ν) =  ν ≠ 0                                                                  argument negative. MILP similar denote set indices reactions participating                                                                  used Figueiredo et al. [25] finding shortest
+ν. define elementary flux mode using follow-
+                                                                 elementary modes metabolic network. purpose,
+ing definitions [4].
+                                                                  differs significantly: seek decompose Definition
+                                                                 given flux distribution constituent elementary flux mode, mode, metabolic network specified
+                                                                 modes. specific choice j k unimportant: stoichiometric matrix S lower upper                                     (k)
+bound constraints b non-zero n × 1 vector p           choices vjk = 0 generate valid decompo-
+satisfying following conditions:                         sition, specific decomposition achieved                                                                  likely vary choice. discussed overview,
+    1. valid steady-state flux distribution, e. Sp =   choose jk = argmaxj|vj|.
+    0;                                                              Let (p*,q*) optimal solution. set p(k): =
+    2. irreversible reactions flow right direction,                                   (k)   (k)
+                                                                 p* wk := minj∈{j|p(k) =0} (vj /pj ). Finally, set v(k   +
+    e. j aj ≥ 0, pj ≥ 0.                                      j
+                                                                 1)
+                                                                   : = v(k) - wkp(k). v(k + 1) zero vector, Definition
+                                                                   choose j k + 1                                                                   (k+1) say flux mode elementary minimal          vjk+1 = 0, increment k  repeat flux modes, e. does exist flux         procedure.
+mode R(p’) ⊂ R(p).                                        following proposition establishes algo-
+  stating algorithm, require           rithm generates desired output. brief, algo-
+definition.                                                      rithm works  iteration, MILP finds  Ip et al. BMC Systems Biology 2011, 5:91                                                                                 Page 9 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+flux mode pjk non-zero number                    straightforward wk > 0 owing defini- non-zero elements flux mode minimized.                  tion  iteration algorithm, |R(v(k))| number non-zero elements flux                  decrease 1, e. |R(v(k + 1))| < |R(v(k))|. mode minimized, flux mode minimal                      algorithm terminate finite number itera-  elementary. reaction non-zero                 tions K ≤ |R(v)|. □
+flux participate elementary mode decomposition, does matter jk chosen,              Characterization optimal metabolic behavior using
+            (k) long vjk = 0. valid decomposition gener-            given elementary modes
+ated regardless jk chosen, particu-             calculating elementary mode decompositions
+lar decomposition generated non-                   range related flux distributions, MTB
+unique possibilities depend choice.                     application, helpful use subset ele-
+Proposition                                                          mentary modes obtained, likely subset elementary mode decomposition algorithm stated                   modes suffices generate valid decompositions terminates finite number iterations K               distributions.  select subset generates set elementary flux modes {p(k)}             K modes {p(1), ..., p(k)} obtained use
+conform v corresponding set positive                     following approach determine suffice                            
+                           K                                         support flux distributions. successively
+weights {wk} v =    wk p(k).                               remove modes subset arrive                                  k=1                                 minimal sense additional modes Proof                                                                removed support flux distributions.  establish p (k) fact mode,              represent elementary flux mode column
+observe p(k) generated solution problem             vector matrix P =[p (1) ... p (K) ] define non-
+(2) meet steady state condition              negative weight vector w = [w1, ..., wK] flux
+                                             (k)                   distribution v = Pw. Substitution v = Pw (1)
+Problem (2) solution p = v(k) / vjk  q                                                                      gives means finding biologically-optimal weight qj = 1 pj ≠ 0 qj = 0 feasible
+                                                                     vector given set elementary flux modes. Spe-
+set problem.  constraining compo-
+                                                                     cifically, solve
+nents p(k) sign corresponding
+elements v, ensure irreversible reactions flow               max        f  Pw right direction  j, aj ≥ 0 vj ≥ 0,         subject ≤ Pw ≤ b,                                    (3) sets constraint pj ≥ 0 problem (2).                                   w ≥ 0.
+  Second, constraints problem (2), p(k) conforms v.                                           biomass derived solving (3) corresponds
+  Lastly, establish p(k) minimal           (1), conclude given elemen-
+flux modes conforming v   elementary                tary modes sufficient characterize flux distri- set modes. observe              bution  given modes utilized
+optimal cost problem (2) iteration k |R (p(k))|.            according weights w* obtained optimal
+Suppose exists mode p’ conforms v               solution (3).
+R(p’) ⊂ R(p(k)). pjk = 0, assume loss                                                                      Implementation FBA elementary mode
+generality pjk = 1, (p’,q’), q’j = 1 p’j ≠ 0      decomposition q’j = 0       feasible set problem
+          n                (k)                               FBA elementary mode decomposition method
+(2)           q = R(p ) < R(p ), contradiction
+                   
+                                                                     implemented using MATLAB R2010b Gurobi
+                  j=1 j
+                                                                     4.0. implementation available additional file 1. p   (k)
+               optimal solution. pjk = 0, let p�?
+                                                (k)   (k)
+= p(k) - wp’, wk := minj∈{j|p(k) =0} (vj /pj ). p�?        Comparison previous decomposition methods
+                                         j
+ mode conforms v R(p’) ⊂ R(p )         (k)      used Gurobi 4.0 solve optimization problem (1)
+(p“, q�?), q"j = 1 p"j ≠ 0 q"j = 0          biologically optimal flux distribution iNJ661         feasible  set          problem      (2)          growing Middlebrook 7H9. resulting distribution
+    n              (k)                                        v contained 507 non-zero components. reactions j                
+           q = R(p ) < R(p ), resulting           j=1 j                                                      vj = 0 removed metabolic net-
+contradiction. does exist mode p’             work, generating reduced S used input conforms v R(p’) ⊂ R(p(k)), conclude             efmtool. efmtool version 4.7.1 used default
+p(k) elementary.                                                  parameters MATLAB R2010b generate  Ip et al. BMC Systems Biology 2011, 5:91                                                                                                        Page 10 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+elementary modes reduced metabolic network,                            2.    Duarte NC, Becker SA, Jamshidi N, Thiele  Mo ML, Vo TD, Srivas R,
+                                                                                     Palsson BØ: Global reconstruction human metabolic network
+resulting 507 × 131,558 matrix P containing                             based genomic bibliomic data. Proceedings National
+elementary modes. Finally, quadratic program                                     Academy Sciences 2007, 104:1777-1782.
+              K      2
+                                                                               3.    Ma H, Sorokin  Mazein  Selkov  Selkov E, Demin O, Goryanin     min                                                                               Edinburgh human metabolic network reconstruction functional
+                k=1 wk
+                                                                                     analysis. Mol Syst Biol 2007, 3.
+   subject Pw = v,                                                          4.    Kauffman KJ, Prakash P, Edwards JS: Advances flux balance analysis.
+              w ≥ 0,                                                                 Curr Opin Biotechnol 2003, 14:491-496.
+                                                                               5.    Edwards JS, Ibarra RU, Palsson BØ: silico predictions Escherichia coli
+  proposed Schwartz Kanehisa [23] solved                               metabolic capabilities consistent experimental data. Nat
+using MOSEK 6.0.0.91 (MOSEK ApS, Copenhagen,                                         Biotechnol 2001, 19:125-130.
+                                                                               6.    Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,
+Denmark).                                                                            Broadbelt LJ, Hatzimanikatis V, Palsson BØ: genome-scale metabolic
+  efmtool generated 131,558 elementary modes                                 reconstruction Escherichia coli K-12 MG1655 accounts 1260 network 1 minutes 48 seconds, quadratic                             ORFs thermodynamic information. Mol Syst Biol 2007, 3:121.
+                                                                               7.    Schuetz R, Kuepfer L, Sauer U: Systematic evaluation objective
+optimization step took 32 minutes 39 seconds,                                    functions predicting intracellular fluxes Escherichia coli. Mol Syst
+resulting total computational time 34 minutes                            Biol 2007, 3:119.
+27 seconds. Computations carried Mac                           8.    Alper H, Miyaoku K, Stephanopoulos G: Construction lycopene-
+                                                                                     overproducing E. coli strains combining systematic combinatorial
+OS X 10.6.4 platform using Intel                                  gene knockout targets. Nat Biotechnol 2005, 23:612-616.
+Core 2 Duo 2.53 GHz processor 4 GB RAM.                                9.    Burgard AP, Pharkya P, Maranas CD: OptKnock: bilevel programming
+  iNJ661v, biologically optimal flux distribution                            framework identifying gene knockout strategies microbial strain
+                                                                                     optimization. Biotechnol Bioeng 2003, 84:647-657.
+v obtained solving optimization problem (1)                             10.   Lun DS, Rockwell G, Guido NJ, Baym M, Kelner JA, Berger B, Galagan JE,
+tained 505 non-zero components.  reduced S                                   Church GM: Large-scale identification genetic design strategies using generated removing reactions j vj                               local search. Mol Syst Biol 2009, 5:296.
+                                                                               11.   Pharkya P, Burgard AP, Maranas CD: OptStrain: computational
+= 0, result used input efmtool.                                 framework redesign microbial production systems. Genome Res
+maximum heap size 4 GB, efmtool failed gen-                                2004, 14:2367-2376.
+erating elementary modes, 657,447 modes                               12.   Pharkya P, Maranas CD: optimization framework identifying
+                                                                                     reaction activation/inhibition elimination candidates generated.                                                                           overproduction microbial systems. Metab Eng 2006, 8:1-13.
+                                                                               13.   Rocha M, Maia P, Mendes R, Pinto JP, Ferreira EC, Nielsen J, Patil KR,
+                                                                                     Rocha  Natural computation meta-heuristics silico
+Additional material                                                                  optimization microbial strains. BMC Bioinformatics 2008, 9:499.
+                                                                               14.   Schuster S, Hilgetag C: elementary flux modes biochemical
+    Additional file 1: Source code elementary mode decomposition                 reaction systems steady state. J Biol Syst 1994, 2:165-182.
+    method implemented using MATLAB Gurobi                                 15.   Schuster S, Fell DA, Dandekar T: general definition metabolic
+                                                                                     pathways useful systematic organization analysis complex
+                                                                                     metabolic networks. Nat Biotechnol 2000, 18:326-332.
+                                                                               16.   Stelling J, Klamt S, Bettenbrock K, Schuster S, Gilles ED: Metabolic network
+Acknowledgements                                                                     structure determines key aspects functionality regulation. Nature
+KI gratefully acknowledges support Australian Government            2002, 420:190-193. Australian Postgraduate Award. authors like thank Belinda      17.   Trinh CT, Wlaschin  Srienc F: Elementary mode analysis: useful
+Chiera Melissa Yates careful proofreading manuscript.                 metabolic pathway analysis tool characterizing cellular metabolism.
+                                                                                     Appl Microbiol Biotechnol 2009, 81:813-826.
+Author details                                                                 18.   Klamt S, Stelling J: Combinatorial Complexity Pathway Analysis 1
+ Phenomics Bioinformatics Research Centre, University South                   Metabolic Networks. Mol Biol Rep 2002, 29:233-236.
+Australia, Mawson Lakes, SA 5095, Australia. 2School Mathematics        19.   Acuña V, Chierichetti F, Lacroix V, Marchetti-Spaccamela  Sagot MF,
+Statistics, University South Australia, Mawson Lakes, SA 5095, Australia.         Stougie L: Modes cuts metabolic networks: Complexity 3
+ Australian Centre Plant Functional Genomics, University South                algorithms. Biosystems 2009, 95:51-60.
+Australia, Mawson Lakes, SA 5095, Australia. 4Center Computational     20.   Gagneur J, Klamt S: Computation elementary modes: unifying
+Integrative Biology, Rutgers University, Camden, NJ 08102, USA. 5Department          framework new binary approach. BMC Bioinformatics 2004, 5:175. Science, Rutgers University, Camden, NJ 08102, USA.                21.   Terzer M, Stelling J: Large-scale computation elementary flux modes
+6
+ Department Engineering Mathematics, University Bristol, Bristol BS8           bit pattern trees. Bioinformatics 2008, 24:2229-2235.
+1TR, UK.                                                                       22.   Feist  Palsson BØ: growing scope applications genome-scale
+                                                                                     metabolic reconstructions using Escherichia coli. Nat Biotechnol 2008,
+Authors’ contributions                                                               26:659-667.
+DSL CC conceived project. DSL KI designed implemented          23.   Schwartz JM, Kanehisa M: quadratic programming approach method performed computational experiments. DSL, CC, KI              decomposing steady-state metabolic flux distributions elementary
+wrote paper. authors read approved final manuscript.            modes. Bioinformatics 2005, 21:ii204-205.
+                                                                               24.   Poolman MG, Venkatesh KV, Pidcock MK, Fell DA: method Received: 29 November 2010 Accepted: 3 June 2011                                     determination flux elementary modes, application Published: 3 June 2011                                                               Lactobacillus rhamnosus. Biotechnol Bioeng 2004, 88:601-612.
+                                                                               25.   Figueiredo LF, Podhorski  Rubio  Kaleta C, Beasley JE, Schuster S,
+References                                                                           Planes FJ: Computing shortest elementary flux modes genome-
+1. Milne CB, Kim PJ, Eddy JA, Price ND: Accomplishments genome-scale           scale metabolic networks. Bioinformatics 2009, 25:3158-3165.
+    silico modeling industrial medical biotechnology. Biotechnol J     26.   Colijn C, Brandes  Zucker J, Lun DS, Weiner B, Farhat MR, Cheng TY,
+    2009, 4:1653-1670.                                                               Moody DB, Murray M, Galagan JE: Interpreting expression data  Ip et al. BMC Systems Biology 2011, 5:91                                                                                                      Page 11 11
+http://www.biomedcentral.com/1752-0509/5/91
+
+
+
+
+      metabolic flux models: Predicting Mycobacterium tuberculosis mycolic
+      acid production. PLoS Comp Biol 2009, 5:e1000489.
+27.   Segrè D, Vitkup D, Church GM: Analysis optimality natural       perturbed metabolic networks. Proc Natl Acad Sci USA 2002,
+      99:15112-15117.
+28.   Shlomi T, Berkman O, Ruppin E: Regulatory minimization       metabolic flux changes genetic perturbations. Proc Natl Acad Sci
+      USA 2005, 102:7695-7700.
+29.   Achterberg T: Constraint Integer Programming. Technische Universität
+      Berlin; 2007.
+30.   Jamshidi N, Palsson BO: Investigating metabolic capabilities       Mycobacterium tuberculosis H37Rv using silico strain iNJ661       proposing alternative drug targets. BMC Syst Biol 2007, 1:26.
+31.   Fang X, Wallqvist  Reifman J: Development analysis vivo-
+      compatible metabolic network Mycobacterium tuberculosis. BMC Syst
+      Biol 2010, 4:160.
+32.   Causey TB, Zhou S, Shanmugam KT, Ingram LO: Engineering       metabolism Escherichia coli W3110 conversion sugar       redox-neutral oxidized products: Homoacetate production. Proc Natl
+      Acad Sci USA 2003, 100:825-832.
+33.   Lee S, Phalakornkule C, Domach MM, Grossmann  Recursive MILP model
+      finding alternate optima LP models metabolic networks.
+      Computers & Chemical Engineering 2000, 24:711-716.
+34.   Munoz-Elias EJ, McKinney JD: Mycobacterium tuberculosis isocitrate lyases
+      1 2 jointly required vivo growth virulence. Nat Med
+      2005, 11:638-644.
+35.   Schnappinger D, Ehrt S, Voskuil MI, Liu Y, Mangan JA, Monahan IM,
+      Dolganov G, Efron B, Butcher PD, Nathan C, Schoolnik GK: Transcriptional
+      Adaptation Mycobacterium tuberculosis Macrophages: Insights
+      Phagosomal Environment. J Exp Med 2003, 198:693-704.
+36.   Sharma V, Sharma S, Hoener zu Bentrup K, McKinney JD, Russell DG,
+      Jacobs WR Jr, Sacchettini JC: Structure isocitrate lyase, persistence
+      factor Mycobacterium tuberculosis. Nat Struct Biol 2000, 7:663-668.
+37.   Beste DJ, Hooper T, Stewart G, Bonde B, Avignone-Rossa C, Bushell 
+      Wheeler P, Klamt S, Kierzek  McFadden J: GSMN-TB: web-based
+      genome-scale network model Mycobacterium tuberculosis metabolism.
+      Genome Biol 2007, 8:R89.
+38.   Fong SS, Palsson BØ: Metabolic gene-deletion strains Escherichia coli
+      evolve computationally predicted growth phenotypes. Nat Genet 2004,
+      36:1056-1058.
+39.   Purohit HJ, Cheema S, Lal S, Raut CP, Kalia VC: Search Drug Targets
+      Mycobacterium tuberculosis. Infect Disord Drug Targets 2007, 7:245-250.
+40.   Green ML, Karp PD: Bayesian method identifying missing enzymes
+      predicted metabolic pathway databases. BMC Bioinformatics 2004, 5:76.
+41.   Indira M, Sirsi M: Nutritional studies Mycobacterium tuberculosis–
+      effect amino acids  vitro’ growth Mycobacterium
+      tuberculosis. Indian J Tuberculosis 1960, 7:75-82.
+42.   Krulwich TA, Pelliccione NJ: Catabolic pathways coryneforms,
+      nocardias, mycobacteria. Annu Rev Microbiol 1979, 33:95-111.
+
+  doi:10.1186/1752-0509-5-91
+  Cite article  Ip et al.: Analysis complex metabolic behavior
+  pathway decomposition. BMC Systems Biology 2011 5:91.
+
+
+
+
+                                                                                    Submit manuscript BioMed Central
+                                                                                    advantage 
+
+                                                                                    • Convenient online submission
+                                                                                    • Thorough peer review
+                                                                                    • space constraints color figure charges
+                                                                                    • Immediate publication acceptance
+                                                                            

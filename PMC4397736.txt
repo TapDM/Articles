@@ -1,0 +1,373 @@
+
+Predicting internal cell fluxes sub-optimal
+growth
+
+
+
+  Abstract
+  Background: Flux Balance Analysis (FBA) widely used tool model metabolic behavior cellular function.
+  Applications FBA span breadth research synthetic engineering biofuels understanding evolutionary
+  adaptations. FBA predicts metabolic reaction fluxes optimize given objective. objective generally defined
+  unicellular organisms theoretical reaction simulates biomass production. FBA extremely
+  successful predicting E. coli growth rates different media gene essentiality, things.   order improve predictions, additional constraints coupled optimization biomass function. Studies
+  suggested,  unicellular organisms - like multicellular organisms - grow optimal rates.   improve FBA predictions, particularly internal cell fluxes, new techniques explore sub-optimal
+  solution space need developed.
+  Results: present innovative FBA method called corsoFBA based optimization protein cost   sub-optimal objective levels. method shows good agreement experimental data E. coli grown different
+  dilution rates. Maintaining objective function close maximum value predicts metabolic states closely
+  resemble low dilution rates; higher dilution rates mirrored lowering biomass production value.   using modified version Extreme Pathways, able quantify energy production overall protein
+  cost possible pathways central carbon metabolism.
+  Conclusion: Metabolic flux distributions optimal objective substantially different near-optimal
+  distributions. Importantly, behavior E. coli central carbon metabolism better predicted exploring   sub-optimal FBA solution space. corsoFBA method presented able predict behavior PEP
+  Carboxylase, glyoxylate shunt Entner-Doudoroff pathway different glucose levels, behavior   predicted minimization metabolic steps FBA  technique used better predict internal
+  cell fluxes different conditions, corsoFBA great help study cells multicellular
+  organisms using Flux Balance Analysis.
+  Keywords: Flux balance analysis, COBRA, BiGG, Genome-wide metabolic reconstructions, Constraint based models,
+  Extreme pathways, Sub-optimal growth, Protein cost
+
+
+Background                                                                          formulation reconstructions called Constraint
+Genome-wide metabolic reconstructions provide pow-                                Based Models. models defined core erful platform analysis metabolic pathways.                              sparse stoichiometric matrix, column repre-
+Reconstructions different species                           sents reaction, row metabolite, entry spanning fifty different genera, including humans                               corresponding stoichiometric coefficient.
+[1,2], available today [3]. reconstructions                             vast array computational methods analysis used successfully fields research,                               Constraint Based Models available, num-
+including metabolic engineering, evolutionary analysis                              ber continues grow [5,6]. widely used metabolic network properties [4]. mathematical                              methods Flux Balance Analysis (FBA). FBA
+                                                                                    returns flux distribution entire metabolism
+*Correspondence: as86@rice.edu                                                      optimizes (minimizes maximizes) given objec-
+Department Bioengineering, Rice University, 6500 Main Street, Houston, USA
+                                                                                    tive function reaction, ATP biomass
+
+                                        漏 2015 Schultz Qutub; licensee BioMed Central. Open Access article distributed terms Creative
+                                        Commons Attribution License (http://creativecommons.org/licenses 4.0), permits unrestricted use, distribution,                                         reproduction medium, provided original work properly credited. Creative Commons Public Domain Dedication
+                                        waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies data available article, unless                                         stated.
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                   Page 2 12
+
+
+
+
+production. flux distribution satisfies steady-state      thermodynamic cost, miss key biological
+assumption, net production          factors govern metabolism [16,28-33].
+sumption metabolite. pre-defined set                Significant efforts directed inte-
+straints, upper lower bounds reaction       grating omics data FBA [34-38], generally low substrate availability, defined [7].                 correlation gene expression associated
+  technique commonly applied metabolic           reaction flux makes challenging field [34]. 
+reconstructions unicellular organisms opti-           predictive power integrated omics-FBA
+mization theoretical Biomass reaction. reaction        models limited, experimental data needed consumes resources amino acids, nucleotides          predict fluxes.
+ATP rate given organism need order              recent studies relied theory E. grow multiply [8,9]. FBA predicted           coli chooses pathways based minimization E. coli uptake release rates certain metabolites      protein cost [39,40] number metabolic steps [41].
+[10-12], cell growth rate different environmental          successful methods based assumptions
+conditions [10,11] gene essentiality [10] great         proposed, include minimization net
+success.  prediction internal cell fluxes         metabolic flux [12], minimization number steps
+remains challenge [13], mainly reasons:            metabolism [28,42,43] enzymatic level 
+                                                                 straints [44-49]. alternative method utilizes Elemen-
+  1. FBA solution unique.           tary Modes pre-define directionality reactions,
+     fluxes model defined,      reducing FBA solution space [50].
+     exist certain bounds objective            methods successful improving
+     function optimized [7]. fluctuations         predictions growth rate, substrate usage internal
+     define FBA solution space,            cell fluxes unicellular organisms. studies      single, unique output.                                      suggested,  unicellular organisms reality
+  2. Organisms operating maximum                 grow rates lower predicted FBA      capacity [14-18]. case, objective function      [14-17]. mentioned methods
+     fully optimized, instead           predict growth rates lower standard FBA,      near-optimal sub-optimal state. Furthermore, Flux        rely implementing additional constraints opti-
+     Variability Analysis shows FBA solution            mization objective function. Furthermore,      space increases drastically considering              approach successfully implemented      near-optimal optimal state [18], exacerbating        study cancer cells [49], objective function      possibility multiple FBA solutions.                      likely hold true analysis healthy multicellular
+  3. observed metabolic state unique.       organisms, like mammals, healthy cells systems
+      single flux distribution explain       complex objectives simply grow      flux states observed experiments, variation      multiply.
+     occurs bacterial population. Wintermute             Additionally, step optimization methods      et al. [19] proposes cloud theory metabolic regu-     additional constraints return single flux distribution,
+     lation, bacteria allowed fluctuate      unable explore near-optimal solution
+     near-optimal solution space. study demon-        space. limitation significant given recent study
+     strates variability fluxes region   suggested flux distribution E. coli vary freely
+     matches observed variability data.           near-optimal space [19].  order   4. Thermodynamically                                           improve FBA predictions, especially field
+     infeasible loops appear FBA output.        expands include multicellular organisms, new tech-
+     sets pathways termed 鈥渢ype III pathways 鈥?            niques explore sub-optimal solution space need
+     [20], composed internal reactions              developed.
+     combined yield steady-state              address need, propose step optimiza-
+     net input output. cycles clutter        tion FBA method predicting internal fluxes, termed
+     FBA output, hindering subsequent analysis [5].          COst Reduced Sub-Optimal FBA (corsoFBA),                                                                  suitable sub-optimal objectives. impos-
+  better predict internal fluxes, studies           ing additional constraints optimizing objective
+relied additional thermodynamic constraints [21].         function, fix objective predefined value.
+eral studies successfully reduce FBA solution       estimated protein cost metabolism
+space, leave variety states         minimized order predict internal cell
+thermodynamically feasible, physiologically improba-         fluxes. varying biomass production value, ble [22-27]. studies rely optimization         able predict changes pathway usage depend
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                                   Page 3 12
+
+
+
+ changes conditions, particularly glucose                            temperature. molecular weight term included availability. method suited                       represent resources needed order pro-
+predicting growth rates, able predict metabolic                       duce sufficient enzymes maintain asso-
+flux distributions near-optimal solution space.                        ciated reaction flux. thermodynamic penalty, applied
+Furthermore, decomposing model using adapted                          reversible reactions, represents cost associ-
+version Extreme Pathway analysis, able                         ated change concentration metabolites
+break energy production pathways                           required reaction flow desired direc-
+understand model behavior glucose concentrations                         tion.  reaction positive r Go require
+change. validate methods using E. coli                            large disparity concentration associated
+model organism.                                                                 metabolites, cost term multiplied positive
+                                                                                number larger  hand, r Go Methods                                                                         negative, reaction favorable, cost
+Cost calculation implementation                                             term multiplied positive number zero methods successful predicting inter-                         given little metabolic adjustment nec-
+nal cell fluxes based theory E. coli                      essary. worth noting thermodynamic cost subject protein cost constraint [44-49].                        does directly represent change enzyme concentra- methods available literature, cor-                       tion, increase decrease overall cost
+soFBA, summarized Table 1. explore                             associated reaction based standard Gibbs
+similar principle, calculate protein cost reac-                    free energy. Furthermore, term applied separately
+tion based net flux reaction (J),                        forward backward directions reversible reac-
+enzyme molecular weight (MW ), thermodynamic                              tions, favoring direction negative standard Gibbs
+penalty reversible reactions. cost term used                         free energy. similar thermodynamic cost, used 
+corsoFBA defined                                                          molecular weight considerations, applied                             
+                  伪 路 r Go                                                    Holzh眉tter [28], weighing fluxes directed     J路MW 路exp                                                                   thermodynamically unfavorable direction.
+                    R路T                                                                                                                 mol
+                                                                                  Finally, parameter 伪 chosen 0.02RT kcal      ,
+  r Go standard Gibbs free energy                         making final thermodynamic cost simply:
+given reaction, R ideal gas constant T                                                     
+                                                                                                      o mol
+                                                                                    exp 0.02 路 r G             .
+                                                                                                         kcal
+Table 1 Optimization methods additional constraints
+Method                             Enzymatic cost                  Constraint
+                                                                                  value chosen order balance contribution
+                                                                               molecular weight thermodynamic penalty, yield-
+FBAwMC [44]                          ai Ji                         鈮?
+                                   
+                                                                                ing prediction considering costs (Additional file 1:
+MOMENT [46]                          gi 路 MWi                      鈮           Figure S1). parameter, exponen-
+                                             
+Tepper et al. [47]                   Mi + 未 路 gi                   minimize     tial nature thermodynamic penalty, term                                     MWi Ji                                     quickly approach extremely large numbers  positive
+Shlomi et al. [49]                                                 鈮
+                                                                                values r Go ) zero  negative values r Go ),                                         kcati
+                                   
+Holzh眉tter [28]                        Ji++ keqi 路 Ji鈭?            minimize
+                                                                             thermodynamic cost essentially consid-
+                                                      伪路r Go
+corsoFBA                             Ji 路MWi 路exp       R路T
+                                                                                                                               minimize     ered. case, reaction directionality essentially
+                                 Variables                                      predetermined based solely standard Gibbs free - crowding coefficient                                                        energy, problematic.
+                                                                                  Gibbs free energy reactions estimated J - flux reaction
+                                                                                MetaCyc database [51] change Gibbs energy
+g - enzyme concentration                                                        formation reaction compounds. Molecular
+MW - molecular weight associated enzyme                                      weight values obtained 506 523 (96.75 )
+M - metabolite levels                                                           enzyme catalyzed reactions E. coli iJR904 recon-
+未 - model parameter                                                             struction [52]. values extracted kcat - turnover number
+                                                                                BRENDA database [53] available. E. coli mea-
+                                                                                surements available, extracted values
+keq - thermodynamic equilibrium constant
+                                                                                organism closely related E. coli. small
+C - fraction dry weight mass associated proteins                        number molecular weights estimated methods calculate overall cost metabolism summing       EcoCyc database [54], remaining 17 values individual costs associated reaction. previous methods used constrain FBA solution, corsoFBA optimizes cost   defined median calculated values. Additional
+given growth rate.                                                              information concerning standard Gibbs free energy
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                 Page 4 12
+
+
+
+ reactions, protein molecular weights protein cost         applied small networks. number calculations supplemental information        pathways obtained methods, (Additional file 2, Additional file 3 Additional file 4:     computational cost analyses, increase expo-
+Table S1).                                                       nentially size reconstruction [5,59].   protein cost term scales linearly           large-scale metabolic reconstructions, decomposi-
+flux associated reaction, incorporated        tions quickly impractical tools. propose
+molecular weight thermodynamic cost directly            modified version Extreme Pathways yields model. enzyme associated reactions split       significantly lower number pathways decom-
+forward backward parts, cost added          position. pathways associated pro-
+produced metabolite:                                             tein cost ATP production potential, helps
+                                                                 elucidate model behavior value objective
+   Initial Reaction
+                                                                 function varies.
+   rxn : + B 鈬?鈬?C + D                                             large number pathways stems par-
+   Reactions cost                                           tially need balance pathway steady-
+                                                    
+                                       伪 路 r Gorxn             state, metabolite net production    rxnf : + B 鈬?C + D + MWrxn 路exp                             consumption rate. Certain metabolites,  known
+                                           R路T
+                                                               currency metabolites, responsible basic cell
+                                       鈭捨?路 r Gorxn
+   rxnb : C + D 鈬 + B + MWrxn 路exp                             functions occur numerous reactions model.
+                                            R路T                  Standard reactions involving metabolites,    reaction consumes produced metabolite            ATP hydrolysis, obtained different com- added model. original reac-          binations model reactions. combinations,
+tion model produces cost rate relative   loops, used multiple times absolute flux, added reaction       purpose, increasing number pathways consume cost. Minimizing flux reac-        essentially core reactions.
+tion return flux distribution lowest         phenomenon illustrated Extreme Path-
+enzyme associated cost achieve predefined biomass         ways analysis applied pathway set reac-
+production value. Reactions associated enzyme            tions presented Figure 1. pathway depicted given cost zero.                                       Figure 1A production energy 
+   methods applied E. coli iJR904 recon-       version glucose lactate, produces mols
+struction [52]. simulations glucose uptake        ATP mol glucose. Reaction names bound set arbitrary value. Uptake bounds           extracted E. coli reconstruction Orth et al.
+CO2 , Fe2 , H2 O, H, Na, NH4 , O2 , Phosphate, SO4      [60]. Figure 1B illustrates loops reactions present set arbitrarily large values, larger glu-       reconstruction hydrolyze ATP, cose uptake bound, considered present             combined reactions Figure 1A pro- excess. exchange reactions release bounds set        duce pathway satisfying ATP steady-state condition. arbitrarily large values glucose, formate      Furthermore, ATPS4r introduces proton imbalance
+O2 , set zero. Predicted flux values          hydrolyzing ATP. imbalance cor- normalized flux glucose glucose-        rected proton transport loops presented
+6-phosphate overall flux enzyme associated            Figure 1B. combination pathway reactions.                                                       given loops multiple Extreme Pathways    worth noting protein cost term does       essentially core reactions; represent account enzyme turnover rates substrate affin-        phenomenon - conversion glucose lactate
+ity. opted cost term kinetic          glycolysis.
+parameters enzymes extremely difficult obtain             order extract core reactions path-
+experimentally, vary greatly based pH temper-         way, remove selected set currency metabo-
+ature values. Furthermore, simplification constant      lites reconstruction. removal reduces turnover rate substrate affinity enzymes         number pathways obtain Extreme Pathway shown yield significant results [39].                    analysis. metabolite removal performed                                                                  certain considerations:
+Fundamental pathways analysis
+Different methods proposed characterize               1. Metabolites removed completely deleted decompose FBA solutions space [5,55], includ-                 reactions compartments model.
+ing Elementary Modes [56,57], Extreme Pathways [20]                   Removing metabolite reaction Minimal Generators [58].  tools                block certain reactions, fewer
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                                         Page 5 12
+
+
+
+
+ Figure 1 Metabolic loops increase pathway multiplicity.   Pathway converting 1 mol glucose 2 mols lactate producing 2 mols  ATP. Reaction fluxes represented parentheses. Extracellular metabolites defined [e]. metabolites cytosolic space.
+ (B) Network loops reactions hydrolyze ATP transport protons cell membrane. reactions loops used  balance reactions  , yielding multiple balanced pathways set backbone reactions.
+
+
+
+
+     options balance metabolite present                     removal currency metabolites reconstruc-
+     reconstruction.                                                  tion. reactions   yield ATP,
+  2. reaction sink source                           ADP, phosphate, proton water imbalances orig-
+     metabolites. Allowing reactions sinks                      inal model. Fundamental Pathways analysis,      sources introduce exchange reactions                          resulting fundamental pathway associated      certain metabolites, affecting model                                imbalance, used analyze      decomposition.                                                          pathway. study, imbalance used analyze
+  3. Reactions removed reconstruction                        ATP production capacity pathway obtained.
+     contain metabolite      removed reconstruction. removal                         Results discussion
+     reactions remove pathway                          Comparison different cost functions
+     uses reactions balance metabolite                 Cost-optimal flux simulations performed using      model.                                                              different types cost: (1) molecular weights  (2)
+                                                                             thermodynamic penalties  (3) previously men-
+  aware considerations                      tioned combination molecular weights thermo-
+modifying model, breaking specifications                    dynamic penalties (4) uniform costs. use invalidate Fundamental Pathway analy-                         uniform costs gives simple minimization 
+sis. model decomposition performed,                       flux enzyme associated reactions. limitations considered.                         minimization strategy modified version widely illustrated Fundamental Pathways method using                      regarded step optimization method called pFBA [12]. E. coli model Orth et al. [60], demon-                       pFBA previously used predict unique flux
+strated original pathways recovered                       distributions predicted FBA optima.
+adding identified loops. analysis                         Simulations comparing costs  supplemental information (Additional file 5                     formed growth rates ranging 50 100  Additional file 6: Table S2).                                            predicted optima. Flux distributions normalized   obtain fewer pathways tailored recon-                     flux glucose glucose-6-phosphate, results
+struction, set reactions associated                       central carbon metabolism reactions imbalance original model. example, instead                        supplemental information (Additional file 7: multiple Extreme Pathways, set reactions                        Figure S2). simulations using molecular weights,
+Figure 1A yield single fundamental pathway                     thermodynamic costs, combination present
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                 Page 6 12
+
+
+
+
+considerably different flux distributions different sub-      [16,63]. ATP production optimization lead optimal values, simulations using uniform costs quickly          higher fluxes TCA cycle lower PPP fluxes.
+converge unique flux distribution objective          worth noting  fluxes value lowered.                                                TCA cycle predicted according Figure 2,
+   set simulations compared          MFA experimental results inconsistent, eral data points Metabolic Flux Analysis (MFA)          predicted TCA fluxes good agreement experiments: Ishii et al. [61] Yao et al. [62]. Correla-     MFA studies [64,65].
+tion sum squared error simulated             simulations mirror behavior known 
+experimental flux distributions central carbon       flow metabolism [66], E. coli, high growth rates,
+metabolism reactions calculated. results          moves away oxidation glucose presented supplemental information (Additional            TCA cycle uses ATP efficient pathways,
+file 8: Figure S3). similar method used             releasing acetate instead CO2 . simulations support
+Holzh眉tter [28] included Additional file 8:          hypothesis behavior stems trade-
+Figure S3. pFBA simulations yield highest cor-         enzyme cost energy yield [40]. 
+relation values suboptimal space compared         glucose available, E. coli uses higher flux Ishii et al. dataset, simulations yield      pathways enzymatically costly, highest sum squared error. Furthermore,          produce fewer ATP mmol glucose.
+objective function lowered 100  65              Predicted fluxes using molecular weights optima, corsoFBA yields lowest sum squared error          combined cost excellent agreement data points (Ishii et al. dilution    experimental values reactions PPC (PEP Carboxy-
+0.7h-1 ), highest correlation values higher      lase) ICL (Isocitrate Lyase)[61,62]. experiments
+dilution rates Yao et al. data (dilution = 0.4, 0.6   decrease ICL flux increase PPC
+0.7h-1 ).                                                        flux, near-optimal conditions growth rate 0.5
+                                                                 h-1 . result supported experimental
+Comparison metabolic flux analysis                   results Nanchen et al. [67], lower flux
+simulated fluxes                                                 ICL growth rate approximately 0.05 order visualize trend different fluxes          h-1 compared growth rate 0.1 h-1 , suggest-
+change sub-optimal space, simulations utilizing           ing transient response pathway glucose
+molecular weight costs, thermodynamic costs com-           concentration increases. transient response bination  normalized flux glucose        simulations. results suggest E. glucose-6-phosphate, plotted alongside exper-        coli utilizes anaplerotic reactions (reactions respon-
+imental values MFA experiments. Fluxes              sible forming intermediates metabolic pathways) plotted starting 100  75  pre-            relieve enzymatic cost, considering dicted optima, results central car-          costs FBA increase internal flux predictions
+bon metabolism reactions presented Figure 2.          comparing minimization metabolic steps
+threshold 75  chosen order match trend          
+observed simulations experimental data                Simulation results suggest optimization [61,62].                                                         biomass function yield fluxes fundamen-
+  objective function value decreases, corsoFBA            tally different near-optimal conditions. flux distributions close agreement MFA data            optimal growth, predicted flux higher growth rates (Figure 2), particularly simu-       glyoxylate shunt, considerably lower fluxes lations considering thermodynamic molecular             TCA cycle PPP, flux PPC reaction
+weight costs. Fluxes Pentose Phosphate Path-         present near-optimal conditions. com-
+way (PPP) Glycolysis remain relatively constant,       parisons experimental data simulated flux flux TCA cycle gradually decreases.          distributions highest correlation low-
+decrease TCA cycle usage leads higher levels            est error optimal growth, simulations
+acetate release. Quantitatively, fluxes glycol-      indicate implementation costs yield
+ysis TCA cycle slightly predicted           comparable results sub-optimal space (Additional simulations, flux PPP gener-        file 8: Figure S3).  suboptimal corsoFBA
+ally predicted. Similar patterns observed         approach better predict fluxes certain reac- FBA method approaches [33,45,48],              tions, PPC ICL. previous studies arise optimization biomass func-           shown FBA solution space increases drastically
+tion  optimization ATP production             considering objective function near-optimal biomass shown yield better predictions          optimal values [18], optimization
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                                       Page 7 12
+
+
+
+
+ Figure 2 Comparison simulations MFA experiments. Comparison selected simulated fluxes using molecular weights,
+ thermodynamic penalties, combination costs, Metabolic Flux Analysis (MFA) data. Fluxes normalized glucose  glucose-6-phosphate conversion rates. X-axes values kept constant plots. Reaction names taken Ecoli iJR904 model [52].
+ Yellow boxes indicate Pentose Phosphate Pathway (PPP), blue indicates glycolysis, green indicates TCA cycle red indicates reactions.
+
+
+ enzymatic cost near-optimal conditions yields                     (Additional file 9: Figure S4). Predictions using uniform
+results consistent experimental data                     costs quickly diverge experimental data. sim- certain reactions. result strongly suggests                   ulations support 鈥渃loud theory鈥? proposed exploring FBA solution space near-optimal opti-                   Wintermute et al. [19], suggest experimental
+mal objective values increase predictive accuracy                   data good agreement near-optimal flux internal cell fluxes.                                                    distributions.
+  near optimal solution space analyzed knockout strains. Flux distributions E. coli knock-                 Comparison gene expression data simulated strains reported Ishii et al. [61] compared                  fluxes
+cost-optimal simulations using combined cost func-                      validate analysis, simulations using tion. Results cost-optimal flux distribution                      combined cost function compared gene 95  optimal yield similar better predictions                     expression values reported MFA studies [61,62].
+according correlation sum square error                       overall correlation reaction flux Schultz Qutub BMC Systems Biology (2015) 9:18                                                                                    Page 8 12
+
+
+
+
+gene expression moderate best [34], increased                       decreased flux TCA cycle, supported expression genes participating particular path-               relative gene expression associated path-
+way considered good indication increased flux                 ways [68].
+[68]. Simulations performed                          Simulated values good agreement fluxes
+ditions  utilizing combination molecular                 Entner-Doudoroff (ED) pathway. Genes edd
+weights thermodynamic penalty, time flux                 eda, associated pathway, long distribution normalized overall flux                   known exist E. coli [69], activity enzyme associated reactions. Comparisons                      associated reactions observed mainly simulated values gene expression data shown                    growth gluconate, glucuronate, methyl-beta-D-
+Figure 3.                                                                 glucuronide; phosphate limitation; carbon starvation
+  gene expression data inconsistent                  [70]. fact, reactions generally experiments, reactions associated                    included MFA experiment networks. contrast with multiple genes, comparison supports                     Murray et al., simulations using molecular weight qualitative results presented previous section.                combined costs predict use ED pathway normalizing predicted fluxes overall flux                 excess glucose conditions, starvation (Additional enzyme associated reactions, increased                     file 7: Figure S2). predictions supported relative uptake glucose observed objective                   genetic data presented MFA studies [61,62],
+value decreases. result, increased relative flux                  increase edd eda expression high glycolysis predicted. Furthermore,                    glucose concentrations, MFA experimental results relative flux TCA cycle decreases                    Harcombe et al. [71], fluxes ED path- growth rate increases. increase relative glu-                  way measured bacteria growing growth rates
+cose uptake flux glycolysis,                   1 h-1 .
+
+
+
+
+ Figure 3 Comparison simulations gene expression data. Comparison selected simulated fluxes, using combination  molecular weights thermodynamic penalties, associated gene expression. Plot axes ones defined ptsG plot
+ unless specified. Multiple genes associated reaction included box. Reaction names taken E.
+ coli iJR904 reconstruction [52]. Yellow boxes indicate Pentose Phosphate Pathway, blue indicates glycolysis, green indicates TCA cycle red
+ indicates reactions.
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                                       Page 9 12
+
+
+
+
+Fundamental pathways analysis                                               total cost associated pathway. final ATP better understand transition metabolic                       production enzymatic cost compared states value objective function decreased,                 potential ATP production mmol glucose (Figure 4). energy producing pathways E. coli iJR904 recon-                    accordance general E. coli metabolism knowl-
+struction decomposed using Fundamental Path-                       edge, fundamental pathway analysis opti-
+ways analysis described Methods section. Details                     mal pathways (OP), according ATP production reactions calculated                         mmol glucose protein cost. energy pro- supplemental information (Additional file 5                      ductive pathway oxidation glucose Additional file 6: Table S2). Briefly, starting ATP                TCA cycle (OP2 ). cost efficient pathway imbalance associated fundamental pathway,                     production acetate glycoly-
+total ATP potential pathway estimated based                     sis (OP1 ). pathway potentially produces imbalance energy generating metabolites,                    half ATP OP2 , total enzymatic NADH Ubiquinol-8. lowest cost                        cost mmol ATP lower. agreement verting metabolites ATP added                        general knowledge, analysis predicted release 
+
+
+
+ Figure 4 Fundamental pathway analysis. ATP production potential energy producing fundamental pathways, compared associated
+ protein cost mmol ATP. Optimal (OP) Near Optimal (NOP) Pathways highlighted scatter plot. OPs plotted blue  NOPs red central carbon metabolism diagrams.
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                                  Page 10 12
+
+
+
+
+acetate efficient release lactate       Conclusion ethanol.                                                        present corsoFBA, method analyzing    simulations presented previous sections,             predicting metabolic flux distributions sub-optimal
+gradual transition OP2 OP1 observed               states based protein thermodynamic cost mini-
+objective function value decreases. trend sup-            mization. CorsoFBA demonstrates optimization
+ports idea overflow metabolism takes place              protein cost near-optimal states produce sig-
+order alleviate enzymatic cost. low glucose            nificantly different results optimal
+ditions, E. coli need extract glucose             objective. Furthermore, correlation error
+largest possible energy order sustain               calculations indicate better predictions optimal
+growth. glucose available,                  solution, protein-optimal results sub-optimal objec- bacteria afford consume substrate              tives better agreement MFA experiments produce energy cheaper pathways.                            gene expression profiles anaplerotic reactions.    interesting observation analysis            results suggest important explore sub-optimal
+existence Near Optimal Pathways (NOP), com-                FBA space order better predict internal cell fluxes.
+bine previously described optimal pathways             method described suited pre-
+PPP ED pathways. NOP2 NOP3 produce                      dicting growth rates, provides platform analyzing ATP mmol glucose OP1                 internal cell fluxes sub-optimal space.
+OP2 , remaining cost efficient OP1                believe corsoFBA particularly useful given
+slightly OP2 . NOP2 NOP3 reduce                recent studies suggested E. coli exist freely flux upper glycolysis partially routing           near-optimal space [19]. believe method
+flux PPP, exhibit flux              useful predicting fluxes healthy, multicellu-
+Phosphoglucose isomerase (pgi). Near Optimal                lar organisms, complex objectives Pathway, termed NOP1 , skips upper glycolysis           production biomass. Future studies merited ED pathway. pathway cost energy           explore predictive power methods effective OP1 .                                                optimize objective function enzymatic level
+   use near optimal pathways explain             constraints, MOMENT [46] FBAwMC [44], inconsistent PPP fluxes reported MFA experi-             benefit exploring sub-optimal solu-
+ments considered  short recovery simulated            tion space. results suggest significant conclusions
+PPP flux near growth rate 0.65 h鈭? (Figure 2) demon-           drawn adapting methods optimize strates pathway viable option certain dilu-       enzymatic cost implement near-optimal space,
+tion rates, coupling PPP biomass            using simply model constraint.
+production. demonstrated pfkA
+deficient E. coli strains reduce flux Phosphofruc-
+tokinase 1 diverting fluxes PPP [72],          Additional files
+using NOP2 NOP3 instead OP1 OP2 cost upper glycolysis increased.                          Additional file 1: Figure S1. Sensitivity analysis parameter 伪. Model
+                                                                     simulations ranging 100 75  optima varying values 伪.
+   Fundamental Pathway analysis elucidates               Simulations performed using thermodynamic costs expect model behave terms energy gen-             combined costs.
+eration optimize protein cost sub-optimal               Additional file 2: Gibbs free energy change distribution. File showing
+states. Based analysis, order fulfill catabolic    plot distribution Gibbs free energy change reactions
+                                                                     considered.
+needs, model transitions OP2 OP1                                                                      Additional file 3: Molecular weight cost calculation. Details away optimal growth. fact               Molecular weight values obtained final costs calculated.
+general trend observe, anaplerotic needs need             Molecular weights final costs distribution plotted. considered. needs addressed efficiently            Additional file 4: Table S1. Thermodynamic, molecular weight final reactions OP1 OP2 , PEP carboxy-                cost values. Table includes values used simulations: Gibbs energy
+                                                                     formation metabolites, calculated Gibbs energy change lase glyoxylate shunt. Interestingly, model              reactions based metabolite energy formation molecular weights predicts use ED pathway anaplerotic             obtained databases.
+purposes high growth rates. pathway                Additional file 5: Fundamental pathway analysis. Example studied catabolic activity  mobilis         demonstrating recovery Extreme Pathways adding reactions loops
+                                                                     Fundamental Pathways. Details fundamental Pseudomonas species, simulations pre-               pathway analysis presented manuscript performed dict pathway cheapest way glucose              available.
+shuttled TCA cycle production building             Additional file 6: Table S2. Model decomposition. Extreme Pathways blocks, giving little efficiency energy pathways         Fundamental Pathways calculated analysis presented                                                                      manuscript pathway recovery analysis Additional file 5. NOP1 .
+Schultz Qutub BMC Systems Biology (2015) 9:18                                                                                                      Page 11 12
+
+
+
+
+                                                                                    
+ Additional file 7: Figure S2. Cost values comparison. Cost-optimal
+                                                                                       
+ simulations using molecular weights  thermodynamic penalties
+                                                                                     
+  combination uniform costs presented major
+                                                                                   
+ central carbon metabolism reactions range 100 50                                                                                     
+ maximal growth.
+                                                                               
+ Additional file 8: Figure S3. Error correlation calculations.                      
+ Correlation sum squared error calculated simulated        
+ experimental flux distributions major central carbon metabolism                  
+ reactions.                                                                            
+ Additional file 9: Figure S4. Error correlation calculations              
+ knockout strains. Correlation sum squared error calculated                  
+ MFA experimental data simulated flux distributions using                
+ combined cost function knockout strains.                            
+TCA: Tricarboxylic acid; FBA: Flux balance analysis; PPP: Pentose phosphate                
+pathway; MFA: Metabolic flux analysis; ED: Entner-Doudoroff; glc: glucose; g6p:    
+glucose-6-phosphate; f6p: fructose-6-phosphate; fdp: fructose-1,6-                      
+biphosphate; dhap: Dihydroxyacetone phosphate; g3p: Glyceraldehyde                     
+3-phosphate; 13dpg: 3-Phospho-D-glyceroyl phosphate; 3pg: 3-Phospho-D-            
+glycerate; 2pg: D-Glycerate 2-phosphate; pep: Phosphoenolpyruvate; pyr:                 
+Pyruvate; accoa: Acetyl-CoA; actp: Acetyl phosphate; ac: Acetate; cit: Citrate;        
+icit: Isocitrate; akg: 2-Oxoglutarate; succoa: Succinyl-CoA; succ: Succinate; fum:   
+Fumarate; mal-L: L-Malate; oaa: Oxaloacetate; 6pgl:                                       
+6-phospho-D-glucono-1,5-lactone; 6pgc: 6-Phospho-D-gluconate; ru5p-D:                    
+D-Ribulose 5-phosphate; r5p: alpha-D-Ribose 5-phosphate; xu5p-D:                    
+D-Xylulose 5-phosphate; s7p: Sedoheptulose 7-phosphate; e4p: D-Erythrose                  
+4-phosphate; 2ddg6p: 2-Dehydro-3-deoxy-D-gluconate 6-phosphate.                           
+ 

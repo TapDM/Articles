@@ -1,0 +1,282 @@
+The Activity Reaction Core Plasticity Metabolic Networks
+Eivind Almaas1,2, Zolta´n N. Oltvai3*, Albert-La´szlo´ Baraba´si2,4
+1 Microbial Systems Division, Biosciences Directorate, Lawrence Livermore National Laboratory, Livermore, California, United States America, 2 Center Complex
+Network Research Department Physics, University Notre Dame, Notre Dame, Indiana, United States America, 3 Department Pathology, University Pittsburgh
+School Medicine, Pittsburgh, Pennsylvania, United States America, 4 Center Cancer Systems Biology, Dana-Farber Cancer Institute, Harvard University, Boston,
+Massachusetts, United States America
+
+
+Understanding level adaptive changes taking place organism response variations environment key issue contemporary biology. Current modeling approaches, constraint-based flux-
+balance analysis, proved highly successful analyzing capabilities cellular metabolism, including capacity predict deletion phenotypes, ability calculate relative flux values metabolic reactions, capability identify properties optimal growth states.  use flux-balance analysis thoroughly assess activity Escherichia coli, Helicobacter pylori, Saccharomyces cerevisiae metabolism 30,000 diverse simulated
+environments. identify set metabolic reactions forming connected metabolic core carry non-zero fluxes growth conditions, flux variations highly correlated. Furthermore, enzymes
+catalyzing core reactions display considerably higher fraction phenotypic essentiality evolutionary
+conservation catalyzing noncore reactions. Cellular metabolism characterized large number species-specific conditionally active reactions organized evolutionary conserved, active,
+metabolic core. Finally, current antibiotics interfering bacterial metabolism target core
+enzymes, indicating findings important implications antimicrobial drug-target discovery.
+Citation: Almaas E, Oltvai ZN, Baraba´si (2005) activity reaction core plasticity metabolic networks. PLoS Comput Biol 1(7): e68.
+
+
+                                                                                          changes induce structural plasticity, resulting Introduction
+                                                                                          changes metabolism’s active wiring diagram, turning
+  Constraint-based modeling approaches, ﬂux-bal-                                  previously zero-ﬂux reactions inhibiting previously
+ance analysis (FBA) [1,2], proved highly successful                               active pathways. example, shifting E. coli cells analyzing capabilities cellular metabolism, including                          glucose- succinate-rich media, 11 previously active
+capacity predict deletion phenotypes, ability                                   reactions turned completely, previously
+calculate relative ﬂux values metabolic reactions,                             inactive reactions turned  capability identify properties alternate optimal                                   types response mechanisms described ﬂux
+growth states wide range simulated single-carbon-                                 structural plasticity imply possible existence source environmental conditions [3–5]. Recent analyses                               group reactions subject structural plasticity,
+indicate deletion phenotype substantial subset                           active environmental conditions. 
+metabolic enzymes growth-condition-dependent [6], argu-                                metabolic reactions carry non-zero ﬂuxes
+ing selective use metabolic reactions distinct                                S. cerevisiae different growth conditions [6]. environments.                                                                             itself,  �?nding compatible scenario                                                                                           active reactions randomly distributed: Results                                                                                   typically q fraction metabolic reactions active
+                                                                                          speci�?c growth condition, n distinct conditions
+   thoroughly examine utilization relative ﬂux                                 predict non-zero overlap encompassing qn
+rates metabolic reaction wide range simulated                             fraction reactions.  �?nd increase
+environmental conditions, sampled 30,000 randomly                                  number inspected conditions, n, number uniformly chosen optimal growth conditions, single-carbon-source minimal medium conditions suf�?cient
+                                                                                          Received June 27, 2005; Accepted November 2, 2005; Published December 16, growth, using FBA [1,2] reconstructed metabolic                                2005
+networks Helicobacter pylori, Escherichia coli, Saccharomyces                      DOI: 10.1371/journal.pcbi.0010068
+cerevisiae [7–9]  Materials Methods).                               Copyright: Ó 2005 Almaas et al. open-access article distributed assuming optimal growth microorganisms,                                 terms Creative Commons Attribution License, permits unrestricted
+                                                                                          use, distribution, reproduction medium, provided original author metabolism adapts environmental changes                                  source credited. distinct mechanisms. common mechanism                                                                                           Abbreviation: FBA, flux-balance analysis
+ﬂux plasticity, involving changes ﬂuxes active reactions organism shifted                                    Editor: Daniel Segre, Boston University, United States America
+growth condition  example, changing                                   * correspondence addressed. E-mail: oltvai@pitt.edu
+glucose- succinate-rich media alters ﬂux 264 E. coli                            previous version article appeared Early Online Release November
+reactions 20 . commonly, environmental                                  2, 2005 (DOI: 10.1371/journal.pcbi.0010068.eor).
+
+
+        PLoS Computational Biology | www.ploscompbiol.org                          0557                                     December 2005 | Volume 1 | Issue 7 | e68
+                                                                                                                                     Metabolic Network Core
+
+
+Synopsis                                                                               ﬂux-based plasticity, rest reactions                                                                                        conditionally active, turned speci�?c cellular metabolism investigated                            growth conditions subject structural-
+cellular functions, understood changes                       ﬂux-based plasticity.
+adapts systems level response environmental variations.                     Figure 2 displays metabolic reactions E. coli study, authors advantage reconstructed                            remain active 30,000 simulated growth conditions. metabolic networks Helicobacter pylori, Escherichia coli,                       striking feature diagram fact reactions
+Saccharomyces cerevisiae computational method flux-
+                                                                                       form single connected cluster, encompassing 90
+balance analysis investigate functional plasticity metabolic networks large number simulated growth
+                                                                                       reactions. unique feature E. coli; H. pylori, conditions.                                                                            138 reactions form single cluster, S. cerevisiae 33
+                                                                                       reactions connected. Given relatively low number approach, authors identify metabolic cores                      reactions active, likelihood form organisms. metabolic cores represent connected sets                     single large cluster chance negligible, p ,
+reactions used tested environments. cross-                        1e6 H. pylori E. coli, p ; 2e6 S. cerevisiae. Given
+correlating predicted cores experimental data, authors                    compact clustered nature group reactions cores display significantly higher fraction,                                                                                        active, refer collectively essential evolutionary conserved enzymes, noncore
+counterparts. Additionally, extended mRNA half-lives core
+                                                                                       metabolic core.
+enzymes support notion core reactions                            metabolic core contains types reactions: represent main integrators metabolic activity.                                      �?rst type consists essential biomass
+                                                                                       formation environmental conditions (81 90 metabolic core reactions indispensable                   reactions E. coli), second type reaction growth microorganism, existing antibiotics target                   required assure optimal metabolic performance
+select bacterial enzymes core, authors suggest                     (Table S1). case inactivation second type,
+metabolic core important applications antimicrobial
+                                                                                       alternative sub-optimal pathways used ensure
+drug-target discovery.
+                                                                                       cellular survival. Interestingly, compact core S.
+                                                                                       cerevisiae, 33 reactions predicted indispensable
+                                                                                       biomass formation growth conditions. 
+reactions carrying non-zero ﬂux condition decreases                             assuming 10  reduction growth rate
+rapidly.  eventually saturates constant value                          (compared optimal growth), size identity E.
+(Figure 1A–C), identifying group reactions non-                         coli metabolic core remains largely unchanged, retaining 83 zero ﬂux 30,000 simulated growth conditions.                                 original 90 reactions, nonessential. Speci�?cally, �?nd 138 381 H. pylori (36.2 ), 90                           indicates concept metabolic core valid 758 E. coli (11.9 ), 33 1,172 S. cerevisiae (2.8 ),                          optimal suboptimal growth, metabolic reactions active (Figure 1D 1E).                              difference identity individual reactions. note,                                                                                        metabolic core represents subset minimal reaction reactions respond environmental changes                                                                                        sets [10,11] overlap alternative  e., degenerate)
+                                                                                       minimal reaction sets [4,5]. minimal reaction set [11]
+                                                                                       contains metabolic core addition,                                                                                         reactions necessary sustained growth chosen
+                                                                                       substrate, minimal reaction set [5] consists                                                                                        201 reactions active E. coli 136
+                                                                                       aerobic anaerobic single-carbon-source minimal envi-
+                                                                                       ronments capable sustaining optimal growth.                                                                                        �?nding excellent agreement Figure 1B (upper
+                                                                                       curve), demonstrates analysis low number                                                                                        growth conditions signi�?cantly overestimate set                                                                                        reactions active.
+                                                                                          identify factors determine size                                                                                        metabolic core, note number core
+                                                                                       metabolic reactions systematically decreases                                                                                        H. pylori S. cerevisiae (Figures 3A 1E), relative size                                                                                        core decreasing 36.2  reactions H. pylori Figure 1. Emergence Metabolic Core
+                                                                                       11.9  E. coli 2.8  S. cerevisiae. trend  C) average relative size number reactions active function number sampled conditions (black                 explained collective network effect: relatively small
+line)   H. pylori, (B) E. coli, (C) S. cerevisiae. number          size H. pylori metabolic network leaves little ﬂexibility
+conditions increases, curve converges constant denoted                 biomass production, requiring continuous activity dashed line, identifying metabolic core organism. red line
+denotes number reactions active activity                                                                                        high fraction available metabolic reactions. 
+randomly distributed metabolic network. fact                        �?nd average approximately 61  H. pylori
+converges zero indicates real core represents collective                 reactions active given environmental condition. network effect, forcing group reactions active conditions.           larger number metabolic reactions present E. coli offers
+(D E) number metabolic reactions (D) number metabolic core reactions (E) studied organisms.                           higher degree metabolic ﬂexibility, allowing DOI: 10.1371/journal.pcbi.0010068.g001                                                 signi� fraction biomass produced 
+       PLoS Computational Biology | www.ploscompbiol.org                        0558                               December 2005 | Volume 1 | Issue 7 | e68
+                                                                                                                                   Metabolic Network Core
+
+
+
+
+Figure 2. Metabolic Core E. coli reactions active 30,000 investigated external conditions shown. Metabolites contribute directly biomass formation [8] colored blue, core reactions (links) catalyzed essential  nonessential) enzymes [13] colored red  green).
+(Black-colored links denote enzymes unknown deletion phenotype.) blue dashed lines indicate multiple appearances metabolite, links arrows denote unidirectional reactions. Note 20 51 metabolites necessary biomass synthesis present core,
+indicating produced  consumed) growth-condition-specific manner. Protocol S1 Table S1 abbreviations metabolites list core reactions E. coli, H. pylori, S. cerevisiae. folate peptidoglycan biosynthesis pathways indicated blue brown shading, respectively, white numbered arrows denote current antibiotic targets inhibited  (1) sulfonamides, (2) trimethoprim, (3)
+cycloserine, (4) fosfomycin. Note reactions appear disconnected omitted drawing cofactors.
+DOI: 10.1371/journal.pcbi.0010068.g002
+
+
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                   0559                                December 2005 | Volume 1 | Issue 7 | e68
+                                                                                                                               Metabolic Network Core
+
+
+                                                                                   alternative pathways.  average utilization E.
+                                                                                   coli metabolic network given growth condition                                                                                    35.3 . S. cerevisiae, metabolic network size
+                                                                                   signi�?cantly exceeds H. pylori E. coli,                                                                                    higher metabolic ﬂexibility, activity                                                                                    19.7  reactions required typical environment.
+                                                                                      fact core reactions active                                                                                    investigated environmental conditions suggests                                                                                    play key role maintaining metabolism’s overall
+                                                                                   functional integrity.  absence individual
+                                                                                   reactions metabolic core lead                                                                                    signi� metabolic disruptions.  using genome-scale
+                                                                                   deletion-phenotype data obtained rich growth media
+                                                                                   [12,13], �?nd 74.7  E. coli enzymes                                                                                    catalyze core metabolic reactions  e., core enzymes)                                                                                    essential, compared 19.6  lethality fraction character-
+                                                                                   izing noncore enzymes. gap core                                                                                    noncore enzymes signi� S. cerevisiae,                                                                                    essential enzymes catalyze 84  core reactions,                                                                                    average essentiality conditionally active enzymes                                                                                    15.6  (Figure 3B). Note likelihood random
+                                                                                   concentration essential enzymes core                                                                                    extremely small, p-values 3.3e23 9.0e13 E. coli
+                                                                                   yeast, respectively, presume presence                                                                                    errors deletion-phenotype data (Protocol S1). Taken
+                                                                                    results indicate organism’s ability                                                                                    adapt changing environmental conditions rests, large
+                                                                                   extent, continuous activity metabolic core,
+                                                                                   regardless environmental conditions.
+                                                                                      Intuitively, assume core represents                                                                                    subset high-ﬂux reactions characterizing activity                                                                                    metabolic networks [3].  measurements indicate
+                                                                                    average, ﬂuxes core noncore reactions
+                                                                                   highly comparable (Figure 3C). Alternatively,                                                                                    assume main biological role metabolic
+                                                                                   core ensure continuous production biomass                                                                                    growth conditions. contrast, �?nd 20                                                                                    51 metabolites (39 ) considered necessary biomass
+                                                                                   production E. coli [8] produced core
+                                                                                   reactions; instead growth-condition-dependent fash-
+                                                                                   ion produced various alternative metabolic
+                                                                                   pathways. core,  contains large number                                                                                    reactions selected anabolic pathways, including                                                                                    membrane lipid-, cell envelope-, peptidoglycan-biosyn-
+                                                                                   thesis pathways (Table S1). core reactions represent
+                                                                                   network bottlenecks, paths synthesis                                                                                    certain biomass components.  appears                                                                                    composition metabolic core determined                                                                                    factors.  metabolic reactions directly contrib-
+                                                                                   ute biomass production tend metabolic
+                                                                                   core organism. Second,  tendency offset
+                                                                                   network-induced redundancy: reactions pathways
+                                                                                   end-products synthesized                                                                                    alternative pathways environmental redundancy Figure 3. Characterizing Metabolic Cores                                       structural plasticity, eliminated core.
+  number overlapping metabolic reactions metabolic core             reactions metabolic network possesses H. pylori, E. coli, S. cerevisiae.                                           Figure 1D), stronger network-induced
+(B) fraction metabolic reactions catalyzed essential enzymes          redundancy, smaller core (Figure 1E). cores (black) outside core E. coli S. cerevisiae.
+(C) distribution average metabolic fluxes core                                                                                       Given important functional role played noncore reactions E. coli.                                                      metabolic core given organism, expect
+DOI: 10.1371/journal.pcbi.0010068.g003                                             signi� parts core conserved different
+
+       PLoS Computational Biology | www.ploscompbiol.org                    0560                             December 2005 | Volume 1 | Issue 7 | e68
+                                                                                                                     Metabolic Network Core
+
+
+organisms.  E. coli H. pylori cores 63            redundant core, regulatory mechanisms shifted reactions common, 18 33 core reactions S.            mRNA decay rate nature regulatory
+cerevisiae present E. coli H. pylori          interactions, offering higher regulatory stability metabolic cores  Figure 3A).  considering               core enzymes.
+enzyme orthologs 32 divergent bacteria [13], �?nd                �?nding core reactions form single cluster metabolic core enzymes E. coli display high             suggest activity participating reactions
+degree evolutionary conservation, average core enzyme          highly synchronized, changes ﬂux having orthologs 71.7  reference bacteria (p ,              reaction affecting ﬂux reactions   1e6). contrast, conditionally active noncore enzymes          able discover core inspecting evolutionary retention 47.7  [13]. Given          correlations activities metabolic reactions.
+observed correlation evolutionary retention           test hypothesis, calculated ﬂux correlation
+essentiality gene products [13], difference          coef�?cient, Cij, reaction pair E. coli metabolism
+simple consequence high-lethality fraction core         [17] inspecting ﬂux values reactions enzymes.  analysis indicates         30,000 simulated growth conditions. Using Cij case: random selection 90 enzymes 74.7                  matrix metric hierarchical clustering algorithm
+lethality ratio average evolutionary retention         [18], observed emergence group reactions
+63.4 . Taken  results indicate major              ﬂuxes change simultaneously environmental
+portions metabolic core conserved,                   shifts. Interestingly, highly correlated reactions signi�?-
+displaying higher evolutionary retention individual        cantly overlap metabolic core (Figure 4A), indicating
+essentiality participating enzymes indicate,             environmental conditions altered, suggesting maintaining core’s integrity collective      ﬂuxes core reactions increased decreased need organism.                                                 synchronized fashion.
+   requirement continuous activity core               synchrony observed inspect exper-
+reactions impact regulation catalytic        imental mRNA data core reactions changes
+enzymes. expect activity core                    environmental conditions. Calculating correlations
+reactions ﬂux magnitude needs                core noncore enzymes using correspond-
+modulated display higher degree stability           ing mRNA copy number data  Materials Methods) different regulatory control reactions outside        41 experiments [19], �?nd correlations core. Evidence regulatory effects provided         mRNA copy numbers core enzymes systematically
+measurements.  inspected experimentally deter-           higher observed correlations noncore
+mined mRNA half-lives E. coli metabolic enzymes           counterparts (Figure 4B), average correlation ,C.
+cells grown Luria-Bertani medium [14].               ¼ 0.23 core enzymes ,C. ¼ 0.07 noncore enzymes distribution mRNA half-life times core            (p , 1e4). Notably, �?nding different average
+enzymes displays shift higher values, average           correlation mRNA expression 66 ‘‘correlated
+half-life time mRNAs 14.0 min compared            reaction sets’’ (groups reactions 10.5 min noncore mRNAs (p ¼ 0.016). Furthermore,              turned , frequency 2  core enzymes corresponding mRNA half-             correlated reaction set used does affect life times shorter 5 min, compared 23  ones           mRNA correlation [5].
+catalyzing conditionally active noncore reactions  Materi-
+als Methods).  continuous metabolic need                Discussion reactions apparently affected mechanisms
+responsible mRNA decay catalytic enzymes,                       Previous studies �?rmly established environmental
+providing higher dynamic inertia environmental                    changes induce ﬂux plasticity, altering ﬂux levels changes.                                                                  individual reactions (reviewed [20]). Similarly, fact    Additionally, enzyme-encoding operon,                      metabolism displays structural plasticity, turning counted number activating repressive regulatory                reactions growth conditions altered, links E. coli transcriptional regulatory network [15,16].          observed [3,4,6].  demonstration regulatory interactions currently known 13             group reactions predicted active environmental core enzyme-encoding operons, considered                       conditions forming connected metabolic core extended core, representing set 234 reactions                 substantially improve understanding organization active 90  30,000 simulated growth                utilization metabolic networks. emergence conditions. results indicate fraction repressive          core represents collective network effect, channeling regulatory links extended core 52.3 ,                 production indispensable biomass components fraction activating interactions 35.7 ,                key reactions replaced alternative
+remaining 12  represents regulatory links                 pathways environmental conditions. collective
+activate suppress enzyme’s mRNA synthesis rate.                 origin core supported observed changes contrast, noncore enzyme-encoding operons,                core size. number biomass components difference fraction activating repressing              metabolism needs produce comparable links, representing 45  regulatory interactions.              organisms (49 H. pylori, 51 E. coli, 44 S. results offer evidence evolution core             cerevisiae), number metabolic reactions contributing metabolic network corresponding regulatory network:               differs. larger size metabolic network
+given requirement continuously active non-                    signi�?cantly increases capacity redundancy, decreas-
+
+      PLoS Computational Biology | www.ploscompbiol.org            0561                             December 2005 | Volume 1 | Issue 7 | e68
+                                                                                                                                         Metabolic Network Core
+
+
+                                                                                      bacterial yeast gene products essential,                                                                                       high fraction essential speci�?c environ-
+                                                                                      ments. example, recent measurements indicate 76 
+                                                                                      S. cerevisiae genes inactive nutrient-rich
+                                                                                      conditions fact active, essential                                                                                       growth conditions [6].  effective
+                                                                                      antimicrobial drug needs able kill target organism
+                                                                                      physiological conditions exist.                                                                                       pharmacological interventions targeting speci�?c pathway
+                                                                                      effective environments pathway                                                                                       needed corresponding enzyme turned  Instead,
+                                                                                      effective antimicrobials target activity                                                                                       core reactions, disruption impact                                                                                       microorganism’s ability function environ-
+                                                                                      mental conditions.  currently used anti-
+                                                                                      biotics, fosfomycin cycloserine act inhibiting cell-wall
+                                                                                      peptidoglycan, sulfonamides trimethoprim inhibit
+                                                                                      tetrahydrofolate biosynthesis, pathways present                                                                                       H. pylori E. coli core  Figure 2). addition,
+                                                                                      core pathways involved synthesis ﬂavin adenine
+                                                                                      dinucleotide, 2-dehydro-3-deoxy-D-octonate, lipopolysac-
+                                                                                      charide potential antibiotic targets [21].
+                                                                                         indicates core enzymes essential biomass
+                                                                                      formation, optimal suboptimal growth (Table
+                                                                                      S1), prove effective antibiotic targets given cell’s
+                                                                                      need maintain activity enzymes                                                                                       conditions. fact core reactions                                                                                       shared bacteria offers possibility identify
+                                                                                      bacterium-speci�?c drug targets. Finally, results pertain-
+                                                                                      ing existence core characteristics                                                                                       means limited studied organisms,                                                                                       analysis carried organisms high-
+                                                                                      quality metabolic reconstructions available. Given                                                                                       large number sequenced bacterial genomes, studies
+                                                                                      open new avenues rapid silico antimicrobial
+                                                                                      drug-target identi�?cation.
+
+                                                                                      Materials Methods
+Figure 4. Correlations E. coli Metabolic Reactions                                FBA. Starting published stoichiometric matrices   calculated Pearson correlation using flux values 30,000               reconstructed E. coli MG1655, H. pylori, S. cerevisiae metabolic
+conditions reaction pair grouping reactions                       networks [7–9], steady-state concentrations internal
+according hierarchical average-linkage clustering algorithm.                 metabolites organism satisfy
+values flux-correlation matrix range 1 (red) 0                                           d         X
+(white) unity (blue). horizontal color bar denotes reaction                                    ½Ai  ¼    Sij mj ¼ 0                  ð1Þ
+                                                                                                             dt          j
+member core (green), vertical color bar denotes enzymes catalyzing reaction essential (red).                              Sij stoichiometric coef�?cient metabolite Ai reaction
+(B) Distribution Pearson correlation mRNA copy numbers 41                  j, mj ﬂux reaction j. use convention experiments [14]. correlations core reactions clearly shifted          metabolite Ai substrate  product) reaction j, Sij , 0 (Sij . 0). higher values, average correlation coefficient ,C. ¼               vector ﬂuxes fmjg satis�?es equation 1 corresponds 0.23 compared average noncore coefficient ,C. ¼ 0.07                      state metabolic network,  potential state DOI: 10.1371/journal.pcbi.0010068.g004                                                operation cell. Using linear programming, choose                                                                                       solution maximizes biomass production respective
+                                                                                      organisms. Reactions active, likely reﬂecting annota-
+                                                                                      tion errors incomplete data, ignored ﬂux analysis.
+ing size metabolic core.  metabolic                             Metabolic core identi�?cation. model possible cellular
+core contains reactions necessary optimal cellular                       environments investigated FBA models, described performance regardless environmental conditions,                               [3]. Brieﬂy, metabolic-uptake reaction, �?x uptake rate
+                                                                                      randomly chosen value 0 20 mmol/g/h (dry conditionally active metabolic reactions represent                          weight) calculating optimal ﬂuxes con�?guration different ways cell capable optimally                          using linear programming. reaction subsequently tagged utilizing substrates environment.                                            active (non-zero ﬂux) inactive (zero ﬂux).                                                                                       large number possible combinations selected uptake
+  identi�?cation metabolic core important                          rates, repeat process 30,000 times. addition, calculate
+practical implications: given continuous activity high                        optimal ﬂuxes single-carbon-source con�?gurations                                                                                       minimal-uptake medium consisting unlimited ammonia, sulfate,
+degree essentiality core enzymes, represent                            phosphate, carbon dioxide, potassium, restricted oxygen E.
+potential targets antimicrobial intervention. Speci�?cally,                        coli, H. pylori, S. cerevisiae, plus unlimited ergosterol zymosterol
+
+       PLoS Computational Biology | www.ploscompbiol.org                       0562                                  December 2005 | Volume 1 | Issue 7 | e68
+                                                                                                                                              Metabolic Network Core
+ S. cerevisiae. reaction, assign value, qi, zero             database (http://www.shigen.nig.ac.jp/ecoli/pec) given Table S2 unity, representing relative number conditions                      Gerdes et al. [13], resulting total 62 essential enzymes reaction active. preliminary metabolic core de�?ned                    seven enzymes determine deletion
+set reactions active sampled conditions (qi ¼ 1).                  phenotype. deletion phenotype yeast enzymes taken
+determine �?nal metabolic core removing preliminary                       CYGD database [12].
+core reactions  ﬂux rate constrained zero total set initial conditions, leave growth rate
+unchanged.                                                                               Supporting Information
+   Correlations clustering. evaluate FBA ﬂux correlations calculating Pearson coef�?cient possible reaction pair                     Protocol S1. Supplementary Analyses List Metabolite
+combinations 30,000 different simulated growth conditions.                        Abbreviations subsequently group reactions employing correlation
+values metric standard hierarchical average-linkage                          DOI: 10.1371/journal.pcbi.0010068.sd001 (628 KB DOC).
+clustering algorithm [22].                                                               Table S1. Metabolic Core Reactions
+   Data analysis. annotated metabolic FBA models specify enzymes genes catalyzing various metabolic reactions.                         DOI: 10.1371/journal.pcbi.0010068.st001 (57 KB XLS).
+represent mRNA activity level half-life time metabolic
+enzyme averaging available experimental values, Ek, catalyzing gene products,                                                             Acknowledgments
+                                    1 X
+                               ri ¼           Ek                         ð2Þ             thank S. Mobashery S. Vakulenko discussions. Work                                     Ni k¼1;Ni                                            University Notre Dame University Pittsburgh                                                                                          supported Department Energy, National Institutes Ni number genes. assess essentiality                         Health, National Science Foundation.
+reaction considering essential catalyzing
+enzymes  gene products) essential survival                             Competing interests. authors declared competing
+organism  Protocol S1 error analysis).                                           interests exist.
+  Core noncore essentiality. deletion phenotype E. coli                          Author contributions. EA, ZNO, ALB conceived study. EA
+enzymes taken Gerdes et al. [13]. nonlethal core                            ALB designed study. EA performed computational
+reactions, cross-checked deletion phenotype PEC                          work. EA, ZNO ALB wrote paper.                             &
+
+
+
+
+References                                                                               12. Gu¨ldener U, Mu¨nsterko¨tter M, Kastenmu¨ller G, Strack N, van Helden J, et
+1. Edwards JS, Palsson BO (2000) Escherichia coli MG1655 silico                       al. (2005) CYGD: Comprehensive Yeast Genome Database. Nucleic
+    metabolic genotype: de�?nition, characteristics, capabilities. Proc               Acids Res 33: D364–D368.
+    Natl Acad Sci U S 97: 5528–5533.                                                   13. Gerdes SY, Scholle MD, Campbell JW, Balazsi G, Ravasz E, et al. (2003)
+2. Schilling CH, Letscher D, Palsson BO (2000) Theory systemic                       Experimental determination level analysis essential genes     de�?nition metabolic pathways use interpreting metabolic                  Escherichia coli MG1655. J Bacteriol 185: 5673–5684.
+    function pathway-oriented perspective. J Theor Biol 203: 229–248.             14. Selinger DW, Saxena RM, Cheung KJ, Church GM, Rosenow C (2003) Global
+3. Almaas E, Kova´cs B, Vicsek T, Oltvai ZN, Baraba´si AL (2004) Global                      RNA half-life analysis Escherichia coli reveals positional patterns     organization metabolic ﬂuxes bacterium Escherichia coli. Nature                transcript degradation. Genome Res 13: 216–223.
+    427: 839–843.                                                                        15. Shen-Orr S, Milo R, Mangan S, Alon U (2002) Network motifs 4. Burgard AP, Nikolaev EV, Schilling CH, Maranas CD (2004) Flux coupling                    transcriptional regulation network Escherichia coli. Nat Genet 31: 64–68.
+    analysis genome-scale metabolic reconstructions. Genome Res 14: 301–              16. Salgado H, Gama-Castro S, Martinez-Antonio  Diaz-Peredo E, Sanchez-
+    312.                                                                                     Solano F, et al. (2004) RegulonDB (version 4.0): Transcriptional regulation,
+5. Reed JL, Palsson BO (2004) Genome-scale silico models E. coli                  operon organization growth conditions Escherichia coli K-12. Nucleic
+    multiple equivalent phenotypic states: Assessment correlated reaction                 Acids Res 32: D303–D306.
+    subsets comprise network states. Genome Res 14: 1797–1805.                      17. Wiback SJ, Famili  Greenberg HJ, Palsson BO (2004) Monte Carlo
+6. Papp B, Pal C, Hurst LD (2004) Metabolic network analysis causes
+                                                                                             sampling used determine size shape steady-state
+    evolution enzyme dispensability yeast. Nature 429: 661–664.
+                                                                                             ﬂux space. J Theor Biol 228: 437–447.
+7. Schilling CH, Covert MW, Famili  Church GM, Edwards JS, et al. (2002)
+                                                                                         18. Eisen MB, Spellman PT, Brown PO, Botstein D (1998) Cluster analysis     Genome-scale metabolic model Helicobacter pylori 26695. J Bacteriol 184:
+                                                                                             display genome-wide expression patterns. Proc Natl Acad Sci U S 95:
+    4582–4593.
+8. Reed JL, Vo TD, Schilling CH, Palsson BO (2003) expanded genome-                       14863–14868.
+    scale model Escherichia coli K-12 (iJR904 GSM/GPR). Genome Biol 4:                19. Allen TE, Herrgard MJ, Liu MZ, Qiu Y, Glasner JD, et al. (2003) Genome-
+    R54.1–R54.12.                                                                            scale analysis uses Escherichia coli genome: Model-driven
+9. Duarte NC, Herrgard MJ, Palsson BO (2004) Reconstruction validation                   analysis heterogeneous data sets. J Bacteriol 185: 6392–6399.
+    Saccharomyces cerevisiae iND750, fully compartmentalized genome-scale           20. Price ND, Reed JL, Palsson BO (2004) Genome-scale models microbial
+    metabolic model. Genome Res 14: 1298–1309.                                               cells: Evaluating consequences constraints. Nat Rev Microbiol 2: 886–
+10. Burgard AP, Maranas CD (2001) Probing performance limits                      897.
+    Escherichia coli metabolic network subject gene additions deletions.           21. Gerdes SY, Scholle MD, D’Souza M, Bernal  Baev MV, et al. (2002)     Biotechnol Bioeng 74: 364–375.                                                           genetic footprinting antimicrobial drug targets: Examples cofactor
+11. Burgard AP, Vaidyraman S, Maranas CD (2001) Minimal reaction sets                    biosynthetic pathways. J Bacteriol 184: 4555–4572.
+    Escherichia coli metabolism different growth requirements uptake           22. Dunn G, Everitt BS (1982) introduction mathematical taxonomy.
+    environments. Biotechnol Prog 17: 791–797.                                               Cambridge: Cambridge University Press. 152 p.
+
+
+
+
+       PLoS Computational Bio

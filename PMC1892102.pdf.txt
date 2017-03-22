@@ -1,0 +1,315 @@
+                                                                                                                                                                                                                                      Open Access
+LinkHub: Semantic Web facilitates cross-database
+queries information retrieval proteomics
+
+
+                 Abstract
+                 Background: key abstraction representing proteomics knowledge notion unique
+                 identifiers individual entities (e.g. proteins) massive graph relationships 
+                 relationships simple (e.g. synonyms) complex (e.g. 
+                 relationships protein family membership).
+                 Results: built software called LinkHub using Semantic Web RDF manages
+                 graph identifier relationships allows exploration variety interfaces.                  efficiency, provide relational-database access translation relational                  RDF versions. LinkHub practically useful creating small, local hubs common topics                  connecting major portals federated architecture; used LinkHub establish
+                 relationship UniProt North East Structural Genomics Consortium.
+                 LinkHub facilitates queries access information documents related identifiers
+                 spread multiple databases, acting "connecting glue" different identifier spaces.
+                 demonstrate example queries discovering "interologs" yeast protein interactions
+                 worm exploring relationship gene essentiality pseudogene content.                  "protein family based" retrieval documents achieved. LinkHub available
+                 hub.gersteinlab.org hub.nesg.org supplement, database models source code.
+                 Conclusion: LinkHub leverages Semantic Web standards-based integrated data provide novel
+                 information retrieval identifier-related documents relational graph queries, simplifies
+                 manages connections major hubs UniProt, provides useful interactive query
+                 interfaces exploring integrated data.
+
+
+
+
+                                                                                                                                                                                                                                               Page 1 12
+                                                                                                                                                                                                                     (page number citation purposes)
+ BMC Bioinformatics 2007, 8(Suppl 3):S5                                    http://www.biomedcentral.com/1471-2105/8/S3/S5
+
+
+
+
+Background                                                      records contain cross-references related informa-
+Biological research producing vast amounts data (e.g.     tion databases, e.g. related Gene Ontology high throughput experiments sequencing             PFAM identifiers  relationship types, e.g.
+projects, microarray experiments) prodigious           "functional annotation" "family membership"
+rate. data freely available pub-    respectively, specified). identifiers lic, created large growing number         Q60996 0005634 cross-reference
+internet world wide web-accessible biological data          viewed single edge resources characterized distributed,         nodes graph, conceptually large, impor-
+heterogeneous, having large size variance, e. huge,     tant biological knowledge viewed mas-
+mega-databases UniProt [1] medium,              sive graph nodes biological entities small "boutique" databases (e.g., TRIPLES [2]) gener-        proteins, genes,  represented identifiers ated medium small scale experiments particular        links graph typed specific relation-
+purposes. computational analyses biological data        ships biological entities. Figure 1a concep- require using multiple integrated datasets, inte-      tual illustration graph biological identifier
+grated data rich, flexible efficient inter-      relationships; problem graph 
+faces encourages exploratory data analysis      cretely exists piecemeal 
+lead serendipitous new discoveries: sum greater parts. Currently, integration       basic problem preventing graph relationships
+manually labor time intensive way finding rel-      fully realized problem nomen-
+evant datasets, understanding  writing code com-        clature.  synonyms bine  finally doing desired analysis.          underlying entity caused independent naming, e.g.
+basic requirements better, seamless integrated         structural genomics centers assigning protein
+analysis uniformity accessibility; data ineffec-    identifiers addition UniProt's. lex-
+tual scattered incompatible resources.                 ical variants underlying identifier (e.g.
+                                                                0008150 vs. GO0008150 vs. 8150). Synonyms
+Web search engines hyperlinks basic com-        small overall problem,  monly used ways things web navigate          generally kinds relationships
+web content enable fine-grained cross-site      including one relationships. analysis data. improve  key issue    example, single Gene Ontology PFAM identifier need standardization widespread use, tools      related UniProt identifiers  e. supporting enabling  Biological data vast     share functional annotation family member-
+brute-force centralization complete solution       ship). PFAM represents important structuring principle
+data interoperability. standards sys-          proteins genes come  notion tems people groups work independently creat-         families  domains) based evolution; proteins shar-
+ing making data available  ultimately              ing common PFAM domains evolutionarily related
+cooperatively collaboratively) end     (called homologs) likely similar func- pieces biological knowledge data      tions. Gene Ontology consists widely used struc-
+connected semantically rich ways. W3C's         tured, controlled vocabularies (ontologies) [3]Semantic Web [4-6] promising candidate: allows       gene products proteins terms associated
+web information expressed fine-grained struc-          biological processes, cellular components molecular
+tured ways applications readily precisely       functions species-independent manner. concep-
+extract cross-reference key facts information      tual graph identifier relationships richly connected, having worry disambiguating meaning         transitive closure levels deep lead natural language texts. Standard machine-read-         indirect relationships great number enti-
+able ontologies Gene Ontology [7]          ties. able store, manage, work graph
+created common use encouraged              entities relationships lead opportuni-
+reduce semantic ambiguity, need          ties interesting exploratory analysis LinkHub make ontologies machine-friendly [8].                doing 
+ key abstraction "scaffold" representing biological     LinkHub: loosely coupled, collaborative
+data notion unique identifiers biological enti-   integration biological identifier relationships
+ties relationships  example,            Semantic Web increasingly gaining traction protein sequence UniProt database given             key standards-based platform biological data integra-
+unique accession, e.g. Q60996, used key       tion [9,10], LinkHub natural fit Semantic access UniProt sequence record. UniProt sequence         Web technologies use basis LinkHub.
+
+
+                                                                                                                   Page 2 12
+                                                                                             (page number citation purposes)
+ BMC Bioinformatics 2007, 8(Suppl 3):S5                                        http://www.biomedcentral.com/1471-2105/8/S3/S5
+
+
+
+
+   
+
+
+
+
+   B)
+
+
+
+
+Figureof1 relationships hub hubs organization
+Graph
+Graph relationships hub hubs organization.   conceptualization semantic graph interrelationships biological identifiers, boxes representing instances biological identifiers (originating database names given inside) different edge types representing different kinds relationships (b) LinkHub enabler efficient "hub hubs"
+organization biological data. different colors represent different labs, organizations, logical groupings data
+resources.
+
+
+
+
+                                                                                                                         Page 3 12
+                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2007, 8(Suppl 3):S5                                    http://www.biomedcentral.com/1471-2105/8/S3/S5
+
+
+
+LinkHub designed based semantic graph model,            identifier nodes graph based graph's rela- captures graph relationships biologi-        tional structure. Normal search engines relying key-
+cal entities discussed  provide scalable imple-      word searches provide access, mentation exploring Semantic Web database            LinkHub enables novel information retrieval technologies, implemented LinkHub MySQL              known web documents. important practical use [11] Resource Description Framework RDF [12]             "path type" interface secondary, orthogonal inter-
+databases. LinkHub provides various interfaces interact      face biological databases order provide dif- graph, web frontend viewing         ferent views underlying data. example,
+traversing graph dynamic expandable/collapsible        MolMovDB [13] provides movie clips likely 3D
+HTML list  figure 2) mechanism viewing par-       motions proteins, access PDB [14]
+ticular path types graph, RDF query      identifiers.  alternative useful interface (actu-
+languages.                                                      ally provided LinkHub) "family view"                                                                 queries PDB identifier view available
+Centralized data integration extent does make sense,      motion pages proteins family query
+e.g. lab organization want create local data    PDB identifier. LinkHub provides similar "family
+warehouse interconnections individual data         view" interface structural genomics data SPINE
+resources; does want explicitly       [15]. flexible easily
+nect data resources existence,    imagine similar applications, e.g. "functional impossible. key idea groups independently     view" pages proteins maintaining data resources connect resources         Gene Ontology function given protein shown resource X, reach         "pseudogene family view" pages pseudo- connections X, col-       genes proteins family shown. lectively achieve incremental global data integration        "path type" interface simple way providing novel, way. LinkHub software architecture         relational access LinkHub identifier node-linked docu- aims help realize goal enabling         ments, RDF query language access LinkHub rela-
+create local minor hubs data interconnections       tional graph allow flexible novel
+connect major hubs UniProt feder-          information retrieval.
+ated "hub hubs" framework illustrated fig-
+ure 1b.                                                         Cross-database RDF queries
+                                                                demonstrate data interaction exploration capa-
+Paper organization                                              bilities engendered RDF version LinkHub, results section  demonstrate            RDF-formatted LinkHub dataset loaded Yeast-
+LinkHub enables novel information retrieval docu-            Hub [16] uses Sesame [17] native RDF
+ments attached LinkHub graph nodes based              repository. demonstration queries written relational structure LinkHub graph; particular         SeRQL (Sesame implementation RQL) [18] demon-
+practical use case  providing "family views" data,   strate efficiently kinds interesting pre- given. concrete examples       liminary scientific investigation exploratory analysis
+kinds integrated, cross-database queries         commonly beginning research initiatives LinkHub, combination previous sys-          (e.g. worth pursuing .
+tem called YeastHub, support scientific           queries make use information present exploratory analysis; example queries discovering "inter-       YeastHub LinkHub  ologs" yeast protein interactions worm            joining systems), LinkHub used exploring relationship gene essentiality        'glue' provide connections  direct indirect)
+pseudogene content given. discuss          different identifiers. noteworthy related work LinkHub future directions        queries formulated run relatively little time
+cluding. methods section implementa-          hours  roughly duplicate tion details LinkHub, including data models          results published papers. effect, LinkHub does populated data LinkHub's web              time-consuming manual work integrating
+interactive query interfaces.                               multiple datasets, integrated data generally use-
+                                                                ful efficient formulation execution queries,
+Results                                                         contrast papers likely required
+Novel information retrieval based LinkHub relational         extensive   effort combine necessary data graph structure                                                 achieve results. "path type" interface LinkHub allows flexi-
+bly retrieve useful subsets web documents attached
+
+
+                                                                                                                    Page 4 12
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2007, 8(Suppl 3):S5                                          http://www.biomedcentral.com/1471-2105/8/S3/S5
+
+
+
+
+Figure  basic2 DHTML list interface LinkHub basic DHTML list interface LinkHub.  data relationships UniProt identifier P26364 pre-
+sented. P26364 presented root list, lower levels contain information additional related identifiers. identifier subsections: Links gives list hyperlinks web documents directly relevant identifier; Equivalent Related Ids contains list additional identifiers related identifier  relationship type exists given parentheses; synonym relationship assumed relationship given). identifiers Equivalent Related Ids section related identifiers Links Equivalent Related Ids sections, ad nauseum. initial display shows transitive closure root identifier level deep, dynamic callbacks server retrieve additional data user clicks identifiers subsections loaded; way, user explore relationship paths desires performance penalties  loading graph) 'information overload'. interface dynamic, '+' list icon expanded view hidden 
+lying content, '-' list icon clicked hide content.
+
+
+Query 1: finding worm 'interologs' yeast protein             essential yeast gene determine interactions                                                    pseudogenes  inspect list Proteins rarely act isolation interact    essential genes relationship molecules perform necessary cellular       essentiality number pseudogenes. Humans actions. Experimental determinations protein interac-        large number known pseudogenes [25] gene essen-
+tions expensive computational methods lev-          tiality difficult characterize humans  erage interaction predictions.       tissue types developmental states complicating query want consider protein interactions       issue). essentiality studied yeast, thing
+yeast (S. cervisiae)         determine human homologs yeast present evolutionarily related homologs worm          essential genes, likely  (C. elegans), known interologs [19], e. protein       important" survival sense, examine pat-
+pairs worm corresponding evolutionarily related           terns associated essentiality. yeast gene
+known interacting pairs yeast. start data-    list essential genes, homol-
+set containing known predicted yeast protein interac-       ogous pseudogenes human traversing identifier type
+tions loaded YeastHub;           paths LinkHub graph like following:
+interactions expressed yeast gene names. SeRQL statement query por-      yeast gene → UniProt Accession → Pfam accession
+tion corresponding output seen figure 3.       → human UniProt Id → UniProt Accession → Pseudog-  abstractly, query doing following.      ene LSID yeast gene interaction set use
+LinkHub's data 'glue' determine homologs          SeRQL query  yeast pseudo-
+Pfam) worm traversing identifier type paths        genes) results seen figure 3, LinkHub relationship graph like following:                  yeast essential genes associated
+                                                                pseudogenes case yeast gene → UniProt Accession → Pfam accession            human. reflect difference processes cre-
+→ UniProt Accession → WormBase ID.                              ation predominate numbers yeast human
+                                                                pseudogenes (duplication vs retrotransposition,  pair yeast protein interaction dataset,   [21,22]). determine yeast gene names lead WormBase IDs [20] way print WormBase          Discussion
+IDs possible protein interactions                      Related work
+                                                                basic conceptual underpinnings LinkHub, e., Query 2: exploring pseudogene content versus gene               importance biological identifiers linking  essentiality yeast humans                                given Karp [26]. LinkHub uses Semantic Web
+Pseudogenes genomic DNA sequences similar            approach build practical based extend-
+mal genes  usually derived            ing Karp's ideas database links. Semantic Web
+expressed functional proteins; regarded        approach used implement database integra-
+defunct relatives functional genes [21,22]. que-      tion solutions based general approaches data
+ries explore relationship gene essen-       warehousing [27,28] federation [29-31]. Essentially,
+tiality  measure important gene survival    data warehousing focuses data translation, e. translat- organism) number pseudogenes                ing combining multiple datasets single data-
+organism. hypothesize essential              base, federation focuses query translation, e.
+genes larger numbers pseudogenes,          translating distributing parts query explore idea queries joined YeastHub       multiple distinct databases collating results LinkHub data.  YeastHub MIPS [23] Essential        methodological overview comparison Genes dataset, use data gene essen-       database integration approaches discussed bio-
+tiality; LinkHub contains small dataset yeast pseudo-      medical context [32]. LinkHub's architecture hybrid genes [24].                                                     approaches: individual LinkHub instantiations
+                                                                kind mini, local data warehouse commonly
+Abstractly, yeast gene list essential   grouped data connected large major hubs
+genes, determine pseudogenes traversing identi-       UniProt federated fashion; efficiency gained
+fier type paths LinkHub graph like following:        obviating need source datasets individ-
+                                                                ually connected major hubs.
+yeast gene → UniProt Accession → yeast pseudog-
+ene
+
+
+                                                                                                                    Page 6 12
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2007, 8(Suppl 3):S5                                         http://www.biomedcentral.com/1471-2105/8/S3/S5
+
+
+
+
+Figure 3RDF queries
+Example
+Example RDF queries.   shows SeRQL query finds pairs worm (C. elegans) proteins homologous pairs interacting proteins yeast (C. cervisiae), e. "interologs". b) shows corresponding query results. (c) shows SeRQL query explores relationship gene essentiality level pseudogene content yeast, feature hypothesized associated essentiality, queries joined YeastHub LinkHub
+data. (d) shows yeast pseudogenes  interestingly  (e) shows list pseudogenes human
+homologs similar query; list long, 20000, consistent known pseudogenes humans.
+
+
+
+
+                                                                                                                          Page 7 12
+                                                                                                    (page number citation purposes)
+ BMC Bioinformatics 2007, 8(Suppl 3):S5                                   http://www.biomedcentral.com/1471-2105/8/S3/S5
+
+
+
+LinkHub differentiates itself integrating aspects   fier nodes, e.g. proteomics identifiers, graph. biological data focusing important     simple search identifier itself likely manageable high-level structuring principal,       optimal results conflated senses identifier
+biological identifiers relationships  relation-    text identifier synonyms. general, need 
+ship types)  hyperlinks identifier-specific      sider query key related concepts identi-
+pages present "Links" section LinkHub web        fier, present LinkHub subgraph
+interface access additional attributes data.    surrounding identifier. consider web pages
+fact, YeastHub addressed integration           attached identifiers subgraph "gold
+generally transforming datasets common RDF          standard" additional relevant documents format storing giving RDF query access         like, plan use training sets  RDF database. problem YeastHub         struct classifiers used score rank additional docu- integration  rich connections      ments relevance. feel idea integrated datasets limited. LinkHub useful      generalized Semantic Web, provides complementary YeastHub respect         detailed information terms relationships,
+necting glue" datasets makes          leveraged provide enhanced automated infor-
+stores cross-references enables better integrated    mation retrieval web search Semantic Web terms.
+access YeastHub data; example queries demonstrated                                              hope explore relevant Semantic
+                                                               Web-related technologies effectively used LinkHub's primary web interface viewed kind        LinkHub, particular named graphs [37] Life Sci- "Semantic Web browser". work                 ence IDentifiers LSIDs [38]. Named graphs allow RDF
+attempted build browsers Semantic Web data,             graphs named URI, allowing including HayStack [33], Sealife [34], BioGuide [35].      described RDF statements; named graphs LinkHub lightweight browser HayStack            used provide additional information (metadata)  focus biological relationship browsing)         identifier mappings, source, version, quality
+differs Sealife data-centric (establishing       information. LSID standard object naming dis-
+semantic links data identifiers treating web     tributed lookup mechanism promoted use documents metadata associated identifiers)      Semantic Web, emphasis life sciences applica-
+opposed document-centric (establishing semantic links       tions. LSID names refers unchanging data terms/phrases appeared different web docu-          object, allows versioning handle updates. LSID
+ments). BioGuide uses RDF similar LinkHub,        lookup essence like Domain Serv-
+limited focuses abstract conceptual modelling    ice (DNS) does converting named internet locations resources interconnections         IP numbers. possibly use LSID naming
+instance data LinkHub; interface presents      objects LinkHub incorporate LSID lookup func-
+data using graph drawing software Java,           tionality. Finally, like software Napster LinkHub lightweight relies web         Gnutella did online file sharing, plan explore
+browser JavaScript. Finally,            enhancing LinkHub enable multiple distributed
+number graph database systems query languages           LinkHub instantiations interact peer peer net-
+developed years suffer         works dynamic biological data sharing, possibly using
+proprietary; developed widely used stand-       web services technologies Web Services Descrip-
+ard systems.  pointed       tion Language  WSDL) [39] Universal Description, systems support advanced graph data mining        Discovery Integration  UDDI) [40] dynamic
+analysis operations supported RDF query lan-            service discovery, available peer peer toolkits.
+guages features necessary effective
+analysis biological data represented RDF [36].           Conclusion
+                                                               paper demonstrates natural use Semantic Web
+Future directions                                              RDF inter-connect identifiers data entries residing Currently, LinkHub limited web document hyperlinks         separate web-accessible biological databases. Based attached nodes, increased      semantic RDF graph biological identifiers utility novel information retrieval based query-     relationships, useful, non-trivial cross-database que-
+ing LinkHub relational graph, e.g. "path type" inter-      ries, inferences, semantic data navigation 
+face, enhanced. working leverage        formed web interactive query access. rich information LinkHub relational graph           addition, semantic relationships enable flexible enhanced automated information retrieval web sci-        novel information retrieval access based queries entific literature (MedLine) documents relevant identi-     LinkHub graph's relational structure web documents
+
+
+                                                                                                                   Page 8 12
+                                                                                             (page number citation purposes)
+ BMC Bioinformatics 2007, 8(Suppl 3):S5                                 http://www.biomedcentral.com/1471-2105/8/S3/S5
+
+
+
+attached identifier nodes. LinkHub simplify      related information extracted sources manage connections major hubs UniProt         inserted LinkHub MySQL database  lab organization. LinkHub evaluated       converted RDF inserted RDF version considering current active practical use        LinkHub; . running instantiation number settings. established "hub     LinkHub http://hub.gersteinlab.org http:/ hubs" relationship UniProt LinkHub  e.      /hub.nesg.org, actively used populated UniProt cross-references LinkHub). addition,       data Gerstein Lab [47] related lab's
+LinkHub cross-references targets structural       research interests. ideas LinkHub genomics initiative UniProt serves "related      applicable generally biological data, concrete
+links" "family viewer" gateway Northeast         instantiation LinkHub focuses heavily proteomics
+Structural Genomics Consortium affil-      data, key research initiative Gerstein Lab.
+iated; LinkHub serves "family viewer" Mol-   "hub hubs" relationship described MovDB. LinkHub step answering               established UniProt LinkHub
+question  life science Semantic Web: "     e. UniProt hyperlinks LinkHub instantiation [41].                                                        cross-references DR lines). addition, LinkHub
+                                                             cross-references proteins targets struc-
+Methods                                                      tural genomics initiative (obtained TargetDB
+Obtaining LinkHub data                                       resource [48]) UniProt LinkHub instantiation key problem populating LinkHub database             serves "related links" "family viewer"  (described  determine relationships       gateway Northeast Structural Genomics biological identifiers, specific case      Consortium (NESG) [49] Gerstein Lab called ontology alignment problem [42,43]. Biology        affiliated. Additional focuses LinkHub instantiation
+blessed fundamental, commonly accepted princi-        yeast resources, macromolecular motions [13], ple data organized, biologi-      pseudogenes [50].
+cal sequences DNA, RNA, protein, various
+string matching techniques  dynamic program-         LinkHub database models
+ming [44] BLAST [45]) biological sequences       LinkHub conceptually based Semantic Web
+solve large ontology alignment problem      (graph) model represent store biology. LinkHub takes advantage biological          RDF. RDF popular data model  ontological lan-
+sequence matching, particular conservative, exact         guage) Semantic Web represents data sequence matching, cross-reference align biological    directed labelled graph. Essentially, RDF URIs [51] identifiers. LinkHub takes advantage available       used globally unique naming nodes  rep-
+sources pre-computed identifier mappings,        resent objects) edges  represent relation- important UniProt arguably       ships nodes) graph, literal values important major proteomics resource serves       used place pointed nodes. addition,
+LinkHub's backbone content  e. relationships          RDF comes query languages (e.g., RDQL [52]) identifiers LinkHub indirect Uni-     allow user pose semantic queries graph
+Prot). general strategy mapping identifiers       data. advanced ontological lan-
+LinkHub advantage known trusted      guages Web Ontology Language OWL [53]
+pre-computed identifier mappings; pre-computed       support data reasoning based Description Logics
+mappings unavailable, attempt map          DL [54], RDF easy learn use identifiers based exact sequence matches         effectively modelled  example, benefits underlying sequences UniProt sources         representing proteomics data RDF discussed [9]
+sequence data identifiers stored LinkHub.       UniProt data recently available                                                              RDF format [55].  potential
+Efficient, exact sequence matching programs devel-      problem performance scalability using oped used quick inter-database cross-referenc-     new RDF database technology, important
+ing alignment based exact sequence matches (e.g.    impediment active widespread use cross-reference TargetDB UniProt, . custom    Semantic Web. regard, creation high 
+Perl module developed used index UniProt          formance RDF databases research priority  general sequence databases FASTA format [46])     Semantic Web community.  ide- support fast exact sequence matching. Specialized    ally use RDF, support LinkHub's practical daily use
+Perl web crawlers scripts written fetch    web interactive interfaces model store extract data different sources different     data using relational database technology (MySQL) mats; identifiers, identifier relationships,       efficiency robustness. drawback relational
+
+
+
+
+databases naturally model graph structures pro-        supports grouping web resources, e.g. web resources
+vide efficient graph operations special proce-         maintained Gerstein Lab relating protein
+dural codes necessary (e.g. "path type" view         structure. Finally, resource_attribute table allows free
+described . straightforward mapping          text attributes associated web resource, relational RDF versions LinkHub           currently used. Figure 4 provides details written Java code                                     LinkHub RDF model related rela-
+                                                                 tional model; simple example RDF graph given. relational structure LinkHub, shown figure 4a,
+reflects graph biological identifier relation-        LinkHub web interfaces
+ships associated data, URLs identifier-spe-       primary interactive interface LinkHub database
+cific web pages, managed stored. Biological              web-based interface (implemented using called
+identifiers stored identifier table typed,    AJAX technologies [56], e. DHTML, JavaScript, DOM, identifier_types table gives type.        CSS, ) presents subsets graph relation-
+example, different identifiers separate databases         ships dynamic expandable/collapsible list view. happen identifier text          interface allows viewing exploring transitive
+theless distinguished differing identifier types           closure relationships stemming given iden-
+(based databases come . mappings            tifier interactively layer time: direct edges table used store relationships identifiers,    given identifier initially shown user "type" attribute giving description mean-        selectively expand fringe nodes additional layer ing relationship. identifier table gives     time explore relationships (computing nodes mappings table edges graph           transitive closure prohibitive, cause biological identifier relationships. resource,               user "drown" data, limit initially,
+resource_accepts, link_exceptions tables            subsequent expansion, edge
+manage store URLs identifier-specific web pages          away, user guiding extensions based
+(e.g. web page UniProt giving specific information        relationships like explore). Figure 2
+particular UniProt identifier). basic idea        screenshot interface gives details  web resources UniProt template URLs            second, "path type" interface presents results interpolated particular identifiers         interface  e. dynamic expandable/collapsible
+generate identifier-specific URLs. resource table        list view) allows users query view particular
+tains short  longer description, template         identifier type paths LinkHub graph. example,
+URL web resources UniProt.                        want view proteins database resource_accepts table lists particular types identifi-   Pfam family given protein; LinkHub Pfam
+ers interpolated resource's template          relationships stored UniProt proteins, URL, exception type except_type. excep-        view fellow family members given protein tion type handle cases identifiers     specifying view relational paths LinkHub
+accepted type legal, e. identifiers     graph identifier types match: interpolated template URL generate valid
+URL. except_type exceptions         Given protein database → equivalent UniProt protein identifiers type accepted.          → Pfam family → UniProt proteins → equivalent
+except_type value NACC ACC. except_type             proteins database.
+NACC, exceptions explicitly given link_exceptions table  e. identifiers               Competing interests
+link_exceptions table given type resource     authors declare competing interests. ones interpolated template
+URL, identifiers type interpo-       Authors' contributions
+lated). except_type ACC behaviour          AKS primary   author responsible opposite: identifiers listed link_exceptions      majority work, implementation, writing. KYY
+table exceptions ones explicitly listed      did conversion relational (MySQL) version ones interpolated resource's       LinkHub RDF, integrated YeastHub, wrote
+template URL. NACC ACC exception types              executed demo RDF queries joined Yeast-
+supported allow efficient handling excep-         Hub/LinkHub. KHC, MS, MBG faculty advisors
+tions, e. whichever smaller set accepted     provided high-level direction guidance identifiers set exception identifiers listed   work. link_exceptions minimizing space
+necessary storing exceptions. resource_group table
+
+
+
+
+Figure 4relational RDF data models
+LinkHub
+LinkHub relational RDF data models.   LinkHub relational model (b) example RDF graph statements triplets: (Q60996, gene_annotation, 0005634) (Q60996, protein family, PF01603), pro-
+tein (Q60996) gene annotation identified  0005634 protein_family PF01603. exemplifies using RDF graph connect multiple resources.  connects UniProt, Gene Ontology, Pfam. detailed description
+associated identifier provided corresponding resource  URL URI provide access detailed descriptions). (c) Illustrates key LinkHub relational tables identifier_types, identifiers, mappings (repro-
+duced RDF structure) mapped corresponding RDF structure. resulting RDF graph captures different
+types object identifiers stored different databases relations  mappings) object identifiers. mapping types explicitly represented RDF properties. (d) Shows rest LinkHub relational tables (repro-
+duced RDF structure) map RDF structure. resulting RDF graph captures different web resources
+ grouped) accessible LinkHub. addition, graph captures information web resources accept types object identifiers, exceptions.

@@ -1,0 +1,222 @@
+Identifying essential genes Escherichia coli metabolic optimization principle
+Carlotta Martellia, Andrea Martinob, Enzo Marinaric,1, Matteo Marsilid, Isaac PeÂ´rez Castilloe
+aDipartimento di Fisica, bConsiglio Nazionale delle Ricerche (Istituto Sistemi Complessi)/Istituto Nazionale la Fisica della Materia (Centre 
+Statistical Mechanics Complexity) Dipartimento di Fisica, cDipartimento di Fisica, Consiglio Nazionale delle Ricerche/Istituto Nazionale la
+Fisica della Materia Istituto Nazionale di Fisica Nucleare, Universita` di Roma â€˜â€˜La Sapienzaâ€™â€™, Piazzale  Moro 2, 00185 Rome, Italy; dThe Abdus Salam
+International Center Theoretical Physics, Strada Costiera 11, 34014 Trieste, Italy; eDepartment Mathematics, Kingâ€™s College London, Strand,
+London WC2R 2LS, United Kingdom
+
+Communicated Nicola Cabibbo, University Rome, Rome, Italy, December 29, 2008 (received review April 3, 2008)
+
+Understanding organization reaction fluxes cellular                   matrix notation,  â«º B)â?¯ â«½ 0, â?¯ â«½ {â?¯1,â€¦,â?¯N} tabolism stoichiometry topology                     flux vector. problem finding flux vector satisfying
+lying biochemical network central issue systems biology.               set P linear equations (1). real metabolic networks, task, important devise reasonable approximation                     usually underdetermined N â¬Ž P [e.g.,
+schemes rely stoichiometric data                    Escherichia coli â¬‡1,100 reactions â¬?800 metabolites (1)],
+scale kinetic approaches computationally affordable                  multiple solutions exist, specify small networks (e.g., red blood cells, â¬‡50 reactions). Methods                    working, physical states network.
+commonly used based finding stationary flux configu-                      organisms high functional specificity main
+rations satisfy mass-balance conditions metabolites,               objective produce certain specified metabolites, like, e.g.,
+coupling local optimization rules (e.g., maximization                  red blood cells, physical states taken consistent
+biomass production) reduce size solution space                 mass-balance conditions. cases, important
+single point. methods widely applied                      able explore solution space Eq. 1 uniformly.
+proven able reproduce experimental findings relatively
+                                                                                  Uniform sampling achieved small networks Monte
+simple organisms specific conditions.  define study
+                                                                                  Carlo methods (7),  recently, message-passing algo- constraint-based model cellular metabolism                                                                                   rithms used (8, 9).  computational consid-
+mass balance flux stationarity postulated                                                                                   erations prevent application techniques relevant flux configurations optimize global growth                                                                                   explore general aspects larger metabolic networks.  case Escherichia coli, steady flux states                                                                                      complex organisms, normally complements Eq.
+recovered solutions, mass-balance conditions vi-
+olated metabolites, implying nonzero net production                                                                                   1 assumption physical state network  solutions furthermore turn provide                    obeys specific optimization principle. flux-balance analysis
+correct statistics fluxes bacterium E. coli different               (FBA) (5), choice usually falls maximization environments compare available experimental                     biomass production, useful proxy growth capabilities evidence individual fluxes. Conserved metabolic pools play                   organism. FBA widely applied different organ-
+key role determining growth rate flux variability. Finally,             isms  bacteria) investigate general aspects metab- able connect phenomenological gene essentiality                       olism, like flux distributions different environments (10),
+â€˜â€˜frozenâ€™â€™ fluxes  e., fluxes smaller allowed variability) E.           evolutionary dispensability enzymes (11), plasticity coli metabolism.                                                                  reaction network (12). Minimization metabolic adjust-
+                                                                                  ment (MOMA) (6) instead able predict reorganization
+fluxomics å…© growth å…© stoichiometry å…© conserved moieties å…© gene essentiality       fluxes reaction knockout minimizing distance
+                                                                                  FBA solution obtained Eq. 1                                                                                   knockout.
+C    ellular metabolism involves complex network interac-
+     tions cross-regulations metabolites, proteins, genes. knowledge regulatory functions                                                                                       consider constraint-based model metabolic
+                                                                                  activity aim characterizing flux states corresponding
+genetic level level proteinâ€“protein interactions                 optimal net metabolic production. assume  infancy, biochemical network reactions                   stancy time fluxes impose mass-balance 
+describes metabolism characterized                    straints metabolites.  allow recov-
+organisms (1â€“3). information metabolic network                     ered properties solutions. assumption turns contained matrices B â«½ {biâ?®} â«½ {aiâ?®} describing,                  able reproduce empirical statistics fluxes respectively, input output stoichiometric coefficients                 bacterium E. coli different environments remarkable metabolite â?® (ranging 1 P) metabolic                  accuracy, physical biochemical origin robust-
+reactions (1 N). knowledge allows definition                ness emerging picture completely understood.
+constraint-based models prediction metabolic                      biological insight gained comparing fluxes possible (4â€“6). models typically rely                        variability individual fluxes data phenomenological
+steady-state assumption reflects time scale separation                   gene essentiality. (faster) equilibration metabolic processes (slower) dynamics genetic regulation. condition, concentration Xâ?® metabolite â?® flux â? â±– 0                       Author contributions: C.M., D.M., E.M., M.M., P.C. performed research.
+reaction constant time globally linked set                   authors declare conflict 
+                                                                                                                                                                          BIOPHYSICS
+
+
+
+
+mass-balance conditions:                                                          Freely available online PNAS open access option.
+                                                                                  1To   correspondence addressed. E-mail: enzo.marinari@roma1.infn 
+
+
+                  å†˜
+             â?®     N
+         dX                                                                       article contains supporting information online www.pnas.org/cgi/content 
+             â«½          å…±aiâ?® â«º biâ?®å…²vi â¬… 0,     @â?® â«½ 1, . . . , P         [1]      0813229106/DCSupplemental.
+          dt
+                  1                                                             Â© 2009 National Academy Sciences USA
+
+
+
+www.pnas.orgå…¾cgiå…¾doiå…¾10.1073å…¾pnas.0813229106                                                        PNAS å…© February 24, 2009 å…© vol. 106 å…©  8 å…© 2607â€“2611
+ Model Definitions abstract setup consider originally introduced J.
+Von Neumann (13) model growth production economies autocatalytic process. consider N chemical
+reactions P reagents, fluxes concentrations
+evolving discrete time t â«½ 0,1,â€¦  leave time scale
+unspecified).  assumed purely
+autocatalytic, total input given metabolite certain time step come   output previous time step. Let Si(t) denote scale reaction operates time t, total input output metabolite â?® given ?®(t) â«½ Â¥iSi(t)biâ?® Oâ?®(t) â«½
+Â¥iSi(t)aiâ?®, respectively. Stability requires Câ?®(t) :â«½ Oâ?®(t) â«º ?®(t â«¹ 1) â±– 0 times, need outside metabolic source survive. focus attention feasibility dynamical paths constant growth rate â?³ â¬Ž      Fig. 1. Flux distributions â?³* E. coli minimal environment 3
+0, ?®(t â«¹ 1) â«½ â? ?®(t). easy  paths,   different carbon sources: glutamate (glu), succinate (suc), glucose (glc).
+reaction rates behave Si(t) â«½ siâ?³t, constants si â±– 0      N â«½ 1,053 P â«½ 630 (glu); N â«½ 1,054 P â«½ 630 (suc); N â«½ 1,057 satisfying P linear constraints                                   P â«½ 631 (glc). (Inset) distributions plotted binning                                                                       abscissa.
+
+
+               å†˜
+               N
+
+        câ?® â¬…         å…±aiâ?® â«º â?³biâ?®å…²si â±– 0,   @â?® â«½ 1, . . . , P.   [2]
+                                                                      â€˜â€˜Leaf Removal.â€™â€™ network built, remove
+               1
+                                                                      internal metabolites produced, main assumption networkâ€™s physical state          corresponding constraints satisfied s* â«½ {siâ´±} corresponds growth rate      taking â?³ â«½ 0 applying null flux corresponding
+â?³ attains maximum possible value â?³* compatible           reactions  actually FBA).
+constraints (Eq. 2). rationale choice lies fact  general conditions, proven paths      Accounting Reversibility. disposed reversible reac- optimal use resources coincide, apart initial          tions introducing 2 separate fluxes taking absolute
+transient, maximal expansion (14). Note        difference positive net flux.
+sis essentially discrete-time version continuous          size resulting network, e., N P, ultimately
+time fluxes â? Eq. 1.                                              different different environments.
+   intuitive solution space Eq. 2 shrinks â?³      calculate maximum growth rate â?³* numerically increased starting â?³ â«½ 0, flux configuration      generalized MinOver algorithm (18), detailed ref. 17,                                                                       solutions fixed â?³, â?³ gradually increased.
+viable state. Quite importantly,  fixed set inputâ€“
+                                                                      shown rigorously (17) algorithm converges
+output relations, solutions Eq. 2 bound coincide
+                                                                      solution fixed â?³ 1 solution exists.  Eq. 1 â?³* â«½ 1 câ?® â«½ 0 @â?®.
+                                                                      multiple solutions occur  case form    typical behavior Von Neumannâ€™s model fully
+                                                                      connected set), algorithm provides uniform sampling appreciated analytically case random graphs. Depend-
+                                                                      solution space  supporting information (SI) test ing size topology, autocatalytic networks                                                                       property low dimensions]. Anticipating flux
+random stoichiometry rise different optimal states.      vectors satisfy Eq. 2 â?³* E. coli, particularly constrained optimization problems (15), key           important advantage uniform sampling required control parameter ratio N/P â«½ n variables                characterize solution space.
+constraints. random topologies (16, 17), n increases, crosses contracting phase â?³* â¬? 1        Characterization Solutions
+expanding â?³* â¬Ž 1, passing stationary regime        metabolic network E. coli, â?³* â«½ 0.999 â«¾ â?³* â«½ 1 reaction fluxes constant time       0.001 independently environmental conditions FBA  values fluxes settle different).    tested, state optimal growth compatible                                                                       constant fluxes. distribution reaction fluxes â?³*
+Application E. coli
+                                                                       Fig. 1) displays regime (â¬?2 decades) scaling form natural reaction network modeled autocatalytic         P(s) â¬‡ sâ«ºâ?¥ exponent close â«º1  reasonable agreement uptake reactions provide resources           experimental evidence based limited set account exchanges metabolites surrounding             measured fluxes (19, 10)], followed cutoff. Note flux
+environment included. applied Von Neumann             histogram remarkably stable different solutions. scheme cellular metabolism bacterium E. coli,        scenario partially reproduced FBA (10), reconstructed ref. 1. set stage, 3 different operations     solution obtained optimizing biomass production systemat- performed.                                                 ically overestimates â?¥. compare individual fluxes exper-
+                                                                      iments, aimed studying solution obtained conditions
+Environment Selection. fix environment cell lives,   similar described ref. 19, focusing attention 17 defined set external metabolites             fluxes central metabolism, ref. 6. Unfortunately,
+applied uptake fluxes. considered 3 distinct environ-         unable reproduce M9 medium used ref.
+mental conditions:   isolated cell, uptakes; (ii) minimal   19, fix uptakes 3 metabolites, glucose,
+environment, uptakes restricted set metabolites (10),    CO2, O2 identically ref. 19. remaining CO2, K, NH4, PI, O2, SO4, glu-L, succ, glc;      environment, chose simulate minimal medium fixed
+(iii) rich environment, uptakes external metabolites.     4 remaining external uptakes arbitrary values  did 
+2608 å…© www.pnas.orgå…¾cgiå…¾doiå…¾10.1073å…¾pnas.0813229106                                                                                    Martelli et al.
+ Fig. 2. Comparison reaction fluxes predicted Von Neumann scheme 17 fluxes measured ref. 19 analyzed ref. 6. different
+reactions  specific order) reported horizontal axis (labeled ref. 6), corresponding fluxes (relative glucose uptake) vertical axis. Red markers denote experimental values, blue ones theoretical
+predictions    Characterization Solutions details environmental conditions considered). Note flux vectors satisfy Von
+Neumannâ€™s conditions optimal growth. different solutions reported 
+                                                                                        Fig. 4. Overlap-based comparison solution spaces E. coli                                                                                         random counterpart.  B) Mean overlap 500 different
+observe strong dependency results parameters).                        solutions function â?³ E. coli random metabolic network; Results shown Fig. 2. stress medium                               point abscissa corresponds value â?³* estimated simulation.
+consider strictly identical used experiments.                   (C D) Overlap histogram P(q) â?³* E. coli random network.
+                                                                                        Note different scales y axes lower images.
+worth noting  ref. 20) experiments employ 13C-
+labeled carbon sources substrates growing bacterial
+culture kept constant density, relative abundance metabolites captured nuclear magnetic resonance                         quantity equals 1 sâ?£ sâ?¤ coincide mass spectroscopy. Reaction fluxes different metabolic path-                         smaller smaller distance sâ?£ sâ?¤ ways inferred, assuming model reaction                                space flux vectors increases. computing  network.                                                                                consider flux zero value threshold
+   stationarity recovered â?³* â«½ 1, discussed                        â?§, account fact loss information
+difference Von Neumann solution FBA                             relative fluctuations different solutions fluxes
+arises fact câ?®s attain lowest allowed                       smaller â?§. chosen â?§ â«½ 10â«º5 ensure overlaps
+value. clearly seen Fig. 3. solution,                           overestimated. Results obtained â?§ â«½ 10â«º5, 10â«º6, metabolites exist nonzero câ?®, implying steady                        10â«º7 identical. furthermore taken account state, net production metabolites occurs.                       fact overlap null fluxes defined signal incompleteness stoichiometric data.                                    consistency equal 1. Fig. 4, report behavior    insight existence multiple flux states                      mean overlap å…·qâ?£â?¤å…¸  angular brackets representing compatible Eq. 2 â?³* shape solution                            average pairs solutions) E. coli space, rough effective way consists monitoring mean                        network topology N/P random Gaussian
+overlap different solutions. Given 2 solutions â?£ â?¤
+                                                                                        stoichiometry. Random networks provide important bench- fixed â?³, define overlap qâ?£â?¤ 
+                                                                                        mark behavior real networks tested,
+
+                                    å†˜                       å†˜
+                                    N                       N                           highlight extent observations specific                                 2            s ?£s ?¤   1                               particular organism studied. particular, role
+                        qâ?£â?¤ â«½                         â«½           qå…±â?£â?¤
+                                                                     iå…²
+                                                                        .         [3]
+                                N         si2â?£ â«¹ si2â?¤ N                                 topology stoichiometry fully analyzed. 
+                                    1                     1
+                                                                                        stance, ref. 17, shown power-law behavior                                                                                         flux distribution ascribed specific network
+                                                                                        topology.
+                                                                                  12       sees artificial metabolic network, å…·qâ?£â?¤å…¸ 100
+                                                                                  10    increasing function â?³ approaches 1 â?³3 â?³* (Fig. 4B).
+200                                                                               8
+                                                                                         overlap histogram marked â?¦-peak q â«½ 1
+                                                                                        mass increases â?³ 3 â?³*. results indicate                                                                                   6     optimal solution unique. hand, behavior 300
+                                                                                  4     å…·qâ?£â?¤å…¸ E. coli suggests volume solutions stops
+400
+                                                                                  2
+                                                                                        contracting â?³ reaches â¬‡0.8  particular, â?³*,
+                                                                                        multiple solutions survive. corresponding histogram,
+500
+                  100      200            300       400             500     600
+                                                                                  0     Fig. 4C, â¬‡30  reactions overlap close
+                                    metabolites                                         1. different jargon, say â¬‡30                                                                                          variables frozen  e., assume value solutions
+Fig. 3. Values câ?® different metabolites (horizontal axis) 500 different       constrained optimization problem), remain-
+                                                                                                                                                                            BIOPHYSICS
+
+
+
+
+solutions. color code reported right. white background
+                                                                                        ing free. existence frozen variables characterizes corresponds câ?® â«½ 0. Colored marks indicate net production corresponding metabolite solution mass balance violation.              random constraint satisfaction problems (21), normally
+sees mass balance holds metabolites,                hard identify topological motifs variables sistently unbalanced,  depending                likely frozen. present case, reasonable expect
+solution.                                                                               purely structural reasons, reaction chains entirely
+
+Martelli et al.                                                                                              PNAS å…© February 24, 2009 å…© vol. 106 å…©  8 å…© 2609
+ Fig. 5. E. coliâ€™s central metabolism: Nodes represent metabolites; arrow
+joining 2 nodes present reaction exists converting 
+Red (green) links denote frozen (free) reactions, overlap larger (smaller) 0.9.
+
+
+
+frozen reaction chain frozen. confirmed map frozen/free fluxes E. coliâ€™s
+central metabolism, displayed Fig. 5. chain-like glycolysis appears frozen.
+   existence frozen fluxes raises obvious question biological significance. address point,                                                                                  Fig. 6. Essential genes (vertical axis) versus overlap corresponding
+correlated reaction overlaps qâ?£â?¤       essentiality                reactions reconstructed metabolic network E. coli (horizontal axis).
+corresponding genes according notion universal essen-
+tiality used ref. 22, combines phenomenological rele-
+vance  gene essential knocking causes cell die)              pool coupled common functional group. evolutionary retention  presence gene different                 example 3 metabolites ATP, AMP, ADP belong species). ref. 22, 55 essential genes E. coli involved                    pool cofactors preserve adenylate moiety (24). metabolism identified present 80                     implies change concentration given metabolite
+32 different bacterial genomes. able link 52                                                                                    accomplished considering entire pool genes reactions reconstructed network. turns
+                                                                                   metabolite belongs.  Fig. 6, 43 genes correspond reactions                                                                                      conserved pool g formally defined P-dimensional
+overlap â¬Ž0.8 7 genes relate reactions overlap significantly â¬?80 . gene â€˜â€˜essentialâ€™â€™                 Boolean vector elements zgâ?® zgâ?® â«½ 1 â?® åƒ† g zgâ?® â«½
+(according definition ref. 22) depends choice                  0 satisfying environment. particular, ref. 22 considers rich medium environment. comparison, considered 
+oretical values overlaps fluxes calculated assuming rich environment. Note  principle, gene linked variable flux different environments.  results presented qualitatively preserved minimal environment different carbon sources. sug-
+gests frozen fluxes, Von Neumannâ€™s framework allowed limited variability state optimal growth kept, carry evolutionary significance.
+
+Role Conserved Moieties trace physical origin results presented  studied rank matrix â«º â?³B associated P linear constraints (Eq. 2) function parameter â?³, Fig. 7.
+   singularity occurring â?³ â«½ 1 related presence                   Fig. 7. rank matrix associated inequalities (2) conserved pools metabolites, groups reagents                        E. coli (isolated cell) function â?³. singularity, rank equals
+total concentration constant time (23). existence                   number metabolites; conserved pools metabolites present fact concentrations metabolites certain                exactly â?³ â«½ 1.
+
+
+2610 å…© www.pnas.orgå…¾cgiå…¾doiå…¾10.1073å…¾pnas.0813229106                                                                                                     Martelli et al.
+                   å†˜
+                   P                                                                         belong conserved pool  stoichiometric descrip-
+                                                                                             tion used).
+                        zgâ?®å…±aiâ?® â«º biâ?®å…² â«½ 0,        â«½ 1, . . . , N.                 [4]
+                                                                                                conclude state optimal growth â?³* â«½ 1,
+                  â?®â«½1
+                                                                                             addition stationarity reaction rates, spontaneous conservation laws manifest precisely â?³ â«½ 1,                               condition mass balance holds   metabolites.
+                                                                                                summary, Von Neumann model relies assump- virtue Eq. 2, relation Â¥â?® zgâ?®câ?® â±– 0 hold g.
+                                                                                             tion arrangement metabolic fluxes follows principle follows â?³* â±• 1, fluxes connected                                                                                              growth maximization. does imply priori metabolite belonging conserved pool equal zero.                              mass balance stationarity fluxes, 2 conditions null solution s â«½ 0 discarded obvious                                 essentially recovered maximum growth rate. physical grounds, fluxes connected metabolites                            presence conserved metabolic pools. singu-
+conserved pool necessarily â?³* â±• 1. consistent                              larity rank â«º â?³B â?³ â«½ 1 implies physically results obtained different environmental conditions                               relevant solutions tends â?³ 3 1.
+implies scenario stable small pertur-                              limit, mass balance recovered  e., câ?® â«½ 0)  bations network topology.                                                              metabolites. provides nontrivial correction     Eqs. 4 2, easy  â?³ â«½ 1,                           picture extracted FBA reproduces limited experi-
+â?® åƒ† g implies câ?® â«½ 0, e., metabolite belonging                                  mental evidence available.
+conserved pool mass-balance condition strictly valid. shown instead (Fig. 3) values constraints                            ACKNOWLEDGMENTS. gratefully acknowledge important discussions
+                                                                                             G. Bianconi, R. Monasson,  Pagnani, F. Ricci Tersenghi zero: metabolites, mass balance                                  number useful suggestions. M.M. supported Information Society
+condition reached, assert                                 Technologies STREP GENNETEC contract  034952.
+
+
+ 1. Reed JL, Vo TD, Schilling CH, Palsson BÃ˜ (2003) expanded genome-scale model        13. Von Neumann J (1937) UÂ¨ber ein oÂ¨konomisches Gleichungssystem und eine Verallge-
+    Escherichia coli K-12 (iJR904 GSM/GPR). Genome Biol 4:R54.                                   meinerung des Brouwerschen Fixpunktsatzes. Ergebn Math Kolloq 8:73â€“ 83. English
+ 2. Wiback SJ, Palsson BÃ˜ (2002) Extreme pathway analysis human red blood cell                translation Rev Econ Studies 13:1 (1945).
+    metabolism. Biophys J 83:808 â€“ 818.                                                      14. McKenzie LW (1986) Optimal economic growth, turnpike theorems comparative
+ 3. Duarte NC, HerrgÃ¥rd MJ, Palsson BÃ˜ (2004) Reconstruction validation Saccha-           dynamics. Handbook Mathematical Economics, eds Arrow KJ, Intriligator MD (North
+    romyces cerevisiae iND750, fully compartmentalized genome-scale metabolic model.           Holland, Amsterdam), Vol 3, 1281â€“1355.
+    Genome Res 14:1298 â€“1309.                                                                15. Monasson R (2007) Optimization problems statistical physics. Complex Systems
+ 4. Edwards JS, Ibarra RU, Palsson BÃ˜ (2001) silico predictions Escherichia coli           LXXXV, Lecture Notes Les Houches Summer School 2006 (Elsevier, Amsterdam)
+    metabolic capabilities consistent experimental data. Nat Biotech 19:125â€“130.        1â€“ 65.
+ 5. Kauffman KJ, Prakash P, Edwards JS (2003) Advances flux balance analysis. Curr Opin   16. Martino  Marsili M (2005) Typical properties optimal growth Von
+    Biotech 14:491â€“ 496.                                                                         Neumann expanding model large random economies. J Stat L09003.
+ 6. Segre` D, Vitkup D, Church GM (2002) Analysis optimality natural perturbed     17. Martino  Martelli C, Monasson R, Perez Castillo (2007) Von Neumannâ€™s expand-
+    metabolic networks. Proc Natl Acad Sci USA 99:15112â€“15117.                                   ing model random graphs. J Stat P05012.
+ 7. Wiback SJ, Famili  Greenberg HJ, Palsson BÃ˜ (2004) Monte Carlo sampling used    18. Krauth W, zard M (1987) Learning algorithms optimal stability neural
+    determine size shape steady-state flux space. J Theor Biol 228:437â€“        networks. J Phys 20:L745â€“L752.
+    447.                                                                                     19. Emmerling M, et al. (2002) Metabolic flux responses pyruvate kinase knockout  8. Bianconi G, Zecchina R (2008) Viable flux distribution metabolic networks. Networks       Escherichia coli. J Bacteriol 184:152â€“164.
+    Heterogeneous Media 3:361â€“369.                                                           20. Sauer U (2006) Metabolic networks motion: 13C-based flux analysis. Mol Syst Biol 2:62.
+ 9. Braunstein  Mulet R, Pagnani (2008) Estimating size solution space     21. Semerjian G (2008) freezing variables random constraint satisfaction
+    metabolic networks. BMC Bioinformatics 9:240.                                                problems. J Stat Phys 130:251â€“293.
+10. Almaas E, Kovacs B, Vicsek T, Oltvai ZN, BarabaÂ´si AL (2004) Global organization      22. Gerdes SY, et al. (2003) Experimental determination level analysis     metabolic fluxes bacterium Escherichia coli. Nature 427:839 â€“ 843.                    essential genes Esche

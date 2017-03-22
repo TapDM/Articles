@@ -1,0 +1,543 @@
+BioMog: Computational Framework Novo
+Generation Modification Essential Biomass
+Components
+Christopher J. Tervo, Jennifer L. Reed*
+Department Chemical Biological Engineering, University Wisconsin-Madison, Madison, Wisconsin, United States America
+
+
+
+     Abstract
+     success genome-scale metabolic modeling contingent model’s ability accurately predict growth      metabolic behaviors. date, little focus directed developing systematic methods proposing,
+     modifying interrogating organism’s biomass requirements used constraint-based models. address      gap, biomass modification generation (BioMog) framework created used generate lists biomass
+     components novo, modify predefined biomass component lists, models Escherichia coli (iJO1366)      Shewanella oneidensis (iSO783) high-throughput growth phenotype fitness datasets. BioMog’s novo biomass
+     component lists included, implicitly explicitly, seventy percent components included predefined
+     biomass equations, resulting novo biomass equations outperformed predefined biomass equations      qualitatively predicting mutant growth phenotypes percent. Additionally, BioMog procedure quantify
+     experiments support refute particular metabolite’s essentiality cell, facilitates determination      inconsistent experiments inaccurate reaction gene reaction associations. interrogate metabolite
+     essentiality, BioMog framework includes experiment generation algorithm allows design experiments
+     test metabolite essential. Using BioMog, correct experimental results relating essentiality thyA
+     gene E. coli, perform knockout experiments supporting essentiality protoheme. capabilities,
+     BioMog valuable resource analyzing growth phenotyping data component model developer’s toolbox.
+
+  Citation: Tervo CJ, Reed JL (2013) BioMog: Computational Framework Novo Generation Modification Essential Biomass Components. PLoS
+  8(12): e81322. doi:10.1371/journal.pone.0081322
+  Editor: Julio Vera, University Erlangen-Nuremberg, Germany
+  Received 21, 2013; Accepted October 11, 2013; Published December 5, 2013
+  Copyright: ß 2013 Tervo, Reed. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: CT supported NHGRI training grant Genomic Sciences Training Program (T32HG002760). Additional support research   provided grant NSF (NSF 1053712). funders role study design, data collection analysis, decision publish, preparation   manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: reed@engr.wisc.edu
+
+
+
+Background                                                                            predict growth (false negative prediction). approach,
+                                                                                      GrowMatch [3] groups model-data inconsistencies false
+   accuracy constraint-based model predictions (e.g.,                       negatives (model predicted growth, experimental growth) growth phenotypes) application models                              false positives (model predicted growth, experimental growth)
+metabolic engineering (e.g., strain design biofuel production)                    adds removes metabolic reactions, respectively, contingent biologically accurate biomass equation.                           reconcile individual model-data inconsistencies. newer ap-
+Despite  numerous computational methods exist                           proach, MIRAGE [7], makes use metabolic flux functional
+curate genome-scale models interrogating, hypothesizing                        genomics data identify reactions missing refining organism’s reaction, gene-reaction transcrip-                      model network. methods,  used tional regulatory networks [1,2,3] comparatively little                      automatically test refine microorganism’s modeled biomass automate generation modification                                 GrowMatch [3] does include biomass reformulation step
+organism’s biomass requirements. niche,                          correct false positives manual inspection).
+developed novel biomass modification generation                                scaling issues inherent design, (BioMog) framework means determine, novo, biomass                          methods correct single mispredictions time making
+components consistent large numbers (containing                         sequential modifications model considering 1000 s unique experiments) high-throughput growth                               modifications impact overall predictive accuracy phenotype datasets, becomingly increasingly facile                      model. sequential model modifications result inexpensive create [4,5].                                                          suboptimal model refinements   proposed modifi-
+   date, numerous methods created                                cation requires subsequent evaluation entire global
+available refine constraint-based models using growth pheno-                       dataset ensure overall improved model performance. typing data  [2] recent review). SMILEY [6] works add                      addition, alternate modifications able reconcile missing reactions metabolic network correct discrepancies                     model-data inconsistency existing approaches organism grows experimentally model does                        identify alternate solutions best agree
+
+
+PLOS | www.plosone.org                                                        1                           December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                  Algorithm Identifying Biomass Components
+
+ entire experimental dataset.  developed           Results Discussion
+BioMog (Biomass Modification Generation) framework  scalable, parallelizable efficient manner, consider          BioMog framework uses concept blocked metabolites
+experimental results simultaneously set(s) biomass             growth phenotype data determine potential biomass
+components best matches experimental growth phenotypes.                components yield fatal non-fatal knockout predictions
+Consequently, BioMog proposes biomass requirements best                growth growth experimental results, respectively. match existing information avoiding substantial               include exclude metabolite lists generated computational costs associated existing mixed-integer linear           experiments, improved biomass computationally
+programming (MILP) refinement approaches.  BioMog                  proposed novo based existing biomass equation used complement existing tools suggesting types          appropriate algorithm. Based new biomass model adjustments improve model predictions.                          relevant statistics teased metabolite lists, BioMog propose
+                                                                            additional growth phenotype experiments designed    Building concepts blocked metabolites [8]  e.,
+                                                                            generate data specific essentiality particular metabolite
+metabolites produced consumed                                                                             cellular growth. experiments complete BioMog cycle
+organism), BioMog determines metabolites net production
+                                                                            performed iteratively improve quantity blocked  e., metabolites generated)                                                                             quality evidence supporting essentiality given
+particular mutant wild type. note                                                                             metabolite. entire process summarized Figure 1.
+flux net production blocked metabolites occur
+(e.g., metabolite cycle) net production metabolite possible. simplicity, refer          BioMog Framework: Illustrative Example
+metabolites blocked metabolites remainder paper.             illustrative purposes, demonstrate BioMog
+Depending experimental growth phenotype mutant                process small reaction network (shown Figure 2), dataset, set blocked metabolites assigned       media contains metabolites G (Figure 2A).                                                                             predefined biomass equation removed network list types, assuming correct network reconstruction:
+                                                                            sinks added metabolite network. 1) Exclude Metabolite List: growth observed,                 conditions, wild type network (Figure 2B) able produce
+   blocked metabolite list included BioMog             metabolites Iex  blocked    biomass result false negative growth prediction.               choice media components. Iex removed
+   Metabolites list provide negative evidence         consideration possible biomass components    inclusion biomass.                                                    inclusion suggest wild type incapable                                                                             growth. knockout mutant evaluated experimentally, list
+2) Include Metabolite List: growth observed,                                                                             blocked metabolites (excluding wild type, e.,
+   discovered blocked metabolites, added biomass
+                                                                            Iex  generated stored include/exclude metabolite
+   equation, result model recapitulating particular
+                                                                            lists based knockout phenotype  e., lethal non-lethal
+   experimental result. Metabolites list viable             knockout). include/exclude metabolite lists    candidates biomass components.                                       completed, BioMog propose novo biomass modify    lists created, simple integer program          predefined biomass using simple integer program (IP) (IP) constructed propose new biomass novo              agreement model growth predictions growth
+                                                                            phenotype data maximized (Figure 2C). Depending modifying predefined biomass equation components                                                                             network structure, process result new consumption
+computational agreement experimental observations                                                                             blocked metabolites  e., metabolite consuming
+maximized. important note essential biomass
+                                                                            reaction exists) removal metabolites components proposed BioMog useful qualitative
+                                                                            predefined biomass, naturally behaves outlet predictions  e., account relative
+                                                                            essential metabolites.
+abundance component   appropriate use quantitative predictions pathway fluxes yields experimental biomass composition measurements).                Application BioMog Escherichia coli Shewanella set new biomass components proposed, additional            oneidensis Metabolism
+experiments designed interrogate essentiality               order demonstrate efficacy utility BioMog
+given metabolite using methods similar recently proposed             framework, BioMog framework applied models FOCAL[9], designs experiments test accuracy                 Escherichia coli  ,4200 growth phenotype experiments) reaction gene-reaction relationships constraint-based                Shewanella oneidensis  ,1500 fitness experiments) metabolism,
+models.                                                                     resulting proposed biomass components generated     application BioMog genome-scale             novo modifying preexisting biomass equations. BioMog’s models Escherichia coli (iJO1366) Shewanella oneidensis MR-1        novo proposed biomass components summarized Table 1
+(iSO783) using growth phenotype fitness data                complete details predefined biomass modifications organisms [5,10,11] propose novo modified biomass                 provided supplementary materials (Tables S1 S2 requirements. demonstrate new biomass equations                 File S1). proposing biomasses, metabolites outperform qualitative growth predictions predefined           commonly associated biomass amino nucleic
+                                                                            acids, various currency metabolites, weighted counterparts, providing potential insights inconsistent
+                                                                            selected preferentially alternative
+experiments model structures. subsequently designed                                                                             metabolites available  methods details).
+conducted additional experiments interrogate essentiality                                                                                proposed novo biomass requirements consistently
+metabolites existing phenotype data provides                                                                             outperformed predefined counterparts predicting insight provides conflicting results.
+                                                                            qualitative outcomes growth phenotype experiments (Figure 3).
+                                                                            Despite improvements growth phenotype predictions, 
+
+PLOS | www.plosone.org                                              2                       December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                       Algorithm Identifying Biomass Components
+
+
+
+
+Figure 1. flow diagram summarizing BioMog framework. Initially, mutants evaluated computationally determine metabolites blocked mutant strains wild type strain. strictly necessary, mutants substantially deleterious impacts network (.100 blocked metabolites) considered uninformative filtered improve quality proposed biomass components.
+Blocked metabolites assigned include/exclude metabolite list based experimentally observed growth phenotype. lists created, BioMog use information propose novo biomass components modify existing biomass equation.
+Additional experiments designed run BioMog informational gaps exist current dataset cycle repeated.
+doi:10.1371/journal.pone.0081322.g001
+ seen room improvement, particularly                   properly predict media condition, 123 mutants did grow (NG) experimentally. 139 E. coli              improperly predicted biomasses, 15 incorrectly
+NG mutants novo predefined biomass equations failed             predicted solely predefined biomass just (Db1098 –
+
+
+PLOS | www.plosone.org                                                 3                        December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                   Algorithm Identifying Biomass Components
+
+
+
+
+Figure 2. Application BioMog illustrative example.   existing model set biomass requirements (metabolites F H),
+BioMog capable (depending quality quantity data) generating, novo, organism’s biomass requirements modifying predefined biomass equation. accomplished removing initial biomass equation network adding sinks metabolite
+ shown). Blocked metabolites determined wild type mutant strains particular experimental condition (B). process repeated growth phenotype experiments data exist. set blocked metabolites used propose new biomass
+equation modify existing (C). Based include/exclude metabolite lists generated example, original biomass equation
+composed substrates F H modified adding metabolite C removing F. novo biomass relies solely experimental
+evidence, important data exist test essentiality different metabolites desires accurate complete
+understanding biomass requirements.  metabolite H absent proposed novo biomass supporting refuting
+evidence existed experimental dataset justify inclusion.
+doi:10.1371/journal.pone.0081322.g002
+ mutant defective deoxythymidine triphosphate, dttp, biosyn-            wild type network (implying mutant result thesis) incorrectly predicted BioMog’s proposed                 growth phenotype given existing metabolic network). biomass. 123 commonly mispredicted mutants, just              mispredicted mutants experimental errors,
+90  did blocked metabolites observed              incomplete erroneous GPR associations, enzyme redundancy
+
+
+PLOS | www.plosone.org                                              4                       December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                               Algorithm Identifying Biomass Components
+
+
+
+ Table 1. BioMog proposed novo biomass equations E. coli S. oneidensis.
+
+
+ E. coli Biomass                                                                                          S. oneidensis Biomass
+
+ Unique                                     Contains Alternatives                                         Unique                   Contains Alternatives
+
+ 2,3-dihydroxybenzoylserine; 5-             2omhmbl; [2Fe-1S] desulfurated iron-sulfur cluster; 4c2me; L- L-Arginine; gdptp; L-    Reduced glutathione; DNA; L-
+ Formyltetrahydrofolate; L-Glutamate 5-     Arginine; adenosine thiamine triphosphate; Biotin; cardiolipin Histidine; O-Phospho-   Leucine; L-Methionine; 2-Oxo-3-
+ phosphate; L-Histidine; L-Isoleucine;      (tetraoctadec-11-enoyl, n-C18:1); Coenzyme  Flavin adenine L-homoserine              hydroxy-4-phosphobutanoate; L-
+ KDO(2)-lipid IV ; protoheme; L-Proline   dinucleotide oxidized; L-Leucine; L-Lysine; Murein5p3p_p;                              Phenylalanine; L-Proline; O-Phospho-
+                                            nadp; pe181; L-Phenylalanine; O-Phospho-L-serine;                                      L-serine; L-Tryptophan; L-Tyrosine
+                                            Pyridoxamine; Siroheme; Selenite; L-Tryptophan; uagmda
+
+ Unique metabolites compounds alternative maximized objective function. Conversely, metabolites  possessed alternatives replaced compound adversely impacting objective function. Abbreviations used follows: 2omhmbl,
+ 2-octaprenyl-3-methyl-5-hydroxy-6-methoxy-1,4-benzoquinol, 4c2me, 4-(cytidine 59-diphospho)-2-C-methyl-D-erythritol, murein5p3p_p, linked disacharide
+ pentapeptide tripeptide murein units (uncrosslinked, middle chain), nadp, nicotinamide adenine dinucleotide phosphate, pe181, phosphatidylethanolamine
+ (dioctadec-11-enoyl, n-C18:1), uagmda, undecaprenyl-diphospho-N-acetylmuramoyl-L-alanyl-D-glutamyl-meso-2,6-diaminopimeloyl-D-alanyl-D-alanine, gdptp,
+ guanosine 39-diphosphate 59-triphosphate.
+ doi:10.1371/journal.pone.0081322.t001
+
+ isozymes, metabolic redundancy presence                         blocked lethal knockout  e., high frequency alternate metabolic pathways used experimen-                        include lists) likely added biomass equation.
+tally, incomplete pathways filled using methods like                  Frequencies   provide incomplete picture GapFill [8]. example, folA (encoding dihydrofolate reductase)                    selection evidenced numerous modifications E. coli repeatedly reported essential gene                         predefined biomass equation S. oneidensis (metabolites listed [10,12,13];  present GPR association reaction                   red, Figure 4B). completely understand BioMog decisions, suggests isozyme, folM, compensate loss folA                  necessary know metabolite’s frequency include/
+resulting model having new blocked metabolites                      exclude lists frequencies brethren  e., erroneous growth phenotype prediction. experimentally                        blocked metabolites appear include/exclude
+essential gene, guaB (encoding IMP dehydrogenase) converts imp                       lists). Assuming correct metabolic network, blocked
+(inosine 5-phosphate) xmp (xanthoine 5-phosphate)                            metabolite appears include list metabolites, guanine biosynthesis;  model route                        possible selection metabolites make xmp imp (imp R inosine R hypoxanthine R xanthine                           preferable order obtain accurate biomass equation
+R xmp) new blocked metabolites                                fewest number components. metabolite,
+DguaBmutant wildtype. structural issues                        protein_son_aerobic (representing average protein molecule
+model (e.g., GPR associations alternative pathways)                          cell) iSO783 example replacing cause discrepancies model predictions data,                         metabolite predefined biomass brethren discrepancies problems                              metabolites biomass improves agreement experimental
+experimental data itself. example, sucC, (encoding succinyl-                     observations. viable mutant DSO2085, protein_son_aerobic
+CoA synthetase classified experimentally essential;                   sole blocked metabolite  observed wild reports indicate non-essential [12,13] agreement                 type network) providing evidence exclusion model predictions. remaining 10                                  biomass.  majority growth mutants,
+mispredicted NG mutants did blocked metabolites,                        protein_son_aerobic blocked various
+inclusion blocked metabolites biomass                       amino acids precursors protein production. contradicted results experiments. example, number                     consequence, BioMog determines composing biomass mutants (Db0722 [sdhD], Db0588 [fepC], Db0590 [fepD], Db0592                      using essential amino acids protein_son_aerobic [fepB], Db1252 [tonB] Db3919 [tpiA]) Fe-enterobactin                         improve model’s qualitative growth predictions.
+(feenter) blocked metabolite;  excluded                       Having evaluated decision making process proposing BioMog’s proposed biomass requirements numerous                               novo modified biomasses, compared novo BioMog
+conflicting experimental results regarding metabolite’s essen-                   biomass components predefined model biomass components
+tiality (e.g., Db0584 [fepA], viable mutant feenter                (Figure 5). detailed biomass component comparison blocked metabolite). Consequently, improve qualitative                   provided Tables S3 S4 File S1. seen E.
+predictions experiments require including                         coli, 70  predefined biomass components captured
+additional regulatory information, repeating conflicting                        BioMog’s proposed biomass, alternative downstream
+experiments, modifying reaction network gene-protein-                      metabolites considered. proposing E. coli S. oneidensis
+reaction (GPR) associations.                                                         biomass requirements, BioMog select metabo-
+   BioMog framework provides information                          lites related predefined biomass experiments support/refute essentiality given                          located farther downstream. upstream predefined metabo-
+metabolite. extracted frequency                              lites explicitly included BioMog proposals, appearance given metabolite include/exclude                              implicitly essential media conditions examined metabolite lists. metabolite list frequencies select                       downstream metabolites included novo biomass.
+predefined biomass components (E. coli metabolites                           E. coli analysis, BioMog biomass components
+experimental evidence excluded improve                        upstream predefined biomass components.
+visualization) provided Figure 4. Unsurprisingly, items                  S. oneidensis, novo Biomog biomass components experimental evidence indicating metabolite                      downstream predefined components unique 
+
+PLOS | www.plosone.org                                                       5                          December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                   Algorithm Identifying Biomass Components
+
+
+
+
+Figure 3. Percent growth phenotype agreements BioMog Novo biomass predefined biomass. Unsurprisingly, BioMog biomass equation consistently outperforms curated biomass entire dataset. Numbers reported given bar indicate total number experiments category.
+doi:10.1371/journal.pone.0081322.g003
+
+novo biomass, exception amino acids              frequency appearance include/exclude metabolite lists
+included biomass precursors                     (Figure 6), algorithm did sufficient evidence protein_son_aerobic. E. coli S. oneidensis, seven           include amino acids biomass components proposed metabolites respectively unique novo                 analytical data indicates amino acids  addition biomass  e., did alternatives               components) present biomass [11]. address directly included upstream downstream metabolites              shortcoming, treated analytically measured biomass predefined biomass). unique elements BioMog                components additional experimental data points BioMog
+biomasses (seven components E. coli thirteen S.                  fit. doing  capture supporting evidence oneidensis, including amino acid precursors) critical       analytical measurements provide, allowing BioMog improving growth phenotype predictions                 determine phenotypic data contradicts inclusion novo biomass modification predictions (Figure 5B).          metabolite biomass. novo modified biomass
+important note metabolites unique predefined              requirement proposals S. oneidensis using additional
+biomass absent novo biomass              information displayed Table 2 Table 3. data support inclusion data suggests           seen, proposals similar using just growth
+metabolites essential growth.                                    phenotypes (Tables 1 S2);  amino acids
+                                                                             additional analytically measured currency metabolites
+Inclusion Analytical Biomass Measurements BioMog                       (e.g., nadh amp) added. Additionally, list
+    BioMog designed make proposals based growth               items removed predefined biomass largely 
+phenotype data, account additional                     extracellular crosslinked peptidoglycan (peptx_e Figure 4B)
+experimental data analytically measured biomass compo-               retained based experimental measurements, sitions. data especially useful metabolites            appeared equal numbers include exclude lists
+creating informative mutant experiment prohibitive               indicating growth phenotypes inconclusive regarding time complexity  Experimental Design                     essentiality.
+section . biomass composition data used improve BioMog proposals, amino acids S.                Experimental Design
+oneidensis. known organisms generally require              addition, proposing modifying biomasses, BioMog amino acids growth;  based just                    capable proposing experiments interrogate essentiality 
+
+PLOS | www.plosone.org                                               6                      December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                       Algorithm Identifying Biomass Components
+
+
+
+
+Figure 4. Frequency appearance include/exclude metabolite lists. Frequency select predefined biomass metabolites include
+(red bars, corresponding experiments mutants grow) exclude (blue bars, corresponding experiments mutants grow)
+metabolite lists, difference (green bars) E. coli   S. oneidensis (B). E. coli, 29 72 predefined
+components (40 ) direct supporting refuting experimental evidence  e., red blue bars zero). positive difference include exclude frequency indicates potential improvement agreement including metabolite biomass component. Note positive difference does ensure metabolite’s inclusion lead maximal agreement score. Selection biomass components multiple blocked metabolites associated given experiment potentially replicate experimental phenotypes minimizing
+overall disagreements  text details). Red labeled metabolites indicate recommended removal biomass modification
+algorithm. Metabolite abbreviations match used metabolic models.
+doi:10.1371/journal.pone.0081322.g004
+
+
+
+
+PLOS | www.plosone.org                                                 7                        December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                              Algorithm Identifying Biomass Components
+
+
+
+
+Figure 5. Comparison predefined biomass BioMog’s novo   modified biomass  . Numbers bars indicate number metabolites category. iJO1366 iSO783 genome-scale models used E. coli S. oneidensis, respectively.
+doi:10.1371/journal.pone.0081322.g005
+ given metabolite  File S1 File S2 methods                inorganic compounds, deletion genes essential implementation respectively). Various experimental                   metabolite production generated E. coli predefined
+proposals involving use minimal media lacking essential           biomass components BioMog indicated little 
+
+PLOS | www.plosone.org                                           8                      December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                               Algorithm Identifying Biomass Components
+
+
+
+
+Figure 6. Frequency Amino Acid appearance include/exclude metabolite lists S. oneidensis. amino acids included original novo biomass proposals BioMog (Table 1), growth phenotypes preclude addition shown  exclusion BioMog result insufficient evidence inclusion based soley growth phenotype experiments performed.
+Metabolites green selected BioMog essential biomass components. Metabolites blue evidence support inclusion omitted redundant metabolites matching experimental results (e.g., isoleucine,
+leucine valine biosynthesis pathways share enzymes). Metabolites colored red growth phenotype evidence support inclusion exclusion biomass.
+doi:10.1371/journal.pone.0081322.g006
+
+
+
+ Table 2. BioMog Proposed Novo Biomass S. oneidensis using Growth Phenotype Experimentally Measured Biomass.
+
+
+ Amino Acids                                                         Present Predefined Biomass              Equivalent Predefined Biomass
+
+ L-Alanine                      L-Leucine                            Putrescine                                 O-Phospho-L-homoserine
+ L-Arginine                     L-Lysine                             nad                                        O-Phospho-L-serine
+ L-Asparagine                   L-Methionine                         nadh                                       gdptp
+ L-Aspartate                    L-Phenylalanine                      nadp                                       Reduced Glutathione
+ L-Cystine                      L-Proline                            nadph                                      2-Oxo-3-hydroxy-4-phosphobutanoate
+ L-Glutamine                    L-Serine                             dna_son
+ L-Glutamate                    L-Threonine                          Glycogen
+ Glycine                        L-Tryptophan                         peptx_e
+ L-Histidine                    L-Tyrosine                           rna_son
+ L-Isoleucine                   L-Valine                             amp
+
+ given additional information biomass components measured experimentally, BioMog able propose physiologically accurate components,  including amino acids. abbreviation peptx_e stands extracellular cross-linked peptidoglycan, dna_son rna_son stand average DNA RNA
+ macromolecules. abbreviations match Table 1.
+ doi:10.1371/journal.pone.0081322.t002
+
+
+
+PLOS | www.plosone.org                                                        9                         December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                                   Algorithm Identifying Biomass Components
+
+
+
+ Table 3. BioMog Modified Predefined Biomass S. oneidensis using Growth Phenotype Experimentally Measured Biomass.
+
+
+ Added                                                                      Unmodified        Removed
+
+ L-Alanine         L-Leucine             gdptp                              amp               1,2-Diacyl-sn-glycerol 3-phosphate           Phosphatidylglycerol
+ L-Arginine        L-Lysine              Reduced Glutathione                dna_son           1,2-Diacylglycerol                           protein_son_aerobic
+ L-Asparagine      L-Methionine          2-Oxo-3-hydroxy-4-                 Glycogen          5-Methyltetrahydrofolate                     Spermidine
+                                         phosphobutanoate
+ L-Aspartate       L-Phenylalanine       O-Phospho-L-homoserine             nad               Acetyl-CoA                                   Succinyl-CoA
+ L-Cystine         L-Proline             O-Phospho-L-serine                 nadh              acyl-glycerophosphoethanolamine              UDP-glucose
+ L-Glutamine       L-Serine                                                 nadp              acyl-glycerophosphoglycerol
+ L-Glutamate       L-Threonine                                              nadph             Coenzyme  Glycine           L-Tryptophan                                             peptx_e           Flavin adenine dinucleotide
+ L-Histidine       L-Tyrosine                                               Putrescine        lipopolysaccharide
+ L-Isoleucine      L-Valine                                                 rna_son           Phosphatidylethanolamine
+
+ BioMog able capture amino acid essentiality, propose removal certain metabolites predefined biomass equation based  present model structure results growth phenotype experiments. removals indicate metabolites non-essential  instead indicate experimental network structural issue. Abbreviations match Table 1 2 addition protein_son_aerobic represents  average protein macromolecule.
+ doi:10.1371/journal.pone.0081322.t003
+
+
+experimental evidence existed experimental evidence                              quality BioMog solutions good conflicting  supplementary dataset S1). Experiments                                  experimental data used generate  important testing essentiality protoheme (pheme) deoxythy-                          large, diverse accurate experimental dataset. especially
+midine triphosphate (dttp) conducted.                                true generating biomass components novo, experiment designed test essentiality pheme                        method include metabolites biomass double deletion hemF hemN. unable                                  experimental evidence support  refute) inclusion construct viable double knockout mutant – implying double                          seen S. oneidensis. Presently, numerous methods
+knockout lethal LB medium – indicating metabolite                         used generate high-throughput growth fitness
+likely essential. second experiment, designed test                        data construct higher order genetic knockouts essentiality dttp, performed Orth et al.[10],                      TagModule [17], TRMR [18], MAGE [19]. Using growth phenotyping DthyA mutant glucose M9                           methods, conjunction BioMog experiment generation
+medium.  positive growth result contradicted findings                        tool, ensure broad evaluation organism’s essential publications [12,14,15] led removal dttp                          metabolites. Nonetheless, organisms robust metabolic BioMog’s biomass. BioMog’s decision exclude dttp                           networks, higher order knockouts needed detect biomass solely DthyA experiments,                             essential metabolites. E. coli iJO1366 network, decided repeat results based supporting literature.                        example, 50  metabolites  filtering mutants  growth phenotype experiments performed evaluating                             resulting large numbers blocked metabolites) direct DthyA mutant’s fitness LB medium supplemented                                supporting refuting evidence essentiality thymine, glucose M9 minimal media, glucose M9 media                                  considering experiments involving single gene deletions.
+supplemented thymine. results  Figures S1–S3                             critically, 40  components E. coli
+File S1 growth curves) suggest DthyA thymine                               predefined biomass explicit evidence inclusion auxotroph, incapable growth glucose M9 media,                                   biomass based single knockout datasets considered agreement findings Weiss[15]. Based experi-                             [10].  properly interrogate accuracy organism’s
+ments, seen BioMog framework                                 biomass composition critical targeted higher order
+valuable tool, discovering new metabolite require-                          mutants created.
+ments growth, identifying potentially inaccurate                           mathematical perspective, BioMog works experimental results large dataset.                                             best biomass requirements current model structure
+                                                                                         (reactions GPR associations) provided experimental
+Conclusions                                                                              results.  proposed novo modified biomass
+                                                                                         components represent needs organism assuming    BioMog framework provides facile, fast scalable                             model experiments accurate portrayal approach task generating biomass related hypotheses.                           organism’s genetic metabolic capabilities. known biomass approach used identify organism specific                               components proposed BioMog possible biomass components improve model’s predictive power                                model experiments incorrect. readily
+compared using predefined biomass equation. Alternatively,                          apparent BioMog suggests removal previously
+future efforts focus using growth phenotype data                             reported essential metabolites dttp, Cu2+ Ca2+ conjunction 13C multiomics data                                E. coli protein_son_aerobic S. oneidensis. instances, improve refine essential biomass components.                             immediately interpreted metabolites approaches require biomass defined priori,                           inessential growth (especially compounds possible combine metabolic flux analysis (MFA) [16]                         measured experimentally component biomass) BioMog.                                                                              instead result considered red flag, indicating
+
+
+PLOS | www.plosone.org                                                         10                          December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                  Algorithm Identifying Biomass Components
+
+
+additional experiments needed verify accuracy                respectively. DzupTand DyrbG mutants ones
+validity model structure experiments.               contain Ca2+ Cu2+ blocked metabolites aspect, BioMog behaves hypothesis generation model                 mutants viable, suggesting incomplete picture interrogation tool easy traceability  exclude metabolite        copper calcium transport cell membrane lists allows facile determination experiments conflict         non-essentiality metabolites. metabolites classified essential).                            difficult pick entire dataset, using BioMog’s blocked
+    BioMog depends model structure order               metabolite frequencies makes finding areas metabolism needing
+make biomass proposals, used conjunction               model improvement easier. Consequently, experimenters model refinement GrowMatch [3], SMILEY [6]                confident quality defined biomass composition, knowledge gap filling algorithms refining metabolic               BioMog valuable component model curator’s toolbox
+models experimental results conflict known biomass                supplements existing approaches [2].
+components. using tools conjunction,                  Accurate knowledge organism’s essential metabolites possible add remove reactions GPR associations,          critical model’s predictive utility. Constraint-based analyses particular gene knockout resulting phenotype                  rely model’s biomass equation determine consistent known biomass components. example,                  particular genetic modification fatal. Failure accurately
+biotin synthesis pathway incomplete latest S. oneidensis         capture aspect cell costly terms time genome-scale model enzyme producing precursor             money models used experimental design, pimelyl-ACP recently discovered [20]. Consequently,             strain design metabolic engineering [21]. metabolite impossible BioMog predict essentiality           essentiality information valuable development biotin;  biotin precursors S-Adenosyl-L-              new antimicrobial agents facilitating identification methionine predicted alternative biomass component.            novel drug targets using computational methods [22,23,24,25]. network structural issues cause metabolite net             application particular, finding unique essential
+production blocked wildtype strain prevent BioMog’s             metabolites valuable selective targeted
+ability propose metabolites biomass.            treatment specific pathogenic species. generating number net production blocked metabolites wildtype (134           representative organism specific biomass components, Bio- 109 E. coli S. oneidensis, respectively)            Mog potential improve performance algorithms
+biomass candidates inability synthesize precursors          use constraint-based metabolic models. various attached cofactors (e.g., ACP trna) synthesis pathway included model.                                                                             Methods
+note determining net production blocked metabolites
+sinks added metabolites network, metabolites             biomass modification generation (BioMog) framework blocked precursors produced             allows identification required biomass components inability degrade products cause metabolite          high-throughput growth fitness experiments. framework
+net production blocked BioMog). net                     enables scientists systematically make metabolic additions production blocked metabolites considered biomass              removals predefined biomass create new biomass
+components, model need gap filled               equations novo. Subsequently, experimentalists use metabolite produced using methods like                   BioMog framework recommend additional wet lab experiments
+SMILEY GrowMatch adding artificial source reactions               interrogate essentiality particular metabolites (e.g., using reaction notation, RACP) precursors. Nonetheless,          data lacking contradictory. process accomplished various structural issues prevent BioMog                     series linear, integer mixed integer programs (LP,
+proposing essential end product used biomass,            IP MILP respectively), described following
+capture essential upstream precursors produced           sections.
+network. mentioned  biotin net production
+blocked metabolite S. oneidensis, S-Adenosyl-L-methionine,             Genome-Scale Models
+biotin precursor, alternative proposed biomass                   BioMog applied genome-scale models Escherichia coli
+candidates.  process model refinement automated
+                                                                            (iJO1366) Shewanella oneidensis MR-1 (iSO783). iJO1366
+biomass proposals iterative model                                                                             evaluated  thirty reactions added iSO783 refined, BioMog used modify biomass unexpected
+                                                                            reflect additional knowledge regarding organism’s metabolic
+results investigated refined using existing tools.
+                                                                            capabilities. modifications summarized supplemen-
+    valuable hypothesis experimental generation
+                                                                            tary dataset S2).
+tool, BioMog value identifying experiments erroneous contradictory results. Researchers use
+blocked metabolite lists assess experiments support             Finding Blocked Metabolites
+refute essentiality particular biomass component,           BioMog functions determining metabolites experiments appear inconsistent experi-             produced removed wild type strain,
+mental model inaccuracies.  BioMog biomass                      particular mutant. metabolites referred modification proposals point potential structural           blocked metabolites. discovery blocked metabolites flaws existing genome-scale model’s GPR reaction                   accomplished using following MILP similar used
+networks. example, recommendation removing calcium                  GapFind algorithm [8]: copper E. coli biomass appears direct
+                                                                                                                X
+consequence incomplete depiction transport systems                                          max             zi                  ð1Þ inorganic compounds. iJO1366 model includes                                           vi ,xi ,zi
+                                                                                                                   M
+single calcium copper transport reactions cytoplasm associated zupT (b3040) yrbG (b3196),
+
+
+PLOS | www.plosone.org                                             11                       December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                    Algorithm Identifying Biomass Components
+
+
+                                                                              phenotyping data, following integer program (IP)                      X                                                        solved propose, novo, optimal biomass:
+                             Sij :vj {xi ~0, Vi[M                 ð2Þ
+                     R\m                                                                                       X              X            X
+                                                                                        max Agreement ~                  ne         ge          wi    ð7Þ
+                                                                                                                 e[NG           e[G          EM
+
+                             vj ƒ0, Vj[R\UL                       ð3Þ
+
+                                                                                                  ge ƒ1{wi , V e)[Ex e)                               ð8Þ
+                             vj §0, Vj[R\LL                       ð4Þ
+                                                                                                            X
+                                                                                                    ne ƒ               wi , Ve[NG                         ð9Þ
+                                                                                                           e)
+                        xi §zi  vmin , Vi[M                      ð5Þ
+
+
+                                                                                                        ne ,ge ,wi [f0,1g                                ð10Þ
+                  Network Specific Constraints                    ð6Þ
+
+                                                                                 ne ge binary variables indicating agreement    zi binary variable indicating metabolite                                                                               growth growth experiments respectively, wi binary produced, vj free variable magnitude flux
+                                                                              variable indicating metabolite biomass component, reaction j, xi acts sink metabolite used
+                                                                              e) Ex e) mappings blocked metabolite indicator metabolite production. M set                                                                               experimental include exclude metabolite lists,
+metabolites, R set reactions, m set predefined
+                                                                              respectively, EM optional set containing metabolites biomass components  exist), UL set reactions non-zero upper limits LL set reactions non-zero            experimentally measured microbe’s biomass.
+lower limits. parameter vmin sets minimum production                    analyses EM left set, exception
+threshold set 0.0005. Network specific constraints refer           S. oneidensis analysis using analytical biomass measurements. constraints particular given genome-scale                purposes paper, possible model. example, constraints force reaction fluxes zero            weight individual experiments Eq. 7 based s confidence default, fix P/O ratios set oxidase ratios fixed         particular result (e.g., independent repetitions particular
+value. Blocked metabolites zi 0                experiment). maximal experimental agreement determined mutant wild type strains used                   determined, biomass equation best agrees experimental
+experiments. set difference performed               results generated.  multiple possible solutions exist, remaining blocked metabolites considered potential                negative weights added select common metabolic
+biomass equation candidates inclusion exclusion.                       components preferentially including new objective
+   Note formulation written mass               (Eq. 11) (e.g., amino acids) positive weights used actively removed sinks (Eq. 2).                      minimal number required biomass components  case consequence, MIP unique feature finding                        metabolites positive weight).
+metabolites associated metabolic dead ends,                                                              X                X
+metabolites participating cycles depleted                          min WeightedObj ~                     wi {0:9           wi     ð11Þ violating conservation mass. example,                                                      M\W             W S. oneidensis mutant DSO4249, succoa blocked metabolite flux metabolite possible running                                                                                                          X               X            X
+citric acid cycle. means blocked metabolites                             FixObj ~           ne           ge          wi          ð12Þ implicitly essential growth, removed                                         e[NG             e[G          EM biomass equation.
+
+Validation Blocked Metabolites Generation                                                  FixObj ~ Agreement                                  ð13Þ
+Blocked Metabolite Lists
+    blocked metabolites determined experiments, mutants associated .100 blocked metabolites                     W set weighted metabolites preferential filtered consideration deemed uninformative              inclusion biomass, FixObj, objective score obtained filtered mutants deletion essential           running LP using Eq. 7–10, WeightedObj new
+early reaction (e.g., glucose transport). set blocked                  weighted objective function. shown, Eq. 8–10 metabolites given mutant given experiment number                 included Eq. 11–13 weighted LP (e) organized include  , mutant does grow,              order problem solved correctly.
+exclude (Ex), mutant does grow, metabolite lists. NG set experiments mutants did grow G set                 Modify Biomass Components
+experiments mutants grew.                                                   addition generating biomass equation novo,                                                                               possible begin existing biomass equation modify Generate Novo Biomass Components                                           include likely biomass components remove compo-
+  complete include exclude metabolite lists                nents fail match experimental results. allows created based blocked metabolite lists growth                      include components supporting growth phenotype
+
+
+PLOS | www.plosone.org                                               12                       December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                         Algorithm Identifying Biomass Components
+
+
+data exists, demonstrated essential using
+alternative methods:                                                                                               X
+                                                                                                           max               Sinki              ð20Þ
+                                                                                                                 Biomass
+max Obj ~
+        X      X      X       X      X                             ð14Þ
+100  (   ne   ge   wi ){   wi {   0:5  yi                                                X
+                                                                                                      Sij :(vj {vj,rev ) {xi ~0, Vi[M       ð21Þ
+        e[NG       e[G        EM           M        M
+                                                                                                j[R
+
+
+
+                   ge ƒ1{wi {yi , V e)[Ex e)                   ð15Þ
+                                                                                                         xi §Sinki , Vi[Biomass                 ð22Þ
+
+                            X
+                    ne ƒ               wi {yi , Ve[NG              ð16Þ
+                                                                                                           xi ~0, Vi6 [Biomass                  ð23Þ
+                           e)
+
+
+
+
+                             wi ~ 1, Vi[m                          ð17Þ                               vj ƒ0, Vj[KillForwardRxn              ð24Þ
+
+
+
+                            yi ~ 0, Vi[M\m                         ð18Þ                           vj,rev ƒ0, Vj[KillBackwardRxn                 ð25Þ
+
+
+
+                           ne ,ge ,wi ,yi [ f0,1g                  ð19Þ                                       Sinki [f0,1g                      ð26Þ
+
+
+  yi binary variable removes biomass components                  Biomass set novo biomass components Sinki experiments disagree inclusion, wi binary variable           binary variable indicating flux sink xi. adds biomass components experiments support inclusion,                 metabolite contained novo biomass, m set metabolites predefined biomass equation.             metabolite individually removed  e.,                                                                                 associated reaction fluxes consume metabolite fixed
+                                                                                zero), MIP given Eq. 20–26 solved. cell Precursors Alternative Biomass Components
+                                                                                viable metabolite present  e., cell    purpose paper, alternative metabolites                                                                                 produce biomass components metabolite present),
+compound replace proposed biomass compound
+                                                                                compound declared essential precursor. negatively impacting objective function (Eq. 7).                                                                                 process repeated using predefined biomass determine determine alternative metabolites, wi, proposed biomass
+                                                                                novo components upstream. LP,
+components fixed 1 single metabolite,
+                                                                                KillForwardRxn KillBackwardRxn remove consuming reactions
+k, alternative metabolite sought.                                                                                 associated targeted metabolite forward reverse
+single metabolite, wk set 0. novo minimal biomass LP
+                                                                                directions respectively,  forward (reverse) reaction resolved (Eq. 8–13) using variant objective
+                                                                                upper (lower) limit equal zero.
+(Eq. 11) metabolites preferentially weighted  e., set W Eq. 11). solution exists, newly
+added metabolite alternative metabolite, k. newly                 Addition Dead-End Metabolites Biomass
+discovered alternative metabolite’s indicator value subsequently                addition sinks metabolites finding
+fixed 0, process repeated problem                   blocked metabolites BioMog framework (Eq. 1–6), infeasible possible alternatives metabolite            possible biomass equation generated biomass
+exhausted.                                                                      components proposed using Eq. 8–13 result growth
+   Precursor metabolites defined upstream compounds                 predictions cases model supposed predict essential production biomass metabolite.               growth  e., ge equals 1). occurs product including particular metabolite biomass implicitly makes               proposed biomass component way consumed metabolite’s precursors essential.  metabolites                   network experiment (e). presence sinks predefined biomass precursors                products Eq. 2 allows biomass components novo biomass components considered implicitly                     produced evaluating blocked metabolites. result included novo biomass conditions tested.                dead-end products need way consumed precursor lists depend nutritional environment cell,            model, adding additional consuming
+robust media modeled included possible conditions              reactions model including biomass equation
+tested experimentally (glucose, succinate lactate E. coli            example, order correct erroneous predictions lactate, pyruvate, ammonium nitrate S. oneidensis).                  dead end products, metabolites (S-adenosyl-L-
+determine precursors, reaction fluxes, vj, decoupled              homocysteine, glycolaldehyde oxidized glutathione) forward reverse directions vj = vj,for2vj,rev vj        added iJO1366 BioMog proposed novo biomass behave vj,rev positive variables.  following                     sinks products. determine dead end 
+formulation used:                                                           products, following formulation used:
+
+
+
+
+PLOS | www.plosone.org                                                 13                         December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                                 Algorithm Identifying Biomass Components
+
+
+                                                                                       lactact aerobic). Additionally, essential genes Keio
+                                       X                                               collection [12,26] included growth mutants                                  min         xi                          ð27Þ
+                                       M
+                                                                                       glucose aerobic conditions. Shewanella, fitness score                                                                                        21 indicated growth greater 21 indicated
+                                                                                       growth. dataset, tested conditions (lactate
+                        X                                                              aerobic, pyruvate aerobic, lactate anaerobic nitrate electron
+                              Sij :vj {xi ~0, Vi[M                       ð28Þ
+                                                                                       acceptor).
+                        j[R
+
+                                                                                       Strains
+                                                                                          E. coli strains used experiments derived                               vj ƒvupper
+                                   j     ,   Vj[R                        ð29Þ
+                                                                                       Keio collection [12]. following single knockout mutants                                                                                        used: thyA::kan, hemF::kan, hemN::kan parental
+                                                                                       strain, E. coli K-12 BW25113. double mutants (DhemN::kan
+                           {vj ƒvlower
+                                 j     , Vj[R                            ð30Þ          DhemF, DhemF::kan DhemN) attempted                                                                                        removing kan gene single knockouts using FLP
+                                                                                       recombinase [27] moving second mutation                                  vBiomass                             ð31Þ          single knockout using P1 transduction [28].                                                                                         kanamycin resistant double knockouts  P1 phage
+                                                                                       efficacy recipient strain sensitivity verified using P1
+                   Network Specific Constraints                          ð32Þ          transduction original mutation kanomycin
+                                                                                       sensitive strains  e., infecting P1 phage DhemN::kan
+                                                                                       strains kanomycin sensitive DhemN strain DhemF::kan    vBiomass flux newly proposed novo                       DhemF) finding robust growth kanomycin plates following
+biomass equations E small number (e.g., 0.001). Network                       P1 transduction.
+specific constraints (Eq. 32) covers additional constraints
+specific network (e.g., P/O ratios iJO1366). avoid                        Growth Phenotype Plate Experiments
+erroneous results predefined biomass behaving sink,                       strains grown triplicate unless noted. predefined biomass equation removed stoichio-                         strains pre-cultured approximately 24 hours 90  (V/
+metric matrix subsequent analysis involving BioMog                         V) M9 minimal medium supplemented 2 g/L glucose biomass equation. non-zero xi, considered dead end                       10  (V/V) LB 125 mg/mL thymine. Cells washed twice products required biomass components.                            M9 minimal media containing carbon source remove
+fixed addition metabolite biomass equation                      residual glucose LB precultures. Cells adding consuming reactions network. process                            resuspended different media, M9 minimal media 2 g/L
+repeated experiments model supposed                           glucose M9 minimal media 2 g/L glucose 125 mg/mL
+predict growth (ge = 1). Additionally, cuts added                            thymine, starting OD600 measurement ,0.05
+determine alternative solutions given experiment fixing                     cultured 3 days Tecan plate reader 37uC. proposed sink 0.
+                                                                                       Supporting Information
+FBA Testing
+   test qualitative performance novo biomass                          Dataset S1
+requirements, FBA solved described Feist et al. [13]                      (XLSX) growth non-growth phenotype experiment                          Dataset S2
+data collected using predefined biomass,                     (XLSX)
+novo variant. BioMog makes qualitative proposals, arbitrary stoichiometric value 20.0002 assigned                         File S1
+essential metabolite proposed. prevent predefined biomass                       (DOCX) behaving sink, core wild type biomasses                         File S2 removed iJO1366 model evaluating                                                                                        (ZIP)
+novo biomass components.
+                                                                                       Author Contributions
+Description Growth Phenotype Datasets
+   Growth phenotyping datasets E. coli S. oneidensis                      Conceived designed experiments: CJT JLR. Performed taken publications Orth et al. [10] Deutschbauer et                        experiments: CJT. Analyzed data: CJT JLR. Contributed reagents/
+al. [5] respectively. E. coli, growth growth                            materials/analysis tools: CJT. Wrote paper: CJT JLR. Developed                                                                                        algorithms processing scripts, performed simulations, determinations used reported paper                                                                                        composed figures: CJT.
+conditions (glucose aerobic, glucose anaerobic, succinate aerobic
+
+References
+1. Barua D, Kim J, Reed JL (2010) Automated Phenotype-Driven Approach                3. Kumar VS, Maranas CD (2009) GrowMatch: Automated Method    (GeneForce) Refining Metabolic Regulatory Models. PLoS Comput Biol              Reconciling Silico Vivo Growth Predictions. PLoS Comput Biol 5:
+   6: e1000970.                                                                            e1000308.
+2. Orth JD, Palsson BØ (2010) Systematizing generation missing metabolic         4. Oh J, Fung E, Price MN, Dehal PS, Davis RW, et al. (2010) universal
+   knowledge. Biotechnology Bioengineering 107: 403–412.                               TagModule collection parallel genetic analysis microorganisms. Nucleic
+                                                                                           Acids Research 38: e146.
+
+
+
+PLOS | www.plosone.org                                                        14                          December 2013 | Volume 8 | Issue 12 | e81322
+                                                                                                                    Algorithm Identifying Biomass Components
+
+
+ 5. Deutschbauer  Price MN, Wetmore KM, Shao W, Baumohl JK, et al. (2011)              18. Warner JR, Reeder PJ, Karimpour-Fard  Woodruff LBA, Gill RT (2010)
+    Evidence-Based Annotation Gene Function Shewanella oneidensis MR-1                 Rapid profiling microbial genome using mixtures barcoded oligonucle-
+    Using Genome-Wide Fitness Profiling 121 Conditions. PLoS Genet 7:                 otides. Nat Biotech 28: 856–862.
+    e1002385.                                                                            19. Wang HH, Isaacs FJ, Carr PA, Sun ZZ, Xu G, et al. (2009) Programming cells
+ 6. Reed JL, Patel TR, Chen KH, Joyce AR, Applebee MK, et al. (2006) Systems                 multiplex genome engineering accelerated evolution. Nature 460: 894–
+    approach refining genome annotation. Proceedings National Academy              898.
+    Sciences 103: 17480–17484.                                                        20. Agarwal V, Lin S, Lukk T, Nair SK, Cronan JE (2012) Structure enzyme-
+ 7. Vitkin E, Shlomi T (2012) MIRAGE: functional genomics-based approach               acyl carrier protein (ACP) substrate gatekeeper complex required biotin
+    metabolic network model reconstruction application cyanobacteria              synthesis. Proceedings National Academy Sciences 109: 17406–17411.
+    networks. Genome Biology 13: R111.                                                   21. Copeland WB, Bartley BA, Chandran D, Galdzicki M, Kim KH, et al. (2012)
+ 8. Kumar VS, Dasika M, Maranas C (2007) Optimization based automated                        Computational tools metabolic engineering. Metabolic Engineering 14: 270–
+    curation metabolic reconstructions. BMC Bioinformatics 8: 212.                        280.
+ 9. Tervo C, Reed J (2012) FOCAL: experimental design tool systematizing          22. Sigurdsson G, Fleming RMT, Heinken  Thiele (2012) Systems Biology
+    metabolic discoveries model development. Genome Biology 13: R116.
+                                                                                             Approach Drug Targets Pseudomonas aeruginosa Biofilm. PLoS 7:
+10. Orth JD, Conrad TM, Na J, Lerman JA, Nam H, et al. (2011) comprehensive
+                                                                                             e34337.
+    genome-scale reconstruction Escherichia coli metabolism — 2011. Mol Syst
+                                                                                         23. Lee D-S, Burd H, Liu J, Almaas E, Wiest O, et al. (2009) Comparative Genome-
+    Biol 7.
+                               

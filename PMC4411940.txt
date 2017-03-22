@@ -1,0 +1,419 @@
+                                                                                                                      
+
+Essentiality centrality protein interaction
+networks revisited
+
+
+
+  Abstract
+  Background: Minimum dominating sets (MDSet) protein interaction networks allow control underlying
+  protein interaction networks topological placement. essential proteins enriched MDSets,
+  hypothesize statistical properties biological functions essential genes enhanced   focus essential MDSet proteins (e-MDSet).
+  Results:  determined minimum dominating sets proteins (MDSet) interaction networks E. coli, S.
+  cerevisiae H. sapiens, defined subsets proteins remaining protein reached single
+  interaction. compared topological functional parameters essential, MDSet, essential MDSet
+  (e-MDSet) proteins. particular, observed topological placement allowed e-MDSet proteins provide
+  positive correlation degree lethality, connect protein complexes, stronger impact
+  network resilience essential proteins  comparison essential proteins interactions
+  e-MDSet proteins appeared frequently complexes, interactions e-MDSet proteins   complexes depleted. Finally, e-MDSet proteins classified functional groupings play central role   survival adaptability.
+  Conclusions: determination e-MDSet organism highlights set proteins enhances enrichment
+  signals biological functions essential proteins. consequence, surmise e-MDSets provide new
+  method evaluating core proteins organism.
+  Keywords: PPI, Essential proteins, Protein network, Protein function
+
+
+Background                                                                           prompting Nacher Akutsu determine minimum biological importance protein frequently                             dominating sets (MDSet) nodes, defined set cen-
+sidered question number interactions given                             trally located nodes provide control undirected net-
+protein involved [1-3], suggesting high topo-                             works [16]. Answering question nodes logical centrality indicator protein’s importance                         predicted important control interaction
+[4-9]. addition, proteins involved                            networks translate directly functional sets proteins,
+large number protein complexes [10], signifying                              minimum dominating sets enriched dis- essentiality consequence complex                              ease related essential genes protein interaction net-
+volvement [5,9,11-14].                                                               works [17,18].
+  Focusing determination nodes control                                hypothesize essential proteins appear
+entire network, Liu et al. introduced maximum matching                             MDSets (e-MDSet) enhance enrichment sig-
+approach predict nodes allowed control vari-                          nals biological functions compared essential proteins
+ous technical, social biological networks [15].                           Specifically, considered high-quality protein  approach applicable directed networks,                             teractions S. cerevisiae H. sapiens 
+                                                                                     termined large-scale yeast hybrid approaches, * Correspondence: wuchtys@cs.miami.edu                                               recently released high-throughput binary inter-
+1
+ Department Science, University Miami, Coral Gables, FL               action set E. coli [19]. highly connected proteins
+33146, USA                                                                           showed weak enrichment essential proteins recov-
+2
+ Center Computational Science, University Miami, Coral Gables, FL
+33146, USA                                                                           ered strong correlation protein’s degree 
+                                        © 2015 Khuri Wuchty; licensee BioMed Central. Open Access article distributed terms Creative
+                                        Commons Attribution License (http://creativecommons.org/licenses 4.0), permits unrestricted use, distribution,                                         reproduction medium, provided original work properly credited. Creative Commons Public Domain
+                                        Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies data available article,
+                                        unless stated.
+Khuri Wuchty BMC Bioinformatics (2015) 16:109                                                                                                                                                 Page 2 8
+
+
+
+
+tendency essential focused essential pro-                                                                 1,203 proteins experimentally obtained
+teins appeared corresponding MDSet                                                                     yeast hybrid approach [19]. source infor-
+(e-MDSet). impact combination essentiality                                                                   mation essential genes, collected 712 essential protein presence corresponding MDSet                                                                   genes E. coli 1,110 essential genes S. cerevisiae evidenced observation e-MDSet                                                                      DEG database [21], obtained 2,708 essential genes proteins likely connect protein complexes                                                                 H. sapiens online gene essentiality database (OGEE)
+essential proteins organisms.                                                                   [22]. defined MDSet optimized subset proteins  e-MDSet proteins predominantly oc-                                                                     interaction network remaining  e.
+cupied central positions networks connected                                                                    non-MDSet) protein reached interaction. protein complexes. corollary, e-MDSet proteins                                                                    non-MDSet protein connected enriched interactions occured com-                                                                     MDSet protein (Figure 1A). protein interaction
+plexes, vice versa. Taking closer look functional                                                                 networks determined corresponding minimum dominat-
+classifications e-MDSet proteins enhance                                                                     ing sets solving integer-based linear programming enrichment signals functional groups play role                                                               problem  Materials Methods). particular, responses external stimuli physiological                                                                 569 MDSet proteins yeast interactions network
+dition cells.                                                                                                           (21.26 ), 352 proteins MDSet E.
+                                                                                                                           coli interactions (29.2 ) 940 MDSet proteins (15.9 ) Results                                                                                                                    human interaction network. comparison pro- utilized network 6,225 high-quality interactions                                                                teins (<kall > = 3.9), mean degree MDSet proteins tween 2,640 proteins S. cerevisiae 17,523 high-quality                                                              yeast interaction network significantly increased
+links 5,926 human proteins entirely deter-                                                               (<kMDSet > = 8.5), observation held E. coli
+mined yeast hybrid approaches [20]. E. coli,                                                              (<kall > = 3.2, <kMDSet > = 5.6) human networks used recently released, map 1,938 interactions                                                                  (<kall > = 5.3, <kMDSet > = 15.5). turn, observed 
+
+                                                                                                         B
+                                                                                                                                       1.5
+                                                                                                           lg2 [fess. MDSet /fess.]
+
+
+
+
+                                                                                                                                              1
+
+                                                                                                                                       0.5
+
+                                                                                                                                              0
+                                                                                                                                                                            E. coli
+                                                                                                                                      -0.5                                  S. cerevisiae
+                                                                                                                                                                            H. sapiens
+                                                                                                                                              -1
+                                                                                                  MDS                                              1               10                       100
+                                                                                                                                                               degree
+                      C7                                                                                   D
+                                                                 7                                                                            7
+                                                 enr.essential
+
+
+
+
+                                                                 6
+                                                                                                                          enrichmente-MDSet
+
+
+
+
+                                         6                       5
+                      enrichment MDSet
+
+
+
+
+                                                                 4                                                                            6
+                                                                 3
+                                         5                       2                                                                            5
+                                                                 1
+                                         4                       0
+                                                                     1   3   5   7   9 11 13 15
+                                                                                                                                              4
+                                         3                                                                                                    3
+                                         2                                                                                                    2
+                                         1                                                                                                    1
+                                         0                                                                                                    0
+                                             1                                       6              11                                             1   3   5   7        9    11    13       15
+                                                                                                         degree k
+ Figure 1 e-MDSet proteins follow centrality-lethality rule.   toy network defined minimum dominating set (MDSet)  optimized subset nodes (red square symbol) remaining  e. non-MDSet) node (gray circle symbol) immediately
+ reached step.  non-MDSet protein connected MDSet protein. (B) calculated corresponding
+ MDSets binary interaction networks E. coli, S. cerevisiae H. sapiens, grouped proteins bins logarithmically increasing degree.  bin determined fraction essential proteins participated underlying MDSet  allowing observe essential
+ MDSet proteins (e-MDSet) preferably enriched highly connected essential proteins organisms. inset (C) calculated
+ enrichment essential proteins function degree binary protein interaction networks E. coli, S. cerevisiae H. sapiens.
+ Generally, essential proteins binary interactions failed produce significant trend organism. Focusing enrichment MDSet
+ proteins,  recovered strong increasing trend (D) reinforced focusing e-MDSet proteins.
+Khuri Wuchty BMC Bioinformatics (2015) 16:109                                                                                                                Page 3 8
+
+
+
+
+essential genes slightly increased mean degree (E. coli                                  H. sapiens (Figure 1C). Notably, trends rein-
+< kess. > = 3.4, S. cerevisiae < kess. > = 4.8, H. sapiens < kess. > =                         forced focused e-MDSet proteins, confirming
+6.7) compared corresponding values proteins                                   hypothesis (Figure 1D). underlying networks. particular, 91 essential                                     different measure central placement essen-
+proteins participated underlying MDSet proteins                                    tial proteins, calculated betweeness centrality E. coli (e-MDSet), number statistically significant                               proteins underlying networks. defined set applying Fisher’s exact test (P = 9.2 × 10−4). Notably,                                bottleneck proteins 20  proteins highest
+enirchment pattern applied remaining organisms                                       centrality [23]. null-model, randomly picked essen-  179 e-MDSet proteins S. cerevisiae                                     tial proteins 10,000 times determined enrichment (P = 2.3 × 10−7) 209 H. sapiens (P = 5.3 × 10−3).                                       essential proteins corresponding sets bottleneck
+                                                                                               proteins. Figure 2A indicates essential proteins Centrality lethality                                                                       weakly enriched bottleneck proteins. MDSet direct comparison, grouped proteins                                      proteins strongly enriched bottleneck proteins
+bins logarithmically increasing degree calculated                                   organisms, observed reinforcement fraction essential genes group. Determining                                     trends considered e-MDSet proteins, suggesting
+fraction e-MDSet proteins bin, Figure 1B clearly                                    topological placement MDSet proteins enhanced
+shows e-MDSet proteins predominantly enriched                                        enrichment signals essential proteins (Figure 2A). groups essential proteins increased num-                                        measure protein’s impact interaction net-
+ber interaction partners. Considering enrichment                                     work’s resilience, performed robustness analysis. essential genes function degree                                       sorted e-MDSet proteins according degree lying interaction networks, grouped proteins                                        interaction networks organisms. Starting certain number interactions counted                                         connected protein gradually deleted proteins
+number essential proteins bin. provide                                         calculated number connected components control, randomly sampled sets essential genes                                      deletion step. comparison, considered sets null-model defined ratio observed ex-                                       equal size connected, essential proteins. Figure 2B
+pected number enrichment essential genes                                          indicates successive deletion e-MDSet proteins group. inset Figure 1C indicates binary                                       higher impact network topology producing
+interaction networks organisms failed produce                                      connected components removing fewer inter-
+viable trend. Hypothesizing proteins                                          actions connected essential proteins E.
+enriched highly connected proteins repeated                                           coli, S. cerevisiae H. sapiens. initial enrichment analysis considering MDSet e-MDSet proteins.  increasing correl-                                       Protein complexes
+ation elevated degree presence                                            Moving higher level cellular organization, calcu-
+MDSets interaction networks E. coli, S. cerevisiae                                   lated complex participation coefficients proteins, 
+
+                                                      essential
+                                                                                       B
+                                          3                              ** P < 10-4                   700
+                                                        MDSet                                                    essential
+                                                                          * P < 10-2                   600
+                                         2.5            E-MDSet                                                  e-MDSet
+                                                                             **
+                     lg2 [fobs./fexp.]
+
+
+
+
+                                                                                       N conn. comp.
+
+
+
+
+                                                                    **                                 500                                       yeast     500
+                                          2        **
+                                                                                                       400                                                 400
+                                         1.5                                                                                                               300
+                                                                                                       300
+                                                                                                                                            E. coli        200
+                                          1
+                                                                                                       200                                                 100
+                                               *
+                                         0.5                                                           100                                                  0
+                                                                                                                         0     200   400   600   800     1000
+                                          0                                                             0
+                                               E. coli      S. cervisiae H. sapiens                          0   1000   2000     3000       4000         5000
+                                                                                                                        N deleted PPI
+
+ Figure 2 Centrality e-MDSet proteins.   determined betweeness centrality protein interaction network E.
+ coli, S. cerevisiae H. sapiens chose 20  proteins highest betweeness centrality sets bottleneck proteins.
+ Randomly sampling sets 10,000 times, observed bottleneck proteins weakly enriched essential proteins  organisms. turn, MDSet e-MDSet proteins significantly enriched bottleneck proteins. (B) Utilizing subset e-MDSet
+ proteins E. coli, S. cerevisiae  inset) H. sapiens, sorted proteins according degree. Starting highest
+ connected protein, successively deleted proteins calculated number connected components. compare, applied  procedure set highest connected essential proteins size organism. results suggest removal  e-MDSet proteins led lower number deleted interactions higher number connected components.
+Khuri Wuchty BMC Bioinformatics (2015) 16:109                                                                                                              Page 4 8
+
+
+
+
+value indicates protein’s tendency interact                         Functional classes
+different complexes interactions. com-                           striking network patterns consistent proteins
+plex participation coefficient tends 1 given                         high level regulatory functions.  took
+protein predominantly interacts proteins                          logical step grouping protein sets according
+complex vice versa. particular, utilized set                        broad functional classes defined clusters 517 protein complexes E. coli [24], 430 protein com-                            orthologous groups (COGs) [27,28]. Specifically, counted
+plexes S. cerevisiae [25] 1,843 protein complexes                        occurrence essential, MDSet, e-MDSet pro-
+H. sapiens [26]. essential proteins tend connect                          teins groups (Figure 5) randomly assigned complexes non-essential proteins, hypothe-                            number functional classes protein
+sized topological placement MDSet proteins                        10,000 times null model. organism specific level,
+enhance statistical characteristic essential proteins.                     essential, MDSet, e-MDSets proteins roughly appeared comparison frequency distributions                               enriched/depleted functional groups 
+corresponding participation coefficients Figure 3A                              ganisms, apart certain striking cases enrichment
+clearly confirmed assumption.  e-MDSet                                  patterns different organisms largely incongruent.
+proteins interaction networks largely reached                               Notably, enrichment signals essential proteins higher number different protein complexes                                involved RNA processing (group  cell cycle control
+compared essential proteins  basis                             (D), transcription (K), post-translational modification (O), finding, wondered interactions                               intracellular transport (U) cytoskeleton   
+tween essential proteins enriched single                                hanced considering e-MDSet proteins S. cerevisiae.
+complexes complexes (Figure 4A). Specif-                                Conversely, e-MDSet proteins exceedingly depleted ically, counted number inter- intra-                                 aminoacid  , carbohydrate (G) lipid   transport complex interactions randomly assigned                                metabolism chaperone turnover activities (P)
+number proteins corresponding complex                                   compared essential proteins  enrich-
+10,000 times random null model. Generally,                                 ment patterns largely differ E. coli H. sapiens, observed interactions essential proteins                              amino acid transporations metabolism (E)
+connecting complexes appeared frequently                                 chaperones turnover functions (P) depleted expected organisms (P < 10−4, Figure 4B).                                organisms. comparison essential proteins turn, interactions proteins                                MDSet proteins, e-MDSet proteins E. coli enhanced complex occurred frequently expected                                  enrichment signal proteins play role translation organisms (P < 10−4, Figure 4B). Focusing inter-                            (J). turn, cell cycle control proteins enriched actions MDSet proteins, similar,                                essential proteins (D), signal mitigated e-
+albeit slightly weaker, signal. turn, trends                         MDSet proteins. H. sapiens, e-MDSet pro- largely enhanced considered e-MDSet                                   teins enhance enrichment signals essential genes proteins organisms (P < 10−4, Figure 4B).                                   transcription (K), replication (L) signal transduction
+
+
+                                                       1                                  1                                      1
+                                                       0.9                                0.9                                    0.9
+                                      E. coli          0.8         S. cerevisiae          0.8                H. sapiens          0.8
+                                                                                                                                       complex participation
+
+
+
+
+                                                       0.7                                0.7                                    0.7
+                                                       0.6                                0.6                                    0.6
+                                                       0.5                                0.5                                    0.5
+                                                                                                    essential
+                                                       0.4                                0.4       e-MDSet                      0.4
+                                                       0.3                                0.3                                    0.3
+                                                       0.2                                0.2                                    0.2
+                                                       0.1                                0.1                                    0.1
+                                                       0                                  0                                      0
+
+                      0.6      0.4      0.2        0         0.6    0.4      0.2      0          0.6      0.4      0.2       0
+                                                                   frequency
+ Figure 3 Essential MDSet proteins protein complexes. calculated complex participation coefficients proteins binary
+ interaction networks E. coli, S. cerevisiae H. sapiens. Specifically, e-MDSet proteins reached complexes compared essential proteins  E. coli (P = 1.9 × 10−4, Wilcoxon test), S. cerevisiae (P = 3.5 × 10−6,) H. sapiens (P = 9.6 × 10−11).
+Khuri Wuchty BMC Bioinformatics (2015) 16:109                                                                                           Page 5 8
+
+
+
+
+                                                    B
+                                                                         2
+
+
+
+
+                                                                                                                            E. coli
+                                                                         1
+                              complex
+                                                                       0
+                                                                         -1
+
+
+
+
+                                                      lg2 [Nobs/Nexp]
+                                                                         2
+
+
+
+
+                                                                                                                            S. cerevisiae
+                                                                         1
+                                                                         0
+                                        B
+                                                                         -1
+
+                              C                                          1
+
+
+
+
+                                                                                                                            H. sapiens
+                                                                        0.5
+                                                                                                 0
+                                                                  -0.5
+                          complexes                                           MDSet        essential         e-MDSet
+ Figure 4 Enrichment interactions protein complexes.   Schematic illustration interactions appear
+ complexes. (B) determined number interactions MDSet, essential e-MDSet proteins  complex complexes E. coli, S. cerevisiae H. sapiens. random null model, resampled proteins complexes
+ 10,000 times. Generally, interactions complexes appear diluted interactions complexes  enriched. appeared significant sets interactions essential proteins observed signals enhanced
+ interaction sets e-MDSet proteins (P < 10−4).
+
+
+
+functions, transportation (E,H,P,U) translation (J)                      ability MDSet ‘cover’ proteins network
+functions depleted.                                                        just question finding connected pro-
+                                                                                teins, necessitates determination lowest num-
+Discussion conclusions                                                      ber strategically placed proteins [17]. concept  determined minimum domainting sets (MDSets)                            highlights idea MDSets capture proteins proteins underlying binary interaction networks                       involved adaptability lethality. E. coli, S. cerevisiae H. sapiens                      essential MDset proteins appear enriched bottleneck
+tirely determined yeast hybrid approaches.                         protein sets, respectively, topological
+fined MDSets smallest group strategically placed                      placement e-MDSet enhanced initial trends. 
+proteins remaining protein  e. non-                            e-MDSet proteins predominantly connect MDSet protein) immediately reached                             protein complexes essential MDSet proteins 
+single interaction.  non-MDSet protein                        confirming hypothesis. functional aspects, teracts MDSet protein. words,                      analysis revealed e-MDSet proteins broadly fell MDSet smallest possible set proteins allows                      functional classes vital survival reproduction ‘cover’ remaining proteins underlying net-                     cell cycle control, trafficking, cytoskeletal, transla-
+works. hypothesized topological placement                        tional posttranslational modifiying functions. MDSet proteins correlate presence                          functional groupings highly dynamic responses
+essential proteins underlying protein interactions                       external stimuli physiological conditions cells.
+networks.  MDSet proteins                              MDSet provides optimized set topologic-
+enriched essential proteins interaction net-                        ally central proteins contributing essenti-
+works. Despite absence correlation                          ality genes, including necessary continued
+number interaction protein’s tendency es-                        survival changing environment.
+sential, anticipated ability cover pro-                       Notably, results organism-independent teins allow highly connected MDSet                          strongly suggested MDSet proteins provide statis-
+proteins increasingly essential survival                     tical enhancement topological functional charac-
+organism adaptability [17].  recovered                      teristics essential genes. think MDSet proteins
+strongly ascending correlation protein’s lethality                    “vital essential�? set, scoring significantly higher es- number interactions organisms                         sential proteins  enhancing topological parameters
+considered e-MDSet proteins.                                                    underlying networks. Furthermore, network
+Khuri Wuchty BMC Bioinformatics (2015) 16:109                                                                                               Page 6 8
+
+
+
+
+                    4
+
+                    2
+
+
+
+
+                                                                                                                                                       E. coli
+                    0
+
+                    -2
+
+                    -4
+                            B    C    D    E    F    G     H      J    K    L    M    N    O     P    Q RS T           U    V    W     Y                         4
+  lg2 [Nobs/Nexp]
+
+
+
+
+                                                                                                                                                       S. cerevisiae
+                    2
+
+                    0
+                                                                                                                                    MDSet
+                    -2                                                                                                              essential
+                                                                                                                                    e-MDSet
+                    -4
+                            B    C    D    E    F    G     H      J    K    L    M    N    O     P    Q RS T           U    V    W     Y                         4
+
+                    2
+
+
+
+
+                                                                                                                                                       H. sapiens
+                    0
+
+                    -2
+
+                    -4
+                            B    C    D    E    F    G     H      J    K    L    M    N    O     P    Q RS T           U    V     W     Y                       RNA processing modification         J Translation, ribosomal structure biogenesis   RS General Function/unknown
+              B      Chromatin structure dynamics        K Transcription                                     T  Signal transduction mechanisms
+              C      Energy production conversion        L Replication, recombination repair             U  Intracellular trafficking, secretion &
+              D      Cell cycle control, cell division,      M Cell wall/membrane/envelope biogenesis               vesicular transport
+                     chromosome partitioning                 N Cell motility                                     V  Defense mechanisms
+              E      Amino acid transport metabolism     O Posttranslational modification, protein           W Extracellular structures
+              F      Nucleotide transport metabolism     P turnover, chaperones                              Y  Nuclear structure
+              G      Carbohydrate transport metabolism     Inorganic ion transport metabolism             Cytoskeleton
+              H      Coenzyme transport metabolism       Q Sec. metabolites biosynthesis, transport
+                   Lipid transport metabolism            catabolism
+ Figure 5 Enrichment functional classes. determined number proteins MDSet, essential e-MDSet sets E. coli, S. cerevisiae
+ H. sapiens belong underlying functional classes. random null model resampled proteins classes 10,000 times.
+
+
+resilience aspect, directly compared e-MDSets sets                          context crucial elucidating possible roles essential protein hubs equal size. Notably,                     certain genes pathway caus- deletion e-MDSet proteins higher disruptive ef-                        ing slight perturbations.
+fect underlying networks organisms deletion essential hub proteins  Taken results demonstrate topological central relevance                        Methods
+proteins involved MDSets essen-                        Determination minimum dominating set (MDSet)
+tial protein interaction networks, characteristc                   defined set S ⊆ V nodes network G = (V, E)
+just matter highest connectivity.                                              minimum dominating set node v ∈ V ei-
+   research protein interaction networks seeks                            ther element S adjacent element S better understand disease mechanism evolution-                              (inset, Figure 1A). binary integer-programming
+ary development question. data collecting tech-                              problem assigned binary variable xv =1 niques sophisticated, ask                                   protein v ∈ V participates interactions E pro-
+intricate questions data collected.                             tein interaction network G = (V, E) element clude identification MDSet proteins                             MDSet, xv =0  smallest set MDSet
+Khuri Wuchty BMC Bioinformatics (2015) 16:109                                                                                  Page 7 8
+
+
+
+
+                              X
+nodes obtained min v∈V xv , subject            enrichment essential proteins Ni,≥ k              X
+straint xv þ w∈Γ ðvÞ xw ≥1 Γ(v) set            corresponding random number essential pro-
+                                                                teins N≥ k proteins corresponding bin.
+interaction partners protein v. domination
+                                                                averaging Ei 10,000 randomizations Ei >1
+problem graphs NP-complete algorithm ne-
+                                                                pointed enrichment vice versa, Ei ~ 1
+cessarily exists allows determination                                                                 indicated random process [40].
+minimum dominating set arbitrary graphs poly-
+nomial time [29]. utilized branch bound al-
+gorithm [30] implemented library lpSolve           Bottleneck proteins
+R programming language solve binary integer-             global measure nodes centrality, calculated
+programming problem.                                            betweenness centrality, indicating proteins appear-
+                                                                ance shortest paths network.                                                                 particular, defined betweeness centrality cB pro-
+Protein-protein interactions E. coli, S. cerevisiae H.                      P
+sapeins                                                         tein v cB ðvÞ ¼ s≠t≠v∈V σ stσ ðstvÞ , σst num- collected 1,938 interactions 1,203 proteins          ber shortest paths proteins s t σst experimentally determined using yeast           (v) number shortest paths running hybrid approach E. coli [19]. S. cerevisiae        node v. defined set bottleneck nodes collected 6,225 high-quality interactions 2,640         20  interactions highest node betweeness cen-
+proteins entirely determined large-scale           trality [23].
+yeast hybrid approaches HINT database
+[20], including [2,31,32]. Furthermore, assembled          Functional classes
+network 17,523 high-quality interactions H. sapiens       Proteins grouped according broad functional 5,926 proteins HINT database [20].             classes defined clusters orthologous
+Specifically, set protein interactions      groups (COGs) [27,28]. COGs provide consistent clas-
+tirely determined large-scale yeast hybrid ap-           sification bacterial eukaryotic species based proaches, including [33-36].                                    orthologous groups.
+
+                                                                Competing interests
+Protein complexes E. coli, S. cerevisiae H. sapiens      authors declare competing interests. utilized set 517 protein complexes E. coli affinity purification study followed mass      Authors’ contributions
+                                                                SW designed concept, SK SW analyzed data wrote spectrometry analyses [24]. S. cerevisiae, utilized   manuscript. authors read approved final manuscript.
+430 protein complexes compiled [25], including SGD Macromolecular Complex standard [37],                
+CYC2008 protein complex catalogue [38] set             
+manually curated protein complexes. Furthermore, uti-        
+lized 1,843 protein complexes H. sapiens CORUM database [26].
+                                                               
+                                                              
+Protein complex participation coefficient                          protein protein com-      
+                                                                   
+plex, defined protein complex participation coef-
+ 
+ficient protein              topology protein interaction networks. Proc Biol Sci/Roy Soc.
+                                                          
+                                           
+                                                                number links protein proteins complex            
+s N total complexes. protein predominantly          
+interacts partners complex, P tends             
+
+1 vice versa [39].                             
+Enrichment analysis function degree
+                                                                   binned proteins groups N≥ k protein               k interactions calculated corre-        
+sponding number essential proteins  Ni,≥ k. Ran-           
+                                                                
+                                              
+domly picking essential genes defined E ≥k ¼ N ≥k
+                                                    

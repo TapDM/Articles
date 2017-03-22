@@ -1,0 +1,895 @@
+Doyle et al. BMC Genomics 2010, 11:222
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+    RESEARCH ARTICLE                                                                                                                                 Open Access
+
+Drug target prediction prioritization: using
+Research article
+
+orthology predict essentiality parasite
+genomes
+Maria Doyle1,3, Robin B Gasser*2, Ben J Woodcroft1, Ross S Hall2 Stuart Ralph*1
+
+
+
+    Abstract
+    Background: New drug targets urgently needed parasites socio-economic importance. Genes     essential parasite survival highly desirable targets, information genes lacking, gene knockouts
+    knockdowns difficult perform species parasites. examined applicability large-scale
+    essentiality information model eukaryotes, Caenorhabditis elegans, Drosophila melanogaster, Mus musculus
+    Saccharomyces cerevisiae, discover essential genes genomes. Parasite genes lack
+    orthologues host desirable selective targets, examined prediction essential genes     subset.
+    Results: Cross-species analyses showed evolutionary conservation genes presence essential
+    orthologues strong predictors essentiality eukaryotes. Absence paralogues     general predictor increased relative essentiality. combining orthology essentiality criteria     select gene sets fold enrichment essential genes compared random selection.     quantitative application criteria used predict ranked list potential drug targets Ancylostoma
+    caninum Haemonchus contortus - blood-feeding strongylid nematodes, presently limited
+    sequence data functional genomic tools.
+    Conclusions: present study demonstrates utility using orthology information multiple, diverse
+    eukaryotes predict essential genes. data emphasize challenge identifying essential genes     parasite absent host.
+
+
+Background                                                                                  potential drug targets potentially accessible recently, search novel drugs parasites                                organisms. major challenge carried mainly using approaches                                           identify putative targets, prioritize 
+directly screen inhibition parasite growth lethal-                                available resources focused ity. current industry regulatory focus target-                                   likely lead effective treatments/drugs. based drug development meant search                                        aspect pressing neglected infectious diseases
+new anti-parasitic compounds moved target-                                    cause disproportionate burden developing
+based paradigm. completion genome projects                                       countries costs drug develop-
+large-scale expressed sequence tag (EST) surveys                                      ment process deterred investment pharma-
+range parasites means tens thousands                                      ceutical industry [1].  considered approaches
+                                                                                            predict promising targets identify
+* Correspondence: robinbg@unimelb.edu.au, saralph@unimelb.edu.au
+2
+                                                                                            likely essential required increase
+  Department Veterinary Science, University Melbourne, 250 Princes
+Highway, Werribee, Victoria, 3030, Australia                                                likelihood lead compounds proceed commer-
+1 Department Biochemistry & Molecular Biology, Bio21 Molecular Science                   cial development [2]. Biotechnology Institute, University Melbourne, Victoria, 3010,                     Identifying essential genes pathogens important
+Australia list author information available end article                      chemical inhibition non-essential genes                                                                                             unlikely result death infectious agent,
+                                            © 2010 Doyle et al; licensee BioMed Central  Open Access article distributed terms Creative Commons
+            BioMed Central Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                             medium, provided original work properly cited.
+ Doyle et al. BMC Genomics 2010, 11:222                                                                              Page 2 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+ use non-essential molecules, example,         screening uncertain compared organisms vaccine targets rapidly select mutants        screens, future screening single molecule targets
+evade protective immune responses. Essentiality,             likely measure loss function linked lethality,  difficult define application neces-   searching modulators agonists. 
+sarily restricted experimental conditions           fore, prediction identification essential genes
+tested. Despite limitation, indispensability        parasitic helminths considered important step
+defined laboratory condition useful starting            prioritization drug targets nematodes.
+point identifying biological processes likely      significant growth crucial survival organism natural         sequence data nematodes, enabling prediction conditions. proliferation genome sequencing proj-         numerous potential drug targets. focus ects followed systematic analyses gene            sequencing ESTs [17-23]   diffi-
+knockouts knockdowns determine essentiality            culties producing sufficient quantities genetically number model eubacteria eukaryotes,          homogenous material heterologous worm popula-
+Escherichia coli, Saccharomyces cerevisiae                   tions genomic sequencing.  progress
+Caenorhabditis elegans [3-8]. Unfortunately, infec-          genome sequencing (e.g., Brugia
+tious agents currently amenable genome              malayi) [24], program recently received fund-
+approaches experimental testing essentiality,         ing sequencing range socio-economically promising candidate drug targets indi-         important nematodes order Strongylida [25]. vidually validated genetically. particularly true     data emerging sequencing projects eukaryotic parasites, genetic tools char-       spurred identification drug targets parasitic
+acterize drug vaccine targets limited,          nematodes using bioinformatic techniques (e.g., [26]), absent                                           testing essentiality targets generally
+   particularly challenging area development         absent. Members Strongylida prop-
+novel compounds combat parasitic helminths ani-            agated  entire life cycle) culture vitro. mals. helminths major socio-economic                 addition, gene silencing (double-stranded RNA interfer-
+importance; billion people infected         ence, RNAi) does work effectively parasitic
+soil-transmitted worms (= geohelminths),             nematodes order assessed far,  cur-
+blood-feeding hookworms Ancylostoma duodenale                rently, major limitations conducting func-
+Necator americanus, common roundworm, Ascaris                tional studies different developmental stages lumbricoides, whipworm, Trichuris trichiura              parasites [27-29] order pre-validate potential drug
+[9,10]. parasites impose worldwide annual          targets.
+burden 39 million Disability Adjusted Life Years                paucity experimental tools characterize drug
+(DALYs) cause adverse effects human               targets Strongylida intensifies need predict
+health, particularly children [10]. Similarly, parasitic      putative targets likely essential; nematodes livestock, cattle sheep,           case, predictions necessarily based inference
+cause substantial economic losses diseases            orthologues model organisms.  ratio- cause, billions dollars spent annually       nal method applying knowledge essentiality treatment gastro-intestinal nematodes  Resis-           orthologues species lacking. Taking advantage
+tance emerging main classes anthelmint-      recent advances genome orthology mapping
+ics used combat parasitism [11-14], creating        [30] availability large-scale eukaryotic essenti-
+need new classes compounds.                               ality datasets [31-33], created database anal-
+   desirable, anthelmintic targets neces-        yse essentiality predicted existing data
+sarily need encoded essential genes. example        model eukaryotes. designation essentiality number anthelmintics  aldicarb trichlo-         diverse organisms means quite different things. rfon) target acetylcholinesterases, perturbations         yeast, essentiality refer failure grow culture,
+silencing C. elegans acetylcholinesterase genes           mice encompass failure embryos
+result viable phenotye  drug             progress live offspring.
+resistant phenotypes) [15]. Likewise, levamisole targets           present study, tested disparate
+acetylcholine receptors, disruption           forms essentiality predictive corresponding
+subunits receptors leads viable levami-       phenotypes organisms definitions
+sole resistant phenotype[16]. Despite precedence         essentiality strongly predictive essentiality successful drugs act agonist relationships          relatively distantly related eukaryotes. applied les- non-essential molecules, essentiality desirable        sons analyses prediction essential
+character genes pursued target-centric             genes parasitic nematodes. Members order
+approach. relative success target-based          Strongylida considered relatively closely related
+ Doyle et al. BMC Genomics 2010, 11:222                                                                                         Page 3 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+ Caenorhabditis elegans, clade V [34],     genetic experiments involving mouse genes did considered appropriate infer gene function       higher percentage reports lethality/essentiality abundant functional genomic data (including         organisms studied (Figure 1), reflect genome RNAi knockdown) exist C. elegans         selection bias. Nonetheless, patterns observed [26,35,36]. addition rational prediction essenti-   prediction essentiality orthology M. mus-
+ality orthology essentiality data, integrated      culus dataset paralleled organisms
+recently developed gene network connectivity data [37]         assessed, supporting inclusion present analy- predict key, essential genes offer         ses.
+promising testable drug targets.
+  criterion employed predic-       Prediction essentiality based phyletic characteristics -
+tion drug targets infectious organisms absence    presence paralogues corresponding host orthologue, maximise          interrogated database determine par-
+opportunities pharmacological selectivity.         alogy useful predictor essentiality. Intuitively, successful exceptions criterion exist;        belonging paralogous family suggest example, genuine targets differentially regulated       degree redundancy compensate dis- pathogen host [38], protein turnover        rupted gene;  previous studies C. elegans S. rapid host pathogen [39], targets         cerevisiae indicated genes paralogues active proliferating cancerous cells     likely essential [42,43].  mouse, host [40], sufficiently structurally different   recent analysis [44] revealed difference genes host pathogen allow selectivity [41].        paralogues. studies used different
+investigated effect excluding genes possess        criteria define paralogues  cases, included
+mammalian orthologues discovered remain-          genes cause sterility essential, making dif-
+ing genes likely essential.      ficult compare results studies.  developed flexible prioritization methods         compare effect paralogy likelihood lethal- limited requirement genes lack host      ity different species, used single method orthologues. present study, applied tech-      definition paralogue (OrthoMCL), combined
+niques predict essential drug targets large EST       existing large-scale essentiality data C. elegans,
+data sets representing blood-feeding strongylid nem-       D. melanogaster, M. musculus S. cerevisiae. pres-
+atodes major socio-economic importance,              ence paralogues inferred OrthoMCL groups;
+Haemonchus contortus  barber's pole worm small          gene species ruminants) Ancylostoma caninum (canine hook-               OrthoMCL group, genes classified genes
+worm). combined prioritization strategy           paralogues. probability essentiality genes criteria predict molecules drug targets haematophagous nematodes proof principle
+application using orthology predict essentiality.
+
+Results
+Database essentiality enable comparison phenotypes model organisms - Caenorhabditis elegans, Drosophila
+melanogaster, Mus musculus Saccharomyces cerevi-
+siae - database constructed allow mapping phenotype data orthologues. Orthology determined using OrthoMCL database [30], populated phenotype data species. case C. elegans, D. melanogaster S. cerevisiae,      Figure 1 Effect paralogy probability essentiality genes.
+phenotype information available 94 , 75             graph shows probability essentiality genes 88  protein-coding genes respectively. M. mus-       paralogues C. elegans, D. melanogaster, M. musculus S.
+culus, gene knockouts/knockdowns represented 20              cerevisiae. Presence paralogues means gene                                                                 species present OrthoMCL group. Percentages num- protein-coding genes. genes chosen                                                                 bers genes lethal phenotypes expressed fraction genes
+knockout analysis mice selected address spe-         available phenotype information species. Differences cific phenotypic questions, possible non-       essentiality genes versus paralogues highly sta-
+random collection introduce bias            tistically significant (P < 10-04), determined using Fisher's exact test
+away genes expected essential.       (Additional File 2).
+ Doyle et al. BMC Genomics 2010, 11:222                                                                            Page 4 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+ paralogues shown Figure 1              tor essentiality conservation Additional File 1: Table S1.                                     organisms diverged recently.   C. elegans S. cerevisiae, genes          tested conservation orthologues paralogues significantly likely          multiple species improve probability essen-
+essential genes paralogues (Figure 1). C.          tiality particular species. nearly combina-
+elegans, 1.6-fold greater probability essenti-    tions, case  Figure 2). ality genes paralogues (P < 10-33, Fisher's          example, 51  C. elegans genes orthologues S.
+exact test, Additional File 2), S. cerevisiae,       cerevisiae essential, 53  C. elegans genes 3.8-fold greater probability essentiality (P <    orthologues S. cerevisiae D. melano-
+10-51). D. melanogaster, genes paralogues            gaster essential. exceptions likely essential (1.4-fold, P < 10-12),     causes unclear- e.g., genes present species, lesser extent C. elegans S. cerevi-     C. elegans, D. melanogaster, S. cerevisiae M. muscu-
+siae. incomplete dataset M. musculus differed             lus, likely essential knocked species genes         Drosophila present  paralogues (0.9-fold, P < 10-04) likely      mer species (Figure 2).
+essential genes paralogues.
+                                                                 Prediction based orthology mapping existing
+Prediction essentiality based phyletic characteristics -   essentiality data species
+presence orthologues                                          Subsequently, tested presence Genes shared species hypothe-           essential orthologue predictive essentiality
+sized previously likely          gene presence non-essential orthologue.
+essential [45].  evidence pro-     explored previously bacterium
+posal tested quantitatively eukaryotes,         Pseudomonas aeruginosa, essential genes unaware published studies demonstrated           predicted identifying genes homologous effect breadth extent conservation        essential genes unicellular micro-organisms,
+large evolutionary distances probability essenti-      Mycoplasma genitalium, Haemophilus influen-
+ality. Indications gene conservation used       zae, Vibrio cholerae, Staphylococcus aureus, E. coli S. predictor essentiality eukaryotes comes           cerevisiae [47]. set genes predicted essential
+study 315 essential genes Danio rerio (zebrafish)          agreement genes shown experimen-
+[46], essential genes likely       tally essential.  essentiality conserved non-essential genes. test effect        orthologue used predict essentiality multi- conservation genes essentiality, analysed        cellular organisms tested. C. elegans, D.
+frequency essentiality genes orthologues           melanogaster, M. musculus S. cerevisiae, assessed C. elegans, D. melanogaster, M. musculus S. cerevi-       essentiality species used pre-
+siae. species, tested effect      dictor essentiality second species. conservation gene species essenti-        query species  C. elegans, D. melanogaster, M.
+ality (query) species. example, examine        musculus S. cerevisiae), assessed probability presence orthologue S. cerevisiae          essentiality genes lethal phenotypes predicts essentiality C. elegans, identified         species. comparing phenotypes linked
+orthology groups comprising genes spe-            particular genes species, limited analysis
+cies,  C. elegans genes groups,        genes paralogues species calculated percent essential.          compared; conducted avoid difficulty ings shown Figure 2 Additional File 1: Table S2.      comparing phenotypes individual paralogues   genes species, existence     associated different phenotypes. test orthologue species increased probability         having essential orthologues S. cerevisiae predicted
+essentiality, distant source ortho-      essentiality corresponding C. elegans genes, logue, greater effect. C. elegans, probabil-    identified orthology groups containing non-paralogous
+ity essentiality gene paralogues selected       C. elegans S. cerevisiae genes subjected random 18 ; probability increased 38           essentiality analysis. compared frequency gene orthologue D. melanogaster             essentiality C. elegans genes grouped 51  orthologue existed distant relative,       essential non-essential S. cerevisiae orthologues. S. cerevisiae (Figure 2). Conservation greater evo-       tested essentiality multiple species
+lutionary distance appears better indica-      improved probability essentiality. results  Doyle et al. BMC Genomics 2010, 11:222                                                                                                          Page 5 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+                      	
+
+ 
+                            
+                            
+   	 
+
+
+
+
+                        
+                            
+                        
+                     
+                        
+
+
+                      	
+
+ 
+                            
+   	
+ 
+
+
+
+
+
+                        
+                            
+                        
+                            
+                     
+                        
+                                                                                                                                             
+ 
+                                                                                                                                             
+
+
+                      	
+
+ 
+                            
+     
+
+
+
+
+                            
+                        
+                            
+                        
+                        
+                     
+
+
+                      	
+
+ 
+                            
+    
+
+
+
+
+                            
+                            
+                        
+                        
+                        
+                     
+
+                                                                                                              
+
+ Figure 2 Effect gene conservation probability essentiality genes. graph shows probability essentiality genes C.
+ elegans, D. melanogaster, M. musculus S. cerevisiae respectively, modified phyletic profile. percentages number genes  lethal phenotypes divided total number genes orthologues species compared. Specificity refers proportion genes
+ selected subset essential sensitivity refers proportion total number essential genes species recov-
+ ered selected subset. cases, essentiality assessed genes paralogues. probability essentiality genes  specified subsets versus gene selected random query genome statistically significant (P < 10-05), determined using Fisher's
+ exact test (Additional File 2). C = C. elegans, D = D. melanogaster, M = M. musculus, D = D. melanogaster, S = S. cerevisiae.
+ Doyle et al. BMC Genomics 2010, 11:222                                                                                            Page 6 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+predictions C. elegans species                     OrthoMCL group did gene shown Figure 3 Additional File 1: Table S3, respec-                     mammals considered  e., Homo sapiens, M. mus-
+tively.                                                                        culus Rattus norvegicus). calculated    analysis showed gene orthologue                          probability essentiality genes. C. elegans genes lethal knockout/knockdown phenotype                            lacked mammalian orthologues likely
+likely essential orthologue non-                        essential; probability essentiality decreased
+essential; distant orthologue, greater                        16  8  gene selected random, was probability essentiality.  existence                    6  gene paralogues (Table 1, Figure 3). orthologue associated lethal phenotype S.                         substantial decrease probability essentiality
+cerevisiae highly predictive lethality C. elegans                    important consequences drug target prediction
+(72 ), greater presence orthologue                     explicit previously. Researchers
+S. cerevisiae (51 ). Combining presence essen-                       quite likely examine genes exactly category
+tial orthologue evolutionarily distant relative                      e. present pathogen absent host), (S. cerevisiae) additional, closely-related species                    low "raw" probability essentiality  e., D. melanogaster) increased probability -                   genes (6-8 ) highlights challenge prediction C. elegans genes orthologue D. melano-                         essential drug targets subset, gaster S. cerevisiae, lethal phenotype,                    address  81  probability lethality.
+                                                                               Prediction drug targets Anyclostoma caninum effect drug-target selectivity predictions                        Haemonchus contortus: combining 'assayability' essentiality                                                                   prediction essentiality
+Anti-parasitic drugs need selectively inhibit kill                   present findings applied prediction parasite causing unacceptable toxicity                          drug targets haematophagous parasitic nematodes, host. way pursuing targets drugs                         outlined flow diagram (Figure 4). parasites Ancy-
+focus parasite genes lack host orthologues.                     lostoma caninum Haemonchus contortus aim identify targets parasitic nematodes                       selected represent parasitic nematodes order
+infect mammals, examined possible effects                            Strongylida ("clade V" [34]), significant EST
+essentiality focusing parasite genes lack mam-                      sequence data exist. available EST data  caninum
+malian orthologues.  analysed probabil-                      H. contortus (comprising 21,975 80,551 ESTs,
+ity essentiality C. elegans genes                           respectively) downloaded NCBI database.
+possessed lacked mammalian orthologues. obtain                           ESTs mapped OrthoMCL orthol- set C. elegans genes mammalian ortho-                           ogy groups BLASTX analysis individual EST
+logues, identified C. elegans genes                         sequences OrthoMCL proteins using                                                                                OrthoSelect method [48]. caveat EST-based
+                                                                               analysis incompleteness genomes                                                                                parasitic nematodes means poorer iden-
+                                                                               tification paralogues orthologues. analysis
+                                                                               followed extraction C. elegans orthologues
+                                                                               orthology groups. Previously, showed                                                                                having essential orthologue better predictor                                                                                essentiality just having orthologue (e.g., C. ele-
+                                                                               gans, gene orthologue essential D.
+                                                                               melanogaster 1.6-fold likely essential                                                                                C. elegans gene just orthologue D. melano-
+                                                                               gaster). focused subset C. elegans
+                                                                               orthologues parasitic nematodes essen-
+                                                                               tial  e., genes lethal RNAi phenotypes C. ele-
+ Figure 3 Effect conservation essential genes probability             gans).
+ essentiality. graph shows likelihood essentiality C. el-
+ egans genes essential orthologues organ-           Assayability requirement: enzymes, ion channels  isms; D. melanogaster, M. musculus S. cerevisiae. percentages         GPCRs
+ number genes lethal phenotypes divided total           select targets amenable vitro
+ number genes orthologues species. Essentiality 
+                                                                               screening growth inhibition lethality, focused
+ sessed genes paralogues. C = C. elegans, D = D. melano-
+ gaster, M = M. musculus, S = S. cerevisiae.                                   genes encoding proteins functional assays
+ Doyle et al. BMC Genomics 2010, 11:222                                                                                          Page 7 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+Table 1: Combining essentiality selectivity
+
+                                                                          Probability essentiality
+
+
+                                       Genes                 paralogues                   paralogues
+                                            paralogues
+
+
+           C. elegans                            16                                  11                                 18 
+            genes)                    (2941/18860 genes)                   (656/5988 genes)                  (2285/12872 genes)
+
+
+   C. elegans (excluding genes                   8                                   6                                  9 
+  mammalian orthologues)             (1090/13307 genes)                   (249/4431 genes)                   (841/8876 genes)
+  table demonstrates effect excluding genes mammalian orthologues probability essentiality. Percentages shown
+  number genes lethal RNAi (gene knock  phenotypes divided total number genes category.   numbers genes given brackets.
+
+
+exist.  examined subset C. elegans genes                Increasing probability essentiality incorporating
+encoding proteins inferred enzymatic, ion chan-                information network connectivity
+nel, GPCR activity, determined term annota-                Recently, Lee et al. [37] constructed probabilistic func-
+tion  e., 0003824, 0005216 0004930,                 tional interaction network C. elegans, largest subterm thereof ). current drugs clinical use           network date, comprising ~82  C. elegans genes.
+nematodes target protein catego-               network integrates data proteins genes (e.g.,
+ries. GPCRs targets 50  pharma-                microarray data interaction association informa-
+ceutical drugs [49], making attractive targets            tion) using information C. elegans genes parasitic nematodes. enzymes                   orthologues species. Using network,
+likely essential non-enzymes C. ele-               authors showed gene connectivity predictive gans S. cerevisiae - C. elegans, 16  genes              essentiality - genes highly connected net- essential, 21  enzymes essential;                 work likely essential; shown S. cerevisiae, 19  genes essential, 24            feature conserved eukaryotes
+enzymes essential -  focusing enzymes,                (including S. cerevisiae M. musculus). indepen- increased likelihood identifying essential              dent study Hwang colleagues showed genes.                                                                 genes encoding proteins higher connectivity pro-
+                                                                       tein-protein interaction networks likely Essentiality requirement: quantitative formula                     essential E. coli S. cerevisiae [50]. genes maximum prediction essentiality based present                higher network connectivity scores  assigned Lee et
+analysis                                                               al) likely essential lower applied quantitative weighting scheme genes                scores [37], gave greater weighting genes met criterion assayability, according              higher connectivity scores.
+present analysis relative importance feature              combined quantitative weighting scheme determining essentiality. example, showed               network connectivity scores produce prioritized list
+having paralogue increased probability essenti-              putative drug targets  caninum H. contortus
+ality 1.6-fold C. elegans (Table 1), having ortho-            (Additional file 3). represent predicted C. elegans
+logue paralogues S. cerevisiae D.                        orthologues  caninum H. contortus ESTs melanogaster increased probability 3.3 2.4-fold,                chosen assayability (enzyme, ion-channel respectively. (Figure 3). Furthermore, having ortho-                GPCR), quantitative ranking scheme applied logue paralogues essential S. cerevi-              predict essentiality. Genes included list siae D. melanogaster increased probability                  related lethal RNAi phenotype C. elegans.
+essentiality 5.2-fold. fold increases sta-             list comes incomplete EST snap-
+tistically significant (P < 0.0005), determined using               shot haematophagous helminths, Fisher's exact test (Additional File 2). weighting                recovers validated anthelmintic drug targets; beta- score genes numerically order prob-              tubulin, target Benzimidazole [51]; glutamate-gated
+ability genes essential.                                 chloride channel, target avermectin/milbemycin
+                                                                       anthelmintics [52] succinate dehydrogenase/fumar-
+ Doyle et al. BMC Genomics 2010, 11:222                                                                                         Page 8 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+                                                                            exact probability essentiality uncharacterized
+   Orthologue C. elegans?                                                gene, weightings estimation rel-
+                                                                            ative likelihood essential genes                                     yes                                                                                              considered candidate targets.
+   Enzymes, Ion channels & GPCRs?
+                                                                            Discussion
+                                    yes                                  Defining essential genes central strategy priori-
+                                                                            tization drug targets infectious organisms.    Lethal phenotype C. elegans?
+                                                                            non-essential genes act drug targets 
+                                    yes                                  verting non-toxic precursors toxic products,                                                                             anti-microbials act inhibiting function essen-
+                        Lacks paralogues?                                   tial process, leading death pathogen,                                                                             direct absence essential process  indi-
+              yes                                                        rectly, stress-related response. number                   Orthologue distant relative
+                                                                            anthelmintic drugs (e.g. levamisole [16] ivermectin
+                                                                            [54]) appear function agonists non-essential
+              yes                                                        genes  review anthelmintic modes action                                                                             [55]). search drug targets essen-
+            Essential orthologue distant relative                        tial genes useful approach prioritization tar-
+                                                                            gets, inability methodology predict               yes                                                                                                                  successful anti-parasitic drug targets limitation            Presence orthologue close relative                         practice.
+                                                                              attempts define predict
+              yes                                                        essential genes infectious agents; cases,                                                                             sophisticated functional genomic tools avail-
+             Essential orthologue close relative                         able, possible systematic dis-
+              yes                                                        ruption candidate genes, example, Streptococcus
+                                                                            pneumoniae [56], Candida albicans [57], Aspergillus
+                    Network connectivity score                              fumigatus [58]) Mycobacterium tuberculosis [7,8].
+                                                                             vast majority infectious organisms,
+              yes                                                        high-throughput experimental interrogation essential-
+                                                                            ity currently possible, efforts define essenti-
+     Prioritized list targets parasitic nematodes                    ality based bioinformatic predictions [59-
+                                                                            63].
+ Figure 4 Prioritizing essential nematode drug targets. flow di-          attempted define general characters
+ agram outlines approach drug target prediction prioritiza-
+ tion parasitic nematodes. steps clear  reject"
+                                                                            predictive essentiality eukaryotic genes
+ decisions genes failing criteria easily   orthology. Previous studies shown 
+ amenable development unacceptable probabili-         servation genomes itself predictive feature  ty essential. steps used quantitatively refine   essential genes. Studies Butland, [64] Hwang [50] Kro-
+ weighting produce ranked list essential drug targets.              gan [65] colleagues showed essential genes S.
+                                                                            cerevisiae E. coli widely phyletically
+ate reductase, C. elegans equivalent helminth                    distributed, connected physical
+target thiabendazole [53].                                               functional protein-protein interactions. data
+  likely application prioritization method                  broad evolutionary conservation genes focus particular subset enzymes                    multicellular eukaryotes) predictive essenti-
+investigator expertise. example, aim                  ality, essentiality orthologues identify promising kinase drug targets, kinases                    strong predictor. Combining individual criteria ranked list extracted appraised.                     independently predictive essentiality increases 49 predicted kinases (Figure 5) H. contortus                 specificity prediction - example, C. elegans gene  caninum EST datasets. list                       selected random 16  likely essential, expected likely essential                      C. elegans genes lack paralogues parasitic nematodes, based present anal-                   essential orthologues S. cerevisiae D. melanogaster
+yses. numerical weighting                       81  likely essential. dramatic increase  Doyle et al. BMC Genomics 2010, 11:222                                                                                                                                                                                                              Page 9 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+                                                                                                                                                  	
+                                                                                                              	                                                     
+	
+                                                                                                                                                
+
+
+	
+
+
+
+                                                                                                                                                                                                                                      
+
+
+
+
+
+                                                                                                                        	
+
+
+
+
+
+                                                                                                                                                                                           	
+
+                                                                                                                                                                                                                      		
+
+
+
+
+                                                                                                           	
+	
+
+
+
+
+                                                                                                                                                                              	
+	
+                                                                                                                                                        
+
+	
+          	
+	    
+                          
+			
+                                                                                                                                               
+		
+
+
+
+
+                                                                                                                                        
+
+
+
+
+                                                                                                                                                                                                         	
+
+                                                                                                                                                                                                                        	
+                                                                                                                                                                                                                                       
+
+
+
+
+
+                                                                                                                                                                     
+
+                                                                                                                                                
+         	         &         ' &&()("*                                                                                                                                           
+          
+	
+         
+		        
+
+	    +,-(*)(+,-*                                                                                                                                                          
+           
+
+                          ./0,
+&()01/(/()                                                                                                                                 
+         
+	        
+
+ 
+     +,-(*)(+,-*
+                                                                                                                                                                   	
+                  
+        /()                                                                                                                                                           
+          	
+                   
+        1/)1&'/)/()                                                                                                                                                     
+	
+         
+        2
+        $#(*)                                                                                                                                                                         
+
+ 
+         		        34
+        '/)()5(# (617( /(82'                                                                                                                                       
+
+         
+         	
+     1/)1/23/()                                                                                                                                                            
+         
+         &
+         ' &&()                                                                                                                                                           
+
+
+                    
+        )()(,                                                                                                                                                                    
+         
+
+        	
+      9#"#()(                                                                                                                                                               
+                            )()(,(6)/0&7                                                                                                                                                     
+                  &
+         ' (&&()(
+(1/2//:                                                                                                                                                   
+                  &	         ' ( &&()("*	                                                                                                                                                     
+ 
+         	        )
+        ;+(#/(*)                                                                                                                                                                   		
+                 
+       ' &&()(
+                                                                                                                                                        
+          
+        4.4
+        2/ ( 1 /()01/(/()                                                                                                                                 
+         	
+
+        )        4/)/2(/(;()0(+;*()(1/2//:                                                                                                                                  
+	
+                  )
+        $+*(/()(82'                                                                                                                                                            
+         
+        
+        )01/()(6*,<
+0;<
+0<2
+().482'7                                                                                                                                  
+         
+         )
+        )()(6)01/0'/)(/()7                                                                                                                              
+ 
+         
+	        &
+        2/: 3&(/()()()                                                                                                                                       
+          
+                 )01/()                                                                                                                                                               
+         
+	        1
+        1'2&()                                                                                                                                                                     
+                  
+       1/4&:(;0=1()                                                                                                                                                
+          
+         
+          
+ 
+      '.3()                                                                                                                                                          
+            
+         
+	        !"	      :()                                                                                                                                                           
+           
+         	         1
+        " *
+()(1/(/()                                                                                                                                           
+         
+         
+       /()                                                                                                                                                                      
+
+
+          
+          
+
+      /()                                                                                                                                                                      
+	
+         
+                :&()                                                                                                                                                              
+
+
+         
+
+         
+  
+      . /)&(&1/)1()                                                                                                                                           
+            
+         
+        :)        :' /:()'1)()                                                                                                                                                
+          	 
+
+         
+        24         &.) 8 '(
+&()                                                                                                                                      
+          
+ 
+                 " 	
+       )()(6)01/0'/)(/()7                                                                                                                  
+           
+         	        
+       .&'()0&'()                                                                                                                                          
+          
+
+
+         		        
+       1>/)                                                                                                                                                               
+          
+	
+         
+        
+        /.)&(/()                                                                                                                                                
+          
+         	        
+        ./0,
+&()01/(/()                                                                                                                        
+          
+
+         
+
+           
+#
+    1>/)                                                                                                                                                                
+          
+
+
+         
+          &          ' &&()("*                                                                                                                                                
+          
+          
+
+                 )()(,,(15( ' ().4.                                                                                                                               
+          
+           
+        
+ 
+$
+    1/)1/8. /)                                                                                                                                                     
+           
+
+         
+	        8
+        / /('/)()                                                                                                                                              
+          
+
+          
+	        
+         $#&&(/()                                                                                                                                              
+         
+	
+
+         	        ):
+        )01/(/()                                                                                                                                           
+          
+
+                 :)       )01/()                                                                                                                                                    
+            
+         
+          ))
+       4/)/2(/(;()                                                                                                                                               
+          
+ 
+
+
+
+ Figure 5 Prioritized kinases parasitic nematodes  caninum H. contortus. shows C. elegans predicted orthologues 
+ caninum H. contortus ESTs, identified present study. genes predicted kinases, lethal RNAi phenotype C. elegans. Targets
+ prioritized essentiality weighting assigned present study, Wormnet connectivity score. ranked kinases
+  bold) thirty ranked targets ESTs (Additional File 3). Present mammals defined having orthologue  mammalian species OrthoMCL 2.0 database (human, rat, mouse). Essential orthologue yeast, drosophila mouse: ? = orthologue
+  paralogues) associated lethal phenotype, ? = orthologue  paralogues) non-lethal phenotypes recorded, ? = 
+ thologue  paralogues) phenotype information available. Presence paralogues C. elegans determined OrthoMCL
+ grouping. Presence paralogues  caninum H. contortus determined described Materials methods. network connectivity
+ score sum interaction scores (log-likelihood scores) gene Wormnet core network [37].
+
+ specificity prediction increases probability                                             scriptive queries. present example, 258
+essentiality dishearteningly low level,                                              candidates remained set 2941 C. elegans genes
+randomly chosen drug target candidate likely                                             determined experimentally essential. practice,
+non-essential, reassuring level prioritized                                             investigator balance desired specificity didates likely essential.                                                   query desired pool size selected tar-
+increase specificity associated predictions                                           gets, highly weight specific predictors, accompanied decrease sensitivity - gen-                                              genes likely essential ranked 
+uinely essential genes discarded highly pre-
+ Doyle et al. BMC Genomics 2010, 11:222                                                                           Page 10 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+   discovery exclusion genes mamma-         host. quantitatively applied conclu-
+lian orthologues leads sets genes       sions analysis prediction essential
+likely essential major implications,        genes blood-feeding parasitic nematodes, combining
+highlights additional challenge identification     requirement assayability identify tar-
+drug targets allow selectivity. decreased         gets readily amenable investigation. analy-
+essentiality readily rationalised, considering        sis led prioritization tractable number analyses relationship orthology        potential drug targets leading development essentiality. case, excluded set genes      nematocidal agents.
+shared orthology worms mammals. resultant set, conserved fewer organisms,            Methods
+tained higher proportion non-essential genes.               Orthology data
+   focused enzymes, ion channels G-protein-            Orthology data obtained OrthoMCL [30],
+coupled receptors (GPCRs) vast majority           available http://www.orthomcl.org. OrthoMCL classi- drugs target classes [49,66] chemicals             fies genes 87 genomes orthology groups. Files exist interrogate targets. Furthermore,       containing protein sequence data orthology group proportion essential genes greater      information downloaded OrthoMCL version
+enzymes protein-coding genes, C.         2. dataset contained 20084, 14034, 24435 6718
+elegans S. cerevisiae.                                       proteins C. elegans, D. melanogaster, M. musculus
+   study, applied semi- quantitative methods       S. cerevisiae, respectively includes genes assigned
+identify essential genes parasitic helminths.           orthology groups OrthoMCL dataset methods equally applicable prediction        assigned group (annotated OrthoMCL
+essential genes eukaryotic pathogens EST            'no_group'). Orthologues genes deriving genome projects. shown genes           ancestral gene separated speciation event,
+essential orthologues greatly increased probability       paralogues genes separated gene essentiality researcher identify genes      duplication event genome. Subsequent specia- parasite essential C. elegans,    tion lead paralogous relationships genes
+D. melanogaster, M. musculus S. cerevisiae.            different genomes (referred paralogues) species distantly related protozoan spe-        [67]. practice, identification relationships
+cies, essentiality species      non-trivial robust complete genome
+highly suggestive essentiality protozoan parasite        data sequences useful phylogenetically informa-
+versus genes essential model        tive characters allow unambiguous phylogenetic trees organisms.                                                       constructed. currently computationally    addition identifying drug targets, identification    practically feasible multi-eukaryote, genome
+promising vaccine candidates priority para-        analyses. OrthoMCL clustering method provides sitic diseases. essentiality likely         convenient, necessarily imperfect means estimat-
+important characteristic vaccine targets, large variety     ing orthology paralogy. paralogues paral- characters desirable currently diffi-      ogues separated recent duplication event cult establish bioinformatically, particularly         normally clustered OrthoMCL group incomplete genome. characters                 represent gene/protein family, ancient tractable near future, current            duplications likely result separate clusters
+approach appropriate identifying vaccine anti-        [68]. purposes paper, genes different
+gens.                                                            species share OrthoMCL cluster 
+                                                                 sidered orthologues, multiple genes Conclusions                                                      species share OrthoMCL study, undertook quantitative assessment         cluster considered paralogues. Additional File 4 dem-
+essentiality inference using orthology. analy-      onstrates example phylogenetic trees representa-
+sis demonstrates utility examining multiple, diverse      tive types orthologue clusters.
+organisms predicting essentiality, shows essentiality gene highly predictive essentiality   Phenotype data orthologues, organisms extremely           Phenotype information obtained C. elegans, M.
+different life cycles. data highlight poten-      musculus S. cerevisiae databases Wormbase
+tial undesirably enriching non-essential genes           WS191 http://www.wormbase.org[69], Mouse Genome prioritizing genes pathogen absent            Informatics (http://www.informatics.jax.org; June 2008
+ Doyle et al. BMC Genomics 2010, 11:222                                                                             Page 11 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+[70]) Saccharomyces Genome Database (http://                   phenotype data available 20  (5008/24435) www.yeastgenome.org; Aug 2008) [71], respectively.             M. musculus OrthoMCL genes.
+D. melanogaster used results genome-wide
+RNAi screen [33]). order focus phenotypes            Computational predictions essentiality
+result disruption/inhibition proteins, opposed          Custom Ruby scripts written query database overexpression phenotypes, restricted analysis           Ruby Rails framework. Genes phenotypes following experiment/mutant                 paralogues defined genes OrthoMCL
+types: C. elegans (RNAi), S. cerevisiae (null, reduction        groups gene query species, function, repressible), D. melanogaster (RNAi) M.              genes query species OrthoMCL dataset
+musculus (included phenotypes following                   assigned 'no_group'. number genes experiments: Chemically radiation induced, Chemi-              paralogues obtained subtracting number cally induced (ENU), Chemically induced  , Gene              genes paralogues total number genes
+trapped, Radiation induced, Spontaneous, Targeted                  query species.
+(knock , Targeted (Reporter), Targeted (Floxed/Flt),             analyze effect presence orthologues Transgenic (random, gene disruption)). Essential genes             probability essentiality, example, effect hav- defined follows; C. elegans M. musculus            ing yeast orthologue probability essentiality C. genes phenotype description contain-             elegans genes, OrthoMCL groups contained ing term 'lethal'  Additional File 5 list   gene species identified. phenotypes), S. cerevisiae genes           subset groups selected contained phenotype 'inviable', D. melanogaster               gene S. cerevisiae C. elegans, genes showed lethality Adult, Pupal,               genes paralogues species.  Pupal Eclosion life-stage [33].           C. elegans genes groups number genes
+exclude possibility phenotypes           lethal phenotypes calculated expressed M. musculus result protein disruption/                percent total number C. elegans genes inhibition, example, possible chemical           orthologues S. cerevisiae (numbers genes given
+spontaneous mutation result constitutive activa-          Additional File 1: Table S2).
+tion protein gain function.  includ-            analyze frequency essentiality genes
+ing phenotypes result                  essential orthologues C. elegans, example, conservative prediction essentiality           examine presence essential orthologue
+mean M. musculus genes                   S. cerevisiae predicts essentiality C. elegans, falsely classed essential orthologues used          OrthoMCL groups contained gene spe-
+predict essentiality C. elegans lead lower           cies identified. subset groups probability essentiality C. elegans.                        selected contained gene S. cerevi-
+                                                                   siae C. elegans, followed identifying Construction database genome comparisons            subset groups essential S. cerevisiae ortho- essentiality                                                    logue. C. elegans genes groups enable comparison phenotypes              number genes lethal phenotypes calculated
+species, relational database constructed map              expressed percent total number C. ele-
+phenotype data species OrthoMCL                 gans genes essential orthologue S. cerevisiae
+genes groups. database PostgreSQL data-             (numbers genes given Additional File 1: Table
+base http://www.postgresql.org used Ruby                S3).
+Rails framework http://www.rubyonrails.org. Custom                   set C. elegans genes mammalian ortho-
+tables designed store data OrthoMCL            logues genes OrthoMCL
+proteins mapped genes phenotype files           group did contain gene using gene identifiers present datasets (identifi-      mammalian species OrthoMCL (Homo sapiens, M.
+ers type WBGene00000001 C. elegans, CG3095              musculus Rattus norvegicus) C. elegans genes D. melanogaster, ENSMUSG00000020473 M.                     assigned 'no_group' OrthoMCL.
+musculus YNL214W S. cerevisiae). software
+used process available http://github.com/            Prediction drug targets parasitic nematodes
+wwood/essentiality. Phenotype data available              available ESTs H. contortus  caninum 94  (18860/20084), 75  (10572/14034), 88  (5908/               downloaded National Center Biotechnology
+6718) C. elegans, D. melanogaster S. cerevisiae             Information (NCBI) comprised 21,975 80,551
+genes OrthoMCL dataset, respectively. contrast,          ESTs respectively. ESTs cleaned vector using
+ Doyle et al. BMC Genomics 2010, 11:222                                                                                    Page 12 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+
+SeqClean, repeats masked Repeatmasker, using        genes enzymes identifier catalytic
+default parameters programs. initially used       activity  0003824) specific sub- CAP3 program clustering ESTs,             terms (e.g., 0016301 kinase activity). Similarly, manual inspection results led discover   script written identify ion channels GPCRs - getting incorrect clustering - clustering ESTs        genes identifier ion channel activity similar identical genes contig      0005216) G-protein coupled receptor activity example ESTs large gene families colla-       0004930) specific subterms
+gens, lectins, cysteine proteases. tried increasing    (e.g., 0001584 rhodopsin-like receptor activity). percent identity cutoff CAP3 program          software written Ruby http://www.ruby-lang.org/
+default 80  95  incorrect clus-     using RSRuby library http://rubyforge.org/projects/
+tering manual inspection. ESTs          rsruby/ communicate R http://www.r-project.org
+individually mapped OrthoMCL orthology groups              db Bioconductor package http://www.bio-
+using initial steps OrthoSelect method             conductor.org/packages/data/annotation/html/
+described Schreiber colleagues [48]. Briefly, ESTs     db.html. Using approach, reference list assigned orthology group sufficient       terms did need loaded database BLASTX e-value, averaged best hit          instead installed db. software available species, default score cutoff used.     GPLv3 license http://github.com/wwood/
+ESTs frequently represent small fragments genes,         goruby.
+caveat type analysis shorter length      C. elegans genes predicted ortho-
+makes assignment orthologue groups robust.            logues  caninum H. contortus ESTs iden-
+  OrthoMCL group defined containing paral-          tified met assayability requirement,
+ogues parasitic nematodes ESTs       followed identification identified TBLASTX hit (e-value < 1e-10)     essential C. elegans. resulted 421 C. imperfect BLASTN hit (identity < 95 ). conser-        elegans genes final drug target list, 163 ortho-
+vative e-value used avoid missing potential paralo-    logues common  caninum H. contortus, 124
+gous relationships cost flagging potential false    present H. contortus 134 pres-
+positive paralogues pairs manually checked.     ent larger dataset  caninum. genes Additionally, OrthoMCL groups containing          list enzymes ion channels GPCRs met C. elegans proteins considered containing paral-      selection criteria. quantitative weighting scheme
+ogues. C. elegans gene(s) group         applied according present analysis rela-
+classed orthologues parasite EST drug       tive importance feature determining essential-
+target selection criteria applied C. elegans    ity - absence paralogues, presence orthologue  genes. caveat OrthoSelect/OrthoMCL cluster-         paralogues) D. melanogaster M. musculus S.
+ing approach members recently diverged gene      cerevisiae, presence essential orthologue  par-
+family, genes share common domain,        alogues) D. melanogaster, M. musculus S. cere- classified paralogues,         visiae. distinct roles functionally redun-         Network connectivity data C. elegans genes dant. improved preliminary EST-           obtained Wormnet v1 (available http://
+clustering step, included future analy-    www.functionalnet.org/wormnet/); [37] integrated
+ses EST datasets amenable clustering.         database mapping genes Wormnet  caninum ESTs assigned 2313                 C. elegans OrthoMCL genes using gene identifiers
+OrthoMCL groups, resulting 2743 C. elegans genes           Wormbase gff3 file. "core" higher confi- predicted orthologues  caninum ESTs.        dence set linkages LLS ≥ H. contortus ESTs assigned 2230               0.405465108108 (ln1.5). C. elegans gene LLS
+OrthoMCL groups, resulting 2650 C. elegans genes           linkages core network added predicted orthologues H. contortus ESTs.      resulted 10,041 genes network score greater
+  assayability requirement enzymes, ion channels      zero. approach identification drug GPCRs identified using gene ontology              targets parasitic nematodes summarised Figure 4.
+terms. terms C. elegans genes obtained Amigo CVS database, using version 1.127                Additional material
+gene_association.wb.gz included database
+(retrieved Feb 2009 http://cvsweb.geneontol-              Additional file 1 Numbers genes orthology analysis.doc. file
+                                                               shows numbers genes meeting criteria orthology
+ogy.org/cgi-bin/cvsweb.cgi/). custom software library,       comparisons essentiality.
+named GORuby, developed classify C. elegans
+ Doyle et al. BMC Genomics 2010, 11:222                                                                                                                                                                                                                                                                                                                       Page 13 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+                                                                                                                                                                                                                                                                                          5.    Winzeler EA, Shoemaker DD, Astromoff  Liang H, Anderson K, Andre B,
+      Additional file 2 Fisher's exact test results orthology analysis.xls.
+                                                                                                                                                                                                                                                                                                Bangham R, Benito R, Boeke JD, Bussey H, et al.: Functional
+      file contains results Fisher's exact test applied comparisons                                                                                                                                                                                                                                                                                                 characterization S. cerevisiae genome gene deletion       essentiality model organisms.
+                                                                                                                                                                                                                                                                                                parallel analysis. Science 1999, 285(5429):901-906.
+      Additional file 3 Prioritized list drug targets  caninum H.                                                                                                                                                                                                            6.    Kang Y, Durfee T, Glasner JD, Qiu Y, Frisch D, Winterberg KM, Blattner FR:
+      contortus.xls. genes list C. elegans predicted orthologues                                                                                                                                                                                                            Systematic mutagenesis Escherichia coli genome. J Bacteriol
+       caninum H. contortus ESTs, identified present study.                                                                                                                                                                                                              2004, 186(15):4921-4930.
+      Genes correspond validated anthelmintic drug targets shown                                                                                                                                                                                                           7.    Sassetti CM, Boyd DH, Rubin EJ: Comprehensive identification       bold. genes list predicted enzymes  term)                                                                                                                                                                                                              conditionally essential genes mycobacteria. Proc Natl Acad Sci USA
+      lethal RNAi phenotype C. elegans. Targets prioritized                                                                                                                                                                                                              2001, 98(22):12712-12717.
+      essentiality weighting assigned present study, network                                                                                                                                                                                                             8.    Sassetti CM, Boyd DH, Rubin EJ: Genes required mycobacterial
+      connectivity score. "Present mammals" defined having ortho-                                                                                                                                                                                                                   growth defined high density mutagenesis. Mol Microbiol 2003,
+      logue mammalian species OrthoMCL 2.0 data-                                                                                                                                                                                                                   48(1):77-84.
+      set (human, rat, mouse). Essential orthologue yeast, drosophila mouse:                                                                                                                                                                                                        9.    Bethony J, Brooker S, Albonico M, Geiger SM, Loukas  Diemert D, Hotez
+      ? = orthologue  paralogues) associated lethal phenotype, ? =                                                                                                                                                                                                               PJ: Soil-transmitted helminth infections: ascariasis, trichuriasis,       orthologue  paralogues) non-lethal phenotypes                                                                                                                                                                                                                       hookworm. Lancet 2006, 367(9521):1521-1532.
+      recorded, ? = orthologue  paralogues) phenotype informa-                                                                                                                                                                                                             10.   Chan MS: global burden intestinal nematode infections--fifty
+      tion available. Presence paralogues C. elegans determined                                                                                                                                                                                                                   years  Parasitol Today 1997, 13(11):438-443.
+      OrthoMCL grouping. Presence paralogues  caninum H.                                                                                                                                                                                                             11.   Wolstenholme AJ, Fairweather  Prichard R, von Samson-Himmelstjerna G,
+      contortus determined described Materials methods. net-                                                                                                                                                                                                                  Sangster NC: Drug resistance veterinary helminths. Trends Parasitol
+      work connectivity score sum interaction scores (log-likelihood                                                                                                                                                                                                              2004, 20(10):469-476.
+      scores) gene Wormnet core network [37].                                                                                                                                                                                                                              12.   Pomroy  Anthelmintic resistance New Zealand: perspective       Additional file 4 Phylogenetic trees nematode OrthoMCL clus-                                                                                                                                                                                                                       recent findings options future. New Zealand Veterinary
+      ters. file contains phylogenetic trees illustrative gene clusters                                                                                                                                                                                                            Journal 2006, 54(December):265-270.
+      include ESTs parasitic nematodes.                                                                                                                                                                                                                                              13.   Besier B: New anthelmintics livestock: time right. Trends
+      Additional file 5 Essential phenotypes C. elegans M. muscu-                                                                                                                                                                                                                       Parasitol 2007, 23(1):21-24.
+      lus.doc. file contains phenotype descriptions C. elegans                                                                                                                                                                                                       14.   Gilleard JS, Beech RN: Population genetics anthelmintic resistance       M. musculus genes classed essential genes current analy-                                                                                                                                                                                                              parasitic nematodes. Parasitology 2007, 134(Pt 8):1133-1147.
+      sis.                                                                                                                                                                                                                                                                                15.   Nguyen M, Alfonso  Johnson CD, Rand JB: Caenorhabditis elegans
+                                                                                                                                                                                                                                                                                                mutants resistant inhibitors acetylcholinesterase. Genetics 1995,
+Abbreviations                                                                                                                                                                                                                                                                                   140(2):527-535.
+GPCR: G-protein coupled receptor; EST: expressed sequence tag;  Gene                                                                                                                                                                                                                   16.   Lewis JA, Wu CH, Levine JH, Berg H: Levamisole-resistant mutants Ontology; LLS: log-likelihood score.                                                                                                                                                                                                                                                            nematode Caenorhabditis elegans appear lack pharmacological
+                                                                                                                                                                                                                                                                                                acetylcholine receptors. Neuroscience 1980, 5(6):967-989.
+Authors' contributions                                                                                                                                                                                                                                                                    17.   Campbell  Nagaraj SH, Hu M, Zhong W, Sternberg PW, Ong EK, Loukas
+Project conceived SAR RBG. MAD BJW performed bioinfor-                                                                                                                                                                                                                        Ranganathan S, Beveridge  McInnes RL, et al.: Gender-enriched
+matic experiments, BJW assisted creation development data-                                                                                                                                                                                                                      transcripts Haemonchus contortus--predicted functions genetic
+base, MAD, BJW, RSH, SAR RBG analysed data. SAR, RBG MAD wrote                                                                                                                                                                                                                      interactions based comparative analyses Caenorhabditis
+manuscript, authors read approved final manuscript.                                                                                                                                                                                                                                 elegans. Int J Parasitol 2008, 38(1):65-83.
+                                                                                                                                                                                                                                                                                          18.   Hoekstra R, Visser  Otsen M, Tibben J, Lenstra JA, Roos MH: EST
+Acknowledgements                                                                                                                                                                                                                                                                                sequencing parasitic nematode Haemonchus contortus authors wish thank Wormbase, Flybase MGI teams assis-                                                                                                                                                                                                                        suggests shift gene expression transition parasitic
+tance data access. SAR supported Future Fellowship (FT0990350)                                                                                                                                                                                                                     stages. Mol Biochem Parasitol 2000, 110(1):53-68. Australian Research Council (ARC). Financial support present                                                                                                                                                                                                              19.   McCarter JP, Mitreva MD, Martin J, Dante M, Wylie T, Rao U, Pape D,
+study provided grants RBG ARC.                                                                                                                                                                                                                                               Bowers Y, Theising B, Murphy CV, et al.: Analysis functional
+                                                                                                                                                                                                                                                                                                classification transcripts nematode Meloidogyne
+                                                                                                                                                                                                                                                                                                incognita. Genome Biol 2003, 4(4):R26.
+Author Details
+1Department                                                                                                                                                                                                                                                                               20.   Mitreva M, Jasmer DP, Appleton J, Martin J, Dante M, Wylie T, Clifton SW,
+              Biochemistry & Molecular Biology, Bio21 Molecular Science
+                                                                                                                                                                                                                                                                                                Waterston RH, McCarter JP: Gene discovery adenophorean Biotechnology Institute, University Melbourne, Victoria, 3010,
+                                                                                                                                                                                                                                                                                                nematode Trichinella spiralis: analysis transcription Australia, 2Department Veterinary Science, University Melbourne, 250
+                                                                                                                                                                                                                                                                                                life cycle stages. Mol Biochem Parasitol 2004, 137(2):277-291.
+Princes Highway, Werribee, Victoria, 3030, Australia 3Current address: Peter
+                                                                                                                                                                                                                                                                                          21.   Nisbet AJ, Gasser RB: Profiling gender-specific gene expression MacCallum Cancer Centre, St Andrew's Place, East Melbourne Victoria, 3002,
+                                                                                                                                                                                                                                                                                                Trichostrongylus vitrinus (Nematoda: Strongylida) microarray
+Australia
+                                                                                                                                                                                                                                                                                                analysis expressed sequence tag libraries constructed Received: 11 September 2009 Accepted: 3 April 2010                                                                                                                                                                                                                                              suppressive-subtractive hybridisation. Int J Parasitol 2004,
+Published: 3 April 2010                                                                                                                                                                                                                                                                         34(5):633-643. ©
+BMC
+  2010
+          article available
+                   Access
+      Genomics
+         Doyle
+           Open  et2010,    articleBioMed
+                                     distributed
+                    al; licensee
+                           11:222
+                                       Central terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+                                   http://www.biomedcentral.com/1471-2164/11/222
+                                                                                                                                                                                                                                                                                                                                           22.   Thompson FJ, Mitreva M, Barker GL, Martin J, Waterston RH, McCarter JP,
+                                                                                                                                                                                                                                                                                                Viney  expressed sequence tag analysis life-cycle References                                                                                                                                                                                                                                                                                      parasitic nematode Strongyloides ratti. Mol Biochem Parasitol 2005,
+1. Trouiller P, Olliaro P, Torreele E, Orbinski J, Laing R, Ford N: Drug                                                                                                                                                                                                                        142(1):32-46.
+    development neglected diseases: deficient market public-                                                                                                                                                                                                                  23.   Yin Y, Martin J, McCarter JP, Clifton SW, Wilson RK, Mitreva M:
+    health policy failure. Lancet 2002, 359(9324):2188-2194.                                                                                                                                                                                                                                    Identification analysis genes expressed adult filarial
+2. Nwaka S, Hudson  Innovative lead discovery strategies tropical                                                                                                                                                                                                                         parasitic nematode Dirofilaria immitis. Int J Parasitol 2006,
+    diseases. Nat Rev Drug Discov 2006, 5(11):941-955.                                                                                                                                                                                                                                          36(7):829-839.
+3. Gerdes SY, Scholle MD, Campbell JW, Balazsi G, Ravasz E, Daugherty MD,                                                                                                                                                                                                                 24.   Ghedin E, Wang S, Spiro D, Caler E, Zhao Q, Crabtree J, Allen JE, Delcher AL,
+    Somera AL, Kyrpides NC, Anderson  Gelfand MS, et al.: Experimental                                                                                                                                                                                                                        Guiliano DB, Miranda-Saavedra D, et al.: Draft genome filarial
+    determination level analysis essential genes                                                                                                                                                                                                                               nematode parasite Brugia malayi. Science 2007, 317(5845):1756-1760.
+    Escherichia coli MG1655. J Bacteriol 2003, 185(19):5673-5684.                                                                                                                                                                                                                         25.   Mitreva M, Zarlenga DS, McCarter JP, Jasmer DP: Parasitic nematodes -
+4. Giaever G, Chu  Ni L, Connelly C, Riles L, Veronneau S, Dow S, Lucau-                                                                                                                                                                                                                     genomes control. Vet Parasitol 2007, 148(1):31-42.
+    Danila  Anderson K, Andre B, et al.: Functional profiling                                                                                                                                                                                                                    26.   Gilleard JS, Woods DJ, Dow JAT: Model-organism genomics veterinary
+    Saccharomyces cerevisiae genome. Nature 2002, 418(6896):387-391.                                                                                                                                                                                                                            parasite drug-discovery. Trends Parasitol 2005, 21(7):302-305.
+ Doyle et al. BMC Genomics 2010, 11:222                                                                                                                 Page 14 14
+http://www.biomedcentral.com/1471-2164/11/222
+
+
+
+27. Geldhof P, Murray L, Couthier  Gilleard JS, McLauchlan G, Knox DP,                 amino acid 200 beta-tubulin isotype 1. Mol Biochem Parasitol 1994,
+    Britton C: Testing efficacy RNA interference Haemonchus                    63(2):299-303.
+    contortus. Int J Parasitol 2006, 36(7):801-810.                                52.   Cully DF, Vassilatis DK, Liu KK, Paress PS, Ploeg LH Van der, Schaeffer JM,
+28. Geldhof P, Visser  Clark D, Saunders G, Britton C, Gilleard J, Berriman M,         Arena JP: Cloning avermectin-sensitive glutamate-gated chloride
+    Knox D: RNA interference parasitic helminths: current situation,                  channel Caenorhabditis elegans. Nature 1994, 371(6499):707-711.
+    potential pitfalls future prospects. Parasitology 2007, 134(Pt             53.   Prichard RK: Mode action anthelminthic thiabendazole     5):609-619.                                                                          Haemonchus contortus. Nature 1970, 228(5272):684-685.
+29. Knox DP, Geldhof P, Visser  Britton C: RNA interference parasitic         54.   Dent JA, Smith MM, Vassilatis DK, Avery L: genetics ivermectin
+    nematodes animals: reality check? Trends Parasitol 2007,                        resistance Caenorhabditis elegans. Proc Natl Acad Sci USA 2000,
+    23(3):105-107.                                                                       97(6):2674-2679.
+30. Chen F, Mackey AJ, Stoeckert CJ Jr, Roos DS: OrthoMCL-DB: querying           55.   Martin RJ: Modes action anthelmintic drugs. Vet J 1997,
+    comprehensive multi-species collection ortholog groups. Nucleic                   154(1):11-34.
+    Acids Res 2006:D363-368.                                                       56.   Thanassi JA, Hartman-Neumann SL, Dougherty TJ, Dougherty BA, Pucci
+31. Kamath RS, Ahringer J: Genome-wide RNAi screening Caenorhabditis                  MJ: Identification 113 conserved essential genes using high-
+    elegans. Methods 2003, 30(4):313-321.                                                throughput gene disruption Streptococcus pneumoniae.
+32. Kamath RS, Fraser AG, Dong Y, Poulin G, Durbin R, Gotta M, Kanapin  Le             Nucleic Acids Res 2002, 30(14):3152-3162.
+    Bot N, Moreno S, Sohrmann M, et al.: Systematic functional analysis         57.   Roemer T, Jiang B, Davison J, Ketela T, Veillette K, Breton  Tandia F,
+    Caenorhabditis elegans genome using RNAi. Nature 2003,                           Linteau  Sillaots S, Marta C, et al.: Large-scale essential gene
+    421(6920):231-237.                                                                   identification Candida albicans applications antifungal drug
+33. Mummery-Widmer JL, Yamazaki M, Stoeger T, Novatchkova M, Bhalerao S,                 discovery. Mol Microbiol 2003, 50(1):167-181.
+    Chen D, Dietzl G, Dickson BJ, Knoblich JA: Genome-wide analysis             58.   Hu W, Sillaots S, Lemieux S, Davison J, Kauffman S, Breton  Linteau  Xin
+    Notch signalling Drosophila transgenic RNAi. Nature 2009,                      C, Bowman J, Becker J, et al.: Essential gene identification drug
+    458(7241):987-992.                                                                   target prioritization Aspergillus fumigatus. PLoS Pathog 2007,
+34. Blaxter M: Caenorhabditis elegans nematode. Science 1998,                       3(3):e24.
+    282(5396):2041-2046.                                                           59.   Aguero F, Al-Lazikani B, Aslett M, Berriman M, Buckner FS, Campbell RK,
+35. Gilleard JS: use Caenorhabditis elegans parasitic nematode                 Carmona S, Carruthers IM, Chan AW, Chen F, et al.: Genomic-scale
+    research. Parasitology 2004, 128(Suppl 1):49-70.                                     prioritization drug targets: TDR Targets database. Nat Rev Drug
+36. Zhong W, Sternberg PW: Genome-wide prediction C. elegans genetic                  Discov 2008, 7(11):900-907.
+    interactions. Science 2006, 311(5766):1481-1484.                               60.   Joyce AR, Palsson BO: Predicting gene essentiality using genome-scale
+37. Lee  Lehner B, Crombie C, Wong W, Fraser AG, Marcotte EM: single                 silico models. Methods Mol Biol 2008, 416:433-457.
+    gene network accurately predicts phenotypic effects gene                    61.   Lamichhane G, Zignol M, Blades NJ, Geiman  Dougherty  Grosset J,
+    perturbation Caenorhabditis elegans. Nat Genet 2008, 40(2):181-188.               Broman KW, Bishai WR: postgenomic method predicting essential
+38. Zhang K, Rathod PK: Divergent regulation dihydrofolate reductase                  genes subsaturation levels mutagenesis: application     malaria parasite human host. Science 2002,                               Mycobacterium tuberculosis. Proc Natl Acad Sci USA 2003,
+    296(5567):545-547.                                                                   100(12):7213-7218.
+39. Bacchi CJ, Nathan HC, Hutner SH, McCann PP, Sjoerdsma  Polyamine             62.   Seringhaus M, Paccanaro  Borneman  Snyder M, Gerstein M:
+    metabolism: potential therapeutic target trypanosomes. Science                  Predicting essential genes fungal genomes. Genome Res 2006,
+    1980, 210(4467):332-334.                                                             16(9):1126-1135.
+40. Kraus JM, Verlinde CL, Karimi M, Lepesheva GI, Gelb MH, Buckner FS:            63.   Volker C, Brown JR: Bioinformatics discovery novel anti-
+    Rational modification candidate cancer drug use                     microbial targets. Curr Drug Targets Infect Disord 2002, 2(4):279-290.
+    Chagas disease. J Med Chem 2009, 52(6):1639-1647.                              64.   Butland G, Peregrin-Alvarez JM, Li J, Yang W, Yang X, Canadien V,
+41. Silvian LF, Wang J, Steitz TA: Insights editing ile-tRNA                Starostine  Richards D, Beattie B, Krogan N, et al.: Interaction network
+    synthetase structure tRNAile mupirocin. Science 1999,                       containing conserved essential protein complexes Escherichia
+    285(5430):1074-1077.                                                                 coli. Nature 2005, 433(7025):531-537.
+42. Conant GC, Wagner  Duplicate genes robustness transient               65.   Krogan NJ, Cagney G, Yu H, Zhong G, Guo X, Ignatchenko  Li J, Pu S,
+    gene knock-downs Caenorhabditis elegans. Proc Biol Sci 2004,                      Datta N, Tikuisis AP, et al.: Global landscape protein complexes     271(1534):89-96.                                                                     yeast Saccharomyces cerevisiae. Nature 2006, 440(7084):637-643.
+43. Gu X: Evolution duplicate genes versus genetic robustness           66.   Overington JP, Al-Lazikani B, Hopkins AL: drug targets     null mutations. Trends Genet 2003, 19(7):354-356.                                     Nat Rev Drug Discov 2006, 5(12):993-996.
+44. Liao B-Y, Zhang J: Null mutations human mouse orthologs                 67.   Sonnhammer EL, Koonin EV: Orthology, paralogy proposed
+    frequently result different phenotypes. Proc Natl Acad Sci USA 2008,              classification paralog subtypes. Trends Genet 2002, 18(12):619-620.
+    105(19):6987-6992.                                                             68.   Li L, Stoeckert CJ Jr, Roos DS: OrthoMCL: identification ortholog
+45. Mushegian AR, Koonin EV: minimal gene set cellular life derived             groups eukaryotic genomes. Genome Res 2003, 13(9):2178-2189.
+    comparison complete bacterial genomes. Proc Natl Acad Sci USA               69.   Harris TW, Antoshechkin  Bieri T, Blasiar D, Chan J, Chen WJ, La Cruz N,
+    1996, 93(19):10268-10273.                                                            Davis P, Duesbury M, Fang R, et al.: WormBase: comprehensive
+46. Amsterdam  Nissen RM, Sun  Swindell EC, Farrington S, Hopkins N:                 resource nematode research. Nucleic Acids Res 2010:D463-467.
+    Identification 315 genes essential early zebrafish development.         70.   Bult CJ, Kadin JA, Richardson JE, Blake JA, Eppig JT: Mouse Genome
+    Proc Natl Acad Sci USA 2004, 101(35):12792-12797.        

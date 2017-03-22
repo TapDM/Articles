@@ -1,0 +1,985 @@
+Plaimas et al. BMC Systems Biology 2010, 4:56
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+    METHODOLOGY ARTICLE                                                                                                                               Open Access
+
+Identifying essential genes bacterial metabolic
+Methodology article
+
+networks machine learning methods
+Kitiporn Plaimas1,2, Roland Eils*1,2 Rainer König1,2
+
+
+
+    Abstract
+    Background: Identifying essential genes bacteria supports identify potential drug targets understanding
+    minimal requirements synthetic cell.  experimentally assaying essentiality coding genes     resource intensive feasible bacterial organisms, particular infective.
+    Results: developed machine learning technique identify essential genes using experimental data     genome-wide knock screens bacterial organism infer essential genes related bacterial
+    organism. used broad variety topological features, sequence characteristics expression properties
+    potentially associated essentiality, flux deviations, centrality, codon frequencies sequences, 
+    regulation phyletic retention. organism-wise cross-validation bacterial species yielded reliable results     good accuracies (area receiver-operator-curve 75  - 81 ). Finally, applied drug target
+    predictions Salmonella typhimurium. compared predictions viability experimental knock-outs S.
+    typhimurium identified 35 enzymes, highly relevant considered potential drug targets.
+    Specifically, detected promising drug targets non-mevalonate pathway.
+    Conclusions: Using elaborated features characterizing network topology, sequence information microarray data
+    enables predict essential genes bacterial reference organism related query organism     knowledge essentiality genes query organism. general, method beneficial inferring
+    drug targets experimental data genome-wide knockout screens available investigated
+    organism.
+
+
+Background                                                                                  fully targeted antibiotics inhibiting essential processes definition, essential proteins cellular organism                                bacterial genomes [1].
+necessary live replicate, attrac-                                    computational techniques developed
+tive targets antimicrobial treatments.  exper-                                  identify essential genes silico. Flux balance analyses
+imentally assaying essentiality coding genes                                (FBA) widely used assess essentiality genes [2].
+error prone high throughput. Additionally,                                      FBA approaches need clear definitions nutri-
+experimental screens resource intensive feasi-                                  tion availability biomass production specifi-
+ble organisms, typically, gene knock-                                 cally given environmental conditions [3]. Descriptors strain needs constructed.  patho-                                    enzymes metabolic network graph
+genic bacterial organisms hazardous cultivate                                    theoretical approaches used identify drug need higher laboratorial efforts. metabo-                                     targets micro-organisms. Concepts choke-points
+lism cell substantial maintaining life                                      load-points successfully applied estimate growth, metabolic enzymes success-                                      essentiality enzyme [4-6]. term 'damage'                                                                                             used assess enzymes serve drug targets
+                                                                                            inhibition influences substantial number * Correspondence: r.eils@dkfz                                                            downstream reactions products [7]. previous
+1Department Bioinformatics Functional Genomics, Institute                         study, examined ability network obtain
+Pharmacy Molecular Biotechnology, Bioquant, University Heidelberg, Im                products knocked reaction educts
+Neuenheimer Feld 267, 69120 Heidelberg, Germany list author information available end article                      alternative pathways used method detect
+                                            © 2010 Plaimas et al; licensee BioMed Central  Open Access article distributed terms Creative Commons
+            BioMed Central Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                             medium, provided original work properly cited.
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                     Page 2 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+potential drug targets P. falciparum [6]. Various            screen, defined 35 enzymes drug targets S.
+descriptors centrality node network           typhimurium, 23 described previ- successfully applied supported detecting essen-         ously drug targets micro-organisms. sug-
+tial proteins protein-protein interaction networks [8-        gest remaining potential new drug
+12]. shown proteins central        targets organism studied (S. typhimurium).
+position evolve slowly likely essential survival [9]. sequence features like          Results discussion
+codon usage, GC-content localization signals            Predicting essential genes organism-wise cross
+used predicting essential genes. success-          validation
+fully applied inferring essential genes S. cerevi-      general workflow depicted Figure 1. recon-
+siae studied yeast strain S. mikatae [13].           structed metabolic networks investigated
+Additionally, phyletic retention          organisms bipartite graph consisting alternating
+valuable predictive feature gene essentiality E. coli     reactions compounds. reactions linked S. cerevisiae [14,15]. protein-protein inter-       compound compound product reac-
+action networks provide global view cellular sig-       tion substrate  machine learning
+naling, interested identifying drug            trained validated large set fea-
+targets pathogens inferred properties mal-            tures. Local topology based features used qualita-
+functional metabolism having knocked enzy-          tively possible flux deviations. Choke load
+matic function.                                                  points defined damage used    previous study, developed applied inte-        qualitative flux load stream effects grative machine learning method combined              knocked reaction. Centrality features calcu-
+topology based methods validate experimental               lated additionally estimate load reactions.
+knock screen Escherichia coli [16]. used           considered existence homologous genes basic concepts strategy enable predicting         corresponding knocked genes expected
+essential genes organism experimental         function. regulated genes 
+training data available. defining essentiality   sidered estimate existence possible analogous
+gene, integrated sequence characteristics         genes. Phyletic retention calculated observing
+codon usages, length sequences phyletic reten-        phylogenetic conservation gene tion. Furthermore, incorporated centrality-           knocked  Codon usages calculated gene
+descriptors node network. used experimen-          used features. features listed Table 1 tal datasets comprehensive genome wide knock              described methods. started pre-
+screens Escherichia coli [17,18] Pseudomonas              dicting essential genes E. coli.  trained
+aeruginosa [19,20] train machines large vari-      classifiers (machines) experimental data ety attributes including topology characteristics          genome-wide knock screens Pseudomonas aerugi-
+mentioned  developments evaluating pos-             nosa (datasets paeJ paeL experimental studies
+sible flux deviations [6], genomic transcriptomic        Jacobs workers [19] Liberati work-
+information. develop classification          ers [20], respectively). datasets taken readily applicable predicting essential genes new       gold standard defining true positives true negatives
+query organism, needs make accurate pre-           essential genes metabolism training
+dictions organism trained.            organism (P. aeruginosa). trained (100) classi-  performed cross-validation            fiers essential genes equal ran-
+organisms E. coli P. aeruginosa, e. trained     domly selected non-essential genes (stratification E. coli validated P. aeruginosa  vice versa)     training data). trained machines applied obtain quality performance approach.          predict essential genes query organism (E. coli). applied trained validated classifiers         output machines summed used pathogenic bacterium Salmonella typhimurium.              voting score represented propensity gene compared results literature experimen-          lethal cell. turn, scheme tal data large knock study S. typhimurium           applied predict essential genes P. aeruginosa [21]. Furthermore, analyzed predictions gene         classifiers trained datasets
+set enrichment tests metabolic pathways identi-          E. coli (ecoB Baba workers' study [17]
+fied proteins entire non-mevalonate pathway         ecoG Gerdes workers' study [18],
+relevant targeting drugs. reactions showed          respectively). organism-wise cross-validation typically topological characteristics essential reactions.    applied estimate performance classifiers. Using prediction results experimental knock-         compared datasets genome. 79 essen-
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                     Page 3 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+Table 1: List features.
+ Short form           Explanation
+
+
+ Topology features
+                       Deviation
+ RUP                  Reachable/Unreachable Products (RUP): equals products produced blocking reaction,
+                      zero
+ PUP                  Percentage Unreachable Products (PUP): percentage products produced blocking                       reaction
+ ND                   Number Deviations (ND)
+ APL                  Average Path Length (APL): average path length deviations
+ LSP                  Length Shortest Path (LSP): length shortest path deviations
+                      b) Local topology
+ NS                   Number Substrates (NS)
+ NP                   Number Products (NP)
+ NNR                  Number Neighboring Reactions (NNR)
+ NNNR                 Number Neighbors Neighboring Reactions (NNNR)
+ CCV                  Clustering Coefficient Value (CCV): clustering coefficient reaction
+ DIR                  Directionality reaction (DIR)
+                      c) Choke points load scores
+ CP                   Choke Point (CP): reaction choke point (Rahman et al, 2006)
+ LS                   Load Score (LS): load score reaction (Rahman et al, 2006)
+                      d) Damage
+ NDR                  Number Damaged Reactions (NDR) (Lemke et al, 2004)
+ NDC                  Number Damaged Compounds (NDC) (Lemke et al, 2004)
+ NDRD                 Number Damaged Reactions having Deviations (NDRD): number damaged reactions                       alternative paths reached blocking reaction
+ NDCD                 Number Damaged Compounds having Deviations (NDCD): number damaged compounds                       alternative paths reached blocking reaction
+ NDCR                 Number Damaged Choke point Reactions (NDCR)
+ NDCC                 Number Damaged Choke point Compounds (NDCC)
+ NDCRD                Number Damaged Choke point Reactions having Deviations (NDCRD): number damaged choke point
+                      reactions alternative paths reached blocking reaction
+ NDCCD                Number Damaged Choke point Compounds having Deviations (NDCCD): number damaged choke point
+                      compounds alternative paths reached blocking reaction
+                      e) Centrality
+ BW                   Betweenness centrality
+ CN                   Closeness centrality
+ EC                   Eccentricity centrality
+ EV                   Eigenvector centrality
+ Genomic transcriptomic features
+                      f) Homologs
+ NAR                  Number Associated Reactions (NAR): number reactions base knocked gene
+ Hn                   Homology different expectation values: number homologous genes e-value cutoff 10-30,10-20,10-10,10-7,10-
+                      5,10-3 (H30, H20, H10, H7, H5, H3)
+
+                      g) Gene expression
+ NGSE                 Number Genes having Similar Expression (NGSE): number genes similar expression (correlation
+                      coefficient >0.8)
+ MCC                  Maximum Correlation Coefficients (MCC): maximum value correlation coefficients neighboring genes
+                      h) Phyletic retention
+ PR                   Phyletic Retention (PR): number orthologs prokaryotes
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                          Page 4 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+Table 1: List features. (Continued)
+                        Codon usage
+ Nc                    Number codons
+ N3s                   Base composition silent sites (T3s, C3s, A3s, G3s)
+ glt                   frequency amino acids glutamine (exemplarily)
+
+
+tial genes common ecoB ecoG, 92 com-                          predicting essential genes P. aeruginosa. turn,
+mon paeL paeJ. machines                                yielded precision 61  (accuracy: 87 , sensitivity:
+trained different training-sets knock                        27 , validating ecoB) 65  (accuracy: 80 , sensi-
+screen. Votes training sets organism                          tivity: 18 , validating ecoG) E. coli. yielded summed defined stringency. high                              best classifier results using features, com-
+number votes essentiality led high specificity,                      parison classification performance using lower numbers led higher sensitivity. result-                     individual sets features  Additional file 1:
+ing receiver operator curves (ROC) classifiers                      SupplementS1 details).
+shown Figure 2A predicting P. aeruginosa Fig-
+ure 2B predicting E. coli. predicting essential                        Examining features
+genes P. aeruginosa yielded area                           wanted obtain estimate correlations curve (AUC) 0.80 0.79 compared                              features essentiality gene.  experimental datasets paeL paeJ, respectively.                          calculated Pearson's correlation coefficients essen-
+turn, E. coli yielded AUC 0.81 0.75                      tiality class gene (1 = essential, 0 = non-essential)
+compared ecoB ecoG, respectively. wanted                          corresponding feature values. Figure 3 gives obtain reliable list potential drug targets.                     overview features  Additional file 2:
+predictions essential genes needed low number                         SupplementS2 correlation coefficients features).
+false positives.  set high stringency calcu-                    following, major results cor-
+lated precision (true predictions predictions                   relation study. essentiality) high selection criterion                                                                                 Topology features
+195 200 votes). yielded precision 67 
+                                                                               efficiency flux deviations estimated fea-
+(accuracy: 87 , sensitivity: 7 , validating paeL)                                                                                tures RUP PUP gave estimate products
+100  (accuracy: 80 , sensitivity: 3 , validating paeJ)
+
+
+
+                                      	
+
+       	
+   
+ 
+             
+ 
+       	
+  
+
+
+	                                    
+          
+	                                          
+                                           	
+
+          
+                                         
+           
+                                        
+         
+                                            
+                                                         	
+                                                         
+                                                
+                                                	
+
+
+                                                    	 
+ 
+
+                              	
+                                                       	
+	
+       
+                                          	
+	 	 
+	
+
+                                                                                                                  
+		
+                                            	
+			
+	
+	
+                                
+                                                         			
+
+
+
+                                                                                                                        
+	
+                                                                                                          
+	
+ Figure 1 workflow. Essentiality data organism taken experimental genome wide knock screen. used train  machine learning using features based topology metabolic network genomic transcriptomic data. trained clas-
+ sifier applied organism (query organism) essentiality gene metabolism predicted.
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                                               Page 5 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+                                                          
+
+
+
+
+                                                                                             
+   
+
+
+
+
+                                                                                        	
+	 
+	
+		
+
+                                                            
+                                                            
+                                                                
+                                                         
+                                                          
+       	
+                                       
+                                                                                                                                      	
+ 
+                                                                                                                                      	
+ 
+                                                                
+                                                                                                                                           
+                                                                                                                    	
+	 
+
+			
+
+
+
+
+
+                                                                                             
+                                                           
+
+
+
+                                                                                        	
+	 
+	
+		
+
+                                                           
+                                                            
+                                                                
+                                                         
+                                                          
+             
+                                                           
+                                                            
+                                                                                                                                          	
+ 
+
+                                                                                                                                     	
+ 
+                                                               
+                                                                                                                                           
+                                                                                                                    	
+	 
+
+			
+
+
+
+ Figure 2 ROC curves prediction performances.   100 Support Vector Machines trained datasets ecoB ecoG, respectively,
+ queried using datasets P. aeruginosa (union datasets paeL paeJ). number machines predicting essentiality
+ summed (voting score). Results varying thresholds voting score compared experimental results paeL paeJ yield-
+ ing ROC curves (area curve: 0.80 0.79, respectively). (B) Similar   machines trained datasets P.
+ aeruginosa queried datasets E. coli resulting ROC curves AUC = 0.81 0.75 datasets ecoB ecoG, respectively.
+
+ knocked reaction produced                         covered alternative pathways. number reaction (RUP) large percentage non-                       substrates products reactions knocked
+producible products (PUP)  RUP Boolean fea-                         gene (NS, NP) positively correlated gene
+ture observe mutant produce products                      essentiality (P = 4.3E-06 P = 0.0172, respectively) knocked reaction. RUP = 1 set                      showing essential enzymes metabolize differ-
+stream products produced mutant                         ent compounds. Interestingly, number neighboring
+RUP set zero downstream product                        reactions (NNR) number neighbors neigh- produced. number reachable prod-                          boring reactions (NNNR) showed weak negative corre-
+ucts (RUP) highly negative correlated                         lation essentiality (P = 0.14 P = 0.091, respectively).
+centage unreachable products (PUP) highly positive                         reasonable reaction high number correlated essentiality gene (P = 1.2E-10 P                   neighboring reactions metabolites = 2.4E-09, respectively) shown Figure 3A.                     products produced alternative enzymes.
+silico) mutant produce                             clustering coefficients (CCV) showed 
+stream products, RUP zero percentage                          dency (negatively correlated, P = 0.018) pointing unreachable products increased comparison                        advantageous alternative pathways. situation products produced.                          estimated feasibility possible flux deviations higher percentage unreachable products                      set features describing alternative pathways. mutant, products knocked enzyme                           number alternative pathways (ND), average path
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                                 Page 6 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+                                                   	
+ 
+	
+
+	
+	
+
+      	 
+
+	
+                                  
+                                   
+                                     
+
+
+
+
+                                                                                                                                   
+                                                                                                                                   
+                                                                                                                                   
+                                                                                                                                   	
+
+
+
+
+                                                        
+                                                       
+                                                       
+                                                         
+
+
+
+
+                                                        
+                                                        
+                                                        
+
+
+
+
+                                                          
+                                                           
+                                                         
+
+
+                                                         
+                                                        
+
+                                                          	
+                                                          
+
+
+
+
+                                                         
+
+
+
+
+                                                           
+
+
+
+                                                           
+                                                         
+
+
+                                                          
+
+
+
+
+                                                         
+
+                                                         
+                                                          
+
+                                                         
+                                                          
+
+
+
+
+                                                           
+
+
+
+
+                                         	
+ 	
+  	   	  
+
+	
+    
+                                 
+    	 
+
+	
+                                 
+                                 
+                                    
+
+
+
+
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     
+                                                                                                                                     	
+                                                          
+                                                           
+                                                           
+                                                          
+                                                           
+                                                           !
+
+
+                                                           
+                                                           
+                                                          
+                                                          
+                                                          
+                                                          
+
+                                                            
+                                                         
+                                                         
+                                                         
+                                                          	
+                                                          
+
+                                                          
+                                                        
+
+
+
+
+                                                          
+                                                          
+                                                             
+                                                           
+                                                        
+
+
+
+
+                                                        
+
+                                                          
+                                                         
+                                                         
+                                                         
+                                                        
+                                                         
+                                                           
+                                                          
+
+
+
+
+                                                         
+
+
+
+
+ Figure 3 Correlation features essentiality. feature-values gene correlated essentiality gene (1 = essential,
+ 0 = non-essential).   shows correlation coefficients topology features, (B) genomic transcriptomic features. High values indi-
+ cate feature positively correlated essentiality  Additional file 2: SupplementS2 correlation coefficients). values  obtained gold standards (ecoB, ecoG E. coli paeJ, paeL P. aeruginosa).
+
+
+length deviations (APL) length                           alternative pathways. expected, nega-
+shortest alternative path (LSP) described feasibility                   tively correlated essentiality (P = 0.15, P = 3.4E-04  Plaimas et al. BMC Systems Biology 2010, 4:56                                                                      Page 7 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+P = 0.0063, respectively), e. knocked enzymes           redundant position genetic code. alternative pathways existed likely            Matching mRNA tRNA codon nucleotides cause lethal phenotype knocked  Choke-points             robust position, translational errors (CP) uniquely consumed produced compounds               likely occur position.  metabolism showed positive correlation             essential genes need stable protected essentiality (P = 2.8E-04) choke-points diffi-       sequence. Thymine genetic code cope cult replaced rest metabolism. Load-          shown thymine protected DNA scores (LS) estimate reaction           improved efficiency DNA replication [22]. 
+involved metabolic processes. posi-             served genes likely essential [23] thy-
+tively correlated essentiality (P = 9.4E-04).          3rd codon position facilitates stable genetic
+ness centrality (BW) eccentricity (EC) strongly          inheritance springs cellular replicates. Inter-
+positive correlated essentiality (P = 1.3E-14 7.6E-        estingly, observed larger difference T3s E. coli
+08, respectively) showing enzymes higher              compared P. aeruginosa. large
+influence vitality placed center network.     average G C content codon position Closeness centrality (CN) showed positive correla-         common genes P. aeruginosa [24]. results
+tion (P = 0.0020). Interestingly, eigenvector centrality      low T content codon position (EV) showed negative correlation (P = 0.0013).                  observed explain larger difference T3s Betweenness, closeness eccentricity centrality            essential non-essential genes E. coli compared P.
+global centrality measures considering network          aeruginosa  Additional file 3: SupplementS3 eigenvector centrality measure local           histograms).
+centrality computed neighbors. Note             decision trees performed inferior com-
+typically node high value eigenvector central-        pared Support Vector Machines (data shown), ity hub (node high connectivity) hubs        used decision trees alternative approach deter-
+connected   flux deviations               discriminating features gene essential-
+likely local hubs hubs vicinity mak-       ity. Decision trees trained datasets ecoB,
+ing node replaceable global central nodes             ecoG, paeL paeJ. known decision generally substantial maintaining            decision tree performed best discriminating
+metabolic flow network. eigenvector          feature [25].  counted occurrence centrality network topology          features position run. 400 runs,
+sense clustering coefficient, specifically respect      got T3s (137×), BW (81×), Nc (38×), H3 (21×), H5 likelihood alternative pathways.                        (15×), val (12×), H7 (11×), NGSE (11×), PUP (10×)                                                                   decision (features 10 counts Genomic transcriptomic features                               shown). showed feature T3s sub- expected, number homologous genes (H30,                 stantially supported classification.
+H20, H10, H7, H5, H3) showed negative correlation essentiality (P = 3.2E-04, 6.3E-04, 1.4E-06, 4.7E-09, 1.1E-       Identifying drug targets S. typhimurium
+10, 1.5E-09, respectively). Interestingly, E-value cut     applied trained machines datasets 10-5 (H5) worked best showing non-perfectly          (ecoB, ecoG, paeL, paeJ) predict essential genes matching sequences functions                 S. typhimurium obtained votes knocked gene. number genes having similar              machines gene S. typhimurium essential.
+expression (NGSE) exhibited negative correlation           obtain reasonable threshold number votes essentiality (P = 1.7E-04)              predicting gene essential, compared num-
+expression genes analogous function. fea-         ber essentially predicted genes numbers ture phyletic retention (PR), number prokaryotes           training sets E. coli P. aeruginosa. E. coli 104
+having orthologs knocked gene showed posi-           147 genes essential corresponding data-
+tive correlation essentiality (P = 2.1E-16) supporting         sets ecoB ecoG, respectively, P. aeruginosa, 92 findings previous study conserved genes          150 (corresponding datasets paeL paeJ,
+evolution hint essentiality [14].                       respectively).  set threshold 350 votes
+  analyzed codon usage gene related            400 machines) classify gene essential S. essentiality gene. genes        typhimurium obtained comparable 128 high number nucleotide thymine         predicted essential genes. complete list genes
+position codons likely essential       predicted essential given supplement
+cell viability (feature T3s Figure 3, Additional file 3:    Additional file 4: SupplementS4). compared
+SupplementS3 histograms). codon position            results experimental data Knuth 
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                   Page 8 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+workers performed large knock study S.            * pyrH: gene uridylate kinase essential typhimurium [21]. detected 6  open reading        Mycobacterium tuberculosis [32].
+frames essential including 53 essential genes          ** uppS: Undecaprenyl pyrophosphate synthase (UPPS)
+coding enzymes metabolism. remaining           novel antibacterial target Streptococcus pneumo-
+open reading frames genome didn't make        niae [33].
+prediction, including 711 genes enzymes metabo-          ** accA: Acetyl-CoA carboxylase drug target lism. compared list essential genes Knuth        anti-obesity antibiotic drugs [34,35]. workers predictions 27         * hemH: Ferrochelatase essential multiplication
+predicted genes list Knuth workers yield-    intracellular survival Brucella abortus [36].
+ing precision 21 , accuracy 83  sensitivity      * kdsB: Analogs 3-deoxy-D-manno-octulosonate 51 . note experimental screen Knuth   (KDO) designed inhibit CTP:CMP-KDO cytidy- workers comprehensive; authors             lyltransferase (CMP-KDO synthetase) [37]. poten-
+stated article genes pre-     tial target Haemophilus influenzae [38] E.coli [39].
+dicted essential, couldn't conclude          * fabD: Acyl carrier protein S-malonyltransferase genes definitely non-essential.  novel      potential target Mycobacterium bovis BCG [38].
+predictions suit potential new targets       ** fabG: 3-ketoacyl-(acyl-carrier-protein) reductase investigations. conservative robust estimate      known drug target E. coli, B. subtilis, S. aureus
+essential genes S. typhimurium, defined corre-     [40].
+sponding enzymes genes experimentally             * pssA: Phosphatidylserine synthetase required determined  Knuth workers) recog-          motility chemotaxis E. coli [41]. Furthermore,
+nized classifiers. searched litera-     mutants Escherichia coli K12 defective ture drug treatments enzymes       phosphatidylserine synthetase, isolated tempera-
+micro-organisms. results listed following.     ture-sensitive, conditional lethals [42]. asterisks (**) mark gene enzyme              * kdtA: 3-deoxy-D-manno-octulosonic-acid trans- clear evidence drug target micro-         ferase enzyme kdtA. E. coli, essential organism. asterisk (*) set gene         cell growth accounts conditional lethality associ- reasonable evidence enzyme serve        ated mutations KDO biosynthesis [43].
+drug target micro-organism.  enzymes           ** dfp: Pantothenate kinase uptream phosphopan- asterisk serve finding new drug targets       tothenoylcysteine decarboxylase biosynthesis enzymes asterisks transferring drug targets      pantothenate CoA. known target anti- bacterial diseases disease studied (S.   microbial drugs E. coli Mycobacterium tuber-
+typhimurium). Table 2 gives overview results.       culosis [44]. compared open reading frames predicted            * rep: ATP-dependent DNA helicase Rep. deletion
+genes human transcripts did detect sig-      lethal B. subtilis [45] Stapphylo-
+nificant homologs (using BLAST [26] ENSEMBL               coccus aureus [46].
+cDNA transcripts [27]). E-values best hits given     * rpoB: DNA-directed RNA polymerase promising supplement  Additional file 5: SupplementS5).      target discovery new antimicrobial agents brief summary literature evidences      E. coli [47]. 
+   ** murE: UDP-N-acetylmuramoylalanyl-D-glutamate-           non-mevalonate pathway fatty acid biosynthesis
+2,6-diaminopimelate ligase essential enzyme       highly enriched essential genes S. typhimurium known target bacterial cell walls Staphylo-   performed gene set enrichment tests (Fisher's exact
+coccus aureus [28].                                           tests) pathways KEGG [48] sig-
+   * murG: N-acetylglucosaminyl transferase potential    nificant enrichment essential genes non-
+antibiotic targeting biosynthesis bacterial peptido-   mevalonate pathway (P = 9.2E-06) fatty acid
+glycans.  difficult design inhibitors    biosynthesis pathway (P = 3.8E-04). genes enzyme. Identifying inhibitors current          pathways essential (8 9 genes research [29,30].                                             non-mevalonate pathway 8 12 genes    ** murC: UDP-N-acetylmuramate-L-alanine ligase cat-        fatty acid biosynthesis pathway. non-mevalonate
+alyzes essential step pathway synthesizing      pathway (Figure 4) produces isopentenyl diphosphate
+peptidoglycan precursors. Recently, new inhibitors     (IPP) dimethylallyl pyrophosphate (DMAPP) MurC enzyme successfully tested Escheri-        serve basis production sterols, dolichols,
+chia coli, Proteus mirabilis Klebsiella pneumoniae        ubiquinone components macromole-
+[31].                                                         cules prenyl groups proteins [49]. pathway
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                           Page 9 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+Table 2: Predicted essential genes potential drug targets.
+
+  ORF              Gene Symbol         EC                 Enzyme                                                       Evidence
+
+
+   Intersection predictions experimental screen
+  STM0123          murE                6.3.2.13           UDP-N-acetylmuramoylalanyl-D-glutamate-2,6-                     **
+                                                          diaminopimelate ligase
+  STM0128          murG                2.4.1.227          N-acetylglucosaminyl transferase                                *
+  STM0129          murC                6.3.2.8            UDP-N-acetylmuramate-L-alanine ligase                           **
+  STM0154          lpdA                1.8.1.4            Dihydrolipoamide dehydrogenase
+  STM0218          pyrH                2.7.4.22           Uridylate kinase                                                *
+  STM0221          uppS                2.5.1.31           Undecaprenyl pyrophosphate synthase                             **
+  STM0222          cdsA                2.7.7.41           CDP-diglyceride synthase
+  STM0228          lpxA                2.3.1.129          UDP-N-acetylglucosamine acyltransferase
+  STM0232          accA                6.4.1.2            Acetyl-CoA carboxylase                                          **
+  STM0489          hemH                4.99.1.1           Ferrochelatase                                                  *
+  STM0535          lpxH                                   UDP-2,3-diacylglucosamine hydrolase
+  STM0542          folD                1.5.1.5, 3.5.4.9   Bifunctional 5,10-methylene-tetrahydrofolate dehydrogenase
+  STM0988          kdsB                2.7.7.38           CTP:CMP-KDO cytidylyltransferase                                *
+  STM1194          fabD                2.3.1.39           Acyl carrier protein S-malonyltransferase                       *
+  STM1195          fabG                1.1.1.100          3-ketoacyl-(acyl-carrier-protein) reductase                     **
+  STM1200          tmk                 2.7.4.9            Thymidylate kinase
+  STM1700          fabI                1.3.1.10           Enoyl-(acyl carrier protein) reductase
+  STM2483          dapE                3.5.1.18           Succinyl-diaminopimelate desuccinylase
+  STM2652          pssA                2.7.8.8            Phosphatidylserine synthase                                     *
+  STM3090          metK                2.5.1.6
+  STM3415          rpoA                2.7.7.6            DNA-directed RNA polymerase subunit alpha
+  STM3724          kdtA                                   3-deoxy-D-manno-octulosonic-acid transferase                    *
+  STM3730          dfp                 4.1.1.36           Pantothenate kinase                                             **
+  STM3912          rep                 3.6.1.-            ATP-dependent DNA helicase Rep                                  *
+  STM3978          yigC                                   3-octaprenyl-4-hydroxybenzoate decarboxylase
+  STM4153          rpoB                2.7.7.6            DNA-directed RNA polymerase subunit beta                        *
+  STM4154          rpoC                2.7.7.6            DNA-directed RNA polymerase subunit beta'
+  b) Predictions non-mevalonate pathway
+  STM0049          ispH, lytB          1.17.1.2           4-hydroxy-3-methylbut-2-enyl diphosphate reductase              *
+  STM0220          dxr                 1.1.1.267          1-deoxy-D-xylulose 5-phosphate reductoisomerase                 *
+  STM0422          dxs                 2.2.1.7            1-deoxy-D-xylulose-5-phosphate synthase                         **
+  STM0423          ispA                2.5.1.10           geranyltranstransferase                                         *
+  STM1779          ispE, ipk           2.7.1.149          4-diphosphocytidyl-2-C-methyl-D-erythritol kinase               **
+  STM2523          ispG, gcpE          1.17.7.1           4-hydroxy-3-methylbut-2 1-yl diphosphate synthase            *
+  STM2929          ispF                4.6.1.12           2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase           *
+  STM2930          ispD                2.7.7.60           2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase        *
+  ** clear evidence drug target
+  * reasonable evidence serve good drug target
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                       Page 10 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+      	
+ 
+                                   	
+
+ 
+           	
+ 
+              
+                                                
+
+
+                                                                                                 
+
+                                      
+                                                                              	
+
+                                                                                                 	
+
+                                          
+                                         
+
+ 
+
+                                                                     	"
+                                                                                      
+
+
+    
+
+
+
+                                                                              
+
+ 
+
+               
+                                                                             	
+!
+                                                                                  
+
+ 
+
+                                                                                                 
+
+
+
+           
+                                                        	
+ 
+                                                                                                  
+
+ 
+
+                                                                                                   
+
+ 
+
+
+                       
+                                                                                                  
+
+                                                                             	
+
+       
+                                                                              
+
+
+                                                                                                   
+
+ 
+
+                                                                      	
+#
+                                                                                                  
+
+     
+
+                                                                                                 !	 
+
+ 
+
+                                                                            	
+
+                       
+
+
+                                                              		                  
+ 
+
+ 
+
+               	
+ 
+
+
+
+                                                                             	
+               
+	
+
+
+
+                                  	
+ 
+ 
+
+
+ Figure 4 non-mevalonate pathway. non-mevalonate pathway produces isopentenyl diphosphate (IPP). alternative pathway bac-
+ teria does exist human host uses mevalonate pathway produce IPP. non-melavonate pathway highly enriched
+ genes predicted essential. Reactions given EC number gene symbol genes corresponding 
+ zymes.
+
+ non-mevalonate biosynthesis considered                        irreversibility reactions previously attractive targets novel antibiotics                     direction overall flux. linear pathway bacteria [50,51] including S. typhimurium [52,53].                 starts 1-deoxy-D-xylulose-5-phosphate-synthase (EC
+Figure 4 shows non-mevalonate pathway                          2.2.1.7) corresponding gene dxs identi-
+essential enzymes S. typhimurium. Note                        fied essential experimental knock arrows figure represent information                    study Knuth workers [21].  Plaimas et al. BMC Systems Biology 2010, 4:56                                                                   Page 11 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+enzymes downstream predicted essential            separated internal nodes external nodes method. enzyme pathway            reduce computational complexity [54]). geranyltranstransferase (EC 2.5.1.10). catalyzes         method served estimate genes reaction produce farnesyl-diphosphate. Recently, Cor-        corresponding enzymes bacterial organisms E.
+nish workers performed elaborated mutagene-           coli, P. aeruginosa S. typhimurium. Inferring essenti-
+sis study non-melavonate pathway S.                   ality information organism organism
+typhimurium genes essential (ispD,         facilitated investigating closely related organ-
+ispE, ispF, ispG, ispH) [52]. propose         ism did S. typhimurium closely
+enzymes pathway promising potential drug            related E. coli. apply method micro-
+targets S. typhimurium. searched literature       organisms, metabolism need indicated findings asterisks          described, method need adaptation described  genes clear evidences         studied organisms special metabolic capa-
+ asterisks) genes reasonable evidences          bilities. applying method eukaryotic genomes,
+ asterisks) code drug targets  Additional file   compartments cell reaction occurs
+5: SupplementS5).                                               need considered. challenging                                                                 apply method inferring multiple drug targets
+Conclusions                                                     using experimental double knock screens e.g. established machine learning approach pre-            synthetic lethal project eSGA [55].  attri-
+dicts essentiality genes organism         butes related single players (like e.g. sequence
+experimental knock data available. classifiers       features) relevance specifically net- trained essentiality information genes         work features related synergistic organism (e.g. E. coli) employed predict        knock effects. challenge future remains essential genes organism (e.g. P. aeruginosa).     integrate topological descriptive approaches predictions did depend essentiality infor-         genetic information systematically explore network
+mation query organism predictions          effects enzyme treatments combinations thereof.  solely features calculated metabolic network genomic transcrip-           Methods
+tomic information query organism. data           Network reconstruction
+abundantly available pathogenic bacteria.           metabolic networks E. coli, P. aeruginosa, S.
+applied method predict essential genes Salmo-        typhimurium reconstructed using database nella typhimurium query organism         KEGG [48]. Unspecific compounds water, ATP,
+proposed 35 potential drug targets. 27 targets resulted          discarded. Additionally, main com- intersection predictions            pounds reactions annotated KGML files experimental study [21] 8 targets non-               KEGG used. centrality features mevalonate pathway statistical              clustering coefficients, topology features calcu-
+enrichment analysis. non-mevalonate pathway              lated representation network bipartite
+essential algae, plants eubacteria including     graph consisting metabolites reactions alternat-
+pathogenic bacteria. Enzymes pathway          ing nodes. calculating centrality features described potential targets development        clustering coefficients, represented metabolic net-
+novel antibiotics herbicidal agents [50,52]. S.         work undirected graph, known reaction-
+typhimurium, inferred machine learn-        pair network. consisted reactions nodes ing approach. discovered interesting correlations         metabolites edges connecting reactions features essentiality gene. Various features    graph. reactions connected metabolite describing network topology served machine           metabolite product reactions select reactions showed possible pathways flux      substrate reaction. Edges discarded
+deviations, e.g. linear non-mevalonate pathway.       network loops intelligent combination features seen        edge different nodes. Reactions alternative approach established methods        mapped enzymes enzymes mapped corre-
+flux balance analyses (FBA) elementary flux modes           sponding genes using association tables KEGG.
+(EFM) detailed growth nutrient information            Genes corresponded death-end reactions lacking  needed FBA, [3]          network included datasets training
+depth refinement metabolic network considered         validation. gene corresponded labor intensive  EFM enzymes need        reaction, mean value reaction features                                                                 taken. Boolean features (RUP, DIR, CP, 
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                      Page 12 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+ used Boolean operation, e. gene feature         defined knocked reaction sub-
+set reaction feature equaled        stantial producing downstream metabolites                                                                   products produced pathways. gold standards                                                investigation tested knocked reaction train validate predictions, used published          performed following algorithm:
+datasets genome wide experimental knock                      metabolites acting input nodes (substrates) screens. performed LB rich medium.                output nodes (products) knocked reaction
+datasets E. coli P. aeruginosa. Addi-          selected. set substrates S defined input
+tionally used data knock study S. typh-          nodes set products P defined output nodes.
+imurium performed LB rich medium.               broader list available substrates integrated datasets taken NMPDR database [56].             substrates S. included substrates E. coli, used KEIO collection Baba           upstream reactions products downstream
+workers [17] denoted 'ecoB'. consisted          reactions sets S P, respectively. Substrates 104 essential 641 non-essential genes meta-           reactions substrates S sub-
+bolic network. dataset E. coli              strate included S.  substrates reac-
+Gerdes workers [18] denoted 'ecoG'.            tions metabolite P substrate consisted 147 essential genes 533 non-essential         included S.
+genes network. P. aeruginosa used data            ii. Reactions selected used available Liberati et al. [20] denoted 'paeL'. consisted 92     compounds substrates.
+essential genes 615 non-essential genes net-             iii. selected reactions products work. dataset P. aeruginosa taken          incorporated list discovered reactions study Jacobs et al. [19]. denoted 'paeJ'.   products. products set newly available
+consisted 150 essential genes 579 non-essential            metabolites network.
+genes. experimental dataset S. typhimurium               iv. Steps ii iii repeated reac- Knuth workers [21] based insertion-            tions identified.
+duplication mutagenesis (IDM). Small, randomly gener-                v. output nodes produced ated genomic fragments cloned conditionally           counted (reachable products P).
+replicating vector, resulting library single S.           finishing process, used number typhimurium clones grown permissive condi-              defined output nodes produced tions. switching non-permissive temperature,              mutated network features, e. quality feature
+discrimination lethal non-lethal insertions           defining products produced (RUP, reach-
+following homologous recombination allowed trap-              able/unreachable products), percentage prod-
+ping genes essential functions. method,         ucts produced (PUP, percentage genes detected indispensable growth.           unreachable products). run breadth  non-essential genes determined.             search network estimate possible deviations. metabolism, 53 genes essential           Starting S, breadth search explored net- remaining 711 essentiality           work finding direct products knocked determined method [21].                                   reaction. algorithm visited products,                                                                   stored corresponding pathway continued Defining features
+                                                                  search alternative paths network
+Features obtained network topology proper-
+                                                                  entirely explored maximal path length 10
+ties genomic transcriptomic information. Table 1
+                                                                  reactions reached. organism shows overview features abbreviations.
+                                                                  pathways produce products making Topology based features                                           robust.  counted number possible  Deviation features                                             alternative paths yielding feature ND (ND, number following features, used metabolic net-            deviations). took average path length (APL, aver-
+work representation bipartite graph consisting        age path length) shortest path length (LSP, length different alternating nodes, e. metabolites          shortest path) deviations features clas-
+reactions. reported recently [6,16], implemented          sifier. deviation features used alternative
+breadth algorithm investigate network         pathways produce products knocked reac-
+single reaction blocked. defined reaction             tion substrates S. metabolic network, essential survival basically mutated network         substrates consumed reactions yield- yield products reaction                 ing products   kept track alter-
+upstream substrates reaction.  features  Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                         Page 13 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+native paths network potential           reactions [10]. betweenness centrality Cb(v) organism survive reaction blocked.               reaction v given b) Local topology number substrates products knocked                                             d ij (v) reaction counted (NS: number substrates;
+NP: number products). defined features                                                                       C b ( v) =      ∑
+                                                                                   ≠ j ≠ v∈V
+                                                                                                  d ij
+                                                                                                            ,                                  (1)
+
+number Neighboring reactions (NNR) number Neighbors Neighboring reactions (NNNR). cal-
+                                                                 dij number shortest paths reac-
+culated clustering coefficient (CCV) described [57,58] knocked reaction estimate local      tion reaction j, dij(v) number shortest
+density network. reaction direction (DIR,           paths j pass reaction v. sum directionality reactions) taken KEGG set       composed pairs   j) reactions network. reversible information available.           Closeness centrality approximates edges c) Choke-points load-scores                                required access reaction given reac- reaction uniquely consumes produces certain        tion [10]. defined inverse average length
+metabolite metabolic network considered            shortest paths reactions. close-
+choke point. reaction shows high potential          ness centrality Cc(v) reaction v given essentiality [4,5]. used feature (CP, choke
+points). According concept [4], load scores                                    n −1
+defined hot spots network based ratio             C c ( v) =
+                                                                                         ∑ d vi                                                (2) number k-shortest paths passing reac-                              ≠ v  V
+tion, number nearest neighbor links attached  ratio compared average load value                                                                  n number reactions network. network.
+d) Damage
+                                                               Eccentricity longest distance given reac-
+                                                               tion reaction [61]. eccentricity Ce(v) damage defined determine potentially
+effected metabolites reactions downstream           vertex v given knocked reaction. used definition damaged
+compounds reactions Lemke workers                                           n −1
+                                                                      C e ( v) =                   .                                           (3)
+[7] yielding features NDR (NDR, number damaged                                  max (d vi )
+reactions) NDC (number damaged compounds).                                   ≠ v  V half reactions annotated revers-
+ible, compounds reactions                Eigenvector centrality based assumption inferred damage actually just traced alter-    utility reaction determined utility native pathways.  calculated number        neighboring reactions [62]. scores reaction higher damaged compounds reactions network               connected high-scoring reactions. defined alternative pathways discarded yielding         principal eigenvector adjacency matrix net-
+NDRD (number damaged reactions devia-               work. Let xi denote score reaction  Let Aij tions) NDCD (number damaged compounds              adjacency matrix network. Aij = 1 deviations). addition, calculated number                                                                edge reactions j, Aij = 0 
+damaged choke points (NDCR, number damaged
+choke point reactions; NDCC, number damaged choke           reaction  centrality score proportional point compounds; NDCRD, number damaged choke                average centralities s network neighbors:
+point reactions deviations; NDCCD, number                                                                                                                         n
+damaged choke point compounds deviations).
+                                                                                       ∑                                 x ,
+                                                                             1                                      1
+e) Centrality                                                         xi =                          xj          =              ij j            (4)
+                                                                             l                                      l features, used network-representation                          j∈Neighbor                         j =1
+ reaction-pair network. computed centrality fea-
+tures using R package 'igraph' [59] consisting         Neighbor  set neighboring reactions
+betweenness centrality (BC), closeness centrality (CN),        reaction  n total number reactions λ eccentricity (EC) [10], eigenvector centrality (EV)        constant. leads directly known eigenvec-
+[60]. Let G(V, E) simple undirected graph n ver-     tor equation, Ax = λx. Normally, different eigen-
+tices (reactions). Betweenness measures frequency       values λ eigenvector solution exists. reaction (node) shortest path pairs   According Perron-Frobenius theorem  Plaimas et al. BMC Systems Biology 2010, 4:56                                                                          Page 14 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+eigenvector largest eigenvalue eigenvector            T3s, C3s, A3s, G3s thymine, cytosine, adenine centrality [60].                                                    guanine, respectively. Additionally, number codons
+                                                                    coding encoded amino acids (phe, ser, tyr, cys, leu,
+Genomic transcriptomic features                                 trp, pro,  arg, gln, ile, met, thr, asn, lys, val, ala, asp,
+f) Homologs                                                         glu, gly) counted. codon counts normalized calculated number homologous genes                   division total number codons (Nc). Nc taken function knocked               used feature.
+gene. Homologous genes searched using BLAST
+[26] open reading frames respective              machine learning organism (E. coli, P. aeruginosa, S. typhimurium).               used Support Vector Machines R package
+used different E-value cutoffs, e. 10-3, 10-5, 10-7, 10-10, 10-   'e1071' classify essential non-essential genes 20, 10-30 obtain features H3, H5, H7, H10, H20           metabolism http://www.r-project.org. radial basis H30, respectively. Sequences open reading                function used kernel. Parameter optimization
+frames taken NCBI database (http://                   performed training data regularization
+www.ncbi.nlm.nih.gov/, E. coli: [GenBank:NC_000913],                term kernel width. regularization term
+P. aeruginosa: [GenBank:NC_002516], S. typhimu-                 defined costs false classifications opti-
+rium: [GenBank:NC_003197]).                                         mized using values 2n n = -4, -2, 0, 2, 4. g) Gene expression                                                  range taken kernel width. optimization collected gene expression data investi-            realized training grid search combi-
+gated organisms public resources. datasets                 nations parameters. sizes classes selected respect unspecific regu-          differed considerably data sets (essential genes: 8 -
+lation, e. treatments affecting small band         15 , non-essential genes: 85 - 92 ). broad spec- broad range metabolic pathways. E. coli, used           trum different sensitivities specificities, applied
+gene expression data study regulation           voting scheme. trained 100 Support Vector oxygen deprivation investigated [63], P.             Machines (SVMs) essential genes equal
+aeruginosa study observing response agma-             randomly selected non-essential genes. tine putrescine treatment [64] study               stratified training data. classification
+quorum-sensing response environmental conditions                 query gene, output machines summed
+[65]. S. typhimurium used data cells treated              used voting score gene essential nutrient limitation different time points [66]          cell.
+data study captured regulatory response environment host [67]. data               Defining discriminating features decision
+malized variance stabilization normalization [68].               trees
+Genes similar functionality pathway                decision decision trees applies best dis- regulation [69].  maximum               criminating feature [25].  used decision
+correlation coefficient (MCC) neighboring reac-              trees alternative approach defining dis-
+tions knocked reaction used feature.            criminating features. applied method decision
+Additionally, calculated number reactions            trees using R package 'rpart' http://www.r-project.org
+similar gene expression (NGSE, correlation coefficient >            classify essential non-essential genes metab-
+0.8) used features estimate regulated        olism. Gini impurity [70] used splitting data.
+analogous genes.                                                    minimum number observations exist
+h) Phyletic retention                                               node 20 maximum depth 30. We selected 177 prokaryotic organisms  E. coli, P.           stratified training data manner aeruginosa, S. typhimurium) described                     training Support Vector Machines. Gustafson et al. [14] counted number            decision trees generated gold standard organisms having open reading frame                  (ecoB, ecoG, paeL paeJ). discriminat-
+homologous sequence knocked gene.               ing features, run decision tree performed E. coli, P. aeruginosa, S. typhimu-          selected.
+rium using bi-directional best BLAST hits (E-value cutoff
+                                                                    Performance measures statistics 0.1).
+                                                                    assessing performance classifier, predic-  Codon usage
+                                                                    tions compared gold standard exper-
+Codons counted investigated gene                                                                     imental screens. prediction true positive (tp,
+coding region. counted base compositions silent
+                                                                    prediction: essential, gold standard: essential), false posi-
+sites  position codons) yielding features
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                                                                                                                                                                                                                                              Page 15 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+
+tive (fp, prediction: essential, gold standard: non-essen-                                                                                                                                                                                                                               5.    Yeh  Hanekamp T, Tsoka S, Karp PD, Altman RB: Computational analysis
+                                                                                                                                                                                                                                                                                               Plasmodium falciparum metabolism: organizing genomic
+tial), true negative (tn, prediction: non-essential, gold                                                                                                                                                                                                                                      information facilitate drug discovery. Genome Res 2004, 14:917-924.
+standard: non-essential) false negative (fn, prediction:                                                                                                                                                                                                                              6.    Fatumo S, Plaimas K, Mallm JP, Schramm G, Adebiyi E, Oswald M, Eils R,
+non-essential, gold standard: essential). calculated                                                                                                                                                                                                                                    Konig R: Estimating novel potential drug targets Plasmodium
+                                                                                                                                                                                                                                                                                               falciparum analysing metabolic network knock strains standard measures accuracy = (tp+tn)/(tp+tn+fp+fn),                                                                                                                                                                                                                                            silico. Infect Genet Evol 2009, 9:351-358.
+sensitivity = tp/(tp+fn), specificity = tn/(tn+fp).                                                                                                                                                                                                                                7.    Lemke N, Heredia F, Barcellos CK, Dos Reis  Mombach JC: Essentiality
+receiver operator characteristics (ROC-curve) used                                                                                                                                                                                                                                         damage metabolic networks. Bioinformatics 2004, 20:115-119.
+                                                                                                                                                                                                                                                                                         8.    Gursoy  Keskin O, Nussinov R: Topological properties protein measure performance classifier                                                                                                                                                                                                                                        interaction networks structural perspective. Biochem Soc Trans
+various thresholds. ROC-curve sensitivity                                                                                                                                                                                                                                        2008, 36:1398-1403.
+plotted 1 - specificity area                                                                                                                                                                                                                                   9.    Hahn MW, Kern AD: Comparative genomics centrality                                                                                                                                                                                                                                                                                                essentiality eukaryotic protein-interaction networks. Mol Biol
+curve (AUC) yields performance estimate                                                                                                                                                                                                                                           Evol 2005, 22:803-806.
+entire range thresholds. P-values Pearson's correla-                                                                                                                                                                                                                              10.   Estrada E: Virtual identification essential proteins protein
+tion coefficients features calculated                                                                                                                                                                                                                                          interaction network yeast. Proteomics 2006, 6:35-40.
+                                                                                                                                                                                                                                                                                         11.   Przulj N, Wigle DA, Jurisica  Functional topology network protein
+described [71].                                                                                                                                                                                                                                                                             interactions. Bioinformatics 2004, 20:340-348.
+                                                                                                                                                                                                                                                                                         12.   Acencio ML, Lemke N: prediction essential genes Additional material                                                                                                                                                                                                                                                                            integration network topology, cellular localization biological
+                                                                                                                                                                                                                                                                                               process information. BMC Bioinformatics 2009, 10:290.
+                                                                                                                                                                                                                                                                                         13.   Seringhaus M, Paccanaro  Borneman  Snyder M, Gerstein M:
+      Additional file 1 ROC curves essential gene predictions                                                                                                                                                                                                                     Predicting essential genes fungal genomes. Genome Res 2006,
+      subsets features.                                                                                                                                                                                                                                                                     16:1126-1135.
+      Additional file 2 Correlation coefficients features gene                                                                                                                                                                                                                 14.   Gustafson  Snitkin ES, Parker SC, DeLisi C, Kasif S:       essentiality.                                                                                                                                                                                                                                                                            identification essential genes using targeted genome sequencing
+      Additional file 3 Histograms frequency T3s essential                                                                                                                                                                                                                       comparative analysis. BMC Genomics 2006, 7:265.
+      genes non-essential genes.                                                                                                                                                                                                                                                     15.   Hwang YC, Lin CC, Chang JY, Mori H, Juan HF, Huang HC: Predicting
+      Additional file 4 examined metabolic genes S. typhimurium                                                                                                                                                                                                                         essential genes based network sequence analysis. Mol Biosyst
+      computational predictions experimental results                                                                                                                                                                                                                       2009, 5:1672-8.
+      Knuth et al. (2004).                                                                                                                                                                                                                                                               16.   Plaimas K, Mallm JP, Oswald M, Svara F, Sourjik V, Eils R, Konig R: Machine
+      Additional file 5 Predicted essential genes potential drug targets                                                                                                                                                                                                                   learning based analyses metabolic networks supports high-
+      S. typhimurium literature evidences.                                                                                                                                                                                                                                       throughput knockout screens. BMC Syst Biol 2008, 2:67.
+                                                                                                                                                                                                                                                                                         17.   Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, Datsenko KA,
+                                                                                                                                                                                                                                                                                               Tomita M, Wanner BL, Mori H: Construction Escherichia coli K-12 
+Authors' contributions                                                                                                                                                                                                                                                                         frame, single-gene knockout mutants: Keio collection. Mol Syst Biol
+KP RK general concept design study. KP carried                                                                                                                                                                                                                   2006, 2:2006 0008. data analysis. KP RK drafted manuscript. authors read                                                                                                                                                                                                                18.   Gerdes SY, Scholle MD, Campbell JW, Balazsi G, Ravasz E, Daugherty MD,
+approved final manuscript.                                                                                                                                                                                                                                                                 Somera AL, Kyrpides NC, Anderson  Gelfand MS, et al.: Experimental
+                                                                                                                                                                                                                                                                                               determination level analysis essential genes Acknowledgements                                                                                                                                                                                                                                                                               Escherichia coli MG1655. J Bacteriol 2003, 185:5673-5684. work funded BMBF-FORSYS consortium Viroquant                                                                                                                                                                                                                         19.   Jacobs MA, Alwood  Thaipisuttikul  Spencer D, Haugen E, Ernst S, O,
+[#0313923]; Nationales Genom-Forschungs-Netz (NGFN+) neuro-                                                                                                                                                                                                                        Kaul R, Raymond C, Levy R, et al.: Comprehensive transposon mutant
+blastoma project ENGINE, Commission Higher Education (CHE)                                                                                                                                                                                                                       library Pseudomonas aeruginosa. Proc Natl Acad Sci USA 2003,
+Thailand.                                                                                                                                                                                                                                                                                      100:14339-14344.
+                                                                                                                                                                                                                                                                                         20.   Liberati NT, Urbach JM, Miyata S, Lee DG, Drenkard E, Wu G, Villanueva J,
+Author Details                                                                                                                                                                                                                                                                                 Wei T, Ausubel FM: ordered, nonredundant library Pseudomonas
+1Department Bioinformatics Functional Genomics, Institute                                                                                                                                                                                                                            aeruginosa strain PA14 transposon insertion mutants. Proc Natl Acad
+Pharmacy Molecular Biotechnology, Bioquant, University Heidelberg, Im                                                                                                                                                                                                                   Sci USA 2006, 103:2833-2838.
+Neuenheimer Feld 267, 69120 Heidelberg, Germany 2B080 Division                                                                                                                                                                                                                    21.   Knuth K, Niesalla H, Hueck CJ, Fuchs TM: Large-scale identification Theoretical Bioinformatics, German Cancer Research Center (DKFZ), Im                                                                                                                                                                                                                           essential Salmonella genes trapping lethal insertions. Mol Microbiol
+Neuenheimer Feld 280, 69120 Heidelberg, Germany                                                                                                                                                                                                                                                2004, 51:1729-1744.
+                                                                                                                                                                                                                                                                                         22.   Leon PE: Inhibition ribozymes deoxyribonucleotides Received: 17 December 2009 Accepted: 3 2010                                                                                                                                                                                                                                                origin DNA. J Mol Evol 1998, 47:122-126.
+Published: 3 2010                                                                                                                                                                                                                                                                    23.   Giaever G, Chu  Ni L, Connelly C, Riles L, Veronneau S, Dow S, Lucau-
+© 2010 BMC  Open
+     article
+      Systems
+         Plaimas   Access
+             Biology
+                available
+                   et al; 2010,
+                             article
+                          licensee
+                                BioMed Central
+                                     distributed
+                                  4:56
+                                    http://www.biomedcentral.com/1752-0509/4/56
+                                                                                                     
+                                                       terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+                                                                                                                                                                                                                                                                                               Danila  Anderson K, Andre B, et al.: Functional profiling References                                                                                                                                                                                                                                                                                     Saccharomyces cerevisiae genome. Nature 2002, 418:387-391.
+1. Hopkins AL, Groom CR: druggable genome. Nat Rev Drug Discov                                                                                                                                                                                                                       24.   Grocock RJ, Sharp PM: Synonymous codon usage Pseudomonas
+    2002, 1:727-730.                                                                                                                                                                                                                                                                           aeruginosa PA01. Gene 2002, 289:131-139.
+2. Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,                                                                                                                                                                                                                       25.   Witten IH, Frank E: Data Mining, Practical Machine Learning Tools     Broadbelt LJ, Hatzimanikatis V, Palsson BO: genome-scale metabolic                                                                                                                                                                                                                       Techniques San Francisco: Morgan Kaufmann; 2005.
+    reconstruction Escherichia coli K-12 MG1655 accounts 1260                                                                                                                                                                                                               26.   Altschul SF, Madden TL, Schaffer AA, Zhang J, Zhang  Miller W, Lipman
+    ORFs thermodynamic information. Mol Syst Biol 2007, 3:121.                                                                                                                                                                                                                             DJ: Gapped BLAST PSI-BLAST: new generation protein
+3. Schuetz R, Kuepfer L, Sauer U: Systematic evaluation objective                                                                                                                                                                                                                           database search programs. Nucleic Acids Res 1997, 25:3389-3402.
+    functions predicting intracellular fluxes Escherichia coli. Mol Syst                                                                                                                                                                                                          27.   Hubbard TJ, Aken BL, Beal K, Ballester B, Caccamo M, Chen Y, Clarke L,
+    Biol 2007, 3:119.                                                                                                                                                                                                                                                                          Coates G, Cunningham F, Cutts T, et al.: Ensembl 2007. Nucleic Acids Res
+4. Rahman SA, Schomburg D: Observing local global properties                                                                                                                                                                                                                            2007, 35:D610-617.
+    metabolic pathways: 'load points' 'choke points' metabolic                                                                                                                                                                                                                28.   Bratkovic T, Lunder M, Urleb U, Strukelj B: Peptide inhibitors MurD     networks. Bioinformatics 2006, 22:1767-1774.                                                                                                                                                                                                                                               MurE, essential enzymes bacterial cell wall biosynthesis. J Basic
+                                                                                                                                                                                                                                                                                               Microbiol 2008, 48:202-206.
+ Plaimas et al. BMC Systems Biology 2010, 4:56                                                                                                           Page 16 16
+http://www.biomedcentral.com/1752-0509/4/56
+
+
+
+29. Kotnik M, Anderluh PS, Prezelj  Development novel inhibitors                    xylulose-5-phosphate reductoisomerase (DXR) enzyme. Curr Pharm
+    targeting intracellular steps peptidoglycan biosynthesis. Curr Pharm              Des 2007, 13:1161-1177.
+    Des 2007, 13:2283-2309.                                                        52.   Cornish RM, Roth JR, Poulter CD: Lethal mutations isoprenoid
+30. Helm JS, Hu Y, Chen L, Gross B, Walker S: Identification active-site              pathway Salmonella enterica. J Bacteriol 2006, 188:1444-1450.
+    inhibitors MurG using generalizable, high-throughput                      53.   Testa CA, Cornish RM, Poulter CD: sorbitol phosphotransferase
+    glycosyltransferase screen. J Chem Soc 2003, 125:11168-11169.                     responsible transport 2-C-methyl-D-erythritol 31. Zawadzke LE, Norcia M, Desbonnet CR, Wang H, Freeman-Cook K,                         Salmonella enterica serovar typhimurium. J Bacteriol 2004,
+    Doughert

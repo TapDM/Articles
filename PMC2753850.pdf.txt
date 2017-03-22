@@ -1,0 +1,562 @@
+ prediction essential genes integration network topology, cellular localization biological process
+information
+
+
+
+                 Abstract
+                 Background: identification essential genes important understanding                  minimal requirements cellular life practical purposes, drug design.                   experimental techniques essential genes discovery labor-intensive time-consuming.
+                 Considering experimental constraints, computational approach capable accurately
+                 predicting essential genes great value. present machine learning-
+                 based computational approach relying network topological features, cellular localization                  biological process information prediction essential genes.
+                 Results: constructed decision tree-based meta-classifier trained datasets                  individual grouped attributes-network topological features, cellular compartments                  biological processes generate various predictors essential genes. showed                  predictors better performances generated datasets integrated attributes.
+                 Using predictor attributes, e., network topological features, cellular compartments                  biological processes, obtained best predictor essential genes used                  classify yeast genes unknown essentiality status. Finally, generated decision trees training
+                 J48 algorithm datasets network topological features, cellular localization                  biological process information discover cellular rules essentiality. number
+                 protein physical interactions, nuclear localization proteins number regulating
+                 transcription factors important factors determining gene essentiality.
+                 Conclusion: able demonstrate network topological features, cellular localization
+                 biological process information reliable predictors essential genes.                   constructing decision trees based data, discover cellular rules governing
+                 essentiality.
+
+
+
+
+Background                                                                      organism regardless presence remaining genes.
+Essential genes genes required growth                         functions encoded essential genes rich medium, e., medium containing nutrients                              crucial survival considered founda-
+required growth. deletion                          tion life itself [1,2]. identification essential genes
+genes sufficient confer lethal phenotype                          important understanding mini-
+
+                                                                                                                                       Page 1 18
+                                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                            http://www.biomedcentral.com/1471-2105/10/290
+
+
+
+mal requirements cellular life, practical      bility essential genes. integration purposes. example, antibiotics target essen-     network topology, cellular localization biological
+tial cellular processes, essential gene products microbial   process information single predictor increased cells promising new targets drugs [3]. pre-    predictability essential genes comparison diction discovery essential genes          predictor containing network topological features.
+formed experimental procedures single gene            observed predictability essential
+knockouts [4], RNA interference [5] conditional             genes integration cellular localization biological
+knockouts [6], techniques require large invest-     process data single predictor comparable ment time resources feasi-       predictor containing network topological features.
+ble. Considering experimental constraints, computational approach capable accurately predict            Finally, addition study predictability essential
+essential genes great value.                        genes, tried define general rules governing
+                                                                essentiality S. cerevisiae analyzing decision trees gen- prediction essential genes, investigators      erated machine learning-based technique. Using net-
+implemented computational approaches              work topology, cellular localization biological based sequence features genes proteins       process information training attributes, discovered homology comparison [7,8]. accu-            essentiality depends number protein physi-
+mulation data derived experimental small-scale          cal interactions, nuclear localization proteins studies high-throughput techniques,           number regulating transcription factors. Taken possible construct networks gene proteins          findings integration interaction investigate topological        network analysis cellular localization bio-
+properties networks useful predict-       logical process information powerful tool ing essential genes. interaction networks         predicting biological characteristics genes, built date [9-12], studies relating        essentiality, discovering biological determinants
+essentiality topological properties networks      phenotypes. limited indicate topological properties predictive essentiality instead using pre-    Results Discussion
+dictors essential genes [9,13]. previously           Integrated network gene interactions S. cerevisiae
+shown feasibility using network topological fea-         calculation topological features
+tures predicting essential genes bacterium           obtaining network topological features used Escherichia coli [14]. chosen E. coli starting       training data predicting essential genes, 
+point evaluating prediction performance essen-       structed integrated network gene interactions (INGI)
+tial genes network topological features rea-      Saccharomyces cerevisiae simultaneously containing
+sons: completeness catalog E. coli essential      experimentally verified protein physical interactions, met-
+genes [15] vast interaction data availa-      abolic interactions transcriptional regulation interac-
+ble organism. present work, sought       tions (definitions type interaction detailed
+evaluate network topological features used       "Methods"). network comprised 5,667 genes predictors essential genes yeast S. cerevisiae     interacting 42,893 protein physical genes classified         interactions, 11,192 metabolic interactions 18,721
+essential non-essential [4] copious            transcriptional regulation interactions. 5,667 genes amounts available interaction data organism.        network, 5,637 (99,5 ) protein-coding genes
+                                                                (including transposable elements), 15 (0.26 ) trans- purpose, constructed S. cerevisiae integrated     fer RNA-coding genes, 13 (0.23 ) small nucleolar
+network gene interactions containing simultaneously          RNA-coding genes 2 (0.01 ) RNA-coding genes
+protein physical, metabolic transcriptional regulation      unknown function. Regarding protein-coding genes,
+interactions used topological features net-     including transposable elements, network contains
+work learning attributes machine learning-based         96  total 5,884 protein-coding genes S. cerevisiae
+prediction  tested individual grouped net-        according current status yeast genome pro-
+work topological features predictors essential genes      vided Saccharomyces Genome Database (SGD) [16]. showed essential genes best predicted inte-
+grating topological features single predictor.         calculated 12 different topological features prediction performance topological fea-         gene INGI, including degree centralities tures shown acceptable, added set       type interaction, clustering coefficient, betweenness
+learning attributes data cellular localization bio-      centralities type interaction, closeness central-
+logical process genes order increase predicta-     ity identicalness. detailed description 
+
+                                                                                                                    Page 2 18
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                              http://www.biomedcentral.com/1471-2105/10/290
+
+
+
+topological features calculated            (ROC) Curve (AUC) values balanced data- Additional file 1 "Methods".                    sets (Figure 1 Additional file 2), verified                                                                  prediction performances statistically different Comparison classification performance               evaluated nonparametric statistical method based balanced datasets                                                Mann-Whitney U-statistic [18]  details performance machine learning-based approaches             "Methods"). Based results, selected known affected imbalanced data [17].          balanced datasets perform following analyses.
+dataset containing yeast genes classified essential non-essential genes intended used training data         Prediction essential genes network topological classifier imbalanced dataset, used          features
+undersampling scheme generate balanced datasets           started analyzes assessing predictability original data  "Methods"). balanced            essential genes 12 network topological fea-
+dataset contains different subsets non-essential genes     tures (computed described " Methods") 12 result sampling approach. different        network topological features integrated single predic-
+subsets non-essential genes,  statistically      tor. purpose, trained classifier bal-
+compared prediction performance balanced data-            anced dataset network topological features sets assessing predictability essential genes      training data dataset containing different features. trained classifier     network topological features training data  "Meth- balanced dataset available training data         ods" detailed information construction bal-
+(network topological features cellular localization          anced datasets). ROC plot shown Figure 2 indicates biological process information) evaluated            integration networks topological features prediction performance balanced dataset. Com-            single predictor outperforms predictability essential
+paring Area receiver operating characteristic      genes individual network topological features. 
+ 
+
+ROC
+Figurecurves
+        1    AUC values classifiers trained balanced datasets available learning attributes
+ROC curves AUC values classifiers trained balanced datasets available learning
+attributes. Balanced datasets 1-10: datasets available learning attributes prepared undersampling scheme described "Methods".
+
+
+
+comparing AUC values grouped individual net-               topological features. combination work topological features, verified AUC value             protein physical interactions-related features meta- grouped network topological features (AUC = 0.773)              bolic interactions-related features perform-
+statistically significantly higher (P < 0.002) AUC               ance (AUC = 0.765, P = 0.302; Additional file 2 value individual network topological feature (Fig-             Figure 2) seen predictor containing grouped
+ure 2 Additional file 2).                                         network topological features (AUC = 0.773).                                                                        combination protein physical interactions-related fea- verified different combinations grouped net-            tures clustering coefficient, identicalness work topological features prediction perform-              betweenness closeness centralities pre-
+ances comparable grouped network                       diction performance (AUC = 0.763, P = 0.071; Addi-
+
+                     1.0
+
+
+
+
+                     0.8
+
+
+
+
+                                                                                          net (AUC = 0.773)
+                     0.6
+True Positive Rate
+
+
+
+
+                                                                                          only_ppi_metabolic_features (AUC = 0.765)
+                                                                                          only_ppi_other_features (AUC = 0.763)
+                                                                                          only_ppi_reg_features (AUC = 0.757)
+                                                                                          ppi inbetppi (AUC = 0.748)
+                                                                                          ppi (AUC = 0.747)
+                     0.4                                                                  inbetppi (AUC = 0.701)
+                                                                                          inbet (AUC = 0.628)
+                                                                                          c (AUC = 0.615)
+                                                                                          cent (AUC = 0.559)
+                                                                                          regin (AUC = 0.547)
+                                                                                          metin (AUC = 0.518)
+                     0.2
+                                                                                          regout (AUC = 0.514)
+                                                                                          metout (AUC = 0.513)
+                                                                                          inbetmet (AUC = 0.512)
+                                                                                          ident (AUC = 0.508)
+                                                                                          inbetreg (AUC = 0.502)
+                     0.0
+
+                           0.0   0.2                   0.4                    0.6                   0.8                     1.0
+                                                             False Positive Rate
+
+features
+ROC
+Figure curves
+          2    AUC values classifiers trained balanced datasets individual grouped network topological
+ROC curves AUC values classifiers trained balanced datasets individual grouped net-
+work topological features. ROC curves AUC values classifiers trained balanced dataset 9  Figure 1) groups network topological features learning attributes follows: "net": network topological features learning
+attributes; "ppi", "inbetppi", "inbet", "c", "cent", "regin", "metin", "regout". "metout", "inbetmet", "ident" "inbetreg": datasets following network topological features learning attribute: number protein physical interactions (ppi),
+betweenness centrality protein physical interactions (inbetppi), betweenness centrality types interactions
+(inbet), clustering coefficient (c), closeness centrality (cent, number regulating transcription factor (regin), number reac-
+tants participating metabolic reaction catalyzed enzyme encoded gene (metin), number genes regulated transcription factor encoded gene (regout), number products generated metabolic reaction catalyzed enzyme encoded gene (metout), betweenness centrality metabolic interactions (inbetmet), number genes identical topological features (ident) betweenness centrality transcriptional regulation interactions (inbetreg).  _ppi_metabolic_features" "only_ppi_reg_features": datasets containing protein physical interactions-related features (ppi inbetppi)  respectively, metabolic (met, metin, metout inbetmet) transcriptional regulatory interactions-related
+features (reg, regin, regout inbetreg). "only_ppi_other_features": dataset containing protein physical interactions-related fea-
+tures (ppi inbetppi) c, ident, cent inbet. "only_ppi_inbetppi": dataset containing indicated network topologi-
+cal features learning attributes. details network topological features, Additional file 1.
+
+
+
+                                                                                                                            Page 4 18
+                                                                                                      (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                            http://www.biomedcentral.com/1471-2105/10/290
+
+
+
+tional file 2 Figure 2) observed grouped            grating cellular localization biological process data
+network topological features (AUC = 0.773).           network topological data, assessed individual
+smaller sets network topological features used     performance cellular component biolog-
+predict essential genes, making calculation     ical process, collective performance topological features dispensable.                               cellular components biological processes pre-
+                                                                dicting essential genes, order verify individual verify predictive power grouped network        feature grouped features related cellular localization
+topological features improved exclusion          biological process good predictors essential
+topological features marginal AUC values, e., AUC        genes.
+values ranging 0.500 0.600, compared pre-
+diction performance grouped network topological          Regarding cellular localization, trained classifier
+features (AUC = 0.773) combinations        balanced datasets cellular compartments features feature small set features    training data (cytoplasm, endoplasmic reticulum, mito-
+excluded  correspondent ROC curves Addi-         chondrion, nucleus localization) datasets
+tional file 3 pairwise comparison predictors         containing cellular compartments train- p-values AUC differences pair       ing data. observe ROC plot shown Figure
+predictors Additional file 2). discovered        3 best predictor essential genes prediction performance grouped network topologi-         integrated set cellular compartments. confirmed
+cal features improved removal individ-     statistical comparison AUC value inte-
+ual small sets topological features  Additional       grated set cellular compartments individ-
+files 2 3). expected, exclusion grouped fea-      ual cellular compartments: AUC value grouped
+tures related metabolic interactions grouped features     cellular compartments (AUC = 0.703) significantly (P <
+related protein physical interactions diminishes (AUC        10-5) higher AUC values individual cellular
+= 0.764; P = 0.002 metabolic interaction-related        compartment (Figure 3 Additional file 2), features AUC = 0.749; P = 0.001 protein physical        AUC value characterizes set cellular compo-
+interaction-related features) prediction performance        nents fair predictors essential gene prediction. grouped network topological features (AUC =              regard biological processes, trained classifier 0.773).                                                         balanced datasets biological processes training
+                                                                data (cell cycle, metabolic process, signal transduction, individual network topological features,          transcription, transport process) datasets
+number protein physical interactions        containing biological processes training
+best predicts essential genes (AUC = 0.747). dis-    data. ROC curves biological processes (Figure 4)
+cussed "Cellular rules essentiality", investiga-   behavior observed prediction tors shown number physical interactions        essential genes network topological features indicative essentiality [9,19,20]. knowledge,      cellular compartment: integration attributes compare number protein physical      single predictor increases predictability essential
+interactions network topological features.           genes comparison predictability individual
+Despite good performance number protein phys-         attributes. AUC value integrated set biologi-
+ical interactions predicting essential genes           cal processes (AUC = 0.667) statistically significantly (P individual network topological features, best         < 0.001) higher AUC values individual biolog-
+predictors integrating groups topologi-      ical process (Figure 4 Additional file 2). AUC
+cal features number protein physical interac-       value 0.667,  set biological processes
+tions. indicates essentiality depends    considered poor predictor essential genes. network topological feature   gene location network important          moderate poor performances cellular localiza-
+determining essentiality.                                   tion biological processes predictors essential
+                                                                genes, respectively, suggest essentiality, dis-
+Prediction essential genes cellular localization      cussed "Cellular rules gene essentiality", probably
+biological process data                                         result multiple factors, reinforcing prediction performance integrated           analyzing prediction performance network topo-
+network topological features single predictor       logical features.  decided evaluate pre-
+considered acceptable predicting essential genes,        diction performance integration cellular
+decided check addition information cellular     localization biological process information single
+localization biological process training data      predictor. trained classifier balanced data-
+increase predictability essential genes. inte-    sets cellular compartments biological proc-
+
+
+
+Figure
+ROC   curves
+         3     AUC values classifiers trained balanced datasets individual grouped cellular compartments
+ROC curves AUC values classifiers trained balanced datasets individual grouped cellular
+compartments. ROC curves AUC values classifiers trained balanced dataset 9  Figure 1) cellu-
+lar compartments learning attributes.  compartments" dataset cellular compartments learning attributes;
+"nucleus", "cytoplasm", "mitochondrion",  compartment" "endoplasmic reticulum" datasets respec-
+tive cellular compartment learning attribute.
+
+
+
+esses training data. Figure 5 indicates               features integrated single predictor cel-
+performance integration cellular localization           lular compartments biological processes inte-
+biological process data predicting essential genes          grated single predictor. worth mention better predictors. fact, AUC value pre-      choose predictor containing network
+dictor containing cellular localization biological        topological features perform following compari-
+processes data (AUC = 0.753) statistically higher (P <         sons, sets containing protein physical interactions-
+10-5) AUC values predictors  Additional         related features metabolic interactions-related fea-
+file 2).                                                          tures features  "Prediction essential genes
+                                                                  network topological features" details) Prediction essential genes integrating network              used prediction performances comparable
+topological features, cellular localization biological        grouped network topological features.
+process information determining predictive power individual          evaluating integration data single predic-
+grouped cellular localization biological process data,        tor comparing predictor containing sought verify integration network topological         cellular localization biological process information
+features cellular localization biological process        predictor containing network topologi-
+data single predictor improve predictability        cal features, trained classifier balanced datasets
+essential genes.  sought compare          available data training data, cellular com-
+predictability essential genes network topological      partments biological processes training data 
+ROC
+Figure curves
+         4    AUC values classifiers trained balanced datasets individual grouped biological processes
+ROC curves AUC values classifiers trained balanced datasets individual grouped biolog-
+ical processes. ROC curves AUC values classifiers trained balanced dataset 9  Figure 1) biolog-
+ical processes learning attributes.  processes" dataset biological processes learning attributes; "metabolic
+process",  process", "cell cycle", "transcription" "transport" datasets respective biological process learning attribute.
+
+
+
+network topological features, cellular components                Regarding comparison predictive power inte-
+biological processes training data. expected,              grated topological network features integrated
+ROC curves Figure 6 indicate integration net-         cellular localization biological process data, work topological features cellular compartments             observed difference AUC value biological processes information single predictor               predictor containing cellular compartments bio-
+increases predictability essential genes compari-          logical processes information (AUC = 0.753) AUC
+son predictors containing network topological              value predictor containing network topological fea-
+features cellular compartments biological proc-               tures (AUC = 0.773) statistically significant (P =
+esses information.  comparing AUC value                0.269)  Additional file 2). Considering func-
+predictor containing network topological features            tion protein intimately linked cellular locali- cellular compartments biological processes infor-            zation [21] biological process mation predictor containing network                protein involved cellular localization topological features cellular compartments biolog-            protein acts predictable network topological fea-
+ical processes information, confirmed predictabil-           tures [10,22], surprising predictabilities ity essential genes integrated predictor (AUC =            essential genes predictor containing net-
+0.808) statistically significantly (P < 10-4) higher         work topological features predictor containing predictors (Figure 6 Additional file 2).          cellular localization biological process data simi-
+                                                                     lar.
+
+
+Figure
+ROC curves
+         5    AUC values integrated predictors cellular localization biological process information
+ROC curves AUC values integrated predictors cellular localization biological process
+information. ROC curves AUC values classifiers trained balanced dataset 9  Figure 1) biological proc-
+esses ( processes"), cellular compartments ( compartments") biological processes cellular compartments
+( processes compartments") learning attributes.
+
+
+Classification yeast genes known essential          predict gene essential, defined essentiality obtained list genes classified essential        score 0.654 cutoff value, e., genes essenti-
+non-essential used training classifier Giaever      ality score 0.654 considered essential.
+et al. [4]  "Methods"). Giaever et al. systemati-       cutoff value based optimal threshold,
+cally constructed nearly complete collection yeast          score value leads maximal accu-
+gene-deletion mutants covering 96  genes.           racy classification, calculated software StAR [24]  430 genes collection                 predictor containing features (network topolog-
+removed yeast genome comprehensive              ical, cellular component biological process; Figure
+reannotation process S. cerevisiae genome             6 Additional file 2). 514 genes formed 2006 [23]. addition, new genes anno-           essentiality status defined Giaever et al., 44 genes
+tated yeast genome result reannotation           predicted essential (Table 1). Analyzing process. order classify genes analyzed        genes, 9 genes previously dem-
+Giaever et al., used best classifier,     onstrated essential (YHR165C, YHR089C, containing network topological features, cellular       YHR052W, YCR042C, YDR320C  YHR169W, YKL138C-
+components biological processes information                YGL106W YHR099W) 14 genes
+training attributes. gene, predictor output     (YGR252W, YHR027C, YOL012C, YNL147W, YGL100W,
+probability classifying essential non-essential,    YNL096C, YOL148C, YFL007W, YOL145C, YBR111W  called, respectively, "essentiality score"          YNL055C, YHR216W, YBL071W YHR039C  "non-essentiality score".                                        previously demonstrated non-essential 
+
+
+ROC
+Figure curves
+          6 AUC values integrated predictors available data
+ROC curves AUC values integrated predictors available data. ROC curves AUC values clas-
+sifiers trained balanced dataset 9  Figure 1) network topological features, cellular compartments biological
+processes ( data"), biological processes cellular compartments ( processes compartments") network
+topological features ("network") learning attributes.
+
+ investigators small-scale gene deletion             hypothesize classifier assigned high essentiality
+experiments functional characterization studies [25-36]        score genes following features:   (Table 1). non-essential genes, 10 genes                    encoded proteins interact 12 pro-
+(YGR252W, YHR027C, YOL012C, YNL147W, YNL096C,                     teins, (ii) regulated 4 transcription
+YOL148C, YOL145C, YBR111W  YNL055C                          factors (iii) encoded proteins located YHR039C  shown impair substantially            nucleus. characteristics accordance growth S. cerevisiae completely deleted          cellular rules essentiality discovered approach
+[33,36-40], 4 remaining non-essential genes           demonstrated section "Cellular rules gene
+(YGL100W, YFL007W, YHR216W YBL071W                     essentiality": proteins interact 7 shown affect growth phenotype yeast            proteins located nucleus, genes encoding deleted [34,35,41,42]. roughly 1/          likely essential genes regulated 3 genes predicted essential          3 transcription factors tend non-essential.
+previously classified non-essential, complete dele-
+tions of shown severely reduce          44 genes predicted essential, 21 genes fitness organisms [33,36-40], suggesting          investigated essentiality date
+predictor, directly contradicted exper-        (Table 1). genes YER029C imental findings, nonetheless identify genes impor-           encoded protein (Yer029cp) binds 6 proteins tant cellular function. Regarding 4 non-essential          form heteroheptameric complex required genes deletion shown affect             biogenesis spliceosomal U1, U2, U4, U5
+growth phenotype yeast (YFL007W YGL100W),               snRNPs [43]. spliceosomal snRNPs involved 
+
+
+
+Table 1: List 44 yeast genes predicted essential S. cerevisiae
+
+ Rank      Gene                Essentiality Score            Essentiality Status         Deletion phenotype                Reference
+
+ 1         YHR165C             0.940                         essential                   lethality                         [32]
+ 2         YGR252W             0.939                         non-essential               defective growth                  [33]
+ 3         YHR089C             0.937                         essential                   lethality                         [25]
+ 4         YHR052W             0.065                         essential                   lethality                         [26]
+ 5         YER029C             0.930                         defined                 defined                       -
+ 6         YHR027C             0.930                         non-essential               defective growth                  [37]
+ 7         YHR099W             0.929                         essential                   lethality                         [27]
+ 8         YOL012C             0.925                         non-essential               defective growth                  [33]
+ 9         YHR169W             0.921                         essential                   lethality                         [28]
+ 10        YCR042C             0.920                         essential                   lethality                         [29]
+ 11        YDR320C           0.897                         essential                   lethality                         [30]
+ 12        YNL147W             0.885                         non-essential               defective growth                  [33]
+ 13        YGL100W             0.866                         non-essential               related growth             [41]
+ 14        YNL096C             0.865                         non-essential               defective growth                  [33]
+ 15        YOL148C             0.859                         non-essential               defective growth                  [38]
+ 16        YOR145C             0.856                         essential                   lethality                         [31]
+ 17        YFL007W             0.839                         non-essential               related growth             [42]
+ 18        YKL138C           0.837                         essential                   lethality                         [30]
+ 19        YOL145C             0.824                         non-essential               defective growth                  [39]
+ 20        YBR111W           0.822                         non-essential               defective growth                  [40]
+ 21        YLL022C             0.816                         defined                 defined                       -
+ 22        YNL209W             0.816                         defined                 defined                       -
+ 23        YGL106W             0.813                         defined                 defined                       -
+ 24        YPR080W             0.813                         defined                 defined                       -
+ 25        YER105C             0.794                         defined                 defined
+ 26        YNL055C             0.783                         non-essential               defective growth                  [33]
+ 27        YOL142W             0.781                         defined                 defined                       -
+ 28        YAL024C             0.770                         defined                 defined
+ 29        YHR216W             0.768                         non-essential               defective growth                  [34]
+ 30        YHL004W             0.743                         defined                 defined                       -
+ 31        YHR072W           0.741                         defined                 defined                       -
+ 32        YGL190C             0.738                         defined                 defined                       -
+ 33        YDR079C           0.731                         defined                 defined                       -
+ 34        YNL186W             0.731                         defined                 defined                       -
+ 35        YJR132W             0.716                         defined                 defined                       -
+ 36        YDR261W           0.713                         non-essential               defective growth                  [33]
+ 37        YHR119W             0.696                         defined                 defined                       -
+ 38        YBL071W           0.693                         non-essential               defective growth                  [35]
+ 39        YDR261W-B           0.682                         non-essential               defective growth                  [34]
+ 40        YHR039C           0.680                         non-essential               defective growth                  [36]
+ 41        YHR090C             0.680                         defined                 defined                       -
+ 42        YER026C             0.675                         defined                 defined                       -
+ 43        YHR056C             0.665                         defined                 defined                       -
+ 44        YCL019W             0.659                         defined                 defined                       -
+
+
+
+splicing nuclear pre-mRNAs [44], essential biologi-                strated non-essential genes 5 cal process cell viability,  interestingly, proteins         demonstrated essential genes.  4  forming heteroheptameric complex                          genes known essentiality status predicted Yer029cp demonstrated essential [4].                     non-essential actually essential genes (Additional file  presence gene ones predicted                4). Providing 38  (9 14; Table 2) genes essential reinforces fact predictor able           known essentiality status predicted essential identify genes important cellular function.               actually essential genes, predictor integrating                                                                          available features (network topological, cellular compo-
+Finally, regarding remaining 470 genes predicted                  nent biological process; Figure 6 Additional
+non-essential, verified 129 genes                  file 2) leads enrichment actual essential genes previously tested essentiality studies             set genes predicted essential. suggests Additional file 4).  124 demon-
+
+                                                                                                                             Page 10 18
+                                                                                                        (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                             http://www.biomedcentral.com/1471-2105/10/290
+
+
+ predictor committed minimize false negative       vious studies demonstrated number rate avoiding loss essential genes.                  protein physical interactions indicative essentiality
+                                                                 [9,19,20]. hypotheses connection
+Cellular rules gene essentiality                             gene essentiality number protein physical prediction capability, machine learning tech-         interactions proposed. Coulomb et al. [47]
+niques used knowledge acquisition order         suggested relationship network patterns datasets. machine learning algo-        feature gene essentiality partly biases rithms used knowledge acquisition        interaction data enriched small-scale experi-
+generate decision trees. Decision trees decision sup-        ments partial essential genes. port tools inferred training data use graph      hand, Zotenko et al. [48] recently hypothesized conditions possible consequences. struc-        connection gene essentiality ture decision tree consists root node representing     number protein physical interactions likely important condition discriminating classes,         involvement proteins encoded essential genes internal nodes representing additional conditions            subnetworks densely connected proteins shared
+class discrimination main condition, leaf          biological functions enriched proteins encoded
+nodes representing final classification.          essential genes.
+learn conditions classifying instances given
+class following path root node leaf       Following path root node leaf node
+node [45].                                                       right branch (Figure 7), follow-
+                                                                 ing rule gene essentiality: proteins interact  order discover rules gene essential-    7 proteins (average number interactions
+ity S. cerevisiae, analyzed decision trees generated    ranging 6 12 decision trees) located
+training J48 algorithm, WEKA's implementation           nucleus, genes encoding likely essen- C4.5 algorithm [46]  details, "Methods"),       tial. rule observed 9 10 decision trees balanced datasets containing network topo-        128 instances leaf 8 10 decision trees logical features, cellular components biological proc-       64 instances leaf  Additional file 5). pro-
+esses training data  construction balanced             teins located cellular compartments datasets detailed "Methods"). decision trees gen-      nucleus, essentiality corresponding genes depends
+erated balanced datasets slightly differ-      conditions particular decision tree (Figure 7
+ent undersampling scheme             Additional file 5). path root node leaf
+used balance original set classified genes-       nodes left branch (Figure 7) drove dis-
+balanced dataset contains different set 1,024 non-          cover rule gene essentiality: proteins interact
+essential genes, 1/8 total original         6 fewer proteins participate metabolic
+imbalanced dataset- generated detailed (64                process inside nucleus, genes encoding proteins
+instances leaf) simplified (128 instances        likely essential. rule observed 7 leaf) decision tree balanced dataset  "Meth-        10 decision trees 128 64 instances leaf
+ods" details) manually inspected         (Additional file 5).
+order discover general rules gene essentiality.
+                                                                 According rules, ultimate condition gene 20 slightly different generated decision trees,      essentiality localization proteins nucleus, able devise general rules gene essentiality      suggesting cellular component S. cerevisiae. Figure 7 shows decision tree best     important essentiality. importance nucleus illustrates general rules gene essentiality  deci-   essentiality suggested Seringhaus et al. [7]
+sion trees available text format Additional file   shown nuclear localization strong-
+5). observe Figure 7, root node deci-        est positive correlation essentiality cel-
+sion tree number protein physical interactions         lular components. relationship nucleus  generated decision trees exhibit feature; Addi-    essentiality explained fact roughly tional file 5);  attribute considered    nuclear proteins encoded essential genes
+important feature network topological features         essential biological processes cell viability cellular localization biological process informa-        place nucleus [49].  partici-
+tion gene essentiality. Accordingly, predictor       pation proteins nuclear-localized essential
+taining number protein physical interaction       processes, DNA replication, transcription training feature best predicts (AUC =            DNA repair, pivotal condition essentiality
+0.747) essential genes individual features       rules defined paths left right observe Figure 2. concert pre-      branches decision tree. worth mention  
+
+                                                                                                                    Page 11 18
+                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                                http://www.biomedcentral.com/1471-2105/10/290
+
+
+
+
+Figure
+Decision7tree generated training J48 algorithm balanced dataset 8 available data
+Decision tree generated training J48 algorithm balanced dataset 8 available data. decision tree generated training J48 algorithm balanced dataset 8 available data  "Methods"). uppermost ellipse node root tree represents important condition discriminating essential genes non-essential genes. case, condition number protein physical interactions (ppi). remaining ellipses internal nodes represent additional conditions considering gene essential non-essential. left branch tree, conditions involvement metabolic process (met. proc.) nuclear localization (nucleus). right branch, conditions nuclear localization (nucleus) number regulating transcription factors (regin). rectangles leaf nodes represent final classification. Red green rectangles depict genes  certain conditions (repre-
+sented root node internal nodes), respectively predominantly classified essential (E) non-essential
+(N). round brackets inside rectangles, number slash indicates total number genes actually
+essential non-essential number slash indicates genes incorrectly predicted.
+
+
+result annotation method used  details           number instances leaf set 64  "Methods" "Methods"), nuclear-localized essential processes          details Additional file 5). finding corrobo- embedded biological process "metabolic proc-             rated Yu et al. [50] genes regulated
+ess", conditions essentiality             > 10 transcription factors likely essential
+nuclear localization number protein physical inter-          regulated 2-9 transcription factors, actions equal 6 rule defined path        genes likely essential left branch decision tree (Figure 7). rule        transcription factor. glimpse, fact defined path right branch, essen-           essential genes tend regulated transcription
+tiality apparently dependent involvement           factors contradictory expect proteins metabolic processes inside nucleus,             gene essentiality correlated high level tran-
+nuclear proteins encoded genes classified essential           scriptional regulation.  essential genes
+according rule actually involved                encode housekeeping proteins, e., proteins involved nuclear metabolic process. case,                housekeeping functions, rRNA metabolic process
+involvement nuclear metabolic processes                  transcription initiation [48]. housekeeping func-
+whelmed number protein physical interactions.             tions basic important functions                                                                     cell, genes encoding housekeeping proteins ubiqui- discovered additional interesting rule gene               tously expressed  consequently, tend regu-
+essentiality yeast: genes regulated 3 tran-         lated fewer transcription factors genes encoding
+scription factors tend non-essential (Figure 7).         non-housekeeping proteins.  phenomenon
+rule observed 6 10 decision trees 128             likely enrichment genes encoding house-
+instances leaf decision trees               keeping proteins set essential genes.
+
+
+
+
+                                                                                                                        Page 12 18
+                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                              http://www.biomedcentral.com/1471-2105/10/290
+
+
+
+
+Conclusion                                                       findings previously demon- identification essential genes largely        strated investigators [7,9,19,20,50], 
+experimental effort performed time-consuming           ing notice able obtain results genome knockout experiments. effort               simply inspecting decision tree generated shown
+accelerate pace discovery essential genes,          section "Cellular rules gene essentiality".  deci-
+designed machine learning-based computational                  sion trees useful tools extracting knowledge approach relies network topological features, cel-       complex biological data.
+lular localization biological process information predicting essential genes evaluated yeast Sac-    confirming previous findings, exploration charomyces cerevisiae.                                           decision trees lead new discoveries.                                                                  exemplified additional analysis performed constructed integrated network gene           referee' s suggestion regarding nuclear locali-
+interactions S. cerevisiae containing protein physical,      zation essential proteins. referee suggested metabolic transcriptional regulation interactions        analyze influence children terms computed 12 different network topological features            term "nucleus" nuclear localization-related gene
+described Additional file 1 "Methods")          essentiality. purpose, generated decision tree
+individually collectively evaluated ability     training J48 algorithm balanced
+predict essential genes. showed predictors           datasets  "Methods" details) features plus
+containing 12 network topological features different      terms "nucleolus", "nucleoplasm", "nuclear chro-
+combinations protein physical interactions-related fea-       mosome" "nuclear envelope"  observed
+tures groups topological features training      Additional file 5, entirely new rule data reliable predictors (AUC = 0.763-0.773) essen-       devised generated decision tree: nucleolar
+tial genes S. cerevisiae, reinforcing fact   localization proteins important factor integrated network gene interactions useful         gene essentiality. did mention potential tool prediction essential genes.                      interesting rule gene essentiality section "Cellu-
+                                                                 lar rules gene essentiality" rule se inter- performance predictors containing           esting deserve exhaustive analysis network topological features considered acceptable        reported future paper. predicting essential genes, decided check addition cellular localization biological process         Albeit good prediction performance ability information predictors increase pre-          discover cellular rules essentiality, approach suf-
+dictability essential genes. fact, verified    fers limitations.  depends existing
+performance predictor containing network          Gene Ontology annotation protein physical interac-
+ological features, cellular localization biological proc-    tion data likely enriched small-scale
+ess information training data better     experiments involving essential genes. Second, 
+predictors containing network topological features          struction integrated network gene interactions cellular localization biological process infor-      requires large experimental interaction data
+mation. Interestingly, showed prediction        currently available limited number performances predictor containing network            organisms.
+topological predictions predictor containing cellular localization biological process information          prediction essential genes newly similar. knowledge, time       sequenced organisms, example, impractical Gene Ontology terms related cellular localization         approach.  integration approach biological process shown useful predictors            computational-based methods gene annotation
+essential genes.                                                 (ii) computational-based methods construc-
+                                                                 tion integrated networks predicted gene interactions addition prediction essential genes,      type interaction (protein physical, meta-
+devise cellular rules gene essentiality using       bolic transcriptional regulation interactions) network topological features, cellular localization          distinguished rise purely
+biological process information training data gener-       silico network topology, cellular localization bio-
+ation decision trees  details section "Cellular        logical process information-based methodology pre-
+rules gene essentiality"). discovered            diction essential genes. methodology number protein physical interactions, nuclear local-      totally independent experimental interaction data 
+ization number regulating transcription factors       accordingly, unbiased essential genes-driven experi- important factors determining gene essentiality.             ments.
+
+
+                                                                                                                     Page 13 18
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                               http://www.biomedcentral.com/1471-2105/10/290
+
+
+ summary, despite limitations discussed           connected metabolites (ADP, ATP, H+, H2O, NADP+, demonstrate integration network topo-          NADPH, orthophosphate pyrophosphate) logical features, cellular localization biological proc-     original metabolic model iND750.
+ess information capable predict essential genes. work, tested predictive performance          final integrated network gene interactions (INGI)
+integration S. cerevisiae, envisage   yeast result integration protein physical,
+useful predict essential genes organism     metabolic transcriptional regulation interactions
+purely computational-based prediction approach, sug-          datasets genes common datasets. gested  used.                                           performing integration, converted yeast gene
+                                                                 names systematic names- provided Sac-
+Methods                                                          charomyces Genome Database (SGD) Nomenclature
+Generation set training features                       Conventions [23]- avoid creation false interac-
+Network topological features                                     tions gene ambiguity. Genes classified order compute network topological features used        dubious, e., genes unlikely encode expressed pro- training features predicting essential genes,    tein considered biologically significant SGD,
+constructed integrated network gene interactions        removed final INGI.
+S. cerevisiae based assumption genes, g1 g2,
+coding respectively proteins p1 p2, interacting      gene g yeast INGI, computed genes   p1 p2 interact physically (protein physical     network topological features listed Additional file 1.
+interaction), (ii) transcription factor p1 directly regu-    Briefly, degree centrality defined number links
+lates transcription gene g2, e., p1 binds pro-   node  case, gene). considered type moter region g2 (transcriptional regulation interaction),     interaction distinct measure degree described (iii) enzymes p1 p2 share metabolites, e.,        Additional file 1. Clustering coefficient (c) node  product generated reaction catalyzed enzyme p1        case, gene) quantifies close node used reactant reaction catalyzed enzyme p2            neighbors clique, e., nodes connected
+(metabolic interaction).                                         nodes. yeast INGI, c defined proportion
+                                                                 links genes neighborhood g
+Yeast protein physical interactions data obtained           divided number links possibly exist Biological General Repository Interaction            Betweenness centrality reflects role
+Datasets (BioGRID) database, repository literature-         played node  case, gene) global net-
+curated protein physical genetic interactions [51].       work architecture  yeast INGI, defined downloaded database release 2.0.42 July 2008          fraction shortest paths gi gj passing
+removed entries related genetic interactions. Yeast       g. computed betweenness centrality based
+transcriptional regulation interactions obtained            shortest paths types interaction (inbet) Yeast Search Transcriptional Regulators         based shortest paths type interaction
+Consensus Tracking (YEASTRACT) database, curated               (inbetppi, inbetmet inbetreg). Closeness centrality (cent)
+repository regulatory associations transcrip-         measures close node  case, gene) tion factors target genes Saccharomyces cerevisiae        network  yeast INGI, defined [52]. using utility "Generate Matrix Regulation"       mean shortest path g genes YEASTRACT website, generated downloaded             reachable  Identicalness number genes
+regulation matrix containing documented transcrip-          identical network topological characteristics. tional regulation interactions determined direct exper-       network topological features, imental evidence.                                                betweenness centrality-related features, calculated                                                                  program written Mathematica® 6.0 notebook. Yeast metabolic interactions extracted met-        betweenness centrality-related features calculated abolic model iND750 Saccharomyces cerevisiae [11]        Python package NetworkX [54].
+code implemented Mathematica® 6.0 (Wolfram
+Research, ). excluded metabolic interactions        Cellular localization biological process annotation yeast genes
+generated called "currency metabolites", abun-         determined cellular component yeast
+dant molecular species present cell          gene product acts biological process time   unlikely impose           yeast gene involved using Saccharomyces
+straints dynamics metabolic reactions.          Genome Database (SGD) Gene Ontology   Slim feature currency metabolites, functionality       Mapper [55]. SGD Slim Mapper maps annota- network better represented             tions group genes general terms.
+[53]. considered currency metabolites          Slim sets available SGD, selected cellular
+
+
+                                                                                                                        Page 14 18
+                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                              http://www.biomedcentral.com/1471-2105/10/290
+
+
+
+component biological process terms Super             tion essential genes. classifiers evalu- Slim set, collection high-level terms. cel-        ated, provided best performance lular localization annotation, genes annotated terms           ensemble decision tree algorithms using "cytoplasm", "endoplasmic reticulum",                 meta-classifier "Vote", WEKA's implementation "mitochondrion" "nucleus" reannotated             voting algorithm combines output predictions of terms new term named  localiza-            classifier different rules [57]. combined tion". biological process annotation, genes annotated         classifiers average rule, output predic- terms "cell cycle", "metabolic process", "sig-     tions computed individual classifiers class
+nal transduction", "transcription" "transport"           averaged average used decision [57].
+reannotated terms new term named          classifiers composing model  (1) REPtree
+ process".                                                  [56], (2) naive bayes tree [58], (3) random tree [56], (4)
+                                                                  random forest [59], (5) J48, WEKA's implementation Classifier design, training evaluation                        C4.5 decision tree [46], minimum number 32
+Construction datasets classifier training evaluation   instances leaf, (6) best decision tree mini- defined "essential genes" genes dele-           mum number 32 instances terminal nodes [60],
+tion leads inviable yeast organism cultured rich         (7) logistic model tree [61] (8) alternating decision
+glucose medium. obtained dataset containing            tree 25 boost iterations [62]. addition, applied
+classification yeast genes essential non-essential       bootstrap aggregating (bagging) approach [63] Giaever et al. [4]. downloading dataset,        classifier. Parameters values classifier pro-
+removed genes classified dubious SGD            vided Additional file 6.
+converted remaining genes systematic
+names provided SGD Nomenclature Conven-                 Classifier training evaluation
+tions [23].                                                       10 balanced datasets, trained clas-
+                                                                  sifier half entries half used eval- dataset classified genes imbalanced dataset,     uate classifier performance, totaling 10 runs e., number non-essential genes larger       training evaluation. runs, generated number essential genes, known         receiver operating characteristic (ROC) curve calcu-
+data imbalance degrades performance machine                lated area ROC curve (AUC). ROC curve
+learning algorithms [17], built balanced datasets         plot true positive rate versus false positive rate original imbalanced dataset using undersam-             indicates probability true positive prediction
+pling scheme follows: (1)  split dataset       function probability false positive predic-
+classified genes subsets: "essential genes set",         tion possible threshold values [64]. AUC widely
+containing 1,024 essential gene entries, "non-essen-          used summary measure ROC curve equiva-
+tial genes set", containing 4,097 non-essential gene              lent probability randomly chosen negative
+entries; (2) second, selected entries essen-      example  case, non-essential gene) tial genes set (1,024 entries) randomly selected 1,024        smaller estimated probability belonging positive
+entries non-essential genes set; (3) cre-        class randomly chosen positive example  ated balanced dataset containing 2,048 selected           case, essential gene) [65].
+entries random distribution essential gene non-essential gene entries. procedure repeated           used web server version StAR (Statistical
+10 times order generate 10 different balanced data-         Analysis ROC curves) software [24] calculating sets containing different sets non-essential gene entries.     true false positive rates AUC values                                                                   generating ROC curves. statistical comparison compare predictability essential genes indi-         AUC values derived different datasets vidual training features different groups         performed StAR means nonparametric statisti-
+training features, generated, balanced data-          cal method based Mann-Whitney U-statistic sets, different subsets containing different combinations         comparing distributions values samples [18] training features detailed Additional file 2.            significance level (P) 0.01.
+
+Classifier design                                                 Determination rules gene essentiality used WEKA (Waikato Environment Knowledge                   determination rules gene essentiality 
+Analysis) software package, collection machine learn-        formed analyzing decision trees generated ing algorithms data mining tasks [56], designing,         training J48 algorithm balanced datasets containing
+training evaluating classifiers applied predic-        training data. used different values 
+
+
+                                                                                                                     Page 15 18
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2009, 10:290                                                                   http://www.biomedcentral.com/1471-2105/10/290
+
+
+
+parameter "number objects leaf" J48 algorithm generating different types decision trees: 64                          Additional file 5 detailed trees 128 simplified trees                                 J48 decision trees. file contains 10 decision trees generated [56]. balanced dataset,  obtained                                training J48 algorithm 10 balanced datasets available
+                                                                                      data learning attributes. Decision trees represented text format
+decision trees (detailed simplified) manually                                 (raw output generated WEKA).
+inspected 20 generated decision trees determin-                           Click file
+ing general rules gene essentiality. remaining                            [http://www.biomedcentral.com/content/supplementary/1471-
+parameters values producing decision trees J48                                 2105-10-290-S5.PDF]
+algorithm training provided Additional file 6 decision trees provided text format                             Additional file 6
+Additional file 5.                                                                    Parameters used train meta-classifier J48. File containing
+                                                                                      parameters values used train meta-classifier essential gene
+                                                                                      prediction parameters values used train J48 algorithm Authors' contributions                                                                generate decision trees discovery cellular rules essentiality.
+MLA obtained interaction data, constructed net-                               Click file
+work, designed analyzed classifier performance,                               [http://www.biomedcentral.com/content/supplementary/1471-
+pursued biological interpretation results                                  2105-10-290-S6.PDF]
+drafted manuscript. NL conceived, designed directed project implemented program cal-
+culation network topological features. authors read approved final manuscript.
+
+ individual small sets network topological features. File containing
+                                                                               
+ ROC curves classifiers trained datasets learning attributes           
+ different sets network topological features set lacks    
+ topological features small group 2-4 topological features.       
+ Click file                                                                
+ [http://www.biomedcentral.com/content/supplementary/1471-               
+ 2105-10-290-S3.PDF]                                                            
+ Additional file 4                                                                   
+ List 470 yeast genes predicted non-essential. Tab-limited              
+ text file containing 470 genes classified non-essential           
+ essentiality scores, actual essentiality statuses  applicable,              
+ Pubmed references showing essentiality statuses.                               
+ Click file                                                                   
+ 

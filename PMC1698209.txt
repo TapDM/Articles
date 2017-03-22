@@ -1,0 +1,511 @@
+JOURNAL BACTERIOLOGY, Dec. 2006, p. 8259–8271                                                                               Vol. 188,  23
+0021-9193/06/$08.00⫹0 doi:10.1128/JB.00740-06
+Copyright © 2006, American Society Microbiology. Rights Reserved.
+
+
+
+        Experimental Computational Assessment Conditionally
+                    Essential Genes Escherichia coli䌤
+ Andrew R. Joyce,1,2† Jennifer L. Reed,2† Aprilfawn White,3,4 Robert Edwards,5,6 Andrei Osterman,6,7
+  Tomoya Baba,8 Hirotada Mori,8,9 Scott  Lesely,3,4 Bernhard Ø. Palsson,2* Sanjay Agarwalla3,4*†
+    Program Bioinformatics, University California, San Diego, La Jolla, California 920931; Department Bioengineering, University             California, La Jolla, California 920932; Joint Center Structural Genomics3 Genomics Institute                    Novartis Research Foundation, San Diego, California 921214; Center Microbial Sciences,
+                      San Diego State University, San Diego, California 921825; Fellowship Interpretation                          Genomes, Burr Ridge, Illinois 605276; Burnham Institute Medical Research, La Jolla,
+                          California 92037;7 Graduate School Biological Sciences, Nara Institute Science                                    Technology (NAIST), Ikoma, Nara, Japan8; Advanced Institute                                       Biosciences, Keio University, Tsuruoka, Yamagata 997-0017, Japan9
+                                             Received 22 2006/Accepted 9 September 2006
+
+             Genome-wide gene essentiality data sets available Escherichia coli, data sets           analyzed context genome scale model.  present integrative model-driven analysis
+          Keio E. coli mutant collection screened study glycerol-supplemented minimal medium.           3,888 single-deletion mutants tested, 119 mutants unable grow glycerol minimal medium.           conditionally essential genes evaluated using genome scale metabolic transcriptional-regula-
+          tory model E. coli, model correct prediction ⬃91  cases.           discrepancies model predictions experimental results analyzed indicate           model improvements current literature lacks explanation observed
+          phenotypes. identified set essential genes model-based analysis indicates current
+          understanding roles essential genes play relatively clear complete. Furthermore,           analyzing data set terms metabolic subsystems multiple genomes, project           metabolic pathways likely play equally important roles organisms. Overall, work establishes
+          paradigm drive model enhancement simultaneously generating hypotheses ultimately
+          lead better understanding organism.
+
+
+   advent genome sequencing high-                     sion 479 906 metabolic genes (6). COBRA
+throughput experimental technologies provides level                   methods available predict metabolic reg-
+measurements driving efforts develop computa-                    ulatory genes required growth given environ-
+tional models cell. constraint-based reconstruction               mental conditions (7, 11, 43, 44). analysis (COBRA) approach (36) emerged recent                        Knowledge genes organism essential years successful approach modeling systems ge-                  conditions essential fundamental nome scale. COBRA approach begins developing                      practical importance. knowledge provides metabolic network reconstruction based annotated                      unique tool refine interpretation cellular networks
+genome sequence, known biochemistry, physio-                       map critical points networks. Examples logical data (38). Known constraints, enzymatic-                     applications information useful include
+reaction reversibility maximum flux capacity,                   engineering industrial microbial strains, developing
+imposed network reconstruction generate model                    novel anti-infective agents. importance emerging defines attainable network states (36). current                   field devoted investigations gene essentiality widely
+metabolic regulatory model Escherichia coli contains                  accepted, witnessed rapid accumulation genome-
+932 unique metabolic reactions Boolean logic state-                      wide essentiality data, available ments 104 transcription factors regulate expres-                 model pathogenic microbial species (1, 3, 16, 17, 19, 25, 27,
+                                                                             30, 42, 45, 48).
+                                                                                modeling perspective, major limitation pre-
+   * Corresponding author. Mailing address Bernhard Palsson              vious gene essentiality studies E. coli (computational work): Department Bioengineering, University            performed using partial (18, 24, 52)  e., mutants
+California, San Diego, 9500 Gilman Dr. MC 0412, La Jolla, CA 92093-
+0412. Phone: (858) 534-5668. Fax: (858) 822-3120. E-mail: palsson            evaluated) heterogeneous (“historical�? single-gene
+@ucsd.edu. Mailing address Sanjay Agarwalla (experimental                studies variety strains conditions compiled work): Genomics Institute Novartis Research Foundation,           Profiling E. coli Chromosome database [http://www.shigen
+10675 John Jay Hopkins Drive, San Diego, CA 92121. Phone: (858)              .nig.ac.jp/ecoli/pec/]) data. Data provided published
+812-1500. Fax: (858) 812-1502. E-mail: sagarwalla@gnf.org.
+   † Andrew R. Joyce, Jennifer L. Reed, Sanjay Agarwalla 
+                                                                             genome scale genetic-footprinting study E. coli (16) tributed equally work.                                               generally amenable immediate model-based interpreta-
+   䌤
+     Published ahead print 29 September 2006.                          tion,   captured complex phenotype (fitness
+
+                                                                      8259
+ 8260       JOYCE ET AL.                                                                                                                                 J. BACTERIOL.
+
+ competitive growth environment) (ii) ob-                           screen yielded 230 deletion mutants slow growth tained undefined rich medium.                                                     M9-glycerol medium. secondary screen using procedure 
+                                                                                     peated subset mutants, using average OD    recent release complete collection vi-                        cutoff yielded final set 119 E. coli deletion mutants represented
+able single-gene knockout E. coli strains (1) opened                          conditionally essential complement genes required growth glycerol.
+opportunity systemic, genome scale gene essentiality                             second round screening confirmed genuine hits eliminated false
+studies minimal defined growth media. group                               nonreproducible hits. liter M9 medium (Sigma catalog  6030)
+                                                                                     contained Na2HPO4 · 7H2O (6.8g), KH2PO4 (3g), NaCl (0.5g), NH4Cl (1g),
+responsible generating valuable resource 
+                                                                                     MgSO4 (2 mM), CaCl2 (0.1 mM), glycerol (1 ), kanamycin (10 mg).
+ported genome scale conditional-essentiality screen                           comparison conditionally essential genes reported recently rich medium glucose-supplemented minimal                                   published data growth glucose-supplemented minimal medium (1), dium (1). study, used strain collection                           selected 119 slowest growers based observed OD 24 h. set
+integrate high-throughput experimental data computa-                             coincidently included nearly strains                                                                                      average OD 24 h strains tested.
+tional modeling assess E. coli gene essentiality growth                          Computational predictions essentiality. previously developed metabolic glycerol-supplemented minimal medium. results                              model E. coli (6, 39) used predict metabolic genes reactions conditional-essentiality screen analyzed                        essential growth glycerol minimal medium. model modified text current genome scale metabolic tran-                            account genetic differences MG1655 BW25113 recent
+scriptional regulatory model (6).                                                    changes genome annotation (40). metabolic reactions removed
+                                                                                     (L-arabinose isomerase, L-ribulokinase, rhamnulokinase, L-rhamnose isomerase,
+   systematic cross-validation genome scale gene essenti-                       rhamnulose 1-phosphate aldolase), associated genes (araBAD,
+ality data silico predictions play critical role                  rhaBAD, lacZ) absent BW25113 strain parental
+refining current metabolic reconstruction underly-                       background genetic manipulations. Based recent updates E. coli
+ing model. time, integrative analysis                      genome annotation (40), additional metabolic genes (dfp coaE)                                                                                      included metabolic model associating reactions
+assist data analysis interpretation structured-
+                                                                                     involved coenzyme (CoA) biosynthesis previously genes asso-
+network context. example, recent study utilized pre-                       ciated  Furthermore, atpI removed model, evidence
+viously described integrated E. coli transcriptional-regulatory                      suggested did participate ATP synthase complex (14). Additional metabolic model validate predictive capability                            changes genome annotation (40) merged (tdcG, araH, ytfR) 13,750 growth phenotypes corresponding 110 gene                           split (dgoAD glcEF) genes included model. result, 899
+                                                                                     metabolic genes accounted metabolic model additional 104
+knockout strains grown 125 different defined conditions                        transcription factors used combined metabolic regulatory model.
+(6). Discrepancies model predictions experi-                            Growth glycerol minimal medium simulated maximizing flux
+mental results pointed poorly understood metabolic reg-                        defined biomass objective function allowing uptake glycerol,
+ulatory events requiring experimental investigation.                         NH4, SO4, O2, Pi free exchange H⫹, H2O, CO2  reference
+                                                                                     39 details). biomass objective function specified define gene deletions evaluated previous study, 
+                                                                                     weighted consumption metabolites required generate cellular biomass.
+covered 11  genes included current                           Simulations conducted manner represent approximations maximum
+model.                                                                               attainable growth rate given environmental conditions model
+    identify set genes needed growth                           specifications.
+glycerol-supplemented minimal medium analyze                                 maximum growth rates gene knockout strains calculated                                                                                      gene independently removed network. simulating deletion sults using genome scale metabolic regulatory model.                        gene, associated reactions removed network approach useful rigorous global evalua-                        reactions isozymes. Gene deletions predicted maximum growth
+tion genome scale modeling predictive power                             rate zero categorized essential. evaluate effects transcrip-
+simultaneously identifying directions model improvement.                         tion factor mutants, combined metabolic regulatory model used                                                                                      evaluate deletion transcription factor lethal growth gene essentiality data obtained study generally
+                                                                                     glycerol minimal medium (6, 39). regulatory model contains Boolean logic good agreement model predictions,                        statements describing transcription factors environmental conditions results previously reported screen glucose-sup-                        needed metabolic genes expressed (7, 8). calculations plemented minimal medium (1). work represents                               metabolic model using SimPheny (Genomatica, San Diego, CA), thorough assessment gene gene basis E.                           LINDO (Lindo Systems, , Chicago,  used calculate growth rates                                                                                      combined metabolic regulatory model.
+coli constraint-based metabolic model model-
+                                                                                        Cross-genome comparison conditionally essential genes. used based evaluation truly genomewide gene essentiality                             SEED genomic platform (http://theseed.uchicago.edu/FIG/index.cgi) cross-
+screen single defined minimal medium E. coli.                               genome comparison metabolic subsystems implicated set condition-
+                                                                                     ally essential E. coli genes identified study. subsystem defined                                                                                      SEED environment collection functional roles (enzymes, transporters,                         MATERIALS METHODS
+                                                                                     regulators) known involved defined biological process,    High-throughput phenotyping E. coli gene knockout collection.         subnetwork  cluster pathways) associated particular aspect metab-
+cently described collection 3,888 E. coli single-gene deletion mutants        olism (e.g., glycolysis) (34). populated subsystem defined table constructed (1; http://ecoli.naist.jp/) method Datsenko Wanner (9).    tentative role gene connections asserted curators broad range determine phenotypes deletion mutants M9 minimal medium             species containing functional variant subsystem (51). study, taining glycerol carbon source, mutants inoculated LB medium      used SEED tools generalize data described essentiality presence kanamycin (30 mg/liter) using 96-pin tool grown        screen broader phylogenetic context. approach circumvents certain
+overnight 37°C. overnight cultures washed twice phosphate-          limitations traditional gene gene comparisons, reported cases
+buffered saline inoculated glycerol-supplemented M9 liquid medium        reaction functional role implemented nonortholo- kanamycin. liquid culture grown 37°C agitation        gous enzymes different species (28).
+24 h, optical density (OD) measured 600 nm. ODs             Briefly, table constructed relates conditionally essential genes  wells plate averaged, mutants wells          identified experiment predicted computational modeling) average OD considered nongrowers slow growers.          SEED collection metabolic subsystems. analysis, table experiment triplicate, mutants         simplified set binary associations  gene “primary�? subsystem)
+average OD cutoff experiments selected. initial   limited approximately 20 key subsystems contained  VOL. 188, 2006                                                         COMPUTATIONAL ANALYSIS ESSENTIAL GENES E. COLI                                                         8261
+
+
+
+                                             TABLE 1. Essential genes growth glycerol minimal mediuma
+                 Group                                                                          Group
+                                                        Gene (Blattner )                                                                                     Gene (Blattner )
+
+Amino acid metabolism ....................................... argA (b2818)                                                                                        guaA (b2507)
+                                                              argE (b3957)                                                                                        guaB (b2508)
+                                                              argH (b3960)                                                                                        purA (b4177)
+                                                              aroA (b0908)                                                                                        purC (b2476)
+                                                              aroB (b3389)                                                                                        purD (b4005)
+                                                              aroC (b2329)                                                                                        purE (b0523)
+                                                              aroD (b1693)                                                                                        purF (b2312)
+                                                              aroE (b3281)                                                                                        purH (b4006)
+                                                              cysC (b2750)                                                                                        purK (b0522)
+                                                              cysD (b2752)                                                                                        purL (b2557)
+                                                              cysE (b3607)                                                                                        purM (b2499)
+                                                              cysH (b2762)                                                                                        pyrB (b4245)
+                                                              cysI (b2763)                                                                                        pyrC (b1062)
+                                                              cysJ (b2764)                                                                                        pyrD (b0945)
+                                                              cysK (b2414)                                                                                        pyrE (b3642)
+                                                              cysN (b2751)                                                                                        pyrF (b1281)
+                                                              cysP (b2425)                                                                                        thyA (b2827)
+                                                              [cysQ (b4214)]
+                                                              glyA (b2551)            Cofactor production..................................................... folB (b3058)
+                                                              hisA (b2024)                                                                                     folP (b3177)
+                                                              hisB (b2022)                                                                                     iscC (b2530)
+                                                              hisC (b2021)                                                                                     nadA (b0750)
+                                                              hisD (b2020)                                                                                     nadB (b2574)
+                                                              hisE (b2025)                                                                                     nadC (b0109)
+                                                              hisG (b2019)                                                                                     panB (b0134)
+                                                              hisH (b2023)                                                                                     panC (b0133)
+                                                              hisI (b2026)                                                                                     panD (b0131)
+                                                              ilvA (b3772)                                                                                     pdxA (b0052)
+                                                              ilvB (b3671)                                                                                     pdxB (b2320)
+                                                              ilvC (b3774)                                                                                     pdxH (b1638)
+                                                              ilvD (b3771)                                                                                     pdxJ (b2564)
+                                                              leuA (b0074)                                                                                     ubiG (b2232)
+                                                              leuB (b0073)                                                                                     ubiH (b2907)
+                                                              leuC (b0072)
+                                                              leuD (b0071)            Regulatory proteins...................................................... cysB (b1275)
+                                                              lysA (b2838)                                                                                      fruR (b0080)
+                                                              metA (b4013)                                                                                      [leuL (b0075)]
+                                                              metB (b3939)                                                                                      metR (b3828)
+                                                              metC (b3008)
+                                                              metF (b3941)            Transport ....................................................................... crr (b2417)
+                                                              metL (b3940)                                                                                              cysA (b2422)
+                                                              pabA (b3360)                                                                                              cysU (b2424)
+                                                              pabB (b1812)                                                                                              [fes (b0585)]
+                                                              pheA (b2599)                                                                                              ptsI (b2416)
+                                                              proA (b0243)
+                                                              proB (b0242)            ............................................................................ atpA (b3734)
+                                                              proC (b0386)                                                                                                atpB (b3738)
+                                                              serA (b2913)                                                                                                atpC (b3731)
+                                                              serB (b4388)                                                                                                atpF (b3736)
+                                                              serC (b0907)                                                                                                atpG (b3733)
+                                                              thrA (b0002)                                                                                                atpH (b3735)
+                                                              thrB (b0003)                                                                                                glmM (b3176)
+                                                              thrC (b0004)                                                                                                glnA (b3870)
+                                                              trpA (b1260)                                                                                                glpD (b3426)
+                                                              trpB (b1261)                                                                                                glpK (b3926)
+                                                              trpC (b1262)                                                                                                gltA (b0720)
+                                                              trpD (b1263)                                                                                                icd (b1136)
+                                                              trpE (b1264)                                                                                                ppc (b3956)
+                                                              tyrA (b2600)                                                                                                [prfB (b2891)]
+                                                                                                                                                                          [rpsU (b3065)]
+Purine pyrimidine biosynthesis.................... carA (b0032)                                                                                                       [yhhK (b3459)]
+                                                       carB (b0033)                                                                                                       [yjhS (b4309)]
+        119 genes identified required growth glycerol M9 minimal medium divided groups based shared annotations properties. 26 genes appear bold-face represent genes predicted essential model associated essential reactions (described text Table 2). seven genes brackets essential genes identified study appear model.
+ 8262       JOYCE ET AL.                                                                                                                   J. BACTERIOL.
+
+
+
+
+  FIG. 1. Comparisons experimental data model predictions gene essentiality minimal-medium conditions. silico gene
+deletion studies carried evaluating effect deleting gene model. model unable generate biomass
+components gene deletion, determined flux balance analysis, mutant considered lethal. Experiments conducted testing growth glycerol-supplemented minimal medium using 3,888 mutants viable grown rich medium. total, 819 896 mutants (91 ) showed growth behaviors glycerol minimal medium agreement computational predictions.
+KO, knockout.
+
+
+ experimentally defined essential genes. examined operational vari-        experimental data. addition, essential genes identified ants subsystems  defined subsystem curator) diagnostic set    study compared gene essentiality data growth 31 species available completely sequenced genomes spanning known bacterial phylogeny. illustrative purposes, used set                                                                                       glucose-supplemented minimal medium (1), phy-
+genomes previous analysis genetic-footprinting data (16)  sup-       logenetic distribution multiple genomes evaluated.
+plementary Table 4 [http://systemsbiology.ucsd.edu/publications/supplemental             Experimentally essential genes growth glycerol min-
+_material/JBact2006/]). simplified analysis, monitored pres-     imal medium. 3,888 single-gene deletion E. coli mutants
+ence absence minimal functional variant subsystem genome set. results hierarchically clustered visualization
+                                                                                      viable rich medium screened study, 119 analysis purposes  Fig. 6) using Hamming distance metric              reproducibly incapable growth glycerol minimal medium
+average linkage.                                                                      (Table 1; complete results, supplementary Tables 1
+   Quantitative RT-PCR measurements gene expression. Real-time RT-PCR              2 [http://systemsbiology.ucsd.edu/publications/supplemental used quantify gene expression levels genes related glycerol metab-
+                                                                                      _material/JBact2006/]). conditionally essential
+olism (glpK, glpD, glpB, gpsA, gldA, dhaM). Total RNA extracted cells harvested mid-log-phase cultures E. coli strain BW25113 (9) grown       genes involved core metabolic processes: amino acid glucose-supplemented (A600 ⬇ 0.5) glycerol-supplemented (A600 ⬇ 0.3)           metabolism (59 genes), nucleotide metabolism (19 genes), 
+M9 minimal medium (2 g/liter). Triplicate RNA samples (biological replicates)         factor metabolism (15 genes), transport (5 genes). Seven- stabilized using RNAProtect Bacterial Reagent (QIAGEN) isolated
+                                                                                      teen genes involved miscellaneous processes, using RNeasy mini kit (QIAGEN). Synthesis cDNA performed using
+SuperScript III (Invitrogen) purified using QIAquick PCR Purification         regulatory genes conditionally es-
+kit (QIAGEN).                                                                         sential.
+   resulting cDNA samples used subsequent real-time reverse tran-            seven (cysQ, fes, leuL, prfB, rpsU, yhhK, yjhS) scription (RT)-PCR assays using QuantiTect SYBR Green PCR kit                     119 identified essential genes accounted (QIAGEN) iCycler iQ (Bio-Rad). replicate measurements
+ technical replicates biological replicate) performed                                                                                       current metabolic regulatory model, genes assayed gene growth conditions. acyl carrier protein (ACP)-            encode metabolic enzymes transcription factors known
+encoding gene acpP used reference assay. standard curve       functions. specific role cysQ sulfate assimilation
+generated varying amounts genomic DNA fixed primer concentrations          unknown (33), important component cysteine used calculate primer efficiencies. reported relative expression
+levels gene determined normalizing cDNA
+                                                                                      biosynthesis. fes important iron transport utilization
+product acpP cDNA quantified cDNA sample.                            ions low-concentration environments, used                                                                                       minimal-medium study (10). Alteration transcriptional
+                                                                                      attenuation (32) mediated regulation leuLABCD operon
+                                  RESULTS
+                                                                                      (50), encodes proteins critical leucine biosynthe-
+  evaluating single-gene deletion strains growth glyc-                      sis, likely explains essentiality leader peptide
+erol-supplemented minimal medium, identified genes es-                             encoded leuL. nonmodel genes encoding PrfB
+sential growth minimal-medium environment                            peptide chain release factor) RpsU (30S ribosomal essential rich-medium environment. genome scale                            subunit S21), observed conditional essentiality metabolic regulatory model used evaluate data                          uncharacterized genes yhhK  putative acyltransferase) identify discrepancies model                           yjhS, readily interpreted exper-
+ VOL. 188, 2006                                                      COMPUTATIONAL ANALYSIS ESSENTIAL GENES E. COLI                                            8263
+
+
+            TABLE 2. Discrepancies experimental identification model prediction essential nonessential genesa
+                   Rationale                                          Subsystem                                            Gene(s) (Blattner )
+
+False negatives
+  Molecules included biomass                   Ubiquinone biosynthesis                        ubiG (b2232); ubiH (b2907)
+                                                      Pyridoxine biosynthesis                        pdxA (b0052); pdxB (b2320); pdxH (b1638); pdxJ (b2564)
+                                                      Thiamine biosynthesis                          iscC (b2530)
+  Model includes alternative pathways/                Amino acid biosynthesis                        carA (b0032); carB (b0033); glpD (b3426); glyA (b2551);
+   isozymes                                                                                             proA (b0243); proB (b0242); thrB (b0003); thrC (b0004)
+  Model predicts impaired lethal              ATP synthase                                   atpA (b3734); atpB (b3738); atpC (b3731); atpF (b3736);
+   phenotype                                                                                            atpG (b3733); atpH (b3735)
+  Regulatory effect glpK                           PTS/PEP metabolism                             crr (b2417); glpK (b3926); ppc (b3956); ptsI (b2416); fruR
+                                                                                                        (b0080)
+
+False positives
+  Model biomass components                      Fatty acid lipid biosynthesis              cls (b1249); fabF (b1095)
+    essential components                 Glycogen                                       glgA (b3429); glgC (b3430)
+                                                      LPS synthesis                                  dgkA (b4042); gmhA (b0222); gmhB (b0200); lpxL
+                                                                                                        (b1054); msbB (b1855); rfaC (b3621); rfaD (b3619);
+                                                                                                        rfaE (b3052); rfaF (b3620); rfaG (b3631); rfaI (b3627);
+                                                                                                        rfaJ (b3626); rfaL (b3622)
+                                                      Spermidine synthesis                           pfs (b0159); speD (b0120); speE (b0121)
+  Unaccounted transport mechanisms                Ammonium transport                             amtB (b0451)
+                                                      Glycerol transport                             glpF (b3927)
+                                                      Sulfate transport                              cysW (b2423)
+  Unaccounted metabolic enzymes                   Arginine biosynthesis                          argB (b3959); argC (b3958); argD (b3359); argG (b3172)
+                                                      Aspartate biosynthesis                         aspC (b0928)
+                                                      Branced amino acid biosynthesis                ilvY (b3773); ilvE (b3770); lrp (b0889)
+                                                      Central metabolic                              aldA (b1415)
+                                                      Cofactor biosynthesis                          coaA (b3974); coaE (b0103); pabC (b1096)
+                                                      Glycolytic                                     pgi (b4025)
+                                                      Lysine biosynthesis                            dapF (b3809); ushA (b0480); lysR (b2839)
+                                                      Nucleotide biosynthesis salvage            pyrI (b4244); trxB (b0888); ndk (b2518)
+      false-negative cases model incorrectly predicted growth gene deletion strain identified, addition 42 false-positive cases model incorrectly predicted genes essential. case grouped based likely rationale discrepancy gene functional
+annotation.
+
+
+
+
+imental investigation. remaining 112 essential genes                            indicating expression alternative isozyme-encoding
+nonessential genes compared predictions                             genes sufficient compensate growth glycerol current metabolic regulatory model.                                             minimal medium. Alternatively, cases point    Model-based evaluation essential genes. Given                           incorrect functional assignment paralogs. essential genes involve metabolic genes metabolic                               leaves 26 essential genes unexplained model, regulators, conducted detailed comparison exper-                            experimentally observed essential genes associated
+imentally observed computationally predicted essential                              predicted nonessential model genes (Table 2 supple-
+genes (Fig. 1 Table 1). Computational analysis single-                           mentary Table 3 [http://systemsbiology.ucsd.edu/publications
+gene deletion events predicted 182 genes (177 metabolic 5                           /supplemental_material/JBact2006/]). genes 26
+regulatory genes) lethal required growth                          discrepancies (atpA, atpB, atpC, atpF, atpG, atpH) glycerol minimal medium. Nearly half genes                          ATP synthase complex. According model, predicted essential model transportable                        deletion ATP synthase reaction lethal metabolites allowed taken cell simulta-                            reduce maximum growth rate ⬃75 , neously, likely essential growth rich                          close viability threshold used study.
+medium,  182 model-predicted lethal mu-                               Interestingly, components ATP synthase
+tants, 63 present analyzed collection.                         complex (atpD atpE) deemed nonessential fraction missing mutants reflect technical fail-                         experimental screen.
+ures, associated genes expected                                additional large subset discrepancies (9 26)
+essential environmental conditions. genes                            appear caused existence alternative pathways
+typically responsible producing essential metabolites                          available metabolic model genes salvaged rich medium.                                               probably expressed vivo conditions    shown Fig. 1, ⬃69  experimentally identified                            screen. example, proA proB functionally 
+ditionally essential genes covered model (77 112)                             placed model combined action argA, argB, predicted essential evaluating silico single-                          argC, argE gene products proline biosynthesis, gene deletions. additional 8  experimentally essential                            result production glutamate-5-semialdehyde
+genes (9 112) correctly predicted model                           (Fig. 2).  alternate pathway observed experi- essential additional isozymes present, possibly                          mentally double-deletion strains, argD dele-
+ 8264      JOYCE ET AL.                                                                                                            J. BACTERIOL.
+
+
+                              argA                                          accumulation PEP, allosterically inhibits glycolytic
+          L-glutamate                                                       enzymes, Pgi Pfk (12). inhibition                      proB              argB                                 lead increase Pgi Pfk metabolic intermediates,
+                                                                            including fructose 1,6-bisphosphate, potent allosteric 
+                                                                            hibitor GlpK (22) (Fig. 4).
+                     proA     argE     argC                                    PTS genes, ptsI crr, detected discrep-
+                                                                            ancies study, model predicts observed
+                                                                            essential gene nonessential. PTS enzyme  encoded              Spontaneous
+               Reaction                argD                                 ptsI, phosphorylated reaction PEP step
+                                                                            PTS, crr encodes PTS glucose-specific enzyme IIA
+                                                                            (EIIAGlc), intermediate transfers                       proC             argE
+                                                                            PTS phosphate glucose. EIIAGlc central regulatory
+              L-proline                                                     molecule E. coli metabolism (35), unphosphory-
+                                       argF                              lated form, EIIAGlc binds allosterically inhibits GlpK,                                         argI                                ultimately impeding glycerol uptake metabolism (21, 22).
+                                                 L-aspartate                Phosphorylation EIIAGlc releases GlpK,  fa-
+                                                                            cilitates normal glycerol uptake metabolism.                                         argG
+                                                                            ptsI deletion interfere transfer phosphate
+                                                                            EIIAGlc block release GlpK inhibition.                                        argH                                 deletion crr difficult explain context,                                                                             expect resultant constitutive relief EIIAGlc
+                      L-arginine                 Fumarate                   inhibition lead enhanced glycerol uptake metab-
+                                                                            olism. observed essentiality crr likely stems                                                                             general disruption critical cellular roles. exam-
+                                                                            ple, phosphorylation EIIAGlc activates adenylate cyclase,
+   FIG. 2. Essential genes involved arginine proline biosynthe-      accordingly, crr mutant reduced cyclic AMP levels
+sis. map shows biosynthesis pathway conversion           (29), likely resulting potentially harmful pleiotropic effects
+glutamate (upper left) arginine proline. Red arrows used indicate reactions associated experimentally identified es-      improper global gene regulation crp. Despite sential gene glycerol-supplemented minimal medium, gray            readily explained results, rationale arrows indicate reactions associated gene(s) experimen-     observed nonessentiality ptsH cyaA, encode tally nonessential. Associated genes listed correspond-   PTS protein HPr adenylate cyclase, respectively.
+ing reactions ( ? indicates gene encodes isozymes). Gene
+                                                                               Model-based evaluation nonessential genes. addition
+names listed black indicate model makes incorrect
+prediction regarding essentiality, gray indicate         strong correlation conditionally essential genes,
+model data agreement. genes proB proA           good agreement predicted ob-
+essential experimentally growth minimal medium,           served nonessential genes. 3,769 observed nonessential
+model predicts argA, argB, argC, argE used instead       genes, 784 represented model, ⬃95  (742 produce glutamate 5-semialdehyde proline biosynthesis.
+                                                                            784) correctly predicted nonessential                                                                             model (Fig. 1). leaves 42 discrepancies (listed Table 2
+                                                                            supplementary Table 3 [http://systemsbiology.ucsd.edu
+tion leads increased levels N-acetylglutamic �?�-semialde-              /publications/supplemental_material/JBact2006/]) hyde, converted glutamate 5-semialdehyde                 model incorrectly predicts genes essential. argE, allowing compensation second dele-                 42 predicted essential genes identified experimental
+tion, proA proB (23).                                             screen involved biosynthesis biomass components,
+   subset discrepancies (7 26) associ-              lipopolysaccharide (LPS), spermidine, glycogen,
+ated biosynthesis vitamins cofactors: pyridoxal             fact essential biomass components. 5-phosphate (pdxABHJ), thiamine (iscS), ubiquinone                      example, known complete LPS required (ubiGH) (Fig. 3), largely reflecting fact need              growth (37).
+produce cofactors duly accounted                      biomass components like arginine lysine, ra-
+biomass objective function. ubiG ubiH gene products                 tionale observed discrepancies related ex- essential growth glycerol minimal medium,                  istence alternative reactions isozymes gene products involved ubiquinone biosynthesis                 unaccounted model. example, argD encodes
+pathway essential growth rich medium (1) (ubiA,               enzyme dual activity acetylornithine amino-
+ubiB, ubiD) essential             transferase (EC 2.6.1.11; required arginine biosynthesis)
+condition (ubiC, ubiX, ubiF).                                           N-succinyl-L,L-diaminopimelate aminotransferase (EC
+   discrepancies related phosphoenolpyruvate                     2.6.1.17; required lysine biosynthesis) predicted (PEP) metabolism PEP-carbohydrate phosphotrans-                     essential model. astC gene  known argM)
+ferase systems (PTS) likely resulted posttranscriptional               encodes enzyme succinyl- acetylornithine amino-
+regulation GlpK (glycerol kinase) accounted              transferase activities speculated N-suc- metabolic regulatory model. known deletion             cinyl-L,L-diaminopimelate aminotransferase activity, ppc (encoding enzyme PEP carboxykinase) leads                 (16). example, coaA coaE gene products
+ VOL. 188, 2006                                            COMPUTATIONAL ANALYSIS ESSENTIAL GENES E. COLI                              8265
+
+
+
+
+  FIG. 3. Model-based evaluation experimentally essential genes involved cofactor biosynthesis. map shows metabolic pathways
+involved vitamin cofactor metabolism, biosynthesis proceeds downward direction end products indicated pathway. Red blue arrows used indicate reactions associated experimentally identified essential genes glycerol minimal
+medium rich medium (1), respectively. Gray lines indicate cases gene(s) associated corresponding reaction experimentally nonessential. experimentally essential genes listed corresponding reactions. “&�? indicates genes
+form complex. pathways containing essential genes,  Gene�? designation placed reactions lack corresponding gene
+assignment. Gene names listed black indicate discrepancies model predictions experimental data  e., model predicts nonlethal phenotype growth glycerol minimal medium gene deletion lethal experimentally), genes gray indicate agreement
+ model data predict essentiality). Genes black gray reactions (coaA, coaE, aldA, pabC) indicate model predicts gene deletion essential corresponding mutant strain viable. Note unlabeled gray reactions represent agreement model prediction experimental data, associated gene(s) nonessential.
+
+
+ required produce CoA;  gene es-                   transporters computationally predicted sential rich medium glycerol minimal medium,               essential, glpF amtB. model remaining genes involved pathway essential (Fig.               transporters glycerol ammonia, respectively, 3). enzymes present carry                 compounds freely diffuse membrane vesicles (13, 26)
+essential reactions, likely apparent           transporters likely essential low
+bility strains (coaE)                solute concentrations. subsequently tested growth ca- unknown artifact, coaE gene  yacE)              pabilities ⌬glpF mutant  removal kan gene shown essential number mutant studies (16, 20).              previously described [9]) different concentrations glyc-
+ 8266      JOYCE ET AL.                                                                                                              J. BACTERIOL.
+
+
+
+
+   FIG. 4. Essential genes involved glycerol metabolism. pathway map center shows metabolic pathways involved steps glycerol metabolism. Red blue arrows used indicate reactions associated experimentally identified essential genes glycerol
+minimal medium rich medium (1), respectively. Gray lines indicate cases gene(s) associated corresponding reaction experimentally nonessential. Associated genes listed corresponding reactions ( ? indicates genes encode isozymes, “&�? indicates genes form complex). Gene names listed black indicate model makes incorrect prediction regarding
+essentiality, gray indicate model data agreement. phosphorylation dihydroxyacetone carried DhaKLM coupled PtsHI; genes, ptsI essential growth minimal medium. enzymes convert glycerol
+3-phosphate dihydroxyacetone phosphate, data indicate glpD essential gene. model predicts gene essential map glpF, glycerol transporter, conversion glycerol dihydroxyacetone phosphate proceed routes. plots results quantitative RT-PCR performed assess expression levels genes encode enzymes
+associated reactions map. Gene expression levels growth glucose-supplemented glycerol-supplemented M9 minimal
+medium reported relative levels control gene acpP (mean ⫾ standard error). gene expression data indicate GlpK-GlpD
+branch dominantly active growth glycerol-supplemented minimal medium, agreement conditional-essentiality data.
+
+
+
+
+erol confirm hypothesis. glycerol concentrations                Comparison genome scale conditional-essentiality data reduced  2 g/liter 0.25 g/liter), ⌬glpF mutant             sets. recently published description “Keio collec-
+strain increasingly lower growth rates BW25113                 tion�? (1), authors described conditional essentiality parental strain  supplementary figure [http:                        single-gene knockout strains grown glucose-sup-
+//systemsbiology.ucsd.edu/publications/supplemental_material                plemented minimal 3-N-(morpholino) propane sulfonate
+/JBact2006/]). glycerol concentration 0.125 g/liter,            (MOPS) medium. Using data set, identified 119
+parental strain able grow lower rate,                   slowest growers glucose-supplemented minimal medium growth ⌬glpF mutant strain abolished. Similar                   ranking ODs measured 24 h. purposes observations previous ammonium-limited                    analysis, subset represents conditionally essential genes
+growth experiments amtB mutants, speculated                  required growth glucose minimal medium. collec- 10 �?�M NH4⫹ concentrations needed                       tion conditionally essential genes largely overlaps glu-
+growth defects ⌬amtB strains (46).                                       cose-specific glycerol-specific data sets (Fig. 5). genes
+   Combined analysis essential nonessential genes               overlapping group primarily include 
+indicated total 68 discrepancies  ⬃8  total pre-               quired form biomass components absence rich
+dictions) experimental computational essentiality               medium, nucleotides amino acids, assignments (Table 2). discrepancies grouped                   needed generate required cofactors, NAD(P), CoA, types, pointing possible model improvements              folates, pyridoxal 5-phosphate. Accordingly, genes
+respect boundary conditions  formula essential bio-                represent conserved conditionally essential core 
+mass components), gene-reaction associations (annotations),                 quired E. coli grow minimally supplemented quantitative constraints passive uptake nutrients            growth conditions required growth rich
+(nonspecific transport).                                                     e., LB medium) conditions.
+ VOL. 188, 2006                                               COMPUTATIONAL ANALYSIS ESSENTIAL GENES E. COLI                       8267
+
+
+                                                                            dium formulations accounts fact fes (encoding                                                                             iron-scavenging protein) essential glycerol-supplemented
+                                                                            M9 medium MOPS-supplemented glucose medium.
+                                                                            glmM deletion previously reported essential
+                                                                            (31), agrees essentiality glmM reported                                                                             glycerol lethal data set represent false-negative
+                                                                            result glucose conditional-essentiality data set. ATP
+                                                                            synthase components different essen-
+                                                                            tiality results, atpABCFGH essential growth                                                                             glycerol atpBC essential growth glucose.
+   FIG. 5. Glycerol- versus glucose-supplemented minimal medium
+essential genes. overlap data set presented         minimal-medium conditions, ATP synthase
+work recently published data conditionally essential genes      component, atpD, essential. Finally, seven additional growth glucose-supplemented minimal medium (1) shown.           genes conditionally essential growth glycerol-sup-
+large majority conditionally essential genes consistent      plemented medium remain difficult explain. glycerol glucose data sets, relatively small fraction                                                                                Phylogenetic distribution conditionally essential sub-
+conditionally essential genes apparently specific growth condi-
+tion  Brief descriptions condition-specific essential   systems. analysis conditionally essential genes genes provided left (glycerol specific) right (glucose       context metabolic subsystems described SEED pro-
+specific) Venn diagram, detailed treatment pro-        jected diagnostic set 31 diverse bacterial genomes vided text.                                                          illustrated Fig. 6. subsystems contained
+                                                                            experimentally defined genes conditionally es-
+                                                                            sential growth glycerol minimal medium shown.
+   Relatively genes conditionally essential growth              Overall, 103 119 experimentally essential genes  glucose relative growth glycerol (Fig. 5).               11 additional genes predicted model essential)
+glucose-specific conditionally essential genes 10              covered small set 18 subsystems  complete
+simply slow growers, ODs 48 h substan-               list gene subsystem correspondences provided sup-
+tially increased. Furthermore, (argB, argC, metE)                 plementary Table 4 [http://systemsbiology.ucsd.edu/publications likely false positives, given nonessentiality inde-           /supplemental_material/JBact2006/]).
+pendent phenotype microarray screens (18, 24),                       deliberately simplified analysis masks substan-
+(argG) agrees prior studies (24). interesting             tial differences specific variants subsystems  biotin biosynthesis-related genes essential            pathways) implemented different species, reveals glucose- glycerol-supplemented growth minimal                 important trends.  majority organisms possess medium. discrepancy involving biotin biosynthesis                  operational variant conditionally essential
+genes indicate unidentified source biotin                  subsystems. surprisingly, group organisms lack
+glycerol essentiality screens. additional genes (ilvE, cysG,           functional versions essential subsystems, al-
+ubiE, exoX, hflD) glucose-specific essential genes,            beit phylogenetically quite diverse, obligate pathogens rationale conditional essentiality                symbionts, intracellular. particular, mains unclear.                                                              species (Borrelia burgdorferi, Chlamydia trachomatis, Myco-
+   equal number genes observed essen-                 plasma pneumoniae, Rickettsia prowazekii, Treponema pal-
+tial growth glycerol opposed specific growth                lidum) lack functional variants sub-
+glucose. genes set glycerol-specific conditionally          systems.  conserved subsystem essential genes directly related glycerol metabolism              organisms examined (glycine, serine, threonine synthesis) regulation. previously described, glpK glpD               represented species single-enzyme pathway
+volved initial steps glycerol catabolism, crr           (serine hydroxymethyltransferase [EC 2.1.2.1]). stark 
+cra  known fruR) key components PTS                  trast, 15 organisms share 18 identified conditionally
+mediators catabolite repression. differential essentiality           essential subsystems E. coli. observed dichotomy ubiG ubiH explained requirement                 reflects drastically different lifestyles, 15 organ-
+electron acceptor growth glycerol utilization             isms able thrive outside host. analysis confirms
+ubiquinone oxygen respiration (15). suggests ubiC,             nearly subsystems implicated conditional-essen-
+ubiE, ubiF essential aerobic growth               tiality study single model organism universally impor-
+glycerol;  conflicts observed experimental            tant broad range phylogenetically distant free-living
+results.                                                                    bacteria.
+   genes glycerol-specific set involved sulfate transport assimilation (cysADKPQU). result                                         DISCUSSION
+likely stems fact medium used glucose
+essentiality screen contains MOPS, utilized                  screening single-gene deletion mutants glycerol
+sulfur source sulfate-limited conditions (4),             minimal medium provides meaningful addition collec-
+M9 minimal medium used glycerol-specific screen does                tion data regarding essential genes E. coli. contain alternative sulfur source sulfate. M9                combination genome scale gene essentiality stud-
+minimal medium does include iron, MOPS min-                     ies, continue refine notion genes imal medium contains 10 mM iron; difference                   required growth rich minimal media. com-
+ 8268      JOYCE ET AL.                                                                                                              J. BACTERIOL.
+
+
+
+
+  FIG. 6. Phylogenetic distribution essential genes subsystem. phylogenetic distribution essential subsystems  Materials Methods details) diverse set bacterial species shown. row heat map corresponds 18 essential
+subsystems considered; subsystem  parentheses, number essential genes  experiment model
+assessed) subsystem E. coli total number genes subsystem E. coli. column represents 31 representative organisms used analysis. dark-gray elements indicate presence subsystem organism, light
+gray indicates absence. dendrograms display result hierarchical clustering using Hamming distance metric average linkage subsystems (left) organisms  , respectively. Organism abbreviations follows: ATU, Agrobacterium tumefaciens; AQA, Aquifex
+aeolicus; BAS, B. subtilis; BOB, B. burgdorferi; BRJ, Bradyrhizobium japonicum; BRM, Brucella melitensis; BUA, Buchnera aphidicola; CAJ,
+Campylobacter jejuni; CAC, Campylobacter crescentus; CHT, C. trachomatis; CLA, Clostridium acetobutylicum; COG, Corynebacterium glutamicum;
+DER, Deinococcus radiodurans; FUN, Fusobacterium nucleatum; HAI, Haemophilus influenzae; HEP, Helicobacter pylori; LIM, Listeria monocy-
+togenes; MYT, Mycobacterium tuberculosis; MYP, M. pneumoniae; NEG, Neisseria gonorrhoeae; NOS, Nostoc; PSA, Pseudomonas aeruginosa; RAE,
+Ralstonia eutropha; RIP, R. prowazekii; SHO, Shewanella oneidensis; STA, Staphylococcus aureus; STP, Streptococcus pneumoniae; SYN, Synecho-
+cystis; THM, Thermotoga maritima; TRP, T. pallidum; XYF, Xylella fastidiosa.
+
+
+
+parison genes required growth rich- minimal-               genes unknown function notable surprising,
+medium conditions, toolkit genes enabling growth lim-               screening protocol conceptually equivalent iting environments identified. studying genes                 identification auxotrophs, historical standard study
+required growth glycerol minimal medium, showed                   E. coli genetics.   understanding roles essential                   experimentally essential genes mapped met-
+genes play toolkit clear relatively complete,             abolic subsystems, allows level generalization  putative genes unknown function (yjhS yhhK)                 abling detect tendencies multiple organisms identified essential phenotyping screen; (ii)           obscured details functional variants. type current metabolic regulatory model highly accurate            analysis readily facilitates identification metabolic func-
+essentiality predictions; (iii) comparisons model predic-            tions required different organisms po-
+tions high-throughput phenotyping data represent pow-                 tentially complicating details regarding molecules erful approach rapidly generate model refinements hy-                synthesized. example, Bacillus subtilis, E. coli, Coryne-
+potheses likely lead enhanced understanding                 bacteria use different chemistries lysine biosynthe-
+organism.                                                                   sis DAP (meso-diaminopimelate) pathway, purposes
+   Remarkably, 112 identified 119 conditionally essential            remain  noted subsystem
+genes included current metabolic model. ob-                 projections conditionally essential genes
+servation suggests applied experimental approach               genes essential growth rich medium low rate incorrectly identifying essential genes. Oth-             likely essential minimal-medium environments, erwise, nonmetabolic uncharacterized genes  40                 . example, portions pathways E. coli genes) comprise substantially larger fraction            required NAD CoA biosynthesis minimal identified set. time, indicates               rich medium represented.  fundamentally
+inventory E. coli metabolic genes captured current                essential subsystems present analyzed genomes.
+model (1,003 ⬃4,400 genes E. coli genome)                     set conditionally essential subsystems  genes comprehensive, respect pathways                  identified study used assess required support growth minimal medium. fact                 metabolic potentials organisms present environmental identified conditionally essential gene set contained              samples captured emerging metagenomics data (49).
+ VOL. 188, 2006                                       COMPUTATIONAL ANALYSIS ESSENTIAL GENES E. COLI                                      8269
+
+
+Researchers able rapidly assess pathways present    notion GlpK-GlpD branch dominant environmental sample use essentiality infor-     conditions. Furthermore, recent study showed mation develop potential laboratory medium formulations         DhaR transcriptional regulator specifically upregulates facilitate controlled study laboratory (47).     genes encoding DhaKLM presence dihydroxy-
+Furthermore, presence certain pathways ab-          acetone, glycerol (2). conditions utilized
+sence provide insights microenviron-        study, quantitative RT-PCR dhaM (Fig. 4) showed
+ment sample taken indicate local       dhaKLM genes minimally expressed, leav-
+intracommunity relationships species present      ing alternative glycerol metabolic pathway dormant. sample. subsystem-based essentiality analysis ap-      Including recently characterized DhaR regulatory inter-
+proach useful tool add growing compen-        action (2) integrated regulatory-metabolic model dium methods (5, 41) developed analyze          readily correct discrepancy.
+terpret complex data.                                           summary, high-throughput phenotyping screen pro-
+   analysis generated gene essentiality data set    vides significantly enhanced view conditionally essen- using metabolic regulatory model allowing       tial gene set required growth minimally supple-
+data easily placed biological context. Discrepancies    mented growth conditions additionally represents model experiment used improve            comprehensive assessment constraint-based metabolic
+predictive capabilities model indicating regions    model E. coli conducted date.  study fur- captured accurately models  impor-          ther highlights utility using genome scale models tantly, point areas metabolism regulation        context content interpreting analyzing complex high-
+require experimental interrogation. example,         throughput data sets. powerful synergistic approach number independent gene deletion studies shown        using models data analysis tools, using high- genes involved arginine biosynthesis essential     throughput data feedback model improvement, 
+(18, 24), enzymes, current literature        coming paradigm continue drive systems biology explain essential amino acid synthesized.       research forward.  experiments need conducted                                                                                              ACKNOWLEDGMENTS
+identify novel arginine biosynthetic genes determine multifunctional enzymes compensate perturbation           thank Adam Feist critical reading manuscript; genes.                                                      Trina Patel, Vasiliy Portnoy, Eric Knight technical assistance;
+                                                                   Christian Barrett members Palsson laboratory    Additionally, based experimental results,        insightful discussions suggestions.
+model improvements suggested. number exper-            gratefully acknowledge support NIH Protein Struc-
+imentally essential genes involved cofactor biosynthesis,   ture Initiative, grant numbers P50 GM62411 U54 GM074898, number cofactors included biomass ob-        grant  NIH R01 GM5708.
+                                                                      Bernhard Palsson financial Genomatica,  Al-
+jective function used conduct growth prediction simula-
+                                                                   NIH R01 GM5708 grant identified conflict tion. cofactors include pyridoxal-5-phosphate, isopre-       management based overall scope project noids, hemes, ACP, ubiquinone. help correct         potential benefit Genomatica, , research findings included false negatives (lethal phenotypes nonlethal model    publication necessarily directly relate interests predictions) account large number discrepancies      Genomatica,  minimal- rich-medium phenotypes (data shown                                         REFERENCES rich medium). wild-type biomass composition does          1. Baba, T., T. Ara, M. Hasegawa, Y. Takai, Y. Okumura, M. Baba, K. 
+                                                                       Datsenko, M. Tomita, B. L. Wanner, H. Mori. 2006. Construction correlate essential biomass composition;            Escherichia coli K-12 frame, single-gene knockout mutants: Keio col-
+example, core complete LPS required            lection. Mol. Syst. Biol. [Online.] doi:10.1038/msb4100050.
+cell survival (37). Accordingly, essentiality      2. Bachler, C., P. Schneider, P. Bahler,  Lustig, B. Erni. 2005. Esche-
+                                                                       richia coli dihydroxyacetone kinase controls gene expression binding biomass components refined relaxed based            transcription factor DhaR. EMBO J. 24:283–293. nonessentiality corresponding biosynthetic-pathway       3. Boutros, M.,   Kiger, S. Armknecht, K. Kerr, M. Hild, B. Koch, S. 
+genes. issues addressed forthcoming            Haas, R. Paro, N. Perrimon, Heidelberg Fly Array Consortium.
+                                                                       2004. Genome-wide RNAi analysis growth viability Drosophila
+dated metabolic reconstruction E. coli   Feist B. O.          cells. Science 303:832–835.
+Palsson, personal communication) represent significant        4. Cayley, S., M. T. Record, Jr., B.  Lewis. 1989. Accumulation                                                                        3-(N-morpholino)propanesulfonate osmotically stressed Escherichia coli
+advance.                                                               K-12. J. Bacteriol. 171:3597–3602.
+   Model improvements suggested regard             5. Chen, K., L. Pachter. 2005. Bioinformatics genome shotgun steps glycerol metabolism (Fig. 4). previously         sequencing microbial communities. PLOS Comput. Biol. 1:106–112.
+                                                                    6. Covert, M. W., E. M. Knight, J. L. Reed, M. J. Herrgard, B. O. Palsson.
+noted, analysis false positives suggests glycerol          2004. Integrating high-throughput computational data elucidates bacte-
+import occur passive transport cell mem-             rial networks. Nature 429:92–96.
+brane absence glpF-encoded transporter. Ad-           7. Covert, M. W., B. O. Palsson. 2002. Transcriptional regulation 
+                                                                       straints-based metabolic models Escherichia coli. J. Biol. Chem. 277:
+ditionally, initial enzymatic steps required convert            28058–28064.
+glycerol dihydroxyacetone phosphate appear exclu-          8. Covert, M. W., C. H. Schilling, B. Palsson. 2001. Regulation gene
+                                                                       expression flux balance models metabolism. J. Theor. Biol. 213:73–88.
+sively mediated GlpK GlpD GldA            9. Datsenko, K. , B. L. Wanner. 2000. step inactivation chromo- DhaKLM-PtsHI complex. pathway bias likely              somal genes Escherichia coli K-12 using PCR products. Proc. Natl. Acad. transcriptional regulatory effects.  elevated            Sci. USA 97:6640–6645.
+                                                                   10. Earhardt, C. F. 1996. Uptake metabolism iron molybdenum, p.
+expression glpK glpD growth glycerol               1075–1090. F. C. Neidhardt (ed.), Escherichia coli Salmonella: cellular
+vealed quantitative RT-PCR (Fig. 4) supports            molecular biology, vol. 1. ASM Press, Washington, D. C.
+ 8270       JOYCE ET AL.                                                                                                                                    J. BACTERIOL.
+
+11. Edwards, J. S., R. U. Ibarra, B. O. Palsson. 2001. silico predictions         Sato, H. H. Saxild, E. Scanlan, W. Schumann, J. F. Seegers, J. Sekiguchi, 
+    Escherichia coli metabolic capabilities consistent experimental data.          Sekowska, S. J. Seror, M. Simon, P. Stragier, R. Studer, H. Takamatsu,
+    Nat. Biotechnol. 19:125–130.                                                            T. Tanaka, M. Takeuchi, H. B. Thomaides, V. Vagner, J. M. van Dijl,
+12. Fraenkel, D. G. 1996. Glycolysis, p. 189–198. F. C. Neidhardt (ed.),                 K. Watabe,  Wipat, H. Yamamoto, M. Yamamoto, Y. Yamamoto, K.
+    Escherichia coli Salmonella, vol. 1. ASM Press, Washington, D.C.                    Yamane, K. Yata, K. Yoshida, H. Yoshikawa, U. Zuber, N. Ogasawara.
+13. Fu, D.,  Libson, L. J. Miercke, C. Weitzman, P. Nollert, J. Krucinski,            2003. Essential Bacillus subtilis genes. Proc. Natl. Acad. Sci. USA 100:4678–
+    R. M. Stroud. 2000. Structure glycerol-conducting channel basis            4683.
+    selectivity. Science 290:481–486.                                         28.   Koonin, E. V. 2003. Comparative genomics, minimal gene-sets 14. Gay, N. J. 1984. Construction characterization Escherichia coli               universal common ancestor. Nat. Rev. Microbiol. 1:127–136.
+    strain uncI mutation. J. Bacteriol. 158:820–825.                           29.   Levy, S., G. Q. Zeng,  Danchin. 1990. Cyclic AMP synthesis Esch-
+15. Gennis, R. B., V. Stewart. 1996. Respiration, p. 217–261. F. C.                  erichia coli strains bearing known deletions pts phosphotransferase
+    Neidhardt (ed.), Escherichia coli Salmonella, vol. 1. ASM Press, Wash-              operon. Gene 86:27–33.
+    ington, D.C.                                                                      30.   Maeda, , Y. Kohara, M. Yamamoto,  Sugimoto. 2001. Large-scale
+16. Gerdes, S. Y., M. D. Scholle, J. W. Campbell, G. Balazsi, E. Ravasz, M. D.              analysis gene function Caenorhabditis elegans high-throughput
+    Daugherty,  L. Somera, N. C. Kyrpides,  Anderson, M. S. Gelfand,                  RNAi. Curr. Biol. 11:171–176.
+    Bhattacharya, V. Kapatral, M. D’Souza, M. V. Baev, Y. Grechkin, F. Mseeh,         31.   Mengin-Lecreulx, D., J. van Heijenoort. 1996. Characterization     M. Y. Fonstein, R. Overbeek,  L. Barabasi,  N. Oltvai,  L. Oster-             essential gene glmM encoding phosphoglucosamine mutase Escherichia
+    man. 2003. Experimental determination level analysis essential            coli. J. Biol. Chem. 271:32–39.
+    genes Escherichia coli MG1655. J. Bacteriol. 185:5673–5684.                    32.   Merino, E., C. Yanofsky. 2005. Transcription attenuation: highly
+17. Giaever, G.,  M. Chu, L. Ni, C. Connelly, L. Riles, S. Veronneau, S. Dow,             conserved regulatory strategy used bacteria. Trends Genet. 21:260–
+     Lucau-Danila, K. Anderson, B. Andre,  P. Arkin,  Astromoff, M.                   264.
+    El-Bakkoury, R. Bangham, R. Benito, S. Brachat, S. Campanaro, M. Cur-
+                                                                                      33.   Neuwald,  F., B. R. Krishnan,  Brikun, S. Kulakauskas, K. Suziedelis, T.
+    tiss, K. Davis,  Deutschbauer, K. D. Entian, P. Flaherty, F. Foury, D. J.
+                                                                                            Tomcsanyi, T. S. Leyh, D. E. Berg. 1992. cysQ, gene needed     Garfinkel, M. Gerstein, D. Gotte, U. Guldener, J. H. Hegemann, S. Hempel,
+                                                                                            cysteine synthesis Escherichia coli K-12 aerobic growth. J.
+     Herman, D. F. Jaramillo, D. E. Kelly, S. L. Kelly, P. Kotter, D. LaBonte,
+                                                                                            Bacteriol. 174:415–425.
+    D. C. Lamb, N. Lan, H. Liang, H. Liao, L. Liu, C. Luo, M. Lussier, R. Mao,
+    P. Menard, S. L. Ooi, J. L. Revuelta, C. J. Roberts, M. Rose, P. Ross-            34.   Overbeek, R., T. Begley, R. M. Butler, J. V. Choudhuri, H. Y. Chuang, M.
+    Macdonald, B. Scherens, G. Schimmack, B. Shafer, D. D. Shoemaker, S.                    Cohoon, V. Crecy-Lagard, N. Diaz, T. Disz, R. Edwards, M. Fonstein,
+    Sookhai-Mahadeo, R. K. Storms, J. N. Strathern, G. Valle, M. Voet, G.                   E. D. Frank, S. Gerdes, E. M. Glass,  Goesmann,  Hanson, D. Iwata-
+    Volckaert, C. Y. Wang, T. R. Ward, J. Wilhelmy, E.  Winzeler, Y. Yang, G.             Reuyl, R. Jensen, N. Jamshidi, L. Krause, M. Kubal, N. Larsen, B. Linke,
+    Yen, E. Youngman, K. Yu, H. Bussey, J. D. Boeke, M. Snyder, P. Philippsen,               C. McHardy, F. Meyer, H. Neuweger, G. Olsen, R. Olson,  Osterman, V.
+    R. W. Davis, M. Johnston. 2002. Functional profiling Saccharo-               Portnoy, G. D. Pusch, D.  Rodionov, C. Ruckert, J. Steiner, R. Stevens,
+    myces cerevisiae genome. Nature 418:387–391.                                             Thiele, O. Vassieva, Y. Ye, O. Zagnitko, V. Vonstein. 2005. 18. Glasner, J. D., P. Liss, G. Plunkett III,  Darling, T. Prasad, M. Rusch,            subsystems approach genome annotation use project     Byrnes, M. Gilson, B. Biehl, F. R. Blattner, N. T. Perna. 2003. ASAP,             annotate 1000 genomes. Nucleic Acids Res. 33:5691–5702.
+    systematic annotation package community analysis genomes. Nucleic          35.   Postma, P. W., J. W. Lengeler, G. R. Jacobson. 1996. Phosphoenolpyru-
+    Acids Res. 31:147–151.                                                                  vate:carbohydrate phosphotransferase systems, p. 1149–1174. F. C. Neid-
+19. Glass, J. , N. Assad-Garcia, N. Alperovich, S. Yooseph, M. R. Lewis, M.               hardt (ed.), Escherichia coli Salmonella, vol. 1. ASM Press, Washington,
+    Maruf, C.  Hutchison III, H. O. Smith, J. C. Venter. 2006. Essential              D.C.
+    genes minimal bacterium. Proc. Natl. Acad. Sci. USA 103:425–430.             36.   Price, N. D., J. L. Reed, B. O. Palsson. 2004. Genome-scale models 20. Hare, R. S., S. S. Walker, T. E. Dorman, J. R. Greene, L. M. Guzman, T. J.              microbial cells: evaluating consequences constraints. Nat. Rev. Mi-
+    Kenney, M. C. Sulavik, K. Baradaran, C. 

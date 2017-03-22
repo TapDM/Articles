@@ -1,0 +1,352 @@
+BMC Bioinformatics                                                                                                                       BioMed Central
+
+
+
+Database                                                                                                                               Open Access PATO-compliant zebrafish screening database (MODB):
+management morpholino knockdown screen information
+Michelle N Knowlton*1,6, Tongbin Li2, Yongliang Ren2, Brent R Bill1,
+Lynda BM Ellis3,4 Stephen C Ekker1,4,5
+
+Address: 1Department Genetics, Cell Biology Development, University Minnesota, Minneapolis, MN 55455, USA, 2Department Neuroscience, University Minnesota, Minneapolis, MN 55455, USA, 3Department Laboratory Medicine Pathology, University Minneapolis, Minneapolis, MN 55455, USA, 4University Minnesota Arnold Mabel Beckman Center Transposon Research, Minneapolis,
+MN 55455, USA, 5Department Biochemistry Molecular Biology, Mayo Clinic, Rochester, MN 55905, USA 6Box 45, Jackson
+Laboratory, 600 Main Street, Bar Harbor, Maine 04609, USA
+Email: Michelle N Knowlton* - mnk@informatics.jax.org; Tongbin Li - toli@biocompute.umn.edu;
+Yongliang Ren - yongliang@biocompute.umn.edu; Brent R - bill0115@umn.edu; Lynda BM Ellis - lynda@umn.edu;
+Stephen C Ekker - ekker.stephen@mayo.edu
+* Corresponding author
+
+
+
+
+Published: 7 January 2008                                                    Received: 28 April 2007
+                                                                             Accepted: 7 January 2008
+BMC Bioinformatics 2008, 9:7   doi:10.1186/1471-2105-9-7 article available  http://www.biomedcentral.com/1471-2105/9/7
+© 2008 Knowlton et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: zebrafish powerful model vertebrate amenable high throughput vivo
+                 genetic analyses. Examples include reverse genetic screens using morpholino knockdown,
+                 expression-based screening using enhancer trapping forward genetic screening using
+                 transposon insertional mutagenesis. created database facilitate web-based
+                 distribution data genetic studies.
+                 Description: MOrpholino DataBase MySQL relational database online, PHP
+                 interface. Multiple quality control levels allow differential access data raw finished formats.
+                 MODBv1 includes sequence information relating 800 morpholinos targets                  phenotypic data regarding dose effect morpholino (mortality, toxicity defects).                  improve searchability database, incorporated fixed-vocabulary defect
+                 ontology allows organization morpholino affects based anatomical structure
+                 affected defect produced. allows comparison species utilizing Phenotypic
+                 Attribute Trait Ontology (PATO) designated terminology. MODB cross-linked ZFIN,
+                 allowing searches databases. MODB offers users ability retrieve
+                 morpholino data sequence morpholino target, target, anatomical structure
+                 affected defect produced.
+                 Conclusion: MODB data used functional genomic analysis morpholino design                  maximize efficacy minimize toxicity. MODB serves template future sequence-
+                 based functional genetic screen databases, currently used model creation
+                 mutagenic insertional transposon database.
+
+
+
+
+                                                                                                                                       Page 1 10
+                                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                  http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+
+Background                                                     pholinos. Ensembl limited ability store dis-
+Advances scientific technology availability      play experimental data, ZFIN contains wealth
+genomic sequence increasing number species           information published results lacks specific infor- led paradigm shift identifying sequence      mation dosage searchable phenotype data gene product function. Large functional genetic screens        published morpholinos phenotypic data largely increasingly prevalent require new          unpublished morpholinos.
+way thinking data facilitate cross-species com-
+parison deciphering gene product function differ-       model organism communities developed
+ent organisms. Zebrafish particularly amenable          online databases access results mutagenic, knock-
+large screens tremendous ability repro-      expression studies. mouse
+duce, embryos finish development         knockout mutant [15,16] C. elegans RNAi [17,18]
+organ rudiments 2 days post-fertilization [1].        experimental result databases phenotypic content
+semi-transparent embryos ready availability         exist, morpholino-specific database available transgenic lines facilitate functional annotation       pilot Xenopus morpholino screen 202 genes genes required numerous organ systems             targeted subsequent phenotypes displayed pathways. historically common use          webpage [19,20]. Xenopus tropicalis Morpholino
+genetic screenings primarily restricted ENU        Screen database flat format website allows mutagenesis screens [2-4] retroviral mutagenesis [5],      records accessed viewed gene targeted, syn- availability morpholinos [6], antisense knockdown       phenotype group specific defect. Notably database
+oligonucleotides, insertional mutagenic transposons        does include search functions does offer [7] opened new avenues functional genetic             means input outside sources.  research.                                                      intent database stated authors display
+                                                               results specific screen [19,20].
+Recently, morpholino screens pub-
+lished collaboration Ekker laboratory [8,9].       Given intent database display large largest  Secretome Screen [9,10],           data generated going collabora-
+identified likely secreted genes available transcrip-     tive screens, developed scalable, centralized
+tome databases using bioinformatics approach. Ver-       easily accessible worldwide, MOrpholino DataBase
+tebrate Secretome DataBase (VSDB) [4] established       (MODB) [3] store facilitate retrieval zebrafish
+identify translationally translocated (CTT) proteins     morpholino screening results. Additional access model organism species [10]. Using combina-          provided active links MODB ZFIN.
+tion signal sequence, transmembrane domain, ini-
+tiation site predictors homology known           MODB scalable, searchable readily adaptable
+secreted proteins, subset zebrafish CTT genes        online MySQL database PHP interface. MODB
+identified (0.3× genome coverage based zebrafish            includes storage retrieval results generated loaded predicted protein sequences CTTome           screens public access published unpublished
+database Genescan gene prediction estimates         information morpholinos MODB allows dis-
+zebrafish genome [4,5]). 150 gene targets selected     semination target-specific information effect random morpholino design, carried using             knockdown, facilitates analysis morpholino-
+Assisted MOrpholino Design tool (AMOD) [11,12].           specific data toxicity, dosage, mortality gene knocked zebrafish morpholino-             design. MODB new, online, publicly accessible data-
+injection screened defects general morphology      base data-mining zebrafish morpholino knockdown organ systems including ocular, renal, pig-        effects morpholino non-specific effects.
+ment, vascular, hematopoietic, cranio-facial, motor
+[9]. second morpholino knockdown screen, Hemat-          Construction Content
+opoietic Stem Cell Screen, conducted using zebrafish       Construction
+homologues human genes differentially expressed          MODB web project currently running Apache
+hematopoietic stem cell differentiation microarray          web server [21] PHP [1] Linux (Intel
+analysis [8].                                                  Xeon, 2.8 GHz, CentOS release 4.4). project architec-
+                                                               ture developed according Model-View-Control-
+Currently, zebrafish community stores published        ler (MVC) design paradigm. Model (database tables)
+sequence-related results web-based databases.       stored MySQL relational database [22]. Major tables principal database zebrafish-related research   include Morpholino, Staff, Lab, Test, Test_Result Zebrafish Information Network (ZFIN) [13,14]. Ensembl          store information pertinent morpholino [5], likewise, stores sequences targeted published mor-     users (Figure 1). View developed help 
+
+                                                                                                                   Page 2 10
+                                                                                             (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                    http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+
+Figure 1
+Entity-Relationship diagram MODB
+Entity-Relationship diagram MODB. organization data contained MODB centered unique mor-
+pholino sequence. Tables pertaining morpholino-specific information located upper left corner (solid box). tables lower left corner establish relations laboratories, users security level designation (dashed
+line box). tables right half diagram represent tests test components anatomical structure,
+screen defect observed (unboxed area).
+
+
+
+
+Smarty [23], template engine PHP helps             anatomy browser written PHP incorporated designer make modifications layout break-         MODB.
+ing PHP logic. PHP scripts control connections Model View. GD graphics library          Content
+ PHP module) [24] used graphic functions dis-       unique identifier MODB sequence played summary page.                                      morpholino. morpholino targets screens                                                                  derived transcriptome sequence data Insti-
+NCBI BLAST 2.2.13 [25] invoked PHP sys-            tute Genomic Research (TIGR) [27] GenBank [28]
+tem calls sequence search functions. MODB             subject change new sequence data BLAST target database updated automatically            available. unique morpholino entered new morpholino sequence entered database.            database, accompanying set tables devoted ZFIN anatomy ontology [26] downloaded                    information pertaining morpholino (release date 08/16/2007) ZFIN web site           designator, laboratory created  contact person,
+OBO format [26] transferred database.            target  target sequence, gene targeted, reference
+
+
+                                                                                                                     Page 3 10
+                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                   http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+
+Figure 2
+Morpholino-specific information
+Morpholino-specific information. Information morpholino sequence, laboratory morpholino designa-
+tor (box number), creating laboratory, initiating user reference images associated morpholino displayed initial morpholino page morpholino.
+
+
+
+
+images number tests created (Figure 2).         tests, caused toxic effects high cell
+cise format allows key information regarding mor-           death mortality, produced pleiotropic effects pholino viewed                                    decipher. information use sci-
+                                                                entific community optimizing morpholino design Early 2007, MODB contained 700 unique mor-              learning dosage data overall effect previously
+pholino sequences generated screens, indi-         designed tested morpholinos.
+vidual projects control morpholinos. generation Secretome Screen [9] largest overall      MODB living database, new data regularly
+tributor morpholino sequences. 150 candidate            submitted. coming year 50 150
+genes sequences, 209 morpholinos designed.            morpholinos added database contin-
+morpholino subjected variety morphological          uing Hematopoietic Stem Cell secretome screens. molecular assays determine effect reg-       allow release data defined formats quality,
+ulating particular gene product 5-days    MODB data sharing quality control levels. Users
+zebrafish development [9]. Secretome Screen identi-        capable accessing modifying data related fied 26/150 gene targets produced reproducible             designated morpholinos. facilitate collaborative
+effects specific aspects early development early       efforts, shared designation developed allow
+morphology variety organ systems including vis-        members consortium laboratories access data related
+ual, renal, cardiovascular, cranio-facial, hematopoiesis,       morpholinos designed user laborato- pigment. focused Hematopoietic Stem                ries connected relationship MODB.
+Cells Screen identified 16/64 targets necessary    designation ('public') allows morpholino data
+proper blood development [8]. bulk data              used generate summary reports available entered MODB (124/150 target gene morpholinos           open scientific community MODB website. Secretome Screen 48/64 Hematopoietic             Nearly morpholinos (779/784) MODB, Stem Cell Screen) consists morpholinos           exception non-zebrafish morpholinos, designated
+observed developmentally specific effect screening       public MODBv1.
+
+
+                                                                                                                    Page 4 10
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                 http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+
+Figure 3 defect check box
+Common
+Common defect check box. Entry observations following morpholino injection zebrafish embryos cata-
+logued using fixed vocabulary checkbox form. Penetrance observed defect recorded subsequent analysis.
+
+
+
+
+                                                                                                                 Page 5 10
+                                                                                           (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                 http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+
+Figure 4
+Correspondence    defect description PATO designation
+Correspondence defect description PATO designation. work ongoing establishing cross-
+species phenotypic vocabulary PATO, terminology constantly evolving. Defect names used maintain 
+sistency rooted PATO designations translation table. PATO term exists adequately defect observed, proposed term submitted NCBO ZFIN.
+
+
+
+Utility                                                       administrators enter new listings provide basic
+Data Entry                                                    information morpholino. Authorized users sub- major function MODB data compilation mor-          mit morpholino sequence results specific mor-
+pholino-specific information generated primary             phological molecular experiments given
+research. main ways add data. Currently,     observation point dose. Researchers apply 
+
+                                                                                                                 Page 6 10
+                                                                                           (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                  http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+authorized-user identification password  author        search keyword, anatomical structure fixed defects
+contact information).                                          term allows future integration fixed-
+                                                               vocabulary phenotype databases WormBase results called 'tests'. early 2007, MODB      Mouse Phenome database [15,29]. utilize data
+tained 9000 individual test entries. free text notes    entered MODB meaningful manner, devel-
+field permits detailed description defects observed mor-    oped variety search functions. addition pholino-injected embryos fixed vocabulary defect        parameters mentioned (laboratory designator,
+term selected. defects ontology check box         morpholino  morpholino target  gene tar- established common scientific terms used       geted, laboratory created  keyword), MODB screening protocols (Figure 3). Specific laboratory sci-    queried controlled defects vocabulary. defects
+entific descriptions correspond established defects         ontology developed conjunction ZFIN ontology. reduction free text promotion      model current status Phenotypic Attribute Trait
+fixed vocabularies increases searchability MODB     Ontology (PATO) developed National Center 
+
+
+
+Figure search
+MODB   5      functions
+MODB search functions.  Data retrieval MODB simplified morpholino gene targeted. Results sorted morpholino gene targeted. B. additional search public interface allows searches based PATO
+term anatomical structure affected. C. additional sequence-based search using morpholino target sequence performed.
+
+
+
+
+                                                                                                                   Page 7 10
+                                                                                             (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                 http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+Biomedical Ontology (NCBO) [30]. facilitate use        nology (Figure 4). Initially, PATO designed common language, MODB users assess phenotypes         defect observed anatomical structure  using defect descriptions linked current PATO termi-       entity, e.g. tail) using trait (e.g. relative length) 
+
+
+
+Figuresummary
+Public  6       page
+Public summary page. publicly accessible summary page available released morpholinos MODB. page 
+tains morpholino target information  sequence  review knockdown results dosing mortality normalcy. list tests performed, defects observed images displayed.
+
+
+
+
+                                                                                                                 Page 8 10
+                                                                                           (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                  http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+attribute trait (e.g. short length).   information (reviewed [2,6,7,31-33]). Efficient data
+subsequently replaced entity quality          storage critical allow retrieval results mean-
+designation (e.g. tail, short length). MODB's defects          ingful fashion facilitate data mining. MODB ontology contains version PATO.          non-proprietary, relational database online accessi-
+PATO term exists adequately defect             bility acts storehouse critical information
+observed, proposed term submitted NCBO ZFIN        relating sequence-specific morpholino knockdown assist development cross-species phenotypic     screens. MODB  knowledge, unique ontology. importance common phenotypic                available databases offers searchable mor-
+vocabulary resides ability perform cross-species     pholino-specific data fixed-vocabulary defects 
+analysis gene function conserved pathways.              logical cataloging morphants allows cross-
+                                                               species analysis using common, PATO-derived ontol-
+Data retrieval                                                 ogy. Cross-linking ZFIN provides additional value usefulness data stored database       MODB research community.
+subject retrieval methods available. MODB designed numerous search sort functions          Continued screening efforts zebrafish using mor- allow retrieval morpholino sequence, mor-          pholinos sequence-specific knockdown pholino gene targeted (Figure 5A).                 knockout technologies expand knowledge advanced search feature public interface allows         gene function. MODB provides central repository users search anatomy phenotype identify           morpholino information. schema potentially
+morpholinos given defect (Figure 5B). sequence-       applicable sequence-based screening approach based search available, using target mor-   zebrafish related systems. example, MODB cur-
+pholino sequence sequence morpholino             rently adapted creation transposon data-
+(Figure 5C). offering numerous search sorting           base includes insertional mutagenesis expression
+options, results nearly 800 morpholinos       analysis data.
+9000 tests accessed analyzed scien-
+tific insight knockdown effect specific mor-     Conclusion
+pholino target, genes effecting developmental         offering public access schema data 
+pathways, non-specific morpholino effects.                 tained MODB, hope aid advancement
+                                                               functional genetic studies gene annotation MODB v1 Public Interface                                       improvements morpholino analysis design. facilitate display digestion large     dissemination valuable knowledge gained large
+data stored MODB, summary sheet mor-         screens Secretome [9] Hematopoietic
+pholino created  construction content)      Stem Cell [8] screens goes published gene target
+publicly available. morpholino summary contains           characterization provides foundation future
+sequence target information survival        research.
+normalcy (percent normal embryos observed overall specific screen types) curves based dose (Figure 6).    Availability requirements search functions used access infor-     MODB accessible web http://www.secre
+mation including gene targeted, BLAST                tomes.umn.edu/MODB/. added authorized
+advanced search function facilitates searching        user, contact corresponding author M.K. S.C.E.
+morpholinos PATO designation anatomical struc-          Morpholinos readily available purchase ture affected (Figure 5B). MODB presents users       Gene Tools [34] Open Biosystems [35]. authors valuable knowledge, mortality dose             affiliation, financial  cor-
+curves, effectiveness morphant phenotype. Currently,       porate entity.
+101 morpholinos contain hyperlinks specific mor-
+pholino entries ZFIN hyperlinks provided        Authors' contributions
+gene targets MODBv1.                                        MK designed, tested managed database. TL                                                                YR responsible programming, debugging Discussion                                                     informatics support. BB aided conception, design advent genome sequencing technology,           testing database. EL SE aided concep-
+greater emphasis gene function emerging. Func-           tion design database coordinated tional genomic screening tools available zebrafish     project  authors read approved final ENU mutagenesis, GripNAs, RNAi, insertional muta-           manuscript.
+genesis morpholinos allow large functional gene
+screens produce enormous biological
+
+
+                                                                                                                    Page 9 10
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:7                                                                       http://www.biomedcentral.com/1471-2105/9/7
+
+
+
+
+Acknowledgements                                                              20.   Rana AA, Collart C, Gilchrist MJ, Smith JC: Defining synphenotype authors like acknowledge numerous collaborations              groups Xenopus tropicalis use antisense morpholino
+                                                                                    oligonucleotides. PLoS Genet 2006, 2(11):e193. contributed development MODB laboratories       21.   Apache Web Server [http://www.apache.org]
+Drs. Farber, Hammerschmidt, Pickart, Schimmenti, Sivasubbu, Verfail-      22.   Nasevicius  Ekker SC: Effective targeted gene 'knockdown' lie. like acknowledge bioinformaticians               zebrafish. Nat Genet 2000, 26(2):216-220.
+worked project including Dr. Eric Klee Kyong Jin Shim. Funding    23.   Smarty [http://smarty.php.net]
+                                                                              24.   GD Graphics [http://www.boutell.com/gd/] project obtained NIH SCE (GM63904                25.   Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ: Basic local
+CA65493). work supported University Minnesota            alignment search tool. J Mol Biol 1990, 215(3):403-410.
+Supercomputing Institute.                                                     26.   ZFIN Anatomy Ontology                  [http://www.geneontology.org/
+                                                                                    format.shtml]
+                                                                              27.   Institute Genomic Research (TIGR)                    [http://
+References                                                                          www.tigr.org]
+1.    Kimmel CB, Ballard WW, Kimmel SR, Ullmann B, Schilling TF: Stages       28.   GenBank [http://www.ncbi.nlm.nih.gov/Genbank/index.html]
+      embryonic development zebrafish. Dev Dyn 1995,                29.   WormBase [http://www.wormbase.org/]
+      203(3):253-310.                                                         30.   National Center Biomedical Ontology (NCBO) [http://
+2.    Geisler R, Rauch GJ, Geiger-Rudolph S, Albrecht  van Bebber F,              www.bioontology.org/]
+      Berger  Busch-Nentwich E, Dahm R, Dekens MP, Dooley C, et al.:        31.   Amsterdam  Insertional mutagenesis zebrafish: genes       Large-scale mapping mutations affecting zebrafish devel-                   development, genes disease. Brief Funct Genomic Proteomic
+      opment. BMC Genomics 2007, 8(1):11.                                           2006, 5(1):19-23.
+3.    Draper BW, McCallum CM, Stout JL, Slade AJ, Moens CB: high-           32.   Amsterdam  Hopkins N: Mutagenesis strategies zebrafish
+      throughput method identifying N-ethyl-N-nitrosourea                       identifying genes involved development disease.
+      (ENU)-induced point mutations zebrafish. Methods Cell Biol                 Trends Genet 2006, 22(9):473-478.
+      2004, 77:91-112.                                                        33.   Dahm R, Geisler R: Learning small fry: zebrafish 4.    Wienholds E, van Eeden F, Kosters M, Mudde J, Plasterk RH, Cuppen             genetic model organism aquaculture fish species. Mar Bio-
+      E: Efficient target-selected mutagenesis zebrafish. Genome                 technol (NY) 2006, 8(4):329-345.
+      Res 2003, 13(12):2700-2707.                                             34.   Gene Tools [http://www.gene-tools.com/]
+5.    Amsterdam  Burgess S, Golling G, Chen W, Sun  Townsend K,           35.   Open Biosystems [http://www.openbiosystems.com/]
+      Farrington S, Haldi M, Hopkins N: large-scale insertional muta-
+      genesis screen zebrafish. Genes Dev 1999, 13(20):2713-2724.
+6.    Pickart MA, Sivasubbu S, Nielsen AL, Shriram S, King RA, Ekker SC:
+      Functional genomics tools analysis zebrafish pig-
+      ment. Pigment Cell Res 2004, 17(5):461-470.
+7.    Taylor MR, Kikkawa S, Diez-Juan  Ramamurthy V, Kawakami K,
+      Carmeliet P, Brockerhoff SE: zebrafish pob gene encodes       novel protein required survival red cone photo-
+      receptor cells. Genetics 2005, 170(1):263-273.
+8.    Eckfeldt CE, Mendenhall EM, Flynn CM, Wang TF, Pickart MA, Grin-
+      dle SM, Ekker SC, Verfaillie CM: Functional analysis human
+      hematopoietic stem cell gene expression using zebrafish.
+      PLoS Biol 2005, 3(8):e254.
+9.    Michael  Pickart EWK, Nielsen Aubrey L, Sivasubbu Sridhar,
+      Mendenhall Eric M, Brent R, Chen Eleanor, Eckfeldt Craig E,
+      Knowlton Michelle, Robu Mara E, Larson Jon D, Deng Yun, Schim-
+      menti Lisa  Ellis Lynda BM, Verfaillie Catherine M, Hammerschmidt
+      Matthias, Farber Steven  Ekker Stephen C: Genome-Wide
+      Reverse Genetics Framework Identify Novel Functions       Vertebrate Secretome. PLoS 2006, 1(1):e104.
+10.   Klee EW, Ellis L BM: Evaluating eukaryotic secreted protein
+      prediction. BMC Bioinformatics 2005, 6:256.
+11.   Sadl VS, Sing  Mar L, Jin F, Cordes SP: Analysis hindbrain pat-
+      terning defects caused kreisler(enu) mutation reveals
+      multiple roles Kreisler hindbrain segmentation. Dev Dyn
+      2003, 227(1):134-142.
+12.   Klee EW, Shim KJ, Pickart MA, Ekker SC, Ellis LB: AMOD: mor-
+      pholino oligonucleotide selection tool. Nucleic Acids Res
+      2005:W506-511.
+13.   Miller-Bertoglio V, Carmany-Rampey  Furthauer M, Gonzalez EM,
+      Thisse C, Thisse B, Halpern  Solnica-Krezel L: Maternal       zygotic activity zebrafish ogon locus antagonizes BMP
+      signaling. Dev Biol 1999, 214(1):72-86.
+                                                                                        Publish Bio Med Central 14.   Sprague J, Bayraktaroglu L, Clements D, Conlin T, Fashena D, Frazer              scientist read work free charge
+      K, Haendel M, Howe DG, Mani P, Ramachandran S, et al.:                    "BioMed Central significant development       Zebrafish Information Network: zebrafish model organ-
+                                                                                    disseminating results biomedical researc h lifetime."
+      ism database. Nucleic Acids Res 2006:D581-585.
+15.   Mouse Phenome Database [http://phenome.jax.org/pub-cgi/phe                        Sir Paul Nurse, Cancer Research UK
+      nome/mpdcgi?rtn=docs/home]
+16.   Bogue MA, Grubb SC, Maddatu TP, Bult CJ: Mouse Phenome                          research papers 
+      Database (MPD). Nucleic Acids Res 2007:D643-649.                                  available free charge entire biomedical community
+17.   Horn T, Arziman  Berger J, Boutros M: GenomeRNAi: data-                       peer reviewed published immediately acceptance
+      base cell-based RNAi phenotypes. Nucleic Acids Res
+      2007:D492-497.                                                                    cited PubMed archived PubMed Central
+18.   GenomeRNAi [http://www.dkfz signaling2/rnai/ernai.html]                        — copyright
+19.   Xenopus tropicalis Morpholino Screen                  [http://www.gur
+      don.cam.ac.uk/~smithlab/screens/Xenopus-morpholino-pilot/mor             Submit manuscript                                 BioMedcentral
+      pholino-screen-lists.html#synphenotypes]                                 http://www.biomedcentral.com/info/publishing_adv.asp
+
+
+
+
+                                                              

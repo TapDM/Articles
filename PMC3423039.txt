@@ -1,0 +1,765 @@
+Orth Palsson BMC Systems Biology 2012, 6:30
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                                 Open Access
+
+Gap-filling analysis iJO1366 Escherichia coli
+metabolic network reconstruction discovery metabolic functions
+Jeffrey D Orth Bernhard  Palsson*
+
+
+  Abstract
+  Background: iJO1366 reconstruction metabolic network Escherichia coli complete
+  accurate metabolic reconstructions available organism.  knowledge 
+  studied model organisms incomplete, network reconstruction contains gaps possible
+  errors. total 208 blocked metabolites iJO1366, representing gaps network.
+  Results: new model improvement workflow developed compare model based phenotypic predictions   experimental data gaps correct errors. Keio Collection based dataset E. coli gene essentiality   obtained literature data compared model predictions. SMILEY algorithm used predict
+  likely missing reactions reconstructed network, adding reactions KEGG based universal set   metabolic reactions. feasibility putative reactions determined comparing updated versions   model experimental dataset, genes predicted feasible reactions.
+  Conclusions: Numerous improvements iJO1366 metabolic reconstruction suggested analyses.
+  Experiments performed verify computational predictions, including new mechanism growth
+  myo-inositol. predictions study experimentally verifiable similar means.
+  Validating predictions represents substantial important undertaking.
+  Keywords: Constraint-based modeling, Metabolic network reconstruction, Escherichia coli, Gap-filling, Gene
+  annotation
+
+
+Background                                                                              model missing essential reaction [5]. pre-
+Constraint-based modeling widely used systems biology                              diciton called false negative. current metabolic net-
+method particularly suited predicting                               work reconstruction entirely complete realistic
+phenotypes microbial organisms gene knockouts                               knowledge metabolism organism grown different substrates [1-3]. variable                                complete. studied model organisms
+conditions simply represented additional constraints                             Escherichia coli genes  model, growth predicted flux balance                                 known functions [6,7]. result analysis (FBA) [4]. realistic constraint                           gaps metabolic network reconstructions. gaps represented typical metabolic model, quite possible                          form dead-end metabolites, model predict growth conditions                               producing consuming reactions [8].
+growth does really occur. actual organism                                 different types gaps exist reconstructed
+express required gene growth, fluxes limited                            metabolic networks [8,9]. gaps result blocked kinetic thermodynamic constraints, example.                              reactions, unable carry flux steady state,
+case called false positive prediction. hand,                          blocked metabolites, exist blocked reac-
+false predictions growth taken indications                              tions produced consumed. Root 
+                                                                                        production gaps metabolites consuming
+* Correspondence: palsson@ucsd.edu                                                      reactions blocked producing
+Department Bioengineering, University California, San Diego, La Jolla,
+CA, USA, 9500 Gilman Drive, Mail Code 0412, La Jolla CA 92093-0412, USA                 reactions. Metabolites produced 
+                                          © 2012 Orth Palsson; licensee BioMed Central  Open Access article distributed terms                                           Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use,
+                                          distribution, reproduction medium, provided original work properly cited.
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                    Page 2 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+root production metabolites blocked,       organism specific databases BioCyc [17]. program
+referred downstream gaps. Likewise, root          fills gaps complete metabolic pathways includes
+sumption gaps metabolites producing reactions         hole-filling algorithm assigns genes gap-filling reac- consuming reactions, metabolites          tions [18,19]. recent procedure uses network ex-
+blocked gaps called upstream gaps. gaps       pansion determine minimum number reactions metabolic network classified        need added network make compliant
+scope gaps knowledge gaps. Scope gaps        experimental data [20]. production metabolites
+exist scope metabolic network models       macromolecule degradation products considered,
+does include features like macromolecular degradation      genes predicted using hidden Markov models. use charged tRNAs protein synthesis. Know-        strategy applied improve metabolic models ledge gaps, hand, actually result      E. coli [21] Chlamydomonas reinhardtii [22]. incomplete knowledge metabolism              present study builds methods new
+ganism [10].                                                   workflow includes use SMILEY algorithm.
+   comparison model predictions experimental         SMILEY used instead GapFill GrowMatch 
+data useful way network gaps dis-         cause modified make predictions cover new genes reactions. possible         wider range experimental data originally
+outcomes comparing computationally predicted           applied  Specifically, used make predictions
+experimentally measured growth phenotypes: true posi-          using gene essentiality data network gaps addition
+tives, model correctly predicts growth; true          data growth different substrates. iJO1366
+negatives, model correctly predicts           metabolic network reconstruction E. coli K-12, lat-
+growth possible; false positives, model pre-       est complete genome-scale reconstruction dicts growth condition growth            organism [10], used analysis. begin, observed; false negatives, model fails         large dataset E. coli gene essentiality Keio
+predict growth growth experimentally                 Collection [23], combined published datasets
+observed. false positive false negative results       [10,23-25], assembled.  model growth predic- useful refining model content,        tions using iJO1366 model compared false negative cases help gaps. meth-    dataset, false positive false negative
+ods developed predict correct gap        comparisons analyzed identify potential errors ing reactions based comparisons experimental             model experimental datasets. data.                                                          SMILEY algorithm used predict gap-filling
+   method published called            reactions reactions correct false negative model
+SMILEY [5]. mixed-integer linear programming         predictions. feasibility reactions algorithm identifies minimum number reac-          assessed comparing augmented model predictions tions need added metabolic model        experimental dataset. Finally, genes predicted
+universal database reactions order allow mini-      feasible putative reactions. sets mum defined growth rate achieved. SMILEY             gene function predictions presented, provide
+algorithm developed used predict reac-        plausible hypotheses experimental validation. tions missing iJR904 E. coli reconstruction [11]      predictions potential improve metabolic caused false negative model growth predictions            reconstruction lead new metabolic gene discover- compared Biolog growth data [12].              ies [8]. Knockout strain growth phenotyping experiments
+results experimentally verified new genes        performed identify gene involved myo-inosi-
+characterized [5]. SMILEY recently used pre-       tol metabolism, demonstrating types experimental
+dict gap-filling reactions Recon 1 human metabolic      analyses validate biological predictions.
+reconstruction [13,14]. algorithms GapFind/GapFill [9] GrowMatch [15] later developed, pre-        Results
+dict missing reactions connecting model gaps         Comparison model predictions experimental data
+comparing model predictions gene essentiality data,      applying developed workflow analyze iJO1366
+spectively. date, methods used make      model gaps compare model predicted phenotypes predictions E. coli yeast metabolic networks       experimental data, new biological hypotheses gener-
+[15,16], predictions experimen-    ated (Figure 1).  experimental datasets tally verified. Non-constraint-based methods recon-        assembled combined. dataset consisted large
+structing metabolic networks filling gaps   set E. coli gene knockout strains grown different types
+developed. example PathoLogic, component       media. gene knockout strains Pathway Tools software used assemble      Keio Collection E. coli BW25113 single gene knockouts,
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                                Page 3 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+    Baba et al.        Joyce et al.          Orth et al.           Ito et al.
+      Entire Keio        Entire Keio         1075 genes       1440 genes      Collection      Collection       glucose, lactate,     Biolog GN2
+       glucose            glycerol           succinate           plates
+
+
+
+
+     JO1366 E.                  Combined                KEGG universal
+    coli metabolic                phenotypic                 reaction
+                                   dataset                  database
+         model                                              8447 reactions
+                                13,470 phenotypes
+
+
+
+
+                                        711 false
+            Compared model              positives
+              predictions             experimental data                                                                           Computed
+                                        265 false                                                                             Feasible
+                                                                                                       feasibility                                         negatives                                                                             solutions
+                                                                                                     SMILEY solutions
+                                                          Used SMILEY               1176
+                                                          predict gap-filling        SMILEY
+                                                              reactions              solutions
+             Used GapFind              208
+                                                                                                     Predicted vivo
+             identify network           network                                                                                vivo
+                                                                                                      experiments         experiments
+                   gaps                  gaps
+                                                                                                     confirm reactions
+
+
+
+ Figure 1 Workflow predicting FN-correcting gap-filling reactions using SMILEY. Input datasets shown blue, computational
+ prediction steps orange, analyzed outputs green.
+
+
+
+allowing analyzed  dataset,                    259 1440 genes iJO1366, Baba et al. [23], contained phenotypes entire                  genes included. 38 substrates Keio Collection grown glucose MOPS minimal media.                         included iJO1366 model KEGG com- defined media contains buffer MOPS (3-(N-mor-                       pound database, included pholino)propanesulfonic acid), potential sulfur source.                    connected model content using second dataset growth screen entire                   methods presented  phenotypes combined
+Keio Collection, glycerol M9 minimal media [25].                      dataset adjusted slightly original publica- dataset screen 1075 Keio Collection                       tions based recent analysis Keio Collection
+strains, genes included iAF1260 E. coli meta-                 genotypes [26]. new genes classified essen-
+bolic reconstruction [21], grown different media                     tial, added essential genes glucose
+conditions [10]. strains grown glucose M9                        glycerol. gene, b0103, removed Bio-
+media aerobic anaerobic conditions, lac-                   log screen data based analysis. screen 1075
+tate M9 aerobically, succinate M9 aerobically.                    strains conditions performed Keio
+fourth dataset consisted phenotypes 1440 Keio Col-                   Collection update, accounted lection strains grown Biolog GN2 plates [24].                      changes. datasets contained phenotypes wild-type E. coli grow 38 different car-                 substrates. example, Biolog data contained
+bon sources Biolog plate, dataset                        strains grown glycerol, succinate, lactate. included 38 substrates.                                                cases, data point included gene
+   datasets combined large                   knockout strain grown substrate. phenotypic dataset. screens entire Keio                      datasets included “growth�? phenotype, phenotype
+Collection glucose glycerol, growth phenotype                   set “growth�? combined dataset. strain
+included 1366 genes iJO1366.                       growth�? phenotype datasets classified
+screen conditions, phenotypes available                     essential combined dataset. making 1075 1366 genes. screen Biolog plates,                     adjustments, final combined dataset contained 13,470
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                       Page 4 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+experimental phenotypes. 12,120 “growth�? phe-           “Cofactor Prosthetic Group Metabolism,�? 7.4   notypes 1350  growth�? phenotypes.                           7.7   respectively. false negative cases indicate    iJO1366 E. coli metabolic network model            likely presence currently unknown isozymes alterna-
+used predict growth phenotypes 13,470 condi-          tive pathways.
+tions. model E. coli K-12 MG1655 metabolism modified slightly match genotype E. coli           False positive model predictions
+BW25113, parent strain Keio Collection. FBA [4]         set false positive predictions investigated used predict growth rates using iJO1366            determine occurred. gene
+core biomass objective gene knockout              false positive prediction sub- substrate experimental dataset. growth rate       strate experimental growth substrate zero classified computational “growth�?              tested. possible
+phenotype, growth rate zero classified        reasons false positive prediction growth�?. silico dataset 13,470 phenotypes        iJO1366 model.  possible model generated, compared vivo dataset.           contain error unrealistic reaction (Table 1).
+model prediction classified true positive, true    model, reaction CBPS (carbamoyl phosphate syn-
+negative, false positive, false negative. Additional file   thase (glutamine-hydrolyzing)) converts L-glutamine car-
+1 complete sets computational experimental          bamoyl phosphate, essential precursor L-arginine.
+phenotypes. total 11,855 true positives, 639 true nega-       reaction catalyzed complex carA (b0032) tives, 711 false positives, 265 false negatives identi-   carB (b0033), experimentally essen-
+fied (Figure 2 . Matthews Correlation Coefficient            tial glucose, glycerol, succinate, lactate minimal
+(MCC) predictions, measure accuracy           media. model, genes non-essential binary classifications, 0.5418. Overall, silico         alternate reaction produces carbamoyl phosphate,
+screen predicted growth phenotypes            CBMKr (carbamate kinase), catalyzed products experimental data (93.3   90.0  , respectively).        yahI (b0323), arcC (b0521), yqeA (b2874). putative result largely explained nature          reaction included iJO1366 based physiological
+straint-based modeling FBA. iJO1366                data [28], functions genes model does contain regulation, FBA use reac-           characterized. likely CBMKr reaction
+tion network produce biomass. E. coli cell,        unrealistic. False positives caused errors different levels regulation make certain enzymes         iJO1366 core biomass reaction. gene pdxH (b1638)
+available certain conditions,          catalyzes reactions PDX5POi (pyridoxine 5’-phosphate
+allowed growth. real constraints, kinetic        oxidase) PYAM5PO (pyridoxamine 5’-phosphate oxi- thermodynamic constraints [27], accounted            dase), required synthesis pyridoxal 5’-phosphate model cause false positive       (vitamin B6). vitamin included core bio-
+predictions.                                                       mass, reactions essential model.
+   genes iJO1366 model classified         essentiality gene glucose gly-
+11 functional categories, according metabolic func-         cerol minimal media indicates vitamin B6 fact es-
+tions serve [10]. different categories      sential E. coli, included model
+contain genes varying levels predictive accuracy           biomass reaction.
+(Figure 2 b). Genes  ? category, including               false positive predictions likely occurred mainly tRNA charging genes genes             gene incorrectly identified essential placed categories, lead false        experimental screens (Table 2). case positives 23.7   cases. known tRNA        genes involved energy production. cyto-
+charging gaps iJO1366 model [10]. tRNA char-          chrome oxidase gene cydA (b0733) knockout strain does
+ging genes essential vivo. false       exist Keio Collection, presumed positives “Energy Production Conversion�?             essential. viable knockout strain gene genes (12.4  ). outcome partly caused miss-         produced,  knockouts ing thermodynamic constraints, partly fact         cytochrome oxidases [29]. ATP synthase genes
+disruptions cellular energy generation cause E. coli     atpCDGAHFEB (b3731-8) classified essential grow slowly, strains            minimal media, inspection actual growth mea- essential experimental screens             surements experiments [10,23,25] reveals actually slowly growing. computa-             knockout strains did actually grow, albeit slowly.
+tional screen classified growing strains non-essential,        false positive cases occurred gene knockout grew slowly. False negatives com-           strains known isozymes alternative pathways
+mon genes “Amino Acid Metabolism�?                 (Table 3). iJO1366 model, knockouts  Orth Palsson BMC Systems Biology 2012, 6:30                                                                                                                                                  Page 5 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+                                                                                                                                                                                     Experimental
+                                                                                                                 Growth        growth
+                                                                                                                  12,120          1350
+                                                                                                                 (90.0 )        (10.0 )
+
+
+                                                                                               12,566             11,855          711
+                                                           Computational
+                                                                               Growth
+                                                                                              (93.3 )            (88.0 )        (5.3 )
+
+
+
+
+                                                                               growth        904                265                639
+                                                                                              (6.7 )             (2.0 )             (4.7 )
+
+
+                                                                                                                       13,470 Total
+
+
+
+                     b
+                                                                                True Positives                                                         False Positives
+                                                 100                                                                           25
+                       Percent wtihin category
+
+
+
+
+                                                 80                                                                            20
+
+                                                 60                                                                            15
+
+                                                 40                                                                            10
+
+                                                 20                                                                             5
+
+                                                   0                                                                            0
+                                                         C               W    P   E        L    N        O   TI                     C   W      P     E        L    N    O   TI   
+
+
+
+                                                                               False Negatives                                                         True Negatives
+                                                  10                                                                           20
+                     Percent wtihin category
+
+
+
+
+                                                   8                                                                           16
+
+                                                   6                                                                           12
+
+                                                   4                                                                            8
+
+                                                   2                                                                            4
+
+                                                   0                                                                            0
+                                                         C               W    P   E         L   N        O   TI                  C      W      P     E       L     N    O   TI   
+                                                                           Metabolic functional categories                                           Metabolic functional categories
+
+
+ Figure 2 Comparison model predicted growth phenotypes experimental data.   overall comparison, indicating numbers true
+ positives, true negatives, false positives, false negatives. (b) numbers type prediction 11 functional categories  metabolic reactions. categories  amino acid metabolism  , carbohydrate metabolism (C), cell wall/membrane/envelope metabolism (W),
+ cofactor prosthetic group metabolism (P), energy production conversion (E), inorganic ion transport metabolism  , lipid metabolism
+ (L), nucleotide metabolism (N), (O), inner membrane transport (TI), outer membrane transport  .
+
+
+overcome using isozyme alternative pathway                                                                    reactions blocked scope gaps, important reac-
+synthesize biomass components. vivo, genes                                                                    tions used model. Finally, false essential isozyme genes expressed                                                                 positives explained model  ex- experimental conditions, capable                                                                 ample, gene spoT (b3650) required synthesize catalyzing reaction sufficient rate growth                                                               signaling molecule guanosine tetraphosphate (ppGpp). occur. types false positive model predictions                                                                  metabolic model does require signaling, overcome standard FBA using meta-                                                                      gene non-essential. Experimentally, spoT bolic model. model including regulation add-                                                                    essential rich media, likely non-
+itional constraints required. false positives                                                                 metabolic function. false negatives occur tRNA charging genes knocked                                                                      explained model ftsI (b0084), adk (b0474), mrdA
+model (Table 4). iJO1366 tRNA charging                                                                           (b0635), cydC (b0886), gapA (b1779), ligA (b2411), suhB
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                                  Page 6 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+Table 1 False positive model predictions indicate                   indication missing metabolic reactions pathways model errors                                                             model. section, use SMILEY algorithm
+Gene           Error                                                     predict likely missing reactions presented. carA (b0032)   alternate pathway (CBMKr) gene functions              possible explanations false negative predic-
+               confirmed                                                 tions.  possible model biomass reaction
+carB (b0033)   alternate pathway (CBMKr) gene functions              used objective incorrect (Table 5).                confirmed                                                 false negative cases occurred knockouts genes
+proB (b0242)   alternate pathway (NACODA) gene function              involved molybdenum cofactor synthesis, including mog
+               confirmed                                                 (b0009), moaA (b0781), moaC (b0783), moaD (b0784),
+proA (b0243)   alternate pathway (NACODA) gene function              moaE (b0785), moeA (b0826), moeB (b0827), mobA
+               confirmed
+                                                                         (b3857). iJO1366 model, genes essential
+folD (b0529)   5fthf[c] methf[c] essential                    required produce bmocogdp[c] (bis-
+entD (b0583)   enter[c] essential                                 molybdopterin guanine dinucleotide), component pyrD (b0945)   alternate pathway (DHORDfum) orphan reaction        core biomass formulation. gene knockout
+pdxH (b1638)   pydx5p[c] essential                                strains experimentally viable conditions,                                                                          likely cofactor essential growth, pgsA (b1912)   pgp120[p] - pgp181[p] essential
+nrdA (b2234)   alternate pathway (RNDR1b – RNDR4b) gene functions
+               confirmed
+nrdB (b2235)   alternate pathway (RNDR1b – RNDR4b) gene functions
+                                                                         Table 3 False positive model predictions caused                confirmed                                             isozymes alternate pathways
+ptsI (b2416)   alternate pathway (GLCt2pp) glucose transport         Gene           Isozyme alternate pathway reactions
+               confirmed                                                 thrA (b0002)   metL (b3940) lysC (b4024)
+waaK (b3623)   colipa[e] essential                                carA (b0032)   alternate reaction: CBMKr
+wzyE (b3793)   eca4colipa[e] essential                            carB (b0033)   alternate reaction: CBMKr
+ubiE (b3833)   reactions AMMQLT8 OMBZLM blocked gaps          folA (b0048)   folM (b1606)
+ubiB (b3835)   alternate pathway (OPXHH3) orphan reaction          (b0126)    cynT (b0339)
+ppa (b4226)    isozymes, ppx (b2502) surE (b2744),            pyrH (b0171)   cmk (b0910)
+               incorrect
+                                                                         int (b0657)    lpp (b1677)
+                                                                         fldA (b0684)   fldB (b2895)
+(b2533), eno (b2779), fbaA (b2925), pgk (b2926), dut                     fabA (b0954)   fabZ (b0180)
+(b3640), pslB (b4041), alsK (b4084).
+                                                                         nrdA (b2234)   alternate reactions: RNDR1b, RNDR2b, RNDR3b, RNDR4b
+
+False negative model predictions                                         nrdB (b2235)   alternate reactions: RNDR1b, RNDR2b, RNDR3b, RNDR4b genes false negative predictions               cysK (b2414)   cysM (b2421)
+substrate computationally predicted growth                 ptsI (b2416)   alternate reaction: GLCt2pp
+substrate investigated  constraint-             cysA (b2422)   modA (b0763) + modB (b0764) + modC (b0765)
+based metabolic model fails predict growth                cysP (b2425)   modA (b0763) + modB (b0764) + modC (b0765)
+dition growth observed experimentally,                                                                          guaB (b2508)   alternate reaction: XPPT
+                                                                         glyA (b2551)   alternate reaction: GLYCL
+Table 2 False positive model predictions indicate
+incorrectly identified essential genes                                   acpS (b2563)   acpT (b3475)
+Gene                   Reason incorrect phenotype                    serA (b2913)   alternate reaction: GHMT2r
+cydA (b0733)           knocked successfully Portnoy et al. [29]   metC (b3008)   tnaA (b3708) malY (b1622)
+atpC (b3731)           ATP synthase knockout causes low growth rate      aroE (b3281)   ydiB (b1692)
+atpD (b3732)           ATP synthase knockout causes low growth rate      ilvA (b3772)   tdcB (b3117)
+atpG (b3733)           ATP synthase knockout causes low growth rate      metE (b3829)   metH (b4019)
+atpA (b3734)           ATP synthase knockout causes low growth rate      ubiB (b3835)   alternate reaction: OPHHX3
+atpH (b3735)           ATP synthase knockout causes low growth rate      glnA (b3870)   ycjK (b1297)
+atpF (b3736)           ATP synthase knockout causes low growth rate      metL (b3940)   thrL (b0002) malY (b1622)
+atpE (b3737)           ATP synthase knockout causes low growth rate      ppa (b4226)    ppx (b2502) surE (b2744)
+atpB (b3738)           ATP synthase knockout causes low growth rate      serB (b4388)   alternate reaction: GHMT2r
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                              Page 7 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+Table 4 False positive model predictions caused tRNA             reaction essential histidine synthesis
+charging reactions                                                  pathway, essential minimal media Gene                                              Amino Acid        model. vivo datasets,  hisH ileS (b0026)                                      L-isoleucine      essential aerobic conditions. essential
+proS (b0194)                                      L-proline         HisH, HisF able catalyze                                                                     reaction, using NH3 instead glutamine N donor
+cysS (b0526)                                      L-cysteine
+                                                                    [30]. hisH essential compo-
+leuS (b0642)                                      L-leucine
+                                                                    nent IG3PS GPR. GPR change sug-
+glnS (b0680)                                      L-glutamine       gested cyaY (b3807), gene involved serS (b0893)                                      L-serine          transferring iron [Fe-S] cluster synthesis. asnS (b0930)                                      L-asparagine      model, gene essential component reac-
+tyrS (b1637)                                      L-tyrosine        tions ISC SUF [Fe-S] cluster synthesis
+                                                                    pathways, essential conditions. gene
+pheT (b1713)                                      L-phenylalanine
+                                                                    characterized, experimen-
+pheS (b1714)                                      L-phenylalanine
+                                                                    tally non-essential, likely strictly required thrS (b1719)                                      L-threonine       reactions I2FE2SS, I2FE2SS2, S2FE2SS, 2FE2SS2.
+aspS (b1866)                                      L-aspartate       false positive cases likely experimental
+argS (b1876)                                      L-arginine        errors (Table 7). genes involved synthesis
+metG (b2114)                                      L-methionine      cofactors biotin thiamin experimentally
+                                                                    classified non-essential. cofactors known hisS (b2514)                                      L-histidine
+                                                                    required small quantities [31-33], likely alaS (b2697)                                      L-alanine
+                                                                    residual biotin thiamin media dur-
+fmt (b3288)                                       N-formyl-L-       ing growth experiments. experimental screen                                                   methionine
+                                                                    different conditions, thorough washing proce-
+trpS (b3384)                                      L-tryptophan      dures used prevent carryover preculture
+glyS (b3559)                                      glycine           media, genes classified essential. Fi-
+glyQ (b3560)                                      glycine           nally, false negatives caused currently unidenti-
+valS (b4258)                                      L-valine          fied isozymes (Table 8). cases false
+                                                                    negatives explained means, included iJO1366 core biomass             BLASTp used identify possible isozymes E.
+reaction.                                                           coli genome. predicted isozyme ex-
+  false positive cases explained incor-             perimentally verified. prpC (b0333), currently rect gene-protein-reaction associations (GPRs)                   model associated MCITS (2-methylcitrate
+iJO1366 (Table 6).  gene hisH (b2023)                 synthase), confirmed isozyme required reaction IG3PS (Imidazole-glycerol-3-              gltA (b0720), catalyzing CS (citrate synthase) [34,35].
+phosphate synthase), hisF (b2025).                                                                     Computational prediction gap-filling reactions
+Table 5 False negative model predictions caused                  cause model gaps false negative phenotypic
+incorrect core biomass composition                                  predictions realistic reactions miss-
+Gene                                          Biomass component     ing iJO1366 model. current version mog (b0009)                                   bmocogdp[c]           iJO1366 contains 48 root production gaps, 63 root
+moaA (b0781)                                  bmocogdp[c]           consumption gaps, 52 downstream gaps, 69 
+moaC (b0783)                                  bmocogdp[c]           stream gaps. scope gaps, caused                                                                     limited scope metabolic network, moaD (b0784)                                  bmocogdp[c]
+                                                                    previously identified [8,10]. SMILEY algo-
+moaE (b0785)                                  bmocogdp[c]
+                                                                    rithm used predict likely sets reac-
+moeA (b0826)                                  bmocogdp[c]           tions missing model. predict false negative
+moeB (b0827)                                  bmocogdp[c]
+ubiX (b2311)                                  2ohph[c]
+                                                                    Table 6 False negative model predictions suggest
+iscS (b2530)                                  bmocogdp[c]           changes iJO1366 model GPRs
+cysG (b3368)                                  sheme[c]              Gene             GPR correction
+mobA (b3857)                                  bmocogdp[c]           hisH (b2023)     essential IG3PS [30]
+ubiC (b4039)                                  2ohph[c]              cyaY (b3807)     essential I2FE2SS, I2FE2SS2, S2FE2SS, S2FE2SS2
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                       Page 8 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+Table 7 False negative model predictions                      Table 8 False negative model predictions caused misidentified experiment phenotypes media                         missing isozymes alternate pathways
+compositions                                                         Gene                    Putative Isozyme             E-value
+Gene           Explanation                                           purK (b0522)            purT (b1849)                 2.00E-12
+mtn (b0159)    essential according Choi-Rhee et al. [36]          gltA (b0720)            prpC (b0333)                 1.00E-41
+thiI (b0423)   possibly thiamin media incomplete washing   aspC (b0928)            tyrB (b4054)                 4.00E-94
+bioA (b0774)   possibly biotin media incomplete washing    fabH (b1091)            identified
+bioB (b0775)   possibly biotin media incomplete washing    pabC (b1096)            ilvE (b3770)                 7.00E-8
+bioF (b0776)   possibly biotin media incomplete washing    icd (b1136)             dmlA (b1800)                 3.00E-19
+bioC (b0777)   possibly biotin media incomplete washing    aldA (b1415)            gabD (b2661)                 1.00E-90
+bioD (b0778)   possibly biotin media incomplete washing                            prr (b1444)                  3.00E-80
+aroD (b1693)   experimental growth condition,                                 feaB (b1385)                 1.00E-69
+               possible error
+                                                                                             aldB (b3588)                 2.00E-66
+thiD (b2103)   essential according Orth et al. [10]
+                                                                                             betB (b0312)                 4.00E-65
+cysD (b2752)   experimental growth condition,
+               possible error                                        ubiX (b2311)            identified
+argG (b3172)   experimental growth condition,         luxS (b2687)            identified
+               possible error                                        thyA (b2827)            identified
+cysG (b3368)   experimental growth condition,         zupT (b3040)            identified
+               possible error
+                                                                     folB (b3058)            folX (b2303)                 1.00E-4
+bioH (b3412)   possibly biotin media incomplete washing
+                                                                     argG (b3172)            identified
+ilvE (b3770)   experimental growth condition,
+               possible error                                        folP (b3177)            identified
+thiH (b3990)   essential according Orth et al. [10]               yrbG (b3196)            identified
+thiG (b3991)   essential according Orth et al. [10]               kdsC (b3198)            identified
+thiF (b3992)   essential according Orth et al. [10]               argD (b3359)            astC (b1748)                 1.00E-146
+thiE (b3993)   essential according Orth et al. [10]                                       gabT (b2662)                 3.00E-64
+thiC (b3994)   essential according Orth et al. [10]                                       puuE (b1302)                 3.00E-54
+cysQ (b4214)   MOPS possible alternate S source                                         patA (b3073)                 4.00E-52
+                                                                                             hemL (b0154)                 3.00E-32
+resolving reactions, model constrained match              cysG (b3368)            identified false negative condition, time, SMILEY             ilvE (b3770)            pabC (b1096)                 8.00E-8 run. gene knockout strains lead false               dapF (b3809)            identified
+negative predictions 34 tested substrates                                                                       argC (b3958)            identified , likely set missing
+reactions cause incorrect predictions         argB (b3959)            identified
+strain. cases, SMILEY run model                  hemE (b3997)            identified glucose  aerobic anaerobic), glycerol,            ubiC (b4039)            identified
+lactate, succinate substrates. predict gap-filling         purA (b4177)            identified
+reactions, small lower bound placed known
+producing consuming reaction knowledge
+gap metabolite, SMILEY run. order actu-                incomplete reactions removed set (Add-
+ally carry small flux reactions satisfy          itional file 3). model constraints, gap-filling reaction set reac-           total 1176 optimal suboptimal solutions tions need added. SMILEY run 166                  identified SMILEY. Solutions identified 106 false negative cases 49 gap reactions (Additional file           false negative cases 32 gaps. Multiple optimal
+2). model knowledge gaps [8] targeted,                 solutions cases, total
+scope gaps. algorithm set 25 alter-            198 different optimal solutions 983 different subopti-
+nate solutions condition, time limit 2 h           mal solutions. solutions optimal placed solution. reactions added                  suboptimal solutions different cases, 385 solu-
+SMILEY universal set reactions based               tions multiple times. reactions KEGG Release 58.0 [37]. Unrealistic             gene knockout strains grown multiple substrates  Orth Palsson BMC Systems Biology 2012, 6:30                                                                                                       Page 9 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+genes required GPRs reaction                                         model used predict growth phenotypes reactions pathway. false negative                                          FBA 13,470 conditions experimental
+cases gaps, small number optimal solutions                                            dataset. false positive false negative predictions (Figure 3 . solution 77 cases,                                        identified comparison experimental data- solutions 91 cases.                                           set, number false negatives eliminated cases, 25 solutions optimal. cases                                         new false positives created SMILEY solution iscS (b2530) knockout strain grown different                                        counted. feasible solutions conditions. gene ISC [Fe-S] cluster gen-                                      fixed false negatives introdu-
+eration model essential role                                        cing false positives. average, solution cor- molybdenum cofactor synthesis. alternate                                           rected 7.48 false negatives created 7.07 new false
+solutions involves import cofactor. average                                         positives. total 144 solutions (11 optimal 133
+number optimal solutions SMILEY run                                                suboptimal) eliminate false negatives
+2.56. optimal solutions included reaction,                                            producing new false positives. GapFind included (Figure 3 b). average                                          run model solution added, determine
+number reactions optimal solution 1.41.                                                  model gaps eliminated. 74 solutions   molybdenum cofactor uptake reactions demon-                                                gap 
+strate, SMILEY solutions realistic. computa-
+tional feasibility check performed identify                                              Predictions genes hypothesized reactions realistic solutions. solutions added                                           feasible SMILEY solutions complete iJO1366 model time, augmented                                               set 1176 solutions investigated 
+                                                                                                    feasible solutions, BLASTp used try
+                                                                                                    identify candidate genes E. coli genome
+                                                                                                    (Table 9). solutions divided categor-
+                                                                                                            ies. Category solutions optimal solutions                           80 77                                                                     eliminated false negative condition cre-
+     Number FNs/gaps
+
+
+
+
+                                                                                                    ating new false positives. solutions gave                                     61
+                          60                                                                        average MCC 0.5436, slightly better original
+                                                                                                    model. 11 category solutions, fixed false
+                          40                                                                        negatives adding deleted model reaction                                      30                                                             universal reaction list. indicates                           20                         17                                             uncharacterized isozymes possible aspC (b0928),
+                                                          7                          8              pabC (b1096), aldA (b1415), argD (b3359), hemE
+                                             5                4                                 4
+                                                 2                                                  (b3397). solution suggested false negatives
+                           0
+                                0        2       4        6       8   10 12 14 16 18 20 22 24       ΔaspC strains corrected adding exist-
+                                                  Number optimal solutions                       ing model reaction ASP1DC (aspartate 1-decarboxylase)
+                                                                                                    reverse. literature evidence support
+    b                                                                                               refute reversibility reaction.                           120
+                                                                                                    solutions involve addition new reactions                                      109
+                                                                                                    model. provide potential production routes
+   Number solutions
+
+
+
+
+                          100                                                                       aspartate compliment aspC deletion.                           80                                                                        provides new reaction consume glycoaldehyde                                                                                                     ΔaldA strains. reactions asso-
+                          60
+                                                                                                    ciated genes KEGG database, indicating                           40                                                                        global orphan reactions. Candidate genes                                                                                                     reactions identified reference
+                          20                                             16
+                                                              9
+                                                                                         4
+                                                                                                    sequences available.
+                           0                                                                          second category SMILEY solutions inves-
+                                         1                    2           3      4       5
+                                                                                                    tigated optimal solutions fixed                                                  Number reactions solution
+                                                                                                    false negatives number new false positives
+ Figure 3 Properties 198 optimal SMILEY solutions.  
+                                                                                                    created. 70 category II solutions  
+ Number optimal solutions SMILEY run. cases,                                        cluding category solutions, fall  zero optimal solutions  (b) Number                                   definition). average MCC solutions
+ reactions optimal solution. optimal solutions consisted                                0.5531. solutions involve uptake  reaction.                                                                                 molybdenum cofactors precursors. explained
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                            Page 10 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+Table 9 Predicted genes feasible FN-                        solutions added feasible new reactions.  slightly
+correcting SMILEY solutions                                              different reaction producing dTMP added Hypothesized changes directionality                                   compliment thyA (b2827) deletion. currently unchar-
+Reaction     Category   Support                                          acterized E. coli gene, ybiU (b0821), identified ASP1DC                                                                 BLASTp candidate gene reaction, providing
+ASPT         III        reversible (Karsten Viola [38])
+                                                                         testable hypothesis function gene.                                                                          category II feasible solution added new reaction
+ICL          IV         reversible (MacKintosh Nimmo [39])
+                                                                         convert L-glutamate α-ketoglutarate. candi-
+AKGDH        IV         reversible (EcoCyc)                          date genes high sequence homology known genes
+CITL         IV                                                          organisms, ydbL (b0600) ydcR (b1439),
+Hypothesized gap-filling reactions                                       
+Reaction     Category   Putative gene                         E-value       category investigated consisted R00352 (R)   IV         sucD (b0729)                          2.00E-20   suboptimal solutions fixed false
+R00373 (F)            global orphan                                    negative producing new false positives.                                                                          total 133 category III solutions  having
+R00400 (F)            global orphan
+                                                                         average MCC 0.5433. solutions
+R00507 (R)   IV         yhfW (b3380)                          0.47
+                                                                         included unrealistic reactions, oxygen
+R00529 (F)   IV         cysN (b2751) cysD (b2752) *                  consuming KEGG reaction R00357 reverse,
+R00530 (F)   IV         global orphan                                    oxygen producing direction. attempt com-
+R00531 (R)   IV         global orphan                                    pensate loss cofactor producing pathways
+R00695 (R)            global orphan                                    simply adding new uptake reactions                                                                          cofactors.  realistic reactions suggested
+R00709 (F)   IV         dmlA (b1800)                          6.00E-26
+                                                                         BLASTp identified candidate genes. solution
+                        icd (b1136)                           1.00E-26
+                                                                         consisted addition current model reac-
+                        leuB (b0073)                          2.00E-15   tion ASPT (L-aspartase) reverse. Experimental evi-
+R00732 (R)   III        aroA (b0908)                          5.00E-32   dence supports reversibility reaction [38],
+                        murA (b3189)                          7.00E-8    currently listed irreversible iJO1366.
+R00733 (R)   III        tyrA (b2600)                          2.80E-2    fourth final category SMILEY solutions                                                                          examined optimal solutions R01393 (R)            global orphan
+                                                                         categories II. 62 solutions R01618 (R)   IV         glgP (b3428)                          2.10
+                                                                         category average MCC R01713 (F)            global orphan                                    0.5304, slightly worse unmodified iJO1366
+R01731 (F)   IV         tyrB (b4054) *                                   model. solutions simply new 
+R01785 (R)   III        rhaD (b3902) *                                   reactions blocked essential biomass compo-
+R01902 (R)   III        rhaB (b3904) *                                   nents, 14 new realistic reactions suggested,
+                                                                         current model reactions running R02200 (F)   IV         global orphan
+                                                                         opposite directions. new reversible
+R04209 (R)   IV         purC (b2476)                          7.00E-16
+                                                                         reactions, ICL (isocitrate lyase), confirmed R05717 (R)   IV         cysH (b2762)                          3.00E-12   published study [39],  AKGDH (2-Oxo-
+R06613 (F)   II         ybiU (b0821)                          1.6        glutarate dehydrogenase), actually reversible
+R07164 (R)   III        ydiJ (b1687)                          0.9        according EcoCyc [40]. Additional file 4 R07165 (R)   III        ydiJ (b1687)                          0.9        category IV solutions investigated.
+                                                                            72 gap-filling SMILEY solutions investigated
+R07176 (R)   IV         global orphan
+                                                                         (Additional file 5), BLASTp used predict genes
+R07463 (F)   IV         dadA (b1189)                          2.00E-18
+                                                                         realistic reactions (Table 10). total 20 new real-
+R07613 (R)   II         ydbL (b0600)                          7.00E-26   istic reactions  candidate genes                         ydcR (b1439)                          6.00E-15   predicted half  global 
+R08553 (R)   IV         ysaA (b3573)                          4.00E-5    phan reactions. SMILEY suggested 15 existing
+                                                                         model reactions reversible gaps.
+                                                                         According EcoCyc, reactions  likely explanation false nega-                 reversible.  evidence supporting tives molybdenum cofactor strictly                    reversibility model reactions, DKGLCNR1 (2,5-
+required growth E. coli. solutions                  diketo-D-gluconate reductase) [41] DKGLCNR2y (2,5-
+added deleted reactions network,                   diketo-D-gluconate reductase (NADPH)) [42].
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                         Page 11 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+Experimental validation predicted genes                    Table 10 Predicted genes gap-filling SMILEY solutions
+SMILEY gap-filling algorithms useful         Hypothesized changes directionality
+cause use model existing experimental          Reaction               Support
+data generate predictions. performing ex-       DOGULNR                reversible (EcoCyc)
+periment verify predictions, hy-
+                                                              DKGLCNR1               reversible (Habrych et al. [41])
+potheses. iJO1366 model used design simple
+                                                              DKGLCNR2y              reversible (Yum et al. [42])
+growth phenotype experiments confirm predictions. 1176 solutions added      PGLYCP                 reversible (EcoCyc)
+model time, growth simulated          CYSSADS
+combinations set 115 carbon sources 62 ni-        HMPK1                  reversible (EcoCyc)
+trogen sources aerobic anaerobic condi-        4HTHRS
+tions. substrates selected readily
+                                                              HETZK                  reversible (EcoCyc)
+available chemicals use laboratory.                                                               NNDMBRT                reversible (EcoCyc)
+substrate combination growth predicted model SMILEY solution added,           ACONMT                 reversible (EcoCyc) unmodified iJO1366 model, vivo experiment           CINNDO                 reversible (EcoCyc) performed determine E. coli actually         MCPST
+grow substrates, giving supporting experi-         GPDDAS                 reversible (EcoCyc)
+mental evidence predicted reactions.                                                               APCS                   reversible (EcoCyc)
+solutions, new growth conditions identified.                                                               SARCOX
+realistic solutions testable experimental conditions listed Additional file 6.                              Hypothesized gap-filling reactions
+  reaction growth experiment pre-         Reaction               Putative gene                          E-value
+dicted possible R01184, myo-inositol:oxygen         R01742 (F)             ydiS (b1699)                           0.003
+oxidoreductase. reaction combines myo-inositol           R00893 (F)             ygfM (b0419)                           0.58 oxygen form D-glucuronate water. Myo           R02133 (F)             yhbO (b3153)                           0.069
+ositol root consumption gap iJO1366            R02721 (F)             global orphan
+model, reaction fills gap. reaction
+                                                              R03472 (R)             global orphan
+included, E. coli predicted grow myo-inositol substrate. vivo experiment performed,          R01297 (R)             global orphan wild-type E. coli inoculated 2 g/L myo        R01299 (R)             global orphan
+ositol minimal media carbon sources.            R02252 (F)             fadH (b3081)                           7.00E-71 replicates performed, 72 h, cul-                            nemA (b1650)                           1.00E-22
+tures reached OD600 0.017 ± 0.006. result      R00895 (R)             aspC (b0928)*
+indicates E. coli grow slowly myo 
+                                                              R03530 (F)             ndk (bb2518)*
+ositol carbon source.  candidate
+genes predicted reaction using BLASTp.          R00012 (F)             global orphan genes ydeN (b1498), yfdE (b2371), yphC             R01232 (R)             yjhG (b4297)                           0.028
+(b2545), yhiJ (b3488). functions genes                              yagF (b0269)                           0.057 currently unknown, non-essential.        R00838 (F)             chbF (b1734)                           9.00E-42
+Keio Collection knockout strains genes                                melA (b4119)                           2.00E-21 obtained grown glucose myo-
+                                                              R00655 (R)             global orphan
+inositol minimal media. strains grew similar
+OD600 wild-type E. coli glucose, myo-inosi-      R07300 (F)             global orphan
+tol, knockout strains did grow (Figure 4).    R00683 (F)             global orphan yhiJ knockout strain did grow  indicating      R00367 (F)             global orphan gene likely codes myo-inositol:oxygen oxidore-     R02559 (F)             global orphan
+ductase E. coli.                                           R02560 (F)             global orphan
+                                                              R05623 (F)             yjiN (b4336)                           0.16
+Discussion study, iJO1366 metabolic network model E.
+coli used discovery tool, leading predictions     coli metabolism structured format, compar- new metabolic gene functions. date         ing model predictions experimental data, errors model represents current state knowledge E.         gaps knowledge identified. large dataset
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                     Page 12 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+ assembled Keio Collection gene knockout phe-                  careful analysis false positive results,
+notypes grown 34 different substrates. pheno-              possible model errors identified. types compared model predicted phenotypes,                  cases, model predicted growth pathways model false positive false negative predic-             poorly characterized genes required. genes
+tions identified. analyzed, false positive            need investigated  future experi-
+predictions indicated possible errors                mental evidence shows encode current model, including pathways thought cata-               enzymes currently believed encode, lyzed poorly studied enzymes, uncertain                  model updated removing reactions. False
+requirements E. coli biomass formation. false                negative results, hand, indicate errors
+negative cases indicated potential errors           experimental design, model. biomass likely experimental errors.          cases identified E. coli grow min-
+Importantly, false negative cases indicated          imal media despite lacking genes synthesis es- model currently incomplete. SMILEY algo-                 sential cofactors. Biotin thiamin known rithm used predict likely missing reac-             essential, substrates growth observed
+tions, novel procedure, feasibility           knockout strains able produce
+predictions assessed comparisons ex-             cofactors. possible explanation perimental data model gap analysis. Gene                alternate synthesis routes compounds, predictions feasible predicted               cases, likely trace amounts bio-
+reactions, experimental evidence generated               tin thiamin present media support predicted function gene yhiJ.                    growth experiments [23,25]. false positive false
+                                                                    negative results indicate potential errors iJO1366
+                                                                    core biomass reaction. False positives indicate gene
+                                                                    helps produce essential compound missing
+                                                                  biomass reaction, false negatives indicate
+                  2                                                 gene produces non-essential compound                                                                     included. biomass components essen-
+                1.6
+                                                                    tial non-essential certain conditions, 
+                                                                    necessitating use condition-specific biomass reac-
+       OD 600
+
+
+
+
+                1.2
+                                                                    tions specific model applications.
+                0.8                                                    SMILEY used predict gap-filling false
+                                                                    negative correcting reactions added                 0.4
+                                                                    metabolic network. reactions                   0
+                                                                    existing model reactions opposite direction.
+                       WT   ΔydeN   ΔyfdE    ΔyphC     ΔyhiJ        Literature data searched confirm refute pre-
+                                    Strain                          dictions, supporting evidence                                                                     reactions. SMILEY solutions predicted addition
+                                                                    completely new reactions network. gap-filing
+   b
+                                                                    solutions feasible false negative correcting
+                0.03
+                                                                    solutions inspected manually, potentially real-
+            0.025                                                   istic reactions, genes predicted based protein se-
+             0.02
+                                                                    quence homology. feasible predicted reactions
+   OD 600
+
+
+
+
+                                                                    cover wide range metabolic functions.             0.015
+                                                                    corrected false negative predictions aspC knockout
+             0.01                                                   strains, model unable produce L-aspar-
+                                                                    tate. predicted new reactions involving TCA
+            0.005
+                                                                    cycle intermediates. New reactions predicted
+                 0                                                  metabolism adenosine 5’-phosphosulfate,
+                       WT   ΔydeN   ΔyfdE    ΔyphC     ΔyhiJ
+                                                                    dehydroglycine, dTMP, glycoaldehyde, L-isoleucine,
+                                    Strain
+                                                                    5-phosphoribosyl-5-carboxyaminoimidazole.
+ Figure 4 Growth Keio Collection gene knockout stains
+                                                                       new workflow presented theoretically
+ identify possible myo-inositol:oxygen oxidoreductase.       applied organism metabolic net-
+ Growth strains WT glucose M9 minimal media.     work reconstruction available. requirement
+ (b) Growth strains WT myo-inositol M9 minimal   fairly large set experimental phenotypes,
+ media. replicate measurements performed.                growth different substrates growth
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                         Page 13 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+ gene knockouts, available. possible   Methods workflow applied using meta-     Comparison model predictions experimental data
+bolic network gaps, case organisms     experimental gene essentiality data obtained
+extensive experimental data. similar study utilizing   publications [10,23-25], “essential�? gaps phenotypes performed       “non-essential�? designations assigned original
+human metabolic network [13]. Despite number         studies used. corrections essentiality potentially useful predictions  SMILEY did       assignments based updated analysis solutions nearly half cases       Keio Collection [26]. newly identified essential run. reason    genes added lists essential genes universal set reactions used based         conditions, genes essentiality identi-
+KEGG [37]. database contains reactions    fied uncertain changed original known exist organism,     designations. completely undiscovered reactions              iJO1366 E. coli K-12 MG1655 metabolic network
+added.  metabolite iJO1366      reconstruction loaded COBRA Toolbox
+connected KEGG reactions. 1133 compart-        [44], adjusted match phenotype E. coli
+ment-independent metabolites iJO1366, 203      BW25113, missing metabolic genes KEGG compound IDs. larger set reactions        (ΔaraBAD, ΔrhaBAD, ΔlacZ). associated reactions
+including model metabolites allow         isozymes (ARAI, RBK_L1, RMPA, LYXI, RMI,
+additional valid SMILEY solutions       RMK, LACZ) constrained carry zero flux.
+gene predictions based sequence hom-        model reactions retained default bounds
+ology, reactions, gene pre-     [10]. Minimal media simulated setting lower
+dicted reference sequence           bound −1000 (allowing unlimited uptake) ex-
+available. global orphan reactions [43],       change reactions Ca2+, Cl-, CO2, Co2+, Cu2+, Fe2+, known gene organism. pro-       Fe3+, H+, H2O, K+, Mg2+, Mn2+, MoO2-         +     2+
+                                                                                                4 , Na , Ni , NH4,
+                                                                                                                  -
+                                                                   2-    2-     2-    2-     2-          2+
+liferation global orphans (estimated 30-40      O2, HPO4 , SeO4 , SeO3 , SO4 , WO4 , Zn . lower known enzymatic functions [6]) makes gene         bound −0.01 placed cob alamin exchange
+function prediction difficult, account   reaction. knockout strain modeled using fact studied organism E.     deleteModelGenes function constrain correct
+coli, uncharacterized genes.        reactions zero. Model growth phenotypes deter-
+                                                         mined using FBA core biomass reaction Conclusions                                              objective, time condition. Strains study utilized genome-scale metabolic network     growth rates zero classified non-essential,
+reconstruction tool analysis high-       strains growth rates zero classified throughput experimental data. ultimate result     essential. Tomlab (Tomlab Optimization , Se- study number valuable predictions      attle, WA) linear programming solver used   predictions        form FBA.
+adjustments iJO1366 model, pre-
+dicted changes core biomass reaction          Computational prediction gap-filling reactions
+changes GPRs reactions IG3PS, I2FE2SS,     COBRA Toolbox 2.0 implementation I2FE2SS2, S2FE2SS, S2FE2SS2. Corroborating lit-      SMILEY algorithm (growthExpMatch) used pre-
+erature evidence        dict sets gap-filling reactions false negative
+predictions, incorporated fu-     model comparison. universal database reactions
+ture updates reconstruction. predic-    obtained KEGG Release 58.0 [37]. reactions
+tions study gene functions,    set listed “incomplete reaction�? black- isozymes reactions currently        listed, excluded possible SMILEY solutions. known occur E. coli. predictions provide     reaction compound appearing hypotheses experimentally tested.      substrate product blacklisted, example, prediction missing myo-inositol:oxy-   reactions identified initial tests (R00090,
+gen oxidoreductase reaction led design       R00113, R00274) forming unrealistic energy gen-
+simple experiment previously uncharac-      erating reaction loops existing iJO1366 model reac-
+terized gene yhiJ essential growth   tions. minimum growth threshold required myo-inositol. expect        SMILEY algorithm 0.05 h-1. 25 alternate solu-
+predictions study likewise serve     tions allowed, single solution time limit hypotheses experimental analysis.                    2 h.
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                                 Page 14 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+   SMILEY run gaps instead false nega-           sodium phosphate dibasic, 3.0 g/L potassium phosphate
+tive cases, producing consuming reaction            monobasic, 0.5 g/L sodium chloride, 0.24 g/L magnesium gap metabolite identified iJO1366             sulfate, 0.011 g/L calcium chloride), trace elements (0.1 g/L
+model. lower bound 0.01 mmol/gDW/h applied             iron (III) chloride, 0.02 g/L zinc sulfate, 0.004 g/L copper reaction, time, SMILEY used         chloride, 0.01 g/L manganese sulfate, 0.006 g/L cobalt
+predict gap-filling reactions. gaps demand        chloride, 0.006 g/L disodium EDTA), Wolfe’s Vitamin
+reactions model, demand reactions           Solution. Wild-type E. coli strains strained zero running SMILEY. Tomlab              Keio Collection yphC (JW5842), yfdE (JW2368), ydeN
+mixed-integer linear programming solver used.               (JW5243), yhiJ (JW3455) gene knockouts (supplied                                                                 Open Biosystems) grown overnight LB. Computational feasibility analysis predictions           day, 15 mL culture centrifuged 4000 rpm predicting sets false negative correcting          8 min, supernatant discarded, culture gap-filling reactions, sets solution reac-     resuspended M9 salt solution carbon nitro-
+tions added iJO1366 model time.             gen sources. culture centrifuged resuspended growth phenotype strains            new M9 times completely wash LB.
+13,470 experimental data conditions predicted           1 μL washed E. coli cultures used 
+using FBA, threshold zero determining             oculate 10 mL aerobic myo-inositol M9 cultures, growth growth. number new false positives          grown 37°C. optical density 600 nm solution determined number             measured points growth.
+conditions true negatives wild-type
+model grow new reactions                Additional files
+added. number corrected false negatives solution number false negatives           Additional file 1: Experimental computational growth phenotypes
+                                                                 13,470 conditions.
+true positives new reactions added. Gap-
+                                                                 Additional file 2: false negative conditions gaps run iJO1366 model set          SMILEY run.
+solution reactions added  time. set        Additional file 3: KEGG based universal database reactions network gaps compared set gaps ori-         list excluded reactions.
+ginal model determine gaps eliminated.            Additional file 4: Category IV SMILEY solutions.
+  order determine SMILEY solutions             Additional file 5: gap-filling SMILEY solutions. tested simple vivo experiments, FBA used          Additional file 6: Media conditions indicate presence test growth iJO1366 model solution           predicted reactions.
+added set 115 carbon sources 62 nitrogen
+sources aerobic anaerobic conditions.            Competing interests
+                                                                authors declare competing interests. growth unmodified iJO1366 model tested condition using FBA.  model             Acknowledgements solution added, time, tested      like thank Pep Charusanti, Tom Conrad, Adam Feist                                                                 helpful comments insights. work funded 3896 conditions unmodified model pre-              National Institutes Health grant GM057089.
+dicted growth. Conditions modified ver-
+sions model grow used design               Authors’ contributions
+                                                                JDO BOP designed study. JDO performed computational
+experiments.                                                    predictions, analyzed results, performed experimental analysis,                                                                 wrote manuscript. JDO BOP revised manuscript. authors
+                                                                approved content final manuscript.
+Experimental validation predicted genes
+Candidate genes SMILEY predicted reaction sets predicted using bi-directional protein BLAST               Received: 16 January 2012 Accepted: 1 2012
+                                                                Published: 1 2012
+(BLASTp) gene organism KEGG E. coli K-12 MG1655 genome. Protein
+                                                                References
+sequences organisms phylogenically close          1. Edwards JS, Palsson, B..: Metabolic flux balance analysis E. coli used possible. gene               silico analysis Escherichia coli K-12 gene deletions. BMC bioinformatics
+highest BLAST expectation value (E-value)                 2000, 1(1).
+                                                                2. Edwards JS, Covert M, Palsson B: Metabolic modeling microbes: reported. multiple genes E-values              flux-balance approach. Environmental Microbiology 2002, 4(3):133–140. 10-13, reported candidate genes.              3. Price ND, Papin JA, Schilling CH, Palsson B: Genome-scale microbial   test growth E. coli myo-inositol carbon       silico models: constraints-based approach. Trends biotechnology
+                                                                    2003, 21(4):162–169. energy source, 2 g/L myo-inositol M9 media         4. Orth JD, Thiele  Palsson B: flux balance analysis? Nature filter sterilized. media contained M9 salts (6.8 g/L       biotechnology 2010, 28(3):245–248.
+ Orth Palsson BMC Systems Biology 2012, 6:30                                                                                                      Page 15 15
+http://www.biomedcentral.com/1752-0509/6/30
+
+
+
+
+5.    Reed JL, Patel TR, Chen KH, Joyce AR, Applebee MK, Herring CD, Bui OT,              allantoin nitrogen linked glyoxylate metabolism Escherichia coli.
+      Knight EM, Fong SS, Palsson B: Systems approach refining genome                 Journal bacteriology 1999, 181(24):7479–7484.
+      annotation. Proceedings National Academy Sciences United     29.   Portnoy VA, Herrgard MJ, Palsson B: Aerobic fermentation D-glucose
+      States America 2006, 103(46):17480–17484.                                        evolved cytochrome oxidase-deficient Escherichia coli strain.
+6.    Karp PD: enzyme genomics initiative. Genome biology 2004,               Appl Environ Microbiol 2008, 74(24):7561–7569.
+      5(8):401.                                                                     30.   Klem TJ, Davisson VJ: Imidazole glycerol phosphate synthase: 7.    Pouliot Y, Karp PD: survey orphan enzyme activities.                           glutamine amidotransferase histidine biosynthesis. Biochemistry 1993,
+      BMC bioinformatics 2007, 8:244.                                                     32(19):5177–5186.
+8.    Orth JD, Palsson B: Systematizing generation missing metabolic        31.   Neidhardt FC (ed.): Escherichia coli Salmonella: cellular molecular
+      knowledge. Biotechnology bioengineering 2010, 107(3):403–412.                   biology, 2nd edn. Washington, D.C.: ASM Press; 1996.
+9.    Satish Kumar V, Dasika MS, Maranas CD: Optimization based automated           32.   Lin S, Hanson  Cronan JE: Biotin synthesis begins hijacking fatty
+      curation metabolic reconstructions. BMC bioinformatics 2007, 8:212.              acid synthetic pathway. Nature chemical biology 2010, 6(9):682–688.
+10.   Orth JD, Conrad TM, Na J, Lerman JA, Nam H, Feist  Palsson B:           33.   Bettendorff L, Wins P: Thiamin diphosphate biological chemistry: new
+      comprehensive genome-scale reconstruction Escherichia coli                       aspects thiamin metabolism, especially triphosphate derivatives acting
+      metabolism-2011. Molecular systems biology 2011, 7:535.                             cofactors. FEBS J 2009, 276(11):2917–2925.
+11.   Reed JL, Vo TD, Schilling CH, Palsson B: expanded genome-scale            34.   Patton AJ, Hough DW, Towner P, Danson MJ: Does Escherichia coli possess
+      model Escherichia coli K-12 (iJR904 GSM/GPR). Genome biology 2003,               second citrate synthase gene? European journal biochemistry/FEBS
+      4(9):R54.51–R54.12.                                                                 1993, 214(1):75–81.
+12.   Bochner BR, Gadzinski P, Panomitros E: Phenotype microarrays              35.   Gerike U, Hough DW, Russell NJ, Dyall-Smith ML, Danson MJ: Citrate
+      high-throughput phenotypic testing assay gene function.                      synthase 2-methylcitrate synthase: structural, functional       Genome research 2001, 11(7):1246–1255.                                              evolutionary relationships. Microbiology (Reading, England)
+13.   Rolfsson O, Palsson B, Thiele  human metabolic reconstruction                1998, 144 (Pt 4):929–935.
+      Recon 1 directs hypotheses novel human metabolic functions. BMC            36.   Choi-Rhee E, Cronan JE: nucleosidase required vivo function       systems biology 2011, 5:155.                                                        S-adenosyl-L-methionine radical enzyme, biotin synthase. Chem Biol
+14.   Duarte NC, Becker SA, Jamshidi N, Thiele  Mo ML, Vo TD, Srivas R, Palsson         2005, 12(5):589–593.
+      B: Global reconstruction human metabolic network based             37.   Kanehisa M, Goto S, Furumichi M, Tanabe M, Hirakawa M: KEGG       genomic bibliomic data. Proceedings National Academy                  representation analysis molecular networks involving diseases
+      Sciences United States America 2007, 104(6):1777–1782.                    drugs. Nucleic acids research 2010, 38(Database issue):D355-360.
+15.   Kumar VS, Maranas CD: GrowMatch: automated method reconciling          38.   Karsten  Viola  Kinetic studies L-aspartase Escherichia coli:
+      silico vivo growth predictions. PLoS computational biology 2009,              pH-dependent activity changes. Archives biochemistry biophysics
+      5(3):e1000308.                                                                      1991, 287(1):60–67.
+16.   Zomorrodi AR: Maranas CD. Improving iMM904 S. cerevisiae metabolic        39.   MacKintosh C, Nimmo HG: Purification regulatory properties       model using essentiality synthetic lethality data. BMC systems biology          isocitrate lyase Escherichia coli ML308. Biochemical journal 1988,
+      2010, 4:178.                                                                        250(1):25–31.
+17.   Paley SM, Karp PD: Evaluation computational metabolic-pathway              40.   Keseler IM, Bonavides-Martinez C, Collado-Vides J, Gama-Castro S, Gunsalus
+      predictions Helicobacter pylori. Bioinformatics (Oxford, England) 2002,         RP, Johnson DA, Krummenacker M, Nolan LM, Paley S, Paulsen et al:
+      18(5):715–724.                                                                      EcoCyc: comprehensive view Escherichia coli biology. Nucleic acids
+18.   Green ML, Karp PD: Bayesian method identifying missing enzymes                research 2009, 37(Database issue):D464-470.
+      predicted metabolic pathway databases. BMC bioinformatics 2004, 5:76.      41.   Habrych M, Rodriguez S, Stewart JD: Purification identification 19.   Green ML, Karp PD: Using genome-context data identify specific types             Escherichia coli beta-keto ester reductase 2,5-diketo-D-gluconate
+      functional associations pathway/genome databases. Bioinformatics              reductase YqhE. Biotechnol Prog 2002, 18(2):257–261.
+      (Oxford, England) 2007, 23(13):i205-211.                                      42.   Yum DY, Lee  Pan JG: Identification yqhE yafB genes
+20.   Christian N, P, Kempa S, Handorf T, Ebenhoh O: integrative                   encoding 2, 5-diketo-D-gluconate reductases Escherichia coli.
+      approach completing genome-scale metabolic networks.                        Appl Environ Microbiol 1999, 65(8):3341–3346.
+      Molecular bioSystems 2009, 5(12):1889–1903.                                   43.   Osterman  Overbeek R: Missing genes metabolic pathways: 21.   Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD, Broadbelt           comparative genomics approach. Curr Opin Chem Biol 2003, 7(2):238–251.
+      LJ, Hatzimanikatis V, Palsson BØ: genome-scale metabolic reconstruction     44.   Schellenberger J, Que R, Fleming RM, Thiele  Orth JD, Feist  Zielinski
+      Escherichia coli K-12 MG1655 accounts 1260 ORFs                    DC, Bordbar  Lewis NE, Rahmanian S, et al: Quantitative prediction       thermodynamic information. Molecular systems biology 2007, 3(121).                  cellular metabolism constraint-based models: COBRA Toolbox
+22.   Boyle NR, Morgan JA: Flux balance analysis primary metabolism                 v2.0. Nature protocols 

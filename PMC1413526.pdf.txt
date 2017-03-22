@@ -1,0 +1,422 @@
+
+Gene connectivity, function, sequence conservation:
+predictions modular yeast expression networks
+
+                 Abstract
+                 Background: Genes proteins organized functional modular networks                  network context gene protein implications cellular function. Highly connected hub
+                 proteins, largely responsible maintaining network connectivity,                  likely essential yeast survival.
+                 Results: investigate properties weighted gene expression networks formed
+                 multiple microarray datasets. constructed networks approximate scale-free topology,
+                 universal datasets. strong positive correlations gene
+                 connectivity network gene essentiality gene sequence conservation.
+                 demonstrate preservation modular structure networks formed,                  demonstrate  modules, possible observe strong correlation
+                 connectivity essentiality connectivity conservation                  modules particularly modules containing larger numbers essential genes.
+                 Conclusion: Application techniques allow finer scale prediction relative gene
+                 importance particular process group similarly expressed genes.
+
+
+
+
+Background                                                                    important understanding function isolation [2].
+Genes protein products carry cellular proc-                      numerous studies focused esses context functional modules related                    large scale modeling genomic proteomic data. Uti- complex network interactions                       lizing network theory, studies yielded insights
+[1]. Understanding individual gene protein's net-                       biological systems. example, protein inter-
+work properties networks prove                       action networks gene expression networks exhibit
+
+                                                                                                                                       Page 1 15
+                                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                                                     http://www.biomedcentral.com/1471-2164/7/40
+
+
+
+
+          $$UUD\'DWD                                                                       strong modularity reflecting functional partitioning.
+                                                                                              network types frequently
+                                                                                              observed having scale-free topology, exist-
+            ([SUHVVLRQ/HYHO
+
+
+                                                                                              ence highly connected hub nodes [3-7].
+
+                                                                                              Scale-free networks resistant random perturbations
+                                                                                              sensitive targeted removal highly connected
+                                                                                              nodes [8]. Comprehensive efforts determine func-
+                                                   6DPSOH7\SH                                tional consequences individual gene deletions yeast
+                                &RUUHODWLRQFRHIILFLHQWVIRUDOOJHQHV                        provide opportunity study relationship                                                                                               individual gene network properties gene deletion
+           6LPLODULW\0DWUL[FRUUHODWLRQ                                                   lethality [9]. example, physical interaction studies                                *     *    *    *    *     *     *    *    *    *
+                                                                                              yeast allowed comparison connectivity gene
+              *                                                  essentiality based gene deletion. [10]. Typical scale-
+              *                                               
+              *                                                  free networks, highly connected proteins
+              *                                                  network, deletion protein               *                                               
+              *                                                  large number binding partners likely               *                                               
+              *                                               
+                                                                                              lethal yeast.  relative position nodes               *                                                  protein interaction network strongly affiliated               *                                             
+                                                                                              distinct biological properties individual proteins. Simi-
+                                     7KUHVKROGFRUUHODWLRQVLQWRHGJHV                        larly, analysis unweighted gene expression networks
+                                                                                              revealed relationship connectivity           &$GMDFHQF\0DWUL[                                                                 essentiality genes [11].
+                               * * * * *                 *     *     * * *
+                    *         1$ 2 2 (     (                  2      (      2 2 2
+                    *          2 1$ (   2 2                   2      (      2 2 2            Correlation gene expression wide variety                     *          2 ( 1$ 2 2                     2      (      2 2 (            experimental perturbations shown cluster
+                    *          (  2 2 1$ (                    (      (      2 2 2
+                    *          (  2 2 ( 1$                    (      (      2 2 2            genes similar function [12]. guilt associa-
+                    *          2 2 2 (     (                 1$      2      2 2 2
+                    *          (  (  (  (  (                  2     1$      (  (  2
+                                                                                              tion approach lead false positive groupings,
+                    *          2 2 2 2 2                      2      (     1$ (   2          approaches refined comparing orthologs
+                    *          2 2 2 2 2                      2      (      ( 1$ (
+                    *         2 2 (    2 2                   2      2      2 ( 1$           divergent species indicating highly conserved
+                                                                                              expression strong predictor genes                                                   'UDZQHWZRUN
+                                                                                              function similar pathways [13-15]. indicates           '1HWZRUN                                                                          functionally related genes similar expression
+                                                                                              constraints. gene expression networks                                                                                               based relationships shown multiple
+                                                                                              species frequently scale-free exhibit small
+                                                                                              world architecture similar protein interaction networks
+                                                                                              generally strongly connected
+                                                                                              [3,14]. unclear  degree net-
+                                                                                              work properties individual genes expres-
+                                                                                              sion network predict relative gene importance                                                                                               particular process. assess  constructed
+                                                                                              networks based weighted measure connectiv-
+Figure 1 gene expression network
+Generating                                                                                    ity [16] correlated gene expression yeast using Generating gene expression network.   Illustra-                                        separate microarray data sets. assessed relationships
+tion genes highly correlated (blue)                                 essentiality connectivity gene look dataset. (B-C) Flow chart defining gene                                   network.  define 'modules' (groups expression network based simple Pearson correla-                                      highly correlated genes) determine tion matrix. (D) example visualization network pro-                                   instances, relative importance genes duced using Fruchterman Rheingold algorithm                                     modules inferred network connectivity. data Figure 1B 1C. node highlighted yellow,                                  demonstrate genes high connectivity  e. example kind highly connected node                                     'hub' genes) weighted expression network study shows likely essential gene sur-                                   significantly likely essential yeast viability.
+vival.
+                                                                                              Furthermore, demonstrate relationship 
+                                                                                              nectivity measure sequence conservation. Finally,
+
+
+
+Figuregene
+Global  2 expression networks
+Global gene expression networks.  C) Log-log plots connectivity distributions networks
+drawn DNA Damage, Environmental Response, Cell Cycle, respectively. linear relationship indicates scale-free
+structure. (D-F) Correlation plots showing relationship gene group connectivity essentiality order C. y axis plots percentage genes determined essential yeast. (G  Relationship average blastp score node k datasets order C. y axis plots average
+log(e score) genes bin. plots D  connectivity network gene determined gene rank ordered connectivity. 20 equal sized bins expression datasets formed average
+connectivity genes bin plotted X axis
+
+Figure  expression
+          3       network DNA Damage dataset expression network DNA Damage dataset. panels figure: blue color represents members rRNA processing module, yellow color represents members protein synthesis module red color represents
+members ubiquitin pathway.   hierarchical clustering topological overlap matrix DD dataset. (B) drawn network gene expression DD dataset. Edges computed Pearson correlation coefficients.
+Network structure drawn Pajek [20]. gene represented dot. Edges drawn grey lines. Colored dots
+belong module color indicates grey dots indicate genes network. (C-E) Scatter plots 
+ing relationship gene group connectivity essentiality rRNA processing, protein synthesis ubiquitin DD network respectively. y axis plots percentage genes determined essential yeast. number essential genes module/total number genes module  196/390 = 50.3 (C), 122/441 = 27.7
+(D), 50/222 = 22.5 (E). (F-H) Relationship average blastp score node k module members
+listed C-E. y axis plots average log(e score) genes bin. plots C-H, connectivity module gene determined gene rank ordered connectivity. 20 equal sized bins expression datasets formed average connectivity genes bin plotted X axis.
+
+Figure  expression
+         4         network Environmental Response dataset expression network Environmental Response dataset. panels figure: blue color represents
+members rRNA processing module, yellow color represents members protein synthesis module red color
+represents members ubiquitin pathway.   hierarchical clustering topological overlap matrix ER data-
+set. (B) drawn network gene expression ER dataset. drawn network gene expression DD
+dataset. Edges computed Pearson correlation coefficients. Network structure drawn Pajek [20]. gene represented dot. Edges drawn grey lines. Colored dots belong module color indicates grey dots indicate genes network. (C-E) Correlation plots showing relationship gene group 
+nectivity essentiality rRNA processing, protein synthesis ubiquitin ER network respectively. y axis plots percentage genes determined essential yeast. number essential genes module/
+total number genes module  317/929 = 34.1 (C), 98/323 = 30.3 (D), 18/37 = 48.6 (E). (F-H) Relationship average blastp score node k module members listed C-E. y axis plots average log(e score) genes bin. plots C-H, connectivity module gene deter-
+mined gene rank ordered connectivity.
+
+Figure expression
+         5         network Cell Cycle dataset expression network Cell Cycle dataset. panels figure: blue color represents members rRNA processing module, yellow color represents members protein synthesis module red color represents mem-
+bers ubiquitin pathway.   hierarchical clustering topological overlap matrix CC dataset. (B) drawn
+network gene expression CC dataset. drawn network gene expression DD dataset. Edges computed Pearson correlation coefficients. Network structure drawn Pajek [20]. gene repre-
+sented dot. Edges drawn grey lines. Colored dots belong module color indicates grey dots indi-
+cate genes network. (C-E) Correlation plots showing relationship gene group connectivity essentiality rRNA processing, protein synthesis ubiquitin CC network respectively. y axis plots percentage genes determined essential yeast. number essential genes module/total
+number genes module  154/300 = 51.3 (C), 105/398 = 26.4 (D), 38/312 = 12.2 (E). (F-H) Relationship average blastp score node k module members listed C-E. y axis plots aver-
+age log(e score) genes bin. plots C-H, connectivity module gene determined gene rank ordered connectivity.
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                 Page 6 15
+                                                                                                                                                                                                                                                                                                                                      (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                       http://www.biomedcentral.com/1471-2164/7/40
+
+
+ certain critical modules conserved        (Figures 2A, 2B, 2C). results similar network  cases pos-       general trend genetic perturbation networks sible extend relationship connectivity       gene expression networks [3,22].  gene
+essentiality connectivity conservation           expression networks better fit exponential given modules.  analysis gene expres-         power law [23]. constructed yeast net-
+sion networks provides insight functional impor-       works (DD ER), distribution connectivity (k) tance individual genes modules expressed        genes best fits power law p(k) ~ k-γ (CC)
+genes.                                                          best fits exponentially truncated power law p(k) ~ k-γ
+                                                                e-αk [24]. point general regardless Results                                                         overall structure, major trend high 
+Network validation properties                               nectivity genes number, genes order test relationship gene connectivity     low connectivity (Figure 2A–2C). expression network gene essentiality, constructed networks corresponding      Global network connectivity relationships
+microarray datasets. yeast microarray data             Network modeling biological systems [2,8,11] stresses
+derived experiments designed analyze DNA Dam-           relative importance highly connected nodes. 
+age (DD) (n = 51), Cell Cycle (CC) (n = 44), Environ-       small number high connectivity genes mental Response (ER) (n = 151) [17-19]. network            gene expression networks defined expected constructed conceptually shown Figure 1. Nodes        important. test relative importance defined individual genes. expression net-        gene entire network, determined rela-
+work based correlation relationships        tionship connectivity gene essentiality. individual genes dataset (Figure 1A).         genes network ranked according microarray data, absolute value Pearson corre-       weighted connectivity placed 20 equal
+lation initial measure gene expression similar-    sized bins according position ranking. ity (Figure 1B). expression similarity         weighted connectivity given gene defined transformed adjacency matrix (Figure 1C) rais-       sum connection strengths genes ing similarity certain power based scale free     network  methods section). percentage topology criterion described previously [16]. pow-       essential genes bin plotted ers selected 12 (DD), 10 (CC), 18 (ER).          mean connectivity bin (Figure 2D–2F). data visualized drawn network (Figure          calculated Spearman correlation coefficient based 1D).                                                            ranked unbinned data rela-
+                                                                tionship connectivity proportion of datasets resulted construction distinct   essential genes datasets (R > 0.2, networks global similarities. differences       p value < 10-39) network. binned plots modularity networks demonstrated         suited visualizing results, calculated comparing heat maps topological overlap              correlation coefficients raw, unbinned data matrices (Figures 3A, 4A, 5A). topological overlap        arrive valid p-value.
+matrix indicator similarity nodes question defined methods section     study conclusions unduly manuscript. Approximations net-        influenced data outliers, removed genes 
+works drawn Figures 3B, 4B 5B using         nectivity standard deviations away
+Fruchterman-Reingold algorithm implemented                mean connectivity substantial varia-
+Pajek [20,21] demonstrate obvious modularity           tion reported relationships.  clear
+aggregation genes strongly expressed groups.         relationship connectivity genes,                                                                 weighted gene expression networks, gene essenti-
+Individual gene connections difficult visualize       ality network. results robust complex graphs presented.  order          respect experimental conditions probe structure network, sought          separate datasets functional relationship
+determine characteristics general network topology.      connectivity gene essentiality. results considered models. quantify fit scale      consistent single network generated free topology model truncated exponential             gene expression data using unweighted net-
+model, used model fitting index R-squared         work [11], networks based protein-protein
+corresponding linear model involving log trans-             interactions [10].
+formed variables [16]. pattern network connectiv-
+ity datasets approximated scale-free topology
+
+
+                                                                                                                    Page 7 15
+                                                                                              (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                                      http://www.biomedcentral.com/1471-2164/7/40
+
+
+
+Table 1: Identifying modules repeated dataset 
+ Ontology term                                        rRNA                                  Prot                                   Ubiq
+
+                                          DNA          Env         Cell         DNA          Env        Cell          DNA          Env          Cell
+                                          Dmg         Stress       Cycle        Dmg         Stress      Cycle         Dmg         Stress        Cycle
+
+ 35S primary transcript processing         1E-17      8.8E-16     7.5E-16        0.17         0.51       0.52          0.26           1          0.16
+ processing 20S pre-rRNA                2E-32       5E-19      3.8E-32       0.018         0.37        1            0.17           1          0.11
+ ribosomal large subunit biogenesis       9.6E-13   0.0000071     3.5E-15        0.38          1         0.38            1            1          0.62
+ rRNA modification                        2.1E-08     0.0043      0.00014        0.66        0.019     0.00066           1            1          0.62
+ rRNA processing                          1.2E-25     1.6E-16     2.5E-23        0.48          1         0.62          0.11           1         0.046
+ protein biosynthesis                     0.0001      1.1E-11      0.0023      5.9E-83     5.6E-108    1.4E-80         0.53         0.42       0.00033
+ translational elongation                   0.62        0.14        0.63       2.1E-08       3E-08     1.7E-09           1            1          0.64
+ translational initiation                   0.19          1        0.025      0.000017      1.8E-14    3.4E-07         0.41           1          0.25
+ ubiquitin-dependent protein               0.039        0.02       0.071        0.027        0.048      0.018        2.5E-25      7.3E-25      6.3E-17
+ catabolism
+
+ ATP-dependent RNA helicase               7.2E-11     9.2E-08     4.1E-11        0.39         0.62         1             1           1          0.62
+ activity
+ DNA-directed RNA polymerase              6.1E-13     4E-08       1.4E-09        0.77        0.012       0.13          0.42          1           0.4
+ activity
+ snoRNA binding                           1.3E-27     7.6E-17     2.4E-25       0.042         0.51        0.76         0.42           1          0.16
+ structural constituent ribosome       0.00012     2.2E-11    0.000078      3.1E-92     5.3E-117     1.8E-95       0.097         0.41       0.0021
+ translation initiation factor activity     0.16        0.48        0.14       4.7E-08      5.5E-17     2.3E-10         1             1          0.39
+ endopeptidase activity                     0.25        0.21        0.62         0.16         0.62        0.39       9.2E-21      2.6E-18      2.7E-11
+
+ nucleolus                                1.6E-48     3.4E-29     1.3E-45       0.18          0.65       0.84          0.021        0.48       0.0056
+ nucleus                                  1.2E-18     8.3E-13     7.8E-10      0.0053       2.1E-07      0.12         0.0048          1        0.033
+ small nucleolar ribonucleoprotein        7.9E-20     2.8E-09     1.3E-14       0.16          0.67       0.42          0.63           1         0.39
+ complex
+ cytosolic large ribosomal subunit         0.03     0.0000016     0.0087       2.1E-65      3.4E-75     6.1E-67        0.021         1         0.0056
+ cytosolic small ribosomal subunit         0.059      0.0013       0.26        1.5E-41      1.2E-47     4.6E-42        0.073         1          0.03
+ ribosome                                    1         0.39         0.3        2.7E-09      6.2E-14     3.7E-09          1           1          0.62
+
+  module dataset analyzed, EASE analysis [25] performed using Fisher's exact test resulting p-values placed
+ table based prevalence (Gene Ontology) term searched  significant enrichments given term  indicated italics
+
+
+Yeast expression networks fit evolutionarily plausi-                  relatively weak highly signif-
+ble model network connection distribution                     icant correlation indicating high connectivity genes
+natural consequence gene duplication, mutation                       evolutionarily conserved (R = -0.15, p value =
+deletions [13]. emergence approximate power-law                      1.3 × 10-19, DD network; R = -0.22, p value < 1.4 ×
+distribution (scale free topology) intimately linked                  10-39 ER network; R = -0.18, p value = 4.0 × 10-29 growth network new nodes prefer-                    CC network). results robust respect
+entially attached highly connected established                   removal outlier genes  e. genes connec-
+nodes [2,8]. direct consequence network growth                    tivity standard deviations away model high connectivity 'hub' genes likely                 mean connectivity). relationship similar highly conserved different species. Stated                     reported gene perturbation networks [22] evo- way, gene expression network                        lutionarily conserved gene expression relationships
+oldest nodes likely newer nodes                      [14]. hub positions. mind, examined relationship connectivity relative                      Identification modules
+evolutionary sequence conservation node  evi-                       order identify modules, performed hierarchical
+denced average best blastp hit log(e score)                  clustering topological overlap matrix derived N. crassa C. elegans, D. melanogaster, H. sapiens, M.                   networks described methods section. musculus). High connectivity genes plotted Figure                    doing  identified modules involve conserved
+2G–2I relative average blastp hit               processes rRNA processing, protein synthesis, eukaryotic genomes.  calculated Spear-                     ubiquitination (Table 1) using EASE analysis [25]. man correlation ranked, unbinned, data                    prediction network constructions certain crit-
+
+
+                                                                                                                                           Page 8 15
+                                                                                                                  (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                              http://www.biomedcentral.com/1471-2164/7/40
+
+
+
+ically important modules ought repeatedly detected             ture. Protein Biosynthesis module, 135 172 independent datasets. network modules                  overlapping members represented KEGG data-
+(groups high connectivity genes network)               base,  72 possible 86 compo-
+produced different datasets gene ontology                 nents KEGG annotated yeast ribosome. Notably, enrichment, 3 distinct modules common               172 overlapping members rank ordered 3 different data sets detected (Table 1 Figure 6).          average network connectivity, quar-
+Comparing modules enrichment rRNA                 tile removed, 100  remaining members processing, protein synthesis ubiquitin pathway              yeast ribosome structure, shows
+terms DD, CC ER datasets resulted                overlap set high connectivity genes highly significant overlap 215 genes (hypergeometric              fact members yeast ribosome. Finally, 
+distribution p = 3.1e-173). Similarly, protein synthesis         lap genes detected rRNA modules overlap identi-
+module significantly overlap expected             fied purine pyrimidine synthesis RNA chance 172 genes present               polymerase 3 pathways. pathways dominate modules (p = 5.6e-99). ubiquitin module                  list 30 49 identified matches KEGG overlap common genes (12 genes, p = 3.4e-07)                database. Unlike previous results  multi-
+probably smaller size general.                     ple pathways represent module.                                                                      network modules discussed contain large protein processes known fundamental               complexes. agreement recent discovery
+processes described great             correlation genes decided investigate nature            expressed proteins bind lapping regions  Gene members selected             [27].  reason believe modules shared similar functional modules               expression networks correspond pro- datasets searched KEGG [26] database.           tein complexes module detection method ubiquitin pathway, 9 overlapping 12 genes              set genes high pair-wise correla- KEGG,             tions. experimental perturbation gives rise proteasome structure. overlap            highly correlated gene set expected result corre-
+module unusually small small             sponding network module.
+size ER dataset's ubiquitin module, looked overlap just CC DD ubiquitin modules.              Intramodular network connectivity relationships 57 genes present CC DD modules,               Having identified 3 functionally similar modules 14 present KEGG database. 14               different datasets, assessed members, proteasome struc-              modules contain information entire net-
+
+Figure
+Module 6 members retrieved different datasets conserved
+Module members retrieved different datasets conserved. panels figure: black color rep-
+resents modules retrieved DD dataset, blue color represents modules retrieved ER dataset, green color
+represents modules retrieved CC dataset. panel C different module examined overlap mem-
+bers Venn diagram. diagram relative overlap various modules diagramed different amounts area count represented zone number quantifies precise number matches.
+
+
+
+
+                                                                                                                           Page 9 15
+                                                                                                    (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                       http://www.biomedcentral.com/1471-2164/7/40
+
+
+
+work. connectivity gene identified        k essentiality (DD, ubiquitin module).
+modules correlated likelihood gene            detection relationship intramodu-
+essential deletion analysis       lar connectivity sequence conservation predict
+served (Figures 3, 4, 5)? test connectivity correlations      modules relationship k modules, define intramodular             essentiality.
+nectivity (k  sum connectivity measures genes module. Similar          Discussion
+performed total gene connectivity             results extend inferences protein network, binned values plotted observe         metabolic networks prolific datasets available
+possible relationships (Figures 3C–H, 4C–H, 5C–H).           gene expression data. results possi- evaluate significance, Spearman correlation coeffi-           ble broad surveys expression compre-
+cients ranked unbinned data calculated          hensive characterization yeast genome relationship k essentiality sequence        deletion mutants. contrast gene expression data,
+servation. Interestingly, general trend simi-     based assessment cells differ-
+lar correlations seen network.          ent states perturbation, protein interaction measure- correlation sequence conservation generally         ments determined limited set conditions
+weak: ubiquitin module formed DD dataset            nature capture subset possible pro- rRNA processing modules ER CC            tein-protein interactions. [22,28,29]  correlated k  correlation        structed gene perturbation networks looking k essentiality datasets rRNA      expression changes individual genes eliminated
+Processing module (Figures 3C, 4C 5C),           relation transcription factor expression. Microar- datasets (DD ER CC) ubiq-          ray based surveys gene expression allow detailed sur-
+uitin module, trend weak anticorrelation         veys gene expression wide variety protein synthesis module (Figures 3D, 4D,         experimental perturbations. data strong cor-
+5D).  relationships connectiv-          relation gene expression genes implies ity essentiality sequence conservation            genes act common functional group detected analysis restricted mod-         similar transcriptional control. net-
+ules.                                                            works based direct measurements protein
+                                                                 binding/interaction, presence genes Characterizing modules contain essential hub genes          highly correlated different interpretation relationship intramodular connectivity           derived protein interaction network. 
+essentiality necessarily universal module      expression network, closely tied nodes dataset. module contains meaning-           highly correlated necessarily direct binding 
+ful information predicting essentiality depends       ners. spite key difference, numerous stud-
+expression data (biological perturbations) ana-        ies indicated genes correlated lyzed. view correlation k essentiality     modest range experiments tend func- test modules importance. key issue       tion similar ways functional categoriza- order module demonstrate relationship,          tion strengthened gene expression exists sufficient number essential genes             large evolutionary distances [12,14]. module. modules substantially
+fewer essential genes  little power       use general weighted gene expression
+detect relationship k modules.          network construction method network construction calculated Spearman correlation pro-          applied generically microarray data using
+portion essential genes module corre-        simple correlational analyses individual genes [16].
+lation k essentiality        Advantages weighted networks unweighted net-
+strong positive correlation (r = 0.48). actual appli-   works based dichotomizing correlation matrix
+cations goal unknown 'essential' genes,      include  continuous nature gene  preferable metric 'essential'     expression information preserved b) results
+gene enrichment. regard, interesting note       weighted network analyses highly robust modules studied 3 datasets (9           respect choice parameter β, [16]. total), 4 correlation k         strong correlation weighted gene
+sequence conservation (p < 0.05). 4 modules,        expression connectivity measure gene essentiality
+4 shown strong relationship k          sequence conservation. analysis demonstrates
+essentiality modules. 5 cor-        individual conserved modules identifiable relation (p > 0.05), showed correlation               network.  presence modules,
+
+
+                                                                                                                   Page 10 15
+                                                                                              (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                      http://www.biomedcentral.com/1471-2164/7/40
+
+
+ detected independent networks, illus-       likelihood essentiality likelihood conserva-
+trates networks structure       tion gene members entire network.
+matches known cellular biology. shown         Furthermore, networks subdi- sufficient information available, correlation     vided identifiable modules, modules provide information          contain individual information indicate members likely important given       genes likely crucial particular
+process. ability assess module       process. indicated means testing complete informative using test like      true   illustrated proc- ones employed important validat-        ess applied common microarray data ing merit understood modules future.         purpose predicting functional assignment                                                                 ranking gene significance particular process study extends strong links network          associated. believe properties gene expression networks          kinds predictions helpful identifying global importance gene yeast cell,       gene targets therapeutics directing multi-drug implications targeted drug therapy         therapies.
+complex biological systems like cancer. instance, infer analysis single gene deletion data     Methods single targets inhibition partially predicted   Data sources expression data.  biological systems         Yeast microarray data obtained Saccharomy-
+optimal effect frequently achieved inhibiting multi-      ces Genome Database ratio format [34]. case,
+ple specific targets. extrapolate network positions      microarray based gene expression analysis previously relationships infer effective combinations tar-       reported performed analysis DNA
+geted therapeutics? Yeast excellent model estab-      Damage [18], Cell Cycle [17], Environmental
+lishing rules applying network theories practical    Response [19]. data obtained predictions. instance, double deletions high        datasets listed used experiments. connectivity genes network reside       missing data especially confounding analysis, module substantially greater negative conse-          arrays greater 5  gene expression infor-
+quences yeast double deletions low connec-       mation missing removed analysis. tivity genes? Alternatively, genes               exact number arrays chosen represent dataset
+connecting distinct modules, serving key connec-          DNA Damage (n = 51), Cell Cycle (n = 44), Envi-
+tions integrators prove better disruption         ronmental Response (n = 151). Essential genes deter-
+targets? modeling proposed interactions          mined Saccharomyces Genome Deletion Project
+yeast attractive relative tractability     [35]. Genomic data conducting blastp searches
+yeast studies availability large scale datasets.     obtained following locations: Neurospora
+Technologies like synthetic genetic arrays automate       genome data (version 7) obtained Broad
+double deletion screens chemical genomic profiling           Institute [36,37]. Drosophila genome data obtained
+provide expanding capability survey effects        Berkeley Drosophila genome project [38], C. ele-
+multiple target inhibition deletion [30-32].         gans genome data obtained wormbase data- powerful methods, small fraction         base [39], human mouse genomes millions possible combinations assayed.       obtained UCSC genome browser [40]. instance substantial recent survey double dele-     blastp algorithm run locally.
+tions 0.02  possible double deletions tested synthetic lethality [33].  network based        Weighted Network construction
+modeling useful adjunct design double       gene expression networks, gene corresponds knockout experiments combination inhibition experi-          node. neighbors node nodes ments permit efficient search synthetic           connected node  genes connected lethals. interplay predictive models tar-        edge weight indicating connection strength. geted large scale inhibition studies quite useful    gene expression network represented surveying pathway analysis yeast. long term,     adjacency matrix = [aij], aij weight 
+studies critical development thera-       nection nodes j. networks
+pies diseases like cancer.                                  considered paper, connectivity equals sum
+                                                                connection weights considered.
+Conclusion conclusion, study demonstrates weighted gene        analysis follows general framework construction expression networks used predict          gene expression networks [16]. transform 
+
+
+                                                                                                                   Page 11 15
+                                                                                              (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                        http://www.biomedcentral.com/1471-2164/7/40
+
+
+
+expression measure  absolute value Pear-         free property highlighted Cell Cycle network
+son correlation matrix) measures pair wise connec-       manuscript.
+tion strengths, make use adjacency function. choice adjacency function determines          dataset, selected 4000 vary- resulting network weighted (soft thresholding)       ing transcripts based standard deviation. net- unweighted (hard thresholding). widely used adja-
+                                                                 work adjacency 2 genes j defined cency function signum function implements
+                                                                 power correlation coefficient corre-
+'hard' thresholding involving threshold parameter tau.
+Specifically, aij = Ind(|cor(xi, xj)| > τ indicator    sponding gene expression profiles xi xj, e. aij = |cor(xi,
+function takes value 1 condition satisfied      xj)|β power beta chosen using scale free 0  Hard thresholding using signum              topology criterion. function, 3000 
+function leads intuitive network concepts (e.g.,          connected genes selected detailed net-
+node connectivity equals number direct neighbors),
+                                                                 work analysis. Using 4000 varying transcripts lead loss information. instance, threshold set 0.8, connection       restrictive original data derived genes correlation equals 0.79.           yeast arrays contained avoid disadvantages hard thresholding, Zhang          6000 genes total. genes needed Horvath [16] proposed 'soft' power adjacency function:         removed high rates (>40 ) missing data aij = |cor(xi, xj)|β single parameter beta. power   gene data set. definition, module genes adjacency function preserves continuous nature        highly connected genes module  e.
+gene expression information  leads results        module genes tend relatively high connectivity). highly robust respect choice beta.
+                                                                  purpose module detection, restricting                                                                  analysis connected genes does lead Zhang Horvath [16] proposed criterion choosing power beta adjacency function          major information loss key points presenta- based fact despite significant variation       tion.  applications genes individual constituents pathways, metabolic            relatively low connectivity biologically 
+networks display approximate scale            ing gene filtering based connectivity lead
+free topology. linear regression model fitting index         information loss. adjacency matrix visual-
+R^2 used quantify network satisfies         ized graph number topological properties scale-free topology. scale free model       graph examined. Important network derived 
+1 parameter (γ), truncated exponential model allows
+                                                                 cepts include: hub  node strong connections 2 parameters γ α. Empirically, parameters truncated exponential model provide            nodes), topological overlap  interconnectiv- flexibility curve fitting R-squared      ity nodes), modules (tightly connected sub-
+values high [16].  focus scale         sets network), connectivity  sum free topology model fitting index application emphasize major trend high connectivity
+                                                                 adjacencies,  ki =   ∑ aiu ) intramodular connectiv-
+                                                                                         u genes number, genes low            ity  sum adjacencies module). connectivity (Figure 2A–2C). natural trade        potential drawback soft thresholding net- maximizing scale-free topology model fit (R^2)
+                                                                 work visualized directly number maintaining high mean number connections:
+parameter values lead R^2 value close 1        relationships display intractable. soft adja-
+lead networks connections. consid-        cency matrix specifies pair wise connection strengths erations motivated scale-free topology criterion.         nodes connected. visualize network choose parameters adjacency function:             Pajek, needs threshold connection strengths. parameter values lead network satisfying         resulting dichotomized adjacency matrix 
+scale-free topology approximately considered       sidered unweighted network approximation (e.g. signed R^2 > 0.80). considering signum            weighted network.  make visual representa- power adjacency functions, relationship
+                                                                 tion, strongest correlations (0.9 greater) R^2 adjacency function parameter (tau
+                                                                 drawn renderings. Subsequent  networks beta) characterized saturation curve. applications, use parameter value satu-       visualized Pajek [20,41].
+ration reached long 0.8. R^2 > .80
+results networks approximate scale
+
+
+                                                                                                                     Page 12 15
+                                                                                                (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                                                http://www.biomedcentral.com/1471-2164/7/40
+
+
+
+Definition Topological Overlap Modularity                                         using standard approach subtracting Topological overlap nodes (genes) reflects rel-                              e, topological overlap based dissimilarity measure ative interconnectivity. network represented adjacency matrix = [aij], aij ∈ [0,1], known                                defined dϖ
+                                                                                                     ij = 1 - ϖij).
+mula defining topological overlap given [4], extended weighted networks[16]:                                         networks involving nodes, modules easily                                                                                          identified inspecting network, large net-
+                  lij + aij
+ω ij =                                                (1)                                works involving nodes, useful generate
+          min{ki , k j } + 1 − aij                                                       topological overlap matrix (TOM) plot, review
+                                                                                         following. TOM plot provides "reduced" view  lij =           ∑ aiu auj         denotes number nodes                  network allows visualize identify net-
+                   u  j
+                                                                                         work modules. TOM plot color-coded depiction j connected, k number                                                                                          values [ dϖ
+                                                                                                             ij ], described 
+connections node, ki =                     ∑ aiu k j =       ∑ ju .
+                                                     u                   u≠ j
+                                                                                         Based TOM based dissimilarity matrix use            aij        ∈            [0,1],                             hierarchical clustering discriminate module lij =    ∑ aiu auj ≤ min( ∑ aiu , ∑ auj ) = min(∑ aiu , ∑ ju ) − aij                    used dynamic cut-tree algorithm auto-
+        u  j                  u  j     u  j           u     u≠ j                 matically precisely identifying modules hierarchi-
+.  lij + aij ≤ min( ∑ aiu , ∑ ju ) . 1 - aij ≥ 0,                        cal clustering dendrogram [43]. algorithm makes use
+                                   u        u≠ j
+                                                                                         internal structure dendrogram clips
+                                                                                         branches dendrogram. algorithm based ωij number 0 1. 2 rea-                              adaptive process cluster decomposition combina-
+sons adding 1 - aij denominator topolog-                               tion process iterated number clus-
+ical overlap matrix: 1) form, denominator                                ters stable. claim module 0 2) unweighted network,                                     construction method optimal future research
+                                                                                         compare different method cluster identifica- ωij = 1 node fewer links satisfies                            tion. module represents group genes simi- conditions:   neighbors neighbors                              lar expression profiles samples node, e. connected neigh-                             expression profile pattern distinct bors node (b) linked                                 modules. case, modules node.                                                                                    assessed enrichment ontology terms based                                                                                          Fisher's exact test described [25]. modules contrast, ωij = 0 j unlinked                                 relative connectivities separated nodes don't common neighbors.  topo-                                    analysis.
+logical overlap matrix symmetric, e, ωij = ωji. diagonal elements set 0  e. ωii = 0). rationale                             Based network modules, define considering similarity measure nodes                               intramodular connectivity (k  node  e., highly integrated modules expected                               number neighbors module node . high topological overlap neighbors [4].                                       connectivity node network                                                                                          denoted k  important note definition topological
+overlap matrix (equation 1) taken methods                                   Blastp
+supplement reference [4] typo pri-                            translated sequences entire yeast genome mary text. Different definitions topological overlap                              blasted entire translated sequences matrix possible, empirically                                  Human, Mouse, Fly, Neurospora C. elegans genomes. possible generalizations lead similar                              case, best hit determined using blastp, modules [42].                                                                            log(e score) scores averaged 5 different
+                                                                                         comparisons manner similar published
+Modules groups nodes high topological                                   [22]. average blastp scores averaged                                                                                          point (Figure 2H–2K, 3F–3H, 4F–4H, 5F–5H).
+overlap. Module identification based topological
+                                                                                         method necessarily optimal measure overlap matrix Ω = [ωij defined (1). use hierar-                             gene conservation, used simply chical clustering, turned dissimilarity measure                             approximate measure gene conservation, inde-
+
+
+                                                                                                                                            Page 13 15
+                                                                                                                       (page number citation purposes)
+ BMC Genomics 2006, 7:40                                                                    http://www.biomedcentral.com/1471-2164/7/40
+
+
+
+Table 2: Summary tests network predictive power
+
+ Module                      DNA Dmg                                     Env Stress                                 Cell Cycle
+
+                         Ess Test            Cons Test            Ess Test             Cons Test              Ess Test              Cons Test
+
+ Entire Network         0.23 1.0E-39        -0.15 1.3E-19        0.21 1.0E-39         -0.22 1.4E-39           0.2 1.0E-39          -0.18 4.0E-29
+ rRNA proc               0.2 6.3E-5           -0.1 0.049         0.28 1.0E-39         -0.091 0.0066          0.22 0.00011           -0.23 8.3E-5
+ Prot Synth             -0.12 0.014           -0.07 0.15         -0.16 0.0035          -0.042 0.46             0.019 0.7           -0.099 0.055
+ Ubiq                   0.41 1.8E-10         -0.28 2.9E-5         0.49 0.0022           -0.16 0.34            -0.044 0.44           -0.032 0.59
+
+ *Spearman correlation associated p-values network module tested
+
+
+pendent annotation. Future research study                  ing weighted networks, developing network meas-
+advantages disadvantages using different measures                 ures, providing crucial statistical guidance gene conservation network analysis.                               project. ZF helped statistical analysis. PM                                                                          SFN contributed key ideas suggestions Analysis module overlap                                               project progressed. authors participated devel- used hyper-geometric p-value evaluate signif-                opment ideas presented manuscript. icance overlap module genes 3 data              authors read approved final manuscript.
+sets. Suppose N1, N2 N3 N genes rRNA
+processing module DNA Damage data, Environ-                   Acknowledgements
+mental Response data, Cell Cycle data, respec-                   authors extend thanks SGD providing data anal-
+tively. denote 'overlap' number genes               ysis.  special mention Allen Day, Ally Perlina rRNA module overlap 3 data sets.                         Andy Yip input analysis project. work                                                                          supported grant NCI (U01 CA881273) Henry
+                                                                         Singleton Brain Tumor Program, Elliott Family Foundation memory arrive upper limit p-value, com-                Neal Elliott, Ziering Family Foundation memory Sigi Ziering,
+puted pair wise p-values follows. Denote p12 p-                Accelerate Brain Cancer Cure, Art Brain. MRJC supported
+value randomly selecting N2 genes pool                 UCLA Tumor Cell Biology Training Program, funded NIH/
+N genes N1 module 1 genes, ≥ overlap selected genes                 National Cancer Institute 5T32CA09056. work supported rRNA-processing module data sets.                UCLA DNA Microarray Facility NINDS/NIMH Microarray
+p-value easily computed using hypergeometric                  Consortium.
+distribution (dhyper function R). N1 N2 swapped obtain second p-value, denoted         
+p21. maximum values used                  
+assess significance overlap data sets 1            
+2. Similarly, computed p-value overlap            
+data sets 1 3, data sets 2 3. minimum           3 resulting p-values provided upper limit assess-        
+ing significance overlap 3 data sets, e.                 final p-value computed p = min(max(p12,p21),                      
+max(p13,p31), max(p23,p32))                                         
+
+

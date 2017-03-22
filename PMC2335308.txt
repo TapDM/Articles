@@ -1,0 +1,781 @@
+BMC Bioinformatics                                                                                                                       BioMed Central
+
+
+
+Research article                                                                                                                       Open Access
+Using logical model predict growth yeast
+KE Whelan* RD King
+
+Address: Department Science, Aberystwyth University, Aberystwyth, Wales, UK
+Email: KE Whelan* - knw@aber.ac.uk; RD King - rdk@aber.ac.uk
+* Corresponding author
+
+
+
+
+Published: 12 February 2008                                                   Received: 11 January 2007
+                                                                              Accepted: 12 February 2008
+BMC Bioinformatics 2008, 9:97   doi:10.1186/1471-2105-9-97 article available  http://www.biomedcentral.com/1471-2105/9/97
+© 2008 Whelan King; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: logical model known metabolic processes S. cerevisiae constructed
+                 iFF708, existing Flux Balance Analysis (FBA) model, augmented information                  KEGG online pathway database. use predicate logic knowledge representation
+                 modelling enables explicit representation structure metabolic network,                  enables logical inference techniques used model identification/improvement.
+                 Results: Compared FBA model, logical model information additional 263
+                 putative genes 247 additional reactions. correctness model evaluated                  comparison iND750  updated FBA model closely related iFF708) evaluating                  performance models predicting empirical minimal medium growth data/essential gene
+                 listings.
+                 Conclusion: ROC analysis statistical studies revealed use simpler logical
+                 form larger coverage results significant degradation performance compared                  iND750.
+
+
+
+
+Background                                                                    trophic experiments: Robot Scientist [1,2]. Silico modelling cellular processes                                     incarnation scope Robot Scientist limited paper describes construction application                    rediscovery knowledge single metabolic path-
+logical model known metabolic processes bakers'                         way yeast  Aromatic Amino Acid (AAA) biosynthe-
+yeast (Saccharomyces cerevisiae). model outlines                      sis pathway), logical model pathway [3]
+relationships Open Reading Frames (ORFs),                             acted background knowledge Robot
+enzymes reactions comprising metabolic path-                          Scientist able generate hypotheses. logical
+ways yeast, presenting knowledge facts                         model presented  "aber", updated restricted form Order Logic (FOL). represen-                    expanded version limited model  tation allows model behave deductive  rela-                    derived "Aberystwyth" – model 
+tional) database, model study                         structed). model expanded include metabolic behaviour.                                                          known yeast metabolism. model                                                                               updated explicitly relational data focus previous research develop-                        structure; replacing single relation included
+ment implementation automated                        enzyme metabolite details separate relations,
+design, execution interpretation wet lab auxo-
+
+
+                                                                                                                                       Page 1 16
+                                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                  http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+enabling natural versatile knowledge repre-            important quantitative methods ODE
+sentation.                                                        (Ordinary Differential Equations) FBA (Metabolic
+                                                                  Flux Balance Analysis). ODEs established evaluate correctness model used          modelling representation science. using ODEs predict results empirical growth experiments         model metabolism concentration metabolite
+knockout mutants growing defined minimal medium                calculated single ODE encapsulating reac-
+[4]. model designed able           tions metabolite synthesised consumed,
+generate growth predictions defined growth media,          fluxes determining transformations model contains essential genes, list          metabolites network. use ODE models
+essential genes generated gene-deletion study         main technique quantitative sciences. used conjunction minimal medium                   number specialised ODE modelling
+growth results accurately reflect predictions      packages metabolism, e.g. Gepasi/Copasi [15-17] model. assessment ability model           e-Cell [18]. Despite  current application ODEs
+correctly predict gene essentiality performed;        modelling large-scale metabolism number seri- case predictions growth compared          ous problems: know, likely know
+list essential genes  reference min-      soon, necessary parameters models
+imal medium experimental data. ROC analysis used              demand; numerical analysis problems compare logical model iND750 [5], state           solving ODE metabolic models, resulting quantitative art Flux Balance Analysis (FBA) model [5,6] (iND750           qualitative differences simulators.
+reflects naming scheme systems biology models, refers silico model, ND reflects creators      Flux Balance Analysis (FBA) [5,6,19-21] currently model (Natalie Duarte) 750 represents number           common approach quantitatively modelling
+genes included model). models               metabolism. Standard FBA assumes steady state model compared predicted growth outcomes gen-             cell metabolism; recent developments
+erated simple majority class classifier,      FBA [20] extended dynamic flux balance
+probability prediction success purely random.            analysis capable modelling cells state
+                                                                  change. Cell reactions modelled matrices: Systems biology modelling biochemical                  corresponding stoichiometry reactions, networks                                                          containing fluxes reactions. Typically
+Systems Biology [7-10] represents shift syner-        fluxes remain unknown experimental
+gistic approach cell modelling, concen-         measurement ranges small number  
+tration interactions inter-related                 trol" fluxes linear/nonlinear programming used components behaviour individual            determine values unknown fluxes, based components. Advances mathematics sci-             assumption optimality. FBA models metabolism
+ence led development diverse techniques            number organisms exist, e.g. S. cerevisiae [5,6] formalisms allowing silico modelling          E. coli [19,20] recently human metabolic network
+cell systems. models represent varying               [21]. steady state assumption (relaxed dynamic
+degrees abstraction observable phenomena              FBA  inaccuracies unknown fluxes represent, coarse large scale models capture       lead inaccuracies overall simulation [22]. essential interactions components           increased experimental evidence decrease
+e.g. KEGG [11,12] EcoCyc [13], higher fidelity rep-        inaccuracies.
+resentations detailed functioning interactions smaller set components [14].                                   number flux based alternatives FBA                                                                   developed address changes fluxes occur main groups modelling techniques used            major environmental perturbations represent metabolic networks:                                  gene knockouts: MOMA (Minimisation Metabolic
+                                                                  Adjustment) [23] ROOM (Regulatory minimi-
+1) Quantitative methods aim capture changes           sation) [24]. make use distance measures deter- quantities metabolites enzymes  rep-         point flux space closest wild type
+resenting cellular processes, e.g. reaction kinetics,   flux distribution, keeping homeostasis hypothe-
+                                                                  sis. MOMA minimises changes individual flux,
+2) Qualitative methods aim simply model pres-            overall network similar possible ence interactions, e.g. reactions modelled chemi-       wild type. contrast, ROOM minimises number cal transformations, representation reaction           significant flux changes, better approximating
+kinetics                                                          short alternative pathways allow redundancy met-
+
+
+                                                                                                                     Page 2 16
+                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+abolic networks. predictive study using lethal/non-        BIOCHAM [29] dedicated biochemical
+lethal knockouts E. coli, ROOM accuracy            reasoning engine uses rule based temporal logic lan-
+85 , comparable standard FBA approach.          guage model query possible behaviours
+Elementary mode analysis [25] determines set             given biochemical model, MAPK signal trans-
+smallest sub-networks larger metabolic network        duction cascades used example. Random allow metabolic steady state reached. ele-   Boolean networks [30,31] used model
+mentary mode represents alternative organism        106 genes comprising yeast transcriptional net- use conditions perturbation. Stelling et al [25]      work. Random Boolean useful modelling systems
+use elementary-mode analysis determine lethal/non-           interactions known  Kauffman
+lethal gene deletions central carbon metabolism       et al [31] used process identify networks E. coli, lethal mutants set       stable, representing rules biological
+elementary modes, non-lethal mutants          relevance regulation gene transcription. gen- elementary mode overall positive growth             eral graph models equivalent propositional
+rate. Stelling et al [25] observed 90  correct prediction     logic models adequately represent metabolic
+rate 90 knockouts studied.       reactions nodes arcs. representation large number elementary modes moder-         expressive adequately represent rela-
+ately large metabolic network, indicating        tionships ORF/enzymes  control reac- problems scaling approach metabolism           tions. increased expressivity FOL required networks.                                                       additional complexity.
+
+Logical Graph (LG) based models [1,11-13]           use qualitative reasoning (QR) [32] interme-
+commonest qualitative representations modelling             diate representation quantitative logical
+metabolism. Graph based models used metabolic            models, e.g. King et al used QR model Glycolysis
+databases e.g. KEGG [11,12], EcoCyc/MetaCyc [13]. Met-          pathway [33]. presence/absence metabo-
+abolic pathways represented explicitly, metabo-        lite cell coarse representation logical/
+lite node graph edges represent             graph models, quantitative concentration chemical transformations reactions compris-        ODE models, QR models record qualitative state ing pathway. Edges annotated             metabolite, e.g. concentration increas-
+enzyme(s) catalyse reactions, turn    ing, decreasing constant. Qualitative differential equa- related gene(s) encode enzymes. Lemke       tions [33] used calculate change quantity et al [26,27] developed graph-based model         metabolites enzymes, FOL representation
+metabolic network E. coli used analyse        metabolite enzyme components  damage absence enzyme causes            common task QR generate complete envi- metabolic network. Metabolic damage defined           sionment  e. possible qualitative number metabolites longer pro-            states derived initial starting state.
+duced organism. 9                 computationally expensive task, King et al
+enzymes prevent production 5 metabolites,            27,254 possible states Glycolysis model. 50  essential enzymes group.                                            Results
+                                                                test utility "aber" model compared Logical models use computationally efficient forms          iND750 FBA model, majority classifier propositional FOL (Prolog) represen-       assigns prediction commonly occurring
+tation language [28]. graph models, reaction net-     classification  case continued growth work represented series metabolite nodes         strains). iND750 aber model chemical transformation arcs, increased             constructed iFF708 [6], subsequent develop-
+expressive power logic allow accurate repre-        ment led divergence number ORFs sentations relationships genes,              experimental results Giaever et al [4]:
+enzymes gene products used annotations            iND750 makes predictions 681 ORFs, aber
+reactions, various cellular compartments.        model makes predictions 940, 641 predictions
+example, enzyme names used annotate             shared models. Evaluation performance reaction arcs Lemke et al [6,27], unlike ORF EC          models examined shared genes total
+number aber model. Metabolic modelling          number genes model, effect add- keeping tally metabolites added cell      ing newly categorised ORFs original set reaction  section 5 .                  examined.
+
+
+
+                                                                                                                    Page 3 16
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                           http://www.biomedcentral.com/1471-2105/9/97
+
+
+ different cases gene knockout sensitivity                  Table 2: Formulas used calculate Model Validation metrics
+MMD+ura+hist+leu considered, 1) genes                                                                       Metric                                      Formula significantly sensitive 5 generations 2) genes significantly sensitive 5 generations          tpr (true positive rate)
+remain significantly sensitive 15 generations.                                                             TP
+iND750, metabolic network starting media                                                             tpr = POS
+definitions used aber model altered reflect            fpr (false positive rate) additional requirements uracil, histidine leu-                                                               FP
+                                                                                                                  fpr = NEG
+cine. additional comparison                 rfp (relative frequency positives)
+iND750 results preprocessing step used                                                                        POS
+                                                                                                                 rfp =
+identify borderline cases retarded growth sensi-                                                               ( POS+NEG )
+tive/refractory data. preprocessing step used         C (class ratio skew ratio)
+sensitivity results ORF, ignoring refractory                                                        c = NEG
+scores ORFs, sensitivity data used                                                       POS
+                                                                      sk_acc (accuracy) focusing ORFs sensitive Giaever experiment sets  iND750 results                                                                                 ( 1− fpr )
+                                                                                                                 sk_acc = tpr + c           1
+                                                                                                                                                     +c
+include ORFs sensitive sets).                                                                       sk_prec (precision)
+imbalance prediction counts results shortfall
+                                                                                                                                  tpr experiment results iND750 preprocessing step                                                         sk_prec = tpr +c ⋅ fpr
+(comparison set C Table 1). cases experi-
+mental results comparison set C available,
+results set B used. Definitions 3 sets           rics skewed accuracy skewed precision. Table 2 shows
+experimentally derived growth growth outcomes                 formulas metrics formulas given Table 1.                                                metrics representing intermediate steps. table TP
+                                                                     represents number true positive predictions, TN logical model uses MMD+ura+hist+leu              number true negatives, FP FN number set starting compounds, comparison essential             true false positives negatives respectively. POS
+gene list valid knockouts grow             corresponds total number positive predictions
+rich YPD certainly grow simple             NEG, total number negative predictions.
+defined medium. Analysis model comparisons use performance metrics statistical tests           McNemar χ2 test used compare performance
+evaluated significance observed difference             aber model, iND750 majority classifier model performance. described  followed               3 comparison sets. sets ORF discussion gene essentiality findings            sources (aber, iND750 shared) used compar-
+results minimal medium growth study                           ison aber model iND750. shared ORFs                                                                      aber ORF sources used comparison Skewed performance metrics significance tests                    aber model majority classifier. iND750 ORFs analysis use ROC space Flach [34] defines            shared ORFs sources used comparison number metrics use skew ratio (c Table 2)          iND750 majority classifier. McNemar test
+allow bias introduced classes dissimilar size           analyses proportions mistakes predictions com- case model predictions experimental           mon models. enable comparison equivalent
+results.) metrics used measure clas-          numbers majority class used obtain predictions
+sifier's performance conditions evaluation             ORFs model  e. 40 ORFs rules/tree nodes  classifiers constructed. met-       iND750 aber model 299 ORFs 
+Table 1: Comparison set definitions comparing model predictions experimental results using MMD defined growth medium
+
+ Prediction/Experiment Comparison Set Growth Outcome                                              Growth Outcome
+
+                                        essential significantly sensitive           essential significantly sensitive 5
+                                          5 generations experimental repeats        generations experimental repeats
+                   B                      essential significantly sensitive           essential significantly sensitive 5
+                                          5 15 generations                 15 generations experimental
+                                          experimental repeats                                    repeats
+                   C                      essential sensitive iND750               essential sensitive iND750 preprocessing
+                                          preprocessing
+
+
+
+
+                                                                                                                                        Page 4 16
+                                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                     http://www.biomedcentral.com/1471-2105/9/97
+
+
+ aber model iND750). Significance                McNemar tests significant difference  McNemar tests determined p > 0.05                formance models, sets direction test result collected  e. model         ORFs. reflection small number essential
+outperforms significant difference                 vs non-essential ORFs (18.4   shared ORFs observed). following equation defines McNemar                aber model essential; 17.5  test used, b number predictions             iND750 ORFs essential). slightly smaller correct model 1 incorrect model 2 c              proportion essential ORFs iND750 set converse (incorrect model 2 correct model              account apparent increase accuracy IND750.
+1). Cumulative binomial test used deter-               accuracy results aber model iND750 probability generating predictions            slightly poorer results iFF708, indicating aber model chance.                                                expansion models slightly decreased abil-
+                                                                     ity predict essential genes.
+
+                                                                     Comparing predicted experiment outcomes growth
+                    c   2
+                            =
+                              ( abs( b − c ) −1 ) 2                  outcomes obtained genome gene-deletion
+                                      b+c                            study performance iND750
+                                                                     Table 5, containing results growth predictions Predicting gene essentiality                                         defined medium, shows classifiers sim- use ability metabolic network models pre-             ilar values performance statistics indicating similar
+dict essentiality gene measure model qual-          performance logical model, iND750 ity. Gene essentiality results presented               majority classifier comparison sets; iFF708, prime source knowledge aber model             slight decrease performance comparison precursor iND750, aber model              sets B C. McNemar test results (Tables 6, 7 8)
+compared. Förster et al [35] report predictive accuracy         indicate significant difference pre-
+85  gene essentiality iFF708. model's prediction           dictive accuracy aber model iND750 tested comparison empirical "wet"                 ORF sources comparison sets, mod-
+experiment growing knockout strain. growth                els perform significantly better majority classifier
+(phenotype) knockout strain depends gen-            stringent definitions growth otype  gene(s) removed) environ-              growth. case majority class ment. use model metabolism predict gene                   largest (82  83 ) predictive model
+essentiality, necessary know composi-         performs better. indicates use compli-
+tion growth medium  environment).                    cated formalism FBA does improve prediction makes use "wet" results using common                 healthy/retarded growth compared logical modelling. 
+growth medium yeast, YPD, problematic                observation tempered fact exact composition undefined.                  fully direct comparison FBA prediction tech-
+focused using Giaever et al data [4] growth          nique logical model prediction technique defined minimal medium.                                              possible, network corresponding                                                                      shared ORFs incomplete. results McNemar
+Table 3 shows skewed accuracy skewed precision               tests indicate expanding coverage results aber model, iND750 majority clas-            model adding information KEGG signif-
+sifier (maj) 3 sets genes described             icantly compromised performance component
+Table 4 presents results McNemar tests determine           model originating iFF708.  significance difference models.              possible increase coverage metabolic network results little variation performance,             30  significant degradation  iND750 scoring slightly higher terms accuracy             formance. significant difference ORFs corresponding source set.                 aber model iND750 comparison
+
+Table 3: Performance results gene essentiality predictions
+
+ ORF Source                              Aber         Shared     iND750       Shared        Aber          iND750             Shared
+
+ Model                                   Aber         Aber       iND750       iND750         maj             maj               maj
+ Num ORFs                                940          641          681          641          940             681               641
+ Skewed Accuracy                         0.81         0.80         0.82         0.80         0.82            0.83              0.82
+ Skewed Precision                        0.83         0.86         0.84         0.85         0.82            0.83              0.82
+
+
+
+
+                                                                                                                          Page 5 16
+                                                                                                    (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                               http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+Table 4: Results McNemar significance tests gene essentiality
+
+ Comparison                                                          Aber ORFs (940)        iND750 ORFs (681)               Shared ORFs (641)
+
+ Aber Model vs iND750                            result                     1.19                       2.93                          2.64
+                                                 significance                                                                                                                    direction
+ Aber Model vs Majority Classifier               result                     0.31                       NA                              0
+                                                 significance                                                                                                                       direction
+ iND750 vs Majority Classifier                   result                     NA                         2.56                          2.31
+                                                 significance                                                                                                                       direction
+
+
+set B – stringent definition sensitive growth.                  essential/retarded growth genes). test resulted partly skewed nature experi-                  probability, P(X ≥ 889)bin = 8.81 × 10-32: low prob-
+mental results  skew ratio C varies 0.22                    ability predictions generated chance.
+0.34 result sets ORF source combinations) partly generally high false positive rates                   Discussion
+(variation 0.55 0.86), iND750                    Comparison logical model iND750 demon- aber model make incorrect predictions                          strated significant difference 
+growth.                                                                     formance models prediction gene
+                                                                            essentiality. significant increase performance Estimating probability chance occurrence model                    observed aber model iND750 w.r.t predictions                                                                 majority classifier predicting growth outcome cumulative binomial test used evaluate prob-                   defined growth medium, stringent
+ability predictions logical model                      definition growth Giaever et al [4]. chance. test calculates                    significant difference aber model significance deviations binomial distribution                   iND750 defined growth medium study. gene observations falling categories (predictions                 essentiality study indicates models equally
+growth growth), assuming random binomial                           poor predicting essential genes, model assigns genes essential/retarded growth                   improvement simple majority classifier. non essential/healthy growth categories chance.                      case minimal medium experimental data, probability calculated range r..n, r = 889:                essential gene data highly skewed, reflecting number predictions growth n total                     redundancy yeast genome. improvement number predictions (growth + growth: 940):                       performance models w.r.t defined medium
+                                                                            study result precise definition medium
+                               n                                            components  approximations undefined media
+                                   ⎛       ⎞
+                              ∑ ⎜⎜�? ( n  )!  ⋅ p ⋅ q
+                                         n!
+          P ( X ≥ r ) bin =                ⎟⎟
+                                                         q              possible). similarity results aber model
+                      r                   ⎠                               iND750 indicate additional complexity p = 0.82, proportion ORFs result                       FBA required prediction essential genes experimental growth q = 1 - p  proportion                        determination growth/retarded growth defined
+
+Table 5: Values metrics used validate models experimental comparisons using defined medium
+
+                                ORF Source             Aber        Shared      iND750        Shared           Aber      iND750           Shared
+
+                                        Model              Aber      Aber          iND750     iNd750           maj           maj             maj
+
+                                       ORFs              940      641            681         641            940           681             641
+
+ Skewed Accuracy                        Exp               0.79     0.79           0.80        0.80           0.77          0.77            0.76
+ Skewed Precision                       Exp               0.80     0.80           0.83        0.82           0.77          0.77            0.76
+ Skewed Accuracy                        Exp B               0.81     0.82           0.80        0.79           0.82          0.83            0.82
+ Skewed Precision                       Exp B               0.83     0.84           0.86        0.85           0.82          0.83            0.82
+ Skewed Accuracy                        Exp C               0.83     0.85           0.84        0.83           0.82          0.83            0.82
+ Skewed Precision                       Exp C               0.83     0.85           0.85        0.84           0.82          0.83            0.82
+
+
+
+
+                                                                                                                                      Page 6 16
+                                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                      http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+Table 6: McNemar test results aber model vs iND750
+
+ Comparison Set                                   Aber ORFs (940)              iND750 ORFs (681)              Shared ORFs (641)
+
+                         result                        0.72                        0.60                              0.14
+                           significance                                                                                                      direction
+ B                         result                        1.19                        2.93                              2.64
+                           significance                                                                                                      direction
+ C                         result                        0.25                        1.05                              1.09
+                           significance                                                                                                      direction
+
+
+media. logical model currently restricted             training examples incrementally, binary growth growth predictions capa-              informative example (given current hypothesis set) bility predict growth rates unlike FBA based techniques.          chosen iteration loop. scientific dis- case horses courses. logical model pre-           covery training examples correspond outcome sented useful addition currently existing           experiments carried automatically lab robot, models appropriate mix expressive representa-             active selection training example corresponds tion metabolic concepts simple mechanism                choosing experiment likely refute largest
+determining predictive outcomes.                                     number hypotheses, given outcome experi-
+                                                                     ment (growth growth). Figure 1 illustrates high number inaccuracies prediction                 active learning loop applied functional
+growth models indicates important                  genomics discovery task.
+information remains discovered yeast metab-
+olism.                                                               formation hypotheses outcomes                                                                      selected experiments performed limited form Using logical model background knowledge                  abductive theory completion [3], performed PROGOL,
+active learning hypotheses                                        ILP [36] program performs abductive major motivation use logical formalism             inductive machine learning restricted form FOL. enables exploitation techniques              task logical model formed incomplete 
+large research area Inductive Logic Programming (ILP)             ground knowledge theory, final hypothesis related order learning methods [36].           added "complete" improve theory, possible formalisms FBA. Previous              adding current biological knowledge yeast func-
+work [1], precursor aber logical model used             tional genomics. completion theory analo- background theory  discovery task involving             gous identifying new edge added function ORFs single pathway (AAA Biosyn-              metabolic network, new ORF annotation thesis) Yeast. task implemented active              edge. described Figure 2.
+learning loop, machine learning technique based abductive logic programming mirrors hypo-                   use restricted form FOL allows compo-
+thetico-deductive process hypothesis formation sci-            nents scientific discovery task described using
+entific discovery. active learning classifier given set    knowledge representation, complex-
+
+Table 7: McNemar tests results aber model vs majority classifier
+
+ Comparsion Set                                             Aber ORFs (940)                  Shared ORFs (641)
+
+                                 result                   5.02                             8.51
+                                   significance             yes                              yes
+                                   direction                Aber                             Aber
+ B                                 result                   0.31                             0
+                                   significance                                                                              direction
+ C                                 result                   5.94                             11.17
+                                   significance             yes                              yes
+                                   direction                Aber                             Aber
+
+
+
+
+                                                                                                                           Page 7 16
+                                                                                                     (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                   http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+Table 8: McNemar results iND750 vs majority classifier
+
+ Comparison Set                                                  iND750 ORFs (681)                  Shared ORFs (641)
+
+                               result                                 5.01                                  5.69
+                                 significance                           yes                                   yes
+                                 direction                            iND750                                iND750
+ B                               result                                 2.56                                  2.64
+                                 significance                                                                                                direction
+ C                               result                                34.38                                 134.31
+                                 significance                           yes                                   yes
+                                 direction                            iND750                                iND750
+
+
+ity entities relationships required accurate        designed enable automated reasoning description enzymes, reactions, experiments,                yeast metabolism. Use model predict essenti-
+hypotheses expressed FOL equiv-           ality genes knockout studies provides mechanism
+alently expressive knowledge representation (e.g descrip-          used validate model respect tion logics, OWL). Abduction hypotheses relating                experimental evidence. ROC analysis statistical
+ORFs, enzymes reactions requires                 tests carried evaluate predictive ability machine learning program FOL s representation            model compare performance state language, use programs ILP. Robot            art FBA model (iND750); evaluate effect Scientist concept represents close integration         increasing coverage model iFF708. logical inference techniques used scientific discov-        results using logical model FBA
+ery automated laboratory perform experi-           based results significant loss performance,
+ments. previous work AAA Biosynthesis                   loss enlarging coverage pathway proof principle study. Recently orig-         model include information KEGG; inal robot hardware replaced state art        iND750 logical model represent improvement
+automated laboratory substantially increases              random predictions.
+throughput Robot Scientist [37]
+                                                                   Methods
+Conclusion                                                         Sources logical model paper presents logic based model metabolic           Logical model Yeast metabolism 
+processes S. cerevisiae: "aber". core aber           structed main sources:
+model FBA model iFF708 [6]. Added core additional 263 ORFs, includes additional            1) iFF708 – Genome Scale Metabolic Network pro-
+247 reactions taken KEGG [11,12]. aber model              duced Forster et al [6]
+
+
+
+
+FigureLearning
+Active  1       Scientific Discovery
+Active Learning Scientific Discovery.
+
+
+
+                                                                                                                      Page 8 16
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+
+Abductive
+Figure 2 Inference Graph Completion
+Abductive Inference Graph Completion.
+
+
+2) Kyoto Encyclopaedia Genes Genomes                 flux distributions shadow price calculations allowed
+(KEGG) [11,12]                                                  reaction list corrected  hand) – predic-
+                                                                tions final model agreement iFF708 consists set reactions exists    experimental results. iFF708 validated biochemical evidence S. cerevisiae set open         comparing growth list essential genes  section
+reading frames (ORFs) encode gene products        2).
+catalyse reactions. gene products belong enzyme classes, defined Enzyme Commission.           Components structure logical model
+ster et al used online database sources (MIPS [38], KEGG        logical model iFF708 include ORFs,
+[11,12], SGD [39], Expasy [40]  literature sources      enzymes reactions yeast metabo- construct network. Forster et al [35] estimate 1    lism. ORF corresponds DNA sequence man year research activity required identify       removed replaced create knockout mutant.
+reactions corresponding metabolic network           Enzymes types Enzyme Commission number used
+single organism. constructing network considera-         classify gene products corresponding particular
+tion given presence, stoichiometry, factors,      enzyme function, reactions individual
+reversibility localisation reactions S. cerevisiae.   chemical transformation steps  taken model building phase required itera-         represent yeast metabolism. original form iFF708
+tions improvements. ORFs reactions iFF708            treats relationships components localised various compartments corresponding        corresponded single relational database table,
+  organelles yeast cell. 2 com-    resulting duplication components. exam-
+partments – 3 immediate external environment (e.g.       ple, isoenzymes, gene products growth medium) thought compartment.            unique ORFs catalyse reaction, reac- internal compartments cytosol mito-         tion repeated table times chondrion. resulting reaction list included reactions       isoenzymes. lead confusion defining
+confined cell compartments transport         various unique entities components. Adapting
+reactions membranes external envi-           iFF708 logical model enables separation enti-
+ronment cytosol cytosol mitochon-           ties components linked database tables,
+drion.                                                          natural way represent components
+                                                                relationships. current logical model repre-
+Forster et al used flux balance analysis simulate var-   sents step – reactions placed sep-
+ious phenotypic metabolic behaviours.                 arate table allowing reaction defined uniquely,
+included models capability manufacture key pre-          links ORF/enzyme components code/cat-
+cursor metabolites amino acids, ATP         alyse reaction.  remains work related costs synthesising macromolecules ulti-          extend representation allow addi-
+mately biomass precursors. method           tional complexities multimeric reactions pro-
+used validate model: comparing predicted          tein complexes [5]. Table 9 catalogue various
+results previous experimental results aerobic       components relations logical model. anaerobic chemostat cultivation, investigation       ORF/Enzyme/Reaction relation logical equivalent 
+
+                                                                                                                    Page 9 16
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                 http://www.biomedcentral.com/1471-2105/9/97
+
+
+ single table iFF708. seen adding       ment {external, cytosol, mitochondrion}. information KEGG added additional 688                Orf/Enzyme/Reaction relations corresponding aber relationships. 1,166 ORFs logical model          logical model available Additional file 1 sup-
+include 226 "unknown" ORFs, reactions            plementary information paper. reactions biochemical evidence included             available Additional file 2.
+iFF708, ORF/enzyme information com-
+plete  explains total ORF count 940 used          reaction mechanism
+model validation – section 2).                                   Reaction Mechanism model used predict 
+                                                                 come knockout mutant experiments essentially Representation ORFs, enzymes reactions                    mechanism used [3]. relate model sets relations lie core logical represen-   observable phenotype associate existence tation metabolic network:                                 paths graph growth, e. (iff)
+                                                                 (deduce) path input metabolites 1. orf_fact(ORF,ECNumber,EnzymeClass,GeneName,                   growth medium set essential metabolites
+                                                                 (amino acids, nucleic acid precursors, polysaccharide
+ GeneDescription,ReactionNumber).                                precursors, lipids, ) model predicts                                                                  yeast cell grow indistinguishably wild type relation corresponds single mapping            (observable phenotype). logical modelling approach ORF, Enzyme Commission number  pre-                 simpler FBA, involves concept sented relation traversing hierarchy EC          connection (true/false) flux – removes
+numbers); corresponding Gene  (brief)                 requirement estimate fluxes.
+description function gene; reaction
+catalysed gene product. second relation defines       Reactions processed checking metabo- reactions logical model:                              lites reaction present cell
+                                                                 adding metabolites  reac-
+2. reaction(ReactionNumber,Substrate,Direction,Prod-             tion processed reactions exe-
+uct).                                                            cuted final complement cell compounds                                                                  used evaluate growth outcome particular ReactionNumber unique number             growth experiment. basic approach reaction identified, Direction "forwards" (->)   altered incorporate cell compartments used "reversible" (<->) Substrate Product lists        iFF708. KEGG does specify cell compartments, metabolites cell compartment         network components added KEGG assumed
+metabolite added  stoichiometry        located cytosol. Figure 4 illustrates reaction recorded, reaction mecha-          reaction mechanism used predict outcome
+nism used predict outcome experiments does         knockout experiments. inputs model
+currently make use information. Figure 3 uses          points 
+simple example Glycolysis illustrate relation-
+ships logical model. Metabolite stored       1) metabolites comprising minimal growth
+"reactant":                                                      medium MMD+ura+hist+leu. minimum set
+                                                                 compounds required wild yeast continued
+reactant(Compartment,Stiochiometry,CompoundID)                   growth – additional nutritional require-
+                                                                 ments Uracil, L-Histidine L-Leucine CompoundID unique ID KEGG
+database – conversion notation used            2) ORF(s) knocked form mutant strain iFF708 possible (>90  metabolites). Compart-
+                                                                 3) additional nutrients added identify possible
+Table 9: Components Logical Model
+                                                                 reactions removed metabolic network knock-
+                                                                 ing ORF.
+ Component                                          Size
+                                                                 4) Metabolites deemed "ubiquitous" – deemed  ORF/Enzyme/Reaction relations                      2303         present cell. include factors  ORFs                                               1166         NADPH, NADH, ATP, ADP  list ubiquitous
+ EC Classes                                         541
+                                                                 compounds given Table 10. Ubiquitous compounds
+ Reactions                                          1087
+ Metabolites                                        821          present reactions growth simula-
+                                                                 tion algorithm requires presence cell 
+
+                                                                                                                   Page 10 16
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                  http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+
+Figure 3
+Representation Metabolic Information: Example Glycolysis
+Representation Metabolic Information: Example Glycolysis.  reactions Glycolysis, B: representations pro-
+log.
+
+
+
+start guarantee connectivity wild-type meta-       product list added compartment
+bolic network. biological terms compounds           specified.
+present yeast cell separates "mother" cell.                                                   2) Reversible reactions processed similarly irrevers-
+                                                                 ible reactions, processed reverse
+5) reactions ORFs/enzymes defined                  direction e. iff reactants products list                                                                  correct compartments, reactants substrate
+Lists corresponding compartments defined         list added specified compartments. iFF708 created: lists corresponding cytosol mitochondrion compartments initially set         reaction processed turn processed contain minimal medium compounds,                  Currently logical model simply records pres-
+ubiquitous compounds. task reaction             ence absence metabolite calculation mechanism identify reactions longer        quantities produced undertaken. approach suffi-
+proceed uniquely catalysed gene          cient simple continued/arrested growth predic-
+products produced ORF(s) removed create            tions currently generated, revised knockout strain. reactions removed            model modified generate quantitative growth predic-
+network processing reaction mechanism              tions. mechanism processes reactions cyclical
+proper. remaining reactions analysed turn          manner long 1 reactions previous following conditions allowing reac-          cycle executed. process ensures possible
+tion proceed met:                                   reactions processed metabolites                                                                  possible added cell compartment.
+1) Irreversible reactions proceed iff   reactants substrate present correct cell       processing reaction mechanism, determina-
+compartments. reaction runs, reactants              tion continued arrested growth compar-
+                                                                 ing final complement metabolites list 
+
+                                                                                                                     Page 11 16
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+                                                               variant resulted continued growth, e. logical
+                                                               model contain reactions required                                                                essential compounds added cell, ubiq-
+                                                               uitous compounds contain factors required
+                                                               reactions.  including components                                                                iFF708 sufficient predict growth net-
+                                                               work did include reactions enable synthesis                                                                compounds deemed essential.                                                                 aber model focussed modelling 
+                                                               bility metabolism. means end-points                                                                metabolites considered essential life. end-
+                                                               points flux balance analysis model metabolites
+                                                               important cell biomass. sets end-
+                                                               point metabolite necessarily 
+                                                               example, clear cell able
+                                                               synthesise immediate nucleotide precursors RNA
+                                                               DNA, end-points iFF708
+                                                               model. Inclusion knowledge representing additions
+                                                               yeast biology KEGG database added subse-
+                                                               quent completion iFF708; addi-
+                                                               tional reaction, KEGG, documented                                                                yeast, essential production Palmitate,
+                                                               allowed graph traversal algorithm reach essential
+                                                               compounds. (Note – "palmitate reaction"                                                                occur yeast, KEGG [11,12]). Construc-
+                                                               tion model complete reactions neces-
+                                                               sary simulate continued growth wild variant                                                                added model.
+FigureThe
+trophic
+Using   Experiments
+        4 Logical Model
+                    S                           cerevisiae
+                            Predict Outcome Auxo-
+Using Logical Model Predict Outcome Auxo-        Description KEGG components used augment IFF708
+trophic Experiments S. cerevisiae.
+                                                               Table 12 shows numbers ORFs reactions
+                                                               belonging KEGG pathways ORF/enzyme/
+                                                               reaction relations used augment IFF708 model, 
+compounds deemed essential healthy cell growth:            Table 10: Compounds deemed Ubiquitous S. cerevisiae include amino acids, nucleic acids, compounds D-Glucose 1-phosphate essential forma-       Kegg Compound ID               Compound tion polysaccharides, compounds choline                                                                 C00005                         NADPH essential formation membranes, impor-
+                                                                C00004                         NADH
+tant intermediary compounds pyruvate. com-          C00016                         FAD
+plete list essential compounds given Table 11.     C00006                         NADP+
+growth status simulated experiment determined         C00003                         NAD+ follows:                                                     C00061                         FMN
+                                                                C00575                         3'5'-Cyclic AMP
+1) Continued growth predicted iff ∀(essential com-           C00399                         ubiquinone
+                                                                C00137                         myo-inositol
+pounds present Cytosol compartment                                                                 C00194                         coenzyme B12
+model)                                                          C00032                         protoheme
+                                                                C00255                         riboflavin
+2) Arrested growth predicted ∃(essential compound         C00346                         phosphoethanolamine
+missing Cytosol compartment)                           C00641                         1 2-Diacyglycerol
+                                                                C00448                         farnesyl pyrophosphate
+Growth wild variant additional nutrients         C00002                         ATP
+                                                                C00008                         ADP predicted giving knockout value                                                                   C00342                         Thioredoxin list additional nutrients. create usa-    C00007                         O2
+ble logical model crucial simulation wild
+
+
+                                                                                                                   Page 12 16
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                    http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+Table 11: Compounds deemed essential healthy growth S. cerevisiae
+
+       Kegg Compound ID                             Compound                            Compound type/function
+
+              C00041                                       L-Alanine                                 amino acid
+              C00037                                        Glycine                                  amino acid
+              C00079                                  L-Phenylalanine                                amino acid
+              C00078                                    L-Tryptophan                                 amino acid
+              C00082                                      L-Tyrosine                                 amino acid
+              C00407                                     L-Isoleucine                                amino acid
+              C00073                                    L-Methionine                                 amino acid
+              C00062                                      L-Arginine                                 amino acid
+              C00049                                     L-Aspartate                                 amino acid
+              C00135                                      L-Histidine                                amino acid
+              C00097                                      L-Cysteine                                 amino acid
+              C00025                                     L-Glutamate                                 amino acid
+              C00064                                     L-Glutamine                                 amino acid
+              C00047                                        L-Lysine                                 amino acid
+              C00148                                       L-Proline                                 amino acid
+              C00065                                       L-Serine                                  amino acid
+              C00188                                     L-Threonine                                 amino acid
+              C00183                                        L-Valine                                 amino acid
+              C00152                                    L-Asparagine                                 amino acid
+              C00123                                      L-Leucine                                  amino acid
+              C00242                                       Guanine                                      base
+              C00106                                         Uracil                                     base
+              C00147                                        Adenine                                     base
+              C00262                                   Hypoxanthine                                     base
+              C00178                                       Thymine                                      base
+              C00380                                       Cytosine                                     base
+              C00212                                      Adenosine                                  nucleoside
+              C00387                                      Guanosine                                  nucleoside
+              C00294                                        Inosine                                  nucleoside
+              C00214                                      Thymidine                                  nucleoside
+              C00299                                        Uridine                                  nucleoside
+              C00475                                       Cytidine                                  nucleoside
+              C00020                                          AMP                                    nucleotide
+              C00144                                         GMP                                     nucleotide
+              C00130                                          IMP                                    nucleotide
+              C00105                                          UMP                                    nucleotide
+              C00055                                          CMP                                    nucleotide
+              C00002                                          ATP                                  energy transfer
+              C00044                                          GTP                                  energy transfer
+              C00075                                          UTP                                  enery transfer
+              C00005                                       NADPH                                      coenzyme
+              C00004                                        NADH                                      coenzyme
+              C00016                                          FAD                                     coenzyme
+              C00008                                          ADP                                  energy transfer
+              C00035                                          GDP                                  energy transfer
+              C00015                                          UDP                                  energy transfer
+              C00068                                Thiamin diphosphate                               coenzyme
+              C03028                                Thiamin triphosphate                              coenzyme
+              C00006                                        NADP+                                     coenzyme
+              C00003                                         NAD+                                     coenzyme
+              C00061                                         FMN                                      coenzyme
+              C00575                                  3' 5'-Cyclic AMP                             energy transfer
+              C00002                                          ATP                                    nucleic acid
+              C00044                                          GTP                                    nucleic acid
+              C00063                                          CTP                                    nucleic acid
+              C00075                                          UTP                                    nucleic acid
+              C00131                                         dATP                                    nucleic acid
+              C00286                                         dGTP                                    nucleic acid
+              C00458                                         dCTP                                    nucleic acid
+
+
+
+                                                                                                                     Page 13 16
+                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                       http://www.biomedcentral.com/1471-2105/9/97
+
+
+Table 11: Compounds deemed essential healthy growth S. cerevisiae (Continued)
+              C00459                                         dTTP                                        nucleic acid
+              C00103                               D-Glucose 1-phosphate                               polysaccharide
+              C00043                             UDP-N-acetyl-D-glucosamine                            polysaccharide
+              C00096                                    GDPmannose                                     polysaccharide
+              C00114                                        choline                                      membrane
+              C00157                                        lecithin                                     membrane
+              C00416                                    phosphatidate                                    membrane
+              C00422                                    triacylglycerol                                  membrane
+              C01694                                      ergosterol                                     membrane
+              C00189                                    ethanolamine                                     membrane
+              C00116                                        glycerol                                     membrane
+              C00137                                        inositol                                     membrane
+              C01120                               sphinganine 1-phosphate                               membrane
+              C00668                             alphaD-glucose 6-phosphate                             intermediate
+              C00022                                       pyruvate                                     intermediate
+              C00024                                     acetyl-CoA                                     intermediate
+              C00356                           3-Hydroxy-3-methyl-glutaryl CoA                          intermediate
+
+ reactions relations KEGG             existing datasets. method intrinsic meth- pathway assigned. reactions relations                ods identification, models gen-
+added KEGG inferred translation              erated improved machine learning/statistics
+LIGAND component KEGG, reactions corre-                     techniques e.g. equation discovery computational sci-
+sponding ORF/Enzyme relationships                    entific discovery.
+IFF708 collected.  247 reactions dis-
+cussed section 4). augmentation iFF708                possible use second method obtain undertaken reactions iFF708            measurements validity metabolic models yeast insufficient synthesise essential com-            comparing predicted outcomes auxotrophy
+pounds listed Table 11. 318 ORFs involved            experiments results genome gene-dele- 688 additional ORF/enzyme/reaction relations;                 tion study undertaken Giaever et al [4]. study 55 iFF708. 37 ORFs reactions             involved repeats competitive batch experiments
+added KEGG reactions defined                    knockout strains grown agar base
+iFF708, e. ORFs known EC number                  supplemented number defined unde-
+reaction corresponding EC number               fined growth media. Measurements growth biological knowledge subsequent completion                 obtained 5 15 generations presented IFF708.                                                              fitness comparisons growth average
+                                                                     strain rich undefined medium (YPD – Yeast Extract, relations corresponding 247 additional reac-              Peptone Dextrose), strains growing slower
+tions belong 47 pathways described KEGG,               average defined sensitive growing largest proportion relations correspond              faster refractory. Growth data particular strain
+reactions included KEGG pathways. Purine             corresponds relative abundance strain-specific
+metabolism (33 reactions), Fatty acid biosynthesis (path             DNA tags hybridisation custom high density
+1) (32 reactions) Pyrimidine metabolism (29 reac-                oligonucleotide array, form continuously
+tions) largest numbers reaction assignments;             valued relative fitness scores, expressed "units
+Purine metabolism (71 ORFs), Pyrimidine metabolism                   deleterious growth" [4]. 4 sensitive/refractory
+(68 ORFs) RNA polymerase (31 ORFs) larg-                measurements strain/growth medium combina-
+est numbers ORF assignments. simple rela-             tion. Giaever et al used sensitivity score cut >20
+tionship numbers ORFs pathway                units deleterious growth identify strains sig- number reactions, e.g. 32 new reactions added             nificant deleterious phenotype 5 generations, rising Fatty acid biosynthesis (path 1) pathway              >100 15 generations, reflecting observation coded single ORF.                                           strains sensitive earlier represent genes
+                                                                     important cell growth. Giaever et al [4]
+Model validation                                                     compiled list essential strains did grow Model validation [41] vital stage construction           YPD. Model validation assessed models'  model. 1) direct experi-           formance predictions gene essentiality mentation model determines rel-              comprehensive analysis growth predictions
+evant experiments (preferably), 2) comparison             combine essential gene listings results
+
+
+                                                                                                                        Page 14 16
+                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                 http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+Table 12: KEGG Pathways total numbers ORFs reactions added aber model KEGG included IFF708
+
+Kegg Pathway                                                           Number Reactions               Number ORFs
+
+Citrate cycle (TCA cycle)                                                        8                                12
+Tryptophan metabolism                                                            5                                 2
+Bile acid biosynthesis                                                          1                                  2
+Fatty acid biosynthesis (path 1)                                                32                                 1 carbon pool folate                                                       1                                  1
+Biotin metabolism                                                               5                                  1
+Selenoamino acid metabolism                                                     10                                 3
+Folate biosynthesis                                                             2                                  1
+Purine metabolism                                                               33                                71
+Pentose phosphate pathway                                                        1                                 1
+Nicotinate nicotinamide metabolism                                          2                                  1
+Fatty acid metabolism                                                           4                                  1
+Lysine degradation                                                              7                                  2
+Propanoate metabolism                                                           1                                  1
+Glycine, serine threonine metabolism                                        17                                12
+C5-Branched dibasic acid metabolism                                             6                                 2
+Pyruvate metabolism                                                              8                                 5
+Methionine metabolism                                                           10                                 3
+Alanine aspartate metabolism                                                4                                  4
+Ubiquitin mediated proteolysis                                                   1                                14
+Sulfur metabolism                                                               8                                  1
+Nitrogen metabolism                                                             2                                  2
+Glutamate metabolism                                                             4                                 4
+Aminosugars metabolism                                                          2                                  1
+N-Glycans biosynthesis                                                           8                                14
+Starch sucrose metabolism                                                   3                                 4
+Pentose glucuronate interconversions                                         2                                 1
+Glycerolipid metabolism                                                         10                                 3
+gamma-Hexachlorocyclohexane degradation                                         7                                  7
+Phenylalanine, tyrosine tryptophan biosynthesis                             2                                  5 Pathway Annotation                                                           50                               153
+RNA polymerase                                                                   5                                31
+Lysine biosynthesis                                                             5                                 1
+Oxidative phosphorylation                                                       3                                26
+Butanoate metabolism                                                            10                                 5
+Fructose mannose metabolism                                                 1                                  1
+Pyrimidine metabolism                                                           29                                68
+1,4-Dichlorobenzene degradation                                                 3                                  1
+Phosphatidylinositol signaling                                            1                                10
+DNA polymerase                                                                   5                                18
+Porphyrin chlorophyll metabolism                                             2                                 1
+Arginine proline metabolism                                                 1                                 2
+Cysteine metabolism                                                             11                                 3
+Galactose metabolism                                                            1                                  1
+Pantothenate CoA biosynthesis                                                6                                 2
+Aminoacyl-tRNA biosynthesis                                                     18                                27
+Glycolysis / Gluconeogenesis                                                    12                                 8
+Valine, leucine isoleucine biosynthesis                                     13                                10
+Riboflavin metabolism                                                           5                                  7
+
+ relevant defined medium. min-          Authors' contributions
+imal medium (MMD+ura+hist+leu), contains              RDK initiated logical modelling concept 
+minimum sets compounds required wild type                structed prototype model. KW constructed logical
+growth additional nutritional requirements       model carried validation experiments uracil, histidine leucine.                                  statistical tests. RDK KW wrote revised manu-
+                                                                script.
+
+
+
+                                                                                                                   Page 15 16
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:97                                                                       http://www.biomedcentral.com/1471-2105/9/97
+
+
+
+
+Additional material                                                               18.   Tomita M, Hashimoto K, Takahashi K, Shimuzu TS, Matsuzaki Y, Miy-
+                                                                                        oshi F, Saito K, Tanida S, Yugi K, Venter JC, Hutchinson JC: E-CELL:
+                                                                                        software environment cell simulation. Bioinformatics
+                                                                                        1999, 15:72-84.
+     Additional file 1                                                            19.   Edwards JS, Palsson BO: Metabolic flux balance analysis      ORF, Enzyme Reaction Relations. file contains Prolog facts cor-           silico analysis Escherichia coli K-12 gene deletions. BMC
+     responding relationships ORFs, Enzyme Commission                    Bioinformatics 2000, 1:1.
+     Numbers Reactions Logical Model Yeast Metabolism.             20.   Mahadevan R, Edwards JS, Doyle FJ: Dynamic Flux Balance Anal-
+                                                                                        ysis Diauxic Growth Escherichia coli. Biophysical Journal
+     Click file
+                                                                                        2002, 83:1331-1340.
+     [http://www.biomedcentral.com/content/supplementary/1471-                    21.   Duarte ND, Becker SA, Jamshidi N, Thiele  Mo ML, Vo TD, Srivas R,
+     2105-9-97-S1.PL]                                                                   Palsson BO: Global Reconstruction Human Metabolic
+                                                                                        Network based Genomic Bibliomic Data. Proc Natl
+     Additional file 2                                                                  Acad Sci USA 2007, 104(6):1777-82.
+                                                                                  22.   Kauffman KJ, Prakash P, Edwards JS: Advances flux balance
+     Reactions. file contains Prolog facts corresponding Substrate          analysis. Current Opinion Biotechnology 2003, 14:491-496.
+     Product information Reactions Logical Model Yeast Metabo-      23.   Segre D, Vitkuo D, Church GM: Analysis optimality natural
+     lism.                                                                              perturbed metabolic networks. Proc Natl Acad Sci USA 2002,
+     Click file                                                                99(23):15112-15117.
+     [http://www.biomedcentral.com/content/supplementary/1471-                    24.   Shlomi T, Berkman O, Ruppin E: Regulatory minimization
+                                                                                        metabolic flux changes genetic perturbations. Proc
+     2105-9-97-S2.PL]                                                                   Natl Acad Sci USA 2005, 102(21):7695-7700.
+                                                                                  25.   Stelling J, Klamt S, Bettenbrock K, Schuster S, Gilles ED: Metabolic
+                                                                                        network structure determines key aspects functionality
+                                                                                        regulation. Nature 2002, 420(6912):190-193.
+                                                                                  26.   Lemke N, Heredia F, Barcellos CK, Dor Reis  Mombach JC:
+References                                                                              Essentiality damage metabolic networks. Bioinformatics
+1.      King RD, Whelan KE, Jones FM, Reiser PJK, Bryant CH, Muggleton S,               2004, 20(1):115-119.
+        Kell DB, Oliver S: Functional Genomic Hypothesis Generation               27.   Lemke N, Heredia F, Barcellos CK, Mombach JC: method         Experimentation Robot Scientist. Nature 2004,                          identify essential enzymes metabolism: application         427:247-252.                                                                    Escherichia Coli. Computational Methods Systems Biology: 2.      Bryant CH, Muggleton SH, Oliver SG, Kell DB, Reiser PGK, King RD:               International Workshop 2003:142-148. (Book chapter)
+        Combining inductive logic programming, active learning,                   28.   Bratko  Prolog Programming Artificial Intelligence (Addison Wesley)
+        robotics discover function genes. Electronic Trans-               1986.
+        actions Artificial Intelligence 2001, 6(12):1-36.                      29.   Fages F, Soliman S, Chabrier-Rivier N: Modelling querying
+3.      Reiser PGK, King RD, Kell DB, Muggleton SH, Bryant CH, Oliver SG:               interaction networks biochemical abstract machine
+        Developing logical model yeast metabolism. Electronic                      BIOCHAM. Journal Biological Physics Chemistry 2004, 4:64-73.
+        Transactions Artificial Intelligence 2001, 5:223-244.                  30.   Gershenson C: Classification Random Boolean Networks 4.      Giaever G: Functional profiling Saccharomyces cerevisiae                 Artificial Life VIII Standish, Abbas, Bedau. MIT Press; 2002.
+        genome. Nature 2002, 418:387-391.                                         31.   Kauffman S, Peterson C, Samuelsson B, Troein C: Random Boolean
+5.      Duarte NC, Herrgard MJ, Pallson BO: Reconstruction Valida-                   network models yeast transcriptional network. Proc
+        tion Saccharomyces cerevisiae iND750, Fully Compart-                       Natl Acad Sci USA 2003, 100(25):14796-14799.
+        mentalized Genome-Scale Metabolic Model. Genome Res                       32.   Kuipers B: Qualitative Reasoning MIT Press; 1994.
+        2004, 14:1298-1309.                                                       33.   King RD, Garrett SM, Coghill GM: use qualitative rea-
+6.      Förster J, Famili  Fu P, Palsson BO: Nielsen J. Genome-Scale                  soning simulate identify metabolic pathways. Bioinfor-
+        Reconstruction Saccharomyces cerevisiae Metabolic                        matics 2005, 21(9):2017-2026.
+        Network. Genome Research 2003, 13:244-253.                                34.   Flach PA: Geometry ROC Space: Understanding
+7.      Kitano H, Systems Biology: Systems Biology: Brief Overview.                   Machine Learning Metrics ROC Isometrics. Proceed-
+        Science 2002, 295:1662-1664.                                                    ings ICML03 2003.
+8.      Csete  Doyle JC: Reverse Engineering Biological Com-                35.   Förster J, Famili  Fu P, Palsson BO: Large Scale Evaluation 
+        plexity. Science 2002, 295:1664-1669.                                           silico gene knockouts Saccharomyces cerevisiae Omics.
+9.      Chong L, Ray LB: istic Biology. Science 2002, 295:1661.                   2003, 7:193-202.
+10.     Davidson EH, Rast JP, Oliveri P, Ransick  Calestani C, Yuh C,           36.   Muggleton S, DeRaedt L: Inductive Logic Programming: Theory
+        Minokawa T, Amore G, Hinman V, Arenas-Mena C, Otim O, Brown                     Methods. Journal Logic Programming 1994, 19,20:629-679.
+        CT, Livi CB, Lee PY, Revilla R, Rust AG, Zheng JP, Schilstra MJ, Clarke   37.   Robot Scientist           [http://www.aber.ac.uk/compsci/Research/bio/
+        PJC, Arnone MI, Rowen L, Cameron RA, McClay DR, Hood L, Bolouri                 robotsci/]
+        H: Genomic Regulatory Network Development. Science                  38.   Mewes HW, Dietmann S, Frishman D, Gregory R, Mannhaupt G,
+        2002, 295:1669-1678.                                                            Mayer K, Muensterkötter M, Ruepp  Spannagl M, Stuempflen V, Rat-
+11.     Kanehisa M, Goto S: KEGG: Kyoto Encyclopedia Genes                       tei T: MIPS: Analysis annotation genome information
+        Genomes. Nucleic Acids Res 2000, 28:27-30.                                      2007. Nuc Acids Res 2008:D196-201.
+12.     Kanehisa M: database post-genome analysis. Trends Genet             39.   Dwight SS, Balakrishnan R, Christie KR, Costanzo MC, Dolinski K,
+        1997, 13:375-376.                                                               Engel SR, Feierbach B, Fisk DG, Hirschman J, Hong EL, Issel-Tarver L,
+13.     Karp PD, Riley M, Paley SM, Pellegrini-Toole , Krummenacker M:                  Nash RS, Sethuraman  Starr B, Theesfeld CL, Andrada R, Binkley G,
+        EcoCyc:Encyclopedia Es

@@ -1,0 +1,394 @@
+Kinetic Modelling GlmU Reactions – Prioritization Reaction Therapeutic Application
+Vivek K. Singh, Kaveri Das, Kothandaraman Seshadri*
+Innovative Medicine Infection (iMed Infection), AstraZeneca India Pvt. , Bangalore, Karnataka, India
+
+
+
+     Abstract
+     Mycobacterium tuberculosis(Mtu), successful pathogen, developed resistance existing anti-tubercular drugs
+     necessitating discovery drugs novel action. Enzymes involved peptidoglycan biosynthesis attractive targets      antibacterial drug discovery. bifunctional enzyme mycobacterial GlmU (Glucosamine 1-phosphate N-acetyltransferase/
+     N-acetylglucosamine-1-phosphate uridyltransferase) target enzyme drug discovery. C- N- terminal
+     domains catalyze acetyltransferase (rxn-1) uridyltransferase (rxn-2) activities respectively final product      involved peptidoglycan synthesis.  bifunctional nature GlmU poses difficulty deciding function
+     intervened therapeutic advantage. Genetic analysis showed essential gene unclear      activities critical cell survival. enzymatic activity suitable high-throughput assay      chosen random screening, appropriate biological function inhibited maximal effect. Prediction
+     rate-limiting function dynamic network analysis reactions option identify appropriate function.
+     view provide insights biochemical assays appropriate activity inhibitor screening, kinetic modelling
+     studies GlmU undertaken. Kinetic model Mtu GlmU-catalyzed reactions built based available kinetic
+     data Mtu deduction Escherichia coli data. model variants constructed including coupled/
+     decoupled, varying metabolite concentrations presence/absence product inhibitions. study demonstrates      coupled model low metabolite concentrations, inhibition GlmU reactions cause significant decrement
+     overall GlmU rate. higher metabolite concentrations, rxn-2 showed higher decrement.       available intracellular concentration metabolites vivo variant model, uncompetitive inhibition rxn-2
+     caused highest decrement.  physiologically relevant metabolite concentrations, targeting uridyltranferase activity      Mtu GlmU better choice therapeutic intervention.
+
+  Citation: Singh VK, Das K, Seshadri K (2012) Kinetic Modelling GlmU Reactions – Prioritization Reaction Therapeutic Application. PLoS 7(8): e43969.
+  doi:10.1371/journal.pone.0043969
+  Editor: Benfang Lei, Montana State University, United States America
+  Received November 3, 2011; Accepted July 30, 2012; Published August 27, 2012
+  Copyright: ß 2012 Singh et al. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: authors support funding report.
+  Competing Interests: authors read journal’s policy following conflicts: work funded Astra Zeneca, employer   authors. patents, products development marketed products declare. does alter authors’ adherence PLOS policies
+  sharing data materials, detailed online guide authors.
+  * E-mail: kothandaraman.seshadri@gmail.com
+
+
+
+
+Introduction                                                                            phosphate-acetyltransferase/N-acetylglucosamine-1-phosphate-
+                                                                                        uridyltransferase (GlmU) (Figure 1). GlmU exists bifunc-
+   Tuberculosis (TB) infectious disease caused                                 tional enzyme bacteria including Mtu, catalysing Mycobacterium tuberculosis (Mtu) plagued humans                             consecutive reactions –  acetyltransferase reaction convert-
+centuries. 2009  1.7 million people died TB                           ing alpha-D-glucosamine-1-phosphate (GlcN1P) N-acetyl-
+9.4 million new TB cases reported [1]. burden                             alpha-D-glucosamine-1-phosphate (GlcNAc1P) coupled TB compounded emergence multidrug-                                 conversion acetyl coenzyme (AcCoA) coenzyme resistant (MDR) extensively drug-resistant (XDR) strains                         (CoA) second, uridyltransferase reaction converting
+Mtu resistant line second line anti-                    GlcNAc1P UDPGlcNAc utilizing UTP uridyl group donor
+TB drugs respectively. Consequently, pressing need                           releasing pyrophosphate (PPi) product  scheme 1) novel anti-TB drugs inhibit novel targets                        [4], [5]. acetyltransferase (rxn-1; EC 2.3.1.157) MDR XDR strains tackled drug                                  uridyltransferase (rxn-2; EC 2.7.7.23) activities enzyme
+sensitive Mtu strains.                                                                  catalyzed C- N-terminal domains respectively [4].
+   mycobacterial cell wall consists covalently linked                            bifunctional nature GlmU offers increased opportu-
+complex mycolic acids arabinogalactan, linked                           nity inhibition, given fact enzyme peptidoglycan. pathway peptidoglycan biosynthesis                        suggested attractive target TB drugs [6], [7]. target antibacterial agents                             inhibition reactions lead cycloserine fosfomycin [2], [3]. pathway, UDP-N-                            level overall decrement GlmU rate, acetyl-D-glucosamine (UDPGlcNAc) essential precursor                          important determine reaction maximal impact peptidoglycan synthesized enzyme - glucosamine-1-                         design assays appropriately target enzyme.
+
+
+PLOS | www.plosone.org                                                          1                              August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                             Kinetic Modelling GlmU Reactions
+
+
+
+
+Figure 1. Pathway context GlmU-catalyzed reactions.
+doi:10.1371/journal.pone.0043969.g001
+
+
+
+
+Scheme1                                                                     biochemical reactions focussed present model  Rxn{1(Acetyltransferasereaction): GlcN1PzAcCoA~GlcNAc1PzCoA                 scheme 1). stoichiometric equations reactions Rxn{2(Uridyltransferasereaction): UTPzGlcNAc1P~UDPGlcNAczPPi
+                                                                            obtained KEGG [15], [16], [17] cross-verified                                                                             literature sources (2), [4]. noticed scheme 1,                                                                             functioning rxn-2 dependent rxn-1 virtue Generalformof orderedbi{bireaction                                          sharing intermediate GlcNAc1P reactions, AzB~PzQ                                                                     product rxn-1 acts substrate rxn-2. Rxn{1: GlcN1P; B~AcCoA; P~GlcNAc1P; Q~CoA
+                                                                            noteworthy GlcNAc1P released acetyltransferase
+                                                                            domain prior binding uridyltransferase domain GlmU
+Rxn{2: UTP; B~GlcNAc1P; P~UDPGlcNAc; Q~PPi
+                                                                            [18],  eliminating possibility substrate (GlcNAc1P)
+                                                                            channelling.
+
+   Kinetic modelling offers computational means assess             Rate equations
+dynamic behaviour biochemical reaction systems                 evident GlmU reactions (scheme 1) follow
+employed past select drug targets simulating effect        Michaelis Menten ordered bi-bi mechanism [19], [4] involving enzyme inhibition dynamics reaction systems [8], [9],          obligatory order binding substrates enzyme. GlmU
+[10]. interesting note recently, genome-scale        rxn-1, GlcN1P substrate bind free enzyme (E)
+kinetic models attempted [11], [12], typically               followed binding AcCoA E-GlcN1P complex. kinetic models restricted small set reactions [13], [14]        similar binding order presumed reverse direction requirement enzyme kinetic parameters. GlmU-               GlcNAc1P binds free enzyme followed catalysed reactions forms ideal kinetic                  binding CoA. GlmU rxn-2, UTP binds free enzyme
+modelling based analysis, evaluate relative control          followed binding GlcNAc1P reverse direction, overall GlmU rate identify inhibition           UDPGlcNAc binds free enzyme followed binding cause maximal effect overall rate.                             PPi [4]. binding products (substrates reverse reactions)
+   Reported work construction kinetic model          enzyme taken account include effect GlmU-catalyzed reactions Mtu application GlmU                 product inhibition model.
+reactions achieving therapeutic goal. Furthermore, basis            Assigning substrates products GlmU reactions modelling studies, preferred mode inhibition              general form ordered bi-bi reaction depicted scheme 1, initial metabolite concentrations design vitro assay       general rate equation derived based rapid equilibrium proposed, bias assay selection          kinetics following method outlined Segel [20]. reaction specific type inhibitor reaction choice.               equilibria constructed  Figure 2) derive rate equation
+                                                                            included: (1) binding products enzyme (2) Methods                                                                     binding different types hypothetical inhibitors                                                                               enzyme, derived general rate equation account
+Biochemical reactions model                                          reverse reaction, product inhibition inhibition various
+  reactions catalysed GlmU e. acetyltransferase (rxn-1)            types hypothetical inhibitors depending values assigned uridyltransferase (rxn-2) constitute set                terms contained rate equation.
+
+
+PLOS | www.plosone.org                                              2                          August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                          Kinetic Modelling GlmU Reactions
+
+
+   Briefly, steps derivation rate equation involve:
+   (1) Writing general rate equation based concentration enzyme complexes yield products                                              v~
+                                                                                                             ½B       ½P ½Q
+                                                                                                        Vf    :    {Vr       :
+              v~(kz2 ½E B){(k{2 ½E{P{Q)                                                                KA KB
+                                                                                                                   
+                                                                                                                         KP KQ
+                                                                                                                                               :::equation  2
+                                                                                           ½P                       ½B      ½P ½Q
+                                                                                      1z          za glmu rxnz        :          : k+2 k22 turnover numbers forward reverse                           KA KP                       KA KB        KP KQ
+reactions respectively.                                                                                                         
+                                                                                                              ½P
+                                                                                            :b glmu rxn       :b P glmu rxn
+   (2) Dividing sides equation total enzyme                          KA                     KP
+concentration, [Et], right-hand equation                                                                            
+                                                                                            ½B                       ½P ½Q expressed sum concentration enzyme species:                         :   :b B glmu rxn         :   :b P Q glmu rxn
+                                                                                         KA KB                          KP KQ
+
+
+½E E E{P E E B E {P{Q ::
+
+
+   (3) Expressing concentrations enzyme species                    Kinetic parameters model
+terms free enzyme concentration derived basis                              dynamics GlmU-catalyzed reactions simulated equilibria  Figure 2):                                                           solving rate equations;  solve  values                                                                                      terms right-hand equations  Vf, Vr, KM)
+                                                                                     need assigned. Kinetic parameters constitute                                              ½B
+          ½E ~½E:          ; ½E B~½E:    :    ; :::                           terms right-hand rate equations described                           KA                 KA KB                                   section. terms dealing initial concentration metabolites K,metabolite. = Michaelis constant metabolite specified                 discussed later section. ,.                                                                              kinetic parameters rxn-2 available Mtu   (4) Performing algebraic operations, moving [Et] right-                     UTP GlcNAc1P vitro concentration response experiments
+hand defining Vf ~kz2 ½Et ; Vr~k{2 ½Et  equation                      carried AstraZeneca (unpublished).  substituting                                                                              values rate equations model did                                                                                      quantitatively reproduce experimentally obtained vitro
+                                                                                     concentration response curves UTP GlcNAc1P.                                                                                      non-agreement difference rate equations used
+v~
+                                                                                     experiment model. experimentally
+                      ½B       ½P ½Q                                            obtained data fitted simple Michaelis-Menten (MM) equation,
+                   Vf    :   {Vr      :
+                    KA KB         KP KQ
+                                                         :::equation  1       model simulated ordered bi-bi mechanism       ½P            ½B      ½P ½Q            
+ 1z                  :          :             :                            accordance previous reports ([19], [4]). overcome issue,
+    KA KP Kic          KA KB        KP KQ           KA Kiu                                                                                parameter values reproduce experimental
+    ½P          ½B                ½P ½Q      
+     :           :     :               :    :                                  GlcNAc1P concentration response curve used     KP Kiu P     KA KB Kiu B            KP KQ Kiu P Q
+                                                                                     simulations  Table 1 parameters used simulation
+                                                                                     Table S1 information derivation kinetic
+                                                                                     parameters). GlcNAc1P concentration response curve chosen
+   rate equation (equation-1), metabolite inhibitor                   alignment parameter values substrate notations  , [B], [P], [Q]   represent                           GlmU rxn-2, UTP, present intracellular milieu high
+concentration respective metabolites inhibitor; Vf = max-                     concentration ( = 8.3mM  Table 2)). concentration,
+imal rate forward direction; Vr = maximal rate reverse                         UTP available enzyme saturating level, direction; Kic = inhibition constant hypothetical competitive                     case performing GlcNAc1P concentration response
+inhibitor; Kiu_,metabolite. = inhibition constant hypothetical                  experiment.  obtain best fit GlcNAc1P
+inhibitor uncompetitve metabolite indicated                     concentration curve, parameter estimation functionality  ,..  terms representing ratios inhibitor                   PASI [21] used. input data  (1) list concentration inhibition constant rate equation                       GlcNAc1P concentrations corresponding reaction rates
+substituted variables follows: a_glmu_rxn =  /Kic; b_A_                      obtained experimentally; (2) parameter values obtained
+glmu_rxn =  /Kiu_A; b_P_glmu_rxn =  /Kiu_P; b_A_B_glmu_rxn                       experimentally range varied =  /Kiu_A_B; b_P_Q_glmu_rxn =  /Kiu_P_Q. representa-                    minimize error experimental simulated
+tion eliminates need assumption inhibitor                             reaction rates. Following range parameter values used:
+concentration inhibition constants provides                            0.015nmol/min # Vf #0.020nmol/min; 0.04mM # KUTP
+normalised measure inhibition strengths various types                       #0.04mM; 0.01mM # KGlcNAc1P #0.1mM experimentally
+hypothetical inhibitors. noticed values                   obtained parameter values  Vf = 0.020nmol/min; KUTP variables zero, rate equation represents                             = 0.04mM; KGlcNAc1P = 0.04mM. Evolutionary programming uninhibited enzymatic reaction, effect inhibition                    used method optimization number generations model simulated assigning non-zero values                     = 200, population size = 20 random number generator = 1
+variables. Equation-2 resulting general rate equation                   [21]. best fit (root mean square error = 0.51) obtained manipulation. rate equations GlmU reactions                         parameter values (Vf = 0.020nmol/min; KUTP
+deduced general rate equation substituting                          = 0.04mM; KGlcNAc1P = 0.033mM). values used
+corresponding metabolites  B, P Q  provided                          simulations.
+scheme 1) used model.
+
+
+PLOS | www.plosone.org                                                       3                             August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                   Kinetic Modelling GlmU Reactions
+
+
+
+
+Figure 2. Equilibria enzyme species ordered bi-bi mechanism enzymatic reaction.  B = second substrate enzyme E; P, Q = second substrates reverse reaction, binding enzyme accounts product inhibition; = Different types hypothetical inhibitor, type determined form enzyme binds  binding free E (forming E complex) competitive inhibitor respect  binding E complex (forming E complex) uncompetitive inhibitor respect binding E B complex
+(forming E B complex) uncompetitive inhibitor respect B; Kic = Inhibition constant hypothetical competitive inhibitor;
+Kiu_,metabolite. = Inhibition constant hypothetical uncompetitive inhibitor inhibitor behaves uncompetitive metabolite
+indicated ,..
+doi:10.1371/journal.pone.0043969.g002
+
+    KM values rxn-1 taken literature [5],            vitro assays. construct decoupled model, Vf abstracted experimental data rxn-2                      hypothetical metabolite GlcNAc1P_2 defined. decou-
+obtained AstraZeneca (unpublished)) scaling factor                 pled model, metabolite act substrate rxn-
+literature [5]  Table 1 parameters used simulation             2 original metabolite representing GlcNAc1P (formed Table S1 information derivation kinetic                      product rxn-1) serve substrate rxn-2.  parameters).                                                                   decoupled model, variables exist represent GlcNAc1P:
+                                                                               GlcNAc1P GlcNAc1P_2. concentrations Variants model                                                          variables independent  making GlmU
+    model variants constructed explore                     reactions independent (decoupled)  Concomitant
+following possibilities: Presence/absence product inhibition;               change rate equation rxn-2, e. GlcNAc1P_2 assigned Coupled/decoupled model – reaction coupling product                  second substrate, represent decoupling.
+rxn-1 acting substrate rxn-2; Low/medium/high/                           concentrations metabolites modulated
+intracellular metabolite concentrations – concentrations                depending condition models represented. metabolites kept 0.1xKM, KM, 10xKM intracellular levels;             concentrations precursors products model vitro vivo model – representing condition biochemical           kept variable vitro biochemical assay condition constant
+assay vs. condition inside cell respectively.                                expected inside vivo cellular environment     effect product inhibition simulated assigning             precursor substrates synthesised reactions
+literature derived values [22] Michaelis constants relevant              upstream GlmU-catalysed reactions similarly products
+products GlmU reactions model, absence                  consumed reactions downstream GlmU-
+product inhibition simulated making Michaelis                      catalysed reactions  Figure 1).
+constants equal large number ( = 109mM) affinity enzyme products reduces negligible.                 Initial concentrations metabolites
+Product inhibition rxn-1 GlcNAc1P rxn-2                              Initial concentrations metabolites acting substrates
+UDPGlcNAc accounted model [22]  Table S1                    kept low ( = 0.1xKM), medium ( = KM), high ( = 10xKM) information derivation kinetic parameters).                      equal intracellular levels (obtained diverse bacterial
+    model construction described behaves coupled                 sources including Mycobacterium tuberculosis ATCC 25618 Eco
+model intermediate GlcNAc1P acts product                   [23], [24], [25], [26], [27]) simulate dynamics rxn-1 substrate rxn-2. Coupled model constructed              reaction diverse scenarios  Table 2). Initial represent dependence rxn-2 rxn-1, product             concentrations metabolites acting products  rxn-1, GlcNAc1P, serving substrate rxn-2. evidence             CoA, UDPGlcNAc PPi) kept equal zero coupling comes fact Mtu does              conditions low, medium high metabolite concentrations.
+route synthesizing GlcNAc1P GlmU rxn-1 (KEGG                        intracellular metabolite concentration scenario, [15], [16], [17]). hand, decoupled model                      concentrations metabolites maintained different levels
+constructed aim studying behaviour GlmU                vitro vivo variants models. vitro variant, reaction independent GlmU reaction, usually              concentrations intermediate metabolites  GlcNAc1P) 
+
+PLOS | www.plosone.org                                                 4                             August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                                                     Kinetic Modelling GlmU Reactions
+
+
+
+ Table 1. Kinetic parameters used simulating model.                                      influence different types inhibitors. simulations                                                                                                  performed inhibition strength  e. Ki ratio) kept equal 20,
+                                                                                                 typical ratio inhibitor concentration  Rxn-1 Parameters                          Rxn-2 Parameters                                      corresponding inhibition constant. computations 
+                                                                                                 formed Matlab using Matlab toolboxes – SBML toolbox [29]
+ Vf               = 0.01089mM/min          Vf               = 0.0004mM/min
+                                                                                                 SBTOOLBOX2 [30].
+ KGlcN1P          = 0.061mM                KUTP             = 0.040Mm
+ KAcCoA           = 0.224mM                KGlcNAc1Pa       = 0.033mM                            Results Discussion
+                                           KGlcNAc1P_2b     = 0.033mM
+ Vr               = 0mM/min                Vr               = 0mM/min
+                                                                                                 Reproduction vitro concentration response curve
+                                                                                                    model aligned GlcNAc1P concentration response curve
+ KGlcNAc1P        = 0.003mM                KUDPGlcNAc       = 0.132mM/min
+                                                                                                 able reproduce experimentally observed curve   KCoA             = 109mM                  KPPi             = 109mM                              Figure 3). vitro biochemical assay simulation conditions viz.,
+   parameter present coupled model absent decoupled model;
+                                                                                                 (1) constant concentration 0.25mM UTP GlcNAc1P; (2)
+ b
+  parameter present decoupled model absent coupled model;                     depletion substrates; (3) accumulation products,
+ Table S1 details derivation kinetic parameters.                                       maintained simulation.
+ doi:10.1371/journal.pone.0043969.t001
+
+                                                                                                 Product inhibition leads quantitative differences metabolites act products  CoA, UDPGlcNAc                                    model dynamics PPi) initialized zero  expected vitro                                influence product inhibition dynamical behaviour
+assay condition), vivo variant, concentrations                           model investigated building separate versions metabolites initialized respective intracellular                              model  ‘‘Variants model’’ section ‘‘Methods’’ levels. Furthermore, decoupled variant model,                                     details). product inhibition rxn-1 increased progressively
+concentration GlcNAc1P_2 kept equal intracellular                                  increasing metabolite concentration increase level vitro vivo scenario acts                       normalized product concentration ([product]/Ki_product) relative substrate rxn-2; concentration variable represent-                              normalised substrate concentration ([substrate]/KM_substrate) (data ing GlcNAc1P maintained described  discussed                                   shown). contrary, product inhibition rxn-2 decreased previous section, concentrations precursors products                                  progressively increasing metabolite concentration kept constant represent vivo situation. achieved                             decrease normalized product concentration ([product]/Ki_product) defining metabolites boundary metabolites  e.                                       relative normalised substrate concentration ([substrate]/
+boundaryCondition = ‘‘True’’), implies said metabolites                           KM_substrate) (data shown). expected, rates reactions boundary reaction modelled                                    higher version product inhibition compared concentrateons determined rate equations                                   version product inhibition. Furthermore, difference participate reaction(s)  [28] details).                                caused rate rxn-1 comparatively higher                                                                                                  caused rate rxn-2 product reaction
+Simulation model                                                                          (GlcNAc1P) causes stronger product inhibition rxn-1 (KGlcNAc1P
+   described variants model represented                                  = 0.003mM) compared caused product reaction
+Systems Biology Markup Language (SBML) [28],                                        (UDPGlcNAc) rxn-2 (KUDPGlcNAc = 0.132mM). phenom-
+standard format represent Systems Biology models.                                     ena observed  vitro vivo variants model.
+perform simulations, Matlab script written reads                              product inhibition included simulations
+SBML file representing model, performs time course                                       owing experimental evidence [22] provide biological
+steady state simulations uninhibited model, followed                               relevance simulations.
+time course steady state simulations model 
+ Table 2. Initial metabolite concentrations boundary conditions various variants model.
+
+
+ Metabolite          Low (mM)       Medium (mM)           High (mM)      Intracellular (mM)                    Intracellular conc/KM                 BoundaryConditiona
+
+                                                                                                                                                     vivo model       vitro model
+
+ GlcN1P              0.0061         0.061                 0.61           0.08                                  1.31                                  True                False
+ AcCoA               0.0224         0.224                 2.24           1.71                                  7.63                                  True                False
+                                                                                  vivo           vitro          vivo           vitro
+ GlcNAc1P            0.0            0.0                   0.0            0.082             ; 0.0               2.48             ; 0.0                False               False
+ GlcNAc1P_2b         0.0033         0.033                 0.33           0.082                                 2.48                                  True                False
+                                                                               vivo           vitro
+ CoA                 0.0            0.0                   0.0            1.2             ; 0.0                 -                                     True                False
+ UTP                 0.004          0.04                  0.4            8.3                                   207.50                                True                False
+                                                                               vivo           vitro              vivo           vitro
+ UDPGlcNAc           0.0            0.0                   0.0            9.2             ; 0.0                 69.70             ; 0.0               True                False
+                                                                               vivo           vitro
+ PPi                 0.0            0.0                   0.0            0.5             ; 0.0                 -                                     True                False
+
+   Boundary condition ‘‘True’’ metabolite indicates concentration determined set reactions metabolite occurs substrate
+ product e., metabolite boundary reaction component rest model  [28] details); b metabolite  present decoupled version model; vivo Represents vivo variant model; vitro Represents vitro variant model.
+ doi:10.1371/journal.pone.0043969.t002
+
+
+
+PLOS | www.plosone.org                                                                5                                              August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                  Kinetic Modelling GlmU Reactions
+
+
+
+
+Figure 3. Experimental vs. simulated concentration response curves. GlcNAc1P concentration response curve; Curves obtained experiment: Black; Curves obtained simulation: Gray; v = Velocity GlmU rxn-2. Assays carried 25uC assay buffer containing
+50 mM Hepes KOH pH 7.5, 5 mM MgCl2. 5 mM DTT, 0.3 units/ml pyrophosphatase phosphate formed detected using malachite green
+reagent Innova Biosciences. GlcNAc1P KM determination UTP fixed 250 mM.
+doi:10.1371/journal.pone.0043969.g003
+
+
+Coupled vs. decoupled models                                                   representing concentrations precursors products    Coupled model constructed represent dependence                constant. Furthermore, rate rxn-2 decoupled model remained
+rxn-2 rxn-1, representing condition closer cellular environ-             constant simulation owing constant supply ment. contrast, decoupled model constructed study                consumption reactants products respectively.
+behaviour GlmU reaction independently, usually vitro assays. Discussed contrast            silico inhibition GlmU reactions dynamic behaviour versions model presence                  silico inhibition GlmU reactions performed product inhibition wide range metabolite concentra-               goal prioritize GlmU reaction, inhibiting  tions.                                                                         cause maximal decrement overall GlmU rate. 
+   shown Figure 4 (panels 1A 1B), vitro                     objective inhibiting GlmU reaction(s) disruption condition, major difference observed functioning              synthesis end-product  e. UDPGlcNAc), rate rxn-
+rxn-2 begins delay coupled model, time                 2 used marker overall GlmU reaction rate. period required synthesis GlcNAc1P; contrast                  pointed choice rxn-2 marker overall
+decoupled model, rxn-2 begins instantaneously                   GlmU rate based fact synthesis end-product
+available non-zero concentration GlcNAc1P_2. delay                     GlmU reactions proportional rate rxn-2.
+shortens increase initial metabolite concentrations.                   decoupled model, inhibition GlmU rxn-1 caused Furthermore, medium metabolite concentrations, rate                  decrement overall Glmu rate. fact rxn-2 initially increases increase GlcNAc1P                     functioning rxn-2 independent rxn-1 decoupled
+concentration eventually drops zero                         model. Inhibition rxn-2 followed expected kinetic behaviour
+exhaustion UTP  substrate rxn-2). sharp                   potency competitive inhibitor decreased increas-
+decrease rate rxn-2 observed decoupled model               ing metabolite concentrations vice versa uncompetitive
+owing equal concentration substrates               inhibitors  right  vivo condition) right  equal KM Mtu. high metabolite concentration, sharp decrease              vitro condition) sections Figure 5). rate rxn-2 observed coupled model                       Inhibition GlmU reactions coupled model decoupled model showed gradual decrease rxn-2 rate (data                  vivo condition provided following insights: shown), explained drop GlcNAc1P_2                      Inhibitor GlmU reactions potent low
+concentration.                                                                 ( = 0.1xKM) metabolite concentration. expected, compet-
+   contrast vitro condition, vivo simulation showed       itive inhibitors GlmU reactions appeared
+reaction proceeds steady state coupled             potent uncompetitive inhibitors low metabolite decoupled models  panels 2A 2B Figure 4). Flux              concentrations. percent inhibition caused competitive reactions coupled model equal asymp-                    inhibitors GlmU reactions similar  left section column
+totically steady state, rates reactions                 ‘‘Low’’ Figure 5). indicates reactions decoupled model remain unequal steady state. abrupt drop                 similar control GlmU rate low metabolite concentrations, rates reactions observed observed vitro          apparent computed flux control coefficients
+condition. attributed apparent constant supply               Table S2)  [31] theory flux control coefficient precursors constant consumption products caused                   computation). Flux control coefficient computation indicated
+
+
+PLOS | www.plosone.org                                                 6                            August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                     Kinetic Modelling GlmU Reactions
+
+
+
+
+Figure 4. Dynamic behaviour rates GlmU reactions coupled vs. decoupled models. Plots corresponding medium ( = KM)
+metabolite concentrations; v = Rates GlmU rxn-1 (broken lines) rxn-2 (solid lines); Panel 1A: vitro variant GlmU rxn-1; Panel 1B: vitro variant
+GlmU rxn-2; Panel 2A: vivo variant GlmU rxn-1; Panel 2B: vivo variant GlmU rxn-2; Coupled model: Black lines; Decoupled model: Gray lines.
+doi:10.1371/journal.pone.0043969.g004
+ control GlmU rate shifts rxn-2                     tained intracellular levels  obtained diverse
+increase metabolite concentrations, evident high                bacterial sources including Mtu ATCC 25618 Eco [23], [24],
+potency inhibitors rxn-2 medium high metabolite                     [25], [26], [27]), uncompetitive  E-UTP-GlcNAc1P
+concentrations  .                                                      complex) inhibition rxn-2 caused highest decrement   GlmU rxn-2 inhibition potent medium ( = KM)                          overall GlmU rate. followed decrement caused high ( = 10xKM) metabolite concentration. increase                       uncompetitive  E-UTP complex) inhibition rxn-2, initial metabolite concentrations, relative potency                low (,33 )  left section column ‘‘Intracellular’’
+inhibitors rxn-2 increased respect rxn-1                      Figure 5).
+inhibitors. medium metabolite concentrations, decrement                      high potency uncompetitive inhibition  E-UTP-
+caused uncompetitive  E-UTP-GlcNAc1P complex)                         GlcNAc1P complex) rxn-2 attributed  (1) high normalised
+inhibition rxn-2 highest, followed competitive                 metabolite concentration (defined asMetabolite      concentration
+                                                                                                                           K M metabolite ) UTP uncompetitive  E-UTP complex) inhibitions rxn-2,
+                                                                                 ( = 207.50) intracellular level; (2) significant normalised equal. decrement higher                                                                                  metabolite concentration GlcNAc1P ( = 24.99) simulation  caused competitive uncompetitive inhibitions rxn-1,
+                                                                                 steady state). equal  left section column
+                                                                                    Furthermore, potency inhibition largely
+‘‘Medium’’ Figure 5). high metabolite concentrations,
+                                                                                 dependent intracellular UTP concentration, uncompetitive inhibition  E-UTP-GlcNAc1P complex) rxn-2 caused highest decrement GlmU overall rate.                     expected tight control cellular environment, types inhibition rxn-2 type inhibition rxn-1            inhibition overcome compensatory alteration caused low decrement GlmU overall rate  left section              UTP concentration.  appears uncompetitive (E-UTP-
+column ‘‘High’’ Figure 5).                                                    GlcNAc1P complex) inhibition rxn-2 best choice   Uncompetitive inhibition  E-UTP-GlcNAc1P                               achieve therapeutic goal reducing overall GlmU rate complex) GlmU rxn-2 best choice achieve                             ultimately interrupt cell wall biosynthesis process Mtu.
+therapeutic objective. silico inhibition GlmU                            challenge identify uncompetitive inhibitors reactions performed metabolite concentrations main-                     bind E-UTP-GlcNAc1P complex inhibit GlmU rxn-
+
+
+PLOS | www.plosone.org                                                   7                             August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                  Kinetic Modelling GlmU Reactions
+
+
+
+
+Figure 5. Effect silico inhibition GlmU reactions various conditions. Metabolite concentrations used simulation: Low
+( = 0.1xKM), Medium ( = KM), High ( = 10xKM) Intracellular levels; Inhibition strength  Ki ratio) maintained 20; Numbers figure indicate
+percent decrement GlmU overall rate various types inhibition; Linear color-coded scale Gray White indicating decreasing level effect inhibition GlmU rate).
+doi:10.1371/journal.pone.0043969.g005
+
+2. Easy sound, finding uncompetitive inhibitors                  relevant metabolite concentrations. step, vitro difficult present case demands                     assay designed screen compound libraries inhibitor required bind pocket              identify uncompetitive  E-UTP-GlcNAc1P complex)
+substrate-binding pockets. recent evidence existence               inhibitors targeting GlmU rxn-2. select inhibitors allosteric binding site (Haemophilus influenzae (Hin)) GlmU              assay, significant fraction enzyme exist E-UTP-
+uridyltransferase (rxn-2 catalysing) domain [32] offers cue               GlcNAc1P complex, necessitates high concentration direction study advance e.                      UTP GlcNAc1P assay mixture. assay allosteric binding site exploited using structure-based              decoupled assay, reactions GlmU assayed
+approaches design desired uncompetitive inhibitors.               independent GlmU reaction,  coupled assay recent study performed Mtu, analogue                        GlmU reactions assayed GlcN1P uncompetitive  E-GlcN1P                      readout synthesis final end-product e. UDPGlcNAc complex) inhibitor GlmU rxn-1 albeit poor Ki value                   PPi. decoupled assay, deciding initial concentrations (18.69mM) [33].                                                                metabolites assay mixture trivial task    Inhibition GlmU reactions coupled model vitro                metabolite concentrations kept low/high select
+condition led interesting observation described                 competitive/uncompetitive inhibitor respectively given
+   Inhibited rate greater uninhibited rate. general,                   GlmU reaction.  coupled assay, initial substrates inhibition pattern displayed vitro version model              provided assay  GlcN1P, AcCoA  e.
+similar vivo model, phenomenon                   substrates rxn-1) UTP (1st substrate rxn-2). second
+certain metabolite concentrations, GlmU overall rate                    substrate rxn-2, GlcNAc1P, generated action
+presence inhibitor exceeded compared absence                      GlmU rxn-1 course assay. maintain inhibitor. resulted slow exhaustion UTP inhibited            concentration GlcNAc1P desired range assay compared uninhibited sheer low rate               mixture, initial concentrations GlcN1P AcCoA need reaction inhibited  initial phase, inhibited rate          chosen carefully GlcNAc1P concentration does rxn-2 slower uninhibited  conserving UTP),                  rise high cause significant product inhibition rxn-1 pays time point uninhibited rate rxn-2               drop low formation E-UTP-GlcNAc1P
+reaches zero inhibited continues residual                complex hindered.
+UTP. phenomenon usually observed vitro                       series simulations indicate best maintain assays reactions allowed reach late              initial concentrations AcCoA GlcN1P twice KM
+stage kinetics. observed vivo situations             values UTP times KM value assay meant UTP supplied GlmU rxn-2 UTP                          screen uncompetitive  E-UTP-GlcNAc1P complex)
+synthesizing pathways.                                                         inhibitors rxn-2. said initial concentrations                                                                                AcCoA, GlcN1P UTP, GlcNAc1P concentration hovers
+Prediction initial metabolite concentrations suitable                       KM twice KM UTP hovers 6 – 10 vitro biochemical assay screening GlmU                       times KM value. higher KM concentrations rxn-2 inhibitors                                                               GlcNAc1P UTP lead rise E-UTP-GlcNAc1P
+ apparent simulations, uncompetitive  E-                complex, turn, favour selection uncompet-
+UTP-GlcNAc1P complex) inhibition rxn-2 appears cause                     itive  E-UTP-GlcNAc1P complex) inhibitors rxn-2
+maximal impact overall GlmU rate physiologically                   Figure 6). higher initial concentrations AcCoA 
+
+PLOS | www.plosone.org                                                 8                            August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                              Kinetic Modelling GlmU Reactions
+
+
+
+
+Figure 6. Dynamics GlcNAc1P (black line) UTP (gray line) normalised concentrations proposed assay condition. normalized concentrations GlcNAc1P UTP stay 1 significant portion simulation time period, favourable
+condition assay identifying uncompetitive  E-UTP-GlcNAc1P complex) inhibitors GlmU rxn-2.
+doi:10.1371/journal.pone.0043969.g006
+
+GlcN1P, concentration GlcNAc1P rise. lead                          bias assay selection type inhibitor. high product inhibition rxn-1, undesirable                         current work presents example application assay. noted rate equations model                       computational approaches early stages drug discovery derived rapid equilibrium assumption  ‘‘Rate equations’’                         make informed choices target preferred mode
+section ‘‘Methods’’ details), implies rate                       inhibition late-stage failures avoided catalysis slower kinetic processes                         minimised. premise present work help
+binding dissociation substrate, product inhibitor.                          identify high-affinity uncompetitive inhibitors GlmU rxn-2 case assumption breaks  concentrations GlmU,                         potentiate optimisation lead drug molecules
+substrates inhibitor important                               treatment tuberculosis.
+determining vitro potency inhibitor factors binding dissociation rate constants.                          Supporting Information rapid equilibrium holds  selection uncompetitive  E-UTP-GlcNAc1P complex) inhibitor                                  Table S1 Derivation GlmU kinetic parameters. stipulate concentrations UTP GlNAc1P                                (PDF) high E-UTP-GlcNAc1P complex available                                                                                           Table S2 Flux control coefficients GlmU reactions
+assay mixture desired uncompetitive inhibitor                                                                                           various metabolite concentrations.
+bind. prediction suitable assay condition improve
+                                                                                          (PDF) details Mtu associated kinetics product
+inhibition available.
+                                                                                          Acknowledgments
+Conclusion                                                                                thank Janani Venkatraman early inputs simulation design.   GlmU essential enzyme synthesis important                           thank Vaishali Humnabadkar, Gulebahar Sheikh Sunita DeSousa precursor peptidoglycan biosynthesis, attractive                          concentration-response experiments relating Figure 3. gratefully
+anti-TB drug target. study, kinetic modelling paradigm                        acknowledge Dr.Anand Kumar Dr.Santanu Datta critical
+used simulate dynamics GlmU-catalyzed reactions                          suggestions manuscript.
+predict effect inhibition GlmU reactions overall
+GlmU rate. Based simulations,                                Author Contributions
+inhibition GlmU rxn-2, preferably uncompetitive inhibitor                         Conceived designed experiments: KS KD VKS. Performed E-UTP-GlcNAc1P complex, cause maximal                                   experiments: VKS. Analyzed data: VKS KS KD. Contributed
+impact GlmU rate physiologically relevant metabolite                             reagents/materials/analysis tools: KD KS VKS. Wrote paper: KS
+concentrations.  initial metabolite concentrations                       VKS KD.
+coupled biochemical assay mixture predicted 
+References
+1. (2010) World Health Organization: Tuberculosis Data.                                3. Wishart DS, Knox C, Guo AC, Shrivastava S, Hassanali M, et al. (2006)
+2. Wishart DS, Knox C, Guo AC, Cheng D, Shrivastava S, et al. (2008) DrugBank:                DrugBank: comprehensive resource silico drug discovery    knowledgebase drugs, drug actions drug targets. Nucleic acids research           exploration. Nucleic acids research 34: D668–D672.
+   36: D901–D906.
+
+
+
+
+PLOS | www.plosone.org                                                            9                             August 2012 | Volume 7 | Issue 8 | e43969
+                                                                                                                                         Kinetic Modelling GlmU Reactions
+
+
+ 4. Zhang  Bulloch EMM, Bunker RD, Baker  Squire CJ (2009) Structure                     Activity Escherichia coli GlmU. Antimicrobial Agents Chemotherapy 53:
+    function GlmU Mycobacterium tuberculosis. Acta Crystallographica                      2306–2311.
+    Section D: Biological Crystallography 65: 275–283.                                      20.   Irwin HS (1993) Enzyme Kinetics: Behavior analysis rapid equilibrium
+ 5. Zhou Y, Xin Y, Sha S, Ma Y (2011) Kinetic properties Mycobacterium                         steady-state enzyme systems: New York: Wiley Classics Library Edition,
+    tuberculosis bifunctional GlmU. Archives Microbiology 193: 751–757.                        John Wiley & Sons,  22–24 p.
+ 6. Sassetti CM, Boyd DH, Rubin EJ (2003) Genes required mycobacterial                  21.   Hoops S, Sahle S, Gauges R, Lee C, Pahle Jr, et al. (2006) COPASIaˆJ’     growth defined high density mutagenesis. Molecular microbiology 48: 77–84.                 COmplex PAthway SImulator. Bioinformatics 22: 3067–3074.
+ 7. Zhang W, Jones VC, Scherman MS, Mahapatra S, Crick D, et al. (2008)                     22.   Mengin-Lecreulx D, Van Heijenoort J (1994) Copurification glucosamine-1-
+    Expression, essentiality, microtiter plate assay mycobacterial GlmU,                phosphate acetyltransferase N-acetylglucosamine-1-phosphate uridyltrans-
+    bifunctional glucosamine-1-phosphate acetyltransferase N-acetylgluco-                 ferase activities Escherichia coli: characterization glmU gene product     samine-1-phosphate uridyltransferase. International Journal Biochemistry               bifunctional enzyme catalyzing subsequent steps pathway UDP-
+    Cell Biology 40: 2560–2571.                                                                   N-acetylglucosamine synthesis. Journal bacteriology 176: 5788–5795.
+ 8. Bakker BM, Michels PAM, Opperdoes FR, Westerhoff HV (1997) Glycolysis                23.   Vadali RV, Bennett GN, San KY (2004) Cofactor engineering intracellular
+    bloodstream form Trypanosoma brucei understood terms                         CoA/acetyl-CoA effect metabolic flux redistribution Escherichia
+    kinetics glycolytic enzymes. Journal Biological Chemistry 272: 3207–                coli. Metabolic Engineering 6: 133–139.
+    3215.                                                                                   24.   Marcellin E, Nielsen LK, Abeydeera P, Kro¨mer JO (2009) Quantitative analysis
+ 9. Eisenthal R, Cornish-Bowden (1998) Prospects antiparasitic drugs. Journal               intracellular sugar phosphates sugar nucleotides encapsulated
+    Biological Chemistry 273: 5500–5505.                                                       streptococci using HPAEC PAD. Biotechnology Journal 4: 58–63.
+10. Singh VK, Ghosh (2006) Kinetic modeling tricarboxylic acid cycle               25.   Bennett BD, Kimball EH, Gao M, Osterhout R, Van Dien SJ, et al. (2009)
+    glyoxylate bypass Mycobacterium tuberculosis, application                                                                                                   Absolute metabolite concentrations implied enzyme active site occupancy     assessment drug targets. Theoretical Biology Medical Modelling 3: 27.
+                                                                                                  Escherichia coli. Nature chemical biology 5: 593–599.
+11. Jamshidi N, Palsson BØ (2008) Formulating genome-scale kinetic models                                                                                             26.   Newton GL, Arnold K, Price MS, Sherrill C, Delcardayre SB, et al. (1996)
+    post-genome era. Molecular Systems Biology 4: 171.
+                                                                                                  Distribution thiols microorganisms: mycothiol major thiol 12. Smallbone K, Simeonidis E, Swainston N, Mendes P (2010) genome-
+                                                                                                  actinomycetes. Journal bacteriology 178: 1990–1995.
+    scale kinetic model cellular metabolism. BMC Systems Biology 4: 6.
+13. Jamshidi N, Edwards JS, Fahland T, Church GM, Palsson BO (2001) Dynamic                 27.   Kukko-Kalske E, Lintunen M, Inen MK, Lahti R, Heinonen J (1989)
+    simulation human red blood cell metabolic network. Bioinformatics 17:                  Intracellular PPi concentration directly dependent inorganic
+    286–287.                                                                                      pyrophosphatase Escherichia coli K-12 cells. Journal bacteriology 171:
+14. Young JD, Henne KL, Morgan JA, Konopka AE, Ramkrishna D (2008)                                4498–4500.
+    In

@@ -1,0 +1,554 @@
+Why Hubs Yeast Protein Interaction Network
+Tend Essential: Reexamining Connection Network Topology Essentiality
+Elena Zotenko1, Julian Mestre1, Dianne P. O’Leary2,3, Teresa M. Przytycka4*
+1 Max-Planck Institute Informatics, Saarbruecken, Germany, 2 Department Science, University Maryland, College Park, Maryland, United States America, 3 Institute Advanced Studies, University Maryland, College Park, Maryland, United States America, 4 National Center Biotechnology
+Information, National Library Medicine, National Institutes Health, Bethesda, Maryland, United States America
+
+
+
+     Abstract
+     centrality-lethality rule, notes high-degree nodes protein interaction network tend correspond      proteins essential, suggests topological prominence protein protein interaction network      good predictor biological importance. correlation degree essentiality confirmed      independent studies, reason correlation remains illusive. hypotheses putative connections
+     essentiality hubs topology protein–protein interaction networks proposed,      demonstrate, explanations supported properties protein interaction networks. identify main
+     topological determinant essentiality provide biological explanation connection network
+     topology essentiality, performed rigorous analysis variants genomewide protein interaction network
+     Saccharomyces cerevisiae obtained using different techniques. demonstrated majority hubs essential
+     involvement Essential Complex Biological Modules, group densely connected proteins shared
+     biological function enriched essential proteins.  rejected previously proposed explanations      centrality-lethality rule, relating essentiality hubs role overall network connectivity      relying recently published essential protein interactions model.
+
+  Citation: Zotenko E, Mestre J, O’Leary DP, Przytycka TM (2008) Hubs Yeast Protein Interaction Network Tend Essential: Reexamining   Connection Network Topology Essentiality. PLoS Comput Biol 4(8): e1000140. doi:10.1371/journal.pcbi.1000140
+  Editor: Burkhard Rost, Columbia University, United States America
+  Received December 12, 2007; Accepted June 23, 2008; Published August 1, 2008
+  open-access article distributed terms Creative Commons Public Domain declaration stipulates  placed public
+  domain, work freely reproduced, distributed, transmitted, modified, built  used lawful purpose.
+  Funding: TMP EZ supported Intramural Research Program NIH National Library Medicine. DPO supported NSF Grant
+  CCF-0514213.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: przytyck@ncbi.nlm.nih.gov
+
+
+
+Introduction                                                                        removal equivalent number random nodes
+                                                                                    [3,8].  assumption organism’s
+   intriguing question analysis biological networks                 function depends connectivity various parts biological characteristics protein, essentiality,              interactome, hubs predominantly essential explained placement network, e.,                     play central role maintaining connectivity.
+topological prominence implies biological importance.                                                                                        Recently, colleagues challenged hypothesis connections context protein
+                                                                                    essentiality function global network structure interaction network, called centrality-lethality rule,                                                                                     proposed majority proteins essential observed Jeong colleagues [3], demonstrated                                                                                     involvement essential protein–protein interactions high-degree nodes hubs protein interaction network                                                                                     distributed uniformly random network edges [9].
+Saccharomyces cerevisiae contain essential proteins expected chance. correlation degree                    hypothesis, hubs proposed predominantly essentiality confirmed studies [4–7],                    essential involved interactions recently systematic attempt examine reasons                     likely involved essential. correlation. particular, main topological                      work carefully evaluate proposed
+determinant essentiality? number immediate                          explanations centrality-lethality rule. Recently neighbors  global topological property                      hypotheses linked structural properties protein interaction
+essential proteins protein interaction network?                       networks biological phenomena come scrutiny,    Jeong colleagues [3] suggested overrepresentation                    main concern observed properties essential proteins high-degree nodes attributed                     experimental artifacts biases present networks central role hubs play mediating interactions                     lack biological implication. limit impact numerous, connected proteins.  removal hubs                      biases results reported study use variants disrupts connectivity network, measured                        genomewide protein interaction network Saccharomyces cerevisiae
+network diameter size largest connected component,                    compiled diverse sources interaction evidence [10–15].
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                        1                            August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                         Essentiality Hub Proteins
+
+
+
+  Author Summary                                                             proteins, COmplex BIological Modules                                                                               COBIMs). demonstrate uneven distribution
+  Analysis protein interaction networks budding                    essential proteins COBIMs majority essential
+  yeast Saccharomyces cerevisiae revealed small                   proteins lie COBIMs enriched essential
+  number proteins, called hubs, interact                    proteins, Essential COmplex BIological Modules    disproportionately large number proteins. Fur-                    ECOBIMs).
+  thermore, hub proteins shown                             definition, ECOBIMs contain, relative size,
+  essential survival cell  optimal                     essential nodes random group proteins   conditions, yeast grow multiply 
+                                                                             size. fraction essential hubs members   relation essentiality number                                                                              ECOBIMs? does number relate expected   neighbors protein–protein interaction network   termed centrality-lethality rule.                 chance? fact, does enrichment hubs   hubs essential? Jeong colleagues [1] suggested                    members/nonmembers ECOBIMs essential proteins relate   overrepresentation essential proteins high-                  enrichment values expected chance suitable
+  degree nodes attributed central role                    randomization protocol? propose membership   hubs play mediating interactions numerous,                   ECOBIMs largely accounts enrichment hubs essential
+  connected proteins. view, proposed                       proteins. support hypothesis, fraction
+  Zhang, suggested majority proteins                    essential proteins non-ECOBIM hubs  depending   essential involvement essential                network, 13–35 , low network
+  protein–protein interactions distributed uniformly                average. Furthermore essentiality nodes   random network edges [2].                   members ECOBIMs weakly correlated degree.
+  reasons determines essentiality. Instead,                 Finally, using randomization experiment demonstrated   majority hubs essential involvement                 properties characteristic protein interaction
+  Essential Complex Biological Modules, group densely                   network unlikely corresponding randomized network.
+  connected proteins shared biological function   enriched essential proteins. study sheds new
+  light topological complexity protein interaction
+                                                                             Results
+  networks.                                                                  Study Uses Protein Interaction Networks
+                                                                                source protein interaction data yeast Saccharomyces
+                                                                             cerevisiae numerous small-scale studies seven high-throughput
+   assess essentiality hubs related role       experiments [15,18–23]. Interactions reported targeted studies maintaining network connectivity performed tests.            believed biologically relevant usually subjected case, expect essential hubs             variety validation methods. Recently, Reguly et al. [11] curated important maintaining network connectivity                     30,000 literature abstracts compile network protein
+nonessential hubs. case.               interactions reported small-scale experiments. refer addition node degree, consider measures               network LC network (Literature Curated network).
+topological prominence, demonstrate                    suggested centrality-lethality phenomenon better predictors role node plays network               artifact possible bias present networks mainly derived
+connectivity node degree.  essentiality related         small-scale experiments [24].  essential proteins maintaining network connectivity, expect                      focus studies tend higher
+essentiality better correlated centrality measures          degree networks.  complement LC node degree.  node degree             network, included study networks contain better predictor essentiality measure tested.            interactions reported small-scale studies high-
+   reject essential protein interaction model [9], used          throughput experiments. DIP CORE network derived hypothesis testing approach.  observed model             pool protein interactions deposited DIP database
+implies probability protein essential                  using computational method Deane et al. [10] recruits
+independent probability noninteracting protein           evolutionary information filter unreliable interactions. essential.  tested networks essentiality            HC network  High Confidence network) recently published noninteracting proteins share interaction partners correlat-         Batada et al. [12] derived intersecting small-scale data ed.  reject independence assumption  result,            mentioned seven high-throughput datasets. essential protein interaction model high confidence.                specifically, interaction included final network    Motivated findings propose alternative explana-              independently reported twice.
+tion centrality-lethality rule. explanation draws              include networks derived solely high-
+growing realization phenotypic effect gene-knockout                  throughput experimental data. Y2H network obtained experiments function group functionally related genes,          genomewide yeast hybrid interaction screen Ito et al. genes gene products members                    [15] contains high-confidence interactions exper-
+multiprotein complex [16]. known densely connected           imentally detected times. Recently, Collins et al. [13]
+subnetworks enriched proteins share biological                   published statistical scoring scheme maps raw complex
+function.  expect dense subnetworks              purification experimental data interaction confidence scores.
+protein interaction networks enriched depleted           authors applied method raw purification data essential proteins.  Hart colleagues observed             recent genomewide complex purification experiments [22,23].
+essential proteins distributed evenly set               refer network contains interactions automatically indentified multiprotein complexes [17].               confidence score certain threshold TAP-MS network.
+work observe phenomenon holds potentially                  Finally, include network interactions predicted silico
+larger groups densely connected functionally related                  using computational approach Jansen et al. [14]. 
+
+       PLoS Computational Biology | www.ploscompbiol.org                 2                         August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                       Essentiality Hub Proteins
+
+
+
+ Table 1. Structural properties tested protein                                    connected proteins. Consequently, high-degree
+ interaction networks.                                                                   nodes referred hubs, observed phenomenon                                                                                          known centrality-lethality rule.
+                                                                                            confirm centrality-lethality rule tested networks                 Number          Number           Average        Average clustering       used results systematic gene deletion screen [25]                 nodes        edges         degree         coefficient              1,105 yeast genes essential growth rich
+ DIP CORE       2,316           5,569            4.81           0.30
+                                                                                         glucose media. numerous ways exposing positive
+                                                                                         correlation degree essentiality, used  LC             3,224           11,291           7.00           0.36
+                                                                                         paper.  ask hubs, nodes degree
+ HC             2,752           9,097            6.61           0.37                     greater equal certain threshold, likely  TAP-MS         1,994           15,819           15.87          0.60                     essential average network node, e., fraction  BAYESIAN       4,135           20,984           10.15          0.26                     essential proteins hubs greater network average.
+ Y2H            400             491              2.45           0.09                     choose appropriate threshold value relied Figure 1A,
+                                                                                         shows enrichment values nodes degree greater
+ doi:10.1371/journal.pcbi.1000140.t001                                                   equal k function k. networks steady
+                                                                                         increase enrichment values interrupted large values k.
+method trains Bayesian network combines variety                               chose threshold value approximately 20 
+genomic features mRNA coexpression, colocalization,                          network nodes hubs.  DIP CORE network derive interaction confidence scores protein pairs.                           value k 7, LC network 10, HC network 10,
+authors used protein interactions derived set manually                         TAP-MS network 24, BAYESIAN network curated protein complexes set positive training examples                       12, Y2H network 3.)  repeated pairs proteins localized different cellular compartments                       experiments hubs defined 10  (data shown) set negative training examples. refer network                       conclusions robust specific choice threshold. BAYESIAN network.
+   Table 1 summarizes structural properties networks
+just described.  paper analyze largest connected component protein interaction network.)
+Table 2 shows overlap, fraction interactions common, networks. Given differences experimental
+techniques used construct networks fact edges TAP-MS BAYESIAN networks correspond membership multiprotein complexes, Y2H physical
+contacts, DIP CORE, LC, HC networks mix things, surprising networks differ
+significantly terms density, cliquishness, parame-
+ters. biggest outlier Y2H network. fact, network, relation essentiality lethality prominent discussed section.
+ Centrality-Lethality Rule Holds Networks
+   influential paper, Jeong et al. [3] observed degree node yeast protein interaction network correlates phenotypic effect deletion. specifically, authors observed high-degree nodes times likely essential nodes having interaction partners. hypothesized high-degree nodes tend essential central role play maintaining overall connectivity network mediating interactions
+
+ Table 2. overlap tested networks.
+
+
+ DIP CORE        0.58      0.62         0.25             0.61             0.02
+ 0.28            LC        0.53         0.26             0.39             0.01
+ 0.38            0.65      HC           0.47             0.47             0.02
+ 0.09            0.18      0.27         TAP-MS           0.36             0.00
+                                                                                         Figure 1. Relationship degree essentiality  0.16            0.21      0.20         0.27             BAYESIAN         0.02           tested networks.   tested network fraction essential
+ 0.26            0.18      0.31         0.10             0.97             Y2H            nodes nodes highest degree (hubs) shown.                                                                                          horizontal axis shows fraction total network nodes  row table corresponds single network shows fraction           designated hubs. (B) Correlation degree  edges contained tested networks.  example, 58              essentiality assessed Kendall’s tau Spearman’s rho rank
+ edges DIP CORE network present LC network.                       correlation coefficients.
+ doi:10.1371/journal.pcbi.1000140.t002                                                   doi:10.1371/journal.pcbi.1000140.g001
+
+
+        PLoS Computational Biology | www.ploscompbiol.org                            3                          August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                   Essentiality Hub Proteins
+
+
+   Figure 1A clear enrichment values increase k.  use nonparametric measure association, Kendall’s tau Spearman’s rho rank correlation coefficients [26], assess correlation degree essentiality network nodes. shown Figure 1B measures agree estimates strength correlation; evaluations Kendall’s tau rank correlation
+coefficient.  assess correlation centrality
+measures essentiality correcting correlation degree, used partial Kendall’s tau rank correlation.
+   noted contrast networks Y2H
+network exhibits weak correlation degree essentiality. agreement study Batada et al. [4]. observed highly significant difference average degree essential nonessential proteins LC network difference disappears analysis restricted interactions detected yeast hybrid experiments.
+
+Essential Hubs Important Maintaining                                  Figure 2. Centrality measures demonstrated toy network.
+                                                                                      demonstrate difference centrality measures Overall Network Connectivity Nonessential                                    toy network.   toy network consists cliques: K50 nodes
+Hubs                                                                                  A1–A50 K10 nodes B1–B10. cliques interconnected
+    network centrality index assigns centrality value                     edge (A1, B1) additional vertex D. Additional node
+node network quantifies topological prominence.                       C attaches network A2. (B) measures assign
+Topological prominence defined number ways,                        centrality values based different network properties rank
+                                                                                      nodes differently. Briefly, eigenvector centrality measure (EC) years centrality indices introduced                           assign high-centrality values nodes close emphasize different aspects network topology [27]. local                      central nodes network. subgraph centrality measure (SC)
+centrality index, node’s centrality value mainly influenced                 assigns centrality values node based number closed walks topology local neighborhood. known example                     originate node. shortest path betweenness centrality
+local centrality index degree centrality, node’s                         measure (SPBC) assigns node centrality value based fraction
+centrality value equal number immediate neighbors.                   shortest paths pass node averaged pairs                                                                                       nodes network. current-flow betweenness centrality measure
+Betweenness indices, hand, assign centrality values                      (CFC) generalizes SPBC measure including additional paths, based node’s role maintaining connectivity                      just shortest paths, computation.  difference
+pairs nodes network. known example                        measures exemplified rankings produce
+betweenness centrality index shortest-path betweenness central-                    toy network nodes.
+ity, node’s centrality value proportional fraction                doi:10.1371/journal.pcbi.1000140.g002 shortest paths pass 
+    degree centrality local centrality index,                network, local betweenness
+networks hubs play important role maintaining                           indices HC BAYESIAN networks. local measures
+overall connectivity network. example,                              strongly agree ranking network nodes networks
+demonstrated scale-free networks removal                          Y2H network. agreement strongest hubs affects ability nodes communicate                      TAP-MS network; result curves EC SC removal random nodes [8]. clarify topological                      measures overlap completely Figure 3D.
+role hubs tested networks, compared degree centrality                       removal set nodes disconnect various local indices (eigenvector centrality (EC) [28]                      parts network, impair significantly ‘‘quality subgraph centrality (SC) [29]) betweenness indices                         communication’’  example, (shortest-path betweenness centrality (SPBC) [30] current-flow                    increase length shortest path decrease number
+betweenness centrality (CFC) [31]).  Figure 2                              alternative paths pairs nodes network.
+illustration, Materials Methods detailed                            introduced additional measures, description centrality measures used study.)                           network integrity measures, capture various aspects effect     betweenness indices rank nodes based role                       nodes’ removal ability nodes communicate.
+mediating communication pairs nodes                            Materials Methods description network integrity
+network, interesting compare effectiveness high-                      measures.) sensitive measures degree nodes nodes high betweenness centrality                            used observations disruptive power disconnecting network. common way measure                              hubs relative central proteins hold (Table S1).
+impact nodes’ removal network connectivity                            examined disruption power hubs comes
+monitoring decrease size largest connected                          mainly essential hubs.  observe removal component. Figure 3A–F shows, protein interaction                         essential proteins huge connected component networks, removal central nodes, random                           disruptive removal equivalent number nodes, essential proteins affects network connectivity.                    central nodes according index (Figure 3A–F).  expected, removing nodes high local centrality values                    shown Table 3, removal essential nodes disruptive removing high betweenness                             disruptive removal equivalent number random
+centrality values. Interestingly, degree centrality efficient                nonessential nodes degree distribution. shattering network betweenness DIP CORE, LC,                        conclude networks, DIP CORE, LC,
+Y2H networks, inefficient local indices TAP-MS                    HC, Y2H networks, removal high-degree nodes 
+
+       PLoS Computational Biology | www.ploscompbiol.org                          4                         August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                           Essentiality Hub Proteins
+
+
+
+
+PLoS Computational Biology | www.ploscompbiol.org   5   August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                   Essentiality Hub Proteins
+
+
+
+Figure 3. Vulnerability attack central proteins.  F) impact node removal quantified fraction nodes largest connected component. curve centrality measure shows fraction nodes largest connected component function fraction central nodes removed. impact node removal random order size largest connected component essential proteins removed.
+doi:10.1371/journal.pcbi.1000140.g003
+
+
+disruptive, disruption related essentiality                Reject Essential Protein Interaction Model
+nodes. contrary, essential genes indistinguishable                           Recently colleagues [9] proposed explanation respect random nonessential genes                          centrality-lethality rule terms essential protein interactions: degree distribution.                                                                   protein essential involvement                                                                                        essential protein interactions factors. authors Relationship Disruptive Power                                  argue determination protein essentiality protein Centrality Index Enrichment Essential                                  interaction network captured simple random process:
+Proteins                                                                                 distribute essential protein interactions edges    demonstrated various centrality indices vary                          network uniformly random probability  (ii) distribute
+considerably ability predict disruption overall                     essential proteins nodes network uniformly connectivity network. asked difference                  random probability b.  according model, reflected enrichment levels. Figure 4 shows fraction                     probability (PE) protein k neighbors essential essential proteins hubs equivalent number                         PE = 12(12a)k(12b), natural logarithm fraction central proteins according centrality measures. observe                     nonessential proteins proteins degree k linear local centrality indices enrichment levels comparable                 dependency k: log(12PE) = log(12a)k+log(12b). betweenness indices cases higher.                       note assumptions essential protein
+notably, degree centrality fares better centrality index                interaction model follows proteins interact networks narrowly beaten shortest-path centrality                essentiality protein pair does depend Y2H network. superiority degree centrality                     essentiality protein. Furthermore, apparent Kendall’s tau rank correlation coefficient used                    independence observed proteins share
+measure correlation centrality values essentiality                    interaction neighbors. test holds real data, network nodes (compare Table 2 Table 4).                                        computed number nonadjacent protein pairs,    considerable correlation degree centrality                      neighbors  neighbors Y2H network), centrality indices, used Kendall’s tau partial rank                       essential nonessential tested networks
+correlation coefficient indices                           compared numbers expected number correlated essentiality correlation degree                        pairs model.  model parameters estimated
+centrality index.  controlling correlation                       using different strategies described Materials degree, correlation essentiality reduced                           Methods. paper, et al. point model statistically insignificant values betweenness centrality indices                  work networks edges represent membership greatly reduced local indices (Table 4).                                    protein complex.  excluded TAP-MS    observations indicate main topological                           BAYESIAN networks analysis.) shown Table 5, determinant essentiality node’s local neighborhood                    model does capture correlation essentiality observed role maintaining overall connectivity network. particular, removing nodes high
+betweenness centrality indices effective shattering protein interaction networks, correlation essentiality reduced statistically insignificant levels subtracting correlation degree centrality.
+
+ Table 3. Impact removal essential proteins  compared removal equivalent number random
+ nonessential proteins degree distribution.
+
+
+                       Essential          Random nonessential
+
+ DIP CORE              0.519              0.50460.007
+ LC                    0.578              0.55160.010
+ HC                    0.521              0.52560.005
+ TAP-MS                0.512              0.51260.011
+ BAYESIAN              0.685              0.62560.006
+ Y2H                   0.410              0.39760.046                                  Figure 4. Enrichment hubs equivalent number                                                                                        central nodes according centrality measures  impact removal set proteins measured fraction nodes       essential proteins. Fraction essential proteins hubs  largest connected component. network effect                equivalent number central nodes according  removal essential proteins removal equivalent number              centrality measures. fraction essential proteins nodes
+ random nonessential proteins degree shown.                           network shown ntwk.avg.
+ doi:10.1371/journal.pcbi.1000140.t003                                                 doi:10.1371/journal.pcbi.1000140.g004
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                           6                         August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                                 Essentiality Hub Proteins
+
+
+
+ Table 4. Correlation centrality indices essentiality.
+
+
+                              Eigenvector centrality                                                    Subgraph centrality
+
+                              tess                               tess.dc                                tess                                 tess.dc
+
+ DIP CORE                     0.15 (3.5e-19)                     0.064 (8.6e-05)                        0.17 (1.2e-24)                       0.059 (2.5e-04)
+ LC                           0.23 (7.9e-56)                     0.094 (3.6e-11)                        0.23 (1.2e-55)                       0.093 (4.9e-11)
+ HC                           0.24 (1.8e-54)                     0.107 (2.9e-12)                        0.24 (7.9e-55)                       0.102 (3.4e-11)
+ TAP-MS                       0.12 (8.42e-11)                    20.007 (6.5e-01)                       0.12 (8.42e-11)                      20.007 (6.5e-01)
+ BAYESIAN                     0.17 (5.7e-39)                     0.046 (1.5e-04)                        0.17 (5.1e-41)                       0.051 (3.1e-05)
+ Y2H                          0.05 (1.1e-01)                     0.027 (2.5e-01)                        0.03 (2.0e-01)                       20.024 (7.2e-01)
+
+                              Shortest-path betweenness centrality                                      Current-flow betweenness
+
+                              tess                               tess.dc                                tess                                 tess.dc
+
+ DIP CORE                     0.15 (3.2e-18)                     20.002 (5.5e-01)                       0.19 (2.7e-27)                       0.012 (2.5e-01)
+ LC                           0.21 (1.4e-46)                     0.003 (4.25e-01)                       0.26 (3.7e-70)                       20.007 (6.8e-01)
+ HC                           0.20 (1.9e-36)                     0.005 (3.7e-01)                        0.24 (2.6e-53)                       20.005 (6.2e-01)
+ TAP-MS                       0.12 (3.5e-11)                     0.018 (1.8e-01)                        0.16 (3.3e-18)                       0.017 (1.8e-01)
+ BAYESIAN                     0.18 (2.4e-41)                     0.005 (3.43e-01)                       0.23 (2.7e-69)                       0.018 (8.1e-02)
+ Y2H                          0.10 (1.2e-02)                     0.048 (1.4e-01)                        0.10 (1.4e-02)                       0.041 (1.8e-01)
+
+ correlation centrality measures essentiality (tess) measured Kendall’s tau rank correlation coefficient. correlation essentiality, controlling
+ correlation degree centrality, measured using partial Kendall’s tau rank correlation coefficient (tess.dc). p-values derived Kendall’s tau 
+ scores shown parentheses.
+ doi:10.1371/journal.pcbi.1000140.t004
+ tested networks; e., statistically significant difference                proteins. large multiprotein complexes, example, number pairs observed real data                            involved transcription regulation, known highly enriched
+number expected model. Consequently, essential                              essential proteins, general phenomenon interaction model rejected high confidence.                                       account centrality-lethality rule?
+                                                                                             investigate question, introduce notion Propose Alternative Explanation Centrality-                                 Essential Complex Biological Modules, groups proteins Lethality Rule                                                                            shared biological function extensively interact    previous section showed proteins share                             enriched essential proteins.  automatic
+neighbors likely essentiality                           method extraction ECOBIMs protein interaction
+essential nonessential) expected essential PPI                     network.  argue membership ECOBIMs accounts
+model.  observed study essential                          large extent centrality-lethality rule tested networks.
+proteins distributed uniformly set                                Finally, address statistical issues related selection procedure
+automatically derived multiprotein complexes [17]. suggests                          applying suitable randomization protocols. densely connected subnetworks polarized                                developed automatic method extraction ECOBIMs highly enriched significantly depleted essential proteins.                   protein interaction network. work proteins deemed
+Furthermore, known densely connected subnetworks                          share biological function annotated enriched proteins share biological function.                        biological process term set 192 terms selected expect protein interaction networks contain densely                       group experts represent relevant aspects molecular biology
+connected functional modules highly enriched essential                        [32].  method applied subnetworks induced 
+ Table 5. Difference observed expected number pairs proteins essential nonessential.
+
+
+                    Total number pairs            Number pairs type               Expected number pairs type
+
+                                                                                                    Simulation               Line fitting              Weighted line fitting
+
+ DIP CORE           1,849                            1,135                                          945 (3.6e-10)            928 (8.6e-12)             938 (8.0e-11)
+ LC                 10,777                           6,143                                          5,691 (6.6e-10)          5.556 (1.1e-15)           5.589 (3.9e-14)
+ HC                 5,907                            3,516                                          3,213 (2.0e-08)          2,997 (2.2e-16)           2,994 (2.2e-16)
+ Y2H                3,254                            2,167                                          1,976 (9.6e-07)          2,025 (2.6e-04)           2,052 (3.3e-03)
+
+ total number pairs refers number nonadjacent protein pairs common neighbors network.  sparsity Y2H
+ network, statistics calculated nonadjacent pairs having neighbors common.) nodes pair ‘ type’’  essential nonessential.
+ doi:10.1371/journal.pcbi.1000140.t005
+
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                              7                               August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                           Essentiality Hub Proteins
+
+
+proteins annotated biological process term,              LC network contains multiprotein complexes involved subnetwork time. high-level idea method             process RNA polymerase 2 transcription [33], RNA identify groups densely connected proteins,            polymerase 2, general transcription factors, mediator complex,
+Complex Biological Modules  COBIMs), identify subset          ECOBIMs 20 members shown Table 7;
+COBIMs ECOBIMs based distribution essential                      ECOBIMs member proteins given Table S2.
+proteins COBIM nodes. specifically, heuristic                  ECOBIMs remarkably different non-
+selects subset COBIMs enriched essential proteins.           ECOBIM COBIMs. shown Table 8, distribution  method schematically shown Figure 5 described            essential proteins COBIM nodes highly uneven. Materials Methods section. Figure S1 shows              particular, observed difference fractions essential
+fraction nodes members r COBIMs various            proteins ECOBIM nodes non-ECOBIM
+values r.)                                                                 COBIM nodes accounted degrees    examine extent membership ECOBIMs                        essential COBIM nodes particular ECOBIM selection
+accounts centrality-lethality rule partitioned hubs       procedure. claim validated performing 100,000
+groups, members ECOBIMs                         randomized assignments essential proteins preserve degrees
+(ECOBIM hubs) (non-ECOBIM hubs),                   number essential COBIM nodes, selecting compared enrichment values. shown Figure 6 ECOBIM                 ECOBIMs computing corresponding fractions. shown
+hubs highly enriched essential proteins, non-                  Table 8, values obtained true assignment ECOBIM hubs depleted essential proteins compared                 essential proteins significantly different obtained network average enrichment values. importantly,               randomized assignment essential proteins.
+discussed paragraph, difference fraction               far, demonstrated high correlation degree
+essential proteins ECOBIM hubs non-ECOBIM hubs                   essentially predominantly attributed ECOBIMs. result greedy ECOBIM selection procedure particular           addition, known certain functions essential degree sequence essential proteins network. asked           cell, example, transcription regulation cell-cycle regulation, correlation degree lethality               rely large multiprotein complexes.  terms
+network nodes members ECOBIMs. shown                overrepresented ECOBIM nodes type, Table 6 correlation essentiality degree non-              seen Figure 7. ECOBIMs play distinguished role ECOBIM nodes network nodes.                    essential processes, merely byproduct 
+   ask extent difference behavior               mentioned observation? particular, difference ECOBIM hubs non-ECOBIM hubs particular                      enrichment essential proteins exclusively fact selection procedure employ identify putative                   essential processes contain ECOBIMs 
+ECOBIMs. specifically, concerns need                  elucidate role ECOBIMs examined addressed.  method guided enrichment                processes contain ECOBIM. Table 9 shows essential proteins selecting ECOBIMs COBIMs.                        results DIP core network sorted percentage  expected fraction essential proteins       essential proteins given process.  data ECOBIM hubs higher non-ECOBIM                       networks given Table S3.) Observe enrichment hubs. Second, method considers annotated yeast genes.                ECOBIMs essential genes typically higher  argue difference behavior          average enrichment corresponding   fact ECOBIM hubs necessarily annotated non-                ECOBIMs merely representatives average structure
+ECOBIM hubs include annotated unannotated genes.                 corresponding subnetwork. uneven distribution    address concern performed control experiment             essential proteins observed corresponding essential proteins assigned random set nodes               process extremely enriched essential proteins having degree distribution true set essential              rRNA metabolic process  0016072) transcription initiation
+proteins network.  total 100,000 random assignments                0006352). percentage essential proteins performed, resulted 100,000 sets ECOBIMs.)                network nodes annotated processes address second concern, restricted random assignment               80 , COBIMs selected ECOBIMs. annotated genes  shown Table 6, ECOBIMs                     process highest percentage essential proteins,
+resulting true assignment essential proteins                 transcription RNA polymerase III promoter  0006383),
+dramatically different properties resulting               contains types COBIMs. Interestingly, process, random assignment essential proteins. particular, fraction          ECOBIM nodes essential, remaining COBIM essential proteins non-ECOBIM hubs true                    nodes  fact, process contains ECOBIM assignment essential proteins significantly lower             non-ECOBIM COBIMS, polarization frequent albeit randomized assignment essential proteins,                   rarely extreme (Table 9). Removal protein selection procedure used cases.                    Complex Biological Module expected perturb disable  conclude observed difference result          module.  large spectrum essential particular distribution essential proteins nodes          processes, cell tolerate large perturbations modules network artifact selection procedure.               little perturbations ECOBIMs. holds reduction correlation degree                   observation explain poor correlation
+essentiality non-ECOBIM nodes.                                            degree essentiality Y2H networks, indicates                                                                               ECOBIMs likely contain large, stable multiprotein modules, Identify Properties ECOBIMs                                         typically multiprotein complexes.  interactions recovered
+  identified ECOBIMs correspond large essential                 Y2H technique correspond physical contacts multiprotein complexes anaphase promoting complex                 encompass members complex.  (APC) DAM1 protein complex exclusively                        binary nature, Y2H technique completely miss interactions
+complexes. example, largest ECOBIMs identified                 complexes require cooperative binding [34].
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                  8                          August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                      Essentiality Hub Proteins
+
+
+
+
+Figure 5. automatic method extraction ECOBIMs. demonstrate major steps method HC network. input method protein interaction network, annotation, set essential nodes, shown red. method considers
+subnetworks induced proteins annotated biological process term, subnetwork time, identify densely connected
+regions COBIMs. COBIMs shown COBIM intersection graph, nodes correspond COBIMs  size node proportional number genes corresponding COBIM) edge pair COBIMs proteins common. COBIMs enriched essential proteins selected ECOBIMs, shown green.
+doi:10.1371/journal.pcbi.1000140.g005
+       PLoS Computational Biology | www.ploscompbiol.org               9                         August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                        Essentiality Hub Proteins
+
+
+
+
+Figure 6. Enrichment ECOBIM non-ECOBIM hubs essential proteins. Fraction essential proteins various types hubs: hubs, hubs members ECOBIMs (ECOBIM hubs), hubs members ECOBIMs (non-ECOBIM hubs). fraction essential
+proteins proteins network shown (ntwk.avg.). numbers bars number essential hubs total
+number hubs type ECOBIM non-ECOBIM hubs.
+doi:10.1371/journal.pcbi.1000140.g006
+
+
+Discussion                                                                              determinant essentiality biological explanation                                                                                         connection network topology essentiality.
+  enrichment high-degree nodes essential proteins, known                         address question performed rigorous analysis centrality-lethality rule, suggests topological                         protein interaction networks Saccharomyces cerevisiae compiled prominence protein protein interaction network                       diverse sources interaction evidence. clarify topological
+good predictor biological importance. exist numerous                       roles essential proteins general essential hubs particular,
+measures topological prominence, called network centrality                           compared degree centrality local betweenness
+indices; local centrality indices assign centrality values based                 centrality indices. networks high-degree
+topology node’s local neighborhood, betweenness                          nodes important maintaining overall network
+centrality indices assign centrality values based node’s role                 connectivity nodes having high betweenness centrality values,
+maintaining connectivity pairs nodes                        property essential proteins. contrary,
+network. definition degree centrality local                         essential proteins indistinguishable respect measure, depending structure network, hubs play                       nonessential proteins having degree distribution. important role maintaining overall connectivity                        degree centrality better predictor essentiality network. paper sought identify main topological                       measure tested correlation betweenness indices
+
+
+ Table 6. Membership ECOBIMs centrality-lethality rule.
+
+
+                    Enrichment ECOBIM hubs                    Enrichment non-ECOBIM hubs              Corr. degree vs. essentiality non-ECOBIM hubs
+
+                    Obs.        Rand.        p-value             Obs.       Rand.           p-value         Obs.               Rand.        p-value
+
+ DIP CORE           0.80        0.67         1.98e-03            0.26       0.43            ,1.00e-05       0.08               0.18         ,1.00e-05
+ LC                 0.80        0.69         1.88e-03            0.32       0.48            ,1.00e-05       0.17               0.27         ,1.00e-05
+ HC                 0.83        0.70         4.00e-05            0.35       0.51            ,1.00e-05       0.17               0.27         ,1.00e-05
+ TAP-MS             0.76        0.62         1.00e-05            0.24       0.40            ,1.00e-05       0.12               0.20         ,1.00e-05
+ BAYESIAN           0.77        0.65         ,1.00e-05           0.18       0.36            ,1.00e-05       0.09               0.20         ,1.00e-05
+ Y2H                0.85        0.66         5.81e-02            0.13       0.25            2.00e-05        20.04              0.05         2.00e-04
+
+ quantity values shown: value true assignment essential proteins (Obs.), mean value randomized assignment  essential proteins (Rand.), fraction randomized assignments resulted values stronger  smaller larger depending context)  obtained true assignment essential proteins (p-value).
+ doi:10.1371/journal.pcbi.1000140.t006
+
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                           10                         August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                     Essentiality Hub Proteins
+
+
+
+Table 7. Largest ECOBIMs extracted tested                                       essentiality entirely correlation degree
+networks.                                                                                centrality.  conclude topological determinant                                                                                          essentiality node’s local neighborhood role                                                                                          maintaining overall connectivity network. DIP CORE network                                                                        examined essential interactions model, 0006508 proteolysis                                            27 35 0.77
+                                                                                         recently proposed explain centrality-lethality rule, valid                                                                                          tested networks. model’s central assumption 0042254 ribosome biogenesis assembly                       27 32 0.84
+                                                                                         majority proteins essential involvement 0016192 vesicle mediated transport                             21 30 0.70             essential protein interactions, distributed 0016071 mRNA metabolic process                                 18 28 0.64             uniformly random edges network, violates basic 0015931 nucleobase, nucleoside, nucleotide nucleic         15 24 0.62             clustering patterns essential proteins networks acid transport 0051236 establishment RNA localization                              examined. uniform distribution essential protein interac- 0016072 rRNA metabolic process                                 18 21 0.86             tions implies  long proteins interact, 0008380 RNA splicing                                           16 21 0.76             essentiality protein pair independent                                                                                          essentiality protein.  real protein LC network
+                                                                                         interaction networks essentiality pairs proteins share 0042254 ribosome biogenesis assembly                       88 107 0.82
+                                                                                         neighbors correlated, number nonadjacent 0016071 mRNA metabolic process                                 37 58 0.64             protein pairs share neighbors 0008380 RNA splicing                                           35 52 0.67             essential nonessential significantly deviates 0015931 nucleobase, nucleoside, nucleotide nucleic         16 26 0.62             expected number pairs model. Consequently, acid transport 0051236 establishment RNA localization                              rejected essential interactions explanation high confi- 0006508 proteolysis                                            17 24 0.71             dence. stress reject existence essential HC network
+                                                                                         protein interactions assumption                                                                                          interactions evenly distributed edges network 0042254 ribosome biogenesis assembly                       84 100 0.84
+                                                                                         explain degree distribution essential proteins. 0016071 mRNA metabolic process                                 49 71 0.69                observations led propose alternative 0016072 rRNA metabolic process                                 63 71 0.89             explanation centrality-lethality rule. explanation builds 0008380 RNA splicing                                           46 63 0.73             growing body evidence gene knock phenotypes 0006508 proteolysis                                            28 35 0.80             genes gene products members multiprotein
+                                                                                         complex correlated [16,17]. particular, Hart et al. TAP-MS network
+                                                                                         demonstrated essential proteins distributed evenly 0042254 ribosome biogenesis assembly                       90 120 0.75
+                                                                                         set automatically identified multiprotein complexes; 0016071 mRNA metabolic process                                 46 66 0.70             ‘‘surprisingly’’ complexes majority 0008380 RNA splicing                                           45 62 0.73             members essential ‘‘surprisingly’’ complexes 0016072 rRNA metabolic process                                 37 41 0.90             majority members essential [17]. 0016072 rRNA metabolic process                                 30 32 0.94
+                                                                                         hypothesized computationally confirmed                                                                                          phenomenon holds potentially larger groups densely 0006508 proteolysis                                            17 22 0.77
+                                                                                         connected functionally related proteins called Complex BAYESIAN network                                                                     Biological Modules abbreviated COBIMs. 0042254 ribosome biogenesis assembly                       119 152 0.78           importantly, able demonstrate membership 0016072 rRNA metabolic process                                 93 106 0.88            ECOBIMs, COBIMs enriched essential proteins, 0008380 RNA splicing 0016071 mRNA metabolic                 40 50 0.80             provides good explanation correlation degree process                                                                                  essentiality protein interaction networks considered 0006366 transcription RNA polymerase II promoter          23 42 0.55             study. particular, showed non-ECOBIM hubs                                                                                          depleted essential proteins non-ECOBIM proteins 0006508 proteolysis                                            28 37 0.76
+                                                                                         correlation degree essentiality greatly reduced. 0006913 nucleocytoplasmic transport                            17 31 0.55
+                                                                                          applying suitable randomization protocols showed 0006412 translation                                            18 27 0.67             different characteristics ECOBIM non-ECOBIM 0051169 nuclear transport                                      15 27 0.55             hubs  general ECOBIM non-ECOBIM proteins) 0045184 establishment protein localization                  15 27 0.55             mere consequence degrees particular computational Y2H network
+                                                                                         method adopted selecting ECOBIMs.
+                                                                                            past, attempts classify high-degree 0007010 cytoskeleton organization biogenesis               9    11 0.82
+                                                                                         nodes using additional biological data obtain deeper insight 0006366 transcription RNA polymerase II promoter          7    11 0.64           biological physiological properties hubs 0045184 establishment protein localization                  6    10 0.60           reported possess. discuss findings fit 0006913 nucleocytoplasmic transport 0051169 nuclear         6    10 0.60           results reported studies [35,36]. Han et al. utilized
+transport                                                                                mRNA expression data classify hubs party date hubs,
+                                                                                         party hubs significant agreement mRNA tested protein interaction network list ECOBIMs 20 members; Y2H network, ECOBIMs 10 members                                                                                          expression levels, coexpressed, interacting
+listed. ECOBIM following information shown: corresponding            partners, date hubs coexpressed biological process term, number essential genes, number genes,              neighbors [35]. removal date hubs observed fraction essential genes. list ECOBIMs member genes        shatter network efficiently removal Table S2.
+doi:10.1371/journal.pcbi.1000140.t007
+                                                                                         party hubs. basis observations                                                                                          paper, date hubs proposed ‘‘…participate wide range
+
+
+      PLoS Computational Biology | www.ploscompbiol.org                             11                         August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                           Essentiality Hub Proteins
+
+
+
+ Table 8. ECOBIMs contain large fraction essential COBIM proteins.
+
+
+                                          Enrich. ECOBIM proteins                                                 Enrich. non-ECOBIM COBIM proteins
+
+                                          Obs.             Rand.             p-value                              Obs.             Rand.             p-value
+
+ DIP CORE                                 0.77             0.65              ,1.0e-05                             0.06             0.21              ,1.0e-05
+ LC                                       0.77             0.65              1.00e-05                             0.10             0.17              1.56e-03
+ HC                                       0.81             0.68              ,1.00e-05                            0.12             0.18              2.31e-02
+ TAP-MS                                   0.74             0.64              ,1.00e-05                            0.09             0.17              1.87e-03
+ BAYESIAN                                 0.76             0.65              ,1.00e-05                            0.08             0.18              ,1.00e-05
+ Y2H                                      0.79             0.63              9.93e-03                             0.06             0.17              3.00e-05
+
+ network enrichment essential proteins ECOBIM nodes enrichment COBIM nodes members ECOBIMs shown.  group values listed: fraction true assignment essential proteins (Obs.), mean fraction randomized assignment essential
+ proteins (Rand.), p-value difference.
+ doi:10.1371/journal.pcbi.1000140.t008
+
+ integrated connections required global organization                       COBIMs hubs explicitly defined hubs members
+biological modules proteome network…’’                         highly connected modules. Similarly party hubs, average
+fraction essential proteins party hubs slightly                   enrichment COBIM hubs essential proteins slightly higher
+higher date hubs. consistent                    non-COBIM hubs (data shown). conclusions paper,  essentiality                       demonstrated essential proteins clearly cluster ECOBIMs
+byproduct node’s ability maintain overall connectivity                 uniformly distributed COBIMs. network. Furthermore, proposed ‘‘party hubs                            second study Kim et al. utilized structural data classify
+represent integral elements distinct modules’’ ‘‘tend                     hubs singlish-interface multiinterface hubs, singlish-
+function lower level organization proteome’’ [35].                   interface hubs interact partners description consistent properties COBIM hubs                         distinct interfaces, multiinterface hubs                                                                                         interact partners distinct interfaces
+                                                                                        [36]. case,  classification produced significantly
+                                                                                        different enrichment levels, multiinterface hub twice                                                                                         likely essential singlish-interface hub average network
+                                                                                        node. authors suggested multiinterface hubs likely
+                                                                                        correspond members large stable multiprotein complexes.
+                                                                                        Consequently, imply stable multiprotein complexes
+                                                                                        enriched essential proteins. view consistent                                                                                         results paper additional caveats discussed 
+                                                                                            known certain biological functions essential                                                                                         cell depend large multiprotein complexes. (Consider,                                                                                         example, RNA Polymerase II transcription machinery [33]                                                                                         ribosome biogenesis assembly [37].)  ECOBIMs
+                                                                                        indentified approach associated processes.
+                                                                                         essential processes, ECOBIMs
+                                                                                        distinguish enriched essential proteins
+                                                                                        remaining proteins process.                                                                                         enrichment essential proteins non-ECOBIM COBIMs                                                                                         usually level frequently significantly lower                                                                                         average enrichment corresponding process. 
+                                                                                        large spectrum essential processes, cell                                                                                         tolerate large perturbations non-ECOBIM modules                                                                                         little perturbation ECOBIMs. COBIMs contain
+                                                                                        essential proteins. case, module                                                                                         nonessential, fact cell tolerate removal                                                                                         member COBIM does exclude possibility
+                                                                                        COBIM corresponds stable complex.
+
+                                                                                        Materials Methods
+Figure 7. terms overrepresented ECOBIM
+nodes. network terms overrepresented                          Network Centrality Indices ECOBIM nodes shown. overrepresentation term                          work compare degree centrality measure quantified natural logarithm p-value, p-value probability number ECOBIM genes                                                                                         local measures (eigenvector centrality (EC) [28] belong term ECOBIM genes selected uniformly                      subgraph centrality (SC) [29]) betweenness measures random network genes.                                                       (shortest-path betweenness centrality (SPBC) [30] current-flow
+doi:10.1371/journal.pcbi.1000140.g007                                                   betweenness centrality (CFC) [31]).
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                          12                            August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                               Essentiality Hub Proteins
+
+
+
+ Table 9. Enrichment ECOBIM non-ECOBIM COBIM nodes subnetworks DIP CORE network.
+
+
+ term                                                              Subnetwork nodes            ECOBIM nodes              Non-ECOBIM COBIM nodes
+
+ 0016072 rRNA metabolic process                                    0.83                        0.91                      n  0006352 transcription initiation                                  0.82                        1.00                      n  0006383 transcription RNA polymerase III pro                 0.77                        1.00                      0.00
+ 0042254 ribosome biogenesis assembly                          0.72                        0.87                      n  0008380 RNA splicing                                              0.71                        0.79                      0.50
+ 0006839 mitochondrial transport                                   0.64                        0.80                      n  0006360 transcription RNA polymerase pro                   0.64                        0.80                      0.00
+ 0016071 mRNA metabolic process                                    0.63                        0.75                      0.40
+ 0006260 DNA replication                                           0.61                        0.93                      n  0031123 RNA 39-end processing                                     0.59                        0.93                      0.29
+ 0006399 tRNA metabolic process                                    0.50                        1.00                      0.00
+ 0007059 chromosome segregation                                    0.49                        0.76                      n  0006944 membrane fusion                                           0.48                        0.75                      0.22
+ 0006508 proteolysis                                               0.46                        0.77                      n  0051169 nuclear transport                                         0.44                        0.80                      0.47
+ 0006997 nuclear organization biogenesis                       0.43                        1.00                      0.33
+ 0000278 mitotic cell cycle                                        0.43                        0.81                      0.19
+ 0015931 nucleobase, nucleoside, nucleotide n                  0.42                        0.63                      n  0006913 nucleocytoplasmic transport                               0.42                        0.80                      0.41
+ 0051236 establishment RNA localization                         0.42                        0.63                      n  0006366 transcription RNA polymerase II pro                  0.40                        0.75                      0.29
+ 0007010 cytoskeleton organization biogenesis                  0.40                        0.78                      0.00
+ 0048308 organelle inheritance                                     0.39                        0.86                      n  0006401 RNA catabolic process                                     0.38                        0.83                      0.41
+ 0006461 protein complex assembly                                  0.38                        1.00                      n  0045184 establishment protein localization                     0.37                        0.89                      0.38
+ 0009100 glycoprotein metabolic process                            0.37                        0.63                      n  0006412 translation                                               0.36                        0.85                      0.00
+ 0007005 mitochondrion organization biogenes                   0.35                        0.91                      n  0006512 ubiquitin cycle                                           0.34                        0.82                      n  0051325 interphase                                                0.33                        0.83                      0.00
+ 0016192 vesicle-mediated transport                                0.31                        0.71                      0.18
+ 0000074 regulation progression cell cycl               0.31                        0.73                      0.18
+ 0000279 M phase                                                   0.30                        0.80                      0.17
+ 0006974 response DNA damage stimulus                           0.28                        0.67                      0.11
+ 0006323 DNA packaging                                             0.26                        1.00                      0.16
+ 0006417 regulation translation                                 0.26                        0.80                      n  0016481 negative regulation transcription                      0.25                        1.00                      0.13
+ 0007001 chromosome organization biogenesi                     0.22                        0.79                      0.16
+ 0016458 gene silencing                                            0.22                        1.00                      0.00
+ 0040029 regulation gene expression, epigenet                   0.21                        1.00                      0.00
+ 0007047 cell wall organization biogenesis                     0.17                        0.75                      n 
+ subnetwork contributed ECOBIM, fractions essential proteins subnetwork nodes, subnetwork ECOBIM nodes,  subnetwork non-ECOBIM COBIM nodes shown.
+ doi:10.1371/journal.pcbi.1000140.t009
+
+
+
+                                                                                                      P
+   computation eigenvector centrality values cast               iteration xkz1
+                                                                                                 ~ j xkj normalize scores iterative process:   start initial vector centrality           xkz1 ~~
+                                                                                  ~       xkz1 =j~
+                                                                                                 xkz1 j. shown process converges
+       x0 ~ðx0 . . . xn Þ; (ii) iteration k+1 update centrality
+scores ~                                                                          eigenvector corresponds largest eigenvalue score node using scores neighbors previous             adjacency matrix network.
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                     13                          August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                 Essentiality Hub Proteins
+
+
+   subgraph centrality value node equal number                 biological process terms, selected group experts closed walks start terminate node.              represent relevant aspects molecular biology.  method
+infinite number walks, obtain finite index values                  applied 192 subnetworks, subnetwork time.
+number closed walks length k weighted 1/k!.                    subnetwork method extracts groups short walks dominate subgraph centrality values.                              densely connected proteins. ideal dense network clique,    shortest-path betweenness index, node’s centrality                 complete network pair nodes adjacent. value equal average fraction shortest paths pass                years various generalizations clique concept proposed node.                                                                 literature model wider set dense networks.    current-flow centrality measure extends shortest-path                  adopt generalization based k-connectivity. say centrality measure taking account paths addition              pair nodes k-connected k node-disjoint paths shortest paths. achieved current-flow paradigm                  network  say network k-connected network viewed resistor network edge                  pair nodes k-connected. example, (k+1)-clique, having unit capacity. pair nodes s t, unit              clique (k+1) nodes, k-connected. fact, smallest k-
+current shipped s t, centrality node set        connected graph.
+average current passes node.                             method utilizes following approach regions    demonstrate difference centrality                      subnetworks k-connected: start seed measures toy network Figure 1A. network                       (k+1)-clique iteratively extend seed addition cliques K50 K10 interconnected edge (A1, B1)                    proteins k neighbors seed. node D. nodes K50 labeled A1…A50,                    addition k-connected COBIMs satisfy following
+nodes K10 labeled B1…B10. additional node C attaches                    property: nodes removed COBIM K50 A2. Figure 1B shows ranking network nodes                   network induced remaining nodes k-
+based centrality values assigned centrality                    connected. note k-connected network measures.                                                                         property. Consider, example, cycle. cycle 2-connected.
+                                                                                   removal node results path 1-
+Network Integrity Measures                                                        connected. value parameter k chosen    introduced measures, network integrity                    fraction COBIM nodes 25  number nodes measures, capture various effects node removal ability               network. shown Table S5 results following nodes communicate. integrity measure maps set                 values k tested networks: DIP CORE network
+nodes, S, value 0 1, value 0                   k = 3, LC HC networks k = 4, TAP-MS network
+assigned removal S completely disrupts                            k = 11, BAYESIAN network k = 4, Y2H
+communication value 1 assigned causes                    network k = 1. sampled values k neighborhood disruption. measure, shortest-path integrity, quantifies             selected values results reported paper increase P
+                    length shortest path removal             robust respect selected value k. note
+                         maxðC{dS ðs,tÞ,0Þ                                        approaches similar previously used Palla
+S given Ps,t=[S maxðC{d ðs,tÞ,0Þ , d(s,t) length                         s,t=
+                           [S                                                     et al [38] Chesler et al. [39]. shortest path s t original network, ds(s,t)                COBIMs computed, method selects subset length shortest path s t removal              COBIMs based distribution essential proteins S, C constant. work chose value C                COBIM nodes.  heuristic selects COBIMs twice diameter original network. second measure,                   fraction essential proteins significantly higher edge-disjoint paths integrity, quantifiesPthe decrease number              expected uniform distribution essential genes
+                                           [S fS ðs,tÞ                            COBIM nodes. specifically, COBIM n edge-disjoint paths given P f ðs,tÞ , fs(s,t)                                         s,t=
+
+                                             s,t=
+                                                [S                                nodes m essential nodes selected iff:
+number edge-disjoint paths s t modified
+network f(s,t) value original network.                                                                        
+                                                                                                    Pn           M           N{M
+                                                                                                       k~m
+Estimating Parameters Essential Protein                                                               k            n{k
+                                                                                                                                      v0:5,
+Interactions Model                                                                                                   N
+   evaluate model tested networks used                                                        n
+strategies estimate model’s parameters: network simulation
+procedure, line fitting points (log(12PE), k) k#k0,                    N total number COBIM nodes M weighted line fitting points (log(12PE), k) values k.            number essential COBIM nodes.
+weighted line fitting, contribution (log(12PE), k) error
+function weighted fraction nodes having degree k.)               Supporting Information strategies described et al. [9]. deem                                                                                   Table S1 Using network integrity measures evaluate effect
+agreement parameter values estimated using network
+                                                                                  removal hubs equivalent number central
+simulation line fitting strategies strongest
+                                                                                  nodes according centrality measures
+indications validity model. tested networks parameter values estimated using different strategies, shown                doi:10.1371/journal.pcbi.1000140.s001 (0.04 MB Table S4, vary considerably.                                                   DOC)
+                                                                                  Figure S1 Membership COBIMs. overlap Method Automatic Identification ECOBIMs                                COBIMs quantified showing fraction nodes
+  method automatic extraction putative ECOBIMs                      members COBIMs.
+applied subnetworks induced proteins annotated                 doi:10.1371/journal.pcbi.1000140.s002 (0.05 MB
+biological process term. work used set 192                     DOC)
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                     14                          August 2008 | Volume 4 | Issue 8 | e1000140
+                                                                                                                                                    Essentiality Hub Proteins
+
+
+Table S2 ECOBIMs member genes. tested                                     COBIMs (ECOBIMs) depends value protein interaction network list automatically identified                              parameter k. small values k COBIMs (ECOBIMs)
+ECOBIMs. ECOBIM following information                                         output algorithm larger COBIMs (ECOBIMs)
+shown: corresponding biological process term/terms,                                    identified bigger values k contain number essential genes, number genes, names                                  network nodes. exact dependency shown range member genes.                                                                                 parameter values. protein interaction network  doi:10.1371/journal.pcbi.1000140.s003 (0.05 MB XLS)                                 fraction network nodes members Table S3 Enrichment ECOBIM non-ECOBIM COBIM                                            COBIMs (ECOBIMs) shown. network selected nodes subnetworks LC, HC, TAP-MS, BAYESIAN,                                     value k results approximately 25  network nodes Y2H networks. subnetwork contributed                                  members COBIMs; resulting fractions shown ECOBIM fraction essential proteins                                 bold.
+subnetwork nodes, subnetwork ECOBIM nodes subnetwork                                       doi:10.1371/journal.pcbi.1000140.s006 (0.03 MB
+non-ECOBIM COBIM nodes shown.                                                              DOC)  doi:10.1371/journal.pcbi.1000140.s004 (0.15 MB XLS)
+Table S4      parameters essential protein interaction                             Acknowledgments
+model. use strategies estimate parameters,                              authors thank Eugene Koonin (NCBI) valuable comments b, essential protein interaction model: network                                    manuscript.
+simulation described original paper (simulation), line
+fitting points described original paper (line fitting),                      Author Contributions weighted line fitting points values k (weighted line
+                                                                                              Conceived designed experiments: EZ TMP. Performed fitting).                                                                                     experiments: EZ. Analyzed data: EZ DPO TMP. Wrote paper: EZ.  doi:10.1371/journal.pcbi.1000140.s005 (0.03 MB                                      Contributed algorithm efficient computation edge-disjoint path
+DOC)                                                                                          integrity measure: JM. Contributed designing experiments Table S5 number COBIM ECOBIMs nodes                                           writing paper: DPO. Participated writing paper: TP.
+function parameter . number nodes belong 
+References
+ 1. Jeong H, Mason SP, Baraba´si AL, Oltvai ZN (2001) Lethality centrality                   examine hybrid interactions possible combinations yeast
+    protein networks. Nature 411(6833): 41–42.                                                      proteins. Proc Natl Acad Sci U S 97(3): 1143–1147.
+ 2. X, Zhang J (2006) hubs tend essential protein networks?                19.   Uetz P, Giot L, Cagney G, Mansfield TA, Judson RS, et al. (2000)     PLoS Genet 2(6): e88. doi:10.1371/journal.pgen.0020088.                                         comprehensive analysis protein-protein interactions Saccharomyces
+ 3. Jeong H, Mason SP, Baraba´si AL, Oltvai ZN (2001) Lethality centrality                   cerevisiae. Nature 403(6770): 623–627.
+    protein networks. Nature 411(6833): 41–42.                                                20.   Gavin AC, Bo¨sche M, Krause R, Grandi P, Marzioch M, et al. (2002)
+ 4. Batada NN, Hurst LD, Tyers M (2006) Evolutionary physiological                              Functional organization yeast proteome systematic analysis protein
+    importance hub proteins. PLoS Comput Biol 2(7): e88. doi:10.1371/                            complexes. Nature 415(6868): 141–147.
+    journal.pcbi.0020088.                                                                     21.   Ho Y, Gruhler  Heilbut  Bader GD, Moore L, et al. (2002) Systematic
+ 5. Hahn MW, Kern AD (2005) Comparative genomics centrality essentiality                     identification protein complexes Saccharomyces cerevisiae mass
+    eukaryotic protein-interaction networks. Mol Biol Evol 22(4): 803–806.                 spectrometry. Nature 415(6868): 180–183.
+ 6. Yu H, Greenbaum D, Xin Lu H, Zhu X, Gerstein M (2004) Genomic analysis                 22.   Gavin AC, Al

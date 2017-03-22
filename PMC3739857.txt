@@ -1,0 +1,285 @@
+                                                                                                                                     Database, Vol. 2013, Article ID bat059, doi:10.1093/database/bat059
+.............................................................................................................................................................................................................................................................................................
+
+
+
+
+Database update
+Version 6 consensus yeast metabolic
+network refines biochemical coverage improves model performance
+Benjamin D. Heavner1, Kieran Smallbone2, Nathan D. Price1 Larry P. Walker3,*
+1
+  Institute Systems Biology, 401 Terry Ave N., Seattle, WA 98109, USA, 2Manchester Centre Integrative Systems Biology, University Manchester, Manchester, M1 7DN, UK 3Biomass Conversion Laboratory, Department Biological Environmental Engineering,
+Cornell University, Ithaca, NY 14853, USA
+
+*Corresponding author: Email: lpw1@cornell.edu
+
+Submitted 1 March 2013; Revised 14 2013; Accepted 12 July 2013
+
+Citation details: Heavner,B.D., Smallbone,K., Price,N.D., et al. Version 6 consensus yeast metabolic network refines biochemical coverage improves model performance. Database (2013) Vol. 2013: article ID bat059; doi:10.1093/database/bat059.
+
+.............................................................................................................................................................................................................................................................................................
+
+Updates maintain state art reconstruction yeast metabolic network essential reflect 
+standing yeast metabolism functional organization, eliminate inaccuracies identified earlier iterations, improve predictive accuracy continue expand novel subsystems extend comprehensiveness model.  present version 6 consensus yeast metabolic network (Yeast 6) update community
+effort computationally reconstruct genome-scale metabolic network Saccharomyces cerevisiae S288c. Yeast 6
+comprises 1458 metabolites participating 1888 reactions, annotated 900 yeast genes encoding catalyzing enzymes. Compared Yeast 5, Yeast 6 demonstrates improved sensitivity, specificity positive nega-
+tive predictive values predicting gene essentiality glucose-limited aerobic conditions analyzed flux balance
+analysis. Additionally, Yeast 6 improves accuracy predicting likelihood mutation cause auxotrophy. network reconstruction available Systems Biology Markup Language (SBML) file enriched Minimium
+Information Requested Annotation Biochemical Models (MIRIAM)-compliant annotations. Small- macromol-
+ecules network referenced authoritative databases Uniprot ChEBI. Molecules reactions annotated appropriate publications contain supporting evidence. Yeast 6 freely available http://yeast.sf.net/ separate SBML files: model using SBML level 3 Flux Balance Constraint package, model compatible MATLABÕ COBRA Toolbox backward compatibility reconstruction containing reactions experimental evidence  non-biological reactions necessary simulating growth).
+Database URL: http://yeast.sf.net/
+.............................................................................................................................................................................................................................................................................................
+
+
+
+
+                                                                                                                                                  network, Yeast 6. differences Yeast 5 Introduction                                                                                                                                      Yeast 6 described fully detailed 2007, community effort integrate previously pub-                                                                                          supplementary data attached publication. lished genome-scale reconstructions yeast metabolic                                                                                        update maintains emphasis standards compliance,
+network (1, 2) produced ‘consensus’ representation                                                                                           unambiguous metabolite naming readable
+yeast metabolism (3), subsequently                                                                                                 annotations available structured document
+updated iterative collaborative curation mul-                                                                                          format. Additionally, developed MATLABÕ scripts
+tiple research groups (4, 5).  introduce version 6                                                                                        demonstrate approach comparing Yeast 5 consensus reconstruction yeast metabolic                                                                                            Yeast 6 using flux balance analysis (FBA) methods,
+
+.............................................................................................................................................................................................................................................................................................
+ß Author(s) 2013. Published Oxford University Press. Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/
+licenses 3.0/), permits unrestricted reuse, distribution, reproduction medium, provided original work properly
+cited.                                                                                                                       Page 1 5
+                                                                                                 (page number citation purposes)
+ Database update                                                                                                                      Database, Vol. 2013, Article ID bat059, doi:10.1093/database/bat059
+.............................................................................................................................................................................................................................................................................................
+
+
+leveraging COnstraint-Based Reconstruction                                                                                             compatible MATLABÕ COBRA toolbox (6) 
+Analysis (COBRA) Toolbox (6). scripts                                                                                              ward compatibility GENRE containing reactions
+included supplementary data.                                                                                                                   experimental evidence.
+   emphasize distinction established
+biochemistry included metabolic genome-scale net-
+work reconstruction (GENRE) (7) additional model-
+                                                                                                                                                  Results
+ing assumptions required analysis simulation                                                                                        Overview network characteristics
+genome-scale model (GEM) (7), Yeast 6                                                                                                Yeast 6 resulted effort improve predictive
+available http://yeast.sf.net/ separate Systems                                                                                       accuracy Yeast 5 manual curation, particu-
+Biology Markup Language (SBML) files: GEM using                                                                                             lar focus removing information sup-
+SBML level 3 Flux Balance Constraint package, GEM                                                                                               ported published literature adding metabolic
+                                                                                                                                                  pathway information recently discovered.
+                                                                                                                                                  result effort, Yeast 6 contains fewer metabolites
+Table 1. Summary statistics Yeast 5 Yeast 6
+                                                                                                                                                  reactions Yeast 5 (Table 1), accurate Summary statistics                                                                    Yeast 5                             Yeast 6                 predictions gene essentiality (Table 2) auxotroph-
+                                                                                                                                                  inducing mutations (Table 3). Ninety-seven 1868 
+Genes                                                                                    918                                900                   actions shared Yeast 5 Yeast 6 different
+Metabolites                                                                           1655                                1458                    constraints, reflecting refinements reaction reversibility
+Reactions                                                                             2110                                1888                    yeast metabolic network.
+Reactions PMID references                                                        37.6                                40.4 
+                                                                                                                                                  Novel features Yeast 6 additional quality curation, Yeast 6 fewer blocked
+                                                                                                                                                  Metabolites, reactions genes differ Yeast 5
+reactions greater percentage reactions annotated literature evidence; contains fewer genes, metabolites                                                                                Yeast 6. Detailed lists common distinct
+reactions Yeast 5. reconstruction includes open read-                                                                                metabolites, reactions, genes, constraints, auxotrophs ing frames annotated ‘dubious’ Saccharomyces Genome                                                                                     knockout predictions included supplementary data,
+Database (7).                                                                                                                                     code used generate comparisons. 
+
+
+             Table 2. Comparing gene essentiality predictions Yeast 5 Yeast 6
+
+
+                 Knockout Simulation Results                                                              Yeast 5                    Yeast 6                                              Observed viable                          Observed inviable
+                                                                                                                                                                                             mutants                                   mutants
+                                                                                                           683                         672
+                                                                                                                                                                  Simulated viable
+
+
+
+
+                 True Positive                                                                            (74 )                      (75 )                                           24                              13         34                                        2
+                                                                                                                                                                     mutants
+
+
+
+
+                                                                                                           108                         135
+                                                                                                                                                                                                 659                                                 80
+                 True Negative                                                                            (12 )                      (15 )
+                                                                                                           114                         82
+                 False Positive                                                                           (12 )                       (9 )                                                  True Positive                                False Positive
+                                                                                                            13                         11
+                                                                                                                                                                  inviable mutants
+
+
+
+
+                                                                                                                                                                                      2                                                                                 27
+                 False Negative                                                                            (1 )                       (1 )
+                                                                                                                                                                      Simulated
+
+
+
+
+                                                                                                                                                                                                  11                                               108
+                 Sensitivitya                                                                              98.1                       98.4 
+                 Specificityb                                                                              48.7                       62.2 
+                                                                                                                                                                                           False Negative                                True Negative
+                                                                           c
+                 Positive Predictive Value                                                                 85.7                       89.1                                           Yeast 5            Yeast 6                   networks
+                                                                               d
+                 Negative Predictive Value                                                                 89.3                       92.5 
+                                                                                               e
+                 Matthews Correlation Coefficient                                                            0.59                        0.70
+                            TP/(TP + FN)
+             b
+               TN/(TN + FP)
+             c
+              TP/(TP + FP)
+             d
+               TN/(TN + FN)
+             e              TPTNFPFN
+               pﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+                                                                  ﬃ (8)
+                   ðTPþFP ÞðTPþFNÞðTNþFP ÞðTNþFNÞ
+             Yeast 6 fewer false-positive predictions true-negative predictions gene essentiality, leading improve-
+             ments sensitivity, specificity, positive predictive value, negative predictive value Matthews correlation coefficient               Discussion information use metric).
+
+
+.............................................................................................................................................................................................................................................................................................
+
+Page 2 5
+ Database, Vol. 2013, Article ID bat059, doi:10.1093/database/bat059                                                                                                                                                                Database update
+.............................................................................................................................................................................................................................................................................................
+
+
+Table 3. Comparing auxotroph mutant predictions Yeast 5                                                                                        biomass produced following deletion  Yeast 6
+                                                                                                                                                  essential genes), 27 new true negative predictions  e. FBA
+Simulation Results                                                                                 Yeast 5                Yeast 6                 predicts biomass produced essential
+                                                                                                                                                  genes deleted), 1 new gene predicted induce auxo-
+Auxotroph-inducing genes                                                                                92                     93                 trophy following mutation 7 newly correct predictions
+Correct auxotrophy predictions                                                                          57                     64                 auxotrophy phenotypes. Yeast 6 introduces new pre-
+Mutant incorrectly predicted viable                                                               32                     26                 dictions differ laboratory observations, new
+ minimal medium                                                                                                                                false-positives (growth predicted despite deletion Mutant incorrectly predicted inviable                                                               3                       3               essential gene), new auxotrophic mutant predicted 
+ supplemented medium
+                                                                                                                                                  correctly incapable growth supplemented media
+Yeast 6 genes deletion reported                                                                                     new mutants incorrectly predicted viable cause auxotrophy correct predictions                                                                                      minimal media despite reported auxtrophy. note auxotrophy Yeast 5.                                                                                                                          differences model prediction observation
+                                                                                                                                                  arise regulatory constraints outside                                                                                                                                                   scope metabolic reconstruction, informative
+supplementary data include specific rationale reac-                                                                                      opportunities continued network curation.
+tion deletions additions, detailed descriptions function gene removed added. sum-                                                                                            Yeast 6 aerobic anaerobic growth
+mary, Yeast 5 203 metabolites Yeast 6,                                                                                        Unlike Yeast 5, Yeast 6 does include separate biomass Yeast 6 introduces 6 new metabolites. smaller                                                                                         definitions simulating aerobic anaerobic growth.
+number metabolites Yeast 6 arises removal                                                                                          Yeast 6 correctly predicts yeast grow min- metabolites involved dead-end reactions anno-                                                                                         imal media strict anaerobic conditions [Saccharomyces
+tated modeling reaction  e. included Yeast 5                                                                                     cerevisiae requires supplementation unsaturated biochemical genomic evidence). dead-end                                                                                             fatty acids sterols (9, 10)]. Simulating anaerobic
+reactions annotated gene removed.                                                                                            growth Yeast 6 requires simulated medium Yeast 5 242 reactions Yeast 6,                                                                                        supplemented sterols  e. exchange reactions Yeast 6 20 reactions Yeast 5. detailed                                                                                     episterol, ergosterol, fecosterol, lanosterol, zymosterol supplementary data, reactions removed Yeast 6                                                                                            ergosta-5,7,22,24(28)-tetraen-3beta-ol nonzero
+clude incorrect cofactor specificity, invol-                                                                                     lower bounds].
+ving protein modification, supported literature review dead-end modeling reactions. Yeast                                                                                          Data annotation standards
+5 31 genes Yeast 6, Yeast 6                                                                                           network reconstruction provided SBML (11) file
+13 genes Yeast 5. 31 genes removed,                                                                                        enriched MIRIAM-compliant (12) annotations. Small-
+21 encode proteins involved protein modification                                                                                            macromolecules referenced community-stand-
+Glycosylphosphatidylinositol (GPI)-anchor assembly (pro-                                                                                          ard databases Uniprot (13) ChEBI (14).
+cesses strictly metabolic), 4 annotated                                                                                          Molecules reactions annotated appropri- ‘putative’ function, 1 removed unclear                                                                                        ate publications contain supporting evidence. 
+cofactor specificity, 2 annotated poorly characterized reac-                                                                                      network presented computational framework
+tions involved ergosterol biosynthesis, 1 encodes                                                                                          adheres community standards entirely trace-
+flippase, require finer level membrane                                                                                           able. facilitate comparison reconstructions compartmentalization currently exists model,                                                                                          models, Yeast 6 metabolite reaction identifiers  metabolic function remaining 2                                                                                             sistent Yeast 5 identifiers (e.g. reaction ‘r_0123’ established.                                                                                                                                 Yeast 5 reaction ‘r_0123’ Yeast 6,                                                                                                                                                   metabolite ‘s_0042’ Yeast 5 metabolite Essentiality auxotrophy predictions Yeast 6                                                                                              ‘s_0042’ Yeast 6). changes reconstructed metabolic network,                                                                                                Yeast 6 follows modeling conventions Yeast
+combined incorporation suggested changes                                                                                           5. used SBML specification encoding reaction biomass definition (8), rise altered FBA predic-                                                                                      metabolite annotation COBRA
+tions gene essentiality glucose-limited aerobic condi-                                                                                      Toolbox-specific convention using custom ‘Notes’
+tions altered predictions auxotrophy induced                                                                                            field. sign convention exchange reactions gene deletion. compared list es-                                                                                           positive flux values represent compounds produced sential genes compiled  list included sup-                                                                                      FBA simulation, negative flux values represent com-
+plementary data testYeast.m file), Yeast 6 13 new true                                                                                        pounds consumed, include biomass specific
+positive predictions gene essentiality  e. FBA predicts                                                                                      species model.
+
+
+.............................................................................................................................................................................................................................................................................................
+
+                                                                                                                                                                                                                                                      Page 3 5
+ Database update                                                                                                                      Database, Vol. 2013, Article ID bat059, doi:10.1093/database/bat059
+.............................................................................................................................................................................................................................................................................................
+
+
+Assessing metabolic models                                                                                                                           Additional limitations arise appropriately lim- gene picked random likely                                                                                              ited scope metabolic network reconstruction.
+inessential essential growth (15), overall accuracy                                                                                      Condition-dependent constraints arise various good metric assessing model predictive ability                                                                                       regulatory mechanisms included Yeast 6. 
+(16). statistical issue previously recognized,                                                                                      pathways affected transcriptional regu-
+leading use ‘geometric mean accuracy’                                                                                          latory events glucose repression incor-
+metric evaluating metabolic network models (2).                                                                                               rectly predicted carry fluxes FBA (e.g. geometric mean ignores positive predictive                                                                                            absence additional constraints, malate cycle
+value  called precision) (17), report values                                                                                       mitochondrial malate dehydrogenase cyto- contingency matrix (Table 2), summarize pre-                                                                                          plasmic malate dehydrogenase). Integration regulatory
+dictive ability model Matthews correlation                                                                                        metabolic networks remains area active 
+coefficient (18), metric robust range                                                                                       search (21, 22).
+prevalence values incorporates positive negative                                                                                             Like metabolic network models, reactions predictive values.                                                                                                                                Yeast 6 carry flux FBA simulation. Yeast 6 738
+   include testYeast.m script supplementary                                                                                             blocked reactions (39 ), similar portion blocked reac-
+data facilitate evaluation model. script                                                                                          tions Yeast 5 (38 ). Blocked reactions indicate know-
+compares model phenotype predictions lists ver-                                                                                        ledge limitations  reactions leading dead-end
+ified yeast open reading frames, genes consider                                                                                           metabolites metabolic fate origin unknown,
+essential genes cause auxotrophy deletion.                                                                                          reactions involved unconnected portions metabol- compiled lists Yeast Deletion Project (15)                                                                                      ism, form unconnected subgraphs network). information Saccharomyces Genome                                                                                                  Like FBA predictions differ observation, Database (19).                                                                                                                                    number blocked reactions affected condition-
+                                                                                                                                                  specific constraints, particularly constraints reaction 
+                                                                                                                                                  versibility. observed relaxing reversibility
+Discussion                                                                                                                                        reactions involving nucleotide cofactors reduces                                                                                                                                                   number blocked reactions.
+Yeast 6 current state art reconstruction                                                                                                                                                      Unlike Yeast 5, prediction anaerobic ethanol pro-
+S. cerevisiae metabolic network. eliminates inferred
+                                                                                                                                                  duction FBA simulation requires manual restriction reactions evidence, adds new reac-
+                                                                                                                                                  reaction catalyzed ATP synthase. requirement tions based recent evidence results improved pre-
+                                                                                                                                                  condition-dependent constraint arise dictions experimental data. maintains distinction
+                                                                                                                                                  lack regulatory constraints described  GENRE GEM, emphasizing traceable
+                                                                                                                                                  need physicochemical capacity constraints allow-
+annotation included information, differentiates 
+                                                                                                                                                  able flux. Additionally, reflect  presently
+tween established biochemistry hypotheses                                                                                                                                                   uncharacterized limitations. note integrat- generated automated techniques gap-filling
+                                                                                                                                                  ing regulatory constraints, detailed reconstruction cofac-
+algorithms (20). useful addition 
+                                                                                                                                                  tor proton balancing remains area active
+sensus resource large community researchers
+                                                                                                                                                  research constraint-based modeling community use yeast metabolic model guide experimental
+                                                                                                                                                  (23); redox conditions clearly critical importance modeling efforts.
+                                                                                                                                                  function ATP synthase.
+
+Limitations                                                                                                                                       invitation participate community effort
+Improving reconstruction yeast metabolic net-                                                                                          reconstruct yeast metabolic network
+work remains ongoing project. addition                                                                                               Computational reconstruction modeling yeast
+model predictions differ experimental observa-                                                                                          metabolism ongoing project, invite additional
+tions described  e. false-positive, false-negative                                                                                        community participation effort. Suggestions incorrect auxotroph predictions), remains sub-                                                                                          improving yeast consensus reconstruction derived
+stantial opportunity improve reconstruction                                                                                             models submitted network.reconstruc
+lipid metabolism. point evident                                                                                             tion@manchester.ac.uk. Metabolites enzymes fact unsaturated fatty acids currently                                                                                               unambiguously identified, using existing model data-
+required simulating anaerobic growth,                                                                                                base (ChEBI UniProt) identifiers. New reactions arises continued use generic lipid species                                                                                         supplied primary evidence mechanism
+ e. compounds using generic residual (-R) groups,                                                                                        catalysis, PubMed identifiers. Reactions precise stoichiometrically balanced definitions                                                                                           evidence clear reasons proposed
+fatty acid moieties].                                                                                                                             addition.
+
+
+.............................................................................................................................................................................................................................................................................................
+
+Page 4 5
+ Database, Vol. 2013, Article ID bat059, doi:10.1093/database/bat059                                                                                                                                                                Database update
+.............................................................................................................................................................................................................................................................................................
+
+
+                                                                                                                                                     6. Schellenberger,J., Que,R., Fleming,R.M.T. et al. (2011) Quantitative
+Supplementary data                                                                                                                                      prediction cellular metabolism constraint-based models:                                                                                                                                                         COBRA Toolbox v2.0. Nat. Protoc., 6, 1290–1307.
+Supplementary data available Database Online.
+                                                                                                                                                     7. Price,N.D., Reed,J.L. Palsson,B.O. (2004) Genome-scale models
+                                                                                                                                                        microbial cells: evaluating consequences constraints.
+                                                                                                                                                        Nat. Rev. Microbiol., 2, 886–897.
+Acknowledgments                                                                                                                                      8. Zomorrodi R. Maranas,C.D. (2010) Improving iMM 904 S. authors gratefully acknowledge Hnin Aung Kalliopi                                                                                               cerevisiae metabolic model using essentiality synthetic lethality
+                                                                                                                                                        data. BMC Syst. Biol., 4, 178.
+Trachana, Julie Bletz, James Eddy, John Earls                                                                                                                                                      9. Andreasen  Stier,T.J. (1954) Anaerobic nutrition members Price group constructive
+                                                                                                                                                        Saccharomyces cerevisiae. II. Unsaturated fatty acid requirement
+comments manuscript stimulating discussion                                                                                                growth defined medium. J. Cell. Physiol., 43, 271–281.
+metrics evaluating model predictive accuracy.                                                                                                  10. Andreasen  Stier,T.J.B. (1953) Anaerobic nutrition                                                                                                                                                        Saccharomyces cerevisiae.  Ergosterol requirement growth                                                                                                                                                        defined medium. J. Cell. Physiol., 41, 23–36.
+Funding                                                                                                                                            11. Hucka,M., Finney , Sauro,H.M. et al. (2003) systems biology
+                                                                                                                                                       markup language (SBML): medium representation ex-
+Support provided work Cornell Biofuels                                                                                              change biochemical network models. Bioinformatics, 19,
+Research Laboratory U. S. Department                                                                                                             524–531.
+Transportation, Federal Grant (#DTOS59-07-G-00052),                                                                                            12. Nove N.L., Finney , Hucka,M. et al. (2005) Minimum informa- U.S. Department Agriculture, Award (#2010-38502-                                                                                                tion requested annotation biochemical models
+                                                                                                                                                       (MIRIAM). Nat. Biotechnol., 23, 1509–1515.
+21900). Support provided work Institute
+                                                                                                                                                   13. UniProt Consortium. (2012) Update activities Systems Biology Center Systems Biology/2P50
+                                                                                                                                                       Universal Protein Resource (UniProt) 2013. Nucleic Acids Res.,
+GM076547, Grand Duchy Luxembourg Systems                                                                                                        41, D43–D47.
+Medicine Consortium, Camille-Dreyfus Teacher                                                                                               14. Hastings,J., Matos,P., Dekker  et al. (2012) ChEBI reference
+Scholar Program (NDP)  B.D.H.). Support provided                                                                                                database ontology biologically relevant chemistry: enhance- EU FP7 (KBBE) grant (289434) ‘BioPreDyn: New                                                                                                    ments 2013. Nucleic Acids Res., 41, D456–D463.
+Bioinformatics Methods Tools Data-Driven                                                                                                   15. Winzeler,E , Shoemaker,D.D., Astromoff  et al. (1999)
+Predictive Dynamic Modelling Biotechnological                                                                                                       Functional characterization S. cerevisiae genome gene
+                                                                                                                                                       deletion parallel analysis. Science, 285, 901–906.
+Applications’  K.S.). Funding open access charge:
+                                                                                                                                                   16. Alberg J., Park,J.W., Hager,B.W. et al. (2004) use ‘‘overall
+U. S. Department Transportation, Federal Grant
+                                                                                                                                                       accuracy’’ evaluate validity screening diagnostic tests.
+(#DTOS59-07-G-00052), U.S. Department                                                                                                       J. Gen. Intern. Med., 19, 460–465.
+Agriculture, Award (#2010-38502-21900)                                                                                                             17. Kubat,M., Holte,R.C. Matwin,S. (1998) Machine learning                                                                                                                                                        detection oil spills satellite radar images. Mach. Learn.,
+Conflict  declared.                                                                                                                   30, 195–215.
+                                                                                                                                                   18. Baldi,P., Brunak,S., Chauvin,Y. et al. (2000) Assessing accuracy                                                                                                                                                        prediction algorithms classification: overview. Bioinformatics,
+
+References                                                                                                                                             16, 412–424.
+                                                                                                                                                   19. Cherry,J.M., Hong,E.L., Amundsen,C. et al. (2012) Saccharomyces
+  1. Mo,M.L., Palsson,B.Ø. Herrga˚rd,M.J. (2009) Connecting extra-                                                                                 Genome Database: genomics resource budding yeast.
+     cellular metabolomic measurements intracellular flux states                                                                                 Nucleic Acids Res., 40, D700–D705.
+     yeast. BMC Syst. Biol., 3, 37.                                                                                                                20. Brooks,J.P., Burns,W.P., Fong,S.S. et al. (2012) Gap detection   2. Kuepfer,L., Sauer,U. Blank,L.M. (2005) Metabolic functions                                                                                 genome-scale constraint-based models. Adv. Bioinformatics, 2012,
+     duplicate genes Saccharomyces cerevisiae. Genome Res., 15,                                                                                     1–10.
+     1421–1430.                                                                                                                                    21. Blazier S. Papin,J  (2012) Integration expression data   3. Herrgard,M.J., Swainston,N., Dobson,P. et a

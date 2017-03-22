@@ -1,0 +1,478 @@
+Research
+
+Natural selection cis trans regulation yeasts
+J.J. Emerson,1,10 Li-Ching Hsieh,1,2,10 Huang-Mo Sung,3,10 Tzi-Yuan Wang,1,4,10
+Chih-Jen Huang,4,5,6 Henry Horng-Shing Lu,7 Mei-Yeh Jade Lu,1,4 Shu-Hsing Wu,8 Wen-Hsiung Li1,4,9,11
+1
+  Genomics Research Center, Academia Sinica, Taipei 115, Taiwan; 2Institute Information Science, Academia Sinica, Taipei 115,
+Taiwan; 3Department Life Sciences, National Cheng Kung University, Tainan 701, Taiwan; 4Biodiversity Research Center, Academia
+Sinica, Taipei 115, Taiwan; 5Molecular Biological Agricultural Sciences Program, Taiwan International Graduate Program,
+Academia Sinica, Taipei 115, Taiwan; 6Graduate Institute Biotechnology, National Chung Hsing University, Taichung 402, Taiwan;
+7
+  Institute Statistics, National Chiao Tung University, Hsinchu 30010, Taiwan; 8Institute Plant Microbial Biology, Academia
+Sinica, Taipei 115, Taiwan; 9Department Ecology Evolution, University Chicago, Chicago, Illinois 60637, USA
+
+
+       Gene expression regulated cis elements, DNA segments closely linked genes regulate,        trans factors, usually proteins capable diffusing unlinked genes. Understanding patterns sources
+       regulatory variation crucial understanding phenotypic genome evolution.  measure genome-wide
+       allele-specific expression deep sequencing investigate patterns cis trans expression variation        strains Saccharomyces cerevisiae. propose statistical modeling framework based binomial distribution        simultaneously addresses normalization read counts derived different parents estimating cis trans
+       expression variation parameters. expression polymorphism yeast common cis trans,        trans variation common. Constraint expression evolution correlated hallmarks constraint,
+       including gene essentiality, number protein interaction partners, constraint amino acid substitution, indicating
+       cis trans polymorphism clearly purifying selection, trans variation appears        sensitive selective constraint. Comparing interspecific expression divergence S. cerevisiae S. paradoxus        intraspecific variation suggests significant departure neutral model molecular evolution. examination
+       correlation polymorphism divergence category suggests cis divergence frequently
+       mediated positive Darwinian selection trans divergence.
+       [Supplemental material available online http://www.genome.org. sequencing data study        submitted NCBI Gene Expression Omnibus (http://www.ncbi.nlm.nih.gov/geo) accession  GSE20749.]
+
+Untangling genetic basis phenotypic variation              ation different strains S. cerevisiae (Kvitek et al. species central topic evolutionary biology. long      2008), concluding expression polymorphism argued evolution protein sequences insufficient           influence diversifying selection adaptation different envi-
+explain morphological diversity present nature (King              ronments. argued cis expression level polymor-
+Wilson 1975). Consequently, evolution gene expression           phism purifying selection, trans expression poly- invoked alternative explanation phenotypic inno-              morphism positive selection (Ronald Akey 2007).
+vation (Halder et al. 1995; Carroll 2008). result, effort      Studies Drosophila took advantage comparing allele-specific devoted understanding expression evolution eukaryotes,            expression (ASE) patterns parental strains especially model systems like budding yeast Saccharomyces cer-           hybrid offspring  e., F1 hybrids) investigate cis trans expres-
+evisiae (Rockman Kruglyak 2006). Previous genome-wide studies            sion evolution (Wittkopp et al. 2004, 2008). experimental  expression variation yeast taken advantage genome         sign measures combined expression variation  cis trans
+microarrays determine linkage relationship genes              effects) locus measurement expression differences variable expression causative mutations. Generally,       parental strains. combined effects categories
+assumed sets genes exhibiting local linkage QTL maps          genetic variation influencing gene regulation explain expres-
+enriched cis variation distant linkage regu-        sion differences measured genetically distinct strains.
+lated trans. QTL studies demonstrated gene regulation           expression differences measured F1 hybrids 
+polymorphisms yeast common dominated distant               tween strains longer attributed trans-
+linkages (Brem et al. 2002; Yvert et al. 2003). Furthermore,          factors, genomes share cell trans-
+shown transcripts linked ‘‘hotspot’’ reg-        factors. Consequently, hybrid experiment measures cis
+ulators. example, Yvert et al. (2003) reported 1265 variable tran-       variation. experiments Drosophila 78 genes showed scripts regulated 13 distant QTLs. study variation        cis differences dominate species species transcript levels corroborated ubiquity transcript vari-       (Wittkopp et al. 2008). ASE polymorphism studies yeast                                                                              expression level variation usually numerically domi-
+10
+  authors contributed equally work.                            nated trans variants (Wang et al. 2007; Sung et al. 2009), 11
+  Corresponding author.                                                      single-input module genes chosen minimize im-
+E-mail whli@uchicago.edu; fax (773) 702-9740.
+Article published online print. Article publication date   pact trans variation (Wang et al. 2007). Additionally, yeast http://www.genome.org/cgi/doi/10.1101/gr.101576.109.                         52 –78  expression QTLs mapped region gene
+
+
+826     Genome Research                                20:826–836 Ó 2010 Cold Spring Harbor Laboratory Press; ISSN 1088-9051/10; www.genome.org
+           www.genome.org
+                                                                                         Selection cis trans regulation yeasts
+
+ regulate confirmed cis (Ronald et al. 2005), implying      Intraspecific genomic DNA sequencing 22 –48  genes local linkages                                                                            cell density ratio strains culture ex-
+regulated trans.  Ronald et al. (2005) reported specific
+                                                                           periment (dCo) need 1, introduces systematic bias instances trans regulation stemming local linkage.                                                                            mRNA transcript counts strains. correct ASE studies, predominance trans linkage generally consis-
+                                                                           bias, sequenced genomic DNA (gDNA) samples
+tent results QTL mapping (Brem et al. 2002; Yvert
+                                                                           provided mRNA estimate dCo  culture) dHy
+et al. 2003), demonstrated majority linkages
+                                                                           (F1 hybrid). estimated dCo = 1.30  expected, dHy = distant likely driven ‘‘hotspot’’
+                                                                           1.00. dHy indistinguishable 1, expected, indicates trans-activating factors regulate thousands transcripts spread
+                                                                           method effective way estimate d (Supplemental Fig. S1). genome. contrast, recent genome-wide com-
+                                                                           used ratios estimation allelic expression ratios parison cis trans variation S. cerevisiae S. paradoxus
+                                                                           terms RM (eCo eHy), accounting effect cell density shown cis variation common trans variation,
+                                                                            Methods). estimated means confidence  intraspecific data reported (Tirosh et al. 2009).
+                                                                           tervals cis trans contributions expression change terms
+      Counting sequencing reads long used measure                                                                            deviations null hypotheses: log2(eHy) = log2(eCis) relative copy numbers sequences. Bailey et al. (2002) used
+                                                                           log2(eCo) = log2(eCis) + log2(eTrans)  Methods). results agree increase read counts identify increases copy number                                                                            closely data set 227 genes collected study using segmental duplication. recently, Seoighe et al. (2006) used
+                                                                           pyrosequencing (Fig. 1; Sung et al. 2009). correlation representation EST libraries identify ASE indicative                                                                            genes ranges 0.74 0.81, regression lines esti-
+genomic imprinting genetically caused allelic differences.                                                                            mated comparisons indistinguishable di- advent high-throughput sequencing technologies like 454
+                                                                           agonal running origin slope equal 1.
+Life Sciences (Roche) sequencing, perspective quantitative (Springer Stupar 2007). application higher capacity deep sequencing technologies quantitative mea-          Intraspecific transcriptome sequencing
+surement nucleotide frequencies obvious benefits mea-           expression estimation
+suring transcriptomes (Nagalakshmi et al. 2008). enabled       4442 genes passed bioinformatics filters, 4282 accurate measurements allelic differences genetically           sequence reads alleles experiments (Sup-
+variable nucleotide pools single nucleotide polymorphism (SNP)         plemental Tables S1–S3). 12 channels IGA sequencing discovery (Van Tassell et al. 2008) ASE (Wang et al. 2008; Bloom       cDNA samples (24 channels total), et al. 2009).                                                              mapped 1.202 1.188 million sequence reads hybrid
+       investigate relative contributions cis trans     sample RM SNPs, respectively; culture sample
+regulatory differences overall expression variation entire      mapped 1.096 1.330 million reads.
+genome S. cerevisiae, using Illumina Genome Analyzer (IGA) se-                total, 1180 genes (28 ) exhibit expression polymorphism
+quencing mRNA measure genome-wide ASE culture                P-value threshold 1  (false discovery rate [FDR] < 5 ;
+experiment composed strains S. cerevisiae (denoted         Supplemental Fig. S2; correlated estimates, Methods).  RM) F1 hybrid. report relative impact           classified genes examining relationship cis selective constraint various modes gene regulation            trans polymorphisms genome (Fig. 2D; species genome time, demonstrating          Methods section Independent Estimates). data indicate large proportion genes exhibit expression polymorphism,          trans variation frequent, observed previously (Brem et al. trans variation dominating cis, removing genes        2002;
+                                                                                   Yvert  et  al. 2003),    greater magnitudes change
+influenced trans ‘‘hotspots’’ identified Yvert et al. (2003).        ð log2 ðetrans Þ > log2 ðecis Þ  (Wilcoxon rank sum test, P-values <
+Furthermore, date, genome-wide comparison cis trans            0.01) cis variation. Nearly times genes exhibit
+variation species reported.       trans change genes cis change (123 vs. 33).
+study, compare polymorphism data divergence data             178 genes significant |log2(ecis)| 6¼ |log2(etrans)|, 79  recent study (Tirosh et al. 2009), showing cis        (140) genes |log2(ecis)| < |log2(etrans)|. Interestingly,
+differences common species species,           116 genes unambiguous expression variation cis trans trans variation compatible neutral       variation simultaneously (Fig. 2C,D, ‘‘dominant’’ ‘ ’ cat-
+model selection, cis variations appear driven           egories; use ‘‘dominant’’ confused fixation positive Darwinian selection.                             genetic dominance; merely indicates variation type
+                                                                           regulation greater , 589 genes
+                                                                           clear evidence variation category ambiguous
+Results                                                                    evidence (Fig. 2A,C,D, ‘‘major’’ categories).
+                                                                            trans differences clearly dominate, influencing 64  (558/
+Orthology SNP identification                                           863) differentially expressed genes, half genes designed bioinformatics filters based primarily unambigu-            showing expression polymorphism indicate clear significant cis
+ous orthology, unique sequence, presence SNPs se-              effect (49  421/863).  Supplemental Fig. S6 
+lected 4442 genes analysis initial pool 6604 ORFs           tailed description classifications ) untranslated region (UTR) information (Nagalakshmi et al.                   Previous eQTL studies showed large ‘‘hotspot’’ effect (Brem
+2008).  detailed description filters available            et al. 2002; Yvert et al. 2003 showed 1265/1716 distant
+Methods Supplemental Tables S1–S3.) identified 893 SNPs             eQTLs 1265/2294 eQTLs). investigate ASE variation
+caused putative genome reference sequence errors cor-               genes likely influenced hotspots, dis-
+rected  total, analysis incorporated 35,225 SNP sites          carded 1265 genes identified Yvert et al. (2003) (Fig. 2D). distributed 4442 orthologous gene pairs.                             expected, 76  differentially expressed genes discarded fell
+
+
+                                                                                                                   Genome Research             827
+                                                                                                                      www.genome.org
+ Emerson et al.
+
+
+
+
+Figure 1. Comparison methods estimating ASE polymorphism.  C ) Y-axis, log2(eIGA) (IGA transcriptome data), versus x-axis, log2(ePyro)
+(pyrosequencing).  B) comparison culture hybrid results methods, respectively; (C ) comparison IGA sequencing pyrosequencing value log2(eCo)  log2(eHy), log2(etrans). test regressions differ equality, tested estimated
+regression coefficients null hypothesis H0: m = 1; b = 0. P-values hypothesis tests regression parameters significant  P-values > 0.05), indicating IGA pyrosequencing similar results.
+
+ various trans categories (68 ) ‘ ’ cate-                ation. reconcile difference, performed additional
+gory (8 ). contrast, <2  hotspot genes fell cis-                 tests: (1) comparing v genes showing significant P-value category, remaining 22  genes falling cis                     (P < 0.01) null hypothesis log2(e) = 0 categories putatively minor trans component. Despite dis-                    significant (P > 0.05) using Wilcoxon rank sum test; (2)
+carding genes, trans variation remains prevalent form                  correlation tests |log2(e)| v, using Pearson, Kendall,
+variation (Fig. 2D).                                                                Spearman methods. tests                                                                                      Wilcoxon test correlation tests cis trans),                                                                                     low v associated low expression variation  Evolutionary constraint expression polymorphism
+                                                                                    P-values < 105). test ASE data evolutionary constraint, compared                         investigate cis trans variation sensitive
+magnitudes expression ratio estimates categories                     purifying selection, compared quantity |log2(etrans)|  genes predicted strongly constrained versus predicted                |log2(ecis)| constrained unconstrained categories. weakly constrained (Fig. 3). protein–protein interaction                  constraint based protein–protein interactions essen-
+networks (Stark et al. 2006; Collins et al. 2007), genes             tial/nonessential genes, quantity |log2(etrans)|  |log2(ecis)| interactions significantly lower expression variation                 significantly lower strongly constrained categories genes absent networks, cis trans poly-                  weakly constrained categories (Fig. 3A,B). Comparing genes
+morphism (Wilcoxon rank sum tests, P-values < 106). Essential                  lowest v highest shows positive rela-
+genes (genes cause lethality deleted; Deutschbauer et al.                 tionship, difference significant  correlation
+2005) showed significantly expression variation non-                 P-values > 0.05).
+essential genes cis trans (Wilcoxon rank sum tests, P-values < 1015), corroborating previous study (Ronald Akey
+2007). important measure constraint based sequence                        Comparing expression polymorphism expression divergence
+evolution v (Yang 1997, 2007), ratio rate nonsyn-                  compared relative contributions cis trans regulatory
+onymous substitution rate synonymous substitution  e.,                  polymorphism data set cis trans regulatory divergence
+Ka/Ks). expression estimates value v signifi-               S. cerevisiae S. paradoxus recent publication
+cantly correlated |log2(ecis)| |log2(etrans)|  P-values <         (Tirosh et al. 2009). adopted following perspectives: (1)
+0.0001, Pearson, Kendall, Spearman correlation coefficients).               comparing relative cis/trans contributions Comparing 50th percentile genes lowest v                   species; (2) comparing correlations polymorphism highest v (Fig. 3C) demonstrates magnitude                divergence cis trans. comparison, test
+expression variation strongly constrained genes lower               hypothesis proposed recent study Drosophila sister constrained genes.                                                          species (Fig. 4; Wittkopp et al. 2008). compared relationship
+      correlation v expression surprising,                   hybrid experiment versus culture/parental ex- contradicts previous report relationship                    periment species (Fig. 4A,B, respectively), using
+(Ronald Akey 2007). possible source discrepancy                     major axis (MA) regression standardized major axis (SMA) compared expression level difference                        regression (Warton et al. 2006). Regression estimates closer set genes low v high v,                 diagonal indicate cis predominates, estimate near
+Ronald Akey study did opposite, comparing v                         horizontal axis indicates trans predominates. genes expression variation expression vari-                   interspecific slope significantly greater intraspecific
+
+
+828      Genome Research
+            www.genome.org
+                                                                                                      Selection cis trans regulation yeasts
+
+
+
+
+Figure 2. Genome-wide ASE polymorphism S. cerevisiae:  C ) y-axis, log2(ecis), versus x-axis, log2(etrans).   Scatter plot cis trans estimators shading points indicating category individual genes fall  determined dimensional 99  confidence intervals. classifications respect relationship confidence intervals point lines running origin, axes diagonals. Trans (t  cis (c  indicate confidence intervals genes, respectively, overlap log2(ecis) = 0 log2(etrans) = 0 axis line  ‘ ’ refers genes overlap log2(ecis) = log2(etrans) line log2(ecis) =
+log2(etrans) line  positive negative diagonals). Trans-dominant (t dom) cis-dominant (c dom) genes overlap lines fall quadrants nearest log2(ecis) = 0 log2(etrans) = 0 lines, respectively. Trans-major (t maj) overlaps log2(ecis) = 0 line diagonals, cis-major (c maj) overlaps log2(etrans) = 0 line diagonals. ‘‘ns’’ indicates nonsignificant genes: overlaps log2(ecis) = 0 log2(etrans) = 0 lines. detailed explanation genes classified Supplemental Figure
+S6. (B) contour plot dimenstional probability density function data  dimensional kernel density estimator MASS
+library R) indicating genes fall cis/trans space using independent estimates cis trans. ‘‘elevation’’ indicated contours
+expresses probability point falling region. total volume beneath surface sums unity. (C ) summary classifications based results Figure 1A. Dark green, trans  light green, trans-dominant; dark orange, cis  light orange, cis-dominant; hashed regions, ‘‘cis/
+trans-major’’ classifications; white,  gray, nonsignificant genes. (D) histogram indicates significant trans changes dominate comparison significant cis changes. left bar pair discarding 1265 ‘‘hotspot’’ genes Yvert et al. (2003), right bar discarding  Importantly, trans-dominant cis-dominant confused genetic dominance; instead, meant convey magnitude trans variation greater cis variation reverse, respectively.
+
+
+(P < 2.2 3 1016 MA SMA regressions),                         tion proportion variation measured culture ex-
+dicating magnitude cis regulatory variation relative                   periment, |log2(ecis)|/|log2(epar)|; magnitude cis variation
+trans greater species species.                                 proportion total variation cis trans,
+       investigate measures cis variation:                       |log2(ecis)|/[|log2(ecis)| + |log2(etrans)|]. plotted values
+magnitude cis variation, |log2(ecis)|; magnitude cis varia-                 quantile (Fig. 4C–E) interspecific cis
+
+
+                                                                                                                                   Genome Research               829
+                                                                                                                                      www.genome.org
+ Emerson et al.
+
+
+
+
+Figure 3. Constraint expression polymorphism.   Genes presently detected protein–protein interaction (ppi) partners current data (light
+bars) versus genes upper 50th percentile showing interactions (dark bars). (B) Nonessential genes (light bars) genes homozygous
+knockouts fitness greater 0.85. Essential genes (light bars) genes homozygous knockouts lethal. (C ) Genes lower
+50th percentile v (dark bars) versus genes upper 50th percentile v (light bars). Pairs bars labeled ‘‘cis’’ ‘‘trans’’ compare mean
+expression divergence |log2(e)| putatively strongly constrained weakly constrained categories. category ‘‘trans  cis’’ compares quantity |log2(etrans)|  |log2(ecis)| putatively strongly constrained weakly constrained categories. Significance indicated follows: ns, P >
+0.05; *, 0.01 < P < 0.05; **, 0.01 < P < 0.001; ***, P < 0.001. cis trans mutations subject purifying selection comparisons. trans
+mutations sensitive changes constraint cis changes constraint determined number protein interactions essentiality, measured protein coding sequence (v).
+
+
+
+values consistently higher intraspecific cis values,                 cis trans parameter estimates highly concordant py-
+regardless cis values scaled (Wilcoxon rank sum test,                  rosequencing experiments (Fig. 1).
+P-value < 2.2 3 1016 comparisons). Interestingly,                     expression parameter estimates (Fig. 2) demonstrate  cis share total cis + trans variation (Fig. 4E) sig-          expression polymorphism common types 
+nificantly higher divergence polymorphism.                   gulatory variation, trans differences dominate magnitude
+conduct formal test neutral mutation hypothesis               number. Interestingly, short evolutionary
+genome comparing polymorphism data divergence                       time divergence RM strains, data Tirosh et al. (2009). follow framework Kreitman                 genes exhibit cis trans differences simultaneously, indi- Aguade (1986) dividing significant expression differences                  cating sustained mutations affecting 2 3 2 contingency table. test decisively rejects                   expression phenotype. prevalence trans variation persists
+predictions neutral theory (Table 1A; P < 1010, Fisher’s exact            trans-regulated genes controlled hotspots (Brem
+test). Clearly, far cis expression differences             et al. 2002; Yvert et al. 2003) discarded (Fig. 2D). central species expected species polymor-                    result molecular evolution nonsyn-
+phism data, suggesting natural selection plays important                  onymous mutations genes deleterious. investigate role shaping expression variation.                                             perspective context expression polymorphism, com-
+      trace source pattern, examined cis                pared expression constraint constraint functional
+trans data separately. Interestingly, significant trans differences,          categories. predict genes interaction partners,
+genes showing expression polymorphism tend differential                   essential genes, genes low v strongly 
+expression species; correspondence signifi-                   strained. Comparing magnitude expression variation 
+cantly polymorphic significantly divergent genes                      tween pairs category shows constraint ex-
+greater expected chance (Fig. 5A; Table 1B; Fisher’s exact                pression corresponds constraint measures
+test, P < 1 3 106). contrast, corresponding association                 constraint (Fig. 3, cis trans columns). Interestingly, observed cis variation (Fig. 5B; Table 1B; Fisher’s exact test, P >           results regarding essential genes agree report ex-
+0.25). neutral theory, neutral variation correlated              pression variation (Ronald Akey 2007), conflicting
+polymorphism divergence, nonneutral categories                     results regard v; correlation v cis
+exhibit weaker correlations absence correlation alto-               variation (Fig. 3; Results), Ronald Akey  
+gether. suggests number significant differences              haps result different means measuring expression cis-regulatory change subject nonneutral forces. Unlike                 different subsets comprising respective comparisons. qualitative measures discussed  pattern does ex-                     determine category gene regulation tend quantitative measures expression ratios (Fig. 5C,D; Sup-               strongly influenced purifying selection, compared dif-
+plemental Fig. S3C,D).                                                            ference trans cis various categories  e.,
+                                                                                  |log2(etrans)|  |log2(ecis)|, Fig. 3, trans – cis column).                                                                                   functional categories, trans variation higher uncon-
+Discussion                                                                        strained category constrained category, differ- results demonstrate inferring genetic architecture                ence statistically significant protein–protein interactions
+expression level evolution performed straightforward,                 essential genes. stronger filtering trans polymorphisms
+comprehensive, rigorous manner. novel applica-                      essential genes genes interaction partners sug-
+tion simple binomial models, infer confidence intervals                 gests expression differences species cis trans effects correcting experimental sampling              strongly influenced cis variants compared trans variants
+biases  d parameter, Methods; Supplemental Fig. S1).                considering constrained constrained
+
+
+830      Genome Research
+            www.genome.org
+                                                                                              Selection cis trans regulation yeasts
+
+
+
+
+Figure 4. species regulatory differences dominated cis-regulatory changes species differences. B follow Figure 1 Wittkopp et al. (2008), comparing regression hybrid culture lines intraspecific interspecific variation, respectively. slope interspecific comparison   larger intraspecific comparison (B), regardless line-fitting method used (SMA MA
+regressions conducted using ‘‘smatr’’ package R (Warton et al. 2006; R Development Core Team 2009). C–E follow Figure 2 Wittkopp et al.
+(2008). Measurements cis species consistently dominate, regardless measured. comparisons significant, P < 2.2 3
+1016, indicating cis-regulatory changes dominate species species.
+
+
+categories.  established long timescales,              recent study compared cis trans expression evolution
+important ‘‘toolbox’’ genes provide phenotypic inno-                   species 78 genes species Dro-
+vation despite highly constrained peptide sequences,                  sophila (Wittkopp et al. 2008). Plots hybrid ASE differences innovation strongly influenced evolution cis elements             versus parental differences showed interspecific ASE variation
+(Carroll 2008).  opportunity adaptation                 fits closely ‘ cis’’ line  diagonal hybrid =
+reconfiguring trans-regulators remains intriguing possibility            culture) does intraspecific ASE variation (Fig. 1; Wittkopp
+genes constrained categories. Future investigations ASE            et al. 2008), results consistently significant mutation accumulation lines (MAL) compared natural lines                  different partitions data  fourths (NL) (Denver et al. 2005) enable examination dis-               partitions, slopes estimate 95  confi-
+tribution fitness effects wider range deleterious variants.      dence interval [CI] [Wittkopp et al. 2008; Supple- hypothesis correct regarding trans variants, expres-           mental Table 5], assuming 95  CI = slope, mean 6 1.96 3 SE).
+sion ratio NL versus MAL lower constrained cate-                Similarly, relative contributions ASE measured cis/(cis +
+gories higher relaxed categories.                                        trans), polymorphism divergence significantly dif-
+      order extend inferences longer timescales,                ferent (Fig. 2, column 3; Wittkopp et al. 2008). Interestingly, compared polymorphism data recent data set expres-                 comparison authors inferred polymorphism indirectly
+sion S. cerevisiae S. paradoxus. key prediction              divergence data, cis effect observed (Fig. 3; Wittkopp neutral theory molecular evolution degree                 et al. 2008).
+polymorphism rate fixation increasing func-                       test hypothesis cis variation subject natural
+tions mutation rate (Kimura 1968; Kimura Ota 1971),                  selection genome-wide scale, compared expression
+leading recognition comparing intraspecific variation               polymorphism data recent expression divergence data set
+(polymorphism) interspecific variation (divergence) power-              (Tirosh et al. 2009). results strongly suggest comparison
+ful strategy testing hypotheses concerning natural selection                intraspecific expression variation, interspecific expression
+(Kreitman Aguade 1986; Hudson et al. 1987; McDonald                     variation strongly shaped cis evolution. Impor-
+Kreitman 1991; Bustamante et al. 2002). Importantly,                   tantly, regressions culture hybrid experiments fall
+trasts distinguish variation resulting higher                  significantly closer ‘ cis’’  e., hybrid = culture) line
+mutation rates (Fisher 1922; Haldane 1927) variation                 interspecific comparisons intraspecific comparisons action natural selection.                                                (Fig. 4A.B).  cumulative cis expression divergence 
+
+                                                                                                                         Genome Research              831
+                                                                                                                            www.genome.org
+ Emerson et al.
+
+
+Table 1.   Comparison polymorphism divergence cis trans mutations                        gence cis trans individually.                                                                                                             doing  hope adduce evidence
+  Comparison significant genes cis trans categories    polymorphism data divergence data Tirosh et al. (2009                                     bearing categories                                                                                                             likely neutral. neutrality
+                                         Polymorphism                              Divergence               predict levels polymorphism
+                                                                                                            divergence mutation driven. Cis                                            396                                    1270                  rate mutation varies genes, Trans                                          412                                      541                 vary manner (B) Significant nonsignificant genes comparisons polymorphism divergence          b    polymorphism divergence                                                                                                             gene. example, genes                                      Significant polymorphism         Nonsignificant polymorphism           significantly variable species                                                                                                             likely variable spe-
+Trans                                                                                                       cies, genes variable    Significant divergence                    124 (94.8)                         417 (446.2)                 species likely variable
+   Nonsignificant divergence                 288 (317.2)                      1523 (1493.8)
+Cis                                                                                                         species.  pattern ex-
+   Significant divergence                    222 (213.8)                      1048 (1056.2)                 actly observe trans mutations
+   Nonsignificant divergence                 174 (182.2)                        908 (899.8)                 (Table 1B; Fig. 5A), suggesting trans
+                                                                                                            differences conform prediction   Significant nonhomogeneity evidence violation neutral theory, described Kreitman     neutral theory. hand, cis dif-
+                                         16 Aguade (1986). P-value < 2.2 3 10 .
+b
+  enables test homogeneity polymorphism (columns) divergence (rows),             ferences fit prediction poorly categories divided significant nonsignificant genes. P-values trans cis     (Table 1B; Fig. 5B). number signifi- 2.33 3 104 0.377, respectively. result unchanged independent estimates used     cis differences common poly-
+(Supplemental Table S4).                                                                                    morphism divergence greater
+c
+  Numbers indicate observations numbers parentheses indicate expectations. numbers boldface correspond Figure 5, B, respectively.
+                                                                                                            expected chance, indicating                                                                                                             polymorphism divergence correlate
+                                                                                                            weakly, arguing neutrality
+significantly consistently cis polymorphism (Fig.             cis variation. Given relatively low level cis polymorphism
+4C), cis divergence scaled expression variation                 versus high level cis divergence combined evidence unhybridized parental strains (Fig. 4D). results              Table 1B, suggest cis-regulatory differences strongly suggest cis variation plays greater role                positive selection alternative trans polymorphism
+species species. interestingly, compare                balancing selection. examined correlation  relative contributions cis variation total cis + trans ex-            tween magnitude expression divergence polymorphism
+pression variation polymorphism divergence,                      (Fig. 5C,D). Unlike count data described  pooled ex- cis divergence plays larger role predicted            pression variation estimates, polymorphism predicts divergence polymorphism data (Fig. 4E), strongly implicating action               equally trans variation (r2 = 23 , Fig. 5C) cis vari- natural selection. think possible larger sample size         ation (r2 = 26 , Fig. 5D; Supplemental Fig. S3). Drosophila genome corroborate results.                            trans variants, gene polymorphic good pre-
+       presented formal test neutral mutation hy-              dictor differs species, magnitude pothesis genome comparing significant poly-                   expression level polymorphism weakly related magni-
+morphic genes significant divergent genes data               tude expression level divergence. weak relationship nearly
+Tirosh et al. (2009). divide significant expression differences         disappears genes pooled polymorphism expression 2 3 2 contingency table (Table 1A), described Results.           level (data shown), likely magnitude change data follow predictions neutral theory  alternatively             expression level vary greatly different mutations categories experience similar selection regimes),                  gene.
+divergence/polymorphism ratios similar cis                     observations indicate trans variation conforms trans categories. violation homogeneity table ev-            closely predictions neutral theory cis variation.
+idence category violates neutrality, failure            comparisons polymorphism divergence data reject weak indication neutrality, possible       expression levels strongly suggest cis evolution strongly shapes categories similar nonneutral selective regimes.            differences species variation strongly sha- test unequivocally rejects predictions neutral theory            ped positive natural selection. Taken  analyses paint
+(Table 1A; P < 1 3 1010, Fisher’s exact test), strongly suggesting        comprehensive picture selective forces shaping cis trans excess divergent cis differences species          evolution reinforce idea cis expression differences play occur positive selection excess          dominant role adaptive expression divergence species.
+polymorphism trans regulatory variation species observed balancing selection (Kreitman Aguade                Methods
+1986; Hudson et al. 1987). Importantly, test capable determining table highly heterogeneous.                Yeast strains growth conditions
+termine source departure homogeneity.                           culture types prepared: culture hybrid. 
+       test relies correlation polymorphism            culture experiment prepared approximately equal divergence neutral variants different categories.           amounts MATa strains called RM. hybrid strain interrogate predicted relationship  mea-              derived mating (MATa) 3 RM (MATa) grown
+sured association significant polymorphism diver-               standard YPAD medium.
+
+
+832     Genome Research
+           www.genome.org
+                                                                                                  Selection cis trans regulation yeasts
+
+
+                                                                                                                double-stranded cDNA syn-
+                                                                                                                thesized, fragmented, subjected                                                                                                                 Illumina Genome Analyzer (IGA) se-
+                                                                                                                quencing protocol.
+                                                                                                                     expression measurements, 
+                                                                                                                night subcultures used prepare                                                                                                                 technical replicates hybrid
+                                                                                                                (WL201) cultures + RM cultures
+                                                                                                                starting OD600 = 0.1 harvested
+                                                                                                                cell density reached OD600 = 1.0.
+                                                                                                                Total RNA extracted hot
+                                                                                                                acid phenol method (Kohrer Domdey
+                                                                                                                1991). Total RNA concentration                                                                                                                 replicate quantified Nano-
+                                                                                                                Drop 1000 spectrophotometer (Thermo
+                                                                                                                Scientific). Equal amounts RNA                                                                                                                 pooled sample group  e., hy-
+                                                                                                                brid culture) combined RNA
+                                                                                                                sample. quality combined RNA                                                                                                                 assessed BioAnalyzer (Agilent).
+                                                                                                                     hybrid culture mRNA                                                                                                                 purified using oligo(dT) Dynabeads (Invi-
+                                                                                                                trogen) according manufacturer’s
+                                                                                                                protocol. Subsequent reverse transcription
+                                                                                                                carried oligo(dT) primers                                                                                                                 Superscript II kit (Invitrogen) follow-
+                                                                                                                ing manufacturer’s instructions. Tran-
+                                                                                                                scriptome sequencing steps 
+                                                                                                                formed Fasteris SA, Switzerland. Sam-
+                                                                                                                ples containing cDNAs fragments 200–
+                                                                                                                400 nucleotides (nt) sequenced
+                                                                                                                24 lanes (12 hybrid 12 
+                                                                                                                culture) flow cell IGA sequencer
+                                                                                                                using Illumina’s genomic shotgun pro-
+Figure 5. Greater correlation trans polymorphism divergence cis poly-
+morphism divergence.  B) number significant genes manifested intraspecific
+                                                                                                                tocol, yielding 35-nt-long reads.
+measurements interspecific measurements trans   cis (B). histograms indicate null
+hypothesis homogeneous association significant polymorphisms significant divergence.
+Let P number genes significant expression differences species D number         Yeast genome sequencing differences species. P gene names randomly drawn replacement gene list, histogram represents probability independent draw D genes results x       estimate relative cell densities genes common lists. histogram hypergeometric distribution representing upper       samples confirm SNP assignments,
+                                                                                                           gDNA hybrid 
+lefthand cell 2 3 2 table Fisher’s exact test (Table 1B). trans genes  , cell indicates
+overlap significant expression polymorphisms significant expression divergence       culture samples used cDNA se-
+significantly higher expected chance, cis genes (B), overlap  quencing extracted, fragmented, range expected simply randomly shuffling data. (C,D) relationship polymorphism
+                                                                                                           subjected IGA DNA sequencing divergence estimates shown genes significant polymorphism estimates. regression
+estimate trans polymorphism divergence describes 23  variance,            protocol. genomic DNA extracted
+tween cis polymorphism divergence describes 26 . point composed genes grouped            using Qiagen Q100 genomic purification
+bins according polymorphism estimates. values obtained taking median bin     kit (Qiagen). sample group,
+divergence polymorphism. bin contains 11 12 genes.                                             equal amounts DNA pooled                                                                                                            combined DNA sample, analogous      laboratory strain designated ‘ ’ officially named                   pooling strategy employed transcriptome sequencing 
+BY4741 (MATa his3D1 leu2D0 met15D0 ura3D0) descendant                     combined DNA sample fragmented sonication, S288C. strain designated ‘‘RM’’  gift Dr. Leland                     shotgun libraries prepared according Illumina’s
+Hartwell, Fred Hutchinson Cancer Research Center) officially                    gDNA protocol. genomic DNA sequencing carried RM11-1a (MATa lys2D0 ura3D0 hoTKAN) RM11-1a (MATa                        Illumina GA-II (IGA-II) sequencer High Throughput Se-
+lys2D0 ura3D0 hoTKAN). haploid strains derived                       quencing Core Facility Academia Sinica, yielding reads 40 nt Bb32(3), natural isolate described previously (Mortimer et al.                   length.
+1994). designated hybrid BY4741 3 RM11-1a
+cross constructed lab WL201. culture sample                                                                                    Mapping IGA reads reference genomes
+simply mixture BY4741 RM11-1a. yeast strains grown YPAD media 30°C 250 rpm shaking.                                  reference genome downloaded SGD project                                                                                    April 3, 2008 (ftp://ftp.yeastgenome.org/yeast/). RM reference
+                                                                                   genome downloaded Saccharomyces cerevisiae RM11-1a
+Total RNA extraction sequencing                                                Sequencing Project, Broad Institute (http://www.broad.mit.edu). estimate expression ratios hybrid culture exper-                 cDNA sequence read used query reference
+iments, total RNA extracted purified mRNA,                        yeast genome using MEGABLAST ‘‘wordsize’’ parameter set
+
+
+                                                                                                                            Genome Research           833
+                                                                                                                              www.genome.org
+ Emerson et al.
+
+ 8 (Zhang et al. 2000), yielding homology search datasets,        ward allele cDNA data. comparing SNP count data genome RM genome. recorded           obtained cDNA obtained gDNA, classified 893
+hits nucleotide mismatches. mismatch            sites true errors reference genomes, 540 true sequencing error sequence read obtained, sequence          differential expression, failed classify 57 sites. Using 
+error reference genome(s), SNP site ref-        formation, corrected 893 ‘‘true error’’ SNPs reference
+erence genomes. set homology search results, classi-         genomes discarded data set 57 SNPs fied read uninformative (perfectly matching genomes);          failed classify. repeated mapping computation informative (matching SNPs genome);              obtain final read counts. details procedure,
+formative error (matching SNP containing IGA                consult Supplemental Materials.
+error); error (containing IGA errors). Supple-
+mental material details classifications.                 Modeling gene expression discrete sampling process
+      12 channels cDNA IGA sequencing data                                                                             estimate expression parameters IGA read data, formu- samples (total 24 channels), obtained 71,309,740
+                                                                            lated question terms binomial distribution.  71,549,168 raw reads hybrid sample 
+                                                                            malization parameter required differences total reads
+culture sample, respectively, subjected classification
+                                                                            samples occur sampling effort evenly
+described (Table S1). mapped reads matched                                                                             distributed samples, study design place genome, uniquely identifying expression sin-
+                                                                            experimental error. authors recommend employing
+gle transcript (Table S2).
+                                                                            methods related standard quantile normalization (Bolstad et al.
+      order determine read mapping strategy resulted                                                                             2003) count data (Balwierz et al. 2009), consider rescaling
+spurious differential expression (Degner et al. 2009), examined
+                                                                            counts  contain important information regarding sam- combination experiment (hybrid culture) strain
+                                                                            pling variance) ideal.  apply noise
+ RM). dividing data combination                                                                             correction. reasonable physical rationales noise correc-
+channels  compared independent partitions                                                                             tion array studies (Tu et al. 2002). case deep sequencing, biological material, determining null hypoth-
+                                                                             clear mapped sequence reads comprise esis differential expression rejected differential ex-
+                                                                            ‘‘signal’’ comprise ‘‘noise.’’
+pression absent. results indicate typical rejection rates (Sup-
+plemental Fig. S4).
+      order investigate potential sources sequencing            Cis trans parameter estimation
+amplification bias data, examined number times             Let measurement total informative expression read counts unique read represented channel sequencing data.           gene N read counts RM allele X histograms expression read-counts compare favorably               allele N-X. data binomial distribution pro- priori estimates based discrete stochastic models (Supple-             portion parameter p. Let j represent single experiment  culture
+mental Fig. S5).                                                            hybrid), e expression ratio parameter RM                                                                             d normalization ratio parameter RM 
+Identifying orthologous pairs polymorphic sites                         proportion parameter p expressed terms d e: RM genomes                                                                                           d j ej
+                                                                                                              pj =              : gene refined set gene transcripts UTR                                                      d j ej + 1
+formation (Nagalakshmi et al. 2008) aligned RM ge-
+                                                                            assumptions hybrid experiment exhibits cis
+nome using BLAT axtChain (Kent 2002; Kent et al. 2003)                                                                             variation culture exhibits combination cis trans
+identify ortholog RM genome. alignments                                                                             variation expressed used identify polymorphic sites orthol-
+ogous genes. restricted attention high scoring pairs                                                  eHy = ecis
+(HSPs) derived chaining procedure, neglecting reads                                               eCo = ecis etrans :
+mapped nonhomologous regions.
+                                                                            Consequently, binomial proportion parameters 
+Exclusion overlapping gene regions                                       written follows:
+Transcript sequencing data derived double-stranded                                                 d Hy eHy      d Hy ecis
+cDNA;  unable determine strand reads                                    pHy =               =
+                                                                                                           d Hy eHy + 1 d Hy ecis + 1 mapped regions transcripts opposite                                                                                          ð1Þ
+strands overlap (Nagalakshmi et al. 2008). avoid misattribution,                                          d eCo     d ecis etrans :
+                                                                                                   pCo   =             = temporarily excluded overlapping regions. Genes                                             d eCo + 1 d ecis etrans + 1
+average read count base nonoverlapping regions gene            likelihood functions hybrid culture experi- 0.025 read/nt discarded data set.         ments expressed  reintegrated reads mapping regions longer                                                                        
+lapped expressed genes opposite strand, yielding 4566               L eHy  d Hy ; XHy ; N Hy = L ecis jd
+                                                                                                                    Hy ; XHy ; N Hy 
+SNP containing gene pairs possessing unique orthologous regions.                                             N Hy XHy                  N Hy XHy ð2Þ
+                                                                                                          =           pHy 1  pHy genes subjected study (Table S3).                                                      XHy
+
+                                                                                   LðeCo jd ; XCo ; N Þ = Lðecis ; etrans jd ; XCo ; N Þ
+Detecting errors genomic sequences strains                                                            
+                                                                                                                  N XCo                   N X     ð3Þ expression level SNP exhibits particularly strong bias                                         =             pCo 1  pCo Co :
+                                                                                                                  XCo allele, indicates strong pattern differential
+expression error reference genome aligned reads         Equation 3 prevents estimating etrans independently  data contained 1490 SNPs exhibiting strong bias           ecis, instead examine product Equations 3 4
+
+
+834     Genome Research
+           www.genome.org
+                                                                                                 Selection cis trans regulation yeasts
+
+ obtain likelihood function etrans estimated                  Bloom JS, Khan  Kruglyak L, Singh M, Caudy AA. 2009. Measuring
+dependently ecis:                                                                differential gene expression short read sequencing: Quantitative
+                                                                                      comparison 2-channel gene expression microarrays. BMC Genomics
+                                                                                    10: 221. doi: 10.1186/1471-2164-10-221.
+                                                                 N Hy XHy
+       L ecis ; etrans jd Hy ; XHy ; N Hy ; d ; XCo ; N =         pHy       Bolstad BM, Irizarry RA, Astrand M, Speed TP. 2003. comparison                                                                   XHy                 normalization methods high density oligonucleotide array data
+                        N Hy XHy N                                     ð4Þ       based variance bias. Bioinformatics 19: 185–193.
+                                                         N X
+         3 1  pHy                                 1  pCo Co :                Brem RB, Yvert G, Clinton R, Kruglyak L. 2002. Genetic dissection                                        X
+                                                                                   transcriptional regulation budding yeast. Science 296: 752–755.
+                                                                                  Bustamante CD, Nielsen R, Sawyer SA, Olsen KM, Purugganan MD, Hartl obtain expression parameter estimates ecis                       DL. 2002. cost inbreeding Arabidopsis. Nature 416: 531–534.
+Equations 2 4 etrans Equation 4 using standard likeli-            Carroll SB. 2008. Evo-devo expanding evolutionary synthesis: hood maximization methods R (R Development Core Team 2009).                        genetic theory morphological evolution. Cell 134: 25–36.
+                                                                                  Collins SR, Kemmeren P, Zhao X-C, Greenblatt JF, Spencer F, Holstege FCP,
+                                                                                      Weissman JS, Krogan NJ. 2007. comprehensive atlas Independent estimate cis trans parameters                                      physical interactome Saccharomyces cerevisiae. Mol Cell Proteomics 6:
+                                                                                      439–450. cis trans estimated described  estimates                Degner JF, Marioni JC, Pai AA, Pickrell JK, Nkadori E, Gilad Y, Pritchard JK. negatively correlated (cf. Fig. 2B Supplemental Fig. S2B;                 2009. Effect read-mapping biases detecting allele-specific
+Supplemental material details). order estimate ecis                    expression RNA-sequencing data. Bioinformatics 25: 3207–3212.
+                                                                                  Denver DR, Morris K, Streelman JT, Kim SK, Lynch M, Thomas WK. 2005. etrans independently, divide hybrid data par-                     transcriptional consequences mutation natural selection titions channels  estimate ecis Equation 2                   Caenorhabditis elegans. Nat Genet 37: 544–548.
+using partition hybrid data estimate etrans                   Deutschbauer  Jaramillo DF, Proctor M, Kumm J, Hillenmeyer  Davis
+Equation 4 using partition hybrid data                    RW, Nislow C, Giaever G. 2005. Mechanisms haploinsufficiency
+                                                                                      revealed genome-wide profiling yeast. Genetics 169: 1915–1925. culture data. rationale correlated estimates             Edgar RC. 2004. MUSCLE: multiple sequence alignment method preferred independent estimates preferred,                       reduced time space complexity. BMC Bioinformatics 5: 113. doi:
+Supplemental material.                                                                10.1186/1471-2105-5-113.
+                                                                                  Emerson JJ, Kaessmann H, Betran E, Long M. 2004. Extensive gene traffic                                                                                       mammalian X chromosome. Science 303: 537–540.
+Estimation normalization parameter                                         Fisher R. 1922. dominance ratio. Proc R Soc Edinb 42: 321–341.
+                                                                                  Haldane J. 1927. mathematical theory natural artificial selection, estimate normalization parameter d gDNA data                          V: Selection mutation. Proc Camb Philol Soc 23: 838–844.
+ independent cDNA data) follows:                             Halder G, Callaerts P, Gehring WJ. 1995. Induction ectopic eyes                                                                                       targeted expression eyeless gene Drosophila. Science 267:
+                                         G                                            1788–1792.
+                                         + Xi;j                                   Hudson RR, Kreitman M, Aguade M. 1987. test neutral molecular
+                            ^j =         1                                          evolution based nucleotide data. Genetics 116: 153–159.
+                            d      G
+                                                    ;
+                                                                                  Kent WJ. 2002. BLAT BLAST-like alignment tool. Genome Res 12: 656–
+                                   + N j  Xi;j                                     664.
+                                   1
+                                                                                  Kent WJ, Baertsch R, Hinrichs  Miller W, Haussler D. 2003. Evolution’s
+                                                                                      cauldron: Duplication, deletion, rearrangement mouse indexes gene j represents experiment (hybrid
+                                                                                      human genomes. Proc Natl Acad Sci USA 100: 11484–11489. culture).                                                                   Kimura M. 1968. Evolutionary rate molecular level. Nature 217: 624–
+                                                                                      626.
+                                                                                  Kimura M, Ota T. 1971. Protein polymorphism phase molecular
+Sequence divergence statistics                                                        evolution. Nature 229: 467–469.
+                                                                                  King MC, Wilson AC. 1975. Evolution levels humans Orthologous genes S. cerevisiae S. paradoxus                      chimpanzees. Science 188: 107–116.
+termined Fungal Orthogroups Repository (Wapinski et al.                  Kohrer K, Domdey H. 1991. Preparation high molecular weight RNA.
+2007). coding sequences frame-aligned pairwise                       Methods Enzymol 194: 398–405.
+codon divergence statistics Ka Ks calculated using               Kreitman  Aguade M. 1986. Excess polymorphism Adh locus                                                                                       Drosophila melanogaster. Genetics 114: 93–110.
+PAML package (Yang 1997, 2007). methods alignment                      Kvitek DJ, JL, Gasch AP. 2008. Variations stress sensitivity statistical calculation follow used Emerson et al. (2004),              genomic expression diverse S. cerevisiae isolates. PLoS Genet 4: exception MUSCLE (Edgar 2004) use alignment.                         e1000223. doi: 10.1371/journal.pgen.1000223.
+                                                                                  McDonald JH, Kreitman M. 1991. Adaptive protein evolution Adh
+                                                                                      locus Drosophila. Nature 351: 652–654.
+Acknowledgments                                                                   Mortimer RK, Romano P, Suzzi G, Polsinelli M. 1994. Genome renewal:                                                                                       new phenomenon revealed genetic study 43 strains W.-H.L. supported Academia Sinica, Taiwan;                              Saccharomyces cerevisiae derived natural fermentation grape
+ternational E. Balzan Prize Foundation; NIH grants GM30998                        musts. Yeast 10: 1543–1552.
+                                                                                  Nagalakshmi U, Wang  Waern K, Shou C, Raha D, Gerstein M, Snyder M. GM081724. J.J.E. supported Academia Sinica Dis-                         2008. transcriptional landscape yeast genome defined tinguished Postdoctoral Fellowship. thank Michael McDonald,                        RNA sequencing. Science 320: 1344–1349.
+Jun-Yi Leu, Bin thoughtful discussion key issues                 R Development Core Team. 2009. R: language environment statistical
+early versions manuscript. thank anonymous                       computing. R Foundation Statistical Computing, Vienna, Austria.
+                                                                                  Rockman MV, Kruglyak L. 2006. Genetics global gene expression. Nat Rev
+reviewers helpful suggestions constructive criticisms.                        Genet 7: 862–872.
+                                                                                  Ronald J, Akey JM. 2007. evolution gene expression QTL Saccharomyces
+                                                                                      cerevisiae. PLoS 2: e678. doi: 10.1371/journal.pone.0000678.
+References                                                                        Ronald J, Brem RB, Whittle J, Kruglyak L. 2005. Local regulatory variation                                                                                       Saccharomyces cerevisiae. PLoS Genet 1: e25. doi: 10.1371/journal.pgen.
+Bailey JA, Gu  Clark RA, Reinert K, Samonte RV, Schwartz S, Adams MD,               0010025.
+    Myers EW, Li PW, Eichler EE. 2002. Recent segmental duplications       Seoighe C, Nembaware V, Scheffler K. 2006. Maximum likelihood inference
+    human genome. Science 297: 1003–1007.                                             imprinting allele-specific expression EST data.
+Balwierz PJ, Carninci P, Daub  Kawai J, Hayashizaki Y, Belle WV, Beisel C,         Bioinformatics 22: 3032–3039.
+    van Nimwegen E. 2009. Methods analyzing deep sequencing                   Springer NM, Stupar RM. 2007. Allele-specific expression patterns reveal
+    expression data: Constructing human mouse promoterome                biases embryo-specific parent origin effects hybrid maize.
+    deepCAGE data. Genome Biol 10: R79. doi: 10.1186/gb-2009-10-7-r79.                Plant Cell 19: 2391–2402.
+
+
+
+                                                                                                                             Genome Research              835
+                                                                                                                                www.genome.org
+ Emerson et al.
+
+
+Stark C, Breitkreutz B-J, Reguly T, Boucher L, Breitkreutz  Tyers M. 2006.    Wapinski  Pfeffer  Friedman N, Regev  2007. Natural history     BioGRID: general repository interaction datasets. Nucleic Acids Res      evolutionary principles gene duplication fungi. Nature 449: 54–61.
+    34: D535–D539.                                                              Warton DI, Wright IJ, Falster DS, Westoby M. 2006. Bivariate line-fitting
+Sung H-M, Wang T-Y, Wang D, Huang Y-S, Wu J-P, Tsai H-K, Tzeng J, Huang            methods allometry. Biol Rev Camb Philos Soc 81: 259–291.
+    C-J, Lee Y-C, Yang P, et al. 2009. Roles trans cis variation      Wittkopp PJ, Haerum BK, Clark AG. 2004. Evolutionary changes cis     yeast intraspecies evolution gene expression. Mol Biol Evol 26:             trans gene regulation. Nature 430: 85–88.
+    2533–2538.                                                                  Wittkopp PJ, Haerum BK, Clark AG. 2008. Regulatory changes underlying
+Tirosh  Reikhav S, Levy AA, Barkai N. 2009. yeast hybrid provides insight      expression differences Drosophila species. Nat Genet
+    evolution gene expression regulation. Science 324: 659–662.        40: 346–350.
+Tu Y, Stolovitzky G, Klein U. 2002. Quantitative noise analysis gene        Yang  1997. PAML: program package phylogenetic analysis     expression microarray experiments. Proc Natl Acad Sci 99: 14031–14036.         maximum likelihood. Comput Appl Biosci 13: 555–556.
+Van Tassell CP, Smith TPL, Matukumalli LK, Taylor JF, Schnabel RD, Lawley       Yang  2007. PAML 4: Phylogenetic analysis maximum likelihood. Mol
+    CT, Haudenschild CD, Moore SS, Warren WC, Sonstegard TS. 2008.

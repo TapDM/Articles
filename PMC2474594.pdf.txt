@@ -1,0 +1,547 @@
+BMC Systems Biology                                                                                                                      BioMed Central
+
+
+
+Research article                                                                                                                       Open Access effects protein interactions, gene essentiality regulatory
+regions expression variation
+Linqi Zhou, Xiaotu Ma Fengzhu Sun*
+
+Address: Molecular Computational Biology Program, Department Biological Sciences, University Southern California, Los Angeles, CA
+90089-2913, USA
+Email: Linqi Zhou - linqizho@usc.edu; Xiaotu Ma - xma@usc.edu; Fengzhu Sun* - fsun@usc.edu
+* Corresponding author
+
+
+
+
+Published: 26 June 2008                                                       Received: 5 February 2008
+                                                                              Accepted: 26 June 2008
+BMC Systems Biology 2008, 2:54   doi:10.1186/1752-0509-2-54 article available  http://www.biomedcentral.com/1752-0509/2/54
+© 2008 Zhou et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: Identifying factors affecting gene expression variation challenging problem                  genetics. Previous studies shown presence TATA box, number cis-regulatory
+                 elements, gene essentiality, protein interactions significantly affect gene expression variation.
+                 Nonetheless, need obtain complete understanding factors                  interactions influence gene expression variation remains challenge. growth rates yeast cells
+                 DNA-damaging conditions studied gene's toxicity degree defined
+                 number conditions growth rate yeast deletion strain significantly
+                 affected. toxicity degree reflects gene's importance cell survival DNA-damaging
+                 conditions, expect negatively associated gene expression variation. Mutations                  cis-regulatory elements transcription factors (TF) regulating gene affect gene's
+                 expression study relationship gene expression variation number
+                 TFs regulating gene. importantly study factors interact                  influencing gene expression variation.
+                 Results: Using yeast model  evaluated effects separate factors                  interactions gene expression variation: protein interaction degree, toxicity degree, number                  TFs, presence TATA box. Results showed 1) gene expression variation negatively
+                 correlated protein interaction degree protein interaction network, 2) essential
+                 genes tend expression variation non-essential genes gene expression variation
+                 decreases toxicity degree, 3) number TFs regulating gene important
+                 factor influencing gene expression variation (R2 = 8–14 ). addition, number TFs regulating
+                 gene important factor influencing gene expression variation TATA-
+                 containing non-TATA-containing genes, different association strength. 
+                 gene expression variation significantly negatively correlated toxicity degree                  TATA-containing genes.
+                 Conclusion: finding distinct mechanisms influence gene expression variation                  TATA-containing non-TATA-containing genes, provides new insights mechanisms                  underlie evolution gene expression.
+
+
+
+
+                                                                                                                                       Page 1 12
+                                                                                                                 (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+
+Background                                                      studied effect protein-protein interactions pro-
+Gene expression variation studied dif-        tein length evolutionary variation (variation ferent levels: single cells common environment         strains species). evolutionary varia-
+[1], species variety different envi-     tion negatively correlated protein-protein interac-
+ronments [2,3], different species/strains,     tions Saccharomyces cerevisiae Drosophila melanogaster referred evolutionary variation [4-8].   [4] negatively correlated protein length Dro-
+paper, study genetic factors affecting gene expression       sophila melanogaster [5]. studies highlighted variation species different envi-        importance protein interactions gene regulatory
+ronmental conditions. Broadly, genetic factors affect-      regions gene expression variation.
+ing gene expression primarily include binding regulatory proteins cis-elements upstream      studies,  integrated differ-
+gene, physical genetic interactions         ent data sources way collectively identifies genes. availability gene expression      interprets key factors affecting gene expression varia-
+profiles, protein interaction networks, gene regula-        tion.  conducted studies proteomic tory networks, possible study gene             genomic factors marginally collectively influencing
+expression variation associated network fea-       gene expression variation different perturbation
+tures genomic factors. case protein interac-      conditions species: yeast.
+tion networks, interaction degree, e., number interacting partners given protein, fac-    Protein interactions play important role gene expres-
+tors. presence absence TATA box               sion variation. Protein-protein interactions key bio-
+number transcription factors (TF) regulating gene          logical events living cell, proteins cell interact
+provide examples genomic factors influencing gene            perform certain functions. High
+expression variation.                                           throughput technologies, including yeast hybrid sys-
+                                                                tems mass spectrometry, generated large studies focused individual factors affecting       protein interactions yeast. Computational
+gene expression variation. instance, Newman et al. [1]      methods developed study reliability
+developed experimental technique study protein            observed interactions [10,11] build reliable
+expression noise single cells showed chromo-        protein interaction networks. efforts resulted
+somal distance genes mRNA-half life            development protein interaction data-
+associated expression noise.  did         bases, albeit differing degrees reliability, including relationship protein expression noise        MIPS [12], DIP [13] BioGrid [14]. evolution-
+protein-protein interactions. Recently, using com-       ary point view, expression profiles neighboring
+plete interaction dataset, Batada et al. [9] pro-    genes target gene protein interaction network
+tein expression variation negatively correlated         constraints target gene's expression.
+interaction degree protein abundance control-           protein interaction network, interacting
+led using data Newman et al. [1]. relationship      partners specific protein affect corresponding
+continues hold viable genes. groups       gene's expression.  protein physical interaction
+investigated mRNA expression variation species.          degree, e., number interacting partners given example, Nelson et al. [2] studied relationship         protein, significantly affect gene expression variation. number tissues body parts (expression         present study, gene expression varia-
+variation), gene expressed, gene spacing       tion decreases protein interaction degree C. elegans D. melanogaster. gene         protein interaction degree accounts 1–2  expression variation increases relation intergenic    expression variation model organism yeast, result
+distances genes. Walther et al. [3] posi-       consistent previous studies [4,5].
+tive correlation frequency gene's differen-
+tial expression number cis-regulatory elements       key factor affecting gene expression variation gene  thaliana. Furthermore, groups        gene essentiality. Genes classified essential studied gene expression variation, known           non-essential genes based fitness phenotype evolutionary variation, different species/strains.       yeast cell gene deleted normal
+Using gene expression data yeast species [7],      growth conditions [15]. Essential genes  different strains derived mutation-        deleted, render yeast cell non-viable. Non-
+accumulation experiments [6],  instance,       essential genes classified phenotype interspecies/interstrain variation gene expres-     toxicity-modulating genes based fitness phe-
+sion significantly correlated presence/absence      notype yeast cell gene deleted TATA box promoter region. Lemos et al. [4,5]      conditions DNA-damaging treatments [16]. Spe-
+
+
+                                                                                                                     Page 2 12
+                                                                                               (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                  http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+cifically, define gene's toxicity modulation degree        influencing TATA-containing gene expression variation number DNA-damaging treatments significantly                complicated non-TATA-contain-
+affecting deletion strain's fitness (toxicity modulation       ing genes. example, TATA-containing genes degree = 0  phenotype), 1, 2, 3, 4). higher         likely epigenetic regulated [17,18].
+toxicity modulation degree, important gene             study gives complete analysis factors relation cell survival.  toxicity degree        interaction affecting gene expression variation
+gives quantitative measurement gene's importance            previous studies. yeast cell survival. measure gene's functional
+importance relation cell survival essentiality        Results Discussion essential genes toxicity modulation degree          present results based MIPS protein physical non-essential genes. expression genes              interaction data [12] yeast gene expression pro-
+important cell survival generally stable        files 40 Ca Na exposure conditions [19]. different stimuli fluctuate extensively,             results based interaction datasets (MIPS [12], DIP
+hypothesize expression variation essen-           [13], BioGrid [14]) gene expression
+tial genes lower non-essential genes           datasets (chemostat (nutritional stress) [20], environmen-
+decreases toxicity degree non-essential genes.         tal stress [21], oxidative stress [22], combined gene
+                                                                   expression dataset 1,500 conditions [7]) number cis-elements shown posi-              given Additional Files 1 2. study tively associated gene expression variation [6].          expression data individually order minimize var-
+number cis-elements usually approximated using               iation different laboratories. doing  computational approaches contain false posi-              confirm results based different gene
+tive negative predictions. Theoretically, given gene's       expression data consistent. Consistency results
+expression pattern increasingly complex            using variety different datasets adds confidence increasing number transcription factors regu-          conclusions. manuscript, use genes pro-
+late gene, directly indirectly. study,   teins interchangeably. declare statistical significance hypothesize number TFs significant predic-        p-value 0.05 adjusting multiple
+tor expression variation number            comparisons. study, conducted exploratory
+TFs regulating gene (hereinafter referred 'number       study factors affecting gene expression variation. TFs') accounts 8–14  expression variation,              epidemiological studies, did adjust p-values higher explained number            multiple comparisons.  findings
+cis-elements (0.3–1.7 ). implies importance            need tested datasets.
+indirect trans-effect expression variation.
+                                                                   Gene expression variation versus protein interaction TATA box conserved element eukaryotic              degree
+promoter region usually bound TATA-binding               measured gene expression variation logarithm
+proteins. presence TATA box shown            variance expression levels gene important factors contributing gene             40 Ca Na exposure conditions [19]. stud-
+expression variation [6,7]. analysis individ-       ied relationship expression variation ual genomic proteomic factors affecting gene expres-           protein interaction degree using LOWESS function sion indicates distinct                    R [23] fit data. bases, obvious mechanisms specifically influence gene expression             gene expression variation decreases degree variation TATA-containing non-TATA-containing               protein physical interaction (Figure 1A). decreasing
+genes. importantly, significant nega-            trend especially significant interaction degree
+tive correlation expression variation toxicity         relatively low (≤ 20). contrast, interaction
+degree present TATA-containing genes          degree greater 40, decreasing trend toxicity degree accounts 1.3–2.6  expression            obvious. Biologically, explained fact
+variation. contrast, relationship expression        gene expression variation stabilizes interac-
+variation toxicity degree absent non-TATA           tion degree given threshold. potential
+taining genes. fact TATA-containing genes             explanation interactions proteins high
+enriched stress-related genes [17] explain dif-        degrees simply reliable [24]. large number ference. number TFs significantly posi-         reliable interactions proteins high degrees
+tively correlated expression variation TATA-         skew true relationship gene expression non-TATA-containing genes, association strength            variation interaction degrees. true underly- higher non-TATA containing genes TATA-             ing mechanism phenomenon clear, lim-
+containing genes. results imply mechanism           ited analysis proteins interaction
+
+
+                                                                                                                       Page 3 12
+                                                                                                 (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                    http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+
+Figure
+Gene expression
+         1         variation negatively correlated protein interaction degree
+Gene expression variation negatively correlated protein interaction degree. x-axis represents protein
+physical interaction degree, y-axis represents gene expression variation.  LOWESS fit gene expression
+variation. B) Bar-plot expression variation genes given protein interaction degree lin-
+ear regression fit gene expression variation relation interaction degree. linear coefficient β = -0.0302, R2 =
+1.41 , p-value = 9.704e-14. red dots mean expression variation genes given protein physical inter-
+action (PPI) degree. bar represents standard deviation gene expression variation given PPI degree. scale gene expression variation figures, range y-axis -2.5 0.5.
+
+
+
+
+degree 20. Protein physical interaction             Gene expression variation versus essentiality, toxicity
+degree negatively associated              modulation, interaction degrees
+gene expression variation single cells [9] evolu-           noted  divided genes classes: essen-
+tionary expression variation [4,5] different                tial non-essential genes. Essential genes likely
+strains/species. result relationship             perturbed non-essential genes, significant
+gene expression variation interacting degree S.          perturbations essential genes  example, render
+cerevisiae consistent findings.                       yeast cell non-viable. classified non-
+                                                                    essential genes groups  phenotype, 0, tox-
+Accordingly, used linear regression fit              icity-modulating proteins degrees 1, 2, 3, 4,
+expression variation proteins maximal physical           respectively) according cell's fitness phenotype
+interaction degree 20:                                           changes DNA-damaging agents (methylating
+                                                                    agent methyl methanesulfonate (MMS), bulky alkylat-
+                          v = α + βd                                ing agent 4-nitroquinoline-N-oxide (4NQO), oxidiz-
+                                                                    ing agent tert-butyl hydroperoxide (t-BuOOH), 254- v gene expression variation d inter-        nm UV radiation) non-essential genes action degree. α β parameters. fitted line          knocked [16]. toxicity degree reflects func- corresponding bar-plot expression variation             tional importance genes relation cell survival shown Figure 1B. gene expression variation            DNA-damaging perturbations, expected
+significantly negatively correlated protein inter-         gene expression variation decrease tox-
+action degree (≤ 20) (R2 = 1.41 , β = -0.0302, p-value =            icity degree increases. number genes tox-
+9.704e-14). negative correlation expression             icity degree 4 small (n = 32), combined variation interaction degree implies protein          group having toxicity degree 3. referred high interaction degrees tolerate extensive expres-          essential genes group toxicity degree 4. Figure
+sion variation protein need precise control           2A shows bar-plot linear regression fit gene expression organism function normally.            gene expression variation respect toxicity degree.
+
+
+                                                                                                                         Page 4 12
+                                                                                                   (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                   http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+
+Figure  effect
+         2 essentiality, toxicity degree, protein interaction degree gene expression variation effect essentiality, toxicity degree, protein interaction degree gene expression variation.  Bar-
+plot expression variation genes given toxicity degree linear regression fit expression variation genes relation toxicity degree. linear coefficient β = -0.0629, R2 = 0.75 , p-
+value = 4.73e-08. B) mean expression variation linear regression fit expression variation respect PPI
+degree non-essential genes stratified according toxicity degree essential genes. β values -0.0172, -
+0.0230, -0.0304, -0.0164 -0.0460 toxicity degree 0, 1, 2, 3, essential genes, respectively. corresponding
+p-values 0.0313, 0.0141, 0.0011, 0.2248 0.0013, respectively. R2 0.31 , 0.75 , 2.75 , 0.8  4.41 , respectively. labels Figure 1.
+
+  significant negative association gene             conversely, caused positive correlation expression variation toxicity degree observed (R2          interaction degree toxicity degree. consequently
+= 0.75 , β = -0.0629, p-value = 4.73e-08). study         studied relationship gene expression varia- relationship gene essentiality evolution-          tion protein interaction degree gene groups
+ary expression variation conducted Tirosh Barkai            stratified according toxicity degrees (Figure 2B).
+[8] Choi et al. [25], essential genes          Using Ca Na exposure gene expression data [19], tend lower variation non-essential genes.             significant decreasing trend gene expression consistent result demonstrates         variation respect interaction degree strata variation essential genes (toxicity degree = 4)          toxicity degree 3. correspond-
+lower non-essential genes (combine pro-           ing (R2, β, p-value) (0.31 , -0.017, 0.03), (0.75 , -
+teins toxicity degree = 0, 1, 2, 3) (p-value = 0.027).        0.023, 0.014), (2.75 , -0.030, 0.001), (0.8 , -0.016,  study differs studies          0.2248), (4.41 , -0.046, 0.001) toxicity degrees 0, classified genes according toxicity        1, 2, 3 4, respectively. fraction expression vari-
+degree negative association gene                 ation explained protein interaction degree expression toxicity degree.                                    increase toxicity degree increases.
+ observed positive correlation interaction             analyses, toxicity protein interaction
+degree toxicity degree (data shown)              degrees negatively associated gene expression var-
+fore, asked observed negative correlation              iation.  important gene survival gene expression variation interaction degree           yeast cell, variation expression
+
+
+                                                                                                                        Page 5 12
+                                                                                                  (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                 http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+levels different conditions. Similarly,          variation toxicity degree observed TATA-
+higher interaction degree gene, stability      containing group (Figure 3A) (R2 = 2.59 , β = -0.1674, p- observed expression levels. Biologically, gene    value = 7.174e-06).  association important cell's survival participates        expression variation toxicity degree non-TATA- important biological processes. perturbation         containing group marginally significant (R2 = gene's expression likely cause deleterious effect   0.13 , β = -0.02338, p-value = 0.0413). Consistent corresponding biological process renders        gene expression datasets, chemostat [20]
+cell non-viable. evolutionary consequence             environmental stress [21], combined
+hypothesis genes important cell survival appear       gene expression data [7]  Additional File 2: Sup- robust expression levels.                                plementary Table 7), highly significant negative
+                                                                 relationship gene expression variation toxic-
+Expression variation versus gene regulatory regions: TATA        ity degree observed TATA-containing genes,
+box, number TFs, toxicity degree                          non-TATA-containing genes.  Previous studies established relationship               effect toxicity degree gene expression variation dif- gene expression variation regulatory             ferent TATA-containing genes versus non-TATA 
+regions, including presence/absence TATA box              taining genes. relative small R2 value gene
+[6,7], length intergenic regions [2], number      expression variation toxicity degree cis-regulatory elements [3]. asked        explained absence association observed relationship gene expression variation          non-TATA-containing genes. toxicity degree TATA-containing
+genes non-TATA-containing genes. accomplish               Previous studies identified number cis-element goal, stratified yeast genes based      motifs contributing gene expression variation  thal-
+presence/absence TATA boxes reanalyzed rela-          iana [3], Landry et al. [6] number cis-
+tionship gene expression variation toxicity          elements marginally affects gene expression varia-
+degree. Consistent previous findings [6,7], clear     tion yeast. studied factors  gene expression variation TATA-containing            number cis-elements number TFs) relation
+genes higher non-TATA-containing            gene expression variation. analyzed rela-
+genes fixed toxicity degree (p-value < 2.2e-16).        tionship gene expression variation number
+Significant negative association gene expression         cis-elements [26] using linear model. Similar 
+
+
+
+Figure effect
+        3 TATA box, number TFs, toxicity degree gene expression variation effect TATA box, number TFs, toxicity degree gene expression variation.  relationship expression variation toxicity degree stratified presence/absence TATA box (R2 = 2.59 , β = -
+0.1674, p-value = 7.174e-06 TATA-containing gene set; R2 = 0.13 , β = -0.0234, p-value = 0.0413 non-TATA-
+containing gene set). B) relationship expression variation number TFs 25 (R2 = 8.28 , β =
+0.0654, p-value < 2.2e-16). labels Figure 1.
+
+
+
+
+                                                                                                                     Page 6 12
+                                                                                               (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                                       http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+MacIsaac et al. [26], defined cis-elements according                          Overall analysis factors affecting gene expression
+binding probability (p < 0.0001) classified                                variation
+according conservation yeast species.                         enumerated  identified factors results presented Table 1 different gene                         influencing gene expression variation S. cerevisiae. expression data. Ca Na exposure data [19],                          addition presence/absence TATA box identified
+highest R2 1.33  (p-value = 4.45e-08) cis-ele-                              previous studies [6,7], gene expression
+ments conserved species used.                          variation decreases protein interaction studied relationship gene expression                            toxicity modulation degrees increase. findings variation number TFs influence target gene                          consistent studies expression variation expression based gene regulatory network devel-                              single cells [9] evolutionary expression variation
+oped Hu et al. [27]. highly significant positive corre-                        different strains/species [4,5,25]. lation gene expression variation number                             gene expression variation increases number of TFs observed (R2 = 8.28 , β = 0.0654, p-value <                              TFs number cis-elements increases 2.2e-16) (Figure 3B). fraction variation explained                           number TFs regulating gene better predictor number TFs (R2 = 8.28 ) higher                               expression variation number cis-elements. number cis-elements indicating                              studied contribution factor number TFs better predictor gene expression var-                         interactions gene expression variation taking
+iation number cis-elements. result implies                         factors consideration using Akaike importance trans-effect gene expression varia-                           Information Criterion (AIC) [28]. retained model
+tion.                                                                               smallest AIC. Table 2 gives results factors
+Table 1: relationship gene expression variation number cis-elements.
+
+ Cis-elements identified binding p < 0.0001 conservation 2 yeast species
+
+ Gene expression data-set                                                                                          Linear regression              R2
+
+                                                                                                                   β              p value
+
+ Ca_Na exposure                                                                                                    0.0589         1.17e-06        1.25 
+ Chemostat                                                                                                         0.0188         0.0067          0.39 
+ Environmental Stress                                                                                              0.0507         5.48e-07        1.33 
+ Oxidative Stress                                                                                                  0.0025         0.725           0.01 
+
+ Cis-elements identified binding p < 0.0001 conservation 1 yeast
+
+ Gene expression data-set                                                                                          Linear regression              R2
+
+                                                                                                                   β              p value
+
+ Ca_Na exposure                                                                                                    0.0539         4.45e-08        1.33 
+ Chemostat                                                                                                         0.0161         0.0046          0.36 
+ Environmental Stress                                                                                              0.0516         3.56e-10        1.74 
+ Oxidative Stress                                                                                                  0.0013         0.826           0
+
+ Cis-elements identified binding p < 0.0001 Conservation Criteria
+
+ Gene expression data-set                                                                                          Linear regression              R2
+
+                                                                                                                   β              p value
+
+ Ca_Na exposure                                                                                                    0.0393         1.05e-07        1.02 
+ Chemostat                                                                                                         0.0151         0.0004          0.45 
+ Environmental Stress                                                                                              0.0346         1.68e-08        1.15 
+ Oxidative Stress                                                                                                  0.0028         0.526           0.01 
+
+ Cis-elements identified different criteria according conservation species. β linear coefficient linear
+ model, p-value related null hypothesis β ≠ 0 versus β = 0, R2 fraction variation explained number cis-
+ elements.
+
+
+                                                                                                                                             Page 7 12
+                                                                                                                       (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                                     http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+Table 2: Analysis factors interactions affecting expression variation using stepwise selection AIC.
+
+  variable            Ca_Na_exposure                        Chemostat                        Environmental Stress                 Oxidative Stress
+
+               model       p value        R2       model       p value       R2       model        p value      R2        model        p value         R2
+
+    x1            √        0.4252       0.05         √         0.1582      0.16          √        0.0647      0.28           √         0.1075        0.21 
+    x2            √        0.3721       0.06         √         0.0635      0.28          √        0.0861      0.24                     0.8729        0.002 
+    x3            √       1.16E-20      6.76         √        4.59E-09     2.73          √        < 2e-16     13.42          √        7.30E-09        2.65 
+    x4            √       3.22E-12      3.83         √        7.96E-10     3.00          √        < 2e-16      6.92          √         0.8841        0.002 
+   x1*x2
+   x1*x3
+   x1*x4          √        0.0581       0.29         √        0.0100       0.53                                              √         0.0348        0.36 
+   x2*x3                                             √        0.0422       0.33 
+   x2*x4          √        0.0226       0.41         √        0.0036       0.68          √        0.0108      0.53 
+   x3*x4          √        0.0039       0.67         √        0.0185       0.45          √        6.2e-09     2.71 
+  R2model                  16.36                              12.73                                22.39                                4.43 
+
+ main factors include protein interaction degree (x1), toxicity degree (x2: treat essential genes ones toxicity degree 4), number  TFs (x3), presence TATA box (x4: 1-TATA containing genes, 0-non-TATA containing genes). protein interaction data used  analysis based MIPS dataset. column marked "√" indicates inclusion final linear model. multiple linear regression  based final linear model, respectively. p-value related null hypothesis β ≠ 0 versus β = 0. R2 variation explained  model independent variable, respectively.
+
+included final linear model using MIPS interac-                        non-TATA-containing genes 1.5-fold higher tion data [12] expression profiles stepwise                       corresponding values TATA-containing genes.
+selection AIC. studied effect                             Accordingly, p-values non-TATA-containing
+selected factors expression variation using linear                             genes orders magnitude smaller regression, corresponding p-values R2 values                          corresponding p-values TATA-containing gene given Table 2. results showed protein inter-                      set. noted TATA-containing genes tend action degree explained 1  variation                            higher number TFs non-TATA-containing genes adjusted main factors                            (p-value = 1.184e-10), explain obser-
+interaction terms. oxidative stress gene                           vation association strength expression
+expression dataset [22], consistently selected model                          variation number TFs TATA-contain-
+contained main factors including protein interaction                         ing genes lower non-TATA-contain-
+degree, toxicity degree, number TFs, TATA box,                         ing genes. possible explanation presence interaction terms, e., interaction TATA                         TATA-box weakens effect number TFs gene toxicity degree TATA number TFs.                           expression evolution. Second, toxicity degree interaction terms statistically significant                       significant contributor gene expression varia- expression datasets: Ca Na exposure [19],                        tion TATA-containing genes Ca-Na expo-
+chemostat [20], environmental stress [21] (p-value <                          sure [19] Chemostat [20] gene expression dataset,
+0.05) explained 0.4  – 2.7  variation.                                 significant contributor gene expression
+                                                                                  variation non-TATA-containing gene set. TATA box interact toxicity                             environmental stress gene expression dataset [21], degree number TFs influencing gene expression                          effect toxicity degree gene expression variation variation, reanalyzed contributions toxicity                            statistically significant.  did observe degree number TFs gene expression variation                             decreasing trend gene expression variation respect
+stratified presence/absence TATA box using                          toxicity degree TATA-containing genes  linear model. protein physical interaction degree                         Additional File 1, Supplemental Figure 5). included analysis interaction TATA box physical interaction degree                              toxicity degree gene measures tolerance detected. Table 3 shows different results TATA                        yeast cell different external stress conditions non-TATA gene sets.  number TFs                           gene knocked   expected significant factor gene expression variation                          different relationship gene expression varia- TATA- non-TATA-containing genes p-val-                              tion toxicity degree TATA-containing genes ues 5e-6 datasets.  asso-                       non-TATA-containing genes enrichment ciation strength number TFs gene                               stress-related genes TATA-containing genes, expression variation measured coefficient β                        [17]. test hypothesis, used set genes related
+
+
+                                                                                                                                             Page 8 12
+                                                                                                                       (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                                       http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+Table 3: effect factors expression variation stratified presence/absence TATA box.
+
+ TATA dataset
+
+   variable             Ca_Na_exposure                        Chemostat                       Environmental Stress                 Oxidative Stress
+
+                    β         p-value      R2          β          p-value      R2         β           p-value     R2           β          p-value      R2
+
+      x2         -0.1436      0.0024     1.95       -0.0764       0.0034     1.81      -0.0510         0.156    0.43        0.0081         0.778      0.02 
+      x3         0.0312       5.4e-10    7.90        0.0168       1.5e-09    7.50       0.0283        2.6e-13   10.79       0.0138        4.8e-06     4.37 
+  R2 (model)                  9.47                                8.97                                11.09                                4.39 
+
+ Non-TATA dataset
+
+   variable             Ca_Na_exposure                        Chemostat                       Environmental Stress                 Oxidative Stress
+
+                    β         p-value      R2          β          p-value      R2         β           p-value     R2           β          p-value      R2
+
+      x2         -0.0167       0.402     0.06       -0.0026       0.8189     0.005      0.0258         0.086     0.26       0.0038         0.747     0.009 
+      x3         0.0502       < 2e-16    8.70        0.0300       < 2e-16     9.56      0.0468        < 2e-16    12.6       0.0181        4.4e-10    3.40 
+  R2 (model)                  8.85                                 9.62                               12.67                                3.39 
+
+ linear model includes toxicity degree (x2) number TFs (x3) built gene expression datasets,
+ respectively. R2 variation explained independent factor model, respectively. β linear coefficient linear model,  p-value related null hypothesis β ≠ 0 versus β = 0. Environmental Stress Response (ESR) [21].                              non-TATA-containing genes [17]. Basehoar et al. [17]
+hypothesis true, expect higher association                         suggested distinct regulatory mechanisms expression variation toxicity degree                          present TATA- TATA promoters. results ESR genes non-ESR genes.                            Table 3 support findings.  data shows β values similar groups genes (Table 4). explain                        results based oxidative stress gene expression
+interaction TATA toxicity degree                              dataset [22] consistent results based enrichment ESR genes TATA-containing genes.                            gene expression datasets. observation
+biological mechanisms underlying observed interac-                           relatively small gene expression varia-
+tion clear need studied.                               tion data. example, range variance                                                                                  expression levels oxidative stress dataset, did analysis average gene expres-                       (0.07, 5.34), smaller corresponding
+sion variation expression datasets (Ca                       ranges, (0.02, 10.59), (0.17, 9.18), (0.09, 11.07), Na exposure [19], chemostat [20], environmental stress                           Ca Na exposure [19], chemostat [20], envi-
+[21], oxidative stress [22]) combined gene                           ronmental stress conditions [21], respectively.
+expression data Landry et al. [7], results pre-
+sented Additional File 2. conclusions                         studied contributing factors gene expres-
+obtained indicating robustness results. Previous                      sion variation using DIP [13] BioGrid interactions
+studies showed TATA- non-TATA-containing                                [14], results given Additional File 1 File
+genes recruit different coactivator complexes                          2. Similar conclusions based MIPS interac-
+gene expression [17]. TATA-containing genes                            tion data [12] obtained. consistency subject greater nucleosomal regulation                            results using different combinations protein interaction
+Table 4: effect toxicity degree expression variation stratified set environmental stress response (ESR).
+
+ Gene group                   Ca_Na_exposure                       Chemostat                     Environmental Stress                Oxidative Stress
+
+                             β            p-value             β             p-value              β              p-value               β             p-value
+
+ ESR                       -0.0710        0.0053           -0.0314           0.0532           -0.0176            0.3640            0.0026           0.8708
+ Non-ESR                   -0.0848       2.09e-13          -0.0354          1.11e-07          -0.0579           1.28e-11           -0.0091          0.2086
+
+ linear model built gene expression datasets, respectively. β linear coefficient linear model p-value  related null hypothesis β ≠ 0 versus β = 0.
+
+
+                                                                                                                                              Page 9 12
+                                                                                                                       (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                              http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+data sets gene expression profiles showed robust-     40 conditions. datasets include yeast gene
+ness conclusions.  fraction gene        expression profiles 40 Ca Na exposure condi-
+expression variation explained factors    tions [19], chemostat  e., nutritional stress) 100 
+25 . possible explanation measurement         ditions [20], environmental stress 156 conditions [21] gene expression changes factors, including       oxidative stress 70 conditions [22]. data toxicity degree interaction degree,    analyzed separately ensure laboratory
+noisy. expect true R2 higher        variation minimized. combined gene expression observed study.                                  profile 1,500 conditions collected
+                                                              [7]. responsiveness gene Conclusion                                                    1,500 conditions calculated [7] used analy- implemented wide analysis proteomic            sis expression variation. genomic factors affecting gene expression variation. different factors (protein interaction degree,     Protein interaction data
+toxicity degree, TATA box, number TFs), TATA-box       downloaded yeast protein interaction data number TFs important factors          different data sources. MIPS (Munich Information
+influencing gene expression variation. influence       Center Protein Sequences) [12] dataset (version:
+TATA-box evolutionary gene expression variation        PPI_18052006.tab) contains 11,124 protein physical extensively studied computationally exper-      interactions involving 4,404 proteins. DIP core inter-
+imentally [6,8], results consistent    action dataset [13] (version: ScereCR20070107) contains
+findings. intuitive number TFs     5,738 protein interactions involving 2,161 proteins. regulating gene significant effect     DIP core interactions assessed number qual-
+gene's expression variation, magnitude influence   ity tests supposed highly reliable [11]. studied large scale expression datasets    BioGrid [14] dataset (version 2.0.34) contains 59,317 best knowledge. findings demonstrated          protein physical interactions involving 5,054 proteins. gene regulation main factor affecting gene
+expression variation. Protein interaction degree toxic-   Essential toxicity modulating genes
+ity degree account variation          Large scale gene deletion studies identified compared influence number TFs        17–20  genes essential yeast cell survival [15]
+TATA-box.                                                     normal conditions. class non-
+                                                              essential genes, gene's importance relation cell sur- overall analysis, interactions       vival  studies classified non- TATA-box toxicity degree           essential genes based cell's fitness phenotypes
+number TFs influence expression variation.     different DNA damage perturbations study stratified TATA-box indicated TATA-contain-     gene knocked [16]. toxicity modulating genes
+ing genes non-TATA containing genes behave differ-        defined significantly affecting cell's fit-
+ently relation toxicity degree number    ness phenotype knocked  defined toxic-
+TFs. effect number TFs expression varia-     ity degree gene number perturbations tion TATA-containing genes lower      significantly affected deletion strain's fitness. Essential non-TATA-containing genes. hand,         genes downloaded SGD website [29], toxicity degree associated expression variation       toxicity degrees non-essential genes calculated TATA-containing genes  findings         [16].
+suggest regulatory mechanism complicated TATA-containing genes non-TATA           Gene Regulatory Network
+containing genes.                                             Studies shown gene expression variation pos-
+                                                              itively correlated number cis-regulatory ele-
+Methods                                                       ments length intergenic region order study factors affecting gene expression varia-    organisms. cis-elements control expression tion, collected data gene expression profiles, pro-     genes interaction TFs, interesting tein physical interactions, gene regulatory networks,         study number TFs regulating gene effect
+essentiality toxicity resistance. Details data   gene expression variation. mapping cis-ele- given                                               ments genes obtained using motif discovery algo-
+                                                              rithms, PhyloCon Converge, binding p-value
+Gene expression profiles                                      0.001 conservation 0, 1 2 large number gene expression studies available.   yeast species [26]. mapping TFs genes study, chose gene expression studies containing    obtained Hu et al. [27].
+
+
+                                                                                                                  Page 10 12
+                                                                                             (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                       http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+TATA-containing genes                                           clear. factors highly correlated, TATA box DNA sequence (cis-element)         treat independent factors joint analysis.
+promoter region eukaryotic genes. TATA 
+sensus sequence identified TATA T T) G)          overall analysis, used stepwise selection [17]. TATA box identified impor-         model gives smallest AIC (Akaike informa-
+tant factor gene expression variation. relationship     tion criterion) = 2*K+n*ln(SSE/n), K number yeast genes TATA box downloaded             parameters model; n number observa- [17]. 1090 6278 genes pre-      tions; SSE residual sum squares [30]. dicted TATA box. analysis used 1090         used linear regression analyze relationship genes TATA-containing genes genes non-          gene expression variation retained factors TATA-containing genes.  note 607 genes          interactions. corresponding p-values R2 val-
+classified [17], results essentially    ues reported Table 2. genes considered (data shown).)
+                                                                Authors' contributions
+Statistical Analysis                                            authors contributed design coordination Gene expression variation measured logarithm         study. LZ carried calculations performed variance gene expression levels various     statistical analysis. FS drafted original manuscript,
+conditions. distribution variance        revised XM LZ. authors read mal. addition, standard deviations resulting      approved final manuscript.
+distributions conditional independent variables
+(protein physical interaction degree, toxicity degree, TATA     Additional material
+box, number TFs) differed widely, making linear
+model variance invalid. avoid problems, measured gene expression variation loga-
+                                                                     Additional file 1
+                                                                     statistical analysis individual factors gene expression variation
+rithm variance. resulting distributions           using expression datasets, respectively.
+fit conditions linear model.                Click file
+study, used linear model study relationship              [http://www.biomedcentral.com/content/supplementary/1752- expression variation factor.             0509-2-54-S1.pdf]
+study relationship gene expression var-
+iation interaction degrees, used LOWESS             Additional file 2
+function R [23] fit data. approximate linear            Overall analysis main factors (protein interaction degree, toxicity
+                                                                     degree, number TFs presence TATA box) interac-
+relationship gene expression variation inter-            tions.
+action degree observed interaction degree               Click file 20. proceeded use linear regres-            [http://www.biomedcentral.com/content/supplementary/1752-
+sion fit data interaction degree 20.                    0509-2-54-S2.pdf]
+
+
+                         v = α + βd
+ v gene expression variation d inter-    Acknowledgements
+action degree. α β parameters. tested sta-       thank Mr. David Martin carefully reading manuscript tistical significance relationship gene         suggestions significantly improved presentation paper.                                                                 work partly supported NIH/NSF Joint Mathematical Biology Initi-
+expression variation interaction degree based                                                                 ative DMS-0241102 NIH P50 HG 002790. sincerely thank linear regression model.                                        anonymous reviewers pointing important references                                                                 missed original version. thank reviewers sug- joint analysis expression variation         gestions significantly improved presentation paper. respect factors (protein interaction degree,
+toxicity degree, number TFs, TATA box), tested        References factors highly correlated. calculated    1.      Newman JR, Ghaemmaghami S, Ihmels J, Breslow DK, Noble M,
+                                                                        DeRisi JL, Weissman JS: Single-cell proteomic analysis S. cer-
+correlation matrix given Addi-                evisiae reveals architecture biological noise. Nature
+tional File 2 (Supplementary Table 9). correlation              2006, 441:840-6.
+coefficients smaller 0.3 indicating      2.      Nelson CE, Hersh BM, Carroll SB: regulatory content                                                                         intergenic DNA shapes genome architecture. Genome Biol highly correlated. compu-                 2004, 5:R25.
+tationally reasonable principal compo-        3.      Walther D, Brunnemann R, Selbig J: regulatory code tran-
+nents factors analyze data using                  scriptional response diversity relation genome
+                                                                        structural properties  thaliana. PLoS Genet 2007, 3:e11.
+linear regression, interpretation final result 
+
+                                                                                                                               Page 11 12
+                                                                                                          (page number citation purposes)
+ BMC Systems Biology 2008, 2:54                                                                   http://www.biomedcentral.com/1752-0509/2/54
+
+
+
+4.    Lemos B, Meiklejohn CD, Hartl DL: Regulatory evolution           24.   Bader JS, Chaudhuri  Rothberg JM, Chant J: Gaining confidence
+      protein interaction network. Nat Genet 2004, 36:1059-60.                  high-throughput protein interaction networks. Nat Biotech-
+5.    Lemos B, Bettencourt BR, Meiklejohn CD, Hartl DL: Evolution                nol 2004, 22:78-85.
+      proteins gene expression levels coupled Dro-                 25.   Choi JK, Kim SC, Seo J, Kim S, Bhak J: Impact transcriptional
+      sophila independently associated mRNA abun-                      properties essentiality evolutionary rate. Genetics
+      dance, protein length, number protein-protein                          2007, 175:199-206.
+      interactions. Mol Biol Evol 2005, 22:1345-54.                           26.   MacIsaac KD, Wang T, Gordon DB, Gifford DK, Stormo GD, Fraen-
+6.    Landry CR, Lemos B, Rifkin SA, Dickinson WJ, Hartl DL: Genetic                kel E: improved map conserved regulatory sites Sac-
+      properties influencing evolvability gene expression.                   charomyces cerevisiae. BMC Bioinformatics 2006, 7:113.
+      Science 2007, 317:118-21.                                               27.   Hu  Killion PJ, Iyer VR: Genetic reconstruction functional
+7.    Tirosh  Weinberger  Carmi M, Barkai N: genetic signature             transcriptional regulatory network.                 Nat Genet 2007,
+      interspecies variations gene expression. Nat Genet 2006,                   39(5):683-7.
+      38:830-4.                                                               28.   Akaike H: Information theory extension maxi-
+8.    Tirosh  Barkai N: Evolution gene sequence gene                       mum likelihood principle. Proceedings Second International
+      expression correlated yeast. Trends Genet 2008,                    Symposium Information Theory Edited  Petrov BN, Csaki F.
+      24:109-13.                                                                    Akademiai Kiado, Budapest; 1973:267-281.
+9.    Batada NN, Reguly T, Breitkreutz  Boucher L, Breitkreutz BJ, Hurst    29.   Winzeler EA, Shoemaker DD, Astromoff  Liang H, Anderson K,
+      LD, Tyers M: Stratus altocumulus: new view yeast                 Andre B, Bangham R, Benito R, Boeke JD, Bussey H, Chu  
+      protein interaction network. PLoS Biol 2006, 4(10):e317.                      nelly C, Davis K, Dietrich F, Dow SW, El Bakkoury M, Foury F, Friend
+10.   Deng MH, Sun FZ, Chen T: Assessment reliability pro-                SH, Gentalen E, Giaever G, Hegemann JH, Jones T, Laub M, Liao H,
+      tein-protein interactions protein function prediction.                    Liebundguth N, Lockhart DJ, Lucau-Danila  Lussier M, M'Rabet N,
+      Pac Symp Biocomput 2003:140-151.                                              Menard P, Mittmann M, Pai C, Rebischung C, Revuelta JL, Riles L, Rob-
+11.   Deane CM, Salwinski L, Xenarios, Eisenberg D: Protein interac-              erts CJ, Ross-MacDonald P, Scherens B, Snyder M, Sookhai-Mahadeo
+      tions: methods assessment reliability high                  S, Storms RK, Véronneau S, Voet M, Volckaert G, Ward TR, Wysocki
+      throughput observations. Mol Cell Proteomics 2002, 1:349-56.                  R, Yen GS, Yu K, Zimmermann K, Philippsen P, Johnston M, Davis
+12.   Mewes HW, Amid C, Arnold R, Frishman D, Güldener U, Mannhaupt                 RW: Functional characterization S. cerevisiae genome
+      G, Münsterkötter M, Pagel P, Strack N, Stümpflen V, Warfsmann J,              gene deletion parallel analysis. Science 1999, 285:901-6.
+      Ruepp  MIPS: analysis annotation proteins                 30.   Burnham KP, Anderson DR: Model selection multimodel inference:
+      genomes. Nucleic Acids Res 2004:D41-44.                                 practical-theoretic approach 2nd edition. Springer-Verlag; 2002.
+13.   Salwinski L, Miller CS, Smith AJ, Pettit FK, Bowie JU, Eisenberg D:
+      Database Interacting Proteins: 2004 update. Nucleic
+      Acids Res 2004:D449-451.
+14.   Stark C, Breitkreutz BJ, Reguly T, Boucher L, Breitkreutz  Tyers M:
+      BioGRID: general repository interaction datasets.
+      Nucleic Acids Res 2006, 34 (Database issue):D535-9.
+15.   Giaever G, Chu  Ni L, Connelly C, Riles L, Véronneau S, Dow S,
+      Lucau-Danila  Anderson K, André B, Arkin AP, Astromoff  El-
+      Bakkoury M, Bangham R, Benito R, Brachat S, Campanaro S, Curtiss
+      M, Davis K, Deutschbauer  Entian KD, Flaherty P, Foury F, Garfinkel
+      DJ, Gerstein M, Gotte D, Güldener U, Hegemann JH, Hempel S, 
+      man  Jaramillo DF, Kelly  Kelly SL, Kötter P, LaBonte D, Lamb
+      DC, Lan N, Liang H, Liao H, Liu L, Luo C, Lussier M, Mao R, Menard
+      P, Ooi SL, Revuelta JL, Roberts CJ, Rose M, Ross-Macdonald P, Sche-
+      rens B, Schimmack G, Shafer B, Shoemaker DD, Sookhai-Mahadeo S,
+      Storms RK, Strathern JN, Valle G, Voet M, Volckaert G, Wang CY,
+      Ward TR, Wilhelmy J, Winzeler EA, Yang Y, Yen G, Youngman E, Yu
+      K, Bussey H, Boeke JD, Snyder M, Philippsen P, Davis RW, Johnston
+      M: Functional profiling Saccharomyces cerevisiae
+      genome. Nature 2002, 418:387-91.
+16.   Said MR, Begley TJ, Oppenheim AV, Lauffenburger DA, Samson LD:
+      Global network analysis phenotypic effects: protein net-
+      works toxicity modulation Saccharomyces cerevisiae.
+      Proc Natl Acad Sci USA 2004, 101:18006-11.
+17.   Basehoar AD, Zanton SJ, Pugh BF: Identification distinct reg-
+      ulation yeast TATA box-containing genes. Cell 2004,
+      116:699-709.
+18.   Choi JK, Kim YJ: Epigenetic regulation variability       gene expression. Nat Genet 2008, 40:141-7.
+19.   Yoshimoto H, Saltsman K, Gasch AP, Li HX, Ogawa N, Botstein D,
+      Brown PO, Cyert MS: Genome-wide analysis gene expres-
+      sion regulated calcineurin/Crz1p signaling pathway                      Publish Bio Med Central       Saccharomyces cerevisiae. J Biol Chem 2002, 277:31079-88.
+20.   Saldanha AJ, Brauer MJ, Botstein D: Nutritional homeostasis                   scientist read work free charge
+      batch steady-state culture yeast. Mol Biol Cell 2004,                  "BioMed Central significant development       15:4089-104.                                                                  disseminating results biomedical researc h lifetime."
+21.   Gasch AP, Spellman PT, Kao CM, Carmel-Harel O, Eisen MB, Storz
+      G, Botstein D, Brown PO: Genomic expression programs                       Sir Paul Nurse, Cancer Research UK
+      response yeast cells environmental changes. Mol Biol Cell                 research papers 
+      2000, 11:4241-57.
+22.   Shapira M, Segal E, Botstein D: Disruption yeast forkhead-                     available free charge entire biomedical community
+      associated cell cycle transcription oxidative stress. Mol Biol                 peer reviewed published immediately acceptance
+      Cell 2004, 15:5659-69.
+23.   R Project Statistical Computing                [http://www.r-             cited PubMed archived PubMed Central
+      project.org/]                                                                     — copyright
+
+                                                                               Submit manuscript                                 BioMedcentral
+                                                                               http://www.biomedcentral.com/info/publishing_adv.asp
+
+
+
+
+                                                                                                                                              Page 12 12
+                                                                                                                         (page number citation purposes)
+ 

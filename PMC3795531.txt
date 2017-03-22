@@ -1,0 +1,2211 @@
+Evolutionary Bioinformatics
+
+
+                                                                                                             Open Access
+                                                                                                       open access                                                                                                       thousands papers O r g nal Resea r c h
+                                                                                                        http://www.la-press.com.
+
+
+Prediction Protein Essentiality Support Vector
+Machine Statistical Tests
+
+Chiou-Yi Hor, Chang-Biau Yang, Zih-Jie Yang Chiou-Ting Tseng
+Department Science Engineering, National Sun Yat-sen University Kaohsiung 80424, Taiwan.
+Corresponding author email: cbyang@cse.nsysu.edu.tw
+
+
+
+
+Abstract: Essential proteins include minimum required set proteins support cell life. Identifying essential proteins important understanding cellular processes organism.  identifying essential proteins experimentally extremely time-
+consuming labor-intensive. Alternative methods developed examine essential proteins. goals study: identifying important features building learning machines discriminating essential proteins. Data Saccharomy-
+ces cerevisiae Escherichia coli used. collected information variety sources. proposed modified
+backward feature selection method build support vector machines (SVM) predictors based selected features. evaluate performance, conducted cross-validations originally imbalanced data set sampling balanced data set. statistical tests applied performance associated obtained feature subsets confirm significance. data
+set, best values F-measure Matthews correlation coefficient (MCC) 0.549 0.495 imbalanced experiments. balanced experiment, best values F-measure MCC 0.770 0.545, respectively. second data set, best values F-measure MCC 0.421 0.407 imbalanced experiments. balanced experiment, best values F-measure MCC 0.718 0.448, respectively. experimental results selected features compact performance improved. Prediction conducted users following internet address: http://bio2.cse.nsysu.edu.tw/
+esspredict.aspx.
+
+Keywords: support vector machine, feature selection, protein-protein interaction, essential protein, statistical test
+
+
+
+
+Evolutionary Bioinformatics 2013:9 387–416
+
+doi: 10.4137/EBO.S11975
+ article available http://www.la-press.com.
+
+© author(s), publisher licensee Libertas Academica 
+ open access article published Creative Commons CC NC 3.0 license.
+
+
+Evolutionary Bioinformatics 2013:9	                                                                                                  387
+ Hor et al
+
+
+Introduction                                                preliminary properties Identifying essential proteins important       somewhat relevant essentiality. 
+standing cellular processes organism      information highly accessible proteins perform functions essen-       sequence information required derive tial proteins. essential protein removed,        properties.  included properties dysfunction cell death results.  stud-      study. topological properties, addition physi-
+ies conducted identify essential proteins.     cal interactions, incorporated variety interac-
+Experimental approaches identifying essential           tion information, including metabolic, transcriptional
+proteins include gene deletion,1 RNA interference,2         regulation, integrated functional, genomic  conditional knockouts.3  meth-            text interactions. experimental results revealed
+ods labor-intensive time-consuming.           features provide complement infor-
+alternative methods identifying essential proteins      mation essentiality identification provide necessary.                                              biological justification.
+    essential protein classification problem               identify reduced feature subset, involves determining necessity protein sus-    crucial biological processes, previous studies
+taining cellular function life. methods        used feature selection techniques. advan-
+available identifying essential proteins, machine-      tages method include storage reduction,
+learning based methods promising approaches.            performance improvement data interpretation.12  studies conducted          accordance feature selection
+examine effectiveness technique. Chin4         procedure bound predictor, method
+proposed double-screening scheme constructed         roughly classified categories: filter, framework known hub analyzer (http://hub.iis.     wrapper, embedded. Filter methods pro-
+sinica.edu.tw/Hubba/index.php) rank ­proteins.      vide complete order available features terms
+Acencio Lemke5 used Waikato Environment            relevance measures. Methods Fisher
+Knowledge Analysis (WEKA)6 predict essen-           score,12 mutual information, minimal redundancy
+tial proteins. Hwang et  al7 applied support vector      maximal relevance (mRMR),13 conditional
+machine (SVM) classify proteins.                    mutual information maximization (CMIM),14     Protein-protein interactions (PPIs) known     minimal relevant redundancy (mRR)15 belong significant characteristics protein function.     category. wrapper embedded methods studies attempted predict classify     involve selection process learning
+protein function8 analyze protein pheno-        ­algorithm. utilizes learning machine type9 studying interactions. previous study10 fur-     evaluate subsets features according 
+ther suggested essential proteins nonessential     formance measurements. example, sequential
+proteins discriminated means topological       backward forward feature selection12 falls properties derived PPI network. spite        ­category. Embedded methods directly perform superior properties,  analyzing PPI       feature selection learning process experimentally time-consuming. advent        usually specific given learning machines. Example
+yeast hybrid11 high-throughput techniques,        include C4.5,16 Classification Regression Trees used identify PPIs experi-         (CART),17 ID3.18 Additionally, research-
+ment, obtaining PPI information easier.          ers proposed information-gain based feature PPI network similar social network          selection method,19 examines effective- aspects, researchers apply social net-         ness classifier combination.
+work techniques analyzing PPI networks.               paper, used datasets. topological properties extensively        Saccharomyces cerevisiae. corresponding
+explored studied recent years.                       PPI data set Scere20070107, obtained
+    Fundamental properties, sequence             DIP database. data set totally contains
+protein physiochemical ones, subjected           4873 proteins 17,166 interactions. feature set
+detailed examination previous studies.          consisted features obtained extracted 
+388	                                                                                    Evolutionary Bioinformatics 2013:9
+                                                                                            Essentiality prediction SVM
+
+ methods proposed Acencio Lemke,5 Chin,4          ­ atabase (SGD), located http://www.
+                                                            D
+Hwang et  al,7 Lin et  al.20 second data set        yeastgenome.org/. data set used Escherichia coli, compiled         previous studies, obtained incor- Gustafson et  al.21 data set totally contained       porated various related features experiments.
+3569 proteins. associated network information              E. coli data set obtained Gustafson
+included physical, integrated functional, genomic       et al.21 contained 3569 proteins, 611
+context interactions collected Hu et al.22      essential. availability coverage issues, data sets, propose modified sequen-           used information additional
+tial backward feature selection method selecting        networks: physical interaction (PI), integrated func-
+important features.                                         tional interaction, integrated PI genomic
+     SVM models built using selected          context (GC) network. information collected
+feature subsets. study, SVM software LIB-       Hu et al.22
+SVM23 adopted classification models.              data sets, ratio nonessential
+model applied imbalanced balanced           proteins essential proteins approximately 4:1
+data sets. results compared          5:1, respectively. data imbalance inevi-
+previous studies statistical tests conducted    tably led biased fitting nonessential proteins
+examine significance. imbalanced S. ­cerevisiae     learning processes.  constructed
+data, best results F-measure MCC           balanced data set. Taking data set, 0.549 0.495, respectively, outperform         example, randomly selected 975 nonessential pro-
+best previous method7 results 0.354 0.36,       teins mixed essential proteins form
+respectively. obtained values 0.770 0.545     balanced data set. new data set, number
+F-measure MCC balanced data experiment,          nonessential data elements essential superior best previous method7        elements equal.
+0.737 0.492, respectively. experiments exam-
+ining E. coli data set, best values F-measure   Bootstrap cross-validation MCC 0.421 0.407, respectively,          used bootstrap cross-validation (BCV) compare imbalanced data set. balanced experiment,        performance classifiers using k-fold cross-
+best values F-measure MCC 0.718            validation. Assume sample S = {(x1, y1), (x2, y2), …,
+0.448, respectively. results similar    (xn, yn)} composed n observations, xi represents
+Gustafson et  al,21 examined 29 features,        feature vector ith observation yi denotes method, seven features used       class label associated xi. bootstrap sample
+prediction. verify improvement                 {                                      }
+                                                            Sb* = ( x1* , y1* ) , ( x *2 , y2* ) , …, ( x *n , yn* ) consists n
+statistically significant, performed bootstrap cross-    obser­vations sampled S replacement,
+validation24 performance measures.                       1 # b # B, B constant 50                                                             200. sample Sb*, k-fold cross-­validation Background                                                  carried  performance measure cb, error data set                                                rate, calculated Sb*. procedure repeated paper, used data sets experiments:       B times average performance measure
+S. cerevisiae E. coli. included PPI          CB  =  ∑Bb=1 cb/B evaluated B bootstrap
+network data. downloaded data set           samples. distribution bootstrap 
+DIP (http://dip.doe-mbi.ucla.edu/) website.25           formance measures approximately normal, original data set contained 4873 proteins 17166         confidence interval significance estimated
+interactions. comply previous studies,           accordingly. adopted largest connected component network data. total 4815 proteins,          Performance measures
+including 975 essential proteins 3840 nonessen-         study, performance measures included
+tial proteins. information protein essential-        precision, recall, F-measure (F1), Matthews cor-
+ity obtained Saccharomyces Genome              relation coefficient (MCC), percentage
+
+Evolutionary Bioinformatics 2013:9	                                                                                         389
+ Hor et al
+
+ essential proteins. formulas given             tion, desire protein. follows:                                                       select 2 proteins using ranking method 
+                                                               W X.  use method B rank
+1.	 Precision: TP / TP + FP
+                                                               proteins. ranks W X 2
+2.	 Recall: TP / TP + FN
+                                                               1, respectively.  iteration, X
+3.	 F-measure: 2 × precision × recall /( precision + recall)
+                                                               finally selected. follows bit M [X, 1] set
+                        TP × TN − FP × FN                      1,  M [W, 1], M [Y, 1] M   1],
+4.	 MCC:
+             (TP + FN )(TP + FP)(TN + FP)(TN + FN )            set 0. second iteration, 2 ranking
+                                                               proteins   proteins W, X,
+5.	     percentage        essential    protein:
+                                                               Y selected, 4
+    Number real essential proteins n .               proteins ranking method   ranking
+                        n                                      method B, select 2 proteins 
+     essential protein represented           X Y.  bits corresponding
+positive observation. True positive (TP), true neg-            M [X, 2] M [Y, 2] set 1, ative (TN), false positive (FP), false negative            set 0 iteration. Finally, sum (FN) represent numbers true positive, true              bits protein, shown fourth column
+negative, false positive, false negative proteins,         Table 3.
+­respectively. value n denotes total num-                  issue bit string implemen-
+ ber predictions. addition, receiver operating           tation,  M sparse handled
+ characteristic (ROC) curve18 area curve             ­classifiers. number proteins  (AUC) used evaluate classification                selected n/2, sum n/2  bits  performance.                                                  close 0. experience, makes difficult
+                                                               distinguish proteins. overcome Feature extraction                                             problem, protein, added score feature set used included sequence properties           n – r sum bit string, r rank
+(S), amino acid occurrence average amino           protein ranking method B. study,
+acid PSSM; protein properties (P), cell cycle          used DMNC rank MNC rank B. metabolic process; topological properties (T),        example, n = 4, values n – r W, X, Y bit string double screening scheme           0, 2, 3, 1, respectively. summed ness centrality related physical interactions;    values bit string;  final scores properties (O), phyletic retention essential       0, 4, 4, 1. overall procedure given index. total 45 groups 90 features         Procedure bit string implementation DSS. S. cerevisiae data set. E. coli data set, 35 groups 80 features. names            Sequential backward feature
+sources shown Table 1. Bit string double        selection method
+screening scheme presented.                                 SVM established tool data analysis     remaining features detailed                 shown useful various fields, Appendix.                                                      text summarization,27 intrusion detection,28 image
+    Lin et al26 Chin4 proposed double screen-          coding.29 study, utilized SVM software
+ing scheme. used multiple ranking scores sort          developed Chang Lin, called LIBSVM.23 essential proteins. drawback protein          address data imbalance, propose modified
+does unique score.  propose bit           sequential backward feature selection method.
+string implementation incorporate prop-              data nonessential, choosing erties single score.                                    accuracy objective adopting conventional fea-
+    example bit string implementation             ture ranking schemes favored negative data. shown Tables 2 3. Suppose proteins,           features excluded, overall accuracy
+W, X, Y,  ranked. itera-          declined. number negative data ­elements
+
+
+390	                                                                                       Evolutionary Bioinformatics 2013:9
+                                                                                             Essentiality prediction SVM
+
+
+Table 1. Protein features.
+
+ID    Property                                                           Type   Size   Sub-names      S. cere   E. coli
+1     Amino acid occurrence           20
+                                                                              S      20     Y            •         •
+2     Average amino acid PSSM20                                               S      20     Y            •         •
+3     Average cysteine position20                                             S      1                     •         •
+4     Average distance cysteines20                               S      1                     •         •
+5     Average hydrophobic20                                                   S      1                     •         •
+6     Average hydrophobicity cysteine20                                S      4      1…4            •         •
+7     Cysteine count20                                                        S      1                     •         •
+8     Cysteine location20                                                     S      5      1…5            •         •
+9     Cysteine odd index20                                               S      1                     •         •
+10    Protein length20                                                        S      1                     •         •
+11    Cell cycle5                                                             P      1                     •
+12    Cytoplasm5                                                              P      1                     •
+13    Endoplasmic reticulum5                                                  P      1                     •
+14    Metabolic process5                                                      P      1                     •
+15    Mitochondrion5                                                          P      1                     •
+16    Nucleus5                                                                P      1                     •
+17    process5                                                          P      1                     •
+18    localization5                                                     P      1                     •
+19    Signal transduction5                                                    P      1                     •
+20    Transport5                                                              P      1                     •
+21    Transcription5                                                          P      1                     •
+22    Betweenness centrality related interactions41                    T      1                     •         •
+23    Betweenness centrality related metabolic interactions5               T      1                     •
+24    Betweenness centrality related physical interactions5                T      1                     •         •
+25    Betweenness centrality transcriptional regulation interactions5         T      1                     •
+26    Bit string double screening scheme  paper]                      T      1                     •         •
+27    Bottleneck8,41                                                          T      1                     •         •
+28    Clique level7                                                           T      1                     •         •
+29    Closeness centrality42                                                  T      1                     •         •
+30    Clustering coefficient7                                                 T      1                     •         •
+31    Degree related interactions43                                    T      1                     •         •
+32    Degree related physical interactions5                                T      1                     •         •
+33    Density maximum neighborhood component4                              T      1                     •         •
+34    Edge percolated component9                                              T      1                     •         •
+35    Indegree related metabolic interaction5                              T      1                     •
+36    Indegree related transcriptional regulation5                         T      1                     •
+37    Maximum neighborhood component4                                         T      1                     •         •
+38    Neighbors’ intra-degree7                                                T      1                     •         •
+39    Outdegree related metabolic interaction5                             T      1                     •
+40    Outdegree related transcriptional regulation interaction5            T      1                     •
+41    Betweenness centrality related integrated functional interaction22   T      1                               •
+42    Betweenness centrality related integrated PI GC network22        T      1                               •
+43    Degree related integrated functional interaction22                   T      1                               •
+44    Degree related integrated PI GC network22                        T      1                               •
+45    Common function degree7                                                 O      1                     •
+46    Essential index7                                                        O      1                     •
+47    Identicalness5                                                          O      1                     •
+48    Open reading frame length7                                              O      1                     •         •
+49    Phyletic retention21                                                    O      1                     •         •
+50    Number paralagous genes21                                            O      1                               •
+51    Codon Adaptation Index (CAI)21,44                                       O      1                               •
+52    Codon Bias Index (CBI)21,44                                             O      1                               •
+                                                                                                                (Continued)
+
+
+
+Evolutionary Bioinformatics 2013:9	                                                                                      391
+ Hor et al
+
+
+Table 1. (Continued)
+
+ID     Property                                                                          Type      Size     Sub-names          S. cere       E. coli
+53     Frequency optimal codons         21,44
+                                                                                              O         1                                         •
+54     Aromaticity score21,44                                                                 O         1                                         •
+55     Leading strand circular chromosome21                                            O         1                                         •
+       Total                                                                                            100                         90            80
+Notes: S. cere E. coli mean Saccharomyces cerevisiae Escherichia coli datasets, respectively. topological features, particularly
+mentioned, related physical interactions. coverage availability issue, adopt different features S. cere E. coli datasets. example, interactions E. coli data set contain integrated functional, PI, GC network information S. cere include metabolic,
+transcriptional regulation PI network information.
+Abbreviations: GC, genomic context; PI, physical interactions.
+
+
+ higher positive factors, true-                              fewer features compete ­positive rate decreased true-nega-                           features. 
+ tive rate.  features selected  positive samples correctly classified dete-                       C(S) = wP * P(S) + wR * R(S) + wF * F (S) + wM
+ riorating overall accuracy  sense,                                 * M(S) × (|S| - t) * u(|S| - t) * e,
+ using accuracy guide feature
+ selection, used composite score C objec-                            S denotes selected feature subset. |S| t
+ tive ­function. composite score represented                          denote size S goal number features
+ terms ­precision (P), recall (R), F-measure (F),                         specified user, respectively. unit step func-
+ MCC (M) given C = wP * P + wR * R + wF                               tion u(|S| – t) = 0 |S| – t # 0, u(|S| – t) = 1.
+ * F + wM * M. adjustable weights, wP, wR, wF,                          Finally, threshold �? adopted make ensure
+ wM, used, leading compromise                              improvement feature changes  associated performance measures. additional pun-                             random process. value �? estimated  ishment imposed C allow scores associated                             comparing average score difference feature
+                                                                                 subsets sizes p p  +  1  preliminary run
+                                                                                 given different values p. value e
+                                                                                 denotes penalty score additional fea-
+     Procedure: Bit String Implementation DSS
+                                                                                 ture selected. score specified      input: P: proteins ranking, |P| = n
+                                                                                 user slightly larger �? encour-
+            ranking methods,   = m = 2
+                                 n                                               age feature subsets smaller sizes. procedure
+         M: bit matrix n × 2 , initialized 0
+                                                                                 feature selection described Procedure 
+     output: Protein ranking scores R
+                                                                                 ward feature selection.
+     begin
+       = 1 n R  = 0;
+       = 1 n/2                                                     Experimental procedure results
+        T1 = 2i proteins ranked 1) P;                                comparison purposes, used feature selec-
+        T2 = proteins ranked 2) T1;                                tion methods: mRMR CMIM. S. cerevisiae
+        foreach x ∈ T2 M [x,  = 1;
+       end
+                                                                                 Table 2. Ranking different methods, smaller
+       = 1 n                                                         numbers indicate higher ranks.
+       foreach j = 1 n/2 R  = R 
+         + M   j];                                                             Protein                     Ranking method
+       end                                                                                                        (DMNC)                    B (MNC)
+       T = protein orders ranked m) ;                                       W                                1                           4
+       foreach = 1 n R  = R  + (n – T  )                           X                                2                           2
+     end                                                                         Y                                3                           1
+                                                                                                                4                           3
+
+
+392	                                                                                                                  Evolutionary Bioinformatics 2013:9
+                                                                                                  Essentiality prediction SVM
+
+
+                                                          Table 3. Bit strings double screening method.
+   Procedure: Backward Feature Selection
+                                                          Protein          th iteration             Sum bit           n-r              Sum
+   input : e: penalty score                                                                      string
+                                                                           1st          2nd
+   	       k: number folds cross-validation
+   	       r: maximal number rounds retry           W                0            0             0                    0                0
+   	S0: set available features,             X                1            1             2                    2                4
+                                                          Y                0            1             1                    3                4
+           |S0| = n                                                      0            0             0                    1                1
+   	       t: goal number selected features
+   	wP, wR, wF wM: weights perfor-
+           mance measures                                 used Gustafson’s feature set benchmark.    	       �?: minimal improvement proceed              feature sets considerably effective various
+   output: Selected feature subset S                      performance measures.
+   data: 50  available data elements
+   begin                                                  Stage 2: Tune SVM parameters
+     S = S0;                                              best performance
+     t $ n stop m = n – t;                   feature sets, ran SVM
+     p = 1 m                                    software using feature sets Hwang Gustafson
+   	       improved = False ;                             tuned SVM parameters achieve highest
+   	       = 1 r                              average performances.
+   	  Conduct k-fold CV calculate C (S);
+   	  foreach s ∈ S                                    Stage 3: Adopt best performances
+   	  Conduct k-fold CV calculate C                  reference performances
+                 (S – {s});                               determining best SVM parameters    	  end                                                 feature sets Hwang Gustafson, recorded    	  q = argmaxs ∈ S {C (S – {s}) – C (S)};              SVM parameters results. compare results
+   	  C (S - {q}) – C (S) $ �?                     models, obtained using    	   S = S - {q};                                       methods, mRMR CMIM, used SVM
+   	   improved = True;                                   software adjust cost parameters SVM    	   break;                                             order achieve similar levels precision.
+   	  end
+        end                                               Stage 4: Perform feature selection
+        improved stop output S            randomly chose 50  available data.       end                                                  backward feature selection procedure applied    end                                                    selected data. beginning feature selec-
+                                                          tion procedure, imposed penalty score cal-
+                                                          culation.  procedure attempts achieve data set, results compared      highest score. subsequent runs, added penal-
+Acencio Lemke5 Hwang et al.7 E. coli      ties feature sizes score ­calculation. ­Subsets
+data set, compared results      smaller feature size slightly ­inferior Gustafson et al.21
+
+Experimental procedure                                              Determining
+                                                               benchmark feature sets
+                                                                                                 Tuning SVM
+                                                                                            parameters best
+                                                                                                                          Adopting best
+                                                                                                                         performances  overall procedure experiments illus-
+                                                                                                performances         reference performances
+
+
+trated Figure 1 described follows.                                                  Performing
+                                                                     Performing               conventional         Performing feature
+                                                                  significance tests            bootstraping               selections
+Stage 1: Determine benchmark feature set                                                      cross-validations
+
+ S. cerevisiae data set, used Hwang’s fea-      Figure 1. Flowchart construction SVM models performance
+ture set benchmark. E. coli data set,   comparison.
+
+
+
+Evolutionary Bioinformatics 2013:9	                                                                                                           393
+ Hor et al
+
+
+performance selected. compare results             o­ pportunities exploit available feature combina- methods, used mRMR             tions achieve best performance. initial CMIM feature ranking methods chose subsets             run, obtained feature subset 18 size. Procedure backward feature selection.                        subsequent runs, value t                                                                decreased starting 17 (=  18 - 1) perfor-
+Stage 5: Perform 10-fold bootstrap                         mances significantly worse Hwang
+cross-validations                                              et  al.7 order obtain feature subsets reduced data prepared balanced imbal-             sizes, parameters set: k = 2, wP = 1.03, wR = 1,
+anced manners. data set, randomly                  wF = 1, wM = 1, �? = 0.005, e = 0.01, r = 5. rea-
+­partitioned data 10 disjoint groups used         son setting wP = 1.03 prevent true posi-
+ feature subsets selected previous stage         tive rate decreasing  addition, e . �?
+ calculate various performance measures. data              allow procedure proceeded fewer
+ prepared balanced imbalanced                 features. settings used encourage
+ ­manners. 10-fold cross validation repeated           selection reduced feature subsets.
+  10 times average performance measures                   setting t, executed procedure
+  computed.  bootstrap sampling procedure           10 times different k-fold partitions obtained
+  conducted 200 bootstrap samples produced,           10 feature subsets size. 10
+  ­including balanced imbalanced ­samples.            resultant feature subsets slightly different,    bootstrap sample partitioned              performed 5-fold cross-validation    10-fold cross validations performance measures          feature subsets compared performance
+   ­calculated. Note models examined        scores. highest score finally
+   sets data partitions conventional        preserved feature subset.
+   bootstraping cross-validations.                             addition methods Hwang et  al                                                                Gustafson et al,21 used mRMR13 CMIM14
+Stage 6: Perform significance tests                            feature selection methods comparison. Using bootstrap cross validations carried              mRMR example, data used feature significance tests adopted accordingly.            selection procedure input mRMR pro-
+addition average values AUC, precision,              gram, produced ranking score fea-
+recall, F-measure, MCC, conducted statisti-           ture. feature score removed
+cal significance test performance measures.          subsequent 5-fold cross-validation Additionally, calculated ROC curves             preserved features performed calculate centage values imbalanced experiments.                     composite score C (S).  ith iteration,
+                                                               features lowest ranking scores Backward feature selection                                     removed C (S) calculated. removal mRMR/CMIM feature ranking                                  cross-validation procedure repeated fea- used 50  available data elements fea-                ture preserved. entire process (including ran-
+ture selection. Taking S. cerevisiae data set        dom choice 50  data feature removal) example, (3840 + 975) × 50  observations             executed 10 times feature subset randomly chosen Backward feature selec-                size highest score recorded.
+tion procedure. procedure,                  Table 4 shows selected feature subsets dif-
+formance scores calculated means k-fold             ferent sizes S. cerevisiae data. second column
+cross-­validations. run, parameters           table lists selected features. Ni set follows: k  =  2, wP  =  1, wR  =  1, wF  =  1,    row represents feature subset size  4 #
+wM = 1, �? = 0.005, e = 0, t = 0, r = 5.          # 18, using backward feature
+associated weights equal, procedure sought            selection procedure. feature subset Ni, best compromise performance mea-                 bullet (•) mark column used
+sures. t  =  e  =  0, meaning goal number           indicate feature included. selected features imposed, giving procedure            competent feature subsets selected CMIM 
+394	                                                                                       Evolutionary Bioinformatics 2013:9
+                                       Table 4. Selected features S. cerevisiae data set.
+
+                                           Feature                             N5    N6    N7   N8   N9   N10   N11   N12   N13   N14   N15   N16   N17   N18   m31   C32   TOT
+                                      1    PR (phyletic retention)             •     •     •    •    •    •     •     •     •     •     •     •     •     •     •     •     16
+                                      2    EI (essentiality index)             •     •     •    •    •    •     •     •     •     •     •     •     •     •     •     •     16
+                                      3    Cytoplasm                           •     •     •    •    •    •     •     •     •     •     •     •     •     •           •     15
+                                      4    Nucleus                             •     •     •    •    •    •     •     •     •           •     •     •     •     •     •     15
+                                      5    Occurrence                             •    •    •    •     •     •     •     •     •     •     •     •           •     13
+                                      6    Bit string DSS                         •     •    •    •    •     •     •           •     •     •     •     •                 12
+                                      7    Occurrence  W                                 •    •    •     •     •     •     •     •     •     •     •           •     12
+
+
+
+
+Evolutionary Bioinformatics 2013:9	
+                                      8    Endoplasmic reticulum                                     •    •     •     •     •     •     •     •     •     •     •           11
+                                      9    process                                                                          •     •     •     •     •     •     •     7
+                                      10   Occurrence  S                                                       •           •           •     •     •     •     •     7
+                                      11   Occurrence  G                                                 •           •           •     •     •     •                 6
+                                      12   KLV (clique level)                                                         •     •     •           •                 •     •     6
+                                      13   Cell cycle                                                                 •           •           •                 •     •     5
+                                      14   Average hydrophobic                                                              •           •           •     •           •     5
+                                      15   Average PSSM  R                                         •     •                       •           •     •                 5
+                                      16   B.C. related PI                                                               •                       •     •     •           4
+                                      17   Occurrence  E                                                             •                 •                 •     •     4
+                                      18   Average PSSM  P                                         •     •                       •                             •     4
+                                      19   ID related T.R.                                                                                       •     •     •           3
+                                      20   B.C. T.R. interactions                                                                       •                 •     •           3
+                                      21   localization                                                                                       •     •           •     3
+                                      22   DMNC                                •     •                                                                                •     3
+                                      23   Average HYD C-2                                                     •           •           •                             3
+                                      24   Signal transduction                                                                                      •     •                 2
+                                      25   Edge percolated component                                                                                            •     •     2
+                                      26   Occurrence  P                                                                                                 •     •     2
+                                      27   Occurrence  T                                 •    •                                                                      2
+                                      28   Occurrence  Y                                                                                                 •     •     2
+                                      29   Average PSSM  Q                                                           •                                         •     2
+                                      30   Average PSSM  E                                                                 •           •                             2
+                                      31   CLC (clustering coefficient)                                                                                         •     •     2
+                                      32   FunK (common function degree)                                                                                        •     •     2
+                                      33   OD related T.R. interaction                                                                                       •           1
+                                      34   OD related M                                                                                                    •           1
+                                      35   ID related M                                                                                                    •           1
+                                      36   B.C. related M                                                                                                  •           1
+                                      37   Degree related PI                                                                                                       •     1
+                                      38   Metabolic process                                                                                                    •           1
+                                      39   Bottleneck                                                                                                           •           1
+                                      40   MNC                                                                                                                  •           1
+                                      41   Occurrence                                                                                                        •     1
+                                      42   Occurrence  C                                                                                                 •           1
+                                      43   Occurrence  D                                                                                                       •     1
+
+
+
+
+395
+                                                                                                                                                                                    Essentiality prediction SVM
+
+
+
+
+                                                                                                                                                                      (Continued)
+     Hor et al
+
+
+                                                                                                                                                                                                                                                          mRMR denoted C32 m31, means
+
+
+
+
+                                                             Abbreviations: DSS, double screening scheme; , amino acid; B.C., betweenness centrality; T.R., transcriptional regulation; HYD, hydrophobicity; PI, physical interaction; … Y, amino
+                       TOT
+
+
+
+
+                                                                                                                                                                                                                                                          32 31 features selected, respectively.
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                 1
+                                                                                                                                                                                                                                                          observed total 60 features                        C32
+
+
+
+
+                                                                                                                                                                                                                                                          selected, represent prominent proteins used
+                                  •
+
+                                      •
+
+
+
+
+                                                     •
+                                                     •
+                                                     •
+                                                     •
+                                                     •
+                                                     •
+                                                                                                                                                                                                                                                          identify essential proteins.
+                       m31
+
+
+
+
+                                                                                                                                                                                                                                                              feature subsets selected, conduct
+                                 •
+
+                                     •
+
+                                         •
+
+                                             •
+
+                                                 •
+
+
+
+
+                                                        •
+                                                                                                                                                                                                                                                          performance comparison cope                                                                                                                                                                                                                                                           randomness, used Hwang’s method perform
+                       N18
+
+
+
+
+                                                                                                                                                                                                                                                          10 10-fold cross-validations.  true positive
+                                                                                                                                                                                                                                                          rates false positive rates input diferent
+                       N17
+
+
+
+
+                                                             acid abbreviation; M , metabolic interaction; OD, outdegree; ID, indegree; m31, mRMR31; C32, CMIM32; FunK, Common function degree; TOT, total.
+                                                                                                                                                                                                                                                          software program calculate ROC curves AUC
+                                                                                                                                                                                                                                                          values. study, software package used
+                       N16
+
+
+
+
+                                                                                                                                                                                                                                                          ROCR, developed Tobias et  al.30,31
+                                                                                                                                                                                                                                                           reported performance measures, includ-
+                       N15
+
+
+
+
+                                                                                                                                                                                                                                                          ing AUC, F1, MCC, precision, recall values                                                  •
+
+
+
+
+                                                                                                                                                                                                                                                          ROC curves, averaged 10 10-fold cross-
+                                                                                                                                                                                                                                                          validations.
+                       N14
+
+
+
+
+                                                                                                                                                                                                                                                              S. cerevisiae data set, predictor                                              •
+
+
+
+
+                                                                                                                                                                                                                                                          Hwang’s 10 features served benchmark                        N13
+
+
+
+
+                                                                                                                                                                                                                                                          yielded distinguished results terms feature size
+                                                                                                                                                                                                                                                          performance. Additionally, mRMR CMIM
+                       N12
+
+
+
+
+                                                                                                                                                                                                                                                          adopted comparison.
+                                                                                                                                                                                                                                                              appled procedure E. coli data
+                       N11
+
+
+
+
+                                                                                                                                                                                                                                                          set. selected features shown Table 5,                                                                                                                                                                                                                                                           total 43 features selected. table, feature
+                       N10
+
+
+
+
+                                                                                                                                                                                                                                                          subsets selected CMIM mRMR denoted
+                                                                                                                                                                                                                                                          C9 m13, meaning 9 13 features                        N9
+
+
+
+
+                                                                                                                                                                                                                                                          selected, respectively.
+                       N8
+
+
+
+
+                                                                                                                                                                                                                                                          Bootstrap cross validations
+                                                                                                                                                                                                                                                          bootstrapping stage, bootstrap
+                       N7
+
+
+
+
+                                                                                                                                                                                                                                                          sample, identical 10-fold partition employed
+                                             •
+
+
+
+
+                                                                                                                                                                                                                                                          feature subsets carry cross-validations
+                       N6
+
+
+
+
+                                                                                                                                                                                                                                                          compute various average performance measures.
+                                                                                                                                                                                                                                                          procedure repeated 200 distinct boot-
+                       N5
+
+
+
+
+                                                                                                                                                                                                                                                          strap samples. order perform parametric signifi-
+                                                                                                                                                                                                                                                          cance tests, evaluated distribution                                                                                                                                                                                                                                                           resultant performance measures normal                                                                                                                                                                                                                                                           variances obtained different feature sub-
+                                 Average HYD C-1
+
+
+
+
+                                 Average PSSM  W
+
+
+                                 CC (closeness centrality)
+                                 Average PSSM  D
+                                 Cysteine odd index
+
+
+
+
+                                 Average PSSM  S
+
+                                 Average PSSM  Y
+                                 Average PSSM  
+
+
+
+                                                                                                                                                                                                                                                          sets similar. Consequently, 200 results                                  Occurrence  M
+                                 Occurrence  H
+                                 Occurrence  K
+
+
+
+
+                                 ORFL (ORF length)
+
+
+
+
+                                                                                                                                                                                                                                                          performance measure feature subset                                  Cysteine location-1
+                                 Average C position
+
+
+
+
+                                                                                                                                                                                                                                                          subjected Kolmogorov-Smirno test.31 test
+Table 4. (Continued)
+
+
+
+
+                                 Cysteine count
+                                 Protein length
+
+
+
+
+                                                                                                                                                                                                                                                          examines null hypothesis systematic differ-
+                                                                                                                                                                                                                                                          ence exists standard normal distribution
+                                 BC (B.C.)
+                       Feature
+
+
+
+
+                                                                                                                                                                                                                                                          underlying distribution alterna-
+                                                                                                                                                                                                                                                          tive asserts systematic difference.                                                                                                                                                                                                                                                           threshold set 0.05. P-value                                                                                                                                                                                                                                                           0.05, rejected null hypothesis. CMIM                                  44
+                                 45
+                                 46
+                                 47
+                                 48
+                                 49
+                                 50
+                                 51
+                                 52
+                                 53
+                                 54
+                                 55
+                                 56
+                                 57
+                                 58
+                                 59
+                                 60
+
+
+
+
+    396	                                                                                                                                                                                                                                                                               Evolutionary Bioinformatics 2013:9
+                                                                                                            Essentiality prediction SVM
+
+
+Table 5. Selected features E. coli data set.
+
+      Feature                                     N4     N5    N6     N7     N8     N9     N10     N11     N12      N13     C9     m13      TOT
+1     PR (phyletic retention)                     •      •     •      •      •      •      •       •       •        •       •      •        12
+2     Open reading frame length                          •            •      •      •      •       •       •        •                       8
+3     Average PSSM  C                      •      •     •      •      •                                      •                       6
+4     Degree related F                       •      •     •      •      •                                      •                       6
+5     Degree related                                                         •      •       •       •                •               5
+6     Degree related PI                                                          •      •       •       •                       •        5
+7     Average PSSM                                           •      •                                              •      •        4
+8     Average PSSM  R                                                        •      •       •       •                                4
+9     Average hydrophobic                                                           •      •       •       •                                4
+10    Bit string DSS PI                                                      •      •       •       •                                4
+11    Paralog count                                            •                                           •        •              •        4
+12    Occurrence  M                                                   •      •                      •                                3
+13    Occurrence  W                                                                 •                        •       •               3
+14    Occurrence  E                               •     •                                                                            2
+15    Occurrence  F                                                                         •                        •               2
+16    Occurrence  G                                                          •              •                                        2
+17    Occurrence                                                                                                   •      •        2
+18    Average PSSM  Y                                                 •                     •                                        2
+19    Cysteine location-4                                                                                                   •      •        2
+20    KLV (clique level) PI                                       •                                             •                       2
+21    Degree related PI GC                                                                  •       •                                2
+22    Strand bias                                                                                          •                       •        2
+23    Occurrence                                                                  •                                                1
+24    Occurrence  C                                                                                                  •               1
+25    Occurrence  H                                                                                                  •               1
+26    Occurrence  P                                     •                                                                            1
+27    Occurrence  S                                                                 •                                                1
+28    Average PSSM  N                                                                                        •                       1
+29    Average PSSM  G                                                                                        •                       1
+30    Average PSSM  K                                          •                                                                     1
+31    Average PSSM  F                                                 •                                                              1
+32    Average PSSM  T                                                                                        •                       1
+33    Average PSSM  V                                                                                        •                       1
+34    Average distance Cs                                                                     •                                1
+35    Average HYD C-2                                                                                        •                       1
+36    Cysteine location-1                                                                                                          •        1
+37    Cysteine location-5                                                                                                          •        1
+38    Cysteine odd index                                                                                                      •        1
+39    Protein length                              •                                                                                         1
+40    Bottleneck PI                                                                                                            •        1
+41    CC (closeness centrality) PI                                                                                             •        1
+42    MNC PI                                                                                                    •                       1
+43    B.C. related F                                                                                                      •        1
+Abbreviations: C9, CMIM09; m13, mRMR13; TOT, total; DSS, double screening scheme; F , integrated functional interaction; , interactions.
+PI, physical interaction; HYD, hydrophobicity; , amino acid; … Y, amino acid abbreviation.
+
+
+mRMR, prominent values shown.                             observed AUC N8-imbalanced experiment.
+Figures 2 3 illustrate results S. cerevisiae                     likely significant E. coli data sets, respectively, test                      difference normal distribution values recorded according feature subsets,                      distribution performance measure performance measures, experiment types.                         feature subset. E. coli data set, perfor-
+S. cerevisiae data set, lowest P-value, 0.186,                      mance measures normal exception 
+Evolutionary Bioinformatics 2013:9	                                                                                                         397
+ Hor et al
+
+
+                                                                                                 AUC
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                          0.2                                                              0.186
+                          0.0
+
+                                                                                               Precision
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                                                                                                                                         Imbalanced
+                          0.2
+                                                                                           0.239                                         Balanced
+                          0.0
+
+                                                                                                Recall
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                          0.2                                               0.229
+                          0.0
+
+                                                                                                   F1
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                          0.2                                     0.310
+                          0.0
+
+                                                                                                 MCC
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                          0.2                                                                                      0.373
+                          0.0
+                                  CMIM32
+
+                                           mRMR31
+
+                                                    Hwang
+
+                                                            Acencio
+
+
+
+
+                                                                                                     N10
+
+                                                                                                           N11
+
+                                                                                                                 N12
+
+                                                                                                                       N13
+
+                                                                                                                             N14
+
+                                                                                                                                   N15
+
+                                                                                                                                         N16
+
+                                                                                                                                               N17
+
+                                                                                                                                                       N18
+
+                                                                                                                                                             N90
+                                                                      N4
+
+                                                                           N5
+
+                                                                                N6
+
+                                                                                     N7
+
+                                                                                          N8
+
+                                                                                                N9
+
+
+
+
+Figure 2. P-value normality test S. cerevisiae data set.
+
+ recall values associated N12-balanced                                                  Performance comparison
+P-value = 0.035), comparing results                                                   significance tests reliable. performance measures associated                                                section, compared experimental results model, listed confidence inter-                                              associated feature selection
+val information odds ratios,32 shown                                                methods previous studies. conciseness, Appendix.                                                                                        prominent results associated    certain performance measure, vari-                                                mRMR CMIM. observed feature sizes
+ances obtained various feature subsets quite                                                 identified methods relatively large.
+similar, used analysis variance33 (ANOVA)                                                   compare feature subsets smaller sizes, test examine differences existed                                                    comparison working principles detailed
+performance measures different feature subsets.                                                   Appendix.  variance obtained multiple
+experiments feature subset. Differences existed                                               S. cerevisiae
+according ANOVA.  measures                                                  Table 6 lists average values performance compared associated benchmark                                                     measures associated variety feature subsets,
+calculate performance deviations. average devia-                                                 obtained 10 10-fold cross-validations
+tion corresponding type performance mea-                                                  imbalanced data. adjusted SVM cost param-
+sure evaluated using 95  confidence interval                                                 eters order achieve similar levels precision. covering 0 determine significance.                                                                rows results CMIM32 (32 ­features),
+
+398	                                                                                                                                                 Evolutionary Bioinformatics 2013:9
+                                                                                                                             Essentiality prediction SVM
+
+
+                                                                                        AUC
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                                                                     0.344
+                          0.2
+                          0.0
+
+                                                                                    Precision
+                          1.0
+                          0.8
+                          0.6
+                          0.4                                                                         Imbalanced
+                          0.2                                                                         Balanced                   0.270
+                          0.0
+
+                                                                                        Recall
+                          0.8
+                          0.6
+                          0.4
+                          0.2
+                          0.0                                                                                                0.035
+
+
+                                                                                         F1
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                          0.2                                                                      0.139
+                          0.0
+
+                                                                                        MCC
+                          1.0
+                          0.8
+                          0.6
+                          0.4
+                          0.2
+                                                                                           0.141
+                          0.0
+                                  CMIM09
+
+
+                                           mRMR13
+
+
+                                                    Gustafson
+
+
+
+
+                                                                                                               N10
+
+
+                                                                                                                     N11
+
+
+                                                                                                                           N12
+
+
+                                                                                                                                     N13
+
+
+                                                                                                                                           N80
+                                                                N3
+
+
+                                                                         N4
+
+
+                                                                              N5
+
+
+                                                                                   N6
+
+
+                                                                                          N7
+
+
+                                                                                                 N8
+
+
+                                                                                                        N9
+
+
+
+
+Figure 3. P-value normality test S. cerevisiae data set.
+
+
+mRMR31 (31 features), Hwang’s (10 features),                                           significantly higher N8. values Acencio’s (23 features). Values following items                                      performance measure column, best enclosed parentheses represent numbers                                      underlined. Values row results features. Results produced method listed                                     set 90 features. subsequent rows table. ­Significance tests                                      Based Table  6, CMIM32, mRMR31 carried bootstrap cross-validations                                      Hwang’s predictors outperformed Acencio’s 200 bootstrap ­samples. symbols,                                      performance measures. feature subsets, plus (+) minus (-), following                                         performance measures slightly higher numerical value represents significantly higher                                         Hwang’s. N8, perfor-
+lower benchmark results. serve                                        mance difference Hwang’s AUC, benchmarks marked star (*) symbols                                           remaining measure values higher Hwang’s.
+clarity. example, recall N6 significantly                                   feature size exceeded 8, preci-
+higher Hwang, AUC sig-                                          sion ­values, improvement Hwang’s 
+nificantly lower mRMR31 Hwang.                                           sistently significant cases. comparison feature subsets prefix ‘N’,                                      mRMR, method performed nearly fourth symbols numerical values used                                         mRMR31 feature size 9 indicate significance neighboring                                          13 ­exception AUC values. fea-
+rows. example, N7, AUC significantly                                       ture size ranged 14 18, perfor-
+higher N6 recall value                                       mance difference model mRMR31.
+
+Evolutionary Bioinformatics 2013:9	                                                                                                                    399
+ 400	
+                                                                                                                                                                                                                                     Hor et al
+
+
+
+
+                                     Table 6. Performance comparison imbalanced S. cerevisiae data set.
+
+                                                          AUC                                Precision                           Recall                             F-measure                          MCC
+                                     CMIM32               0.825	    *	 (+)	 (+)              0.744	 *		       (+)                0.369	 *		       (+)               0.493	 *		       (+)               0.450	 *		       (+)
+                                     mRMR31               0.821	   (-)	   *	 (+)             0.738		       *                     0.372		      *	 (+)                0.495		      *	 (+)                0.449		       *	 (+)
+                                     Hwang(10)            0.775	   (-)	 (-)	    *            0.743	 (-)		       *                0.343	 (-)	 (-)	 *                 0.469	 (-)	 (-)	 *                 0.432	 (-)	 (-)	  *
+                                     Acencio(23)          0.707	   (-)	 (-)	 (-)             0.675	 (-)	 (-)	 (-)                0.121	 (-)	 (-)	 (-)               0.204	 (-)	 (-)	 (-)               0.228	 (-)	 (-)	 (-)
+                                     N4                   0.744	   (-)	 (-)	 (-)             0.782                               0.327	 (-)	 (-)	 (-)               0.461	 (-)	 (-)	 (-)               0.439	 (-)	 (-)
+                                     N5                   0.727	   (-)	 (-)	 (-)             0.741	 (-)			        (-)            0.387	 (-)	 (-)		        (+)       0.509	 (-)	 (-)		         (+)      0.461	 (-)	 (-)		       (+)
+                                     N6                   0.730	   (-)	 (-)	 (-)             0.752	 (-)                          0.395	 (-)	 (-)	 (+)               0.518	 (-)	 (-)                    0.472	 (-)	 (-)
+                                     N7                   0.761	   (-)	 (-)		     (+)        0.767	 (-)                          0.386	 (-)	 (-)	 (+)               0.513	 (-)	 (-)	 (+)               0.473	 (-)	 (-)
+                                     N8                   0.772	   (-)	 (-)                  0.755                               0.371	 (-)	 (-)		        (-)       0.498	 (-)	 (-)	 (+)	     (-)      0.457	 (-)	 (-)		       (-)
+                                     N9                   0.782	   (-)	 (-)	 (+)             0.749                               0.382	 (-)		     (+)	    (+)       0.506	 (-)		     (+)               0.462	 (-)		     (+)
+                                     N10                  0.781	   (-)	 (-)	 (+)             0.751                               0.399			         (+)               0.521			         (+)               0.474			         (+)
+                                     N11                  0.786	   (-)	 (-)	 (+)             0.752                               0.402			         (+)               0.524			         (+)               0.476			         (+)
+                                     N12                  0.798	   (-)	 (-)	 (+)             0.759                               0.409			         (+)               0.532			         (+)               0.485			         (+)
+                                     N13                  0.789	   (-)	 (-)	 (+)             0.748                               0.433			         (+)	    (+)       0.549			         (+)               0.495			         (+)
+                                     N14                  0.802	   (-)		     (+)             0.749                               0.397			         (+)	    (-)       0.519			         (+)	     (-)      0.471			         (+)	   (-)
+                                     N15                  0.801	   (-)		     (+)             0.763                               0.406			         (+)               0.530			         (+)               0.485			         (+)	   (+)
+                                     N16                  0.814	   (-)		     (+)	 (+)        0.762                               0.401			         (+)               0.525			         (+)               0.480			         (+)
+                                     N17                  0.814	   (-)		     (+)             0.761                               0.407			         (+)               0.530			         (+)               0.484			         (+)
+                                     N18                  0.811	   (-)		     (+)             0.751                               0.411			         (+)               0.531			         (+)               0.482			         (+)
+                                     N90                  0.829	   (+)	 (+)	 (+)	 (+)        0.738		     (+)	 (+)                0.355		     (+)	 (+)	    (-)       0.479	 (+)	 (+)	 (+)	     (-)      0.438	 (+)	 (+)	 (+)	   (-)
+                                                                                                                                                                                                                    7
+                                     Note: polynomial kernel function, values precision, recall MCC reported 0.77, 0.23, 0.36, respectively, original paper Hwang et al.
+
+
+
+
+Evolutionary Bioinformatics 2013:9
+                                                                                    Essentiality prediction SVM
+
+ prominent predictor CMIM32.           higher  Table 9, AUC values, results achieved similar levels    effective predictor mRMR13, shows performance size features exceeded 14.        performance difference feature subsets
+Note number features CMIM32            balanced experiments. ROC analysis,
+mRMR31 32 31, higher              addition CMIM09, mRMR13, Gustafson’s,                                                 used N4, N8, N11 N80 draw ROC
+    Table  7  shows average performance mea-          curves. observed performances sures balanced experiments S. cerevisiae        insufficient, middle feature sets.
+data set, obtained 10 10-fold
+­cross-validations. feature subsets      ROC analysis
+ size ranging 5 18, nearly performance   S. cerevisiae
+ measures higher        Figure  4 illustrates average ROC curves  Hwang’s. shows feature subsets        AUCs various feature subsets imbalanced
+ sizes exceeding 5 good Hwang’s.       data experiments. Apart competent
+ Additionally, 12 features achieved    predictor CMIM32, AUC N5  significant improvement. Compared CMIM32            higher Acencio’s, intersection  mRMR31, results showed similar levels         observed 0.5 horizontal axis. indicates
+ performance size features exceeded 15.       N5 better predictor allowed
+ results set 90 features shown   maximal false positive rate 0.5. 
+ row, performance measures         trast, allowed false positive rate exceeded
+ similar N14 N18.                        0.5, Acencio’s better N5. Comparing
+    Table  6, observe feature subsets      N9 Hwang’s method, AUC values  N5, N7, N9, N13, N15, N16 showed significant         ­similar. feature subsets sizes exceed-
+ improvement performance smaller fea-       ing 8  shown figure), true positive
+ ture sizes compared neighboring rows.        rates higher close Hwang’s.
+ Table 7, significant subsets N5, N6, N9.     supported significance tests  addition, shown Tables 6 7, models       Table  6 suggests feature subsets  performed equally CMIM32 mRMR31               sizes exceeding 8 achieved higher performance  feature size 16 17. used N5, N9,       AUC Hwang’s predictor.
+ N16 draw ROC curves.                                    Figure 5 illustrates average ROC curves                                                            AUCs various feature subsets balanced
+E. coli                                                    data experiments. CMIM32 com-
+Tables  8 9  shows average values          petent predictor. Additionally, N16 achieved
+performance measures associated variety          level AUC. feature subsets feature subsets, obtained 10 10-fold         sizes ranging 5 18  shown), true
+cross-validations imbalanced balanced experi-      positive rates higher close ments, respectively. rows results    Hwang’s level.  N5, N6, …, N18 outperformed
+CMIM09 (9 features) Gustafson’s (29 features).         performed equally various combina-
+   Table  8  shows Gustafson’s predictors         tions true false positive rates balanced
+performed CMIM09  performance measures             ­experiments. ­Similarly imbalanced data set, imbalanced experiments. feature sub-             features, higher AUC values.  
+sets, performance measures slightly higher         improvement AUC feature addition CMIM09. feature size exceeded                 significant imbalanced
+6, improvement CMIM09 consis-                  ­experiments. noted ROC
+tently significant. compare Gustafson’s method            curve AUC Acencio’s predictor repro- method, performed            duced ­experiments slightly
+Gustafson’s feature size 11. Note          different original values reported ­Acencio number features Gustafson’s 29,           Lemke.5
+
+Evolutionary Bioinformatics 2013:9	                                                                            401
+ 402	
+                                                                                                                                                                                                                               Hor et al
+
+
+
+
+                                     Table 7. Perforamnce comparison balanced S. cerevisiae data set.
+
+                                                         AUC                               Precision                        Recall                            F-measure                         MCC
+                                     CMIM32              0.842	 *		       (+)              0.772	 *                         0.766	 *		       (+)              0.769	 *		       (+)              0.540	 *		       (+)
+                                     mRMR31              0.836		      *	 (+)               0.765		      *                   0.741		      *	 (+)               0.752		      *	 (+)               0.513		     *	 (+)
+                                     Hwang(10)           0.822	 (-)	 (-)	 *                0.778			          *              0.720	 (-)	 (-)	 *                0.748	 (-)	 (-)	 *                0.516	 (-)	 (-)	 *
+                                     Acencio(23)         0.768	 (-)	 (-)	 (-)              0.696	 (-)	 (-)	 (-)             0.734	 (-)	 (-)                   0.714	 (-)	 (-)	 (-)              0.414	 (-)	 (-)	 (-)
+                                     N4                  0.811	 (-)	 (-)	 (-)	    (+)      0.777		     (-)		    (+)         0.716	 (-)	 (-)                   0.745	 (-)	 (-)		    (+)          0.512	 (-)	 (-)		    (+)
+                                     N5                  0.824	 (-)	 (-)		        (+)      0.778		     (-)                  0.735	 (-)	 (-)		     (+)         0.756	 (-)	 (-)                   0.527	 (-)	 (-)
+                                     N6                  0.827	 (-)	 (-)		        (+)      0.778		     (-)                  0.739	 (-)	 (-)                   0.758	 (-)	 (-)                   0.530	 (-)	 (-)
+                                     N7                  0.831	 (-)	 (-)                   0.779                            0.733	 (-)	 (-)                   0.755	 (-)	 (-)                   0.526	 (-)	 (-)
+                                     N8                  0.826	 (-)	 (-)                   0.786                            0.721	 (-)	 (-)                   0.752	 (-)	 (-)                   0.527	 (-)	 (-)
+                                     N9                  0.833	 (-)	 (-)		        (+)      0.791                            0.735	 (-)	 (-)		     (+)         0.762	 (-)	 (-)                   0.541	 (-)	 (-)
+                                     N10                 0.834	 (-)	 (-)                   0.789                            0.736	 (-)	 (-)                   0.761	 (-)	 (-)                   0.540	 (-)	 (-)
+                                     N11                 0.831	 (-)	 (-)                   0.784                            0.737	 (-)	 (-)                   0.760	 (-)	 (-)                   0.535	 (-)	 (-)
+                                     N12                 0.829	 (-)	 (-)                   0.779                            0.732                             0.755			         (+)              0.526			         (+)
+                                     N13                 0.834	 (-)	 (-)                   0.788                            0.730	 (-)	 (-)                   0.758	 (-)	 (-)                   0.535	 (-)	 (-)
+                                     N14                 0.836	 (-)	 (-)	 (+)              0.777                            0.743	 (-)	 (-)	 (+)              0.759	 (-)	 (-)	 (+)              0.530	 (-)	 (-)
+                                     N15                 0.843	 (-)	 (-)	 (+)              0.784                            0.748	 (-)	 (-)	 (+)              0.766		     (-)	 (+)              0.542		     (-)	 (+)
+                                     N16                 0.842			         (+)              0.777                            0.756			         (+)              0.767			         (+)              0.540			         (+)
+                                     N17                 0.847			         (+)              0.778                            0.763			         (+)              0.770			         (+)              0.545			         (+)
+                                     N18                 0.840	 (-)	 (-)	 (+)	    (-)      0.779		     (-)                  0.740	 (-)	 (-)	 (+)	 (-)         0.759	 (-)	 (-)                   0.531	 (-)	 (-)
+                                     N90                 0.839	 (+)		     (+)              0.760                            0.753			         (+)              0.757			         (+)              0.516			         (+)
+                                     Note: original paper Hwang et al7 values precision, recall, F-measure MCC reported 0.763, 0.713, 0.737, 0.492, respectively, polynomial kernel
+                                     function.
+
+
+
+
+Evolutionary Bioinformatics 2013:9
+                                                                                                                                                 Essentiality prediction SVM
+
+
+                                                                                                                        E. coli
+
+
+                                                                                     (-)	 (+)
+
+
+
+
+                                                                                                             (+)	 (-)
+                                                                                                                        imbalanced data set, Figure 6 illustrates aver-
+                                                                                     (-)
+                                                                                     (-)
+
+                                                                                     (-)
+
+
+
+                                                                                                 (-)
+                                                                                                                        age ROC curves AUCs various feature subsets.
+                                                                                     *
+                                                                                     0.413	 (+)	 (+)	
+
+
+
+
+                                                                                     0.339	 (+)	 (+)	
+                                                                                     0.403	 (+)	 (+)
+
+
+                                                                                     0.401	 (+)	 (+)
+                                                                                     0.401	 (+)	 (+)
+                                                                                     0.393	 (+)	 (+)
+                                                                                     0.400	 (+)	 (+)
+                                                                                     0.400	 (+)	 (+)
+                                                                                                                        shows curves similar 10 
+                                                                                                 *	
+                                                                                     0.382	 *		
+
+
+                                                                                     0.391			
+                                                                                     0.407	 (+)		
+
+
+                                                                                     0.405	 (+)		
+                                                                                                                        horizontal range. indicates little
+                                                                                     0.392	 (+)                         difference allowable false positive rate                                                                                      0.360		
+                                                                         MCC
+
+
+
+
+                                                                                                                        10 . horizontal range 10 ,
+                                                                                                                        N80 highest performer, Gustafson N11
+                                                                                                                        secondary, N4 worst. contrast                                                                                                                         imbalanced data set, Figure 7 corresponding
+                                                                                     0.421	 (+)	 (+)	 (-)	 (+)
+
+
+                                                                                     0.415	 (+)	 (+)	 (-)	 (+)
+
+
+
+
+                                                                                                           (-)
+                                                                                                                        balanced data set, N4 N8 best
+                                                                                                      (-)
+                                                                                                  *	 (-)
+
+                                                                                                      (-)
+
+
+                                                                                     0.400	 (+)	 (+)	 (-)
+                                                                                     0.420	 (+)	 (+)	 *
+
+
+
+
+                                                                                     0.352	 (+)	 (+)		                  performers. remaining predictors showed                                                                                      0.414	 (+)	 (+)
+
+
+                                                                                     0.417	 (+)	 (+)
+                                                                                     0.418	 (+)	 (+)
+                                                                                     0.403	 (+)	 (+)
+                                                                                     0.416	 (+)	 (+)
+                                                                                     0.413	 (+)	 (+)
+
+                                                                                                                        differences.
+                                                                                     0.394	 *		
+
+
+                                                                                     0.404	 (+)		
+
+
+
+
+                                                                                                                        percentage analysis
+                                                                                     0.370		
+
+
+
+
+                                                                                                                        S. cerevisiae
+                                                                         F1
+
+
+
+
+                                                                                                                        Table  10  shows average percentage infor-
+                                                                                                                        mation imbalanced data set. θ prob-
+                                                                                                                        ability defined ratio number truly
+                                                                                          (-)
+                                                                                          (+)
+
+
+                                                                                                 (+)
+
+
+                                                                                                       (-)
+
+
+                                                                                                             (-)
+
+
+
+
+                                                                                                                        predicted essential proteins ranked θ ×
+                                                                                                      (-)	
+
+
+
+                                                                                     0.288	 (+)	 (+)	 (-)	
+                                                                                                      (-)
+                                                                                                  *	 (-)
+
+
+
+
+                                                                                     0.275	 (+)	 (+)	 (-)
+                                                                                     0.290	 (+)	 (+)	 *
+
+
+
+
+                                                                                                                        975 proteins, total number true essen-
+                                                                                     0.295	 (+)	 (+)		
+
+
+
+
+                                                                                     0.278	 (+)	 (+)		
+
+
+                                                                                     0.237	 (+)	 (+)		
+                                                                                     0.287	 (+)	 (+)
+
+
+                                                                                     0.293	 (+)	 (+)
+                                                                                     0.294	 (+)	 (+)
+
+                                                                                     0.292	 (+)	 (+)
+                                                                                     0.287	 (+)	 (+)
+
+
+
+
+                                                                                                                        tial proteins 975. θ probability shows                                                                                      0.271	 *		
+
+
+                                                                                     0.280	 (+)		
+
+
+
+
+                                                                                                                        likelihood proteins essential user
+                                                                                     0.250		
+
+
+
+
+                                                                                                                        decides choose specific number ranked
+                                                                         Recall
+
+
+
+
+                                                                                                                        candidates. slightly different precision
+                                                                                                                        ranked candidates  denomina-
+                                                                                                                        tor) necessary classified essential.
+                                                                                                           (-)
+
+
+
+
+                                                                                     0.677	 (+)	 (+)	 (+)	 (-)
+
+
+
+
+                                                                                                                        CMIM32, mRMR31 Hwang’s results       Table 8. Performance comparison imbalanced E. coli data set.
+
+
+
+
+                                                                                                                        served benchmarks denoted star
+                                                                                                       *
+
+
+
+
+                                                                                     0.726				
+
+
+
+
+                                                                                                                        ‘*’ symbols table. minus symbol follow-
+                                                                                                                        ing value represents value lower
+                                                                                                 *
+                                                                                     0.720			
+                                                                         Precision
+
+
+
+
+                                                                                                                        benchmark results.
+                                                                                     0.720	 *
+                                                                                     0.713		
+
+
+
+
+                                                                                                                            mRMR31 Hwang’s predictor                                                                                      0.725
+                                                                                     0.737
+                                                                                     0.742
+                                                                                     0.735
+                                                                                     0.742
+
+                                                                                     0.724
+                                                                                     0.732
+                                                                                     0.725
+                                                                                     0.733
+
+
+
+
+                                                                                                                        extremely effective 10  range.                                                                                                                         indicates predictors quite preferable
+                                                                                                                        total number true essential proteins                                                                                      (-)
+                                                                                     (-)
+
+                                                                                     (-)
+                                                                                     (-)
+                                                                                     (-)
+                                                                                     (-)
+                                                                                     (-)
+                                                                                     (-)
+                                                                                     (-)
+                                                                                     (-)
+
+
+                                                                                                             (+)
+                                                                                      *
+
+
+
+
+                                                                                                                        known allowable ranked candidates                                                                                      0.711	 (+)	 (+)	
+                                                                                     0.691	 (-)	 (-)	
+                                                                                     0.690	 (-)	 (-)	
+
+
+
+
+                                                                                     0.716	 (+)	 (+)	
+
+
+
+
+                                                                                                                        10 . predictors outperformed
+                                                                                                  *	
+                                                                                     0.701	 *		
+
+
+
+
+                                                                                     0.701			
+                                                                                     0.714			
+                                                                                     0.705			
+                                                                                     0.707			
+                                                                                     0.711			
+                                                                                     0.714			
+
+
+
+
+                                                                                                                        10 . CMIM32, predictors 
+                                                                                     0.712	 (+)
+                                                                                     0.714	 (+)
+
+
+
+
+                                                                                                                        performed 30 .  N14 bet-
+                                                                                     0.715		
+
+
+
+
+                                                                                                                        ter choice relatively effective                                                                          AUC
+
+
+
+
+                                                                                                                        10 . Figure  8 depicts average percentage
+                                                                                                                        curves.
+                                                                                     Gustafson(29)
+
+
+
+
+                                                                                                                        E. coli
+                                                                                     mRMR13
+
+
+
+
+                                                                                                                        Table 11 shows average percentage informa-
+                                                                                     CMIM09
+
+
+
+
+                                                                                                                        tion imbalanced data set. CMIM09, mRMR13,
+                                                                                     N10
+
+                                                                                     N12
+                                                                                     N13
+                                                                                     N80
+                                                                                     N11
+                                                                                     N4
+                                                                                     N5
+                                                                                     N6
+                                                                                     N7
+                                                                                     N8
+                                                                                     N9
+
+
+
+
+                                                                                                                        Gustafson’s results serve ­benchmarks.
+
+Evolutionary Bioinformatics 2013:9	                                                                                                                                        403
+ Hor et al
+
+
+Table 9. Performance comparison balanced E. coli data set.
+
+                                    AUC                            Precision          Recall                                      F1                              MCC
+CMIM09                              0.767  *   (+)                 0.720  *           0.700  *   (+)                              0.710  *   (+)                  0.421  *
+mRMR13                              0.762  (-)  *  (-)             0.728     *        0.654  (-)  *  (-)                          0.689  (-)  *  (-)              0.396   *  (-)
+Gustafson(29)                       0.777    (+)  *                0.722       *      0.715    (+)  *                             0.719    (+)  *                 0.440  (+)  *
+N4                                  0.780    (+)                   0.733              0.701    (+)                                0.717    (+)                    0.446  (+)
+N5                                  0.779    (+)                   0.730              0.706    (+)                                0.718    (+)                    0.445  (+)
+N6                                  0.762     (-) (-)              0.735              0.663     (-) (-)                           0.696                           0.425
+N7                                  0.783    (+)    (+)            0.737              0.696    (+)                                0.716    (+)    (+)             0.448  (+)
+N8                                  0.781    (+)                   0.723              0.711    (+)                                0.717    (+)                    0.439  (+)
+N9                                  0.782    (+)                   0.715              0.703    (+)                                0.709    (+)                    0.423
+N10                                 0.781    (+)                   0.725              0.702    (+)                                0.713    (+)                    0.436  (+)
+N11                                 0.777    (+)                   0.719              0.700    (+)                                0.709    (+)                    0.426
+N12                                 0.776    (+)                   0.715              0.695    (+)                                0.705    (+)                    0.418
+N13                                 0.776    (+)                   0.731              0.695    (+)                                0.712    (+)                    0.439  (+)
+N80                                 0.769                          0.711              0.715    (+)    (+)                         0.713    (+)                    0.424
+
+
+ CMIM09 predictor effective                                              amino acid occurrence W, bit string double screen- entire range. predictors outper-                                    ing scheme, cytoplasm, endoplasmic reticulum, EI
+formed predictors 15 . N9                                           (essentiality index), nucleus, PR (phyletic reten- prominent relatively effective                                    tion) selected 10 times. entire range. Figure 9 depicts average                                   features, EI PR, included centage curves.                                                                          feature subsets regarded                                                                                          important factors identifying essential proteins.
+Discussion                                                                               N9 N8 feature subsets cover inspecting S. cerevisiae feature subsets listed                                   8 features. prediction capability asso- Table 4, observed prominent fea-                                     ciated feature subsets outperformed
+tures come diverse sources. includes                                    Hwang’s results performance measures, sequence, protein, topology ­properties.                                       AUC percentage probability features, amino acid occurrence                                            low value. Furthermore, amino acids,                                                                                                                 1.0
+                       1.0
+
+
+
+
+                                                                                                                0.8
+                       0.8
+
+
+
+
+                                                                                                                                                            CMIM32: 0.842
+                                                                                                                                                            mRMR31: 0.836
+                                                                                           True positive rate
+
+
+
+
+                                                                                                                                                            Hwang: 0.822
+  True positive rate
+
+
+
+
+                                                               CMIM32: 0.825                                                                                Acencio: 0.768
+                                                                                                                0.6
+
+
+
+
+                                                               mRMR31: 0.821
+                       0.6
+
+
+
+
+                                                                                                                                                            N5: 0.824
+                                                               Hwang: 0.775                                                                                 N9: 0.833
+                                                               Acencio: 0.707                                                                               N16: 0.842
+                                                               N5: 0.727
+                                                               N9: 0.782
+                                                                                                                0.4
+                       0.4
+
+
+
+
+                                                               N16: 0.814
+                                                                                                                0.2
+                       0.2
+
+
+
+
+                                                                                                                0.0
+                       0.0
+
+
+
+
+                                                                                                                      0.0   0.2           0.4         0.6        0.8         1.0
+                             0.0   0.2      0.4       0.6           0.8         1.0
+                                         False positive rate                                                                           False positive rate
+
+Figure 4. average ROC curves AUCs imbalanced                             Figure 5. average ROC curves AUCs balanced
+S. cerevisiae data set.                                                                  S. cerevisiae data set.
+
+
+
+404	                                                                                                                                            Evolutionary Bioinformatics 2013:9
+                                                                                                                      Essentiality prediction SVM
+
+
+                                                                                          N9 N6, choosing additional feature,                         1.0
+
+
+
+
+                                                                                          significant higher N8 N5 
+                                                                                          formance measures.
+                        0.8
+
+
+
+
+                                                                                               E. coli features listed Table 5,    True positive rate
+
+
+
+
+                                                                CMIM09: 0.708             second important features PR (phyletic
+                        0.6
+
+
+
+
+                                                                mRMR13: 0.709
+                                                                Gustafson: 0.711
+                                                                                          retention) open reading frame length. rest
+                                                                N4: 0.691                 important features selected                                                                 N8: 0.705
+                                                                                          times included: average PSSM amino
+                        0.4
+
+
+
+
+                                                                N11: 0.714
+                                                                N80: 0.716
+                                                                                          acid C degree related integrated functional
+                                                                                          ­interactions. N5, N7, N8, N13 covered                         0.2
+
+
+
+
+                                                                                           features. 43 listed features,
+                                                                                           21  sequence-related features, amino acid
+                        0.0
+
+
+
+
+                                                                                           occurrence average PSSM, selected.                               0.0   0.2      0.4       0.6          0.8            1.0
+                                                                                           data set, recommend feature subsets sizes
+                                          False positive rate
+                                                                                           exceeding 11 effectiveness Figure 6. average ROC curves AUCs imbalanced E. coli                       compactness feature size.
+data set.
+                                                                                               experimental results data sets,                                                                                            conclude phyletic retention important relatively easy extract, included                                    feature identifying essential proteins. defined feature subsets. predictors built                                     number present ortholog organisms. Gustafson feature subsets 10 features,                                      et  al study21 analyzed different organisms calcu-
+consistently superior Hwang’s nearly perfor-                                     late phyletic retention E. coli S. cerevisiae
+mance measures. Interestingly, mRMR CMIM                                               data sets. sensible different species
+selected sequence-derived features,                                        associated different ­organisms. PSSM amino acid occurrence.                                        biological view, retention process long
+features good essentiality prediction terms                                     evolutionary periods suggests organisms relevance feature independence. analyzing                                        crucial certain cell ­functionality. inspect-
+Tables 6 7, recommend using N16, N9,                                            ing 5 occurrences amino acids Tables 4
+N6. N16 performed nearly CMIM32                                              5, Tryptophan (W) Glycine (G) mRMR31) compact feature size.                                          ­ranking features. amino
+                                                                                           acids non-polar hydrophobic, hypoth-
+                                                                                           esize essentiality related physi-
+                        1.0
+
+
+
+
+                                                                                           cochemical properties features possessing
+                                                                                           discrimination information captured                                                                                            ranking features.
+                        0.8
+
+
+
+
+                                                                 CMIM09: 0.775
+                                                                                               study, compiled various interaction
+   True positive rate
+
+
+
+
+                                                                 mRMR13: 0.762
+                                                                 Gustafson: 0.777
+                                                                                           information including physical, metabolic, tran-
+                        0.6
+
+
+
+
+                                                                 N4: 0.780
+                                                                 N8: 0.781                 scriptional regulation, integrated functional
+                                                                 N11: 0.777
+                                                                 N80: 0.769                genomic context interactions. experimen-
+                        0.4
+
+
+
+
+                                                                                           tal results revealed various properties,                                                                                            degrees, identified impor-
+                        0.2
+
+
+
+
+                                                                                           tant features. implies interaction
+                                                                                           ­information, limited physical interactions,
+                                                                                            closely related essential properties.
+                        0.0
+
+
+
+
+                              0.0   0.2      0.4       0.6           0.8            1.0     According literature, hubs networks,
+                                          False positive rate                               possessing abundance interaction partners, Figure 7. average ROC curves AUCs balanced E. coli
+                                                                                            important fact play central
+data set.                                                                                   roles mediating interactions numerous
+
+Evolutionary Bioinformatics 2013:9	                                                                                                               405
+ Hor et al
+
+
+Table 10. Percentage essential proteins imbalanced S. cerevisiae data.
+
+                                5        10         15          20       25        30       50       75        100 
+CMIM32                          0.939*- -    0.918*         0.910*          0.892*       0.870*        0.839*       0.743*       0.645*        0.582*
+mRMR31                          0.955  * -   0.905- *  -    0.884-*         0.862-*      0.834-* -     0.820-*      0.740-*      0.641-*       0.572-*
+Hwang(10)                       0.959   *    0.918   *      0.871- - *      0.853- -*    0.843-  *     0.816- -*    0.720- - *   0.637- - *    0.563- - *
+Acencio(23)                     0.800- - -   0.741- - -     0.693- - -      0.661- - -   0.646- - -    0.625- - -   0.578- - -   0.519- - -    0.457- - -
+N4                              0.980        0.930          0.905-          0.877-       0.865-        0.850        0.727- -     0.632- - -    0.559- - -
+N5                              0.843- - -   0.861- - -     0.859- - -      0.852- - -   0.841-    -   0.827-       0.751        0.641-        0.530- - -
+N6                              0.908- - -   0.894- - -     0.875- -        0.857- -     0.850-        0.834-       0.763        0.635- - -    0.526- - -
+N7                              0.861- - -   0.892- - -     0.897-          0.885-       0.854-        0.832-       0.770        0.645-        0.570- -
+N8                              0.892- - -   0.904- - -     0.895-          0.877-       0.868-        0.850        0.751        0.657         0.574-
+N9                              0.880- - -   0.911-    -    0.895-          0.875-       0.860-        0.832-       0.753        0.665         0.585
+N10                             0.882- - -   0.896- - -     0.893-          0.882-       0.858-        0.846        0.762        0.665         0.581-
+N11                             0.900- - -   0.900- - -     0.888-          0.875-       0.861-        0.856        0.769        0.667         0.580-
+N12                             0.941  - -   0.924          0.899-          0.872-       0.866-        0.854        0.776        0.664         0.588
+N13                             0.941  - -   0.910-    -    0.886-          0.870-       0.853-        0.840        0.781        0.672         0.578-
+N14                             0.949  - -   0.932          0.916           0.897        0.867-        0.845        0.759        0.667         0.587
+N15                             0.906- - -   0.894- - -     0.897-          0.884-       0.866-        0.851        0.776        0.672         0.584
+N16                             0.933- - -   0.901- - -     0.895-          0.886-       0.864-        0.851        0.771        0.677         0.599
+N17                             0.943  - -   0.903- - -     0.879- -        0.871-       0.866-        0.856        0.777        0.679         0.595
+N18                             0.937- - -   0.892- - -     0.880- -        0.870-       0.864-        0.854        0.778        0.683         0.595
+N90                             0.939  - -   0.911-    -    0.884-          0.869-       0.856-        0.835-       0.728- -     0.639- -      0.572-
+
+
+ connected proteins.  proteins involved                                       takes approximately 1 minute LIBSVM soft- complex mediation processes likely                                        ware perform 2-fold cross-validation crucial cellular activity survival.                                             Power5+ processor IBM P595  ­Assuming
+   feature selection proposed study, let                                  m  =  90, t  =  10 r  =  5, total running time size available target selected features                                 4,000 20,000  minutes. IBM P595
+m t, maximal retry times r. num-                                       allows users manually submit processes ber SVM cross-validation times 1/2                                          order speed ­execution. (m + t + 1) × (m - t) 1/2 (m + t + 1) × (m – t) × r.                                  example, invoke 10 SVM processes
+                                                                                          simultaneously. Consequently, maximal 10-time
+                                                                                          speed achieved total running time
+                      1.0
+
+
+
+
+                                                                   CMIM32                 reduced.
+                                                                   mRMR31
+                                                                   Hwang                      inspect Tables  4 5,                       0.9
+
+
+
+
+                                                                   Acencio
+                                                                   N5                     features signifi-
+                                                                   N9
+                                                                   N16                    cantly relevant selected.                       0.8
+   Ess. probability
+
+
+
+
+                                                                                          features relatively easy remove 
+                                                                                          ward feature selection procedure beginning
+                      0.7
+
+
+
+
+                                                                                          stage. ­According authors’ experience,                                                                                           rounds retry r critical stage.                       0.6
+
+
+
+
+                                                                                          increasing number features removed, required
+                                                                                          number retry increased identifying
+                      0.5
+
+
+
+
+                                                                                          relatively competent features increas-
+                                                                                          ingly difficult. number retry r accompanied
+                      0.4
+
+
+
+
+                            0       20       40       60      80      100                 rest user-specified parameters                                                    ( )                                 minimal improvement �? et al) set appropriately
+Figure 8. average percentage curves imbalanced
+                                                                                          ensure feature selection procedure S. cerevisiae data set.                                                                   proceed.
+
+
+406	                                                                                                                      Evolutionary Bioinformatics 2013:9
+                                                                                                                      Essentiality prediction SVM
+
+
+Table 11. Percentage essential proteins imbalanced E. coli experiment.
+
+                                5         10       15           20        25       30  50            75  100 
+CMIM09                          0.745*        0.775*       0.730*           0.730*        0.737*       0.727*       0.644*       0.542*      0.440* -
+mRMR13                          0.719-*       0.725-*      0.714-*          0.701-* -     0.690-* -    0.679-* -    0.614-* -    0.531-*     0.446 *
+Gustafson(29)                   0.706- -*     0.692- -*    0.705- -*        0.707-   *    0.695-   *   0.685-   *   0.624-   *   0.522- -*   0.436- -*
+N4                              0.610- - -    0.689- - -   0.765            0.760         0.749        0.752        0.649        0.534-      0.449
+N5                              0.655- - -    0.705- -     0.747            0.747         0.745        0.743        0.653        0.535-      0.443   -
+N6                              0.719-        0.723- -     0.717-           0.736         0.744        0.748        0.658        0.525- -    0.435- - -
+N7                              0.568- - -    0.700- -     0.713- -         0.730         0.748        0.762        0.655        0.540-      0.464
+N8                              0.671- - -    0.703- -     0.723-           0.736         0.728-       0.731        0.652        0.535-      0.449
+N9                              0.813         0.785        0.766            0.754         0.734-       0.726-       0.685        0.548       0.459
+N10                             0.794         0.751-       0.728-           0.732         0.741        0.745        0.668        0.550       0.463
+N11                             0.719-        0.721- -     0.734            0.742         0.748        0.748        0.668        0.539-      0.457
+N12                             0.735-        0.738-       0.745            0.750         0.743        0.740        0.667        0.548       0.458
+N13                             0.655- - -    0.672- - -   0.713- -         0.739         0.736-       0.732        0.668        0.548       0.457
+N80                             0.674- - -    0.690- - -   0.703- - -       0.705-  -     0.703-       0.691-       0.632-       0.529- -    0.452
+
+
+
+Conclusion Future Work                                                               method effective term feature size study, incorporated protein proper-                                   performance. method took ties, including sequence, protein, topology,                                   feature size performance consideration properties. total 55  groups 96                                       consequently resultant feature subset consider-
+­features. features included data sets                                   ably compact. compared experimental results
+ experiments: S. cerevisiae E. coli. used                                   carrying significance tests types  modified sequential backward feature selection iden-                                 performance ­measures.  provides poten-
+ tify good feature subsets used SVM software                                     tial researcher essential proteins practical guide  tools classifying essential proteins. addition,                               feature method prominent.
+ built SVM models imbalanced                                            imbalanced S. cerevisiae data experiment,
+ balanced data sets. experimental results illus-                                  best results F-measure MCC 0.549
+ trate, features shown effective                                  0.495, respectively, associated  essentiality prediction. Feature ­subsets selected                               N13 predictor. contrast, performance
+                                                                                         measures, achieved 0.77 0.545 balanced
+                                                                                         data experiment, associated N17
+                                                                CMIM09
+                                                                                         predictor. experimental results showed                                                                                          performance models better Hwang’s
+                      0.8
+
+
+
+
+                                                                mRMR13
+                                                                Gustafson
+                                                                N4                       selected 9 features. achieving
+                                                                N8
+                                                                                         higher accuracy main issue, recommend                       0.7
+   Ess. probability
+
+
+
+
+                                                                N11
+                                                                N80                      N16 model (16 features). prefers compact
+                                                                                         feature set small size, suggest using N9 model
+                                                                                         (9 features). list important features. fea-
+                      0.6
+
+
+
+
+                                                                                         tures crucial identifying essential proteins.
+                                                                                             E. coli data set, best values F-measure
+                      0.5
+
+
+
+
+                                                                                         MCC 0.421 0.407  imbalanced
+                                                                                         experiments. balanced experiment, best
+                                                                                         values F-measure MCC 0.718 0.448,
+                      0.4
+
+
+
+
+                            0    20      40       60       80     100                    respectively. best results associated
+                                              ( )                                    N5 predictor. data set, Figure 9. average percentage curves imbalanced E. coli
+                                                                                         predictors associated feature size 11
+data set.                                                                                comparable Gustafsons’.
+
+
+Evolutionary Bioinformatics 2013:9	                                                                                                               407
+ Hor et al
+
+
+   possible methods                p­ rocess, signal transduction, transcription, trans-
+improving prediction capability. Features related         port process). protein sequence properties use-           feature sets obtained ful identifying essentiality. Furthermore,       Acencio Lemke.5
+proteins similar primary structures pos-
+                                                           e.	 Betweenness centrality related integrated func-
+sess similar functions, essentiality                                                                tional, PI GC network: values defined
+addressed sequence motif perspective.34
+                                                               identically mentioned addition approaches, performance
+                                                               paths represented terms integrated improved incorporating tools                                                                functional, PI GC network interactions.
+constructing hybrid predictors.                                                             f.	 Degree related integrated functional, PI GC
+majority vote35 strategy combining classi-
+                                                               network: values defined identically fiers. method represents simplest method
+                                                               mentioned  paths categorical data fusion. ­According litera-
+                                                               represented terms integrated functional, PI,
+ture,36 prerequisite improvement arises                                                                GC network interactions. fact individual classifier contain
+distinct information discrimination.             feature sets, collected negative effects imposed            network information Hu et  al22 
+structed ensemble.                                         ducted calculations using iGraph software.37
+                                                           g.	 Maximum neighborhood component density
+Appendix                                                       maximum neighborhood component: maxi-
+Feature extraction                                             mum neighborhood component (MNC) density 	 Outdegree indegree related transcriptional          maximum neigh-borhood component (DMNC)
+    regulation interaction: feature represents             properties proposed Lin et al26 Chin.4
+    number outgoing  incoming) links              protein  let N  set neighbors 
+    gene g corresponding protein. Links           MNC connected component N 
+    represented terms transcriptional regulation         maximum size, denoted M N .
+    interactions.                                                  protein  number proteins b.	 Betweenness centrality transcriptional regulation          number edges M N   denoted ni     interactions: Let σgi gj denote number short-       di, respectively. DMNC di /niα 1 #
+    est paths gi gj. value σgi gj (g)       α # 2.  set α 1.7.
+    defined number shortest paths gi     h.	 Sequence features: used feature sets     gj passing g. Paths represented         Lin et al.20 Let L protein length, Fi     terms transcriptional regulation interactions.          occurrence number amino acid protein,
+c.	 Betweenness centrality related physical inter-          H   hydrophobic coefficient38 amino acid
+    actions: value τgi gj (g) defined num-        Pi,j position jth occurrence amino
+    ber shortest paths gi gj passing            acid  j) amino acid position j Sm,n
+    g. definition similar previous       score row m column n PSSM.39
+       paths represented           sequence features listed follows.
+    terms protein physical interactions.                	 1.  Protein length: L
+d.	 Protein properties: Acencio Lemke5 discov-         	 2.  Cysteine count: FC
+    ered integration topological properties,   	 3. Amino acid occurrence: composition     cellular components, biological processes                  amino acid Fi /L, 1 # # 20.
+    possess good capability predicting essential                                                F
+                                                           	 4.  Average cysteine position: ∑ j C=1 PC , j / FC.
+    proteins.  features contained cel-      	 5. Average distance cysteines:
+    lular components (cytoplasm, endoplasmic reticu-                   F     F
+    lum, mitochondrion, nucleus localization)              ∑ xC=1 ∑ yC=1 PC , x − PC , y
+    biological processes (cell cycle, metabolic                      L × FC
+
+
+
+408	                                                                                     Evolutionary Bioinformatics 2013:9
+                                                                                                        Essentiality prediction SVM
+
+
+	  6.  Cysteine odd index: FC mod 2.                         used informational odds ratios (IOR)32 	  7.  Average hydrophobicity: ∑ i20=1 Fi × H  ) / L            represent association essentiality
+	  8. Average hydrophobicity cysteine:                    ­predictions. IOR measures        kth values average hydrophobic-                     likely protein essential learn-
+       ity cysteines defined                   ing machine outputs essentiality non-
+        ∑ j C=1 H (  PC , j + k )) / FC . set k = -2,
+          F
+                                                                  essentiality. value 1.0 indicates association
+       -1, +1, +2.                                                essentiality predictions produced
+	  9. Cysteine position distribution: 1 # d # �?,             learning machines. confidence intervals        dth cysteine position distribution                 performance measures informational odds
+                                                                  ratios corresponding prediction models                         PC , j d − 1        d            
+               α j α j =       ,       α j  ,1  j  FC       shown Tables 12–15.
+	                        L      �?           �?             
+                                       Fc                         Comparison feature
+		       set �? = 5                                             selection methods
+	 10. Average PSSM amino acid: average                    introduced feature selection meth-
+                                   L
+         PSSM residue ∑ m =1 S m  / L .                 ods served benchmarks, mRMR13 	 Phyletic retention: Gustafson et  al21 discovered             CMIM,14 theoretical methods.
+    essential proteins generally             compared feature selection
+    served nonessential proteins. Phyletic reten-            method feature subsets equal size     tion protein number organisms               selected.
+    ortholog present. ortholog                Unlike methods select ranking fea-
+    protein obtained Hwang et al.7                       tures based F-score mutual information j.	 Essential index:7 Essential index measures ratio          considering relationships features, mRMR
+    essential proteins neighbors N  node         accommodates feature relevance respect     Essential index node defined p  ) /di ,          class label dependency selected features.
+    p  number essential proteins             strategy combines maximal relevance
+    N  di degree node                           minimal redundancy criteria. order k.	 Clique level:7 clique level protein defined    criteria consideration avoid
+    maximal clique containing   cliques      exhaustive search, mRMR adopts incremen-
+    sizes 3 10 taken consideration.         tal search approach.  rth selected feature
+l.	 Number paralagous genes: shown genes            satisfy
+    likely essential dupli-
+                                                                                                  1                              
+    cate existed genome.21 feature               X r = arg max  ( X j , Y ) -          ∑        ( X j , X ) 	   (1)
+                                                                        X j ∈X - X r -1          r - 1 X ∈X r -1                 
+    defined number genes present                                   
+    genome. addition, BLASTP
+    E-values 10−20 ratios            X feature set. Xi feature     larger gene smaller exceed 1.33.            Xr-1 r - 1 number selected features 
+m.	Open reading frame length: Gustafson et  al21                  tained Xr-1. Xj feature selected.
+    observed ancestral genes likely           (Xj, Y) mutual information quantifies     essential proteins generally larger           dependence  relevance) feature Xj     evolution. Consequently, open                  class label Y. means rth selected feature
+    reading frame length indicate essentiality.               relevant class label possible
+                                                                  possesses dependency averagely Confidence intervals performance                               selected features.
+measures informational odds ratios                                CMIM, feature Xj good (Y, Xj|Xi) performance measures multiplied                       large selected feature Xi. (Y, Xj|Xi) 100. confidence intervals set 95 .                    ­conditional mutual information quantifies
+
+
+
+Evolutionary Bioinformatics 2013:9	                                                                                                      409
+ Hor et al
+
+
+Table 12. Confidence intervals performance measures (×100) informational odds ratios models produced imbalanced S. cerevisiae data set.
+
+                 AUC                Precision         Recall            F1                 MCC                   IOR
+CMIM32           82.5 ± 1.2         74.4 ± 3.1        36.9 ± 4.5        49.3 ± 3.8         45.0 ± 3.6            5.2 ± 0.5
+mRMR31           82.1 ± 1.6         73.8 ± 3.2        37.2 ± 4.3        49.5 ± 3.6         44.9 ± 3.4            5.2 ± 0.5
+Hwang            77.5 ± 2.2         74.3 ± 3.7        34.3 ± 4.3        46.9 ± 4.0         43.2 ± 3.6            5.1 ± 0.4
+Acencio          70.7 ± 3.4         67.5 ± 6.3        12.1 ± 5.5        20.4 ± 7.6         22.8 ± 6.0            3.7 ± 0.4
+N4               74.4 ± 2.7         78.2 ± 3.7        32.7 ± 4.1        46.1 ± 4.1         43.9 ± 3.5            5.3 ± 0.4
+N5               72.7 ± 3.6         74.1 ± 4.1        38.7 ± 4.7        50.9 ± 4.1         46.1 ± 3.8            5.3 ± 0.5
+N6               73.0 ± 3.2         75.2 ± 4.2        39.5 ± 4.4        51.8 ± 3.8         47.2 ± 3.6            5.5 ± 0.5
+N7               76.1 ± 2.4         76.7 ± 3.7        38.6 ± 4.4        51.3 ± 3.9         47.3 ± 3.6            5.5 ± 0.5
+N8               77.2 ± 2.4         75.5 ± 3.4        37.1 ± 4.9        49.8 ± 4.3         45.7 ± 3.9            5.3 ± 0.5
+N9               78.2 ± 2.4         74.9 ± 3.4        38.2 ± 4.5        50.6 ± 3.9         46.2 ± 3.6            5.4 ± 0.5
+N10              78.1 ± 2.2         75.1 ± 3.5        39.9 ± 4.1        52.1 ± 3.6         47.4 ± 3.5            5.5 ± 0.5
+N11              78.6 ± 2.1         75.2 ± 3.2        40.2 ± 4.2        52.4 ± 3.6         47.6 ± 3.4            5.5 ± 0.5
+N12              79.8 ± 2.0         75.9 ± 3.2        40.9 ± 4.2        53.2 ± 3.6         48.5 ± 3.4            5.7 ± 0.5
+N13              78.9 ± 1.9         74.8 ± 3.2        43.3 ± 4.3        54.9 ± 3.4         49.5 ± 3.4            5.8 ± 0.5
+N14              80.2 ± 1.8         74.9 ± 3.2        39.7 ± 4.3        51.9 ± 3.5         47.1 ± 3.4            5.5 ± 0.5
+N15              80.1 ± 1.9         76.3 ± 3.3        40.6 ± 4.2        53.0 ± 3.5         48.5 ± 3.5            5.7 ± 0.5
+N16              81.4 ± 1.7         76.2 ± 3.2        40.1 ± 4.6        52.5 ± 3.8         48.0 ± 3.6            5.6 ± 0.5
+N17              81.4 ± 1.7         76.1 ± 3.3        40.7 ± 4.5        53.0 ± 3.8         48.4 ± 3.6            5.7 ± 0.5
+N18              81.1 ± 1.8         75.1 ± 3.2        41.1 ± 4.3        53.1 ± 3.6         48.2 ± 3.5            5.6 ± 0.5
+N90              82.9 ± 1.0         73.8 ± 2.8        35.5 ± 4.5        47.9 ± 3.6         43.8 ± 3.4            5.1 ± 0.4
+
+
+
+Table 13. Confidence intervals performance measures (×100) informational odds ratios models produced balanced S. cerevisiae data set.
+
+                 AUC                Precision         Recall            F1                 MCC                   IOR
+CMIM32           84.2 ± 1.5         77.2 ± 2.2        76.6 ± 2.9        76.9 ± 2.1         54.0 ± 3.9            3.3 ± 0.4
+mRMR31           83.6 ± 1.6         76.5 ± 2.4        74.1 ± 3.0        75.2 ± 2.1         51.3 ± 4.1            3.0 ± 0.3
+Hwang            82.2 ± 1.7         77.8 ± 2.6        72.0 ± 3.7        74.8 ± 2.3         51.6 ± 3.9            3.0 ± 0.3
+Acencio          76.8 ± 2.2         69.6 ± 2.4        73.4 ± 4.0        71.4 ± 2.3         41.4 ± 4.3            2.5 ± 0.3
+N4               81.1 ± 1.8         77.7 ± 2.5        71.6 ± 3.6        74.5 ± 2.3         51.2 ± 3.9            3.0 ± 0.3
+N5               82.4 ± 1.8         77.8 ± 2.6        73.5 ± 3.5        75.6 ± 2.2         52.7 ± 4.1            3.1 ± 0.3
+N6               82.7 ± 1.8         77.8 ± 2.6        73.9 ± 3.6        75.8 ± 2.3         53.0 ± 4.1            3.1 ± 0.3
+N7               83.1 ± 1.8         77.9 ± 2.5        73.3 ± 3.5        75.5 ± 2.2         52.6 ± 4.0            3.1 ± 0.3
+N8               82.6 ± 1.8         78.6 ± 2.5        72.1 ± 3.5        75.2 ± 2.3         52.7 ± 4.0            3.1 ± 0.3
+N9               83.3 ± 1.8         79.1 ± 2.4        73.5 ± 3.4        76.2 ± 2.2         54.1 ± 3.8            3.2 ± 0.3
+N10              83.4 ± 1.7         78.9 ± 2.4        73.6 ± 3.3        76.1 ± 2.1         54.0 ± 3.8            3.2 ± 0.3
+N11              83.1 ± 1.7         78.4 ± 2.4        73.7 ± 3.5        76.0 ± 2.2         53.5 ± 3.8            3.2 ± 0.3
+N12              82.9 ± 1.8         77.9 ± 2.5        73.2 ± 3.1        75.5 ± 2.2         52.6 ± 4.2            3.1 ± 0.3
+N13              83.4 ± 1.7         78.8 ± 2.4        73.0 ± 3.5        75.8 ± 2.2         53.5 ± 3.9            3.1 ± 0.3
+N14              83.6 ± 1.6         77.7 ± 2.3        74.3 ± 3.4        75.9 ± 2.1         53.0 ± 3.8            3.2 ± 0.3
+N15              84.3 ± 1.7         78.4 ± 2.4        74.8 ± 3.3        76.6 ± 2.1         54.2 ± 3.9            3.3 ± 0.4
+N16              84.2 ± 1.6         77.7 ± 2.2        75.6 ± 3.1        76.7 ± 2.0         54.0 ± 3.7            3.3 ± 0.4
+N17              84.7 ± 1.6         77.8 ± 2.3        76.3 ± 3.0        77.0 ± 2.0         54.5 ± 3.8            3.3 ± 0.4
+N18              84.0 ± 1.6         77.9 ± 2.4        74.0 ± 3.3        75.9 ± 2.0         53.1 ± 3.8            3.1 ± 0.3
+N90              83.9 ± 1.4         76.0 ± 2.0        75.3 ± 2.7        75.7 ± 1.8         51.6 ± 3.5            3.1 ± 0.3
+
+
+410	                                                                                      Evolutionary Bioinformatics 2013:9
+                                                                                        Essentiality prediction SVM
+
+
+Table 14. Confidence intervals performance measures (×100) informational odds ratios models produced imbalanced E. coli data set.
+                      AUC             Precision        Recall             F1               MCC                IOR
+CMIM09                70.1 ± 0.9      72.0 ± 1.4       27.1 ± 0.7         39.4 ± 0.9       38.2 ± 0.9         5.2 ± 0.6
+mRMR13                71.5 ± 2.4      71.3 ± 5.4       25.0 ± 5.8         37.0 ± 6.8       36.0 ± 5.8         4.7 ± 0.6
+Gustafson             71.1 ± 2.3      66.5 ± 4.6       25.5 ± 5.0         36.8 ± 5.2       34.7 ± 4.8         4.9 ± 0.6
+N4                    69.1 ± 1.8      72.5 ± 1.0       28.0 ± 0.6         40.4 ± 0.7       39.1 ± 0.7         5.5 ± 0.6
+N5                    69.0 ± 2.0      73.7 ± 1.4       29.5 ± 0.8         42.1 ± 0.9       40.7 ± 1.0         5.7 ± 0.6
+N6                    70.1 ± 1.7      74.2 ± 1.4       28.7 ± 0.9         41.4 ± 1.1       40.3 ± 1.0         5.7 ± 0.6
+N7                    71.4 ± 1.4      73.5 ± 1.3       27.5 ± 0.7         40.0 ± 0.9       39.2 ± 0.9         5.5 ± 0.6
+N8                    70.5 ± 1.3      74.2 ± 1.1       28.8 ± 0.8         41.5 ± 0.9       40.5 ± 0.9         5.7 ± 0.6
+N9                    70.7 ± 1.5      72.6 ± 1.4       29.3 ± 1.0         41.7 ± 1.2       40.1 ± 1.2         5.6 ± 0.6
+N10                   71.1 ± 1.5      72.4 ± 1.6       29.4 ± 1.0         41.8 ± 1.1       40.1 ± 1.2         5.6 ± 0.6
+N11                   71.4 ± 1.4      73.2 ± 1.3       27.8 ± 0.8         40.3 ± 1.0       39.3 ± 1.0         5.5 ± 0.6
+N12                   71.2 ± 1.4      72.5 ± 1.9       29.2 ± 1.1         41.6 ± 1.2       40.0 ± 1.3         5.6 ± 0.6
+N13                   71.4 ± 1.3      73.3 ± 1.8       28.7 ± 1.2         41.3 ± 1.4       40.0 ± 1.4         5.6 ± 0.6
+N80                   71.6 ± 0.9      67.7 ± 2.1       23.7 ± 1.3         35.2 ± 1.6       33.9 ± 1.6         4.9 ± 0.6
+
+
+Table 15. Confidence intervals performance measures (×100) informational odds ratios models produced bal-
+anced E. coli data set.
+                      AUC             Precision       Recall              F1               MCC                IOR
+CMIM09                76.7 ± 1.7      72.0 ± 2.4      70.0 ± 3.7          71.0 ± 2.2       42.1 ± 4.0         2.4 ± 0.3
+mRMR13                76.2 ± 2.0      72.8 ± 3.1      65.4 ± 6.4          68.9 ± 3.3       39.6 ± 3.9         2.2 ± 0.2
+Gustafson             77.7 ± 2.6      72.2 ± 3.3      71.5 ± 4.0          71.9 ± 2.8       44.0 ± 5.5         2.6 ± 0.3
+N4                    78.0 ± 1.6      73.3 ± 2.5      70.1 ± 2.7          71.7 ± 1.9       44.6 ± 3.8         2.6 ± 0.3
+N5                    77.9 ± 1.7      73.0 ± 2.5      70.6 ± 2.8          71.8 ± 1.8       44.5 ± 3.8         2.6 ± 0.3
+N6                    76.2 ± 1.7      73.5 ± 2.6      66.3 ± 4.3          69.6 ± 2.6       42.5 ± 4.1         2.4 ± 0.3
+N7                    78.3 ± 1.7      73.7 ± 2.5      69.6 ± 2.7          71.6 ± 1.8       44.8 ± 3.6         2.6 ± 0.3
+N8                    78.1 ± 1.7      72.3 ± 2.3      71.1 ± 3.3          71.7 ± 2.1       43.9 ± 3.8         2.5 ± 0.3
+N9                    78.2 ± 1.6      71.5 ± 2.2      70.3 ± 4.1          70.9 ± 2.3       42.3 ± 3.8         2.4 ± 0.3
+N10                   78.1 ± 1.6      72.5 ± 2.4      70.2 ± 3.3          71.3 ± 2.1       43.6 ± 3.9         2.5 ± 0.3
+N11                   77.7 ± 1.7      71.9 ± 2.2      70.0 ± 3.3          70.9 ± 2.0       42.6 ± 3.6         2.5 ± 0.3
+N12                   77.6 ± 1.9      71.5 ± 2.3      69.5 ± 4.5          70.5 ± 2.5       41.8 ± 4.0         2.4 ± 0.3
+N13                   77.6 ± 1.7      73.1 ± 2.4      69.5 ± 3.0          71.2 ± 2.1       43.9 ± 3.9         2.5 ± 0.3
+N80                   76.9 ± 1.8      71.1 ± 2.4      71.5 ± 2.4          71.3 ± 1.8       42.4 ± 3.8         2.5 ± 0.3
+
+
+Table 16. Performance comparison method vs. mRMR imbalanced S. cerevisiae data set sizes feature subsets, . symbol represents values significantly higher.
+                AUC                   Precision           Recall                  F-measure             MCC
+N4              0.744 0.762           0.782   0.756       0.327 0.331             0.461 0.461           0.439 0.430
+N5              0.727 0.718           0.741   0.740       0.387 0.359             0.509 0.484           0.461 0.442
+N6              0.730 0.753           0.752   0.753       0.395 . 0.333           0.518 . 0.462         0.472 . 0.430
+N7              0.761 0.763           0.767   0.761       0.386 . 0.330           0.513 . 0.460         0.473 . 0.431
+N8              0.772 . 0.771         0.755   0.757       0.371 . 0.326           0.498 . 0.456         0.457 . 0.427
+N9              0.782 0.776           0.749   0.749       0.382 . 0.341           0.506 . 0.469         0.462 . 0.434
+N10             0.781 . 0.778         0.751   0.752       0.399 . 0.340           0.521 . 0.469         0.474 . 0.434
+N11             0.786 . 0.774         0.752   0.750       0.402 . 0.341           0.524 . 0.469         0.476 . 0.434
+N12             0.798 . 0.781         0.759   0.757       0.409 . 0.334           0.532 . 0.463         0.485 . 0.432
+N13             0.789 . 0.774         0.748   0.746       0.433 . 0.342           0.549 . 0.469         0.495 . 0.432
+N14             0.802 . 0.775         0.749   0.750       0.397 . 0.340           0.519 . 0.468         0.471 . 0.433
+N15             0.801 . 0.798         0.763   0.764       0.406 . 0.318           0.530 . 0.449         0.485 . 0.424
+N16             0.814 . 0.799         0.762   0.762       0.401 . 0.318           0.525 . 0.449         0.480 . 0.423
+N17             0.814 . 0.799         0.761   0.759       0.407 . 0.326           0.530 . 0.456         0.484 . 0.427
+N18             0.811 . 0.797         0.751   0.749       0.411 . 0.342           0.531 . 0.469         0.482 . 0.434
+
+
+Evolutionary Bioinformatics 2013:9	                                                                                 411
+ Hor et al
+
+
+Table 17. Performance comparison new method vs. CMIM imbalanced S. cerevisiae data set identical
+number features selected.
+
+             AUC                       Precision               Recall               F1                       MCC
+N4           0.744 0.761               0.782     0.762         0.327 0.344          0.461 0.474              0.439 0.442
+N5           0.727 0.735               0.741     0.738         0.387 0.371          0.509 0.494              0.461 0.449
+N6           0.730 0.757               0.752     0.749         0.395 0.359          0.518 0.485              0.472 0.446
+N7           0.761 0.779               0.767     0.763         0.386 . 0.339        0.513 . 0.470            0.473 . 0.439
+N8           0.772 0.779               0.755     0.754         0.371 . 0.350        0.498 . 0.478            0.457 . 0.442
+N9           0.782 0.776               0.749     0.750         0.382 . 0.357        0.506 . 0.483            0.462 . 0.445
+N10          0.781 0.782               0.751     0.751         0.399 . 0.353        0.521 . 0.480            0.474 . 0.443
+N11          0.786 0.786               0.752     0.752         0.402 . 0.363        0.524 . 0.490            0.476 . 0.450
+N12          0.798 0.799               0.759     0.758         0.409 . 0.354        0.532 . 0.483            0.485 . 0.447
+N13          0.789 0.797               0.748     0.750         0.433 . 0.360        0.549 . 0.487            0.495 . 0.447
+N14          0.802 . 0.801             0.749     0.749         0.397 . 0.348        0.519 . 0.475            0.471 . 0.438
+N15          0.801 . 0.797             0.763     0.760         0.406 . 0.330        0.530 . 0.460            0.485 . 0.430
+N16          0.814 . 0.796             0.762     0.759         0.401 . 0.338        0.525 . 0.468            0.480 . 0.436
+N17          0.814 . 0.795             0.761     0.756         0.407 . 0.339        0.530 . 0.469            0.484 . 0.435
+N18          0.811 0.799               0.751     0.756         0.411 . 0.338        0.531 . 0.467            0.482 . 0.435
+
+
+d­ iscrepancy features Xj Xi given               following paragraph, compare  class label Y. Consequently, feature selection pro-          method feature selection methods
+ cedure carried incremental manner             feature subsets equal size selected.
+ follows:                                                      ran SVM software Hwang’s                                                                   Gustafson feature sets tune SVM param-
+                υ (1) = arg max ( X j , Y )	           (2)      eters achieve highest average performances.
+	                               Xj
+                                                                  fairly compare methods given feature subsets
+
+	                      Xj
+                            {
+        υ (r) = arg max min (Y , X j | X υ (k ) ) .	
+                            k ≤ r -1
+                                                   }     (3)
+                                                                  sizes obtained methods, mRMR
+                                                                  CMIM, used SVM software                                                                   adjust cost parameters order achieve simi- v(k) denotes kth selected feature.                      lar levels precision. S. cerevisiae E. coli
+                                                                  data set, feature numbers k 4 # k # 18 
+Table 18. Performance comparison method vs. mRMR balanced S. cerevisiae data set sizes feature subsets, . symbol indicates values significantly higher.
+
+             AUC                       Precision               Recall               F-measure                MCC
+N4           0.811 0.815               0.777     0.770         0.716 0.725          0.745 0.747              0.512 0.510
+N5           0.824 0.818               0.778     0.771         0.735 0.722          0.756 0.745              0.527 0.508
+N6           0.827 0.814               0.778     0.775         0.739 0.709          0.758 0.740              0.530 0.504
+N7           0.831 0.824               0.779     0.779         0.733 0.718          0.755 0.747              0.526 0.516
+N8           0.826 0.827               0.786     0.781         0.721 0.721          0.752 0.750              0.527 0.521
+N9           0.833 0.834               0.791     0.783         0.735 0.734          0.762 0.758              0.541 0.531
+N10          0.834 0.835               0.789     0.783         0.736 0.733          0.761 0.757              0.540 0.531
+N11          0.831 0.834               0.784     0.780         0.737 0.730          0.760 0.754              0.535 0.525
+N12          0.829 0.834               0.779     0.778         0.732 0.734          0.755 0.755              0.526 . 0.525
+N13          0.834 0.834               0.788     0.779         0.730 0.732          0.758 0.754              0.535 0.525
+N14          0.836 0.832               0.777     0.777         0.743 0.731          0.759 0.753              0.530 0.522
+N15          0.843 0.835               0.784     0.778         0.748 0.734          0.766 0.756              0.542 0.526
+N16          0.842 . 0.836             0.777     0.777         0.756 . 0.735        0.767 . 0.755            0.540 . 0.525
+N17          0.847 . 0.834             0.778     0.777         0.763 0.733          0.770 . 0.754            0.545 . 0.523
+N18          0.840 0.835               0.779     0.778         0.740 0.735          0.759 0.756              0.531 0.526
+
+
+
+
+412	                                                                                         Evolutionary Bioinformatics 2013:9
+                                                                                       Essentiality prediction SVM
+
+
+Table 19. Performance comparison method vs. CMIM balanced S. cerevisiae data set identical number features selected.
+
+                AUC                   Precision          Recall                 F1                     MCC
+N4              0.811 0.813           0.777   0.777      0.716 0.724            0.745 0.749            0.512 0.517
+N5              0.824 0.817           0.778   0.775      0.735 0.740            0.756 0.757            0.527 0.526
+N6              0.827 0.821           0.778   0.777      0.739 0.742            0.758 0.759            0.530 0.529
+N7              0.831 0.830           0.779   0.772      0.733 0.744            0.755 0.758            0.526 0.524
+N8              0.826 0.833           0.786   0.776      0.721 0.738            0.752 0.756            0.527 0.525
+N9              0.833 0.834           0.791   0.775      0.735 0.740            0.762 0.757            0.541 0.526
+N10             0.834 0.835           0.789   0.776      0.736 0.739            0.761 0.757            0.540 0.527
+N11             0.831 0.836           0.784   0.778      0.737 0.739            0.760 0.758            0.535 0.528
+N12             0.829 0.838           0.779   0.779      0.732 0.742            0.755 0.760            0.526 0.532
+N13             0.834 0.837           0.788   0.778      0.730 0.741            0.758 0.759            0.535 0.530
+N14             0.836 0.836           0.777   0.777      0.743 0.743            0.759 0.759            0.530 0.530
+N15             0.843 0.836           0.784   0.777      0.748 0.739            0.766 0.758            0.542 0.528
+N16             0.842 . 0.837         0.777   0.776      0.756 0.741            0.767 . 0.758          0.540 . 0.528
+N17             0.847 . 0.838         0.778   0.777      0.763 . 0.744          0.770 . 0.760          0.545 . 0.531
+N18             0.840 0.837           0.779   0.778      0.740 0.746            0.759 0.762            0.531 0.533
+
+
+
+Table 20. Performance comparison method vs. mRMR imbalanced E. coli data set identical numbers features selected.
+
+                AUC                   Precision          Recall                 F1                     MCC
+N4              0.691 0.651           0.725   0.678      0.280 0.269            0.404 0.385            0.391    0.363
+N5              0.690 0.675           0.737   0.687      0.295 0.254            0.421 0.371            0.407    0.356
+N6              0.701 0.681           0.742   0.708      0.287 0.220            0.414 0.336            0.403    0.338
+N7              0.714 0.686           0.735   0.712      0.275 0.212            0.400 0.326            0.392    0.333
+N8              0.705 0.692           0.742   0.713      0.288 0.209            0.415 0.323            0.405    0.330
+N9              0.707 0.692           0.726   0.713      0.293 . 0.199          0.417 . 0.312          0.401    0.322
+N10             0.711 0.697           0.724   0.703      0.294 . 0.193          0.418 . 0.302          0.401    0.313
+N11             0.714 , 0.702         0.732   0.697      0.278 . 0.187          0.403 0.295            0.393    0.306
+N12             0.712 , 0.704         0.725   0.683      0.292 0.192            0.416 0.300            0.400    0.305
+N13             0.714 , 0.715         0.733   0.713      0.287 0.250            0.413 0.370            0.400    0.360
+
+
+
+Table 21. Performance comparison method vs. CMIM imbalanced E. coli data set identical numbers features selected.
+
+                AUC                   Precision          Recall                 F1                     MCC
+N4              0.691 . 0.663         0.725   0.717      0.280 0.271            0.404 0.393            0.391 0.381
+N5              0.690 0.686           0.737   0.710      0.295 . 0.264          0.421 . 0.385          0.407 . 0.373
+N6              0.701 0.697           0.742   0.715      0.287 . 0.265          0.414 . 0.387          0.403 . 0.376
+N7              0.714 0.693           0.735   0.711      0.275 . 0.261          0.400 . 0.382          0.392 . 0.371
+N8              0.705 0.690           0.742   0.709      0.288 . 0.254          0.415 . 0.373          0.405 . 0.364
+N9              0.707 0.701           0.726   0.720      0.293 . 0.271          0.417 . 0.394          0.401 . 0.382
+N10             0.711 0.702           0.724   0.692      0.294 . 0.248          0.418 . 0.364          0.401 . 0.353
+N11             0.714 0.698           0.732   0.690      0.278 . 0.247          0.403 . 0.363          0.393 . 0.351
+N12             0.712 0.690           0.725   0.683      0.292 . 0.239          0.416 . 0.353          0.400 . 0.342
+N13             0.714 0.688           0.733   0.678      0.287 . 0.236          0.413 . 0.349          0.400 . 0.337
+
+
+
+
+Evolutionary Bioinformatics 2013:9	                                                                              413
+ Hor et al
+
+
+Table 22. Performance comparison method vs. mRMR balanced E. coli data set identical numbers features selected.
+
+             AUC                     Precision               Recall              F1                       MCC
+N4           0.780 . 0.773           0.733   0.726           0.701 . 0.651       0.717 . 0.686            0.446 . 0.407
+N5           0.779 0.772             0.730   0.720           0.706 . 0.654       0.718 . 0.684            0.445 . 0.401
+N6           0.762 0.771             0.735   0.717           0.663 0.649         0.696 0.680              0.425 0.394
+N7           0.783 . 0.768           0.737   0.716           0.696 0.649         0.716 . 0.680            0.448 . 0.394
+N8           0.781 . 0.764           0.723   0.715           0.711 . 0.641       0.717 . 0.675            0.439 . 0.387
+N9           0.782 . 0.764           0.715   0.713           0.703 0.643         0.709 . 0.675            0.423 . 0.386
+N10          0.781 . 0.765           0.725   0.716           0.702 . 0.636       0.713 . 0.673            0.436 . 0.386
+N11          0.777 . 0.766           0.719   0.720           0.700 0.643         0.709 . 0.678            0.426 0.394
+N12          0.776 0.765             0.715   0.714           0.695 0.643         0.705 0.676              0.418 0.388
+N13          0.776 . 0.762           0.731   0.728           0.695 . 0.654       0.712 . 0.689            0.439 . 0.396
+
+
+
+4 # k #13, respectively, compliant             23, method performed significantly better Section V.                                                   mRMR numbers selected features
+   S. cerevisiae data set imbalanced exper-      exceeded 7. experimental results showed iment, Tables 16 17 performance com-               difference method CMIM parison method versus mRMR CMIM.                 N6 AUC.
+method performed significantly better size             methods mRMR CMIM, feature subset exceeded 7. balanced experi-           relevance information redundancy taken
+ment, illustrated Tables 18 19, method        consideration.  obtained feature
+significantly better number selected           subsets quite compact effective.
+features exceeded 16.                                            relevance appropriate
+   E. coli data set imbalanced experi-           performance measures, classifica-
+ment, Tables 20 21 performance com-                tion accuracy precision. method took parison method versus mRMR CMIM                      performance feature size consideration. configurations similar S. cerevisiae                Consequently, resultant feature subsets data set. method performed significantly better             effective performance measures size feature subset exceeded 9.               given equal number features precision balanced experiment, illustrated Table  22            values.
+
+
+Table 23. Performance comparison method vs. CMIM balanced E. coli data set identical numbers features selected.
+
+             AUC                     Precision               Recall              F1                       MCC
+N4           0.780 0.769             0.733   0.719           0.701    0.696      0.717   0.707            0.446      0.424
+N5           0.779 0.771             0.730   0.715           0.706    0.696      0.718   0.705            0.445      0.419
+N6           0.762 , 0.771           0.735   0.716           0.663    0.684      0.696   0.699            0.425      0.413
+N7           0.783 0.769             0.737   0.711           0.696    0.696      0.716   0.703            0.448      0.413
+N8           0.781 0.767             0.723   0.709           0.711    0.697      0.717   0.703            0.439      0.412
+N9           0.782 0.767             0.715   0.720           0.703    0.700      0.709   0.710            0.423      0.421
+N10          0.781 0.767             0.725   0.705           0.702    0.702      0.713   0.704            0.436      0.409
+N11          0.777 0.765             0.719   0.706           0.700    0.700      0.709   0.703            0.426      0.408
+N12          0.776 0.764             0.715   0.703           0.695    0.698      0.705   0.700            0.418      0.404
+N13          0.776 0.765             0.731   0.704           0.695    0.700      0.712   0.702            0.439      0.406
+
+
+
+
+414	                                                                                      Evolutionary Bioinformatics 2013:9
+                                                                                                                                 Essentiality prediction SVM
+
+
+Author Contributions                                                                	 6.	 Witten IH, Frank E, Hall MA. Data Mining:Practical Machine Learn-
+                                                                                                            ing Tools Techniques Java Implementations. Burlington, MA:
+Conceived designed experiments: CBY, CYH.                                                           ­Morgann Kaufmann; 2000.
+Analysed data: CYH, ZJY. Wrote draft                               	 7.	 Hwang YC, Lin CC, Chang JY, Mori H, Juan HF, Huang HC. ­Predicting
+                                                                                                             essential genes based network sequence analysis. Mol Biosyst. 2009; manuscript: CYH, ZJY, CTT. Contributed                                                            5(12):1672–8.
+writing manuscript: CYH, CBY, ZJY. Agree                                     	 8.	 Przulj N, Wigle DA, Jurisica  Functional topology network protein
+                                                                                                             interactions. Bioinformatics. 1998;20(3):340–8. manuscript results conclusions: CYH, CBY.                                  	 9.	 Chin CS, Samanta MP. Global snapshot protein interaction network
+Jointly developed structure arguments                                                            percolation based approach. Bioinformatics. 2003;19(18):2413–9. paper: CYH, CBY, ZJY, CTT. critical revi-                                  	10.	 Barabási AL, Oltvai ZN. Network biology: understanding cell’s func-
+                                                                                                             tional organization. Nat Rev Genet. 2004;5(2):101–13.
+sions approved final version: CBY. authors                                   	11.	 Ito T, Chiba T, Ozawa R, Yoshida M, Hattori M, Sakaki Y. comprehen-
+reviewed approved final manuscript.                                                                  sive hybrid analysis explore yeast protein interactome. Proc Natl
+                                                                                                             Acad Sci U S  2001;98(8):4569–74.
+                                                                                     	12.	 Lal TN, Chapelle O, Schölkopf B. Feature Extraction: Foundations Funding                                                                                                      Applications. Guyon S, Gunn M, Nikravesh M, Zadeh LA. Berlin: Springer;
+                                                                                                             2006. research work partially supported                                     	13.	 Peng H, Long F, Ding C. Feature selection based mutual information:
+National Science Council Taiwan contract                                                            criteria max-dependency, max-relevance, min-redundancy. IEEE
+NSC100-2221-E-110-050.                                                                                       Trans Pattern Anal Mach Intell. 2005;27(8):1226–38.
+                                                                                       	14.	 Fleuret F. Fast binary feature selection conditional mutual information.
+                                                                                                             Journal Machine Learning Research. 2004;5:1531–55.
+Competing Interests                                                                     	15.	 Sotoca JM, Pla SF. Supervised feature selection clustering using condi-
+                                                                                                             tional mutual information-based distances. Pattern Recognition. 2010;43(6):
+Author(s) disclose potential conflicts                                                        2068–81.
+                                                                                         	16.	 Quinlan JR. C4.5: Programs Machine Learning. Morgan Kaufmann:
+Disclosures Ethics                                                                                       Burlington, MA; 1993.
+                                                                                          	17.	 Breiman L, Friedman J, Stone CJ, Olshen RA. Classification Regres- requirement publication authors pro-                                                        sion Trees. London: Chapman Hall/CRC; 1984.
+vided signed confirmation compliance                                         	18.	 Tan PN, Steinbach M, Kumar V. Introduction Data Mining. Boston, MA:
+                                                                                                             Addison-Wesley; 2005.
+ethical legal obligations including limited                                  	19.	 Wang G, Ma J, Yan S. IGF-bagging: Information gain based feature selec-
+compliance ICMJE authorship competing inter-                                                        tion bagging. International Journal Innovative Computing, Informa-
+ests guidelines, article consider-                                                 tion Control. 2011;7(11):6247–59.
+                                                                                             	20.	 Lin CY, Yang CB, Hor CY, Huang KS. Disulfide bonding state prediction
+ation publication published                                                       svm based protein types. Bio-Inspired Computing: Theories compliance legal ethical guidelines concerning                                                      Applications. 2010:1436–42.
+                                                                                              	21.	 Gustafson  Snitkin ES, Parker SC, DeLisi C, Kasif S. iden-
+human animal research participants  applicable),                                                      tification essential genes using targeted genome sequencing com- permission obtained reproduction                                                       parative analysis. BMC Genomics. 2006;7:265. copyrighted material. article subject                                       	22.	 Hu P, Janga SC, Babu M, et  al. Global functional atlas Escherichia coli
+                                                                                                             encompassing previously uncharacterized proteins. PLoS Biol. 2009;7(4):e96.
+blind, independent, expert peer review. reviewers                                          	23.	 Chang CC, Lin CJ. LIBSVM: library support vector machines. http://
+reported competing interests. preliminary version                                                       www.csie.ntu.edu.tw/~cjlin/libsvm. Updated date April 1, 2013. Accessed
+                                                                                                             date Feb 1, 2012. paper presented International Confer-                                        	24.	 Fu WJ, Carroll RJ, Wang S. Estimating misclassification error small sam-
+ence Machine Learning Applications.40                                                                 ples bootstrap cross-validation. Bioinformatics. 2005;21(9):1979–86.
+                                                                                                 	25.	 Salwinski L, Miller CS, Smith AJ, Pettit FK, Bowie JU, Eisenberg D.                                                                                                              database interacting proteins: 2004 update. Nucleic Acids Res. 2004;32:
+References                                                                                                   D449–51.
+1.	 Cadigan K

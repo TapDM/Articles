@@ -1,0 +1,524 @@
+                               NIH Public Access
+                               Author Manuscript
+                               Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Published final edited form 
+NIH-PA Author Manuscript
+
+
+
+
+                            Nat Methods. 2013 July ; 10(7): . doi:10.1038/nmeth.2475.
+
+
+
+                           C. elegans Lifespan Machine
+                           Nicholas Stroustrup1, Bryne E. Ulmschneider, Zachary M. Nash, Isaac F. López Moyado,
+                           Javier Apfeld1,*, Walter Fontana1,*
+                           Department Systems Biology, Harvard Medical School, 200 Longwood Avenue, Boston MA
+                           02115, USA
+
+                           Abstract
+                                 measurement lifespan pervades aging research. lifespan results complex
+                                 interactions genetic, environmental stochastic factors, varies widely                                  isogenic individuals. action molecular mechanisms lifespan visible                                  statistical effects populations. Survival assays C. elegans provided critical
+                                 insights evolutionarily conserved determinants aging. enable rapid acquisition NIH-PA Author Manuscript
+
+
+
+
+                                 survival curves arbitrary statistical resolution, developed scalable imaging analysis
+                                 platform observe nematodes multiple weeks square meters agar surface 8 μm
+                                 resolution. method generates permanent visual record individual deaths                                  survival curves constructed validated, producing data consistent manual method
+                                 mutants standard stressful environments. approach allows rapid,
+                                 detailed reverse-genetic chemical screens effects survival enables quantitative
+                                 investigations statistical structure aging.
+
+
+                           Introduction
+                                             Aging organisms exhibit functional declines levels biological organization.
+                                             declines ultimately conspire kill organism determine lifespan.                                              lifespans vary remarkably1 isogenic populations, useful information aging
+                                             mechanisms obtained identifying statistical signature response                                              lifespan distributions genetic, chemical physical interventions
+
+                                             C. elegans individuals live self-fertile adults weeks, producing large numbers                                              isogenic offspring. Early investigations revealed single point mutations insulin/IGF-1
+NIH-PA Author Manuscript
+
+
+
+
+                                             pathway components capable doubling average lifespan2-5. findings subsequently
+                                             generalized organisms, including fruit flies mice5, establishing C. elegans 
+
+
+                           1
+                            authors corresponding authors: stroustr@fas.harvard.edu — javier_apfeld@hms.harvard.edu — walter@hms.harvard.edu.
+                            authors contributed equally considered authors.
+                           Author Contributions: N.S. designed implemented hardware software. N.S. B.U. constructed calibrated equipment.
+                           N.S. J  conceived designed experiments. N.S., B.U., J , N. F.L.M. performed experiments. N.S. designed analytic
+                           tools. N.S., J  W.F. provided guidance, analyzed data, interpreted results, wrote manuscript. J W.F.                            authors.
+                           Figure 5 Hazard animals thermal stress.   Hazard rates (dots) estimated Fig. 2d populations 1,873
+                           age-1(hx546), 2,106 daf-16(mu86) 1,726 wild type animals. (b) acquired thermotolerance experiment shown hazard
+                           perspective. Roughly 4,000 C. elegans grown UV-killed bacteria 20 °C. day adulthood, half animals
+                           transferred 33 °C hour allowed recover hours 20 °C. Treated animals transferred                            second time 33 °C survival determined LM. hazard rate curve 2,022 pre-treated animals compared                            2,459 untreated animals. (c) panel shows LM-acquired survival curves obtained populations 1,306 C. elegans (N2
+                           Bristol isolate), 255 C. elegans (Hawaiian isolate), 285 C. briggsae, 224 C. species 11, 295 C. brenneri nematodes raised live
+                           OP50 20 °C transferred 34.5 °C second day adulthood. (d) Hazard rate plots Caenorhabditis species panel
+                           (c).
+                           Stroustrup et al.                                                                                              Page 2
+
+
+                                               metazoan model studying genetics aging. acquisition survival curves C.
+                                               elegans essential aging research. routine practice, survival curves
+                                               animals cultured solid agar Petri dish, fed bacterial lawn E. coli, NIH-PA Author Manuscript
+
+
+
+
+                                               acquired manually daily observation low-power dissecting microscope6, 7.
+                                               Death recognized failure individual react motion prodding                                                wire, requiring labor-intensive, repetitive, subjective observation. protocol provides
+                                               strong incentives population sizes small, observations infrequent, number                                                replicates limited, curtailing reproducibility scope data collected.
+
+                                               present scalable method producing standardized survival curves arbitrary
+                                               statistical resolution, allowing “hands-free�?, lifelong, accurate observation arbitrarily
+                                               large nematode populations. method combines groups flatbed scanners function                                                single spatially-extended microscope. groups, scanners produce time-
+                                               lapse videos highly controlled environmental conditions. couple imaging
+                                               approach image-analysis pipeline automatically identifies death times.                                                creating auditable trail images, allows rapid validation refinement                                                processed data, supports statistically rigorous analysis aging stress-
+                                               resistance.
+
+                                               cases, notably worms flies, focused efforts acquiring
+                                               high-resolution survival data8-15. method formalizes, standardizes, routinizes NIH-PA Author Manuscript
+
+
+
+
+                                               observations nematodes, enabling accumulation self-consistent body                                                quantitative demographic data tightly linking aging, genotype, environment.                                                comprehensive body data exists metazoan date, humans included. refer                                                integrated combination scanner hardware image-processing software                                                “Lifespan Machine�? (LM).
+
+                               Results
+                               distributed microscope large worm populations
+                                               Lifespan data acquired scales, ranging aging studies spanning multiple
+                                               months stress-resistance assays lasting day16, involving targeted
+                                               characterizations strains12 screening projects thousands gene knock-
+                                               downs2, 3, 5. Throughput important screening projects, targeted studies benefit
+                                               large populations provide statistical power. suit purposes, platform
+                                               combines flatbed scanners scalable fashion monitor arbitrarily large populations                                                wide-range timescales.
+
+                                               approach replaces human observation automated acquires NIH-PA Author Manuscript
+
+
+
+
+                                               processes time-lapse images identify timing death defined persistent
+                                               cessation spontaneous movement. current reference implementation                                                simultaneously monitor 30,000 animals 800 plates, imaging 4.5 m2 agar surface                                                resolution 8 μm (Supplementary Notes 1—4). capacity used run                                                independent, single-scanner experiments parallel larger investigations involving                                                scanners 
+
+                                               Young worms quickly relative observation frequency attainable scanners,
+                                               precluding tracking.  animals slow age, motion                                                quantified longitudinally, especially limited changes posture fixed
+                                               location.
+
+                                               scanner monitors 16 Petri dishes (plates) sealed face glass sheet rubber
+                                               mat, plate containing population 35 animals (Online Methods). 
+
+                                                   Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                            Page 3
+
+
+                                               fluorescent lamp inside scanner lid sends light plates, agar, bacteria, worms,
+                                               captured sensor chip moving underneath glass surface synchrony                                                light source (Fig. 1a, Supplementary Notes 1 3). scanner acts 16 camera-
+NIH-PA Author Manuscript
+
+
+
+
+                                               equipped dissecting microscopes, costing significantly form factor suited
+                                               dense shelving inside temperature-controlled incubators.
+
+                                               Traditional protocols monitoring large populations nematodes long periods                                                time plates incubator6, 7, 11, 12, exposing spatially                                                temporally heterogeneous conditions. apparatus maintains plates fixed position
+                                               controlled environment duration experiment. important                                                accuracy, given exquisite temperature sensitivity C. elegans lifespan17
+                                               (Supplementary Note 1). curbed temperature excursions systems fans,                                                cooling scanner, circulating air evenly enclosing incubator
+                                               (Supplementary Note 3). Temperature fluctuations typical scanner surface                                                reduced degrees 0.5 °C, limiting differences                                                scanners 1 °C (Supplementary Note 1).
+
+                                               improve image quality repositioned single fixed lens scanner's optical path,
+                                               shifting focal plane millimeters scanner glass, matching agar surface
+                                               inside plates. ensure agar surface consistent experiments, developed
+                                               robust method controlled drying agar plates (Online Methods).
+NIH-PA Author Manuscript
+
+
+
+
+                               Automated identification death times
+                                               Following optimized scanning schedule (Online Methods), LM captures 24 images                                                plate day. image-processing pipeline identifies worm objects (Supplementary
+                                               Note 2) position frame (Fig. 1b,c). Individual animals, stationary
+                                               (Fig. 1d), continue change posture time, moving head tail (Fig. 1e,
+                                               Supplementary Videos 1-5 Note 5), reminiscent “class C�? animals described                                                studies age-dependent locomotory decline18. software determines final cessation
+                                               spontaneous postural movement retrospective image analysis (Online Methods,
+                                               Supplementary Note 5 Video 6). Posture analysis stationary animals crucial                                                avoid underestimation lifespan. observed wild type animals spending average 1.2
+                                               days life state (Fig. 1e), certain mutants, example age-1(hx546),
+                                               persist twice long (Supplementary Note 6), consistent previous
+                                               reports19.
+
+                                               animals exhibit stereotyped morphological change near time
+                                               final posture change (Supplementary Note 7). Individuals shrink 10 
+                                               expand shortly  observed change NIH-PA Author Manuscript
+
+
+
+
+                                               posture expansion. correlation cessation postural motion                                                morphological change suggests physiological transition, corresponding                                                animal's death, corroborating death criterion.
+
+                                               crucial component platform software package allows rapid validation                                                death times visual inspection (Supplementary Note 4). quality control step
+                                               (Fig. 1f, Supplementary Video 6, Online Methods) allows user determine plates
+                                               compromised (e.g. desiccation fungal contamination) need exclusion.                                                particular, permits identification aggregates containing multiple worms (Supplementary
+                                               Note 8) censoring incorrectly classified objects (e.g. features agar lawn)
+                                               non-aging related deaths (e.g. body rupture), enabling visual validation                                                machine operation.
+
+
+
+
+                                                   Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                           Page 4
+
+
+                               LM produces accurate precise survival curves
+                                               evaluate LM produces results consistent human observer,                                                placed roughly 8,000 age-synchronous wild type animals single liquid suspension, NIH-PA Author Manuscript
+
+
+
+
+                                               distributed aliquots approximately 35 individuals 170 agar plates seeded E.
+                                               coli OP50 (Online Methods). 160 plates distributed scanners
+                                               situated incubator 25 °C. remaining 10 plates placed separate
+                                               incubator monitored daily hand using dissecting microscope.
+
+                                               drew animals pool, significant difference                                                survival curves individual plates attributed measurement error                                                environmental variation, differences plate temperature. compared death times
+                                               grouped plate single scanner acquired manual procedure (Fig. 2a).
+                                               methods, plate means varied essentially range, 10.7                                                13.1 days. significant effect observed plates collected manual
+                                               method (Log-rank test homogeneity P =0.059). small, significant difference                                                observed plates collected automated method (Log-rank P =0.002), reflecting
+                                               inaccuracies estimation death times slightly increased environmental
+                                               variability plates. independent replicates, survival curves determined                                                LM differed mean lifespan 2.5 hours 0.2  (Log-rank P =0.01, Fig. 2b) 11.7
+                                               hours 3.2  (Log-rank P <0.001) cohorts assayed using conventional
+                                               method. small differences explained practical limitations ability NIH-PA Author Manuscript
+
+
+
+
+                                               measure maintain temperature constant methodologies.
+
+                                               experiments require comparison populations larger 300
+                                               individuals, animals distributed multiple scanners. statistical power
+                                               (Supplementary Note 9) afforded scanner, slight environmental differences
+                                               scanners translate statistically significant differences survival curves
+                                               (Fig. 2c .  scanner surface temperature correlated mean lifespan (R2 =
+                                               0.75; P=0.023; Supplementary Note 1).
+
+                                               devices produced small effect lifespan, applied accelerated failure time
+                                               regression model scanner identity categorical covariate generate “device-
+                                               corrected�? lifespans (Fig. 2c, Supplementary Note 10). procedure useful assessing
+                                               data pooling justified standardizing data desired baseline curve,
+                                               example, aligning large experiments single scanner.
+
+                                               LM provides data quantity quality appropriate estimating time-dependent
+                                               hazard (mortality) rates, Supplementary Note 11. observed rapid increase                                                subsequent deceleration mortality time, noted previously10-12,14. 50 
+NIH-PA Author Manuscript
+
+
+
+
+                                               deaths, mortality appears better fit power time t (Weibull hazard, α/β (t/β)(α−1))
+                                               exponential time (Gompertz hazard, et/b), Fig. 2d Supplementary Note 11,
+                                               values Gompertz parameter smaller 1, Gompertz Weibull
+                                               distributions behave similarly lowest quantiles survival, making
+                                               disambiguation difficult. analysis hazard data, accounting deceleration
+                                               phase, require frailty models incorporate phenotypic diversity potentially present
+                                               isogenic populations20, 21.  observed hazard deceleration                                                result environmental heterogeneity apparatus, persists device-correction
+                                               (data shown).
+
+                                               close agreement automated manual survival curves surprising,                                                scanners expose animals conditions differ manual method,                                                oscillating lights22 temperature oscillations (Supplementary Note 1). difference                                                lifespan animals exposed exposed scanner environment, scored
+
+
+                                                   Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                           Page 5
+
+
+                                               hand, small explained limitations ability maintain                                                temperature environments (Supplementary Note 12). Importantly, LM                                                manual procedure adopt different operational definitions death—cessation spontaneous
+NIH-PA Author Manuscript
+
+
+
+
+                                               vs. stimulated movement, respectively. sought validation process                                                comparison manual method developing software assist visual inspection
+                                               image record generated LM experiment (Supplementary Note 4                                                Video 6). survival curves constructed 294 user-annotated death times based                                                images scanners statistically indistinguishable curves produced                                                automated annotation (Log-rank P > 0.5), Fig. 2e-f.
+
+                               LM reproduces known lifespans genetic perturbations
+                                               test LM used characterize effects mutations RNAi                                                lifespan, divided wild type animals daf-16(mu86) mutants3 plates seeded
+                                               E. coli HT115(DE3) strain containing RNAi construct targeting insulin/
+                                               IGF receptor daf-23, 22 vector. expected, daf-16 mutants live shorter                                                wild type animals23, knockdown daf-2 RNAi extended lifespan wild type
+                                               animals daf-16 mutants (Fig. 3a)24. significant difference                                                manual automated survival curves conditions (Log-rank P > 0.3)                                                wild type animals feeding control bacteria (Log-rank P < 0.001), appeared                                                live 21 hours longer manual assay. subsequent replicate showed significant
+                                               difference (data shown). experiments performed 25 °C; observed
+NIH-PA Author Manuscript
+
+
+
+
+                                               corresponding effects 20 °C (Supplementary Note 13).
+
+                                               Consistent previous reports2, 23, 25,5,26, mutations phosphoinositide 3-kinase
+                                               age-1, syntaxin homolog unc-64, Notch receptor glp-1 result lifespan
+                                               extension, mutations daf-16, heat shock factor hsf-1, CD91 homolog
+                                               ced-1 shorten lifespan. automated technique correctly identifies known genetic
+                                               determinants C. elegans lifespan (Fig. 3b—h). population sizes (Supplementary
+                                               Table 1) small compare parametric models, used data estimate27                                                hazard rates mutant (Fig. 3d,f,h, Online Methods).
+
+                                               Visual image inspection (Fig. 3i,j) validates LM-acquired survival curves mutants.
+                                               note machine performed movement-defective mutants unc-64(e246),
+                                               unc-4(e120), unc-50(e306), unc-119(ed3) (Supplementary Note 13),                                                image analysis parameters optimized wild type movement. analysis                                                glp-1(e2141) performed equally wild type, despite mutant animals                                                thinner absence germline.
+
+                               LM enables high-resolution stress resistance assays
+NIH-PA Author Manuscript
+
+
+
+
+                                               Survival assays widely used evaluate ability individuals withstand exogenous
+                                               stresses. Exposure high temperature (35 °C) toxins dramatically shortens lifespan
+                                               C. elegans. Mean survival ranges hours days16, 28, making data
+                                               collection high frequency challenging manual approach. evaluated                                                performance LM stress-resistance scenarios: exposure high temperature16
+                                               oxidant tert-butyl hydroperoxide (t-BuOOH)28. LM required modifications
+                                               adjustments subset parameters used image analysis software                                                quantify worm movement identify worm death times (Online Methods).
+
+                                               Age-synchronous wild type, age-1(hx546), daf-16(mu86) mutants grown                                                standard conditions 25 °C shifted second day adulthood                                                conditions: agar plates 25 °C 35 °C agar plates 3 mM 6 mM t-BuOOH                                                25 °C. wild type animals died days control plates 25 °C,
+
+
+                                                   Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                            Page 6
+
+
+                                               lifespan shortened dramatically 35 °C. agreement previous reports16,
+                                               age-1(hx546) mutants lived longer wild type daf-16(mu86) mutants showed small
+                                               statistically significant reduction survival (Fig. 4a,b). results obtained visual
+NIH-PA Author Manuscript
+
+
+
+
+                                               automated image analyses highly correlated (Fig. 4c,d). observed similar,
+                                               concentration-dependent effect t-BuOOH lifespan, consistent previous studies28
+                                               (Fig. 4e,f). LM suited assaying effects chemicals survival
+                                               C. elegans.
+
+                               hazard rate animals stress
+                                               hazard rate function wild type, age-1(hx546) daf-16(mu86) 35 °C                                                consist accelerating decelerating phase (Fig. 5a), 25 °C, suggesting                                                demographic characteristics aging preserved intense stress conditions.
+                                               features did depend presence live bacteria, observed                                                populations raised assayed UV-killed bacteria (Fig. 5b). knowledge,                                                quantification hazard rate function metazoans extreme conditions.
+
+                                               effect thermal stress appears consist primarily rescaling time, barely
+                                               impacting coefficient variation (CV) lifespan distribution (Supplementary Table
+                                               1). median lifespan barring frailty effects, 1 hour animals 25 °C corresponds
+                                               1.8 minutes animals 35 °C experience moment 33-fold
+                                               higher risk death. Likewise, effect age-1(hx546) daf-16(mu86) mutations
+NIH-PA Author Manuscript
+
+
+
+
+                                               relative 35 °C consists primarily change time scale (Fig. 5a)                                                marginal effect CV. marked departure behavior 25 °C (Fig. 3d)
+                                               DAF-16 increases AGE-1 decreases lifespan variation disproportionately relative
+                                               mean.
+
+                                               Previous studies C. elegans shown brief heat pulse induces heterogeneous
+                                               stress response, magnitude predicts survival subsequent shift high
+                                               temperature16, 29. evaluated effect pretreatment thermotolerance                                                substantial stretching time scale (Fig. 5b).
+
+                                               Despite separation 100 million years more30, Caenorhabditis species elegans,
+                                               briggsae, brenneri, species 11 sufficiently similar appearance LM                                                function correctly additional calibration 35 °C. confirmed previous reports31
+                                               C. briggsae, C. brenneri thermotolerant C. elegans,                                                case C. species 11. thermotolerance profiles species correlate
+                                               temperatures natural habitats30, tropical species                                                thermotolerant temperate ones. observed C. elegans mutants, genetic
+                                               background Caenorhabditis species,  causes predominantly rescaling time, NIH-PA Author Manuscript
+
+
+
+
+                                               having smaller effect coefficient variation lifespan distribution
+                                               (Supplementary Table 1).
+
+                               Discussion
+                                               using standard nematode culture conditions, method meaningfully extends,                                                limits (Supplementary Note 16), existing experimental literature checked
+                                                modular design LM gives researchers flexibility expand                                                installation simply adding scanners (Supplementary Notes 14 15). single scanner                                                sufficient compare lifespan mutant population wild type control,
+                                               detecting 10  differences survival 99  confidence 99  power. Facilities                                                scanners provide sufficient throughput systematically characterize effects                                                genes environmental conditions survival. larger scale, scope                                                paired depth evaluating samples large resolve quantitatively
+
+
+                                                   Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                                                Page 7
+
+
+                                               compare hazard rate features, linking interventions molecular level                                                statistical footprint organismic level.
+NIH-PA Author Manuscript
+
+
+
+
+                               Supplementary Material
+                                               Refer Web version PubMed Central supplementary material.
+
+
+                               Acknowledgments
+                                               like thank Joy Alcedo (Wayne State University) providing hsf-1 glp-1 mutant strains,
+                                               Xavier Manière (Université Paris Descartes) providing NEC937 strain, Becky Ward Debora Marks                                                critical reading manuscript Catalina Romero, Debora Marks members Fontana lab helpful
+                                               discussions encouragement project. like thank Tom Kolokotrones, Eric Smith,                                                Lee Jen Wei discussions statistical advice, Mason Miranda, departmental specialist, patiently
+                                               meeting needs data storage. work funded National Institute Health grants R03
+                                               AG032481, R03 AG032481-S1, R01 AG034994.
+
+
+                               References
+                                               1. Kirkwood TB, et al. accounts wide variation life span genetically identical
+                                                  organisms reared constant environment? Mech Ageing Dev. 2005; 126:439–443. [PubMed:
+                                                  15664632]
+                                               2. Friedman DB, Johnson TE. mutation age-1 gene Caenorhabditis elegans lengthens life
+NIH-PA Author Manuscript
+
+
+
+
+                                                  reduces hermaphrodite fertility. Genetics. 1988; 118:75–86. [PubMed: 8608934]
+                                               3. Kenyon C, Chang J, Gensch E, Rudner  Tabtiang R. C. elegans mutant lives twice long
+                                                  wild type. Nature. 1993; 366:461–464. [PubMed: 8247153]
+                                               4. Kimura KD, Tissenbaum HA, Liu Y, Ruvkun G. daf-2, insulin receptor-like gene regulates
+                                                  longevity diapause Caenorhabditis elegans. Science. 1997; 277:942–946. [PubMed:
+                                                  9252323]
+                                               5. Kenyon CJ. genetics ageing. Nature. 2010; 464:504–512. [PubMed: 20336132]
+                                               6. Sutphin GL, Kaeberlein M. Measuring Caenorhabditis elegans life span solid media. J Vis Exp.
+                                                  2009
+                                               7. Wilkinson DS, Taylor RC, Dillin  Analysis aging Caenorhabditis elegans. Methods Cell
+                                                  Biol. 2012; 107:353–381. [PubMed: 22226530]
+                                               8. Curtsinger JW, Fukui HH, Townsend DR, Vaupel JW. Demography genotypes: failure                                                   limited life-span paradigm Drosophila melanogaster. Science. 1992; 258:461–463. [PubMed:
+                                                  1411541]
+                                               9. Carey JR, Liedo P, Vaupel JW. Mortality dynamics density Mediterranean fruit fly. Exp
+                                                  Gerontol. 1995; 30:605–629. [PubMed: 8867529]
+                                               10. Vaupel JW, et al. Biodemographic trajectories longevity. Science. 1998; 280:855–860.
+                                                    [PubMed: 9599158]
+NIH-PA Author Manuscript
+
+
+
+
+                                               11. Vanfleteren JR, Vreese  Braeckman BP. parameter logistic Weibull equations
+                                                    provide better fits survival data isogenic populations Caenorhabditis elegans axenic
+                                                    culture does Gompertz model. J Gerontol Biol Sci Med Sci. 1998; 53:B393–403.
+                                                    discussion B404-398. [PubMed: 9823735]
+                                               12. Johnson TE, Wu D, Tedesco P, Dames S, Vaupel JW. Age-specific demographic profiles                                                     longevity mutants Caenorhabditis elegans segmental effects. J Gerontol Biol Sci Med
+                                                    Sci. 2001; 56:B331–339. [PubMed: 11487591]
+                                               13. Mair W, Goymer P, Pletcher SD, Partridge L. Demography dietary restriction death                                                     Drosophila. Science. 2003; 301:1731–1733. [PubMed: 14500985]
+                                               14. Baeriswyl S, et al. Modulation aging profiles isogenic populations Caenorhabditis elegans
+                                                    bacteria causing different extrinsic mortality rates. Biogerontology. 2009; 11:53–65. [PubMed:
+                                                    19444640]
+                                               15. Wu D, Rea SL, Cypser JR, Johnson TE. Mortality shifts Caenorhabditis elegans: remembrance
+                                                    conditions past. Aging Cell. 2009; 8:666–675. [PubMed: 19747231]
+
+
+                                                    Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                                      Page 8
+
+
+                                               16. Lithgow GJ, White TM, Melov S, Johnson TE. Thermotolerance extended life-span conferred
+                                                   single-gene mutations induced thermal stress. Proc Natl Acad Sci U S  1995;
+                                                   92:7540–7544. [PubMed: 7638227]
+NIH-PA Author Manuscript
+
+
+
+
+                                               17. Klass MR. Aging nematode Caenorhabditis elegans: major biological environmental
+                                                   factors influencing life span. Mech Ageing Dev. 1977; 6:413–429. [PubMed: 926867]
+                                               18. Herndon LA, et al. Stochastic genetic factors influence tissue-specific decline ageing C.
+                                                   elegans. Nature. 2002; 419:808–814. [PubMed: 12397350]
+                                               19. Huang C, Xiong C, Kornfeld K. Measurements age-related changes physiological processes
+                                                   predict lifespan Caenorhabditis elegans. Proc Natl Acad Sci U S  2004; 101:8084–8089.
+                                                   [PubMed: 15141086]
+                                               20. Vaupel JW, Manton KG, Stallard E. impact heterogeneity individual frailty                                                    dynamics mortality. Demography. 1979; 16:439–454. [PubMed: 510638]
+                                               21. Weitz JS, Fraser HB. Explaining mortality rate plateaus. Proc Natl Acad Sci U S  2001;
+                                                   98:15383–15386. [PubMed: 11752476]
+                                               22. Mathew MD, Mathew ND, Ebert PR. WormScan: technique high-throughput phenotypic
+                                                   analysis Caenorhabditis elegans. PLoS  2012; 7:e33483. [PubMed: 22457766]
+                                               23. Larsen PL, Albert PS, Riddle DL. Genes regulate development longevity                                                    Caenorhabditis elegans. Genetics. 1995; 139:1567–1583. [PubMed: 7789761]
+                                               24. Dillin  Crawford DK, Kenyon C. Timing requirements insulin/IGF-1 signaling C. elegans.
+                                                   Science. 2002; 298:830–834. [PubMed: 12399591]
+                                               25. Ailion M, Inoue T, Weaver CI, Holdcraft RW, Thomas JH. Neurosecretory control aging NIH-PA Author Manuscript
+
+
+
+
+                                                   Caenorhabditis elegans. Proc Natl Acad Sci U S  1999; 96:7394–7397. [PubMed: 10377425]
+                                               26. Haskins KA, Russell JF, Gaddis N, Dressman HK, Aballay  Unfolded protein response genes
+                                                   regulated CED-1 required Caenorhabditis elegans innate immunity. Dev Cell. 2008;
+                                                   15:87–97. [PubMed: 18606143]
+                                               27. Muller HG, Wang JL. Hazard rate estimation random censoring varying kernels                                                    bandwidths. Biometrics. 1994; 50:61–76. [PubMed: 8086616]
+                                               28. Tullet JM, et al. Direct inhibition longevity-promoting factor SKN-1 insulin-like
+                                                   signaling C. elegans. Cell. 2008; 132:1025–1038. [PubMed: 18358814]
+                                               29. Rea SL, Wu D, Cypser JR, Vaupel JW, Johnson TE. stress-sensitive reporter predicts longevity
+                                                   isogenic populations Caenorhabditis elegans. Nat Genet. 2005; 37:894–898. [PubMed:
+                                                   16041374]
+                                               30. Kiontke KC, et al. phylogeny molecular barcodes Caenorhabditis, numerous new
+                                                   species rotting fruits. BMC Evol Biol. 2011; 11:339. [PubMed: 22103856]
+                                               31. Amrit FR, Boehnisch CM, RC. Phenotypic covariance longevity, immunity stress
+                                                   resistance caenorhabditis nematodes. PLoS  2010; 5:e9978. [PubMed: 20369008]
+                                               32. Stiernagle T. Maintenance C. elegans. WormBook. 2006:1–11. [PubMed: 18050451]
+                                               33. Dong JX, Krzyzak  Suen CY. Fast SVM training algorithm decomposition large
+                                                   data sets. IEEE Trans Pattern Anal Mach Intell. 2005; 27:603–618. [PubMed: 15794164]
+NIH-PA Author Manuscript
+
+
+
+
+                                               34. Sall, J. SAS Institute. JMP start statistics: guide statistics data analysis using JMP. 5th.
+                                                   SAS Institute; Cary, NC: 2012.
+                                               35. R Development Core Team. R: language environment statistical computing. R
+                                                   Foundation Statistical Computing; Vienna, Austria: 2006.
+                                               36. Buckley J, James  Linear regression censored data. Biometrika. 1979; 66:429–436.
+
+
+
+
+                                                    Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                             Page 9
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                               Figure 1.
+                                               Lifespan Machine workflow.   Agar plates age-synchronized worms placed face-
+                                               surface flatbed scanners (Supplementary Note 1). (b) scanner captures
+                                               time series images plates. Images processed identify foreground
+                                               objects (Supplementary Note 2). Scale bar = 250 μm. (c) Various morphological features                                                quantified object. population distributions features demonstrate                                                permits itself discrimination worms non-worms. Based validated
+NIH-PA Author Manuscript
+
+
+
+
+                                               images worm non-worm objects, classifiers constructed capable                                                categorizing objects based 65-dimensional feature vectors. panel depicts                                                projection point cloud representing validated set feature vectors, indicating                                                differentiating worms (black) non-worms (red) possible (Supplementary Note 2). (d)
+                                               worm objects identified, individual image stacks analyzed identify
+                                               animals stationary (Supplementary Note 5). (e) Stationary animals                                                analyzed detect posture changes, including head tail movements. Death                                                identified retrospective analysis final cessation postural change (Supplementary
+                                               Note 5). (f) LM produces time-lapse image record individual. records
+                                               used visual validation resolution ambiguities employing rapid data-
+                                               inspection tool, “Worm Browser�? (Supplementary Video 6 Note 4). Validated death
+                                               times combined automatic censoring data (Supplementary Note 8) Kaplan-
+                                               Meier survival curve (actual data shown) hazard rates using statistics package.
+
+
+
+                                                   Nat Methods. Author manuscript; available PMC 2014 January 01.
+                           Stroustrup et al.                                                                                        Page 10
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                               Figure 2.
+                                               Automated wild type survival data.   survival curve generated 484 death times
+                                               wild type animals located single scanner   513 wild type animals
+                                               observed using manual method  . (b) entire population 3,578 wild type
+                                               animals scanners aggregated single curve, nearly indistinguishable                                                manually-scored curve. (c) Scanner-specific microenvironments, mainly differences                                                temperature, affect lifespan  . effect estimated using categorical Accelerated
+NIH-PA Author Manuscript
+
+
+
+
+                                               Failure Time model, obtain device-corrected lifespans registered grand mean
+              

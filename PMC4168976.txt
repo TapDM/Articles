@@ -1,0 +1,591 @@
+Genome-Scale Metabolic Network Validation Shewanella oneidensis Using Transposon Insertion
+Frequency Analysis
+Hong Yang1,2, Elias W. Krumholz1, Evan D. Brutinel2,3, Nagendra P. Palani1, Michael J. Sadowsky2,4,
+Andrew M. Odlyzko5, Jeffrey  Gralnick2,3, Igor G. L. Libourel1,2*
+1 Department Plant Biology, University Minnesota, St. Paul, Minnesota, United States America, 2 BioTechnology Institute, University Minnesota, St. Paul,
+Minnesota, United States America, 3 Department Microbiology, University Minnesota, Minneapolis, Minnesota, United States America, 4 Department Soil,
+Water, Climate, University Minnesota, St. Paul, Minnesota, United States America, 5 School Mathematics, University Minnesota, Minneapolis, Minnesota,
+United States America
+
+
+
+     Abstract
+     Transposon mutagenesis, combination parallel sequencing, powerful tool masse mutant
+     analysis. probability generating function used explain observed miniHimar transposon insertion patterns, gene
+     essentiality calls transposon insertion frequency analysis (TIFA). TIFA incorporated observed genome      sequence motif bias miniHimar transposon. gene essentiality calls compared  1) previous genome-wide
+     direct gene-essentiality assignments;  2) flux balance analysis (FBA) predictions existing genome-scale
+     metabolic model Shewanella oneidensis MR-1. way comparison FBA, TIFA, direct essentiality calls
+     validate TIFA approach. refinement interpretation observed transposon insertions
+     demonstrated genes insertions necessarily essential, genes contain insertions      nonessential. TIFA calls reasonable agreement direct essentiality calls S. oneidensis, agreed
+     closely E. coli essentiality calls orthologs. TIFA gene essentiality calls good agreement      MR-1 FBA essentiality predictions, agreement TIFA FBA predictions substantially better      FBA direct gene essentiality predictions.
+
+  Citation: Yang H, Krumholz EW, Brutinel ED, Palani NP, Sadowsky MJ, et al. (2014) Genome-Scale Metabolic Network Validation Shewanella oneidensis Using
+  Transposon Insertion Frequency Analysis. PLoS Comput Biol 10(9): e1003848. doi:10.1371/journal.pcbi.1003848
+  Editor: Costas D. Maranas, Pennsylvania State University, United States America
+  Received April 4, 2014; Accepted August 7, 2014; Published September 18, 2014
+  Copyright: ß 2014 Yang et al. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Data Availability: authors confirm data underlying findings fully available restriction. relevant data paper   Supporting Information files.
+  Funding: work funded Office Naval Research, awards N141310552 N141210309 National Science Foundation award NSF/MCB-
+  1042335. funders role study design, data collection analysis, decision publish, preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * Email: libourel@umn.edu
+
+
+
+Introduction                                                                            application Tn-seq infectious agents order identify
+                                                                                        essential genes serve targets therapy [8–12].
+   Transposon mutant analysis extensively used                               fitness disruption coding sequences generate genome-wide mutant libraries define gene                                type data obtained method. essentiality [1,2]. introduction parallel sequencing,                       transposon mutant libraries generated genome-saturating
+transposon-based methods developed phenotype infor-                           conditions, essentiality related disruption non-coding
+mation gathering tools, forward genetic screens                        regions identified [13,14], facilitating identification non- aim isolate individual mutant strains. Tn-seq, closely                       coding regulatory elements. S. oneidensis, himar Tn5
+related methods Bar-seq DNA shearing [3], investigate                        transposons used identify number mutants mutant fitness genomic scale counting abundance                        elucidate cellular physiology [15–17]. Barcoded genome-wide
+mutant-specific DNA sequence short compet-                           mutants S. oneidensis created himar
+itive growth period [4,5]. Bar-seq unique piece DNA                        transposon individual fitness evaluated large number
+located known flanking sequences sequenced                           growth conditions using microarrays [18]. creation directly [6]. Tn-seq, type IIS restriction enzyme cuts                        tagged transposon mutant libraries enabled systems-level
+outside recognition sequence used extract transposons                    analyses S. oneidensis, mass-spectrometry based mutant genomes, including flanking sequence (17 bp                            metabolite profiling mutants [19] computational inference
+miniHimar) used map location transposon                           gene regulatory networks based fitness data [20].
+insertion.                                                                                 Transposon mutagenesis-based gene essentiality measurements
+   Transposon insertion sequencing used identify                            exceptionally informative validation genome-wide
+essential genes increasing number microorganisms                        modeling techniques. genome-wide scale low-cost nature
+wide range ecological niches [7]. particular significance                  disposable single gene knockout libraries provide powerful
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                   1                       September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                                Transposon Insertion Frequency Analysis
+
+
+
+  Author Summary                                                                 recognized  recent estimations gene
+                                                                                 essentiality using hidden Markov models (HMM) [26,27]. TIFA
+  Metabolic modeling techniques play central role                           distinguishes itself HMM approach considering
+  rational design industrial strains, personalized medicine,                  insertional biases sequence preference genomic location
+  automated network reconstruction.                           insertion. insertional biases miniHimar
+  large size models, comprehen-                        transposon S. oneidensis investigated using existing
+  sively tested using single gene knockout mutants                     dataset [28]. TIFA determines likelihood number   gene model. genetic test evaluate                          experimentally observed insertions gene utilizes   genes given condition predicted                      probability generating function accounts observed
+  essential model, essential reality                   insertional biases miniHimar transposon.   vice versa). developed new probability-based                              determined gene essentiality growth Shewanella Basal
+  technology identifies essentiality genes                      Medium (SBM) aerobic conditions used investigate
+  observed transposon insertion data. data                                                                                  stoichiometric thermodynamic constraints existing
+  acquired pooling tens thousands transposon
+                                                                                 MR-1 metabolic model [29], simulating aerobic growth SBM.
+  mutants, localizing insertion locations   using massive parallel sequencing. utilized gene
+  essentiality data genome-scale genetic validation                   Results
+  metabolic model. instance: work identified
+  nonessential genes predicted essential                     miniHimar transposon insertions frequencies location
+  growth existing metabolic model Shewanella                            sequence biased
+  oneidensis, highlighting incomplete areas                             miniHimar transposon strong preference insert
+  metabolic model.                                                               inside TA sequence [30]. flanking sequences                                                                                  chromosomal transposon insertion library confirmed prefer-
+                                                                                 ence, just 95  mutations located inside TA
+datasets evaluate performance genome-scale network                     sequence. discarded remaining ,5  insertions reconstructions [21], enrich genomic information                   investigated TA inserted transposons (Fig. 1). currently used automated network reconstructions [22–24].                    potential bias chromosomal insertion position investi-
+   presented transposon insertion frequency analysis (TIFA)                  gated plotting insertion frequency function improves direct interpretation presence                  chromosomal location (Fig. 1A). exact insertion insertion gene core interpreted sufficient evidence           occurred independent colonies, number nonessentiality, absence insertions interpreted                     insertions estimated number TA locations essentiality [18,25]. need sophisticated approach                 inserted (Material Methods). locational bias 
+
+
+
+Figure 1. Evaluation transposon insertion bias.   Scatter plot genome location dependent insertion probability. data point
+represents genomic window 20,000 nucleotides, shifted 2,000 nucleotides consecutive evaluation. insertion
+probability gradually decreased origin replication. solid line best fit ax2+b|x|+c,  b c equal 0.0032, 0.0081 0.1615, respectively, x location genome. (B) Boxplot flanking sequence dependent insertion probability distribution showing motifs contained significantly insertions  (C) Relative occurrence nucleotides flanking positions inserted TA
+sites.
+doi:10.1371/journal.pcbi.1003848.g001
+
+
+PLOS Computational Biology | www.ploscompbiol.org                            2                     September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                          Transposon Insertion Frequency Analysis
+
+
+quantified fitting absolute value second order polynomial             probabilities weighted genome locational specific observed frequency data (Fig. 1A). insertion                bias. Using probability model, number expected
+frequency showed approximate 25  symmetrical bias                insertions calculated gene compared origin replication compared midpoint                   observed number insertions (Fig. 2). Genes called essential
+chromosome. Presumably, bias result presence             combined probability finding  fewer insertions multiple partial copies actively replicating circular              observed, number genes chromosome [31] near replication fork, leading higher              dataset e. accepted false positive essential gene
+physical copy number genes closer origin replication.          selection. establish exact cutoff value, marginal
+   effect flanking nucleotides         probabilities nonessential gene essential target dinucleotide investigated using genes             chance given cutoff value summed, cutoff value
+contained fewer insertions (p.0.1) expected                adjusted marginal probabilities summed exactly
+binomial distribution prediction (Fig. 1B). dataset                  Monte Carlo sampling used confirm result, subdivided 136 sections, section corresponding               cutoff value retrieved (Text S1). transposon
+unique combination flanking nucleotides prior            insertion distribution visualized histogram nucleotides following TA location. complementary              difference expected observed number strands genome result possible sequence orientations,         insertions, scaled standard deviation calculated sequence plus strand matching complementary              probability generating function. Monte Carlo sampling generated
+sequence minus strand. Sixteen sequences palindromic,            similar distribution (Fig. 2). right hand resulting total (256-16)/2+16 = 136 unique sequences.           distribution particular  elongated tail 136 unique sequence combinations, occurrences               observations suggest genes significantly insertions insertion events determined  insertion               expected. genes observed (SO3264,
+probability sequence dependent, 3  probabilities            SO4100, SO4785), indicating TIFA formed good descrip-
+differing significantly mean probability (Fig. 1B).                tion observed transposon insertion behavior. poorer fit
+   determine flanking nucleotides affected insertion          left hand distribution result probability independently, assumed number                    mutants lower wild type fitness. Clones reduced
+insertions flanking sequence product                                                                             fitness likely escape detection lower
+independent contributions nucleotides.                                                                 4
+                                                                            absolute abundance, yielding fewer observed insertions nones-
+136 determined insertion frequencies given pseqð jÞ ~ P pij ,        sential genes reduced fitness deletion. genes
+                                                              1
+                                                                            slow growing mutant phenotypes called pseqð jÞ observed insertion probability given
+                                                                            essential result. 50 273 identified essential genes flanking nucleotide combination j, pij contributions         fitness value larger zero observed. investigate individual nucleotides combination. Using weights           mutants insertions genes called essential grew inversely proportional variance sequence
+                                                                            slowly clones, nonessentiality probability insertion probability pseqð jÞ , nonlinear x2-fitting used                                                                             plotted fitness (Fig. 3A). average fitness calculate parameter pij. Assuming multinomial variance,             clones insertions essential genes lower fitness observed probabilities differed significantly linear model (x2       clones insertions nonessential genes, spread test, p,0.01), indicating contribution flanking             large, indicating slow growth insufficient explanation
+nucleotides insertion probability independent.
+                                                                            detected insertions essential genes. insertion locations
+Fig. 1C shows linear approximation nucleotide
+                                                                            plotted positions conserved domains 
+contributions, linear approximation indicated
+                                                                            investigate potential reinitiation transcription TATATG sequence highest insertion probability,
+                                                                            translation downstream transposon, estimates strength independent contributions underestimated insertion
+probability sequence 30 . addition, sequences higher experimental insertion
+probability experimental value TATATG  Visual inspection experimental sequence probabil-
+ities suggested preferred consensus sequence TATAxA. Just TA enrichment sufficient, exempli-
+fied barely average insertion probability associated AATATT. highest experimental insertion probability associated TATATA (p = 0.53), smallest probability associated GTTAAC (p = 0.057), indicating approx-
+imate tenfold spread insertion preference.
+
+Essential gene calls
+   Transposon mutagenesis results random disruption genes, reducing eliminating gene function. principle,
+transposon mutagenesis reports gene essentiality. essentiality gene investigated comparing number observed mutations gene number expected                   Figure 2. Observed Monte Carlo simulated transposon
+                                                                            insertions. normalized deviation expectation insertions insertions. transposon probability model formulated              shown TIFA essential (red), nonessential (green) unknown (blue)
+accounted observed sequence location specific biases.           genes. solid line represents average outcome 1000 Monte gene, expected number insertions estimated              Carlo simulations, flanked standard deviation (dotted lines).
+using probability generating function sequence specific          doi:10.1371/journal.pcbi.1003848.g002
+
+
+PLOS Computational Biology | www.ploscompbiol.org                       3                    September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                             Transposon Insertion Frequency Analysis
+
+
+
+
+Figure 3.   50 273 essential genes associated fitness value. circumference circles represents logarithmic
+read counts insertion, color circles represents gene location insertion: 10  (magenta), 10  (cyan), middle 80  (black). 22 essential genes contained $2 insertions middle. spread fitness read counts large, suggesting
+different causes existence insertions essential genes. (B) Transposon insertion locations, fitnesses, projected ribosome binding site
+(RBS) strengths associated intra-gene start codons. Black dots TA locations, row diamonds observed insertions color coded fitness. diamonds represent alternative start codons gene. color scales logarithmically associated RBS
+strengths. couple rows represents RBS strengths intra-gene start codons possible insertion orientations mutant, row representing insertion.
+doi:10.1371/journal.pcbi.1003848.g003
+
+ ribosomal binding sites associated alternative start codons           genes significantly fewer expected inside genes (Figure S1).                                                 nonessential genes, significantly expected
+                                                                              essential genes. example, closer inspection SO3872
+Nonessential gene calls                                                       revealed insertions concentrated second quartile
+   Following identification essential genes nonessential            showed reduced fitness (Fig. 3B). additional
+gene insertion model, nonessential genes identified             insertions half gene showed high fitness, essential gene insertion model. insertion frequency                 insertions present. good sequence
+essential genes approximated multiplying TA location-              support gene assignment based sequence alignment
+specific insertion probabilities ratio observed               arylsulfate sulfo-transferase pfam PF05935 [32]. 
+insertions essential genes expected number insertions            ceivably, beginning second half gene nonessential genes. expected number insertions            essential production functional protein, start
+gene calculated using essential gene model, gene            codons midpoint gene associated ribosomal contained significantly insertions expected,               binding sites moderate projected strength [33], suggested called nonessential. Following earlier logic, cutoff value          translation reinitiated gene resulting separate
+used allowed single false-positive nonessential gene               expression second half gene (Fig. 3B). generally,
+identification. method identified 2,216 genes nonessential.           essential genes nonessential regions essentiality 1,722 genes, genes           regulatory site highly inserted, adjacent (SO2148, SO3175 SO3872) identified essential                 uninserted regions necessary essential gene role, nonessential.  number insertions              cause dual essential-nonessential identification. Gene
+
+
+PLOS Computational Biology | www.ploscompbiol.org                         4                     September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                                                                                                                                                Transposon Insertion Frequency Analysis
+
+
+
+
+                                                                                                                                                                                                                                        essentiality classes (columns) previously defined [18] direct essentiality calls (DECs), cross compared TIFA essentiality classes (rows). Columns (1,2) represent DEC essential gene calls;
+essentiality calls performed previous work bases absence presence insertions [18] compared TIFA
+
+
+
+
+                                                                                                                                                                                           273 (120)
+calls (Table 1 Dataset S1). Seventy essential
+
+
+
+
+                                                                                                                                                    Total
+
+
+
+
+                                                                                                                                                                                                       2216
+                                                                                                                                                                                                                      1605
+                                                                                                                                                                                                                                4214
+gene calls 1,958 nonessential gene calls agreement.
+Eighty genes previously identified nonessential
+(including orthologs essential genes E. coli) identified essential TIFA, 36 contained 
+
+
+
+                                                                                                                                                    Unknown
+insertions dataset. Fifty genes previously
+
+
+
+
+                                                                                                                                                                                           114 (10)
+identified essential identified nonessential TIFA,
+
+
+
+
+                                                                                                                                                                                                       207
+                                                                                                                                                                                                                      501
+                                                                                                                                                                                                                                832 contained average 10 insertions gene.
+
+Essential genes inserted frequently 
+
+
+
+                                                                                                                                                    Dispensable unclear E.coli
+end gene
+   number TA sequences number detected
+
+
+
+
+                                                                                                                                                                                                                                        columns (3,4,5) DEC nonessential gene calls. excluded TIFA essential gene calls explained alternatively operon polar effects listed brackets.
+insertions tallied gene percentile investigate positions insertions inside (essential) genes biased (Fig. 4). percentile showed difference relative insertion frequency
+prior identification essential genes (Fig. 4A). Analysis just nonessential essential genes revealed substantial increase insertions 2–3  essential genes. Essential genes
+
+
+
+
+                                                                                                                                                                                           0 (0) twice likely contain insertions 2 
+
+
+
+
+                                                                                                                                                                                                       57
+                                                                                                                                                                                                                      31
+                                                                                                                                                                                                                                88
+                                                                                                                                                    5
+nucleotides, insertion frequencies half frequencies observed nonessential genes (Fig. 4B). Nonetheless,
+
+
+
+
+                                                                                                                                                    Surprise dispensable increased insertion frequency end essential genes
+provides quantitative support omission insertion data 2  genes. Previously, larger areas genes excluded insertion analysis, arguing insertions distal parts genes effective eliminating gene
+function [4]. relative increase insertion frequency 
+                                                                                                                                                                                           2 (0)
+
+
+
+
+                                                                                                                                                                                                                                14
+observed beginning genes.
+
+                                                                                                                                                                                                       6
+                                                                                                                                                                                                                      6
+                                                                                                                                                    4
+
+
+
+
+Validation genome scale MR-1 model essentiality
+predictions
+   ability identify essential nonessential genes TIFA utilized validate essentiality predictions                                                                                                                                                     Dispensable
+
+
+
+
+existing genome-scale metabolic model S. oneidensis MR-1 manually curated previously [29]. MR-1
+                                                                             Table 1. Comparison gene essentiality calls TIFA DEC.
+
+
+
+
+                                                                                                                                                                                           79 (23)
+
+
+
+
+model includes 774 reactions, 783 gene 634 unique
+                                                                                                                                                                                                       1895
+
+
+                                                                                                                                                                                                                                2878
+
+
+
+
+                                                                                                                                                                                                                                         essential gene calls conflicting absent corroborating evidence orthologs,
+                                                                                                                                                                                                                      881
+
+
+
+
+metabolites. Flux balance analysis (FBA) used infer gene
+
+                                                                                                                                                                                                                                        detailed description DEC categories given Text S1 reference [18].
+                                                                                                                                                    3
+
+
+
+
+essentiality genes present MR-1.                                                                                                                                                                                                                                          nonessential gene calls corroborating evidence E. coli orthologs.
+transposon mutants selected aerobic conditions SB
+                                                                                                                                                    New essential
+
+
+
+
+media, FBA predicted 209 essential genes 574
+nonessential genes MR-1 model conditions. annotations thirteen genes MR-1 model                                                                                                                                                                                                                                          nonessential gene calls conflicting evidence orthologs.
+
+
+
+
+obsolete, reduced comparison FBA TIFA
+                                                                                                                                                                                           12 (6)
+                                                                                                                                                                                                       17
+                                                                                                                                                                                                                      31
+                                                                                                                                                                                                                                66
+
+
+
+
+predictions 770 genes. TIFA able determine essentiality
+                                                                                                                                                    2
+
+
+
+ 481 genes (62 ) set (Table 2) providing compre-
+                                                                                                                                                    Expected essential
+
+
+
+
+hensive evaluation network essentiality predictions.
+   273 identified essential genes identified TIFA, 75 present MR-1 model. Fifty seven included 75 genes correctly predicted essential, 374 406 FBA-
+nonessential genes present MR-1 model                                                                                                                                                                                            66 (81)
+
+
+
+
+                                                                                                                                                                                                                                        doi:10.1371/journal.pcbi.1003848.t001
+
+
+
+
+identified nonessential TIFA (Fig. 5). FBA essentiality
+                                                                                                                                                                                                                      155
+                                                                                                                                                                                                                                336
+                                                                                                                                                                                                       34
+                                                                                                                                                    1
+
+
+
+
+predictions insensitive 1  biomass production cutoff, 1  growth resulting knockout predictions growth (Text S1). TIFA essentiality calls fairly sensitive
+                                                                                                                                                                                                                                         nonessential orthologs;
+
+
+
+ essentiality cutoff. instance lower 2.5  likelihood
+                                                                                                                                                                                                                                         Essential orthologs;
+
+
+
+ gene nonessentiality used essential gene cutoff
+instead (Fig. 5a), twice genes (623)                                                                                                                                                                                                        Nonessential
+
+
+
+
+identified essential suggesting half essential
+                                                                                                                                                                                                                      Unknown
+                                                                                                                                                                                           Essential
+
+
+
+
+genes called.  number false positive                                                                                                                                                                                     TIFA
+
+
+
+
+                                                                                                                                                                                                                                Total
+                                                                                                                                                    DEC
+
+
+
+ larger (54 genes, calculated marginal
+                                                                                                                                                                                                                                        1
+                                                                                                                                                                                                                                        2
+                                                                                                                                                                                                                                        3
+                                                                                                                                                                                                                                        4
+                                                                                                                                                                                                                                        5
+
+
+
+
+probabilities), agreement FBA TIFA
+
+
+PLOS Computational Biology | www.ploscompbiol.org                        5                                                                                                            September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                                      Transposon Insertion Frequency Analysis
+
+
+
+
+Figure 4. Insertion frequency genes. Genes evaluated 0.2  gene increments. insertion preference observed complete gene population  . analysis performed (1  increments) essential (red) nonessential (green) gene identification
+(B). ,2  39 end essential genes inserted frequently.
+doi:10.1371/journal.pcbi.1003848.g004
+
+prediction substantially better using stringent                   TIFA essential genes associated blocked reactions
+cutoff (Fig. 5a).                                                                     (Text S1). reactions evidently required                                                                                       biomass formation model, indicating biomass
+Genes falsely predicted nonessential                                                  equation sufficiently inclusive test essential genes,    False nonessential FBA predictions caused                           reality unused reactions provided alternative route array pleiotropic effects, built toxic                         essential biomass. addition, reactions metabolite resulting removal downstream reaction                        blocked, TIFA suggested MR-1 model requires pathway. directly, false nonessential predictions                    modifications unblock TIFA essential reactions. caused combination incorrect gene-reaction association,                       case aconitase (E.C. 4.2.1.3), discrepancy MR-
+lax thermodynamic constraints, inclusion metabolic                        1 model TIFA essentiality data highlighted need reactions. overly inclusive metabolic network                      comprehensive gene expression protein activity regulation
+arise result absence  incomplete gene                            simulation metabolic models. MR-1 model, acnB
+regulatory layer. Blocked reactions, carry flux                          (SO0432) acnD (SO0343) independently assigned circumstances, point easily interpretable                       aconitase reaction  relationship), resulting nonessential
+shortcomings network. 18 FBA-nonessential,                       prediction acnB.  acnB deletion strain 
+
+ Table 2. Comparison TIFA gene essentiality FBA predictions.
+
+
+                                                           TIFA essential                                      TIFA nonessential
+
+                                                           FBA-E             FBA-N               True          FBA-N             FBA-E               True
+
+ Original MR-1 model                                       57                18                76              374               32                92
+ metabolites leave model                           56                19                75              374               32                92
+ thermodynamic constraints                              33                42                44              384               22                95
+ Metabolites leave, thermodynamic constrains        33                42                44              384               22                95
+
+ TIFA essentiality calls compared FBA predictions MR-1 model: using original model (row 1); removal stoichiometric constraints endpoint
+ metabolites (row 2); removal thermodynamic constraints (row 3); following removal stoichiometric thermodynamic constraints (row 4).
+ FBA-E: FBA essential gene predictions; FBA-N: FBA nonessential gene predictions.
+ doi:10.1371/journal.pcbi.1003848.t002
+
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                 6                     September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                             Transposon Insertion Frequency Analysis
+
+
+
+
+Figure 5. Comparison gene essentiality TIFA calls FBA predictions. Genes grouped 40 bins based cumulative probability values. blue bars represent genes present MR-1 model. red green bars represent FBA essential FBA nonessential genes. Genes lower cumulative probability value likely essential, genes higher cumulative
+probability value likely nonessential. leftmost bar   shows number genes cumulative probability value cut value (TIFA essential, allowing 1 false positive). rightmost bar (B) shows number genes cumulative probability nonessential cut value (TIFA nonessential, allowing 1 false positive).
+doi:10.1371/journal.pcbi.1003848.g005
+
+unable grow presence oxygen [28],                       central metabolism S. oneidensis MR-1 [36] consistent transposon insertion data.                                     formulated elementary mode analysis, larger scale
+                                                                               MR-1 model improved gene essentiality predictions substantially.
+Genes falsely predicted essential                                              gene (SO3547) previously genes falsely
+   Genes falsely predicted essential FBA                 predicted essential (SO0424, SO0323, SO0538, SO1926,
+interpreted resulting missing reaction network,                 SO2629, SO3547, SO0274, SO3517) predicted
+insufficiently permissive thermodynamic constraints, errors                 incorrectly, demonstrating previously observed enhanced
+gene reaction relationships, overly inclusive (essential)                predictive capabilities complete networks [37]
+biomass equation, incorrect regulatory layer. 
+pleiotropic effect explain discrepancies. 2216             TIFA essentiality FBA predictions relative close
+TIFA identified nonessential genes, 374 genes correctly                   agreement
+predicted nonessential 32 incorrectly                         direct comparison TIFA previously predicted essential FBA (Fig. 5). incorrectly essential              direct essentiality calls (DECs) based presence/
+predictions, SO1498 SO3745 correctly                       absence insertions 80  core sequence genes [18] predicted nonessential biomass components lipopoly-                 shown Table 1. Note FBA gene essentiality predictions saccharide (LPS) glycogen included biomass                 DEC dataset computed LB medium instead equation. LPS required growth [34].                  SBM. richer composition LB, 18 genes fewer transporter ammonia, amtB (SO0760)                         FBA essential, explained presence
+essential low ammonia concentrations [35]. detailed                  tryptophan pyrimidine LB (Dataset S1).
+comparison TIFA FBA essentiality shown Text                     expect FBA prediction agree S1.                                                                            TIFA essentiality calls original MR-1 essentiality
+                                                                               calls, 1) TIFA identifications improvement Network constraints scale                                                  original direct method, 2) FBA predicts gene essentiality
+   observed discrepancies TIFA model                       correctly  way comparison predictions investigated  1) allowing metabolites           TIFA essentiality calls, DECs, FBA predictions used
+freely leave network, 2) removing thermodynamic                 investigate relative agreement FBA predictions
+constrains model. Lifting stoichiometric constraints            essential gene identification methods. gene gene
+endpoint metabolites resulted marginal deterioration                   comparison included supplementary data (Dataset S1).
+essential gene predictions, change nonessential gene                 TIFA predictions alternatively explained
+predictions (Table 2), suggesting blockage reactions            polar operon effects removed, number stoichiometric constraints endpoint metabolites                     comparisons TIFA FBA substantially fewer
+important FBA gene essentiality predictions MR-1                    DEC essentiality calls FBA (Fig. 6). model. Removal thermodynamic constraints resulted                  overall performance TIFA, expressed percent correct
+substantial deterioration essential gene predictions             predictions (combined true essential true nonessential
+marginal improvement nonessential gene predictions (Table 2),               predictions divided essentiality predictions), confirming importance correct thermodynamic constraints                 higher DEC: 90  vs 79  (Fig. 6), indicating TIFA gene essentiality predictions. comparison model                  calls better. investigate potential influence 
+
+PLOS Computational Biology | www.ploscompbiol.org                          7                    September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                           Transposon Insertion Frequency Analysis
+
+
+
+
+Figure 6. way comparison FBA predictions TIFA DEC essentiality calls.   Comparison FBA TIFA.
+(B) Comparison FBA direct gene essentiality calls (DEC). sectors comparison matrix intersections FBA essential
+genes (E), FBA nonessential genes (N) genes MR-1 model (NA) TIFA DEC calls essential genes (E), nonessential genes (N) uncalled genes (U). TIFA essential gene calls alternatively explained polar operon effects shown brackets.
+doi:10.1371/journal.pcbi.1003848.g006
+
+polar effects essential gene predictions, TIFA calls          essentiality 1725 (41 ) genes called. previously removed dataset                    observed transposon insertion pattern close agreement essentiality explained alternatively polar effects,          Monte Carlo insertion simulations utilized location specific
+compared essential gene TIFA calls. Note polar effects            insertion probabilities. absence insertional ‘‘hotspots’’ problem essential, nonessential gene               comparison Monte Carlo simulations interpreted calls. correct prediction percentage discarded essential           validation essential gene assignments. data used gene predictions 69  (Fig. 6, 43/(43+19)),                 study generated transposon transcrip-
+slightly lower 76  (Fig. 6, 57/(57+18)) retained             tionally terminated. consequence, essentiality TIFA comparisons. suggested polar effects                   determined subset genes identified result false essential gene assignments assignments          essential TIFA (,70 , Table 1, 273/(273+120)). substantial used. surprising given polar effect          number genes (120) contained sufficiently insertions occur, downstream neighboring gene operon                identified essential (Table 1), lack viability identified essential.                                                 alternatively explained presence adjacent
+   Genes exclusively identified essential DEC            downstream essential gene operon. Note wrong (40  correct essential gene                         experimental operon predictions RNA-seq data [38] predictions, (Dataset S1). Genes exclusively identified essential          improve used computational operon projections. Alter-
+using TIFA, correct prediction percentage 68 ,                 natively, utilization unterminated read transposon slightly lower 76  TIFA essential gene              eliminate polar gene essentiality experimentally. TIFA
+predictions (Dataset S1). Genes exclusively identified nonessen-           essential gene predictions agreed fairly direct essentiality
+tial TIFA equally good agreement FBA                          calls MR-1[18], closer agreement essentiality
+predictions entire TIFA nonessential gene calls (92                    expectations E. coli orthologs (Dataset S1) FBA
+compared 91  agreement). DEC nonessential gene assign-                     predictions MR-1 model. addition, genes ments 87  agreement FBA predictions,                         previously identified essential based absence exclusive DEC nonessential gene assignments 74                   insertions contained insertions dataset. TIFA
+agreement FBA predictions. summary, TIFA gene                     able provide transposon insertion-based essentiality calls essentiality calls  essential nonessential gene calls)       481 770 (62 ) non-obsolete genes MR-1 model, closer agreement FBA model predictions                 able perform comprehensive validation DEC essentiality calls, providing strong support TIFA                MR1 model. example: 32 genes incorrectly predicted
+better method gene essentiality calls (Dataset S1).                       essential FBA, suggested current MR-1 model                                                                               incomplete.  11 TIFA essential genes associated Discussion                                                                    blocked reactions suggested essential reactions                                                                               MR-1 model used, indicating current
+   Tn-seq powerful readily available technology              MR-1 network incomplete. addition, FIFA data demon-
+genome-wide evaluation metabolic networks. observed                    strated thermodynamic constraints reaction direction-
+transposon insertion pattern suggested 28.6  essential                alities greatly improved FBA gene essentiality predictions.
+genes occasionally inserted, insertions essential
+genes limited periphery genes previously            Materials Methods
+presumed [18]. Conversely, genes did contain
+insertions identified essential. TIFA,               Transposon insertion data
+previously developed HMM models, able identify essential                   detailed description transposon experiment genes containing insertions, unlike current HMM models,               generated data used work published previously
+TIFA explicitly corrects observed transposon insertional              [28]. Briefly, single-mutant library S. oneidensis generated
+biases. Note confidence associated essentiality         miniHimar transposon kanamycin selection depended number TA locations gene.                 Schewanella Basal Medium (SBM, defined rich
+genes contained handful TA sites, essentiality           medium), plates aerobic conditions [39]. fitnesses established, insertions                 pooled clones evaluated aerobic conditions using SBM
+establish essentiality short GC rich genes, large           previously described [4]. Samples pooled library mutant library required. Conversely, genes TA                    collected short growth period. raw
+locations called essential, contained                 sequence data sample mapped genome, significant number insertions. current library size,              filtered retain sequences occurred times,
+
+
+PLOS Computational Biology | www.ploscompbiol.org                         8                    September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                          Transposon Insertion Frequency Analysis
+
+ mapped uniquely. TIFA, data             resulted ,1  biomass production relative wild type [40]
+samples combined assess viability insertional                  Using zero biomass production alternative cutoff [41,42]
+mutants condition used generate                    resulted identical predictions, suggesting prediction library. fitness values used manuscript calculated            insensitive cutoff value (Text S1 details), aerobic treatment data  Gene fitness calculated             consistent previous observations E. coli networks [40,42]. median fitness clones inserted          Computationally zero growth assessed biomass produc-
+gene (Text S1).                                                               tion ,1e-6 eliminate influence computational noise.
+
+Estimation miniHimar insertion probabilities                               Databases software
+   probability insertion occurring r times given                  S. oneidensis MR-1 metabolic model previously
+                                                                lr            reconstructed original genome annotation [29], location approximated Poisson distribution: p~e{l ,                used study comparison (NCBI, NC_004347.1).
+                                                                r! reduces p~e{l r = 0, l insertion                    Genes removed later annotations (NC 004347.2) probability m/n m number colonies, n number               used. addition, TA loci areas genes TA sites genome. yielded probability finding            overlapped excluded dataset. essentiality                                                          m=                   4,214 genes S. oneidensis genome investigated TIFA. insertion given location: l~1{e n ,                                                   m                         S. oneidensis essentiality fitness predictions total number observed insertions insobs ~n 1{e n .                                                               =
+
+                                                                              performed MATLAB (MathWorks, Natick MA), using number colonies library estimated substituting           COBRA toolbox [43] combination linear optimization
+number unique sequences library insobs , number              routine (simplex algorithm) CPLEX software suite (IBM,
+TA sites (n) genome, mean insertion probability p.             Armonk NY). Operon calls S. oneidensis taken approach followed determining sequence-                  ProOpDB [44] terminal genes operons used
+specific insertion probabilities, limiting analysis fraction       fitness analysis. Essentiality calls terminal TA locations given flanking motif (Text S1).                        genes. addition, upstream genes operon used                                                                               evaluated nonessential using TIFA, directly
+Identification essential genes                                             downstream gene called nonessential TIFA. TIFA, genome
+                                                                              Monte Carlo analyses performed custom MATLAB
+   Assuming equal insertion probability TA site,                                                                               Python (http://www.python.org/) scripts. Unless probability observing number experimentally
+                                                                              indicated, significance evaluated p,0.05.
+inserted locations gene given cumulative probability binomial  distribution, b(s, pe) equates                    Supporting Information
+             Pt
+                   S
+Pr ðX ƒtÞ~             ðpe Þi ð1{pe Þs , pe insertion
+              0                                                             Dataset S1 Gene gene comparison essentiality,
+probability TA site, s total number TA sites             fitness operon calls.
+gene, t number observed mutations. probability                   (XLSX)
+generating function used equal insertion probability                                                                               Figure S1 Properties essential genes inserted assumed. general form G(x) gene                        s                                                      gene core 80 . 273 TIFA identified essential genes, 50
+written  GðxÞ~ P ðpi xzð1{pi ÞÞ~PðX ~0ÞzPðX ~1Þxz                          genes contained insertions associated fitness values. 28                        PðX ~2Þx2    zPðX ~sÞxs , s number TA                    50 contained insertions beginning (10 ) locations gene, pi specific probability insertion        end (10 ), single insertion middle gene. location. power series expansion G(x), coefficient xt        remaining 22 genes insertion location associated probability P(X = t). cumulative probability observing          fitness  diamonds), TA sequences (black diamonds), conserved t insertions s possible TA locations expressed                protein domains (red line segments) intra gene start codons
+         s                                                                    associated ribosomal binding site (RBS) strengths  G ðxÞ~ P ðpi xzð1{pi ÞÞ~PðX ~0ÞzPðX ~1Þxz PðX ~ 2Þx2                          diamonds) shown. Fitness values outside visualized range
+            zPðX ~sÞxs . transposon insertion expectation               shown extreme ends scale. RBS strength                                Ps                                             shown logarithmically 20.03 4.3, lower values gene calculated E ðsÞ~     rPðx~rÞ variance                  omitted. gene, row underneath line
+                                  r~1
+             P
+             s                                                                represents RBS strengths associated intra gene start
+                   2          2
+VarðsÞ~     r Pðx~rÞ{E . normalized deviation expec-                   codons uninserted gene. successive couple rows
+             r~1
+                                               pﬃﬃﬃﬃﬃﬃﬃﬃ                      represents RBS strengths downstream start codons tation (NDE) given  NDE~ðObs{Expected Þ= Var.                           insertion. rows shown mutant                                                                               orientation insertions unknown. downstream RBS
+FBA essentiality calls                                                        strengths shown transposon insertion alter
+   Transposon gene deletion simulations performed                RBS strength downstream intra gene start codons.
+different media conditions: LB dataset Deutschbauer              Mutations genes (SO4432, SO3185 SO4669) caused
+[18], SBM dataset Brutinel [28].                substantially slower growth rates. Insertions genes
+mutant libraries generated aerobic conditions, FBA                 (SO4391, SO0148, SO3873, SO4068 SO3084) predictions aerobic conditions. prevent artifacts            explained presented data. rest genes,
+resulting unrealisticly large redox exchanges media,            insertions outside conserved protein domains, nutrient uptake rates limited concentrations               insertions conserved domains corresponded slow
+media (Text S1 details). low concentration metals               growth (SO2545). Insertions genes (SO3178, SO1441, media unable sustain dissimilatory metal-              SO3993, SO3874, SO4283, SO2133, SO1442, SO4359,
+reducing growth. Genes designated FBA essential removal               SO0730, SO2544) resulted functional protein
+
+
+PLOS Computational Biology | www.ploscompbiol.org                         9                   September 2014 | Volume 10 | Issue 9 | e1003848
+                                                                                                                                    Transposon Insertion Frequency Analysis
+
+ reinitiating transcription translation transposon                                  Author Contributions
+insertion.
+                                                                                                Conceived designed experiments: HY AMO JAG IGLL.
+(PDF)                                                                                           Performed experiments: HY EWK EDB NPP JAG IGLL. Analyzed
+Text S1 Additional methods results. Supplemental file                                       data: HY EWK EDB NPP JAG IGLL. Contributed writing contains detailed description TIFA method, Monte                                   manuscript: HY NPP MJS JAG AMO IGLL.
+Carlo analysis used validation TIFA, calculation fitness values. supplement contains additional
+results.
+(PDF)
+
+References
+ 1. Cameron  Urbach JM, Mekalanos JJ (2008) defined transposon mutant                      22. Henry CS, DeJongh M, Best AA, Frybarger PM, Linsay B, et al. (2010) High-
+    library use identifying motility genes Vibrio cholerae. Proceedings            throughput generation, optimization analysis genome-scale metabolic
+    National Academy Sciences United States America 105: 8736–                     models. Nat Biotechnol 28: 977–982.
+    8741.                                                                                       23. Kim TY, Sohn SB, Kim YB, Kim WJ, Lee SY (2012) Recent advances  2. Jacobs MA, Alwood  Thaipisuttikul  Spencer D, Haugen E, et al. (2003)                       reconstruction applications genome-scale metabolic models. Curr Opin
+    Comprehensive transposon mutant library Pseudomonas aeruginosa.                              Biotechnol 23: 617–623.
+    Proceedings National Academy Sciences United States                     24. Krumholz EW, Yang H, Weisenhorn P, Henry CS, Libourel IG (2012)
+    America 100: 14339–14344.                                                                       Genome-wide metabolic network reconstruction picoalga Ostreococcus.
+ 3. van Opijnen T, Camilli (2013) Transposon insertion sequencing: new tool                     J Exp Bot 63: 2353–2362.
+    systems-level analysis microorganisms. Nat Rev Microbiol 11: 435–442.                25. Zomer  Burghout P, Bootsma HJ, Hermans PW, van Hijum SA (2012)
+ 4. van Opijnen T, Bodi KL, Camilli (2009) Tn-seq: high-throughput parallel                       ESSENTIALS: software rapid analysis high throughput transposon
+    sequencing fitness genetic interaction studies microorganisms. Nat                   insertion sequencing data. PLoS 7: e43012.
+    Methods 6: 767–772.                                                                         26. Dejesus MA, Ioerger TR (2013) Hidden Markov Model identifying
+ 5. Smith  Heisler LE, Mellor J, Kaper F, Thompson MJ, et al. (2009)                             essential growth-defect regions bacterial genomes transposon
+    Quantitative phenotyping deep barcode sequencing. Genome research 19:
+                                                                                                    insertion sequencing data. BMC Bioinformatics 14: 303.
+    1836–1842.
+                                                                                                27. Chao MC, Pritchard JR, Zhang YJ, Rubin EJ, Livny J, et al. (2013) High-
+ 6. Smith  Heisler LE, St Onge RP, Farias-Hesson E, Wallace IM, et al. (2010)
+                                                                                                    resolution definition Vibrio cholerae essential gene set hidden Markov
+    Highly-multiplexed barcode sequencing: efficient method parallel analysis
+                                                                                                  

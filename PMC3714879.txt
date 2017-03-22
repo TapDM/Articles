@@ -1,0 +1,629 @@
+512                                                                              Biophysical Journal   Volume 105    July 2013     512–522
+
+
+Quantitative Assessment Thermodynamic Constraints Solution
+Space Genome-Scale Metabolic Models
+
+Joshua J. Hamilton, Vivek Dwivedi, Jennifer L. Reed*
+Department Chemical Biological Engineering, University Wisconsin-Madison, Madison, Wisconsin
+
+
+ABSTRACT Constraint-based methods provide powerful computational techniques allow understanding prediction cellular behavior. methods rely physiochemical constraints eliminate infeasible behaviors space available behaviors. constraint thermodynamic feasibility, requirement intracellular flux distributions
+obey laws thermodynamics. past decade seen constraint-based methods interpret constraint different ways, including limited small networks, rely predefined reaction directions, neglect relationship reaction free energies metabolite concentrations. work, utilize approach,
+thermodynamics-based metabolic flux analysis (TMFA), make genome-scale, quantitative predictions metabolite 
+centrations reaction free energies absence prior knowledge reaction directions, accounting uncertainties thermodynamic estimates. applied TMFA genome-scale network reconstruction Escherichia coli examined effect thermodynamic constraints flux space. assessed predictive performance TMFA gene
+essentiality quantitative metabolomics data, aerobic anaerobic, optimal suboptimal growth condi-
+tions. Based results, propose TMFA useful tool validating phenotypes generating hypotheses, additional types data constraints improve predictions metabolite concentrations.
+
+
+INTRODUCTION
+Genome-scale network reconstructions provide concise                    (7), loops (8). constraints nonlinear,
+mathematical representations organism’s biochemical               EBA restricted small models, scalable algo-
+capabilities, serve platform constraint-based              rithm recently proposed (9). scientists
+techniques used understanding predicting            developed method compute eliminate closed
+cellular behavior (1,2). predictive accuracy                     cycles flux-balance models (10,11) based solely constraint-based methods depends degree                 stoichiometry, technique remains computa-
+constraints eliminate physiochemically biologically                 tionally demanding genome-scale networks. Recently,
+infeasible behaviors.                                                   scalable, mixed-integer approach eliminating closed
+   Flux-balance analysis (FBA) (3) commonly employed                 cycles developed (8). predict state network identifying steady-               limited availability free energy data state flux distribution maximizing cellular growth,               reactions metabolites (12,13), satisfying mass-balance enzyme capacity                    approaches directly account relationships
+straints. Reaction directionality typically assigned based           Dr G, metabolite concentrations, free energies enzyme assays biological considerations (e.g.,                 formation (Df G). Fortunately, group contribution
+free ATP synthesis), consideration given thermo-             methods (GCMs) (14–16) developed estimate
+dynamic feasibility. second law thermodynamics                   free energies metabolites reactions data states negative Gibbs energy reaction (Dr G)               unavailable. recent model Escherichia coli used needed drive forward reaction flux, v, leading              GCM assign reaction directionalities based thermodynamic feasibility constraint v $ Dr G > 0                   thermodynamic feasibility (16,17). approaches,
+nonzero v.                                                              experimentally measured thermodynamic data    attempt enforce thermodynamic feasibility            combined heuristics group contribution data FBA energy balance analysis (EBA) (4,5), incor-               define feasible reaction directions E. coli (18,19). 
+porated nonlinear constraints chemical potentials                approaches (17–19) neglect thermodynamic
+FBA eliminate closed cycles. Closed cycles sets               interactions reactions network arise
+reactions overall thermodynamic driving force             shared metabolites. result, directionality zero, net flux occur (e.g.,               reaction assigned independently reaction
+B / C / . closed cycles variously                     directions network. example, reactions
+referred Type III pathways (6), internal flux cycles              feasible forward reverse directions,
+                                                                        shared metabolite, pair reactions                                                                         proceed direction. approaches fail Submitted October 5, 2012, accepted publication June 5, 2013.
+                                                                        capture type thermodynamic coupling *Correspondence: reed@engr.wisc.edu
+                                                                        reactions.
+Editor: Daniel Beard.
+ 2013 Biophysical Society
+0006-3495/13/07/0512/11 $2.00                                                                     http://dx.doi.org/10.1016/j.bpj.2013.06.011
+ Quantitative Assessment TMFA                                                                                                                                  513
+
+   GCMs used approaches capture                                                 vmin  vj  vmax cj;Jirrev :                                (4)
+thermodynamic interactions including metabolite 
+centrations variables. EBA extended predict                      network steady state, net production metabolites intracellular metabolite concentrations small network                      zero. reaction constrained flux appropriate
+(20), mixed-integer approaches                           range given enzyme capacities, reactions assumed                                                                                 irreversible (j ˛ Jirrev). limits reactions set vmax ¼
+developed, thermodynamic constraints                               1000 mmol/gDW/h vmin ¼ 1000 mmol/gDW/h, measured
+imposed predefined reaction directions. NET                           fluxes (e.g., carbon uptake rates).
+analysis (21) integrates quantitative metabolomics data                            Previous implementations TMFA (7,23) imposed thermody- thermodynamic constraints predict feasible free                         namic constraints FBA, allowing constraints energy ranges reactions network.                         restrict reaction directions;  reaction deemed irreversible
+                                                                                FBA reversible indicated thermodynamic
+method, thermodynamics-based metabolic flux analysis                            constraints. contrast, implementation makes assumptions (TMFA) (7), extends FBA thermodynamic constraints,                         reaction  reversibility, allowing thermodynamic constraints decide
+enabling quantitative prediction feasible ranges                      directions reactions. replaced Eqs. 3 4 metabolite concentrations reaction free energies,
+                                                                                                          vmin  vj  vmax cj˛J                                    (5) relying metabolomic data.  methods  date, relied prior knowledge                                                                                 rely thermodynamic constraints determine reaction reversibility directionality reactions (7,21–23),                     directions. restricting predictive capabilities.
+   work, examine extent thermody-
+namics-based flux-balance methods make genome-                              Calculating free energies reaction
+scale, quantitative predictions, absence outside                      Enforcing thermodynamic constraints requires knowledge standard
+                                                                                                                                0
+information flux directions, considering presence                   transformed Gibbs energy reaction (Dr G 0) reactions absence uncertainty thermodynamic estimates.                       model. paucity experimental data, group contribution methods
+                                                                                (14,15) used provide estimates uncertainties standard trans- end, applied TMFA iJR904 model E. coli                                                                  0
+                                                                                formed Gibbs energy formation (Df G 0) metabolites reaction
+(24). model used group contribution esti-                            0
+                                                                                        0
+                                                                                (Dr G ) reactions.
+                                                                                                                 0
+mates available higher fraction metabolites                       GCMs assume Df G 0 metabolite linear combination iJR904 model newer models (16). assessed                      formation energies constituent molecular substructures predictive performance TMFA number                           groups), k,
+large-scale datasets (22,25–27), encompassing metabolite                                                        0
+                                                                                                                        X                      0
+                                                                                                       Df G 0 ¼                ni;k Dgr Gk0 ;                  (6)
+concentrations gene deletion phenotypes,                                                                  k
+aerobic anaerobic, optimal suboptimal growth
+                                                                                              0                                                                   0
+conditions. analysis, highlight impor-                      Dgr Gk 0 estimated contribution group k overall Df G 0,
+tance quantitative concentration measurements                            ni,k number groups k molecular structure compound 
+                                                                                used software implementation GCM Jankowski et al. (16),
+thermodynamic coupling achieving physiologically real-                       Henry et al. (28), Finley et al. (29) obtain estimates uncertainties
+istic predictions growth rates flux distributions.                             0           0
+                                                                                Df G 0 Dr G 0 metabolites reactions iJR904 network able generate hypotheses regarding metabolite                       Supporting Methods Table S1 Table S2 Supporting
+concentrations thermodynamic bottlenecks,                            Material).
+                                                                                                                                   0
+
+discuss additional types data constraints                          GCM method returns estimates Df G 0 predominant ionic
+                                                                                species biochemical standard state: pH 7, zero ionic strength, temper-
+improve predictions metabolite concentrations.                               ature 298 K. Simulations performed conditions 298 K zero
+                                                                                ionic strength, pH 7 (7.4) intra- (extra)cellular metabolites, using
+                                                                                ionic species represented iJR904 model stoichiometric matrix.
+MATERIALS METHODS                                                           differences pH major ionic species required adjusting                                                                                                          0
+                                                                                GCM estimates Df G 0  Supporting Material).
+                                                                                                                      0                       0
+Overview relationship previous                                              Using new estimates Df G 0, calculated Dr G 0from stoichi-
+implementations                                                                 ometry reaction,
+                                                                                                                    0
+                                                                                                                        X                  0
+Given stoichiometric matrix S set reactions J, flux-balance analysis                           Dr G j 0 ¼               Si;j Df Gi0 ;                   (7)
+(FBA) seeks steady-state flux distribution (v) maximizing flux                                             biomass reaction (vBM), satisfying mass-balance enzyme
+capacity constraints individual reactions, j:                               Si, j stoichiometric coefficient metabolite reaction j.                                                                                                                                                         0
+                                                                                calculated transformed Gibbs energy reaction (Dr G )                                 max vBM ;                                (1)    function metabolite concentration, xi,
+                                                                                                  0         0
+                                                                                                                         X                             0
+                                                                                           Dr Gj ¼ Dr Gj0 þ RT                     Si;j lnðxi Þ þ Dt Gj0 ;       (8)
+                             s:t: S$v ¼ 0;                               (2)                                                                                                                                                                                                              0
+                                                                                R gas constant, T temperature (298 K), Dt G 0 reflects
+                        0 vj  vmax cj˛Jirrev ;                           (3)                              0
+                                                                                contribution Dr G transport metabolites 
+                                                                                                                        Biophysical Journal 105(2) 512–522
+ 514                                                                                                                                                    Hamilton et al.
+
+                                                                              0
+membrane. Following established derivation (7), calculated Dt G 0                                             vj R0 cj˛Jfor ;                              (15) function electrochemical potential (DJ) pH gradient (DpH) membrane,
+                       0
+                                                                                                                     dj ¼ 0 cj˛Jrev ;                               (16)
+                 Dt Gj0 ¼ cj FDJ  2:3 hj RTDpH;                                  (9)
+                                                                                                                      vj  0 cj˛Jrev ;                               (17) F Faraday’s constant, cj net charge transported outside inside cell, hj number protons transported membrane  Table S3 details). constraints intra- extracel-                                          vj ¼ 0 cj˛Jbl :                               (18)
+lular proton concentrations resulted values 130 mV DJ, 0.4 DpH (7,30).
+                                                                                        reactions, flux maximization using RTMFA computationally
+   performed simulations uncertainties esti-
+                 0                                                      0               intensive, FVA simulations performed time limit 5 min.
+mates Dgr G 0 group. TMFA, fixed values Dgr G 0                 result, possibility true flux ranges larger reported
+                                   0
+                                     0 estimated values (Dgr Gest ) given group contribution
+                                                                                         Results).
+method,
+                                      0           0
+                               Dgr Gk0 ¼ Dgr Gk;est
+                                               0
+                                                    :                         (10)
+                                                                                        Differences phenotype: CONGA
+                                                                  0 relaxed TMFA (RTMFA), allowed Dgr G 0 group                    used algorithm previously developed, CONGA (33), identify
+vary 95  confidence interval, determined standard error            single, double, triple gene deletions predicted lethal FBA (SE) reported GCM software  e., SEDgr G0 0 ):                                  TMFA  RTMFA). CONGA employs bilevel optimization problem
+                                                          k;est
+                                                                                        identify gene deletion strategies maximizing difference       00                                  0           0
+Dgr Gk;est 2SEDgr G0 0  Dgr Gk0  Dgr Gk;est
+                                        0
+                                             þ2SEDgr G0 0 : (11)                        maximum biomass flux different models, FBA TMFA
+                           k;est                                      k;est              RTMFA). maximum possible difference biomass flux
+                                                                                        occurs model zero biomass flux, CONGA identifies gene Supporting Methods Supporting Material additional                    deletions lethal model. Additional details details.                                                                                Supporting Methods Supporting Material                                                                                         original work (33).
+
+Enforcing thermodynamic consistency
+                                                                                        Synthetic lethals phenotype correction
+Thermodynamic consistency requires reaction fluxes 
+                                     0
+sistent predicted values Dr G  e., v $ Dr G < 0). employed                 identified gene deletions lethal FBA model, mixed-integer approach enforce requirement, binary                 employed synthetic lethals (SL) Finder (34) identify reaction(s)
+variable d indicates reaction operating forward (d ¼ 1)                  responsible difference predicted phenotype. SL Finder employs reverse (d ¼ 0) direction. added following equations                  bilevel optimization problem identify reaction deletion strategies model:                                                                              minimize maximum biomass flux network.                                                                                         lowest maximum biomass zero, SL Finder finds lethal reaction
+                           ð1  dÞvmin  v dvmax ;                             (12)      deletions. Additional details Supporting Methods                                                                                         Supporting Material original work (34).
+                                              0                                            gene deletions predicted lethal FBA, TMFA pre-
+                  Md þ ε Dr G  Mð1  dÞ  ε:                                 (13)      diction disagreed experimental observation. suggested                                                                                     0
+                                                                                        SL reaction did operate vivo direction predicted FBA. Eq. 13 big-M constraint (31) M upper limit Dr G             instances, developed constraint metabolite concentrations
+(300 kcal/mol) ε small nonzero number (106). Equations 1, 2, 5–9,             prevented SL reaction operating TMFA-predicted 12–13 used TMFA equations 1, 2, 5–8, 10–13                     direction, correcting phenotype. refer constraints
+used RTMFA.                                                                          phenotype-correction constraints. Additional details                                                                                         Supporting Methods Supporting Material.
+
+Flux thermodynamic variability analysis
+                                                                                        Simulation conditions performed flux thermodynamic variability analysis variety conditions identify thermodynamically feasible flux                   simulations performed using CPLEX 12 (IBM, Armonk, NY)
+metabolite concentration ranges. flux variability analysis (FVA) (32),               accessed General Algebraic Modeling  Ver. 23.3.3 (GAMS; flux v reaction minimized maximized subject                  GAMS Development Corporation, Washington, DC). Simulations  constraints TMFA. thermodynamic variability analysis (TVA)                    formed Red Hat Enterprise Linux server 2.66 GHz Intel Xeon pro-
+                                                          0
+(7), concentration metabolite  Dr G reaction)                 cessors 8 GB RAM. TMFA formulation solves seconds,
+minimized maximized subject constraints TMFA. Additional                  RTMFA formulation takes ~1 h prove global optimality.
+details Supporting Methods Supporting
+Material.
+   Using FVA results, defined sets reactions operate            Sources experimental data experimental forward (Jfor) reverse (Jrev) directions, blocked (Jbl) entirely.      methods imposing following constraints model, able reduce
+simulation times order magnitude:                                         Details experimental datasets methods used validate                                                                                         TMFA predictions given Supporting Methods Supporting
+                                   dj ¼ 1 cj˛Jfor ;                           (14)      Material.
+
+Biophysical Journal 105(2) 512–522
+ Quantitative Assessment TMFA                                                                                                          515
+
+RESULTS                                                                                            asp      2H+
+
+Optimization aerobic growth glucose using
+TMFA                                                                                    ABC-type              proton
+                                                                                       transporter          symporter
+                                                                                                                            Membrane used thermodynamics-based metabolic flux anal-
+                                                                                                                               Cytosol
+ysis (TMFA) determine maximum growth rate                               H+
+E. coli glucose aerobic conditions, using iJR904                                          asp       2H+
+                                                                                    ADP           ATP
+genome-scale metabolic model (24). Building previous
+work (7), constrained concentration intracellular                              [x]min    [x]max         [x]meas
+                                                                 B              RTFMA    (mM)      (mM)           (mM)
+metabolites range 0.001–20 mM. constrained
+                                                                                  ADP     0.89       20       0.437 0.704 concentrations extracellular nutrients                                                                                    ATP    0.01     0.22        8.13 11.4
+0.4  glucose MOPS medium (35). concentration intracellular Hþ fixed pH 7, extracellular     FIGURE 1 Examples thermodynamically feasible physiologically
+Hþ pH 7.4. concentration extracellular gases    implausible behavior.   RTMFA predicts ATP synthesized (O2 CO2) based experimental measurement (36),       cycling small molecules membrane. cycle involves
+                                                               asp. (B) Metabolite concentration ranges predicted RTMFA requirement intracellular concentration     cycle shown panel thermodynamically feasible (columns 1 extracellular concentration.     2), experimentally measured metabolite concentrations (column
+ditions, TMFA predicted maximum growth rate zero,         3). (Highlighted type) Constraining concentration model renders
+suggesting growth possible thermo-     cycle thermodynamically infeasible.
+dynamic infeasibility essential reactions. expanded concentration range seven metabolites enable thermodynamic feasibility essential reac-      ATP (Fig. 1 B). additionally constraining concentra-
+tions  Supporting Results Supporting Material).     tion ATP experimentally measured range (22), simulations performed glucose limiting    ATP present higher concentration ADP,
+                                                               force RTMFA model use ATP synthase substrate, maximum uptake rate 10 mmol/gDW/h.
+                                                               synthesize ATP. constraint ATP concentration set metabolite concentration exchange flux
+                                                               added model, predicted growth rate exceeds
+constraints Table S6.
+                                                               FBA 3 . constraint ATP concentration
+   performed simulations neglecting uncertainty
+                                                               used subsequent RTMFA simulations discussed standard Gibbs energy formation group
+        0                                                      work.
+(Dgr G 0) (Eq. 10). maximum growth rate predicted TMFA exceeded FBA 2 , despite increased network flexibility possible lack     Flux variability analysis: thermodynamically
+predefined reaction directions TMFA.                        feasible reaction directions
+                                              0
+   introduced uncertainty Dgr G 0 (Eq. 11)                                                                used flux variability analysis (FVA) determine
+observed maximum growth rate exceeded         thermodynamically feasible directions reactions FBA ~12 . elevated growth rate highlights          network glucose aerobic conditions (Fig. 2 
+additional network flexibility possible uncer-     Table S7 Table S8). classified reactions tainty free energy estimates arising GCM.       fully bidirectional, constrained ways:
+particular, growth rate difference mecha-       blocked entirely; capable operating forward direc-
+nisms relaxed TMFA model (RTMFA) enable            tion  capable operating reverse direction
+ATP synthesized lower energetic cost occurs       performed FVA fully reversible version
+physiologically  reflected FBA). example,        iJR904 model thermodynamic constraints
+RTMFA predict ATP synthesis ATP synthase,           (FBAr), reactions  biomass) using energy released transport protons       allowed reversible. allowed identify direc- plasma membrane. Instead, RTMFA model           tionally constrained reactions based stoichiometry identifies numerous cycles synthesize ATP using energy    external environment.
+released transport fewer numbers protons,       observed FBAr, majority reactions shuttling metabolites forth plasma mem-    bidirectional (60 ), remainder constrained
+brane (Fig. 1 . metabolite aspartate (asp),      way. hand, FBA model large enables ATP synthesized using energy released      set irreversible reactions, causing number bidirec- transport protons plasma       tional reactions decrease significantly, mere 5  membrane.  shuttling relies aspartate      network. majority reactions FBA model
+ABC-type transporter pumping aspartate,           operate forward direction   quires ADP present concentration higher        neglect priori reaction directionality assignments 
+                                                                                                     Biophysical Journal 105(2) 512–522
+ 516                                                                                                                                                                                         Hamilton et al.
+
+                                                        reactions         thermodynamic   uncertainties
+                                                                                                                  TMFA                         reaction directionalities FVA analysis                                                                                                         ´0      directions
+                                                          reversible             constraints     ∆fGest
+                                                    FBA                  FBAr              TMFA           RTMFA           TMFA-LP
+                                                                                                                                            TMFA model used constrain fluxes                                                0
+                                                                                                                                            FBAr (TMFA-LP), predicted growth rate 150                                           100
+                                                                                                                                            predicted FBA (Fig. 2 C). increase growth
+                                                                                                                                            rate indicates ATP- energy-generating cycles   Number Reactions
+
+
+
+
+                                         200                                                                                                present network present thermody-
+                                         300
+                                                                                                                                            namic constraints imposed directly. cycle
+                                                                                                                                            involves shuttling sodium ions forth                                          400                                                                                                membrane, resulting proton gradient used synthe-
+                                         500
+                                                               Blocked                                                                      size ATP  Fig. S1 Supporting Material). cycle
+                                                               Forward
+                                                               Reverse                                                                      infeasible TMFA, despite reaction operating                                                                Bidirectional
+                                         600
+                                                                LP    MILP
+                                                                                                                                            thermodynamically feasible direction. emphasizes
+                                                                                                                                            need actively impose thermodynamic constraints
+B                                                                                                                                           account thermodynamic interactions reac-
+                                                                                                                                            tions (7,8,21), opposed methods impose thermody-
+Cumulative Distribution Function (CDF)
+
+
+
+
+                                         0.8                                                                                                namically feasible reaction directions accounting
+                                                                                                                                            thermodynamic coupling reactions (17–19).
+                                         0.6                         C               Growth Rate (Fraction FBA Growth Rate)
+                                                                                                                                               Finally, used FVA results formulation                                                                                  0   0.2    0.4   0.6     0.8    1       1.2   1.4    1.6
+                                                                          FBA
+                                                                                                                                            cumulative distribution function (CDF) flux
+                                         0.4                             TMFA                                                               span, difference maximum minimum
+                                                                     RTMFA                                           *                      flux given reaction (Fig. 2 B Table S9).
+                                         0.2        FBA
+                                                    TMFA
+                                                            TMFA-LP
+                                                                                                          * [ATP] constraint
+                                                                                                                                            CDF FBA sharpest, >90  reac-
+                                                    RTMFA
+                                                    TMFA-LP
+                                                                                                                                            tions having span <300 mmol/gDW/h. CDF                                           0                                                                                                 TMFA similar FBA, despite increase                                                0   200      400       600         800   1000 1200 1400            1600       1800    2000
+                                                                               Flux Span (mmol / gDW / hr)                                  network flexibility. CDF shallow                                                                                                                                             RTMFA  reactions larger spans), reaction’s
+FIGURE 2 Comparison thermodynamic formulations glucose
+aerobic conditions.   Reactions classified blocked, forward,
+                                                                                                                                            span increase directionally unconstrained.
+reverse, bidirectional based thermodynamic feasibility. Differ-                                                                 CDF TMFA-LP shallow: jumps ences formulation given chart. (B) Cumulative                                                                    CDF value flux spans 1000 2000 mmol/gDW/h
+distribution function (CDF) flux span formulation. (C) Plot                                                                point existence thermodynamically infea- growth rate formulation, normalized FBA growth rate.                                                                     sible closed cycles (e.g.,  B / C /  (Formulations) FBAr: FBA reaction directions fully reversible.
+TMFA: FBAr thermodynamic constraints, global metabolite bounds,
+                                                                                                                                            participating reactions operate maximum flux. media constraints. RTMFA: cTMFA uncertainties Df G 0est
+                                                                        0
+                                                                                                                                            results highlight important role thermodynamic interac- constraint ATP concentration. TMFA-LP: LP FBAr reaction                                                                       tions play shaping feasible flux space. observed
+directions consistent TMF.                                                                                                             sets bidirectional constrained reactions vary
+                                                                                                                                            slightly media conditions, overall CDFs
+                                                                                                                                            remain qualitatively similar (data shown).
+instead allow reaction directions determined solely thermodynamic constraints (TMFA), fraction direc-
+                                                                                                                                            Gene deletion studies: comparison FBA
+tionally constrained reactions 85 , compared                                                                                                                                             TMFA
+95  FBA, 40  FBAr. reveals thermody-
+namic constraints play major role eliminating                                                                                  glucose aerobic conditions, CONGA identified 22 network flexibility resulting eliminating predefined                                                                               single gene deletions TMFA FBA reaction directions (FBAr).  relative FBA                                                                               different growth phenotype predictions (Table 1). 19
+ predefined reaction directions), TMFA enabled previ-                                                                                  cases, TMFA predicted nonlethal phenotype FBA pre-
+ously forward- reverse reactions bidirec-                                                                                 dicted lethal  remaining cases
+tional, previously blocked reactions feasible                                                                                 TMFA predicted lethal phenotype FBA predicted reverse direction.                                                                                                                   nonlethal  Relative experimental data (25), corre-
+   Just moving FBA TMFA led decrease                                                                                     sponded better prediction TMFA seven cases, number constrained reactions, does moving                                                                                     worse prediction remaining 15 cases. Using RTMFA TMFA RTMFA. number constrained reac-                                                                                         instead TMFA introduces worse predictions
+tions decreases 85  TMFA 77  RTMFA.                                                                                           better prediction (Table 1). number bidirectional reactions increases 50 ,                                                                                        TMFA predict growth FBA predicts previously forward reactions feasible                                                                                   growth, TMFA enable reaction proceed direc- reverse direction.                                                                                                                   tion allowed FBA. used variant SL Finder
+
+Biophysical Journal 105(2) 512–522
+ Quantitative Assessment TMFA                                                                                                                      517
+
+TABLE 1 Single-gene deletions FBA (R)TMFA predict different growth phenotypes glucose aerobic
+conditions
+                      Gene locus     Gene       Phenotype        FBA          TMFA        TMFA (corrected)        RTMFA        RTMFA (corrected)
+Better TMFA          b0907           serC         Nonlethal      Lethal       Nonlethal          Nonlethal         Nonlethal          Nonlethal
+                        b0928           aspC         Nonlethal      Lethal       Nonlethal          Nonlethal         Nonlethal          Nonlethal
+                        b2913           serA         Nonlethal      Lethal       Nonlethal          Nonlethal         Nonlethal          Nonlethal
+                        b3359           argD         Nonlethal      Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b3429           glgA         Nonlethal      Lethal       Nonlethal          Nonlethal         Nonlethal          Nonlethal
+                        b3430           glgC         Nonlethal      Lethal       Nonlethal          Nonlethal         Nonlethal          Nonlethal
+                        b4388           serB         Nonlethal      Lethal       Nonlethal          Nonlethal         Nonlethal          Nonlethal
+Worse           b0474            adk          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b0720           gltA          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b1207           dnaR          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b2615           nadK          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b2818           argA          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b3607           cysE          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b3608           gpsA          Lethal        Lethal       Nonlethal           Lethal           Nonlethal          Nonlethal
+                        b3729           glmS          Lethal        Lethal       Nonlethal           Lethal           Nonlethal          Nonlethal
+                        b3957           argE          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b3958           argC          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b3959           argB          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b4226            ppa          Lethal        Lethal       Nonlethal           Lethal           Nonlethal           Lethal
+                        b3919           tpiA         Nonlethal     Nonlethal      Lethal             Lethal            Lethal             Lethal
+Worse TMFA           b1849           purT         Nonlethal     Nonlethal      Lethal             Lethal           Nonlethal          Nonlethal
+                        b2500           purN         Nonlethal     Nonlethal      Lethal             Lethal           Nonlethal          Nonlethal
+Better RTMFA         b0888           trxB          Lethal        Lethal        Lethal             Lethal           Nonlethal          Nonlethal
+Worse RTMFA          b1136            icd          Lethal        Lethal        Lethal             Lethal           Nonlethal           Lethal
+                        b2780           pyrG          Lethal        Lethal        Lethal             Lethal           Nonlethal           Lethal
+Columns labeled ‘‘corrected’’ indicate RTMFA predictions additional phenotype-correction constraints (described Table S10 Supporting
+Material) included.
+
+
+
+(34) identify reactions knockout mutant.                  prediction. suggests ornithine transaminase cases TMFA makes better prediction, hypothe-                        rescue DargD.  argD::kan DastC double
+sized SL reaction active mutant pheno-                   mutant proved viable  Fig. S4), suggesting type. hypothesis tested knocking SL                     reaction isozyme rescues DargD mutant.
+reaction single mutant: resulting mutant                      cases TMFA worse prediction FBA, incapable growth. Conversely, TMFA makes                          developed phenotype-correction constraint pre-
+worse prediction, SL reaction operate pre-                  vented SL reaction operating rescuing direc-
+dicted direction vivo.                                                      tion  Table S10). instances, SL Finder predicted
+   seven deletions TMFA better                         multiple reactions acted rescue pheno-
+prediction FBA, selected experimental vali-                    type, reaction rescued multiple phenotypes.
+dation: DaspC DargD. mutants exhibit robust                           example, SL Finder predicted reactions ornithine
+growth, removing SL reactions requires                          transaminase n-acetylornithine deacetylase acted single gene deletion. DaspC mutant, SL Finder                        rescue phenotypes DargA, DargB, identified aspartase (encoded aspA) SL reaction.                     DargC. told, 12 genes TMFA aspA::kan aspC double mutant proved viable                            incorrect nonlethal prediction associated 10 SL
+ Fig. S2), identified studies reporting tyrB                     reactions. able identify metabolite concentration isozyme aspC (37,38). tyrB::kan DaspC double                          constraints 10 reactions  Table S10),
+mutant proved nonviable  Fig. S3), confirming                          implemented TMFA, resulted correct
+tyrB aspA rescues DaspC mutant.                        predictions 12 genes (Table 1). RTMFA, correct phenotype adding tyrB isozyme                         19 SL reactions associated 14 genes aspC model, imposing constraint pre-                      RTMFA incorrect nonlethal predictions. vents aspartase operating reverse direction. SL                    able identify concentration constraints 17 Finder predicted DargD rescued ornithine                      reactions  Table S10),  implemented transaminase, reaction argD astC                           RTMFA, resulted correct predictions 12 14
+reported activity (39,40).  allowing orni-                     genes (Table 1). exception DargD noted 
+thine transaminase reversible results TMFA making                     correct TMFA RTMFA predictions unaffected worse predictions correcting single DargD                       additional phenotype-correction constraints.
+
+                                                                                                                 Biophysical Journal 105(2) 512–522
+ 518                                                                                                                                                         Hamilton et al.
+
+
+                      Δb0720, citrate synthase (2.3.3.1)                                                    Taken single-gene deletion data,                                                .6                                                             suggests additional concentration measurements 
+
+
+
+                                       4.1.3
+                                                ac                                                            needed accurately define metabolic flux space
+                                               oaa
+                                                     X
+                                                     2.3
+                                                        .3.1     cit
+
+                                                               accoa                   icit
+                                                                                                              predict growth phenotypes.
+                                                                                                                 identified gene deletions TMFA
+                                                                                                              falsely predicted lethal phenotype (Db1949, Db2500,                                                                                                               Db3919) FBA predicted nonlethal (Table 1).                                       mal                  TCA Cycle                          akg             cases, hypothesized SL reaction active                                                                                                               FBA thermodynamically infeasible TMFA. 
+                                                                                                              cases, uncertainty free energies
+                        biomass                fum                                succ-CoA                    included, RTMFA correct prediction                         precursors                                                              biomass        exception Db3919). RTMFA picked                                                                 succ                          precursors      additional gene deletion (Db0888) TMFA        B                    Constraining citrate lyase (4.1.3.6)                                              FBA incorrectly predicted lethal phenotype (Table 1).
+                                                                                                               cases thermodynamic
+                                                                                                              assignment reaction directions led inaccurate
+                       −4
+                       −5
+                                                                                                              growth predictions, cases thermody-
+                       −6                                                                                     namic constraints needed explain observed growth
+        ln[cit] (mM)
+
+
+
+
+                       −7                                                                                     phenotypes.
+                       −8
+                       −9
+                                                                                                                 evaluated TMFA aerobic growth glycerol
+                  −10                                                                                         anaerobic growth glucose  Table S5).                   −11                                                                                         enable aerobic growth glycerol M9 medium TMFA
+                    −4
+                            −5
+                                 −6                                                                 −5
+                                                                                                         −4   required concentration constraints glucose
+                                      −7                                                      −6
+             ln[oaa] (mM)                  −8
+                                                −9                                −8
+                                                                                         −7                   case;  anaerobic growth glucose, TMFA
+                        TMFA                         −10                     −9          ln[ac] (mM)
+                                                                       −10
+                        RTMFA
+                                                        −11     −11                                           required expanded concentration ranges slightly
+                                                                                                              different set metabolites. performed CONGA
+FIGURE 3 Example reduced concentration spaces imposed pheno-                                            single-gene deletions conditions. glyc-
+type-correction constraints.   TMFA incorrectly predicts deletion
+                                                                                                              erol aerobic conditions, 20 gene deletions gltA (citrate synthase, 2.3.3.1) nonlethal. gltA deleted
+(large X), TMFA predicts citrate lyase (4.1.3.6) synthesizes citrate                                     FBA TMFA different predictions, (cit) operating reverse. (B) correct phenotype, citrate lyase                                    better 14 worse predictions  Table S12). constrained operate forward direction. requires                                   glucose anaerobic conditions, 26 gene deletions ac, oaa, cit concentrations lie beneath shaded surface.                                        FBA TMFA different predictions.                                                                                                               performed growth phenotype screens 20 dele-
+   example phenotype-correction constraint illus-                                                    tion strains available Keio collection  Fig. S5).
+trated Fig. 3. TMFA predicts deletion citrate                                                  Assuming deletion strains unavailable (cit) synthase (gltA, EC 2.3.3.1) nonlethal, citrate                                                  Keio collection involve essential genes (25), lyase (EC 4.1.3.6) rescuing growth. case citrate                                                   screens reveal TMFA makes better prediction synthesized oxaloacetate (oaa) acetate (ac),                                                         FBA cases worse prediction 18 cases
+instead oaa acetyl-CoA (accoa) (Fig. 3 .                                                     Table S13). phenotype-correction constraint        DgltA lnðacÞ þ lnðoaaÞ  lnðcitÞ<  2:76                                                         Thermodynamic variability analysis: ranges                                                                                                               metabolite concentration TMFA,                                                                                                 Thermodynamic variability analysis (TVA) used                                                                                                               study ranges metabolite concentrations allow
+                             lnðacÞ þ lnðoaaÞ  lnðcitÞ<  7:77                                               maximal growth glucose minimal media absence
+                                                                                                              uncertainty standard Gibbs energy formation                                                                                                                                   0 RTMFA. Fig. 3 B, constraints indicated                                                    group (Dgr G 0). Using TMFA, identified total shaded planes, concentrations half-space                                                      124  618) intracellular metabolites feasible plane satisfying constraint.                                                                    concentration range default global bounds
+   CONGA identified total 20 double- triple-                                                    (0.00120 mM, Table 2, Table S14 Fig. S5),
+deletions TMFA predicted nonlethal phenotype                                                      indicating thermodynamic constraints impose FBA lethal  Table S11). able                                                    restrictions metabolite concentrations.
+experimental phenotypes 14 multi-gene dele-                                                         study Bennett et al. (22) examined exponential
+tions, TMFA worse prediction cases.                                                         growth E. coli, reported measurements 107
+
+Biophysical Journal 105(2) 512–522
+ Quantitative Assessment TMFA                                                                                                                                                                519
+
+TABLE 2 Comparison model-predicted experimentally                                                                      tion range restricted thermodynamic constraints
+measured metabolite concentration ranges glucose aerobic                                                                  (Fig. 4 B), 57 did  e., ranges conditions maximal growth
+                                                                                                                              global bounds). results suggest TMFA                                                                    Predicted TMFA                                          suitable framework incorporating mea-
+                                                             Unconstrained Constrained                                  sured concentration data constraint-based models,
+                                                             thermodynamics thermodynamics Total                              tool predict experimental concentration
+Experimentally  Overlap                                            57                              16            73           measurements.
+Measured       overlap                                          11                              23            34              second study, Ishii et al. (27), examined E. coli
+                data                                            426                             85            511          grown continuous culture 0.2 h1, reported mea-
+Total                                                              494                             124           618
+                                                                                                                              surements 88 metabolites iJR904 model. 
+‘‘Constrained’’ indicates concentration ranges tighter global                                                formed TVA growth rate examine effect bounds (0.001–20 mM).                                                                                                         suboptimal growth predicted metabolite concentrations.
+                                                                                                                              general, fewer metabolites predicted metabolites iJR904 model.  predicted                                                                      constrained ranges suboptimal growth (97
+centration ranges overlapped measured values                                                                       compared 124, Table S15 Fig. S7), likely 73 instances, failed overlap 34 (Table 2,                                                                        increase network flexibility associated Fig. 4, Fig. S6). 34 metabolites (Fig. 4                                                                     suboptimal growth. compared model predic- , 12 measurements did overlap predicted                                                                      tions measurements taken dataset Ishii et al.
+values measurements fell outside global                                                                       (27) predictions agree experi-
+bounds defined model. addition, 11                                                                     mental measurements (74 88 measurements, Table
+12 metabolites, concentration range predicted                                                                          S16, Fig. S8, Fig. S9, Fig. S10). 68 metabo-
+TMFA spanned range allowed global bounds,                                                                     lites measured studies, 42 predictions agreed indicating changing global bounds likely                                                                       experimental measurements studies.
+resolve conflicts.  doing unlikely result tighter ranges predicted metabolite concentra-
+                                                                                                                              Examination thermodynamic bottlenecks
+tions. remaining 22  34) conflicting metabo-
+lites measurements did fall global                                                                           Previous studies utilized thermodynamic constraints bounds, thermodynamic consistency  e., predicted concen-                                                                    identify candidate reactions regulation  trans-
+                                                                                                                                                                          0
+trations consistent experimental measurement)                                                                      formed Gibbs energy reaction (Dr G ) far zero) achieved 22 metabolites allowing uncer-                                                                     (21,23), identify thermodynamic bottlenecks tainty using RTMFA.  predicted concentration                                                                      cellular metabolism (7,23). Thermodynamic bottlenecks
+range metabolites RTMFA spanned                                                                       defined reactions render metabolic path-
+global range, indicating RTMFA unable predict                                                                      ways infeasible given known concen- metabolite concentrations great precision.                                                                      trations (41,42). term later used (7,23)                                                                                                                                                                   0 73 instances overlap measured TMFA                                                                         reactions Dr G close equilibrium.
+predicted values, 16 metabolites feasible concentra-                                                                    reactions feasible narrow concentration
+
+                adn                                                        B              nadp
+                dgsn
+                 cytd
+                  gsn                                                                      fum
+                 ade
+              dad-2                                                                        trp-L
+             adpglc
+                                                                                                                                                   FIGURE 4 Comparison model-predicted                                                                                            nadh
+                 anth
+              ppcoa
+                                                                                                                                                   experimentally observed metabolite concentrations
+                inost
+                  aps
+                                                                                           prpp                                                    maximal growth. dataset Bennett et al.
+                 glcn                                                                      pep                                                     (22) contains metabolite concentrations 107
+             dhor-S
+                histd                                                                     arg-L                                                    metabolites iJR904.   Plot 34 metabo-
+                  coa
+                                                                                                                                                   lites experimental theoretical 
+Metabolite
+
+
+
+
+                                                                             Metabolite
+
+
+
+
+                   fad
+                                                                                           r5p
+              nadph
+             succoa                                                                                                                                centration measurements overlap. (B) Plot
+                                                                                          ru5p-D
+                  imp
+                 cmp
+                                                                                                                                                   16 metabolites experimental                  amp                                                                      xu5p-D
+                  akg
+                                                                                                                                                   theoretical concentration measurements overlap,
+                                                                                          mal-L
+                succ
+              cbasp
+                                                                                                                                                   metabolite concentration ranges
+               pro-L                                                                       ctp                                                     constrained thermodynamics.  B)
+                 adp
+              accoa                                                                        nad                                                     Circles (diamonds) Mean predicted (measured)
+                 actp
+                    cit                                                                    6pgc                                                    metabolite concentration . (Horizontal bars)                asp-L
+                 g6p                                                                       atp
+                                                                                                                                                   concentration range. Metabolite abbreviations                  g1p         Global Default Bounds
+                   f6p       Measured Concentration                                                                                                Supporting Material.
+                                                                                           fdp
+                glu-L        Predicted Concentration
+                    0.0001     0.001       0.01        0.1     1     10                       0.0001     0.001   0.01   0.1      1     10    100
+                                           Concentration (mM)                                                    Concentration (mM)
+
+
+
+                                                                                                                                                             Biophysical Journal 105(2) 512–522
+ 520                                                                                                                                       Hamilton et al.
+
+                                                                                                                                                 0
+range.  term ‘‘thermodynamic bottleneck’’ refers                              prediction. Reactions GLUPRT (Dr G < 0) bottleneck space potential metabolite concentra-                              remain feasible concentration ranges spanning tions. Thermodynamic models provide quantitative                                      orders magnitude. Finally, PRPP synthetase, primary
+values feasible concentration range metabolites                                regulatory control point purine biosynthesis (30), associated bottleneck. TVA used study                                   free energy range far zero.
+                                               0
+ranges reaction Gibbs energies (Dr G ) allow
+maximal growth glucose minimal media absence
+                         0                                                                DISCUSSION uncertainty Dgr G 0. Using TVA, identified total 168 reactions operate single direction                                  TMFA modifies flux balance analysis thermodynamic free energy range includes equilibrium                                      constraints, allowing expanded predictive capability Table S17).                                                                               constraint-based methods. TMFA ensures reactions
+   reaction operating close equilibrium                               operate thermodynamically feasible directions, elimi-
+phosphoribosylaminoimidazole synthase (PRAIS), inter-                                  nates thermodynamically infeasible closed cycles, mediate step purine biosynthesis. used TVA iden-                                 accounts thermodynamic coupling reactions
+                           0
+tify range Dr G metabolite concentrations                                      network. work, demonstrate thermody-
+consistent cellular growth reaction metab-                              namic constraints provide guide predicting reac-
+olite pathway (Fig. 5). TVA shows driving                                 tion directions absence prior knowledge. force PRAIS large concentration gradient                                 systematically evaluated impacts thermody-
+2-formamido-n(1)-(5-phospho-D-ribosyl)acetamidine                                         namic constraints metabolic flux distributions (fpram) 5-amino-1-(5-phospho-D-ribosyl)imidazole-4-                                   cellular growth rates, highlight importance carboxamide (air), PRAIS feasible narrow                                explicitly accounting thermodynamic coupling range fpram air concentrations. Conversely, reactions                              reactions. used TMFA make qualitative                                        0 large positive negative Dr G relatively                               quantitative predictions, validated predic-
+insensitive metabolite concentration, TMFA confirms                                tions variety genome-scale datasets.                                                                                           predictions generate hypotheses regarding
+                                                                                          reaction directions thermodynamic bottlenecks.                                                     ΔrG′ (kcal / mol)
+                                           -30    -20        -10        0            10   instances predictions metabolite
+                      atp
+                          r5p                                                             concentrations lack precision accuracy,                             PRPPS
+                    amp
+                          prpp
+                                                                                          case additional types data constraints incorpo-
+                    gln-L
+                    glu-L
+                            GLUPRT                                                        rated TMFA. Identifying additional data                 atp + gly
+                          pram
+                            PRAGS
+                                                                                          useful important question addressed                      adp
+                          gar
+                                                                                          years ahead.
+                   10fthf
+                      thf
+                            GARFT                                                            work, TMFA able achieve
+              atp + gln-L
+                          fgam
+                            PRFGS
+                                                                                          physiologically realistic predictions growth rates               adp + glu-L
+                          fpram
+                                                                                          flux distributions absence uncertainty esti-
+                      atp                                                                                                          0
+                     adp
+                            PRAIS
+                                                                                          mated contributions groups (Dgr G 0k,est) formation
+                                                                                                           0
+              hco3 + atp air
+                                                                                                             0
+                            AIRC2
+                                                                                          energies (Df G ), concentration measurements                      adp
+                          5caiz                                                           ATP required presence uncertainty.                             AIRC3*
+                                                                                          encouraging TMFA reproduce wild-type growth
+              asp-L + atp 5aizc
+                            PRASCS
+                                                                                          rates minimum experimental data,                     adp
+                          25aics                                                          additional concentration measurements necessary
+                                ADSL2r
+                       fum                                                                refine growth rate predictions conditions (e.g.,
+                              aicar
+                     10fthf
+                                AICART                                                    knockout mutants). observed slightly
+                        thf
+                              fprica                                                      different global concentration bounds necessary                                 IMPC*
+                                                                                          support growth aerobic versus anaerobic conditions, sug-
+                              imp
+       Reaction         0
+                   v·ΔrG′ > 0
+                  Feasible ΔrG′ Range 0.01       0.1             1              10        gesting concentration predictions media-dependent.
+                                                   Concentration (mM)
+                  Feasible Concentration Range
+                                                                                             TMFA used generate hypotheses regarding
+FIGURE 5 Model-predicted concentrations Dr G ranges                                                                             0             reaction directions thermodynamic bottlenecks. metabolites reactions purine biosynthesis pathway. (Circles                    example, cofactor pairs ATP/ADP appear                                                       0 diamonds) Mean predicted concentrations (Dr G ). (Horizontal bars)
+                         0
+                                                                                          numerous reactions, resulting constraints  concentration (Dr G ) range. Underlined reaction abbreviations signify               centration ratio metabolites (7).            0          0 Dr G Dr G 0 opposite signs. Starred reaction abbreviations
+                                                                                          constraining ATP concentration indicate reaction direction iJR904 model opposite                               0
+shown figure, Dr G values sign reversed agree                necessary achieve physiologically realistic behavior                                                                                                                                 0 direction shown. Metabolite reaction abbreviations                    presence uncertainty Dgr G 0k,est estimates.  Supporting Material                                                          constraints metabolite ratios serve drive
+
+Biophysical Journal 105(2) 512–522
+ Quantitative Assessment TMFA                                                                                                              521
+
+reactions physiological directions. Physiological       improve solver performance different formu-
+action directions assigned based vitro charac-      lations (50). observed priori thermodynamic
+terization enzymes conditions vary                constraints reaction directions (Eqs. 14–18) reduced
+significantly vivo.  envision           solution times order magnitude. Alternatively,
+TMFA complementing approaches (17–19,43)                 enforcing strict thermodynamic requirements, used calculate thermodynamically feasible reaction           use thermodynamic metabolomic data directions new genome-scale models. TMFA prom-             guide, seek solution maximizes consistency
+ises useful tool metabolic engineering applica-         available data (e.g., allowing thermodynamic
+tions, identifying thermodynamic bottlenecks                  concentration constraints violated, employing
+engineered pathways (44) pinpointing reactions          penalty objective). study suggests metabo- reversible operation enables new routes chemical          lite concentrations remain stable response perturba-
+synthesis (45).                                                     tions, implying single set metabolomics data (27)
+   observed TMFA model limited           used model variety conditions.
+ability predict metabolite concentrations. majority reactions iJR904 network thermodynamically favorable, relatively insen-         SUPPORTING MATERIAL
+sitive metabolite concentrations. Obtaining tighter              Methods, results, figures, references (51–54) available http://
+bounds predicted metabolite concentrations require           www.biophysj.org/biophysj/supplemental/S0006-3495(13)00685-1. use penalty function (46), thermodynamic objec-
+                                                                    authors acknowledge Mink Arunrattanamook John Friel tive (20), use kinetic constraints. Recent studies        experimental contributions. group contribution method software used identified correlations metabolite concentra-          free energy calculations kindly provided Vassily Hatzimanikatis.
+tions physiochemical properties (47,48), including          work funded National Science Foundation KM metabolic enzymes (22). Alternatively, incorporation          CAREER grant J.L.R. (NSF 1053712) Graduate Research known metabolite concentrations enable TMFA               Fellowship J.J.H. (grant  DGE-0718123). V.D. supported predict concentrations metabolites data         Khorana Program University Wisconsin-Madison.
+available. light results, suggest  additional constraints, TMFA better suited validating
+phenotypes generating hypotheses quantitative          REFERENCES
+prediction metabolite concentrations.                             1. Oberhardt, M. , B. Ø. Palsson, J.  Papin. 2009. Applications    Furthermore, results suggest additional types            genome-scale metabolic reconstructions. Mol. Syst. Biol. 5:320.
+data constraints needed improve TMFA’s pre-           2. Lewis, N. E., H. Nagarajan, B. Ø. Palsson. 2012. Constraining dictions growth phenotypes metabolite concentra-                 metabolic genotype-phenotype relationship using phylogeny                                      0                                  silico methods. Nat. Rev. Microbiol. 10:291–305.
+tions uncertainties Df G 0est. recently published
+                                             0                       3. Orth, J. D.,  Thiele, B. Ø. Palsson. 2010. flux balance
+GCM provides tighter estimates Df G 0est (49),              analysis? Nat. Biotechnol. 28:245–248. approaches successfully combined group contri-            4. Beard, D. , S. D. Liang, H. Qian. 2002. Energy balance                                                                0
+bution estimates experimentally measured Df G 0                    analysis complex metabolic networks. Biophys. J. 83:79–86.
+values equilibrium constants (18,21). observed            5. Qian, H., D.  Beard, S. D. Liang. 2003. Stoichiometric network inclusion additional constraints cofactor            theory nonequilibrium biochemical systems. Eur. J. Biochem.
+                                                                        270:415–421.
+centrations formation energies (ATP, NAD, NADP, ) constrains flux space (data shown).             6. Schilling, C. H., D. Letscher, B. Ø. Palsson. 2000. Theory                                         0                               systemic definition metabolic pathways use interpreting
+experimental measurements Df G 0 cofactors                metabolic function pathway-oriented perspective. J. Theor. Biol. promising way improve accuracy thermodynamic                203:229–248.
+models. Finally, note approach underestimates            7. Henry, C. S., L. J. Broadbelt, V. Hatzimanikatis. 2007. Thermody-
+                        0
+uncertainty Dr G 0 neglecting error associated                namics-based metabolic flux analysis. Biophys. J. 92:1792–1805. structural groups unchanged reaction, approach          8. Schellenberger, J., N. E. Lewis, B. Ø. Palsson. 2011. Elimination                                                 0         0             thermodynamically infeasible loops steady-state metabolic models. valid contributions Dgr G 0 Df G 0        Biophys. J. 100:544–553. fact, linearly additive. Additional types data likely     9. Heuett, W. J., H. Qian. 2006. Combining flux energy balance necessary considering error associated                 analysis model large-scale biochemical networks. J. Bioinform. unchanged groups.                                                 Comput. Biol. 4:1227–1243.
+                                                             0
+   Associated need reduce uncertainty Df G 0est        10. Beard, D. , E. Babson, ., H. Qian. 2004. Thermodynamic 
+                                                                        straints biochemical networks. J. Theor. Biol. 228:327–333. need improve model run-time performance, large
+mixed-integer programs TMFA quite                    11. Yang, F., H. Qian, D.  Beard. 2005. Ab initio prediction                                                                         thermodynamically feasible reaction directions biochemical
+cumbersome. recent Master’s thesis examines number                  network stoichiometry. Metab. Eng. 7:251–259. thermodynamic approaches (EBA, TMFA, )                12. Alberty, R.  2003. Thermodynamics Biochemical Reactions. John
+theoretical practical perspective, provides insights            Wiley & Sons, Hoboken, NJ.
+
+                                                                                                        Biophysical Journal 105(2) 512–522
+ 522                                                                                                                                           Hamilton et al.
+
+13. Goldberg, R. N., Y. B. Tewari, T. N. Bhat. 2004. Thermodynamics           34. Suthers, P. F.,  R. Zomorrodi, C. D. Maranas. 2009. Genome-
+    enzyme-catalyzed reactions database quantitative biochem-                scale gene/reaction essentiality synthetic lethality analysis. Mol.
+    istry. Bioinformatics. 20:2874–2877.                                              Syst. Biol. 5:301.
+14. Mavrovouniotis, M. L. 1990. Group contributions estimating stan-          35. Neidhardt, F. C., P. L. Bloch, D. F. Smith. 1974. Culture medium
+    dard Gibbs energies formation biochemical compounds                      enterobacteria. J. Bacteriol. 119:736–747.
+    aqueous solution. Biotechnol. Bioeng. 36:1070–1082.                           36. Yang, C., Q. Hua, ., K. Shimizu. 2003. Analysis Escherichia coli
+15. Mavrovouniotis, M. L. 1991. Estimation standard Gibbs energy                   anaplerotic metabolism regulation mechanisms meta-
+    changes biotransformations. J. Biol. Chem. 266:14440–14445.                    bolic responses altered dilution rates phosphoenolpyruvate
+                                                                                      carboxykinase knockout. Biotechnol. Bioeng. 84:129–144.
+16. Jankowski, M. D., C. S. Henry, ., V. Hatzimanikatis. 2008. Group
+    contribution method thermodynamic analysis complex metabolic           37. Gelfand, D. H., R.  Steinberg. 1977. Escherichia coli mutants
+    networks. Biophys. J. 95:1487–1499.                                               deficient aspartate aromatic amino acid aminotransferases.
+                                                                                      J. Bacteriol. 130:429–440.
+17. Feist,  M., C. S. Henry, ., B. Ø. Palsson. 2007. genome-scale
+    metabolic reconstruction Escherichia coli K-12 MG1655                38. Berg, C. M., M. D. Wang, ., L. Liu. 1988. Acquisition new meta-
+    accounts 1260 ORFs thermodynamic information. Mol. Syst.                  bolic capabilities: multicopy suppression cloned transaminase genes
+    Biol. 3:121.                                                                      Escherichia coli K-12. Gene. 65:195–202.
+18. Fleming, R. M. T.,  Thiele, H. P. Nasheuer. 2009. Quantitative          39. Billheimer, J. T., H. N. Carnevale, ., E. E. Jones. 1976. Ornithine
+    assignment reaction directionality constraint-based models                  d-transaminase activity Escherichia coli: identity acetylorni-
+    metabolism: application Escherichia coli. Biophys. Chem. 145:               thine d-transaminase. J. Bacteriol. 127:1315–1323.
+    47–56.        

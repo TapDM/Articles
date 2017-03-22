@@ -1,0 +1,631 @@
+The essential polysome-associated RNA-binding protein
+RBP42 targets mRNAs involved Trypanosoma brucei
+energy metabolism
+
+
+ANISH DAS,1 RACHEL MORALES,1 MAHRUKH BANDAY,1 STACEY GARCIA,1 LI HAO,2 GEORGE M. CROSS,3
+ANTONIO M. ESTEVEZ,4 VIVIAN BELLOFATTO1,5
+1
+ Department Microbiology Molecular Genetics, UMDNJ-NJ Medical School, Newark, New Jersey 07103, USA
+2
+ Center Genome Informatics, UMDNJ-NJ Medical School, Newark, New Jersey 07103, USA
+3
+ Rockefeller University, New York, New York 10065, USA
+4
+ Instituto Parasitologia y Biomedicina ‘‘Lopez-Neyra,’’ CSIC Avda. Del Comocimiento s/n. Armilla, 18100 Granada, Spain
+
+
+
+
+ABSTRACT
+RNA-binding proteins target mRNA coding regions emerging regulators post-transcriptional processes eukaryotes. newly identified RNA-binding protein, RBP42, targets coding region mRNAs insect form African trypanosome, Trypanosoma brucei. RBP42 essential protein associates polysome-bound
+mRNAs cytoplasm. global survey RBP42-bound mRNAs performed applying HITS-CLIP technology, captures protein–RNA interactions vivo using UV light. Specific RBP42–mRNA interactions, mRNA interactions known RNA-binding protein, purified using specific antibodies. Target RNA sequences identified quantified using high-throughput RNA sequencing. Analysis revealed RBP42 bound mainly coding region mRNAs encode proteins involved cellular energy metabolism. mechanism RBP42’s function unclear present, speculate RBP42 plays critical role modulating T. brucei energy metabolism.
+Keywords: trypanosomes; mRNA translation; NTF-2 containing proteins; HITS-CLIP analysis
+
+
+
+
+INTRODUCTION                                                                   enable parasite respond environmental
+                                                                               changes cell little,  differential transcription.
+African trypanosomes undergo complex life cycle 
+                                                                                  RNA-binding proteins interact target mRNAs,
+quiring morphological metabolic changes controlled
+                                                                               cis-acting elements, post-transcriptional gene expression programs. absence                                                                                reactions lead regulated mRNA stability trans-
+regulated transcription, trypanosome gene expression                                                                                lation. trypanosomes, cis-acting elements regulated mainly post-transcriptional level,                                                                                identified mainly 39 UTRs stage-specific cell cycle–
+environmental signals likely integrated mRNA
+                                                                               specific mRNAs (Fernandez-Moya Estevez 2010; Kramer
+maturation, localization, translation, decay (Fernandez-
+                                                                               Carrington 2011). extensively studied
+Moya Estevez 2010; Kramer Carrington 2011).                                                                                stage-specific mRNAs trypanosomes procyclin
+trypanosomes, post-transcriptional reactions likely ex-
+                                                                               mRNAs (Acosta-Serrano et al. 2001). GPEET, EP1, EP2
+tensive intricately networked account large
+                                                                               procyclins major surface glycoproteins encoded number transcripts proteins fluctuate                                                                                procyclic mRNAs; cover Trypanosoma brucei
+abundance different stages parasite life-cycle
+                                                                               surface parasite resides midgut tsetse
+ review, Siegel et al. 2011). unclear post-
+                                                                               vector. 39 UTRs EP1 GPEET contain transcriptional reactions drive differential gene expression
+                                                                               stem–loop structures encoding cis-acting elements
+                                                                               regulate mRNA translation stability. Specifically,
+                                                                               EP1 translation increased RNA-binding protein
+   5
+    Corresponding author                                                       TbZPF3 binds cis-acting elements 39
+   E-mail bellofat@umdnj.edu
+   Article published online ahead print. Article publication date   UTR EP1 (Walrad et al. 2009). Similarly, GFP reporter http://www.rnajournal.org/cgi/doi/10.1261/rna.033829.112.                   gene translation increased RNA-binding proteins
+
+1968                                 RNA (2012), 18:1968–1983. Published Cold Spring Harbor Laboratory Press. Copyright Ó 2012 RNA Society.
+                                                                                 Coordination mRNA metabolism RBP42
+
+
+
+ALB3 ALB4 bind cis-acting 39 UTR element           parasites (Das et al. 2006). Protein sequence analysis revealed
+chimeric mRNA containing GFP open reading frame              RBP42 harbors regions similar known protein
+(ORF) flanked GPEET 39 UTR (Mani et al. 2011).            domains. N-terminal 110 amino acids display homology
+Intriguingly, cases effect RNA-binding        NTF2-like protein domain (PROSITE domain
+protein–39 UTR interaction modulated coding region         PS50177), C-terminal 90 amino acids display ho-
+sequences target mRNAs. Additional RNA-               mology RNA recognition motif (RRM) protein
+binding proteins probably contribute translational effi-      domain (PROSITE domain PS50102) (Fig. 1A,B; Bandziulis
+ciency procyclin. Furthermore, extremely little known      et al. 1989). NTF2-like domains proteins translational regulation mRNAs encode          diverse activities usually involved protein–protein
+nonmembrane proteins (Kramer et al. 2010).                       interactions. RRM domains common RNA-
+   addition playing role translational regulation,    binding domains eukaryotic RNA-binding proteins.
+RNA-binding proteins contribute mRNA stability                search proteins similar domain architecture
+trypanosomes. best-characterized RNA-binding pro-            revealed RBP42 closely resembles mammalian
+tein involved mRNA stability regulation T. brucei          G3BP proteins fly homolog, Rasputin (Parker
+DRBD3, called PTB1, stabilizes cohort            et al. 1996; Irvine et al. 2004). G3BP interacts RAS
+mRNAs binding 39 UTRs (Estevez 2008;             GTPase-activating protein p120, protein involved Stern et al. 2009). RNA decay experiments, depletion       mammalian RAS signaling pathway. G3BP essential DRBD3/PTB1 resulted reduced half-life subset        mouse development, expression increased RNA cohort. alterations mRNA stability         human cancer cell types (Barnes et al. 2002; Kim et al.
+explain DRBD3/PTB1 essential parasite viability.      2007). Interestingly, G3BP reported multiple
+Interestingly, study indicated DRBD3-       activities related cellular RNA metabolism, including
+modulated mRNAs encode cellular membrane proteins                RNA helicase activity, phosphorylation-dependent endo-
+(Estevez 2008). finding consistent growing        ribonuclease activity, cytoplasmic stress granule facil-
+literature verifying post-transcriptional coregulation     itator activity (Atlas et al. 2007; Solomon et al. 2007; Ortega
+lated genes yeasts, Drosophila, mammalian cells           et al. 2010).
+(Keene 2007).                                                       spite similar domain architecture     investigated uncharacterized RNA-binding          RBP42 G3BP, noticeable differences exist.  protein, named RBP42 (Gene identification Tb927.6.4440),         25  primary amino acid sequence conserved determine role trypanosome RNA metabolism.             T. brucei RBP42 mammalian G3BPs. Second,
+(RBP means RNA-binding protein, 42 clarifies            RNA-binding domain, RRM, contains conserved
+RBP42 42nd identified RNA-binding protein              helical regions G3BPs conserved helix trypanosomatids.) RBP42 protein sequence suggests            RBP42. Finally, arginine-glycine-rich (RGG) domain, RBP42 distant homolog metazoan RAS-             present C terminus G3BPs, absent RBP42.
+GTPase activating protein SH3-binding protein, G3BP              PxxP motifs, modulate protein–protein
+(Parker et al. 1996; Irvine et al. 2004). G3BP broadly      interactions, vary number different mammalian
+functioning mRNA-binding protein known integrate              G3BP family members, different try-
+extracellular signals intracellular metabolic responses.    panosomatid RBP42 orthologs. intriguing possibility RBP42 plays important
+role trypanosome mRNA metabolism inspired                                                                  RBP42 essential normal cell growth
+characterize RNA targets. accomplish  utilized highly powerful technique, named HITS-CLIP,              determine RBP42 essential parasite
+traps protein–RNA interactions vivo UV crosslinking        viability, used conditional double-stranded RNAi 
+(Ule et al. 2003; Licatalosi et al. 2008). global picture   diated knockdown (RNAi) RBP42 procyclic cell line
+RBP42–RNA interactions demonstrates RBP42 binds             RBP42 allele; second allele inser- mRNA coding sequences. interactions occur           tionally inactivated puromycin-resistant cassette (Fig. cohort mRNAs function cellular energy        2A,B).  cell line lacking RBP42 alleles metabolism.                                                      established despite trials.) clonal cell lines                                                                  selected, exhibited slow growth phenotype
+                                                                 altered morphology 2 d RNAi induction. RESULTS
+                                                                 data indicate RBP42 essential protein procyclic
+                                                                 T. brucei survival. Immunoblot analysis typical clone,
+RBP42 similar mammalian RNA-binding
+                                                                 called AM1, showed expected reductions RBP42
+protein, G3BP
+                                                                 protein (Fig. 2C). Depletion RBP42 caused AM1 cells RBP42 originally identified copurifying protein         stop dividing, reflected growth curve (Fig. 2D). RNA polymerase II subunit RPB4 T. brucei procyclic       Microscopic observation RBP42-depleted AM1 cells 
+                                                                                                   www.rnajournal.org       1969
+ Das et al.
+
+
+
+                                                                                               day 4 revealed noticeable phenotypic
+                                                                                               alterations, cells exhibiting ab-
+                                                                                               normal shape (Ploubidou et al. 1999;
+                                                                                               Hammarton 2007). Cells exhibited ap-
+                                                                                               parent cytokinesis defects, inferred
+                                                                                               large number nuclei                                                                                                parasites (Fig. 2E). DAPI-stained
+                                                                                               nuclei kinetoplast photographed
+                                                                                               counted cell basis; z30 
+                                                                                               RBP42 depleted cells aber-
+                                                                                               rantly shaped, containing                                                                                                nuclei (including 1K2N, 2K3N, 2K2N,
+                                                                                               0K4N). Approximately 3                                                                                                 cells zoids, containing nucleus
+                                                                                               (1K0N). comparison, noninduced cells,
+                                                                                               intact RBP42, contained <1                                                                                                 aberrant cells multiple nuclei                                                                                                <1  zoids. Interestingly, recent RNAi-
+                                                                                               based screen designed identify essential
+                                                                                               T. brucei genes (Alsford et al. 2011) 
+                                                                                               dicated RNAi knockdown RPB42
+                                                                                               resulted defect cellular fitness                                                                                                bloodstream procyclic form para-
+                                                                                               sites, defect life cycle dif-
+                                                                                               ferentiation. Taken  data
+                                                                                               suggest decreased levels RBP42
+                                                                                               negatively impact parasite morphology
+                                                                                               growth multiple stages                                                                                                life cycle.
+
+                                                                                               RBP42 cytoplasmic protein
+                                                                                               associates polysomes
+                                                                                               assess cellular distribution                                                                                                RBP42, fractionated cellular extracts
+                                                                                               differential centrifugation assayed
+                                                                                               fraction immunoblot analysis
+                                                                                               using specific antibodies. Known nuclear
+                                                                                               cytoplasmic proteins fractionated                                                                                                expected; RPB1, largest subunit                                                                                                RNA polymerase II, served nuclear
+                                                                                               marker Golgi Reassembly Stacking
+FIGURE 1. Alignment T. brucei RBP42 human G3BP1.   Multiple sequence                  Protein (GRASP) ER chaperone
+alignments trypanosomatid RBP42s metazoa G3BP1s. Gene annotations           BiP served cytoplasmic markers. T. brucei (Tb927.6.4440), Leishmania major (LmjF.30.3090), Homo sapiens (G3BP1,Q13283,         fractionation analysis demonstrated Gene identification 10146), Mus musculus (P97855). NTF-2 domain overlined gray bar; RNA recognition motif (RRM) domain underlined white bar;       RBP42 predominantly present par- PxxP motifs T. brucei overlined black line. single PxxP motif   asite cytoplasm (Fig. 3A,B). sep-
+human mouse genes underlined. Numbering ends lines identifies amino acid      aration, high-speed centrifugation, location organism. (B) Schematic comparison T. brucei RBP42 human              cytoplasmic extracts soluble frac-
+G3BP1. RBP42 79  size G3BP1 (drawing approximately scale). NTF-2
+domain (light gray), weakly acidic acidic regions (dashed-stripe striped), triple   tion particulate fraction, pre-
+single PxxP motifs (PxxP), RRM domain (white), RRG-rich region (black) shown.          dominantly consists ribosomes RBP42 G3BP1 similar identical;  trypanosome protein           polysomes, resulted RBP42. Immu-
+named accordance published trypanosomatid RNA-binding protein designation
+scheme  Gaudenzi et al. 2005). RRM, RNP1 signature sequence motif
+                                                                                               nofluorescence microscopy fixed par-
+(K/R) G (F/Y)(G FVX(F/Y) present T. brucei RBP42 KGYVFFDF (amino acids              asites indicated RBP42 localization
+311–319).                                                                                      consistent observation
+
+1970         RNA, Vol. 18,  11
+                                                                                               Coordination mRNA metabolism RBP42
+
+
+
+
+FIGURE 2. Effect RBP42 depletion cell viability.   RNAi-dependent ablation RBP42 mRNA T. brucei strain AM1. strain
+contains single intact RBP42 allele, RNAi construct. (B) Analysis genomic DNA assess AM1 genotype. PCR reactions
+utilized primers  -B, -C, -D located shown panel  0.6-kb DNA lane 4 0.9-kb DNA lane 6 confirm AM1
+contains puromycin cassette place endogenous RBP42 alleles. 1.3-kb band lane 2 shows remaining RBP42
+allele intact. (Lanes 1,3,5) Controls showing presence intact RBP42 alleles parental clone 3 cell line. (C) RBP42 decreased ablation mRNA tetracycline-dependent RNAi induction, demonstrated immunoblot analysis. Tubulin levels shown loading
+control. (D) T. brucei requires RBP42 cell viability. Tetracycline, activates RNAi-dependent ablation RBP42, added day 0.
+Parasites directly observed counted daily using hemocytometer. clones studied AM1 chosen representative
+example observed phenotype. (E) Cellular morphology cytokinesis altered result RBP42 depletion. Examples predominant phenotypes shown fluorescent micrographs containing DAPI-stained nuclei kinetoplasts  blue) parasites represent phenotype observed day 4 RBP42 depletion. Quantification DAPI-stained nuclei cell shown n = 445 cells histogram right micrographs. Open bars, normal phenotypic distribution.
+
+
+                                                                                                                  www.rnajournal.org          1971
+ Das et al.
+
+
+
+
+FIGURE 3. RBP42 S100-precipitated fraction cellular cytoplasm.   Subcellular fractionation scheme shown. (B)
+Immunoblotting fractionated lysates identifies RBP42 cytoplasmic associated ribosome-containing subcellular fraction (S100
+pellet). Protein detection performed using antibodies listed left panel. RPB1, largest subunit RNA polymerase II, nuclear marker; GRASP BiP cytoplasmic markers fractionate S100 supernatant early detergent step fractionation (Ho et al. 2006). (C) Immunofluorescent detection fixed parasites shows cytoplasmic localization RBP42. 15 stacks shown. stacks collected refine resolution.
+
+
+  immunostained RBP42 visible                         80S ribosome monomers enriched fractions 3–5
+cytoplasm dotted granular appearance (Fig. 3C).                     (Fig. 4A). Immunoblot assays polysomal fractions revealed
+RBP42 observed nucleus.                        significant portion RBP42 associated dotted stains appeared outline nuclear periphery.                      polysomes. Poly -binding protein (PABP), binds  RBP42 did colocalize nuclear pore                       mRNA polysomes, serves control presence
+complex protein, NUP158.                                                      mRNA polysomal fractions. test    determine RBP42 associated poly-                        RBP42’s interaction polysomes mRNA-dependent,
+somes, fractionated polysomes monosomes                            purified polysomes treated limiting amounts sucrose-density gradient centrifugation cytoplasmic ex-                    RNase prior fractionation. RNase treatment clipped tracts tested presence RBP42 polysomal                      mRNAs polysomes released RBP42 fractions. Distribution rRNA large ribosomal                       PABP lower-molecular-weight complexes (Fig. 4B).
+protein L5 showed polysomes enriched                         purified polysomes fractionated prior
+fractions 7–10 40S 60S ribosomal subunits,                    RNase treatment, RBP42 PABP remained tightly
+
+1972         RNA, Vol. 18,  11
+                                                                                            Coordination mRNA metabolism RBP42
+
+
+
+                                                                                                 copurified poly + RNA, indicat-
+                                                                                                 ing direct interaction cellular
+                                                                                                 mRNA vivo (Fig. 4C). PABP,                                                                                                  directly binds mRNA, served                                                                                                  control copurified poly +
+                                                                                                 fraction (Fig. 4C). control experi-
+                                                                                                 ment, similar purification poly +
+                                                                                                 mRNA noncrosslinked parasites
+                                                                                                 did copurify RBP42 PABP.
+                                                                                                 Taken  data indicate                                                                                                  RBP42 directly associates translat-
+                                                                                                 ing mRNAs parasite.
+                                                                                                    assess RBP42 affects mRNA
+                                                                                                 translation T. brucei, measured
+                                                                                                 overall translation rate normal                                                                                                  RBP42-depleted cells. Protein synthesis
+                                                                                                 rates measured incorporation
+                                                                                                 35S-methionine/cysteine cells
+                                                                                                 (Supplemental Fig. 1). RBP42-depleted
+                                                                                                 cells showed 34  diminished rate                                                                                                  protein synthesis compared normal
+                                                                                                 cells. (Protein synthesis rate linear
+                                                                                                 duration assay 35S-
+                                                                                                 incorporation similar dif-
+                                                                                                 ferent cell densities.) reduced
+                                                                                                 protein synthesis reflect slow-
+                                                                                                 growth rate RBP42-depleted cells,
+                                                                                                 direct effect RBP42                                                                                                  mRNA translation (Barquilla et al. 2008;
+                                                                                                 Freire et al. 2011).
+
+                                                                                                 Crosslinking immunoprecipitation
+FIGURE 4. RBP42 fractionates predominantly polysomes.   Polysome fractionation            RBP42 RNA targets
+profile shown. Immunoblotting fractionated material accomplished using RBP42,
+L5, PABP antibodies listed left panel. L5, component 60S      Having established RBP42 directly
+ribosomal subunit, monosome (80S) polysome marker; PABP, cytoplasmic poly -      binds mRNA, sought identify
+binding protein, mRNA marker. Locations small subunit (40S), large subunit       cellular substrates using crosslinking
+(60S), intact monosomes (80S), polysomes gradients accomplished using       immunoprecipitation (CLIP) method-
+ethidium bromide (ETBR)–stained Agarose gel. T. brucei 28S naturally present large
+fragments, migrate 18S rRNA. (B) Purified polysomes obtained fractions       ology. reasoned identification
+7–10 fractionated mock (solid line) limited RNase treatment      RBP42’s mRNA substrates help
+(dotted line). Immunoblotting shown  (C) Immunoblotting fractionated      reveal function trypanosome gene
+lysates vivo protein–RNA crosslinking UV light. equal                                                                                               expression. set CLIP, estab-
+fraction present lanes relative abundance RBP42 PABP fraction. Fractions, defined lane, obtained oligo-d(T) celluloselished optimum conditions specific
+chromatography.                                                                               efficient immunoprecipitation                                                                                               RBP42 protein (Fig. 5). Anti-RBP42 
+                                                                                              tibody specifically efficiently removes
+associated polysomes control experiments.                     RBP42 cellular extracts, indicated immunoblot
+release RBP42 polysomes limiting RNase treat-                  analysis (Fig. 5A, cf. lanes 4–6 7–9). addition, ment indicated RBP42 association polysomes                   tested control antibody recognizes known RNA-
+mediated protein–mRNA interactions.                                    binding protein, DRBD3 (Estevez 2008). anti-DRBD3
+   confirm RBP42 interacts mRNA, parasite                    antibody equally specific efficient removing
+proteins crosslinked substrate RNAs vivo using                 DRBD3 cellular extract (Fig. 5A, cf. lanes 16–18 UV light. Purified parasite protein crosslinked poly +               22–24). specificity anti-RBP42 anti-DRBD3
+RNA isolated using oligo-d(T) cellulose chro-                   antibodies verified immunoblot analyses matography. shown immunoblot analysis, RBP42                        immunocaptured proteins: Anti-RBP42 antibody 
+                                                                                                             www.rnajournal.org     1973
+ Das et al.
+
+
+
+                                                                                             immunoprecipitate protein–
+                                                                                             RNA complexes                                                                                              crosslinking (lanes 1,2). Protein-bound
+                                                                                             RNAs subsequently extracted, 
+                                                                                             verse transcribed cDNAs, sub-
+                                                                                             jected high-throughput DNA sequenc-
+                                                                                             ing (HITS-CLIP).
+
+                                                                                             RBP42 predominantly binds mRNAs
+                                                                                             coding regions
+                                                                                                 HITS-CLIP RBP42 DRBD3 cDNA
+                                                                                                 libraries performed Illumina
+                                                                                                 platform. total 41 M 38 M reads
+                                                                                                 obtained RBP42 DRBD3,
+                                                                                                 respectively. Unique reads mapped
+                                                                                                 T. brucei genome RBP42                                                                                                  DRBD3 (1.8 M 1.1 M, respectively).
+                                                                                                 distribution mapped reads dif-
+                                                                                                 ferent chromosomal features revealed
+                                                                                                 surprisingly large number (>94 )
+                                                                                                 RBP42 reads mapped                                                                                                  mRNA coding sequences. contrast,
+                                                                                                 z30  DRBD3 reads mapped
+                                                                                                 mRNA coding regions (Fig. 6A).
+                                                                                                 RBP42 DRBD3 targeted non-
+                                                                                                 coding RNAs (including rRNAs, tRNAs,
+                                                                                                 snRNAs). distribution RBP42
+                                                                                                 reads mRNA sequences indicates
+                                                                                                 RBP42 predominantly binds                                                                                                  mRNA coding regions trypanosomes.
+FIGURE 5. RBP42 antibody recognizes RBP42 cell extracts.   Cell extracts depleted         Visualization RBP42 DRBD3
+using preimmune serum RBP42 DRBD3 antibodies. Immunoblots probed indicated antibody (anti-RBP42 used lanes 1–12, anti-DRBD3 used       reads  IGV browser showed lanes 13–24). indicates antibody-treated samples. (Lanes 1,4,7,10,13,16,19,22) Undiluted types profiles (Fig. 6B). Profile 1, samples; (lanes 2,5,8,11,14,17,20,23) 1:5 diluted samples; (lanes 3,6,9,12,15,18,21,24) 1:25 example frequently observed
+diluted samples starting immunodepleted extracts. (B) Proteins captured
+                                                                                                 profile, shows RBP42 binding crosslinked (+) crosslinked ( ) parasites using antibodies indicated lanes. Immunocaptured proteins detected anti-RBP42 (lanes 1–8) anti-DRBD3 coding region gene DRBD3
+(lanes 9–16) antibodies. indicates antibody-treated samples. (C) Immunoprecipitated binding. Profile 2, frequently
+protein–RNA complexes 59-end radiolabeled RNA, separated denaturating- profile, shows RBP42 bound
+polyacrylamide gel electrophoresis (SDS-PAGE) transferred nitrocellulose membranes. PhosphorImager scan protein– 32P-radiolabeled RNA complexes shown. RBP42                                                                                                  coding region DRBD3
+DRBD3 migrate similarly proteins similar molecular mass, RNA bound 39 UTR gene.
+fragments associated proteins 30–50 nt long.                                        Profile 3 shows DRBD3 bound                                                                                                  39 UTR gene RBP42 binding.
+                                                                                                 Profile 4 shows example DRBD3
+captured RBP42, DRBD3 detected (Fig. 5B, cf.                      bound coding region gene.
+lanes 5,6 13,14). Similarly, anti-DRBD3 antibody                        verify nonspecific associations did cause captured DRBD3, RBP42 detected (Fig.                         binding RBP42 mRNA coding sequences 5B, cf. lanes 15,16 7,8).                                                CLIP procedures, determined number    RNA targets RBP42 DRBD3 purified                            RBP42 reads correlated mRNA length mRNA
+immunoprecipitating protein–RNA complexes using anti-                        cellular abundance. comparison RBP42 read num-
+RBP42 anti-DRBD3 antibodies. RNAs detected                           ber mRNA transcript lengths indicated correlation radiolabeling 59 ends (Fig. 5C). RNA ob-                     RBP42 binding mRNA length (R2 = 0.07)
+tained protein–RNA complexes crosslinking (lanes                    (Supplemental Fig. 2). Similarly, comparison RBP42
+4,6). RNAs observed absence crosslinking                   read number mRNA levels, obtained tran-
+(lanes 3,5). control experiments, preimmune serum did                     scriptome study procyclic parasites (Siegel et al. 2010),
+
+1974         RNA, Vol. 18,  11
+                                                                                               Coordination mRNA metabolism RBP42
+
+
+
+
+FIGURE 6. HITS-CLIP data, RNA read assignments, quantification.   Illumina CLIP sequencing data RNA tag count data. Pie charts
+depict relative abundance RNA targets, derived RNA tag count data. Coding sequences defined annotated
+open reading frames mRNAs version 4 T. brucei brucei 927 genome TriTrypDB GeneDB (tritrypdb.org/tritrypdb www.genedb.org). Intercoding sequences contain 59 39 UTRs, sequences contain primary transcripts. rRNA/tRNA, anti-
+sense, RNAs defined database referenced  Reads poor quality sequence ambiguity, reads generated PCR amplification, eliminated prior mapping. (B) RBP42–mRNA interactions DRBD3–mRNA interactions (control protein–RNA
+interactions) specific genes T. brucei genome. (Profile 1) RBP42-bound sequences coding region succinyl-CoA
+synthetase  subunit shown  Tb927.3.2230). upstream genes (Tb927.3.2250 Tb927.2240) downstream gene (Tb927.2220) bound RBP42 reveal binding specificity, does absence DRBD3 binding genes shown. (Profile 2) RBP42-bound
+sequences CDS DRBD3-bound sequences 39 UTR Gim5B (Tb09.211.2740). absence reciprocal binding, absence binding flanking genes, indicates binding specificities. (Profile 3) DRBD3-bound sequences (predicted)
+39 UTR region MFS mRNA (major facilitator superfamily protein; Tb927.8.7740). DRBD3-targeting MFS mRNA 39 UTR initially
+discovered Estevez (2008). (Binding specificity revealed low binding DRBD3 RBP42 CDS gene, low
+binding RBP42 39 UTR gene. small signal indicating DRBD3 interactions 39 UTR upstream gene,
+Tb927.8.7730, investigated.) (Profile 4) DRBD3-bound sequences coding region hypothetical protein mRNA (Tb927.1.2140).
+Binding specificity revealed absence RBP42 binding gene, absence DRBD3 RBP42 binding upstream
+flanking genes (Tb927.1.2120 Tb927.1.2130) downstream flanking gene (Tb927.1.2150). Scales, 0–1500 (Profile 1), 0–300 (Profile 2), 0–100
+(Profile 3), 0–600 (Profile 4). Green denotes RBP42-bound sequences, orange denotes DRBD3-bound mRNA sequences.
+
+
+indicated RBP42 read number independent                        RBP42 binding coding regions verified mRNA abundance. large number reads                        analyzing HITS-CLIP data using 835-gene set obtained low abundant mRNAs, reads                        39 UTRs determined high confidence detected highly abundant mRNAs (R2 =                       (Siegel et al. 2010, 2011). total unique reads RBP42
+0.4) (Supplemental Fig. 2).                                                 253,315; 237,261 (z94 ) CDS
+
+                                                                                                                  www.rnajournal.org         1975
+ Das et al.
+
+
+
+regions 16,054 (z6 ) 39 UTRs. Total                     reliable RBP42 targets, compared F-seq
+unique reads DRBD3 87,811, 38,603                     analysis RBP42 read profiles IGV browser.
+(z43 ) CDS regions 49,208 (z57 )                   basis inspection, considered F-Seq 39 UTRs. number RBP42 DRBD3 reads                     values $25 represent reliable binding, CDS 39 UTR plotted pairwise com-                      easily detectable peak binding regions. criteria 
+parisons scatterplot matrix (Fig. 7). analyses               sulted identification 188 mRNAs F-Seq
+confirmed RBP42 strongly prefers bind                    enrichment values $25 corresponding z3 
+mRNA coding sequences.                                                  RBP42 targets. 188 genes selected                                                                         analysis.
+                                                                           188 gene targets, 137 (73 ) genes Genes involved cellular energy metabolism
+                                                                        known function, annotated TriTrypDB; http://tritrypdb. robust RBP42 targets
+                                                                        org/tritrypdb/. rest unknown trypanosome-specific identify mRNA substrates RBP42, analyzed                   genes annotated hypothetical. terminology used HITS-CLIP data using F-Seq algorithm, uses                categorize 137 genes according biological
+kernel density measurements define peak regions                   process, cellular component, molecular function (Fig. 8;
+binding (Boyle et al. 2008). F-Seq analysis detected peaks           Supplemental Fig. 3). Significantly enriched terms (P <
+RBP42 reads 2000 genes peak-enrichment                    0.01) include broad categories, example, carbohy-
+values ranging 1.7–169 background. identify                drate metabolic process (7 3 10 3), cellular metabolic
+                                                                                            process (2 3 10 5), primary metabolic
+                                                                                            process (1 3 10 3), cytoplasmic (3 3
+                                                                                            10 8), intracellular membrane–
+                                                                                            bounded organelle (4 3 10 7). 
+                                                                                            ingly, 137-gene set overrepresented
+                                                                                            genes involved glucose proline
+                                                                                            metabolism. terms describing car-
+                                                                                            boxylic acid metabolic process (1 3
+                                                                                            10 6), cellular amino acid metabolic
+                                                                                            process (4 3 10 6), cellular respiration
+                                                                                            (1 3 10 5), glucose metabolic process
+                                                                                            (3 3 10 3), glycosome (8 3 10 6),
+                                                                                            mitochondrion (3 3 10 5), catalytic
+                                                                                            activity (8 3 10 3), oxidoreductase
+                                                                                            activity (5 3 10 5)—processes integral
+                                                                                            glucose proline metabolism                                                                                             significantly overrepresented. 
+                                                                                            representation genes involved cel-
+                                                                                            lular energy generation pathway indicates
+                                                                                            RBP42 play key role                                                                                             regulation mRNAs 
+                                                                                            termine cellular metabolic responsiveness.
+                                                                                               main energy sources procyclic
+                                                                                            parasites D-glucose L-proline.
+                                                                                            nutrients metabolized                                                                                             combination glycolytic enzymes                                                                                             glycosomes, TCA cycle enzymes,                                                                                             respiratory chain mitochondrion,
+                                                                                            intermediate steps cyto-
+                                                                                            plasm (Besteiro et al. 2005). Recent RNAi
+FIGURE 7. comparison RBP42 DRBD3 unique reads CDS 39 UTRs gene knockout studies 
+835 genes defined 39 UTRs. RBP42 DRBD3 unique reads CDS 39 UTR 835 genes normalized gene length read counts obtain RPKM (reads tributed current model procyclic
+kilobase million mapped reads) values. Gene length gene determined energy metabolic pathways (Bringaud
+adding CDS length 39 UTR length. highest RPKM value obtained RBP42 CDS et al. 2006; Zikova et al. 2009). Mapping
+regions 7.4; RBP42 39 UTR region, 1.4; DRBD3 CDS, 4.6, DRBD3 39 UTR,
+                                                                                            RBP42 targets procyclic-
+9.9. Pairwise comparisons RPKM values protein CDs 39 UTR regions shown scatterplot matrix. axes RPKM values reads mapped specific metabolic pathway shown CDs 39 UTR RBP42 DRBD3 experiments.                                          Figure 9.
+
+1976         RNA, Vol. 18,  11
+                                                                                             Coordination mRNA metabolism RBP42
+
+
+
+
+FIGURE 8. Gene Ontology   assignments RBP42-bound mRNAs. Highly significant (P < 0.01) associations RBP42 targets terms shown. terms derived Slim set designed incorporate trypanosome-specific processes cellular compartments
+(Alsford et al. 2011). terms broad categories indicated light blue bars; terms specific categories indicated dark blue bars. Statistical analysis term associations carried using 137 annotated genes. annotated genes lack comprehensive set appropriate terms, significant association verified.
+
+
+   glycosome, trypanosome-specific                       RBP42 target. case multi-subunit TCA-cycle
+peroxisome-like organelle, 14 enzymes involved                   enzymes, enzyme subunits RBP42 targets glucose metabolism (enzymes 1–9, 13–18) (Parsons 2004;                  (including enzymes 20, 23, 27). enzymes
+Besteiro et al. 2005; Coustou et al. 2008). Seven                     metabolize proline 2-ketoglutarate (enzymes 31–34), 3  RBP42 targets (enzymes 3–6, 13–15).                    5  RBP42 targets. Finally, additional enzymes 10                           multiple respiratory chain components RBP42 targets (enzymes 8, 9, 16, 17). addition,                     5  RBP42 targets  included glycosomal membrane proteins, PEX11 GIM5,                        cytochrome oxidase subunits complex IV, maintain glycosomal integrity, RBP42 targets.                   F-type ATPase subunits (Zikova et al. 2009), cytochrome cytosolic glycolytic enzymes involved pyruvate                 C, 20-kDa subunit complex  Rieske iron–sulfur
+production (enzymes 9–12, 19), enzymes                    protein complex III. Taken  findings 5  RBP42 targets (enzymes 9, 11, 12, 19).                RBP42 targets large portion cellular mRNAs mitochondrion, pyruvate metabolized acetyl CoA,                      encode energy generating enzymes function maintain enters main pathways. Energy generated                 cell viability.
+acetate production enzymes (enzymes 20–23, 39, 40)
+directly indirectly involved substrate-level ATP pro-
+                                                                           DISCUSSION
+duction. 3  RBP42 targets. sixth enzyme, enzyme 22, unidentified trypanosomes                   RNA-binding proteins play pivotal role trypanosome
+(Riviere et al. 2004). TCA cycle contains enzymes                gene expression. important trypanosome
+(enzymes 23–30), enzymes                  RNA-binding proteins studied date, 5  RBP42 targets. additional enzymes                     comprehensive set target mRNAs remain unknown. 5 , enzyme (enzyme 26) enriched                     report characterized new RNA-binding protein, background, (enzyme 29)                        RBP42, identified cellular targets using global
+
+                                                                                                               www.rnajournal.org         1977
+ Das et al.
+
+
+
+unbiased approach. RBP42 binds               does RBP42 binding target mRNAs contrib-
+coding region mRNAs involved cellular energy        ute metabolic adaptation trypanosomes? findings
+metabolism. RBP42 essential procyclic (Fig. 2)      translational rates decreased cells 
+bloodstream-form viability (Alsford et al. 2011). pro-      pleted RBP42 suggestive RBP42 functioning pose newly characterized protein plays important     translational regulator. possible RBP42 promotes
+roles mRNA metabolism parasite’s life cycle.     translation target mRNAs helping recruit ini-
+   identification RBP42 targets revealed RBP42     tiation elongation factors polysomes facilitate protein
+binds large number mRNAs encode enzymes           production. Alternatively, RBP42 stall ribosomes, slow-
+involved energy metabolism. Modulation cellular          ing abrogating translation enzymes utilized energy metabolism response changing nutritional          energy metabolism cell. Expression amyloid pre-
+sources requires adjustments metabolic pathways.         cursor protein (APP) human neuronal cells relies procyclic parasites, glucose amino acids          combination positive negative translational
+utilized primary nutritional sources. glucose   regulation (Lee et al. 2010). hnRNP C protein binds major nutrient source, glycolytic enzymes glycosome mitochondrion involved energy production. amino acids main nutritional
+sources, additional mitochondrial 
+zymes utilized. trypanosomes lack
+differential transcription, post-transcrip-
+tional reactions play defining role adjustment metabolic
+pathways. predict RBP42 helps
+regulate cellular response nutri-
+tional sources binding mRNAs encode metabolic enzymes.
+   interesting RBP42 appears similar mammalian protein
+G3BP (Fig. 1). RBP42 G3BP cytoplasmic, associate polysomes
+(Angenstein et al. 2002; Atlas et al. 2007), bind mRNAs (Atlas et al. 2004;
+Taniuchi et al. 2011). G3BP–
+mRNA interactions limited studies c-Myc, Tau, b-F1-ATPase
+mRNAs, identified RBP42–
+mRNAs targets using unbiased, global
+approach. findings RBP42 binds
+F1-ATPase mRNAs mRNAs involved energy metabolism trypanosomes help facilitate discovery additional G3BP targets metazoans.  G3BP altered cancer cells, binding F1-ATPase c-Myc mRNAs speculated play role meta-
+bolic changes occur altered
+cell growth (Guitard et al. 2001; Tourriere
+et al. 2001; Ortega et al. 2010; Shim
+et al. 2010; Cairns et al. 2011). interesting RBP42 plays role adjusting bioenergetics trypanosomes, possibly response constantly changing nutritional envi-
+ronment parasite life cycle.                            FIGURE 9. (Legend page)
+
+
+1978         RNA, Vol. 18,  11
+                                                                                                 Coordination mRNA metabolism RBP42
+
+
+ coding region APP promotes translation,                    partners. speculate similar scenario occurs FMRP, fragile X-mental retardation protein, binds                  trypanosomes. Specifically, trypanosomal RBP4 par- region stalls ribosome movement (Brown et al.                        ticipate post-transcriptional gene control, partnering
+2001; Lee et al. 2010; Darnell et al. 2011). trypanosomes,                 RBP42 stimulate translation, modulate mRNA decay,
+RBP42 targeting mRNAs stimulatory                        possibly pause translation certain environmental inhibitory effect dictated environment                    conditions.
+different transcripts.                                                           summary, RBP42 new member growing
+   RBP42 originally identified interaction                 family RNA-binding proteins target coding RPB4 subunit RNA polymerase II, cytoplasmic                        region mRNAs. taking panoramic approach RNA
+localization surprising. RBP42 function                      target discovery, begin define networks nucleus cytoplasm, immunofluo-                      RBP42 participates. studies described rescence microscopy data cell fractionation analysis                      RBP42 integrated vitally important bulk RBP42 functions cytoplasm                     energy metabolic network procyclic life cycle stage
+association polysomes. Accordingly, speculate                    T. brucei. RBP42 RNA-binding pro- copurification RBP42 RPB4 indicates                          teins coordinate cellular processes organism heavily
+trypanosomal RPB4 functions cytoplasm. yeast,                       reliant post-transcriptional control remains Rpb4p functions cytoplasm, participating post-                      discovered.
+transcriptional reactions Rbp4/Rbp7 dimer, independent core RNA polymerase II complex                          MATERIALS METHODS
+(Selitrennik et al. 2006; Harel-Sharvit et al. 2010). Rbp4/Rpb7 complex regulates decay mRNAs                          Trypanosome strains transformations
+products involved protein synthesis, including ri-
+bosomal proteins RPL25 translation factors                      Wild-type T. brucei Lister 427 procyclic (tsetse midgut form) TIF1 (Pillai et al. 2003; Lotan et al. 2005). Regulation            parasites grown SDM-79 medium, supplemented                                                                             10  fetal bovine serum (FBS) 27°C humidified chamber specific group mRNAs requires Rbp4/Rbp7
+                                                                            containing 5  CO2. TbRPB4-tagged cells (described Das et al. interact directly mRNA decay machinery.                                                                             2006) contain NEO marker (neomycin resistance gene) place
+addition, Rpb4/Rpb7 stimulates translation initiation                    RPB4 allele BLE marker (phleomycin resistance gene)
+mRNAs, probably direct interaction                       associated frame C-terminal tandem affinity protein
+translation initiation factor eIF3 (Harel-Sharvit et al.                    (TAP) tag second RPB4 allele. transgenes 2010). dual roles RBP4 mRNA decay                             maintained TbRPB4-tagged cells 15 mg/mL G418 translation suggest possesses dynamic set protein              2.5 mg/mL phleomycin.  Table 1 strains.)
+                                                                                                    T. brucei Lister 427 cell line 29-13 (Wirtz
+                                                                                                 et al. 1999) constitutively expressing T7
+                                                                                                 RNA polymerase tetracycline repressor
+FIGURE 9. combination visual based analysis reveals transfected RBP42-RNAi 
+significant RBP42-bound mRNAs encode proteins function energy production.
+                                                                                                 struct, pZJM (BLE) derivative
+Metabolism-associated genes highest enrichment values  10 ) RBP-42–bound
+RNA tags depicted dark green ovals; genes background values depicted contained region RBP42 ORF. light green ovals. Enzymes (1) hexokinase (HK); (2) glucose-6-phosphate isomerase (GPI); clonal cell lines produced named RBP42-
+(3) phosphofructokinase (PFK); (4) aldolase; (5) triose-phosphate isomerase (TIM); (6) glycerol- clones 1–4 grew presence 3-phosphate dehydrogenase (G3PDH); (7) glycerol kinase-glycosomal (GKg); (8) glyceralde- 2.5 mg/mL phleomycin. RBP42-clone 3 hyde-3-phosphate dehydrogenase (GAPDH); (9) phosphoglycerate kinase (cytosolic, PGKc, used create AM1-5 cell lines glycosomal [PGKg]); (10) phosphoglycerate mutase (PGAM); (11) enolase (ENO); (12) pyruvate PUR cassette replaced RBP42
+kinase (PYK); (13) phosphoenolpyruvate carboxykinase (PEPCK); (14) pyruvate phosphate
+dikinase (PPDK); (15) malate dehydrogenase-glycosomal (MDHg); (16) fumarase-cytosolic alleles non RNAi-induced conditions.
+(FHc); (17) NADH-dependent fumarate reductase (FRDg); (18) adenylate kinase-glycosomal Double-stranded RNAi induced add-
+(AK), GIM5-glycosomal membrane protein (GIM5), PEX11-glycosomal membrane protein ing tetracycline (2 mg/mL).
+(PEX11); (19) malic enzyme-cytoplasmic (MEc); (20) pyruvate dehydrogenase complex (PDH);
+(21) acetate:succinate CoA transferase (ASCT); (22) unknown enzyme; (23) succinyl CoA
+synthetase (SCoAS); (24) citrate synthase (CS); (25) aconitase (ACO); (26) isocitrate                 Plasmid constructions
+dehydrogenase (IDH); (27) 2-ketoglutarate dehydrogenase (ODGC); (28) succinate dehydroge-
+nase (SDH); (29) fumarase-mitochondrial (FHm); (30) malate dehydrogenase-mitochondrial                T. brucei RBP42 (Gene ID Tb927.6.4440)
+(MDHm); (31) proline dehydrogenase (PRODH); (32) pyrroline-5-carboxylate reductase (P5C               previously designated A7 Table 2
+reductase); (33) L-alanine aminotransferase (ALAT); (34) glutamate dehydrogenase (GDH); (35)          Das et al. (2006). RBP42-RNAi 
+glycerol-3-phosphate oxidase (FAD-G3PDH); (36) rotenone-insensitive NADH dehydrogenase                struct completed pZJM inserting
+(R ; (37) alternative oxidase (AO); (38) F0/F1-ATP synthase (b-, g-subunits subunit 9)      486 bp DNA sequence containing 55- complexes IV respiratory chain  complex  subunit 20-kDa subunit indicated; complex II, subunits indicated; complex III, Rieske iron-sulfur protein indicated;
+                                                                                                      540-bp region RBP42 ORF. Primers complex IV, cytochrome oxidase subunits IV, V, VII–IX indicated; cytochrome C          AD277 (59-ACAAAGCTTTTGCTACGGCT
+[Cyto C]); (39) threonine-3-dehydrogenase (TDH); (40) 2-amino-3-ketobutyrate CoA ligase               CCTGAAAATC-39) AD278 (59-ACACT
+(ABK ligase); (41) transaldolase; (42) transketolase.                                             CGAGCAGGTTTCTTATTTGGGGCAC-39)
+
+                                                                                                                  www.rnajournal.org      1979
+ Das et al.
+
+
+
+ TABLE 1. Strains
+
+ Cell line           Background                  Genotype                         Drug selection                    Experimental purpose
+
+ Wild type          Lister 427                                                                                RNA-CLIP, RBP42 localization
+ RPB4-tagged        Wild type         Drpb4TNEO RPB4TTAP BLE           G418, phleomycin                     Biochemical purification                                                                                                                 RPB4-associated proteins
+ 29-13              Wild type         TETR HYG T7RNAP NEO b              Hygromycin, G418                     Parent strain conditional gene
+                                                                                                                expression experiments
+ RBP42-clone 3      29-13             TETR HYG T7RNAP NEO                Hygromycin, G418, phleomycin         RBP42 conditional knockdown
+                                        RIT- RBP42Ti BLE c                                                      studies
+ AM1-3              RBP42-clone 3     Drbp42TPUR                         Hygromycin, G418, phleomycin,        RBP42 conditional knockdown
+                                                                          puromycin                             studies
+   Das et al. (2006).
+ b
+   Wirtz et al. (1999).
+ c
+  RIT adapted Alsford et al. (2011), define term RIT-Seq RNA interference (RNAi) target sequencing. RIT-RBP42Ti describes  use tetracycline-regulated expression RNAi ablate RBP42 mRNA cells.
+
+
+
+contain HindIII XhoI recognition sequences facilitate               1 mM DTT, complete protease inhibitors) containing 1  NP-40.
+insertion pZJM used PCR-amplify insert                Total lysate cleared centrifugation (10,000g, 10 min), T. brucei genomic DNA. DNA sequences recombi-              post-nuclear supernatants collected. isolate purified
+nant plasmids verified.                                               polysomes, 3 mL cytoplasmic extract layered 7 mL
+                                                                           30  sucrose cushion centrifuged (33,000 rpm, 2.5 h) Antibodies                                                                 SW41 rotor. polysome pellet resuspended polysome
+                                                                           buffer stored 80°C. Approximately 90 OD260 units Anti-RBP42 antibodies produced injecting rabbits           polysomes recovered 1010 cells. Polysome profiles
+recombinant RBP42 protein Escherichia coli GST-               generated fractionating cytoplasmic extracts 5 mL
+fusion protein. GST-tagged RBP42 purified using glutathione-           15 –50  sucrose gradients (41,000 rpm, 2 h) SW55 rotor.
+Sepharose beads, according manufacturer’s protocol (GE              0.5 mL gradient fractions collected manually Healthcare), soluble RBP42, separated GST domain              tube punching hole, fraction Precision protease, used raise polyclonal antibodies          analyzed RNA proteins. Lampire Corporation. Anti-DRBD3 antibodies raised rabbits N-terminal 83-amino-acid polypeptide DRBD3 (Estevez 2008). Anti-GRASP antibodies gift               vivo crosslinking immunocapture
+Graham Warren; anti-BiP antibodies gift James                  protein–RNA complexes
+Bangs; anti-ribosomal protein L5 anti-PABP1 antibodies gifts Noreen Williams. Anti tubulin antibody               Wild-type T. brucei procyclic cells harvested mid-log- Sigma Corporation.                                                    phase cells (4 3 106 5 3 106 cells/mL), washed cold
+   Antibody specificities assayed incubating parasite ex-          phosphate buffered saline (PBS) resuspended cold PBS                                                                            concentration 5 3 108/mL. Cell suspensions (10 mL) tracts, RIPA buffer (20 mM Tris-HCl pH 7.5, 150 mM
+NaCl, 1 mM EDTA, 1 mM EGTA, 1  NP-40, 1  Na-deoxycholate,                  transferred 100-mm Petri dish, placed ice tray, 2.5 mM Na-pyrophosphate, 1 mM B-glycerophosphate, 1 mM                     UV-irradiated twice 400 mJ/cm2 Stratalinker 1800
+Na3VO4, 1 mg/mL leupeptin), anti-RBP42 anti-DRBD3                  (Stratagene) 4–5 cm distant UV source  irradia-
+antibodies bound Dynabeads protein G (Invitrogen). Immu-                tion step takes 1.5 min). Cells rapidly pelleted, snap frozen
+nodepleted samples analyzed immunoblotting using                   liquid N2, stored 80°C small aliquots.
+ECL reagents GE Healthcare.                                              Immunocapture crosslinked protein–RNA complexes                                                                            carried according method described Ule et al.
+Cellular fractionation polysome purification                           (2003). Cellular extracts concentrating UV-
+                                                                           irradiated cells centrifugation resuspending cellular fractionation protocol adapted method            buffer (PBS, 0.1  SDS, 0.5  Na-deoxycholate, 0.5  NP-
+described Michaeli et al. (1993). Briefly, 109 procyclic T. brucei      40). Extracts treated RQ1 DNase (15 min, 37°C) cells disrupted 5 mL hypotonic buffer (10 mM Tris-HCl           reduce viscosity incubated titrated amounts pH 7.5, 10 mM KCl, 2 mM Mg2Cl, 1 mM DTT, complete protease                 RNase T1 fragment protein-bound RNAs. protein-
+inhibitor; Roche) containing 0.2  NP-40 15–20 strokes              bound RNA samples clarified centrifugation (25 min,
+Dounce homogenizer. Nuclei isolated pelleting            90K) Beckman TLA120.2 rotor, specific protein–RNA
+3 mL 0.8 M sucrose cushion (8000g, 10 min). cytoplasmic                complexes captured incubation (2 h, 4°C) anti-
+extracts, collected sucrose cushion,      RBP42 anti-DRBD3 antibodies attached Dynabeads Pro-
+separated S100 sup pellet centrifugation (100,000g,            tein G beads. Captured protein–RNA complexes washed
+1 h) SW55 rotor.                                                     extensively, twice buffer twice buffer B (buffer    polysome analysis, cellular extracts polysome          supplemented 53 PBS), analyzed immunoblot buffer (20 mM Tris-HCl pH 7.5, 120 mM KCl, 2 mM MgCl2,                  processed CLIP.
+
+1980         RNA, Vol. 18,  11
+                                                                                        Coordination mRNA metabolism RBP42
+
+
+
+Purification poly + RNA–protein complexes                        alignment mismatches seed. reads                                                                       identical index sequence 59 end collapsed Cytoplasmic extracts, collected described  adjusted     order minimize PCR-based amplification artifacts generate 0.5  SDS 1  2-mercaptoethanol incubated 5 min          unique reads set downstream peak analysis. reads 90°C. heated extracts quickly chilled ice        annotated grouped categories based cubating 5 min, LiCl added final concen-        mapped locations: coding region, intercoding region, abundant
+tration 0.5 M. Subsequently, poly + RNA–protein complexes        RNAs (rRNA, tRNA), anti-sense RNAs,  e., ncRNA, isolated subsequent rounds selection oligo-       snRNA). read distribution groups compared
+d(T) cellulose (type 7, GE Healthcare) collected elution       RBP42-bound DRBD3-bound RNAs.
+buffer containing 10 mM Tris-HCl (pH 7.4), 0.05  SDS. protein components isolated poly + RNA–protein com-          Peak profiling Gene Ontology analysis
+plexes analyzed immunoblotting specific antibodies.
+                                                                      F-Seq (version 1.84), algorithm based kernel density estima-
+RBP42 DRBD3 HITS-CLIP                                             tion, run identify candidate regions (peaks) significant
+                                                                      enrichment RBP42  DRBD3)-bound RNA sequence tags cDNA libraries protein-bound RNAs              (Boyle et al. 2008). fragment size, f, set 40. threshold,
+according method described Licatalosi et al. (2008).        s, 6, instead 4 (default). generated list peaks capturing protein–RNA complexes anti-RBP42         annotated. select list significant genes high peaks, anti-DRBD3 antibodies, RNA linker (RL3; 59P-GUGUCAGU               plotted distribution F-Seq enrichment score (ES) peaks
+CACUUCCAGCGG-39-puromycin) ligated 39 end               performed extensive visual inspection ranked peaks using protein-bound-RNAs using T4 RNA ligase, 59 ends           IGV browser (Integrative genomic browser; version 1.5 www. phosphorylated T4 polynucleotide kinase sus-          broadinstitute.org/igv). empirical cutoff (ES $ 25) used
+pended beads. purify protein–RNA complexes, small         generate list significant genes, categorized 32P-g-ATP used tracer T4 PNK reaction.      Gene Ontology   analysis. analysis performed using
+Protein–RNA complexes resolved PAGE-SDS, transferred          GOToolBox (Martin et al. 2004) using nonredundant gene list nitrocellulose membrane, excised detection X-ray      GOSlim set Alsford et al. (2011). associations film. RNAs extracted treating excised nitrocellulose      P-value <0.001 considered overrepresented categories.
+filters proteinase K purified ethanol precipitation. 59 RNA linker (RL5D; 59-AGGGAGGACGAUGCGGNNNNG-39)                     Fluorescence light microscopy ligated 59 end purified RNA using T4 RNA ligase. random assortment 4 nucleotides (nt) positions     Cells fixed 2  paraformaldehyde 15 min room 39 end 59 linker resulted set 256 unique 59     temperature, adhered slides coated poly L-lysine, stained
+linkers. subsequent analysis, linker sequences serve   DAPI, visualized 1003/1.30 oil-immersion indices distinguish individual RNAs PCR-generated          objective (combined 103 ocular magnification amplifications. strand cDNA produced             10003) using UplanF1 objective. Olympus BX61 used linker-ligated RNAs using Superscript (Invitrogen) primer       combination DAPI FITC-sensitive filters. Vectashield
+complementary 39 linker sequence (DP3; 59-CCGCTG               (Vector Laboratories) used anti-fade. Intact cells GAAGTGACTGACAC-39). Libraries cDNA generated                  detected using bright field optics. Images captured using PCR amplification strand cDNA using 59 primer         Hamamatsu ORCA-ER camera acquired 0.065-mM 3
+(DP5; 59-AGGGAGGACGATGCGG-39) DP3. quality-                  0.065-mM pixel resolution.
+control measure, fraction PCR-generated cDNAs            RBP42 immunolocalization performed using anti-RBP42
+inserted TOPO plasmids transformed bacteria.          antibodies. fixing adhering poly-L-lysine coated
+presence inserts confirmed restriction analysis          slides, cells permeabilized using 0.2  NP40 5 min plasmid DNAs isolated 20 randomly selected bacterial             room temperature. stacks obtained 0.2-mM spacing
+colonies. Capillary sequencing 20 clones confirmed         stack. total 15 stacks generated field.
+heterogeneous pool cDNA inserts desired 30- 60-bp
+                                                                      Protein alignments
+length. prepare cDNA libraries sequencing Illumina sequencer, cDNAs RBP42 DRBD3–               Multiple alignments RBP42 proteins T. brucei, Trypanosoma
+bound RNAs reamplified primers (DSFP5; 59-AAT           cruzi, Leishmania major, Leptomonas seymouri performed
+GATACGGCGACCACCGACTATGGATACTTAGTCAGGGAGGA                             using CLUSTALW. Alignments refined manually visual-
+CGATGCGG-39 59-CAAGCAGAAGACGGCATACGACCGCT                         ized using GeneDoc (http://www.psc.edu/biomed/genedoc).
+GGAAGTGACTGACAC-39) 15 25 cycles, respectively.
+
+Mapping short reads T. brucei genome                               SUPPLEMENTAL MATERIAL
+High-quality reads  signal filtering Illumina)        Supplemental material available article.
+aligned genome T. brucei strain 927 using CASAVA
+(version 1.7). 10 bp read masked                                                                       ACKNOWLEDGMENTS mapping accommodate RNA sequences fragment
+length shorter read length. CASAVA1.7, mapping         thank James Bangs, Graham Warren, Noreen Williams algorithm (ELAND version 2) allows multi-seed gapped              antibodies. thank Rose Garcia administrative assistance
+
+                                                                                                           www.rnajournal.org          1981
+ Das et al.
+
+
+ Han Wu Edgar Garcia assistance graphics.             Das  Li H, Liu T, Bellofatto V. 2006. Biochemical characterization thank Michael Mathews, Andrew Parrott, members                    Trypanosoma brucei RNA polymerase II. Mol Biochem Parasitol
+R. Darnell laboratory extremely helpful discussions.                150: 201–210.
+                                                                         Gaudenzi J, Frasch AC, Clayton C. 2005. RNA-binding domain
+work supported National Institutes Health
+                                                                             proteins kinetoplastids: comparative analysis. Eukaryot Cell 4:
+grants RO1 29478 RO1 53835 Foundation UMDNJ                     2106–2114.
+award V.B.                                                            Estevez  2008. RNA-binding protein TbDRBD3 regulates                                                                              stability specific subset mRNAs trypanosomes. Nucleic
+Received April 12, 2012; accepted August 2, 2012.                            Acids Res 36: 4573–4586.
+                                                                         Fernandez-Moya SM, Estevez  2010. Posttranscriptional control
+                                                                             role RNA-binding proteins gene regulation                                                                              trypanosomatid protozoan parasites. Wiley Interdiscip Rev RNA
+REFERENCES                                                                   1: 34–46.
+Acosta-Serrano  Vassella E, Liniger M, Kunz Renggli C, Brun R,         Freire ER, Dhalia R, Moura DM, da Costa Lima TD, Lima RP, Reis
+    Roditi  Englund PT. 2001. surface coat procyclic                CR, Hughes K, Figueiredo RC, Standart N, Carrington M, et al.
+    Trypanosoma brucei: Programmed expression proteolytic                2011. trypanosomatid eIF4E homologues fall     cleavage procyclin tsetse fly. Proc Natl Acad Sci 98:          separate groups, distinct features primary sequence     1513–1518.                                                               biological properties. Mol Biochem Parasitol 176: 25–36.
+Alsford S, Turner DJ, Obado  Sanchez-Flores  Glover L,              Guitard E, Parker F, Millon R, Abecassis J, Tocque B. 2001. G3BP     Berriman M, Hertz-Fowler C, Horn D. 2011. High-throughput                overexpressed human tumors promotes S phase entry.
+    phenotyping using parallel sequencing RNA interference targets        Cancer Lett 162: 213–221.
+    African trypanosome. Genome Res 21: 915–924.                  Hammarton TC. 2007. Cell cycle regulation Trypanosoma brucei.
+Angenstein F, Evans  Settlage  Moran ST, Ling SC, Klintsova            Mol Biochem Parasitol 153: 1–8.
+    AY, Shabanowitz J, Hunt DF, Greenough WT. 2002. receptor       Harel-Sharvit L, Eldad N, Haimovich G, Barkai O, Duek L, Choder M.
+    activated C kinase messenger ribonucleoprotein com-           2010. RNA polymerase II subunits link transcription mRNA
+    plexes associated polyA-mRNAs neurons. J Neurosci 22:            decay translation. Cell 143: 552–563.
+    8827–8837.                                                           Ho HH, CY, Graffenried CL, Murrells LJ, Warren G. 2006.
+Atlas R, Behar L, Elliott E, Ginzburg  2004. insulin-like growth       Ordered assembly duplicating Golgi Trypanosoma brucei.
+    factor mRNA binding-protein IMP-1 Ras-regulatory                 Proc Natl Acad Sci 103: 7676–7681.
+    protein G3BP associate tau mRNA HuD protein              Irvine K, Stirling R, Hume D, Kennedy D. 2004. Rasputin,     differentiated P19 neuronal cells. J Neurochem 89: 613–626.              promiscuous  review G3BP. Int J Dev Biol 48: 1065–
+Atlas R, Behar L, Sapoznik S, Ginzburg  2007. Dynamic association          1077.
+    polysomes P19 neuronal differentiation         Keene JD. 2007. RNA regulons: Coordination post-transcriptional
+    translated-region-dependent translation regulation tau            events. Nat Rev Genet 8: 533–543.
+    mRNA tau mRNA-associated proteins IMP1, HuD,              Kim MM, Wiederschain D, Kennedy D, Hansen E, Yuan ZM.
+    G3BP1. J Neurosci Res 85: 173–183.                                       2007. Modulation p53 MDM2 activity novel inter-
+Bandziulis RJ, Swanson MS, Dreyfuss G. 1989. RNA-binding proteins            action Ras-GAP binding proteins (G3BP). Oncogene 26:
+    developmental regulators. Genes Dev 3: 431–437.                       4209–4215.
+Barnes CJ, Li F, Mandal M, Yang  Sahin AA, Kumar R. 2002.              Kramer S, Carrington M. 2011. Trans-acting proteins regulating
+    Heregulin induces expression, ATPase activity, nuclear local-        mRNA maturation, stability translation trypanosomatids.
+    ization G3BP, Ras signaling component, human breast              Trends Parasitol 27: 23–30.
+    tumors. Cancer Res 62: 1251–1255.                                    Kramer S, Queiroz R, Ellis L, Hoheisel JD, Clayton C, Carrington M.
+Barquilla  Crespo JL, Navarro M. 2008. Rapamycin inhibits                  2010. RNA helicase DHH1 central correct expression
+    trypanosome cell growth preventing TOR complex 2 formation.           developmentally regulated mRNAs trypanosomes.
+    Proc Natl Acad Sci 105: 14579–14584.                                     J Cell Sci 123: 699–711.
+Besteiro S, Barrett MP, Riviere L, Bringaud F. 2005. Energy generation   Lee EK, Kim HH, Kuwano Y, Abdelmohsen K, Srikantan S, Subaran
+    insect stages Trypanosoma brucei: Metabolism flux. Trends       SS, Gleichmann M, Mughal MR, Martindale JL, Yang X, et al.
+    Parasitol 21: 185–191.                                                   2010. hnRNP C promotes APP translation competing Boyle AP, Guinney J, Crawford GE, Furey TS. 2008. F-Seq: feature           FMRP APP mRNA recruitment P bodies. Nat Struct Mol
+    density estimator high-throughput sequence tags. Bioinfor-           Biol 17: 732–739.
+    matics 24: 2537–2538.                                                Licatalosi DD, Mele  Fak JJ, Ule J, Kayikci M, Chi SW, Clark TA,
+Bringaud F, Riviere L, Coustou V. 2006. Energy metabolism                 Schweitzer AC, Blume JE, Wang X, et al. 2008. HITS-CLIP yields
+    trypanosomatids: Adaptation available carbon sources. Mol             genome-wide insights brain alternative RNA processing.
+    Biochem Parasitol 149: 1–9.                                              Nature 456: 464–469.
+Brown V, Jin P, Ceman S, Darnell JC, O’Donnell WT, Tenenbaum SA,         Lotan R, Bar VG, Harel-Sharvit L, Duek L, Melamed D, Choder
+    Jin X, Feng Y, Wilkinson KD, Keene JD, et al. 2001. Microarray           M. 2005. RNA polymerase II subunit Rpb4p mediates decay     identification FMRP-associated brain mRNAs altered                specific class mRNAs. Genes Dev 19: 3004–3016.
+    mRNA translational profiles fragile X syndrome. Cell 107:         Mani J, Guttinger  Schimanski B, Heller M, Acosta-Serrano 
+    477–487.                                                                 Pescher P, Spath G, Roditi  2011. Alba-domain proteins Cairns RA, Harris  Mak TW. 2011. Regulation cancer cell                Trypanosoma brucei cytoplasmic RNA-binding proteins     metabolism. Nat Rev Cancer 11: 85–95.                                    interact translation machinery. PLoS 6: e22463. doi:
+Coustou V, Biran M, Breton M, Guegan F, Riviere L, Plazolles N,              10.1371/journal.pone.0022463.
+    Nolan D, Barrett MP, Franconi JM, Bringaud F. 2008. Glucose-         Martin D, Brun C, Remy E, Mouren P, Thieffry D, Jacq B. 2004.
+    induced remodeling intermediary energy metabolism              GOToolBox: Functional analysis gene datasets based     procyclic Trypanosoma brucei. J Biol Chem 283: 16342–16354.              Gene Ontology. Genome Biol 5: R101. doi: 10.1186/gb-2004-
+Darnell JC, Van Driesche SJ, Zhang C, Hung KY, Mele  Fraser CE,            5-12-r101.
+    Stone EF, Chen C, Fak JJ, Chi SW, et al. 2011. FMRP stalls           Michaeli S, Goldring  Agabian N. 1993. Identification mRNA-
+    ribosomal translocation mRNAs linked synaptic function             binding proteins lower trypanosomatid Leptomonas collosoma.
+    autism. Cell 146: 247–261.                                           Exp Parasitol 76: 308–313.
+
+
+1982         RNA, Vol. 18,  11
+                                                                                           Coordination mRNA metabolism RBP42
+
+
+
+Ortega AD, Willers IM, Sala S, Cuezva JM. 2010. Human G3BP1              Siegel TN, Gunasekera K, Cross GA, Ochsenreiter T. 2011. Gene
+    interacts b-F1-ATPase mRNA inhibits translation.            expression Trypanosoma brucei: Lessons high-throughput
+    J Cell Sci 123: 2685–2696.                                               RNA sequencing. Trends Parasitol 27: 434–441.
+Parker F, Maurier F, Delumeau  Duchesne M, Faucher D, Debussche        Solomon S, Xu Y, Wang B, David MD, Schubert P, Kennedy D,
+    L, Dugue  Schweighoffer F, Tocque B. 1996. Ras-GTPase-               Schrader JW. 2007. Distinct structural features caprin-1 mediate
+    activating protein SH3-domain-binding protein. Mol Cell Biol 16:         interaction G3BP-1 induction phosphorylation
+    2561–2569.                                                               eukaryotic translation initiation factor 2a, entry cytoplasmic
+Parsons M. 2004. Glycosomes: Parasites divergence     

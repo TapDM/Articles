@@ -1,0 +1,449 @@
+Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+ RESEARCH                                                                                                                                      Open Access
+
+Characterizing criticality proteins systems
+dynamics: Escherichia coli central carbon
+metabolism working example
+Ru-Dong Li1, Lei Liu1,2* 5th IEEE International Conference Computational Systems Biology (ISB 2011)
+Zhuhai, China. 02-04 September 2011
+
+
+  Abstract
+  Background: Systems biology calls studying level properties genes proteins   individual chemical/biological properties, regarding bio-molecules components. characterizing
+  critical components classifying accordingly, study underlying
+  complex mechanisms, facilitating researches drug target selection, metabolic engineering, complex disease, 
+  date, studies aiming goal confined topology-based flux-analysis approaches.
+   proteins tertiary structures specific functions, especially metabolic systems. topological
+  properties connectivity, path length, , good surrogates protein properties.  manner
+  individual sensitivity analysis flux-analysis approaches reveal simultaneous impacts   collateral components overall impact  lacking level perspective.
+  Results: present work, developed method directly assess protein level properties based   dynamics silico knockouts, regarding conceptual term “criticality�?. Applying method E.
+  coli central carbon metabolic  multiple enzymes including phosphoglycerate kinase, enolase,
+  transketolase-b, , critical roles terms states dynamical stability.   contrast, set enzymes including glucose-6-phosphate isomerise, pyruvate kinase, phosphoglucomutase,
+  , exerted little influences deleted. finding consistent experimental characterization   metabolic essentiality studies E. coli gene essentiality functions. enzymes
+  affect distant metabolites enzymes greater close neighbour asymmetry level
+  properties enzymes catalyzing alternative pathways rise local flux compensation.
+  Conclusions: method creates different angle evaluating protein criticality biological   conventional methodologies.  method leads consistent results experimental references,
+  showing efficiency studying protein level properties. working metabolic systems,   application method extended kinds bio-systems reveal constitutive/functional
+  properties building blocks.
+
+
+Background                                                                           components. exploring interplay structure Systems biology focuses studying properties bio-                                evaluate critical building
+molecules like genes proteins level,                               block different parts vary properties [1,2].
+especially constitutive/functional roles                             Based knowledge, understand                                                                                      formed, level function * Correspondence: leiliu@sibs.ac.cn                                                  achieved modified according 1
+ Key Laboratory Systems Biology, Shanghai Institutes Biological               needs, enhancing researches drug target selection,
+Sciences, Chinese Academy Sciences, Shanghai, China                               metabolic engineering, complex diseases, [3,4]. E. list author information available end article
+
+                                        © 2012 Li Liu; licensee BioMed Central  Open Access article distributed terms Creative Commons
+                                        Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                         medium, provided original work properly cited.
+ Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                           Page 2 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+coli best-studied organism, knowledge accu-       fluctuations restricted limited area spread
+mulated biological hierarchies, e.g. genetic   broader range; large ampli-
+regulation, genomic information, metabolism, [5-7].       tudes   investigated dynamical central carbon metabolism contains glycolysis         stability residual sys-
+pentose phosphate pathways principal parts (Addi-          tem maintained lost metabolic robustness tional file 1). common conservative        removing enzyme (Figure 1). computa-
+pathway prokaryotes, close resemblance          tions, characterized criticality proteins eukaryotes [5,7,8].                                           results consistent published experiments.
+  date, multiple genome-scale networks        Furthermore, method create new viewpoint
+built organism regard pathway           protein level property characterization, reveal essentiality genes proteins [9,10].     differs conventional methodologies studies based network topology         comprehensive analyzing complex systems.
+flux analysis. topology-based approaches, level
+properties defined connectivity molecule      Results shortest path lengths, [11,12]. properties        computed criticality enzymes sys-
+usually poor consistency experimental charac-       tem, observed categorized terizations, especially protein level. example,    classes: critical properties multiple studies suggest proteins large connec-     uncritical properties. enzyme characterized cri-
+tivity protein-protein interaction networks        tical deletion caused large influences essential.  enzymes associated large           states qualitative changes dynamical
+number accompanies exert little influence          stability.
+cell growth [6,13,14]. think possible reason mere topology does encode specific biochem-          state fluctuation
+ical/biological functions proteins, topology-      simulated obtain metabolite
+based approaches purely regard bio-molecules           kinetics flux distributions normal conditions.
+vertices abstract graph. flux-analysis          carried silico enzyme knockouts approaches (e.g. flux balance analysis - FBA; metabolic       modifying corresponding parameters simulat-
+control analysis - MCA), calculate extent         ing  Following definition previous stu- perturbation parameter influences         dies, regarded concentrations primary specific, pre-defined objective.         state [6,16]. calculated state deviations modi-
+individual sensitivity analyses quantitative mea-      fied computed fluctuation amplitude sure component’s control functional pathway,        metabolite enzyme’s removal. reveal simultaneous impacts          encoded vector f. Second, assessed parts overall           impact area calculating distances metabolites
+words, pre-defined objective       removed enzyme encoded know perturbation triggers collateral influ-    vector d. allowed influence
+ences parts impli-         limited radius propagated distant
+cates overall  lack level         parts  short, used vector pair U =
+perspective possibly gives rise false positive results,    (d,f) represent state fluctuation, simulated perturbation favouring objective       quantify overall impact measurement formula actually carried know        section “Methods�? details). results lethal impacts collateral crucial components       summarized Additional file 2.                                                    discovered enzymes exert    consideration, developed new                deletion) large influences kinetics method characterize protein criticality based           metabolites, e. caused large state fluctuations
+kinetic systems, accurately reflect          deleted. example, transketolase-b (TKb), behaviours explicit context biophysical/       enzyme catalyzing coupling branch glycolysis
+biochemical basis [5,15]. E. coli central carbon      pentose phosphate pathways, relatively
+metabolism comprehensive              large influences metabolites central
+kinetic data, used model. com-        carbon metabolism, especially glucose, sedoheptu-
+ponents (bio-molecules) enzymes,              lose-7-phosphate, erythrose-4-phosphate (Figure
+defined criticality component silico       2A). Phosphoglycerate kinase (PGK), enzyme cata-
+knockout. explored deletion enzyme           lyzing conversion 1,3-diphosphoglycerate
+influenced state, e. state               3-phosphoglycerate linear branch  Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                                                          Page 3 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+ Figure 1 Schematic illustration protein criticality characterization method. components exert different impacts  perturbed. Color gradient corresponds amplitudes, color representing zero effect.   Circumstance impact  limited area near epicenter  e. perturbed component, marked “1�?). (B) Circumstance impact spreads network,
+ distant spots severely affected (marked “2�?). (C) stable equilibrium (Xeq) attracts neighboring trajectories. (D) unstable
+ equilibrium repels trajectories. Stable equilibriums collapse perturbations critical components. Components  perturbations exert large impacts, cause qualitative changes dynamics  perturbation) regarded critical.
+
+
+glycolysis pathway, exerted greater impacts                            acid (TCA) cycle, polysaccharide synth- metabolites ones                         esis, external pathway connected central car- glucose-6-phosphate, fructose-6-phos-                           bon metabolism (Figure 2B). Similarly, enzymes phate, glyceraldehydes-3-phosphate, ribulose-5-phos-                           locations enolase (ENO), glyceralde-
+phate,   exert large impact                         hydes-3-phosphate dehydrogenase (GAPDH), ribose-5- oxaloacetate, intermediate tricarboxylic                          phosphate isomerase (R5PI), aldolase (ALDO),
+
+
+
+
+ Figure 2 state fluctuations caused enzyme deletions. impacts enzyme deletions states shown.  subfigures, x-axis: state variable (metabolite) indexes (denoted “Metab�?, Additional file 6 details); y-axis: distance state variable  deleted enzyme ("Dist�?); axis: impact amplitude ("Amp�?).  - D) influences TKb, PGK, TIS, PGI deletions state,
+ respectively. figures exemplify enzyme affect distant metabolites greater closest neighbours.
+ Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                          Page 4 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+transaldolase (TA), , exhibited large impacts    similar pattern results presented (Addi- states (Additional file 2). overall influences    tional file 3). PGK, ENO, GAPDH superior ALDO, R5PI, TKb TA, especially distance ≥         dynamical stability
+4 5 (Figure 2, Additional file 2). indicated        original asymptotically enzymes like PGK, ENO GAPDH                   stable equilibrium point Xeq large range ordinary
+impact distant areas strongly exert          intracellular concentrations parameter/state space,
+persistent impact respect structure.          trajectories wide neighborhood
+Noteworthy, triosephosphate isomerase (TIS),           tending (Figure 3). gives rise metabolic
+catalyzed inter-conversions glyceraldehydes-3-       robustness, slight perturbations initial values phosphate isomer dihydroxyacetonephosphate,          cause large changes states [17,18]. regarded peripheral component           accord Lyapunov stability, traditional topology-based flux-analysis       characterize enzyme’s criticality examining approaches uni-directional rate      bifurcations X eq respect deletion limiting steps.  computation results             enzyme. bifurcations included: (1) deleting
+showed deletion resulted large impact       enzyme residual equili-
+(Figure 2C). difference prediction        brium; (2) residual equilibrium(s), method assumed influence exerted          far location deviated Xeq; (3) enzyme depend location (network             stability property changed  e. changes topology), determined parametric prop-       neighborhood orbit structure). Equilibrium(s) erties (kinetic parameters).                                 computed dynamical simulation optimization
+             methods. located, deviation Xeq
+group enzymes, contrast mentioned             calculated neighborhood orbit structure  having little influences states.   described rules topological conjugacy  example, multiple enzymes glucose-6-phosphate        “Methods�? section details). multiple enzyme dele-
+isomerase (PGI), pyruvate kinase (PK), phosphogluco-         tions generate topologically identical orbit struc-
+mutase (PGM), , resulted small state        tures, showed typical cases examples 
+fluctuations deleted. amplitudes slight,       Additional file 4 complete catalogue influences limited areas       results. amplitudes negligible distance ≥ 2 (Fig-        silico knockout TKb, residual ure 2D, Additional file 2).  level prop-    large qualitative changes dynamics. erties far state fluctuation considered,    exhibited equilibrium far away Xeq differ- enzymes greater         ent stability property (Figure 4A-4B). unstable group.                                                equilibrium trajectory representing sedoheptu-
+  interestingly, severely        lose-7-phosphate kinetics divergent influenced metabolites did concentrate     dimensions representing ribulose-5-phosphate xylu-
+close neighborhood perturbed enzyme. exam-        lose-5-phosphate forming limit cycle certain
+ple, largest impacts TKb deletion dis-    initial values held. setting different initial values tances 2 3 distance 1 (Figure       2-dimensional plane limit cycle investi-
+2A). Likewise, largest impacts PGK deletion           gating trajectory dynamics, seen limit
+occurred distances 3 4 dis-    cycle unstable  Trajectories plane
+tance 1 (Figure 2B). Similar patterns seen      inside range converged equilibrium’s projec- results enzymes like ENO, R5PI,            tion plane; trajectories outside range
+ALDO, GAPDH, TA PGI (Figure 2, Additional file           spread quickly dimensions (Figure 4B).
+2). suggested contrast intuition    Likewise, deleting TA caused equilibrium perturbation cause largest changes neigh-       relocate similar distance similar proper-
+borhood, distant effects occur leverage     ties case TKb. unstable dynamics.                                          dimension divergent   examined impacts enzyme knockouts           dimensions forming unstable limit cycle. enzyme-centric view method.           differs TKb divergent dimension enzyme representing reaction using fluxes      6-phosphogluconate cycling dimensions states, computed flux change amplitudes        xylulose-5-phosphate sedoheptulose-7-phos-
+impact radiuses enzyme-centric network         phate. R5PI knockout equilibrium shift way stated previously. results showed             long distance reversed stability.  Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                                                        Page 5 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+ Figure 3 asymptotically stable equilibrium point. stable equilibrium (Xeq) illustrated trajectories phase orbits 18D
+ space 10  perturbations. red line: original curve respect experimental initial value [5]; yellow/blue lines: curves
+ initial value -10 /+10  perturbation experimental  triangular spots: projections Xeq corresponding
+ dimensions.   Asymptotical stability shown trajectories. subplot represents dimension 18D space, e. kinetics  metabolite. trajectories eventually consistently converge Xeq (projection corresponding dimension) 10 
+ perturbation initial value. x-axis: time (s); y-axis: concentration (mM). (B) Asymptotical stability shown phase orbits. Stability  clearly illustrated presentation. randomly chose 2 state variables (metabolites #7 #8 plot) form phase orbit  2D subspace. Arrows denote directions orbits eventually consistently converge Xeq (projection 2D subspace,
+ marked triangular spot). 2D subspaces, orbit profiles 
+ Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                                                          Page 6 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+ Figure 4 Equilibrium deviations orbit structure changes caused enzyme deletions. Impacts enzyme deletions dynamical
+ stability shown terms equilibrium deviations orbit structure changes. curves drawn principle topology
+ conjugacy. qualitative dynamics real-value trajectories. Lines different colors represent different curves
+ initiated different values (init 1-3). subfigure, 3 dimensions represent metabolites differ original kinetics.  
+ original equilibrium (Xeq), denoted (0,0,0). trajectories converge  (B) unstable equilibrium deleting TKb. dimension
+ sed7p divergent, (ribu5p, xyl5p) form unstable limit cycle. 3 colored orbits initiated different values lead convergence, limit cycle
+ divergence 2D plane (ribu5p, xyl5p).   (B) separately drawn order limit cycle clearly. Orbits centred  (0,0,0) achieve better visual effect. (C) Deleting R5PI causes long-distance equilibrium deviation alters stability. source
+ target ends grey arrow mark Xeq established equilibrium (Xd) respectively, distance  metric unit state
+ space) marked box. Initiated identical values, Xeq attracts orbits Xd repels orbits dimensions fdp 3pg. (D)
+ Deleting TIS causes equilibrium deviate larger distance. Legends  (E) Deleting PGK makes  equilibrium. deviation denoted infinite (∞). (F) Deleting PGI does cause obvious changes dynamics. established
+ equilibrium asymptotically stable near Xeq. Additional file 6 abbreviations metabolite names.
+
+
+neighborhood orbits, divergent dimensions                             deletion, residual run-
+fructose-1,6-biphosphate 3-phosphoglycerate (Figure                        ning  approach extreme posi-
+4C).                                                                           tion regular state space special
+  Deleting TIS ALDO caused                                 dynamics. words, residual establish equilibrium extreme distance                          maintain regular operating functional- ordinary range (Figure 4D). indicated                            ity, deletions ALDO R5PI  Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                            Page 7 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+regarded having large qualitative influence       close normal [16]. MOMA accepted dynamics.                                                      rationale, adopted flux simulation enzyme
+   equilibrium         deletions, formulating computation optimiza-
+deleting enzymes PGK, ENO GAPDH (Figure             tion problem solving numerically  section
+4E). meant original equilibrium              “Methods�? details). flux-sums destroyed residual establish       essential metabolites reduced  residual         50  deleting enzymes predicted removal enzymes            critical (Figure 5A-5C, Additional file 5), dele- ill-suited trajectories did exhibit    tions result 50  reduction mality imposed biological kinetic systems,          cell growth according Kim et al.  trajectories tended stabilize near           deleting (predicted) uncritical enzymes did
+regions state space. indicated       cause flux-sums drop 50  (Figure
+residual  operating  effec-     5D-5E, Additional file 5), relatively mild
+tively maintain functionality.  deletions     effect cell growth. indicated predicted
+PGK, ENO GAPDH regarded having                critical enzymes weight functional
+larger qualitative influences dynamics com-          essentiality uncritical enzymes, sup-
+pared previously mentioned enzymes.                   ported characterizations criticality.
+  contrast  enzymes like PGI, PK             compared results E. coli gene
+PGM showed different property. deleting          essentiality studies Keio collection,  residual equili-       genetic footprinting study Profiling E. coli
+brium locating near Xeq.  equili-        Chromosome (PEC) database, results sup-
+brium asymptotically stable,                 ported experimental characterizations.
+dimensions converging (Figure 4F).  PGI,       example, “critical�? enzymes PGK GAPDH
+PK PGM knockout did qualitatively change            encoded genes pgk gapA respectively. dynamics.  level properties         2 genes characterized essential studies
+far dynamical stability considered, enzymes like        Keio collection genetic footprinting
+PGK, ALDO, TKb,  critical enzymes           [14,19]. ENO encoded gene eno gene like PGI, PK, PGM. Based             essential, according Keio collection class enzymes exemplified PGK,              PEC database [19,20].  gene fbaA, ENO, TKb, ALDO, TIS, R5PI, GAPDH, TA                  encodes ALDO, characterized essential critical properties terms impact          Keio collection, genetic footprinting PEC data-
+states dynamical stability. class         base [14,19,20]. Furthermore, “uncritical�? enzymes
+enzymes exemplified PGI, PK, PGM oppo-              PGI, PK PGM encoded genes pgi, pykF site properties.  class charac-       pgm respectively, 3 genes characterized
+terized “critical�? “uncritical�?.         nonessential Keio collection, genetic foot-
+                                                               printing PEC database [14,19,20]. compari-
+Comparison experimental characterizations                 sons showed predictions consistent compared characterizations level              experimental results (Table 1). addition, ribulose-5-
+properties characterizations essentiality     phosphate epimerase (Ru5P) encoded gene rpe.
+basis multiple (previous) validated studies. Kim et          gene characterized essential al.’s work E. coli metabolism defined set essen-       genetic footprinting nonessential Keio collec-
+tial metabolites demonstrated flux-sum         tion PEC database. Given Ru5P critical essential metabolite reduced 50 ,           central carbon metabolic revealed cell growth rate decrease 50            method verified flux-sums essential meta-
+correspondingly [6]. 12 metabolites         bolites (earlier context), propose viewpoint working model examined flux-sums           criticality gene rpe essential.
+utilizing simulation power kinetic model respect perturbations  e. enzyme deletion). naive       Discussion
+method modifying corresponding enzymatic               Studying level properties bio-molecules parameter zero leaving rest        essential systems biology [1,2]. studies originally   theory Minimiza-         based network topology working
+tion Metabolic Adjustment (MOMA) suggested             protein level, flux analysis lacks severe perturbation occurred,                level perspective [13,14,21]. overcome
+adjusted itself extent state        drawbacks, propose method criticality
+ Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                                                                    Page 8 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+  Figure 5 flux-sums essential metabolites enzyme deletions. flux-sum values 12 essential metabolites
+  enzyme knockout shown. x-axis: metabolites; y-axis: flux-sum values. blue bars: flux-sum values   original  red bars: flux-sum values enzyme knockout.  - C) Flux-sums essential metabolites   knockouts TKb, PGK TIS respectively. metabolites suffer devastating flux reductions. (D - E) Flux-sums essential metabolites   knockouts PGI PGM respectively. metabolites’ flux-sums sustained high level compared original values.   observations support conclusion enzymes critical ones. Additional file 6 abbreviations   metabolites.
+
+
+
+
+Table 1 Comparison multiple E. coli gene essentiality studies
+Protein            Gene            Criticality           Flux-sum             Keio collection             Genetic footprinting               PEC database
+PGK                pgk             Critical              √                    √                           √
+GAPDH              gapA            Critical              √                    √                           √
+ENO                eno             Critical              √                    √                                                              √
+ALDO               fbaA            Critical              √                    √                           √                                  √
+PGI                pgi             Uncritical            √                    √                           √                                  √
+PK                 pykF            Uncritical            √                    √                           √                                  √
+PGM                pgm             Uncritical            √                    √                           √                                  √
+Ru5P               rpe             Critical              √                                                √
+G1PAT              glgC            Uncritical            √                    √                           √                                  √ characterizations protein criticality (Col 3) compared multiple gene essentiality studies (Col 5-7) validations flux-sum (Col 4).
+Note: “√�? means evidence supports characterization criticality
+ Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                             Page 9 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+characterization basis kinetic modeling.        encoding TIS) attenuated cell growth 70 .
+kinetic  interaction expressed            method appropriately revealed TIS kinetic rate equation. component influences          exert large impacts deleted, determined position              designs (mentioned . metho-
+kinetic parameters. Position equivalent topological      dologically, method creates different angle property, kinetic parameters encode specific bio-        topology-based methods viewed chemical/biological functions. kinds information       improvement conventional flux-analysis approaches. integrated modeling revealed dynamical              silico deleting protein, residual simulation [15,22]. According typical formulism         actually virtual structure. assume struc- biochemical systems, kinetic rate equations         ture encodes important information stitute deterministic complex           mutant maintain functionality dynamics viewed “driving force�?         dynamically behave/evolve provided stills operates [23]. theoretically, criticality         residual fails maintain func-
+characterization proposed method study        tionality kinetics goes regular ranges (e.
+structural factors built “driving force�?         g. occurring negative values, soaring extreme                                                         values exceeding regular intracellular molecular concen-
+  Differing topology-based methods, method            trations), dynamics trapped mode characterizes level properties quantitative      stable equilibrium sabotaged, stable equilibrium
+basis. unlike conventional sensitivity analysis,    gives rise robustness essential prerequisite
+employ network structure information calculating        valid mathematical formulations living cell distances deleted spot affected enti-      dynamics [17,24-26]. case indicates deleting
+ties computing fluctuations.              protein makes ill-suited unlike conventional flux-analysis approaches, explore       run  stability retrieve dynamics struc-          applying method E. coli central carbon
+ture. Incorporating network/dynamics structure             metabolism, deleting enzymes PGK,
+information allows reveal simultaneous/collat-       GAPDH,  causes ill-sui-
+eral influences overall impact           ted structure state values soaring levels major difference sensitivity analysis      normal range trajectories highly use silico deletions instead mild perturba-      divergent state space (Figure 2B tions (e.g. 5  10 , flux-analysis approaches        4B). Likewise, deleting enzymes TKb, ALDO, . casted biological network usually           causes relatively large impacts parametric properties favouring robustness          kinetics qualitative dynamics (Figure 2A 4A).
+dynamics, critical components tolerate mild           contrary, knocking enzymes PGI,
+perturbations  e. parameters exhibiting Lyapunov         PK,  exerts small influences (Figure 2D 4E).
+stability).  individual sensitivity analysis   enzymes mediate large influences fails identify critical spots, inability    distant metabolites enzymes. instance, TKb, PGK,
+reveal simultaneous influences worsens situation.          PGI,  exert largest impacts entities develop “criticality characterization�?.     distances 1 (Figure 2A, 6A-6B Additional silico deletion equivalent investigating      file 2, 3). bio-systems complex component forcefully assumed         structures consisting branches, alternative pathways absent, eliminating parametric properties sta-       loops, various kinetic parameters differing
+ted earlier. Furthermore, method’s capacity             orders magnitudes [6,24]. structure acts revealing simultaneous/overall impacts           special leverage, determining special ways interactions
+level enables distinguish real critical spots       influence propagations. kinetic modeling uncritical ones effectively. addition, utilizing       reveal knowledge, analyses kinetic model analytical basis superiority    clues selecting potential regulatory targets stoichiometric flux-balance modeling traditional        use drug development, metabolic engineering, 
+flux-analysis methods, enabling appropriately               utilizing power kinetic model approaching
+explore behaviours real-time scale [15].         real-time events, simulated fluxes enzyme dele- example, traditional topology-based flux-         tions compared results previously validated
+analysis approaches regard TIS peripheral      study metabolic essentiality [6]. comparison shows
+highly connected uni-directional       characterization criticality supported rate limiting reactions.  experimen-        functional essentiality. Interestingly, discovered tal studies showing knocking tpiA  e. gene      asymmetry criticalities building blocks  Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                                                     Page 10 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+ Figure 6 Remote impact local flux compensation. component affect distant entities greater closest
+ neighbours, illustrated TKb.  asymmetry criticalities components result local flux compensation,  illustrated alternative paths TKb, TA PGI.   explicit demonstration Figure 2A biological network overlay.  organized metabolite network TKb highlighted blue metabolites arranged green circles representing distance levels.  amplitude proportional color gradient (upper-right corner, “red-yellow�? corresponds “strong-slight�?). (B) enzyme-centric view   . Subfigure   (B) mainly distributions distances amplitudes network’s view, exact vertices’ labels  important  pictures high resolution, refer Additional file 7 8. (C) Metabolites ribu5p, sed7p, rib5p e4p  pentose-phosphate pathway increased fluxes PGI knockout asymmetry levels properties PGI, TKb TA.  enzymes mutually form alternative paths associating essential metabolite f6p.
+
+
+rise local flux compensation. instance, multiple                      mainly mediated alternative pathways [6]. metabolites (e.g. ribulose-5-phosphate, sedoheptulose-7-                     critical component deleted, leaving inferior components
+phosphate, ) pentose phosphate pathway                       backup rely  work efficiently.
+increased flux-sums PGI knockout (Figure 5D                        contrary, deleting PGI leaves alternative
+6C). cutoff PGI induces alternative path-                     pathways superior properties “ON�? state
+ways generating essential metabolite fructose-6-                     works, fluxes/states effi-
+phosphate, TKb TA, operate greater volume.                       ciently compensated. gives hint criticality fluxes relative reactions compensated,                      characterization help bio modifications resulting local amplified fluxes. likely result              metabolic engineering. delete accordance MOMA mechanism [17].                              components inferior properties, leaving alternative
+MOMA compensate fluxes/states                             pathways superior properties work. pheno-
+degrees, results effects caused dele-                   types local areas relating alternative path-
+tions critical components TKb, TA, PGK,                       ways compensated leverage smoothed compensations (Figure 5A-                         structure MOMA mechanism.  compre-
+5B, Additional file 5). compensations                   hensive methods exploring level properties  Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                            Page 11 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+help make use bio-complexity engineering,      useful revealing general principles governing knowledge discovery.                                      complex bio-systems. Naturally, complicated bifurcation
+   noteworthy functionally important compo-          dynamics harder analyze; idea nents necessarily critical, studies suggest     method applied coexisting dynami- important reaction function,          cal characteristics bifurcation associated bio-
+likely backup pathway [6,13]. example,        logical implications [28]. integrating knowledge PK connects fundamental chemical compounds             using theoretical generic forms models [15,30], regarded uncritical level,       kinetic modeling eventually feasible alternative paths (e.g. phosphotransferase        organisms.  instead traditional approaches, - PTS, bacteria glycolysis; Additional file 1)        propose complex systems studied casting prevent large impacts kinetics/              network kinetic equations computing dynamics. exemplifies bio components           level properties respect kinetics/ dichotomy. “importance�? biochemical           dynamics (criticality). Overall, method provide
+molecules, “criticality�?       new viewpoint revealing constitutive/functional constitutive building blocks. Actually, method           properties building blocks biological 
+does aim “functionally important�? mole-
+cules, “critical�?  e. components      Conclusions absent, severely aber-     method creates new angle traditional topol-
+rant. criticality enzyme depends        ogy-based methodologies evaluating level prop-
+factors (e.g. kinetic parameters, substrates inhibiting/acti-   erties bio-molecules.  proposed method
+vating reactions, degree effects, ),       viewed improvement conventional
+assignments boundaries modeling              flux-analysis approaches FBA MCA. addi-
+affect prediction results. enzymes located        tion, method leads results consistent boundary incomplete interplay structure,         experimental references, showing efficient factors occur properly kinetic equa-       characterizing protein criticality studying biological
+tions.  accurate criticality characterization      systems. Furthermore, method’s application facilitated appropriate inclusiveness model-       extended types bio-systems (e.g. transcriptional
+ing. example, glucose-1-phosphate adenyltransferase         networks signaling networks) reveal constitu-
+(G1PAT) connects external polysaccharide               tive/functional properties building blocks.
+synthesis pathway, interactions large-capa-
+city reactions outside pathways.         Methods boundary assigned  validity      Kinetic modeling results enhanced (Table 1). Furthermore, funda-         utilized existing kinetic data E. coli central carbon
+mental, common conserved pathways cho-              metabolism adopted previous modeling frame-
+sen comparison genome-scale gene essentiality          work working platform [5]. kinetic model
+studies regard global cellular functionality.       consists 30 metabolites (including external metabo-
+instance, bacteria central carbon metabolism        lites biosynthesis products) 30 biochemical appropriate example [5,7,8], various predictions        reactions (24 enzymes 6 lumped reactions standing protein criticality consistent global gene     transport/biosynthetic processes relating external
+essentiality characterizations [13,14,19].                      pathways; Additional file 1). model 
+   used metabolic working           casted enzyme-centric network, adding model, application method confined         directed connection enzyme B A’s
+metabolic systems. instance, model gene              products B’s substrate. explicitly transcription dynamics deriving gene transcription           interactions enzymes enzyme-centric
+rate power-law formulism, Hill equation,        view (Additional file 1).
+equations chemical kinetic actions [27-29].           kinetic rate equations formulated according ligand-receptor protein-protein binding            biochemical mechanisms [5]. actions mass action law build models           casted uni-/bi-substrate Michaelis-Menten formu-
+signaling networks [22]. obtain          lism. kinetics metabolite expressed exact parameters fitting modeled solutions assay         ordinary differential equation (ODE; Eqn (1)).
+measurements analyzing generic behavioral
+potential  e.g. parameter ranges             dX
+                                                                      = · R(X, P) + B(X, P)                            (1) exhibits certain dynamics                  dt
+change parameters. qualitative predictions  Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                             Page 12 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+  vector X denoted state P denoted             Dynamical stability
+kinetic parameters. R function vector collocated         Normal bio-systems subjected robustness rate equations, stoichiometric            structurally consist abundant alternative pathways
+matrix. B term standing extra reactions (e.g.      feedback loops [6,17,24]. valid formulations transport, metabolite utilization cellular growth, .   bio-systems usually stable equilibrium, attracting parameters published studies            neighborhood trajectories allowing slight changes rest estimated using experimental         tolerated disturbing normality [5,25,26]. ditions, steady-state reaction rates concentrations        trajectories tend area adequately large
+reported previous studies [5,31,32]. complete           ranges time parameter spaces descriptions metabolites, reactions, forms kinetic       equilibrium. did  trajectories spread rate equations ODEs, Additional file 6.                dimensions traversing orders mag-
+                                                               nitudes. locate equilibrium, utilized state
+Dynamical simulation state fluctuation                     end time point simulation initial guess substituting initial value, typical Cauchy pro-     used trust-region method solve problem
+blem formed numerical integration curves          [26,34]. carefully refining numerical approach,
+computed Eqn (1). used Gear method               equilibrium computed distances computation alleviate stiffness problem        original Xeq calculated Euclid norm.
+ODEs [33]. initial value normal experimen-            defined dynamical stability following 
+tal conditions [5], obtained kinetic states      cept Lyapunov stability, explicit physi- X0, e. time-courses metabolite concentrations      cal/chemical context suitable describing normal conditions. deleting enzyme,          metabolic robustness [25,26]. stability equilibrium
+computed kinetics residual Xe         determined eigenvalues Jacobian matrix deviated original state. influ-       evaluated equilibrium (Eqn (4)). eigenvalues
+ence deleted enzyme assessed. Assuming         negative real parts, equilibrium asymptotically
+solution X organized matrix column           stable; positive real  equili-
+represented kinetics metabolite, calcu-      brium unstable; Jacobian matrix pair late amplitude metabolite k’s state fluctuation      purely imaginary conjugate eigenvalues, limit cycle                                                                likely bifurcate equilibrium.
+    fk = ||X•k
+            e
+               − X•k
+                  0
+                     ||2 /||X•k
+                             0
+                                ||2                      (2)                            
+                                                                            ∂ · R(X, P)
+  calculate distances metabolites             JXeq =                                              (4)
+                                                                                  ∂X deleted enzyme structure metabolite-cen-                                            X=Xeq
+tric network. Metabolites directly associating enzyme assigned distance 1; metabolites            Hartman-Grobman Theorem Center Manifold
+directly associating enzyme associating           Theorem prove Jacobian matrix evaluated 1st distance level metabolites direct        equilibrium 2 conjugate purely imaginary eigenvalues,
+single reaction assigned distance 2,       Ns eigenvalues negative real parts Nu eigenvalues combined distances amplitudes             positive real parts, trajectories Eqn (1) near ranges influences occurred strong           equilibrium topologically equivalent Eqn  computed flux distributions           (5). b kinetic parameters s +1
+residual based metabolites concentrations        according  words, orbit struc- rate equations. observe flux         ture (near equilibrium) Eqn (5) topologically 
+distributions deviated original            jugate Eqn (1). Eqn (5) assessed way Eqn (2). dis-             simpler, investigate instead complex
+tances effects directly counted           Eqn (1). way, explicitly drew orbit structure
+enzyme-centric network. Furthermore, com-             Eqn (5) near equilibrium know quali-
+bine amplitude distance data single mea-        tative dynamics Eqn (1) accordingly.
+surement assessing overall impact,               ⎧ dy                              
+                                                                  ⎪
+                                                                  ⎪
+                                                                       1
+                                                                         = βy1 − y2 + σ y1 y12 + y22
+metabolite-centric network enzyme-centric network             ⎪
+                                                                  ⎪
+                                                                  ⎪
+                                                                  ⎪  dt
+                                                                                                    
+                                                                  ⎪ dy2
+                                                                  ⎪
+(Eqn (3)).                                                        ⎨      = y1 + βy2 + σ y2 y12 + y22
+                                                                     dt                                                   (5)
+                                                                ⎪
+                                                                  ⎪           dyNs
+                                                                  ⎪
+                                                                  ⎪                  = −yNs
+    M(d, f ) =     fk dnk , n ∈ N+                                ⎪
+                                                                  ⎪            dt
+                                                      (3)         ⎪
+                                                                  ⎪            dy Nu
+                                                                  ⎩                   = yNu
+                    k
+                                                                                dt
+ Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                                                        Page 13 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+  bifurcation caused silico deletion (para-                    circles arrows indicate interactions. detailed information,
+meter modification) yields multiple equilibriums,                          “Methods�? section Additional file 6.
+impact dynamical stability regarded large                      Additional file 2: Impacts states metabolite-centric equilibriums exhibit qualitative difference                         view. file format *.pdf, plot showing                                                                                impacts enzymes deletions metabolite kinetics. metabolite Xeq dynamical properties.                                              indexes, impact distances state uation amplitudes form 3
+                                                                               dimensions. Legends Figure 2.
+MOMA flux-sum                                                              Additional file 3: Impacts states enzyme-centric
+MOMA suggested metabolic systems sub-                                view. file format *.pdf, plot showing                                                                                impacts enzymes deletions kinetic fluxes. reaction/enzyme
+jected biological robustness. perturbed,                            indexes, impact distances flux fluctuation amplitudes form 3 adjust itself state relatively                        dimensions. Legends Additional file 2.
+close original state. formulate pro-                       Additional file 4: catalogue results dynamical stability
+cess optimization problem                                             analysis. file categorizes enzymes generate topologically
+                                                                               equivalent orbit structures, deleted. Enzymes                                
+    min S(Pμ ) =  X(Pμ ) − X0  2
+                                                                               category exert similar impacts qualitative dynamics 
+                                                                               file format MS Word electronic table (*.doc).
+         ⎧
+         ⎪ dX                                                                  Additional file 5: flux-sum validations critical uncritical
+         ⎪
+         ⎪ dt = · R(X, Pμ )
+         ⎪
+         ⎪                                                                     enzymes. file format *.pdf, plot showing          ⎨                                          (6)                       flux-sums essential metabolites deletion     s.t.        0≤X                                                            enzyme. Deletions presented enzymes shown. metabolite
+         ⎪
+         ⎪                                                                     symbols flux-sum values form lateral vertical dimensions.
+         ⎪
+         ⎪
+                
+                0 ≤ Pμ
+         ⎪
+         ⎩                                                                     Legends Figure 5.
+            X(t0 = 0) = C0                                                     Additional file 6: Description modeling. file                                                                                supplementary text modeling. format *.doc   Pμ parameter set relevant enzy-                        includes detailed descriptions metabolites, enzymes, kinetic rate
+                                                                               equations ODEs.
+matic parameters deleted, X0 original state                                                                                Additional file 7: High resolution images Figure 6A 6B. C0 initial value. states close                                                                                files  format *.png) high resolution versions X0 feasible space solved genetic                      Figure 6A 6B, respectively.
+algorithm, heuristic numerical approach alle-                       Additional file 8: High resolution images Figure 6A 6B. viate computation difficulty large variable space                        files  format *.png) high resolution versions                                                                                Figure 6A 6B, respectively. extent.
+  adopted definition essential metabolite flux-sum Kim et al.’s work E. coli metabolism [6]. 12 essential metabolites occurred central carbon                       Acknowledgements
+                                                                              thank Yi-Xue Li valuable advices dynamics analysis.
+metabolism shown Figure 5. flux-sum
+                                                                              article published BMC Systems Biology Volume 6 metabolite k defined                                                Supplement 1, 2012: Selected articles 5th IEEE International
+                                                                             Conference Systems Biology (ISB 2011). contents     k =     Aki · Ri (X, P)                          (7)
+                                                                              supplement available online http://www.biomedcentral.com/
+                                                                              bmcsystbiol/supplements/6/S1.
+           i∈k
+                                                                              Author details
+  Ω k index set reactions producing                          1
+                                                                               Key Laboratory Systems Biology, Shanghai Institutes Biological
+metabolite k.                                                                 Sciences, Chinese Academy Sciences, Shanghai, China. 2Shanghai Center
+                                                                              Bioinformatics Technology, Shanghai, China.
+  MOMA computation, obtained   set parameters states. Using rate                         Authors’ contributions
+equations, simulated fluxes calculate flux-                        Conceiving designing research: RDL LL. Data acquisition                                                                               analysis: RDL. Drafting manuscript: RDL LL.
+sums according Eqn (7).
+                                                                              Competing interests
+Additional material                                                           authors declare competing interests.
+
+                                                                              Published: 16 July 2012
+ Additional file 1: metabolite-centric enzyme-centric views
+ E. coli central carbon metabolic network. file                                                                               References
+ format *.png, figures included showing metabolite-centric
+                                                                              1. Hood L: Systems biology: Integrating technology, biology  (Page 1) enzyme-centric metabolic (Page 2) networks.                                                                                   computation. Mech Ageing Dev 2003, 124:9-16.
+ metabolite-centric view, enzymes/reactions abbreviated symbols
+                                                                              2. Ideker T, Galitski T, Hood L: new approach decoding life: Systems
+ denoted rectangles; metabolites abbreviations; inhibitors/
+                                                                                  biology. Annu Rev Genomics Hum Genet 2001, 2:343-372.
+ activators drawn circles reactions. Synth1 lumped
+                                                                              3. Bailey JE: science metabolic engineering. Science 1991,
+ reaction synthesizing chorismate murine; Synth2 lumped
+                                                                                  252:1668-1675.
+ reaction synthesizing isoleucine, alanine, ketoisovalerate,                                                                               4. Li H, Zhan M: Systematic intervention transcription identifying
+ diaminopimelate [5]. enzyme-centric view, enzymes denoted
+                                                                                  network response disease cellular phenotypes. Bioinformatics
+                                                                                  2006, 22:96-102.
+ Li Liu BMC Systems Biology 2012, 6(Suppl 1):S11                                                                                                    Page 14 14
+http://www.biomedcentral.com/1752-0509/6/S1/S11
+
+
+
+
+5.    Chassagnole C, Noisommit-Rizzi N, Schmid JW, Mauch K, Reuss M: Dynamic           31. Bhattacharya M, Fuhrman L, Ingram  Nickerson KW, Conway T: Single-run
+      modeling central carbon metabolism Escherichia coli. Biotechnol            separation detection multiple metabolic intermediates anion-
+      Bioeng 2002, 79:53-73.                                                               exchange high-performance liquid chromatography application 6.    Kim PJ, Lee DY, Kim TY, Lee KH, Jeong H, Lee SY, Park S: Metabolite                  cell pool extracts prepared Escherichia coli. Anal Biochem 1995,
+      essentiality elucidates robustness Escherichia coli metabolism. Proc              232:98-106.
+      Natl Acad Sci USA 2007, 104:13638-13642.                                         32. Buziol S, Bashir  Baumeister  Claaßen W, Noisommit-Rizzi N, Mailinger W,
+7.    Neidhardt FC, Curtiss R, Ingraham JL, Lin ECC, Low KB, Magasanik B,                  Reuss M: New bioreactor-coupled rapid stopped-flow sampling
+      Reznikoff W, Riley M, Umbar

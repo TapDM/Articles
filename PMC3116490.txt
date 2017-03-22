@@ -1,0 +1,352 @@
+Sroka et al. BMC Bioinformatics 2011, 12:196
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+ SOFTWARE                                                                                                                                      Open Access
+
+Acorn: grid computing constraint
+based modeling visualization genome
+scale metabolic reaction networks web
+interface
+Jacek Sroka1, �?ukasz Bieniasz-Krzywiec1, Szymon Gwóźdź1, Dariusz Leniowski1, Jakub �?ącki1, Mateusz Markowski1,
+Claudio Avignone-Rossa2, Michael E Bushell2, Johnjoe McFadden2 Andrzej M Kierzek2*
+
+
+  Abstract
+  Background: Constraint-based approaches facilitate prediction cellular metabolic capabilities, based, turn
+  predictions repertoire enzymes encoded genome. Recently, genome annotations   used reconstruct genome scale metabolic reaction networks numerous species, including Homo sapiens,
+  allow simulations provide valuable insights topics, including predictions gene essentiality   pathogens, interpretation genetic polymorphism metabolic disease syndromes suggestions novel
+  approaches microbial metabolic engineering. constraint-based simulations integrated   functional genomics portals, activity requires efficient implementation constraint-based simulations
+  web-based environment.
+  Results:  present Acorn, open source (GNU GPL) grid computing constraint-based
+  simulations genome scale metabolic reaction networks interactive web environment. grid-
+  based architecture allows efficient execution computationally intensive, iterative protocols Flux
+  Variability Analysis, readily scaled numbers models  users) increase. web
+  interface uses AJAX, facilitates efficient model browsing search functions, intuitive
+  implementation appropriate simulation conditions. Research groups install Acorn locally create user
+  accounts. Users import models familiar SBML format link reaction formulas major
+  functional genomics portals choice. Selected models simulation results shared different
+  users publically available. Users construct pathway map layouts import server
+  using desktop editor integrated  Pathway maps used visualise numerical results
+  web environment. illustrate features deployed Acorn created web server
+  allowing constraint based simulations genome scale metabolic reaction networks E. coli, S. cerevisiae
+  M. tuberculosis.
+  Conclusions: Acorn free software package, installed research groups create web based
+  environment simulations genome scale metabolic reaction networks. facilitates shared access   models creation publicly available constraint based modelling resources.
+
+
+
+
+* Correspondence: kierzek@surrey.ac.uk
+2
+ Faculty Health Medical Sciences, University Surrey, Guildford, GU2
+7XH, UK list author information available end article
+
+                                        © 2011 Sroka et al; licensee BioMed Central  Open Access article distributed terms Creative Commons
+                                        Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                         medium, provided original work properly cited.
+ Sroka et al. BMC Bioinformatics 2011, 12:196                                                                Page 2 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+Background                                                   conditions, determined terms set nutrients
+Analysis biochemical reaction networks, enable         present medium.
+predictions phenotype catalogue            concept gene essentiality provides good illus-
+molecular parts encoded genome, fulfils major       tration new capabilities. Currently, functional
+objective Systems Biology. scarcity         genomics portals gene terms com-
+detailed quantitative information individual           parison similar sequences organisms, direct
+enzyme rate constants intracellular concentrations,      experimental evidence function particu-
+genome scale models  far, constructed      lar experimental conditions high throughput data- special case metabolic reaction networks      sets expression gene operating steady state conditions. models        observed. constraint-based analysis appropriate
+capitalize fact metabolic conversions occur      GSMN, integrated  allow cell high rates       content dependent experimental conditions,
+given set genes active experimental conditions      specified user. user specify compo-  network metabolic reactions       sition growth medium compute considered quasi-steady state  metabo-      function gene expressed set metabolic cap-
+lite concentrations change).       abilities gene essential user-
+modelled set linear relationships        defined experimental conditions.
+calculated reaction fluxes.  linear        far, following attempts corresponding genome scale models underdeter-          creating web-based resources, allowing computation
+mined exploited Linear Programming (LP)         GSMN models subsequent linking models
+based optimization objective function repre-     results functional genomics resources. sents metabolic capability  objective    GSMN-TB [6] reconstruction GSMN
+function defined flux specific reac-     Mycobacterium tuberculosis, causative agent tion flux specific metabolite. LP opti-     Tuberculosis. case, web interface allows mization results unique value objective         specification growth medium composition, function, corresponding flux distribution     using information, provides calculation unique. range individual reaction flux    maximal theoretical flux biomass flux distributions consistent maximal      gene essentiality prediction. implements reac-
+objective function value exploited iterative   tion essentiality scan Flux Variability Analysis
+LP protocols, described following sections.      (FVA) [14], iterative protocols performing
+approach referred constraint based [1],     respectively linear programming optimiza- evaluates metabolic capabilities set     tions reaction model. gene
+straints expressed balance equations, known quanti-       names model linked Tuberculist [15], tative values certain fluxes (determined vitro      functional genomics portal dedicated Mycobacteria.
+experimentation) information  literature)       CycSim [16] allows computation maximal capacity reversibility reac-        maximal theoretical flux selected metabolites
+tions. acquisition information initi-     does implement iterative protocols
+ared analysis genome sequence      described   implements sophisticated approach applied reconstruction      user interface, enabling specification experimental
+genome scale metabolic reaction networks (GSMNs)         conditions perturbations. allows visualisation
+major model organisms [2-5], pathogens [6-8]             numerical data pathway maps imported microorganisms used industrial bioprocesses [9,10].       KEGG [17] PathwayTools [18] software. WEbcoli reconstruction human metabolism         [19] server allows modification constraint based
+available [11] currently used investigate    simulation Escherichia coli iJR904 model. ser-
+mechanisms metabolic diseases [12,13].                    ver displays metabolic pathway maps overlays simu-
+   availability genome sequences moti-       lation results diagrams. single
+vated development functional genomics internet        evaluation objective function provided portals, multiplicity sequence-derived, high-     iterative simulation approaches available. throughput traditional experimental data inte-       note web servers described grated appropriate comparative analysis proto-       available software downloaded used
+cols. integration constraint-based simulations     create new web servers users institution.
+GSMNs portals equip users,     Recently, BioMet Toolbox [20] server time, tools enable predictions meta-   set constraint-based modelling tools developed bolic phenotype cells defined experimental          Nielsen’s group available web interface.  Sroka et al. BMC Bioinformatics 2011, 12:196                                                                  Page 3 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+advantage BioMet Toolbox wide range meth-
+ods run.  comparison servers mentioned integrated func-
+tional genomics portals visualisation tools. user expected create text file format particular
+tool download file repository models subsequently upload file form web
+interface particular tool. servers inte-
+grated databases models format models presentation web interface. Reactions linked gene names functional genomics portals, facilitating interpretation models context genome annotation. results formatted
+                                                               Figure 1 Components Acorn  web presentation numerical data visualised network maps.
+   work present Acorn, grid computing sys-
+tem, deployed users institution         2. worker console application performing used create web based resources constraint based       computations requested users web interface,
+simulations GSMN models. Research groups                 3. graphical editor desktop application defining
+install Acorn, set user accounts import models         parts model visualized  SBML format [21]. Users define silico        user interface main application web
+experiments specifying nutritional conditions run      based, designed ergonomics mind optimised
+virtual experiments order calculate maximum         handling large models. example lat-
+theoretical value objective function, identify         ter feature, user quickly filter long lists essential reactions, predict gene essentiality perform    AJAX (Asynchronous JavaScript XML) based
+Flux Variability Analysis (FVA) [14]. Models experi-      mechanism, e., delays ments shared users. grid-based             incurred transferring data browser Acorn architecture facilitates implementation          web server. example ergonomic approach
+computationally intensive, iterative protocols        positioning key control buttons FVA interactive web environments            visible place screen using
+easily scaled number users models            specially defined CSS (Cascading Style Sheets). grow. web server allows            facilitates working long lists. useful outcome visualization numerical results pathway maps        approach user does scroll defined user. Acorn includes integrated        start simulation accepting choice optimi-
+graphic editor fast creation metabolic map layouts     sation target reaction list. command line tool, used connec-           computations Acorn time intensive,
+tion interfaces. demonstrate features     chosen architecture (Figure 2) allows used Acorn implement web resource pro-           easy distribution workload viding constraint-based simulations GSMNs           machines, enabling rapid easy creation Saccharomyces cerevisiae, E. coli M. tuberculosis :       computational cluster. Computations commissioned    http://sysbio3.fhms.surrey.ac.uk:8080/acorn/homepage.      users automatically divided subtasks, jsf.                                                          independently computed workers running                                                               different machines. main application
+Implementation                                                places subtask specifications queue pulled section implementation details     workers. worker cyclically consumes Acorn. explain justify technological      current oldest subtask queue, accesses cor-
+architectural choices  design approaches         responding model data main applications’ data-
+applied implementation                   base, performs computation stores results   Acorn consists components               database. addition submission date, (Figure 1):                                                   time consuming tasks given higher priority.    1. main application, includes web based         queue contains subtasks, worker pulls user interface defining executing required         subtasks currently available,
+computational task database storing mod-        waits new task appears. use queue
+els, experiments experimental results,                    based pull model processing jobs pulled  Sroka et al. BMC Bioinformatics 2011, 12:196                                                                      Page 4 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+ Figure 2 Interaction worker, main application web client.
+
+
+free workers opposed pushed                  users standalone command line tool, main application results optimal workload distri-             used implement interfaces.
+bution. renders administration                  graphical editor standalone Java desktop
+easier, content queue moni-               application built NetBeans Platform, tored workers added removed according                 generic framework Swing applications http://plat- needs availability free processing power.                 form.netbeans.org/. runs platforms   implemented Java use             Java runtime environment available. accesses Java Enterprise Edition (Java EE) technology stack.             main application obtain model data store
+main application deployed Java EE 5.0 com-              defined visualisations presentation web inter-
+patible application server Open Source GlassFish             face. communication performed Web
+2.1 https://glassfish.dev.java.net/. Acorn profits         Service provided main application,  maturity enterprise features Java EE component               user, added advantage blocked
+technologies. example, operations queue              firewalls.
+database subject transaction control, com-
+putations consistently completed situations like          Results
+concurrent execution workers, failure                 Distribution Acorn implemented 
+active worker restart main application.               loading Google Code repository http://code.google.
+GlassFish server equipped necessary tools          com/p c-o-r-n/. main application installed
+monitoring tuning. Furthermore, flexibility          platform running Java VM, Glassfish applica-
+enterprise programming environment allows deploy-               tion server relational database management sys-
+ment Acorn relational database management               tem. binaries linear programming engine providing JDBC drivers. current version              available Linux, MacOS × Windows operating tested Java Derby http://db.apache.org/derby/             systems  Java VM, necessary MySQL http://www.mysql.com databases.                           run worker. graphical editor desktop applica-
+  Linear programming calculations performed using               tion used running Java VM. appropriate functions GLPK library http://               current version Acorn provides following features.
+www.gnu.org/software/glpk/. linear programming
+engine binary executable file implemented C++.              web-based user interface GSMN models worker starts linear programming engine using               user logs web interface operating interface Java, sends             browse GSMN models tabular format (Figure 3). linear programming problem standard input                rows reaction tables contain reaction  reaction
+retrieves results standard output creating             formula lower upper flux bounds. cell temporary files. engine available               reaction entry contains gene-reaction association
+ Sroka et al. BMC Bioinformatics 2011, 12:196                                                                                    Page 5 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+ Figure 3 web page representingt GSMN. table containing reaction names interactively filtered keyword “alanine�?  reaction  Reaction bounds editable. gene names Boolean gene-reaction association formula linked functional
+ genomics portal chosen user created model.
+
+
+formula representing genes encoding protein subunits                     results calculation flux range consistent
+enzymes catalysing reaction. genes encoding                        maximal value objective function.
+components multisubunit enzymes linked                          flux ranges unique  unlike flux values boolean statement paralogous genes                              obtained particular single FBA solution, represented statements. Gene names linked                         used reason internal flux distribution gene pages selected functional genomics resources                     nutritional conditions [22].
+integrating GSMN model literature annotations comparative sequence analysis results. Reaction                       run simulation Acorn web interface bounds editable used set initial conditions              user selects methods specifies constraint-based simulations.                                    objective function nutritional conditions.                                                                         objective function specified metabolite web interface constraint-based analysis                       (maximal flux metabolite) reaction protocols                                                               (maximal flux reaction). Nutritional condi- following computational methods available:                      tions defined constraining lower upper
+                                                                        bounds transport reaction fluxes. Acorn interface
+     Flux Balance Analysis (FBA) - calculation                 allows specification bounds reactions     maximal theoretical value objective function                  allowing complex analysis scenarios
+    nutritional conditions specified user;                 incorporation internal metabolic flux measure-
+    iI) Gene essentiality prediction - fluxes           ments simulations multiple gene knockouts.     reactions require functionality selected             keyword searches used quickly reactions
+    gene constrained 0 maximal theoretical               metabolites  Simulations scheduled
+    value objective function calculated.               user wait completion com-
+    objective function value equals 0, gene declared             putational tasks, log return later
+    essential particular metabolic function;                  examine results. simulation scenario,     iii) Reaction essentiality scan - reaction, turn,           simulation results saved database     inactivated FBA optimisation run.                 silico experiment. Users share silico experi-
+    result lists maximal value objective func-               ments visualise results pathway diagrams.
+    tion single reaction knock 
+    iv) Flux Variability Analysis (FVA) [14] - flux                 grid-based environment distributing computational
+    corresponding objective function constrained               load
+    maximal value flux reac-                   single execution FBA computationally effi-
+    tion, turn, maximised minimised.                     cient. example, calculation maximal growth
+ Sroka et al. BMC Bioinformatics 2011, 12:196                                                                                     Page 6 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+rate yeast GSMN model iND750 takes 0.73s 2.13                     user management, model silico experiment
+GHz Intel Core 2 Duo processor CPU calculated                       sharing linear programming engine Acorn sys-                     new user Acorn register web
+tem.  iterative protocols reaction essentiality               interface. user registered, software
+scans FVA require (respectively) evalua-                  installation step, given administration privileges. tions objective function reaction                 models created SBML file upload, initi-   execution FVA yeast                        ally used user uploaded GSMN model containing 1265 reactions takes 15                      SBML file. Likewise, silico experiments parti-
+minutes CPU time. computational time                      cular model initially belong user created substantial web-based applications, especially mul-               model. user chose share models tiple users simultaneously using server.                     silico experiments users  Acorn server, hand, using grid-based                     allows creation online communities solutions distribute computational load mul-                  users share models results numerical simulations.
+tiple computers. worker program installed                      models experiments available cluster. worker connects                     publicly accessible account, enables creation Acorn server receives set FBA objective                     web based resources constraint based simulations
+function evaluation tasks execute. Results                   GSMN models.
+tasks sent server  Implementation
+section details).  FBA calculations                   Desktop metabolic pathway layout editor Acorn server distributed arbi-                   Acorn provides desktop editor metabolic pathway
+trary number computers local area network                   diagrams (Figure 5). Diagrams created Petri net internet, rendering scalable large num-                [24] notation reactions substances represented
+ber users computational tasks.                                    different symbols. editor connects Acorn
+                                                                         database, using ID password Acorn
+SBML file import                                                         users prompts user select GSMN user import GSMN models SBML format                       models available user’s Acorn account. Subse-
+(Figure 4). reaction capacity bounds gene-reaction               quently, user creates diagram association formulas, features specific FBA simulations               substance reaction symbol associated implemented Acorn  provided                 substance reaction GSMN. editor annotations following BiGG database conventions [23].                    substances (reactions) associated given reac- user upload file using web interface.                    tion (substance) place map.
+Optionally, user input HTTP address string,                   placing symbol diagram, concatenated gene names create links               user does check subsequent metabolite gene pages functional genomics portal               names quickly build network map simply
+user’s choice. SBML file parsed stored                 following connections GSMN. diagram relational database backend area Acorn                     sent server saved database.
+
+
+
+
+ Figure 4 model import interface. user prompted provide SBML file BiGG database annotations
+ representing FBA specific information. Subsequently, user specifies model organism. user link gene names  functional genomics portal choice providing HTTP address gene replaced “ s�? string. address template  used link individual genes model pages corresponding pages functional genomics portal.
+ Sroka et al. BMC Bioinformatics 2011, 12:196                                                                                     Page 7 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+ Figure 5 Screenshot desktop editor session S. cerevisiae iND750 model. user create network map circles
+ represent substances reactions represented rectangles. symbols linked substances reactions GSMN. 
+ map does need represent genome scale network, numerical results, mapped diagram obtained
+ computations entire model. map layout send Acorn server stored database used generation  visualisations web interface. Numerical results visualised desktop editor. figure shows results FBA
+ optimisation biomass flux.
+
+ means visualisation numerical results                         script languages used bioinformatics community
+metabolic pathway diagrams                                               annotation pipeline. Numerical results FBA FVA calculations                     used create graphics user interfaces visualised pathway diagrams (Figure 6). pathway                   Acorn. Finally, users Acorn web server diagrams created user available                    use command line tool run web associated simulation                         computations local machines resources results. Subsequently, user create image files                   web server limited constrained. numerical simulation results, representing fluxes flux ranges, printed boxes corre-               GSMN web resource
+sponding reactions. Numerical results                 demonstrate features Acorn, 
+visualised way stand path-                  structed web resource constraint-based simulation
+way editor.                                                              GSMNs research group.                                                                          resource contains GSMN-TB model M. tuberculo- stand command line tool                                          sis [6], reconstructed group reconstruc- computational engine Acorn software                        tions published groups: E. coli iAF1260 [2] available stand tool. tool used                 S. cerevisiae iND750 [3]. iAF1260 iND750 evaluate objective function GSMN model                        directly uploaded Acorn SBML files
+written simple text file format. command line                     available BiGG database. shows tool interprets boolean gene-reaction association formu-                 Acorn model upload tool compatible SBML
+las used perform evaluate                    specification constraint-based specific annotations
+objective function single gene knockout version                 used COBRA toolbox software BiGG model. Availability Acorn computational                       database [23]. case GSMN-TB iND750
+engine form command line tool binary                      models, flat files accompanying publications
+useful users intend develop                     converted annotated SBML file sub-
+interfaces. tool easily integrated                 sequently uploaded server. models  Sroka et al. BMC Bioinformatics 2011, 12:196                                                                                        Page 8 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+ Figure 6 Visualisation numerical results pathway maps web interface Acorn  Network map created  desktop editor stored database used. reaction fluxes FVA flux ranges printed reaction symbols. figure shows
+ image generated web interface showing reaction fluxes central metabolism map S. cerevisiae iND750 model.  results obtained FBA optimisation biomass flux.
+
+ uploaded tested users sys-                  pathway layouts choice. fluxes tem upload privileges subsequently published,                    obtained calculations involving reactions sharing “guest�? user account available                   entire GSMN, reactions public.                                                            users displayed format,    models available web resource                   informative  linked relevant functional genomics portal. gene names GSMN-TB model linked                             Conclusions
+Tuberculist database, E. coli model linked                      paper, present Acorn software package,
+KEGG database, S. cerevisiae model linked                   deployed user’s institution used SGD database. implementations demon-                       create web-based resources constraint based
+strated model upload mechanism Acorn                      simulations GSMNs. software used used link reaction lists results files GSMN                  make collection GSMNs available community
+models major functional genomics resources,                       users hold accounts  Users
+facilitating interpretation simulations                upload models run constraint-based simulation
+context wealth knowledge comparative                        methods make predictions metabolic cap-
+analysis results available knowledge bases.                  abilities organisms investigation. models
+   user use web resource run simula-                   results linked functional genomic
+tion protocols implemented Acorn models                         resources gene names.  mentioned  demonstrate visualisation                         results constraint based calculations examined
+functionality Acorn, used desktop editor                   context genome sequences, annotations create layout glycolytic pathway Yeast                     sequence similarity-based predictions available uploaded layout iND750 model. Users                     portals. grid-based architecture Acorn allows visualise fluxes calculated simulation                    implementation computationally expensive
+ Sroka et al. BMC Bioinformatics 2011, 12:196                                                                                 Page 9 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+simulation protocols requiring execution thou-        code distribution, used create collabora-
+sands linear programming evaluations entire       tive model development environments public web
+model. Users visualise numerical results simula-      resources laboratories.
+tion methods pathway maps loaded            summarise, believe Acorn server maps represent tthe users view,      useful research groups reconstructing model specific user concerned,      studying GSMNs. application result establish-
+numerical data visualised map calculated       ment online communities sharing models results
+constraint-based modelling entire network. Path-      silico experiments. facilitate improvement
+way diagrams constructed desktop tool,          metabolic models used identification novel supports rapid assignment graphical sym-        drug targets microbial pathogens metabolic engi-
+bols substances reactions present model.       neering industrially valuable microbial strains.
+   important features Acorn user
+management model sharing. Select users upload        Availability Requirements
+starting models share         Project  Acorn
+users create variations starting models        Project home page: http://code.google.com/p c-o-r-
+modifying parameters set simula-         n/
+tions affecting models simulations run         Surrey GSMN server: http://sysbio3.fhms.surrey.ac. users. choose render           uk:8080/acorn/homepage.jsf
+models, simulation scenarios results visible      Operating systems(s): Platform independent
+users  guest user account,       Programming language: Java, C++
+available research community.  Acorn          requirements: Java 6.0 higher, GlassFish Java used create research community websites            EE Server v2 higher
+dedicated annotation investigation meta-         License: GNU GPL v2
+bolic reaction network models.                                 restrictions use non-academics: use    addition software used create    constraint based modelling results obtained using constraint-based modelling server, provide       iAF1260 iND750 models Surrey FBA resource web resource giving access GSMN models S.          subjected BiGG database license.
+cerevisiae, E. coli, M. tuberculosis. Users use guest account register gain access                                                              Acknowledgements
+models need installing learning mod-      work supported BBSRC EraSysbioPlus grant BB/
+elling environments  example, MATLAB             I00453X/1.
+based COBRA toolkits. Users use server                                                              Author details
+upload models, represented          1
+                                                              Institute Informatics University Warsaw, Poland. 2Faculty Health SBML format, use computational tools implemented         Medical Sciences, University Surrey, Guildford, GU2 7XH, UK. study models  share                                                              Authors’ contributions
+results users).                                   AMK JS designed software functionality. JS designed software
+   believe Acorn provides advantages         architecture, supervised software development participated software alternative solutions compared existing web ser-      implementation. LBK, SG, DL, JL implemented database worker modules.
+                                                             MM implemented pathway visualisation. JL implemented command line
+vers constrained-based modelling metabolic net-       computational engine. CAR developed case studies visualisation yeast
+works. provides advantages compared           pathways. MB JMF tested software functionality participated GSMN-TB server respect visualisation             writing manuscript. AMK JS wrote manuscript. authors
+                                                             read approved final manuscript.
+implements convenient interface model spe-
+cification. main advantage CycSim WEbcoli       Received: 18 August 2010 Accepted: 24 2011 implementation FVA reaction essenti-       Published: 24 2011
+ality scans. FVA currently method,                                                              References
+allows exploration internal flux distribution      1. Price ND, Reed JL, Palsson BO: Genome-scale models microbial cells:
+GSMN.s efficiently implemented Acorn,            Evaluating consequences constraints. Nature Reviews Microbiology grid based architecture. Acorn provides alter-       2004, 2(11):886-897.
+                                                             2. Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,
+native mechanism visualising metabolic pathway               Broadbelt LJ, Hatzimanikatis V, Palsson BO: genome-scale metabolic
+maps. CyCsim uses standard KEGG BioCyc                 reconstruction Escherichia coli K-12 MG1655 accounts 1260
+maps, Acorn server allows individual user cre-        ORFs thermodynamic information. Molecular Systems Biology 2007,
+                                                                 3:18.
+ate views, linked model.        3. Duarte NC, Herrgard MJ, Palsson BO: Reconstruction validation major advantage Acorn environment                 Saccharomyces cerevisiae iND750, fully compartmentalized genome- CycSim WEbcoli provides source               scale metabolic model. Genome Research 2004, 14(7):1298-1309.
+ Sroka et al. BMC Bioinformatics 2011, 12:196                                                                                                      Page 10 10
+http://www.biomedcentral.com/1471-2105/12/196
+
+
+
+
+4.    Oh YK, Palsson BO, Park SM, Schilling CH, Mahadevan R: Genome-scale
+      reconstruction metabolic network Bacillus subtilis based high-        doi:10.1186/1471-2105-12-196
+                                                                                     Cite article  Sroka et al.: Acorn: grid computing       throughput phenotyping gene essentiality data. Journal Biological
+                                                                                     constraint based modeling visualization genome scale
+      Chemistry 2007, 282(39):28791-28799.
+                                                                                     metabolic reaction networks web interface. BMC Bioinformatics
+5.    Poolman MG, Miguet L, Sweetlove LJ, Fell DA: Genome-Scale Metabolic          2011 12:196.
+      Model Arabidopsis Properties. Plant Physiology 2009,
+      151(3):1570-1581.
+6.    Beste DJV, Hooper T, Stewart G, Bonde B, Avignone-Rossa C, Bushell M,
+      Wheeler P, Klamt S, Kierzek  McFadden J: GSMN-TB: web-based
+      genome scale network model Mycobacterium tuberculosis
+      metabolism. Genome Biology 2007, 8(5).
+7.    Becker SA, Palsson BO: Genome-scale reconstruction metabolic
+      network Staphylococcus aureus N315: initial draft 
+      dimensional annotation. Bmc Microbiology 2005, 5:12.
+8.    Oberhardt MA, Puchalka J, Fryer KE, dos Santos V, Papin JA: Genome-scale
+      metabolic network analysis opportunistic pathogen Pseudomonas
+      aeruginosa PAO1. Journal Bacteriology 2008, 190(8):2790-2803.
+9.    Borodina  Krabben P, Nielsen J: Genome-scale analysis Streptomyces
+      coelicolor A3(2) metabolism. Genome Research 2005, 15(6):820-829.
+10.   Chung BKS, Selvarasu S, Andrea C, Ryu J, Lee H, Ahn J, Lee DY: Genome-
+      scale metabolic reconstruction silico analysis methylotrophic
+      yeast Pichia pastoris strain improvement. Microbial Cell Factories 2010,
+      9:15.
+11.   Duarte NC, Becker SA, Jamshidi N, Thiele  Mo ML, Vo TD, Srivas R,
+      Palsson BO: Global reconstruction human metabolic network
+      based genomic bibliomic data. Proceedings National
+      Academy Sciences United States America 2007, 104(6):1777-1782.
+12.   Jerby L, Shlomi T, Ruppin E: Computational reconstruction tissue-
+      specific metabolic models: application human liver metabolism. Mol
+      Syst Biol 2010, 6:401.
+13.   Gille C, Bölling C, Hoppe  Bulik S, Hoffmann S, Ganeshan R, König M,
+      Rother K, Weidlich M, Behre J, Holzhutter HG: HepatoNet1:       comprehensive metabolic reconstruction human hepatocyte       analysis liver physiology. Mol Syst Biol 2010, 6:411.
+14.   Mahadevan R, Schilling CH: effects alternate optimal solutions       constraint-based genome-scale metabolic models. Metabolic Engineering
+      2003, 5(4):264-276.
+15.   Camus JC, Pryor MJ, Médigue C, Cole ST: annotation genome
+      sequence Mycobacterium tuberculosis H37Rv. Microbiology 2002,
+      148:2967-2973.
+16.   Le Fevre F, Smidtas S, Combe C, Durot M, d’Alche-Buc F, Schachter V:
+      CycSim online tool exploring experimenting genome-
+      scale metabolic models. Bioinformatics 2009, 25(15):1987-1988.
+17.   Kanehisa M, Goto S, Furumichi M, Tanabe M, Hirakawa M: KEGG       representation analysis molecular networks involving diseases
+      drugs. Nucleic Acids Res 2009, 38:D355-D360.
+18.   Karp PD, Paley SM, Krummenacker M, Latendresse M, Dale JM, Lee TJ,
+      Kaipa P, Gilham F, Spaulding  Popescu L, Altman T, Paulsen  Keseler IM,
+      Caspi R: Pathway Tools version 13.0: integrated software pathway/
+      genome informatics systems biology. Brief Bioinform 2010, 11.
+19.   Jung TS, Yeo HC, Reddy SG, Cho WS, Lee DY: WEbcoli: interactive       asynchronous web application silico design analysis       genome-scale E.coli model. Bioinformatics 2009, 25(21):2850-2852.
+20.   Cvijovic M, Olivares-Hernandez R, Agren R, Dahr N, Vongsangnak W,
+      Nookaew  Patil KR, Nielsen J: Nucleic Acids Research 2010, 38:W145-W149.
+21.   Hucka M, Finney  Sauro HM, Bolouri H, Doyle JC, Kitano H, Arkin AP,
+      Bornstein BJ, Bray D, Cornish-Bowden  et al: systems biology
+      markup language (SBML): medium representation exchange       biochemical network models. Bioinformatics 2003, 19(4):524-531.                   Submit manuscript BioMed Central
+22.   Bushell  Sequeira SIP, Khannapho C, Zhao H, Chater KF, Butler MJ,              advantage 
+      Kierzek  Avignone-Rossa CA: use genome scale metabolic flux
+      variability analysis process feed formulation based                                                                                         • Convenient online submission
+      investigation effects zwf mutation antibiotic production
+      Streptomyce

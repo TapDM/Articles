@@ -1,0 +1,536 @@
+Sigurdsson et al. BMC Systems Biology 2010, 4:140
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                               Open Access
+ detailed genome-wide reconstruction mouse
+metabolism based human Recon 1
+Martin Sigurdsson1,2,3, Neema Jamshidi4, Eirikur Steingrimsson1,3, Ines Thiele3,5*, Bernhard Ø Palsson3,4*
+
+
+  Abstract
+  Background: curated validated network reconstructions extremely valuable tools systems biology.
+  Detailed metabolic reconstructions mammals recently emerged, including human reconstructions.   raise question various successful applications microbial reconstructions replicated complex
+  organisms.
+  Results: mapped published, detailed reconstruction human metabolism (Recon 1) mammals.   searching genes homologous Recon 1 genes mammalian genomes, able create draft
+  metabolic reconstructions mammals, including mouse. draft reconstruction created   compartmentalized non-compartmentalized version different approaches. Using gap-filling algorithms,
+  able produce cellular components versions mouse metabolic
+  reconstruction. finalized functional model iterative testing passed predefined set 260 validation
+  tests. reconstruction largest, comprehensive mouse reconstruction date, accounting 1,415
+  genes coding 2,212 gene-associated reactions 1,514 non-gene-associated reactions.
+  tested mouse model phenotype prediction capabilities. majority predicted essential genes   essential vivo.  non-tissue specific model unable predict gene essentiality   metabolic genes shown essential vivo. knockout simulation lipoprotein lipase gene corre-
+  lated experimental results, suggesting softer phenotypes simulated.
+  Conclusions: created high-quality mouse genome-scale metabolic reconstruction, iMM1415 (Mus
+  Musculus, 1415 genes). demonstrate mouse model used perform phenotype simulations,
+  similar models microbe metabolism. mouse important experimental organism, model
+  essential tool studying metabolic phenotypes mice, including outcomes drug
+  screening.
+
+
+Background                                                                            [5]. resulting model condition-specific genome-scale reconstruction metabolic net-                               used phenotype simulations using various 
+works emerged years ago [1], years                              straint-based reconstruction analysis (COBRA) genome sequencing entire organism                                   methods [5,6]. approach proven successful published [2]. date, 29 bacteria, 2 archaea 5                              various microorganisms eukaryotes addressing
+eukaryotes reconstructed organ-                                various biological biotechnological questions, isms, 5 updates published [3].                                    analysis knowledge gaps [7], simulation phe-
+reconstruction process established metabolic                              notype traits [8], analysis evolution metabolic net-
+networks [4]. assembled, reconstruction                                  works [9,10] metabolic engineering applications readily converted mathematical format add-                               [11]. numerous applications recently ing balances (e.g., mass -balance constraints), steady-                               reviewed [3,12].
+state assumptions bounds (e.g. physical constraints)                                release human genome [13] annota-
+                                                                                      tion provided appropriate foundation human
+* Correspondence: ithiele@hi  bpalsson@bioeng.ucsd.edu                             metabolic reconstructions. approaches 3
+ Center Systems Biology, University Iceland, Reykjavik, Iceland                published date.  HumanCyc [14] list author information available end article
+
+                                         © 2010 Sigurdsson et al; licensee BioMed Central  Open Access article distributed terms Creative
+                                         Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution,                                          reproduction medium, provided original work properly cited.
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                          Page 2 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+ Edinburgh Human Metabolic Network [15,16]            reconstruction manually completed vali- created largely automated               dated. present simulation results using func-
+approach, Recon 1 [17] created exten-        tional model mouse metabolism test phenotype
+sive manual curation automated draft         prediction capabilities.
+map, including extensive gap-assessment filling
+using bibliomic data. Recon 1 compartments         Results
+(cytoplasm, extracellular space, mitochondria, Golgi         Identification homologous genes
+apparatus, endoplasmic reticulum, lysosome, peroxisome       HomoloGene database contains information nucleus) accounts 1496 genes coding          homologous genes 5 mammals 15 non-mammals
+2004 proteins [17]. Overall, Recon 1 covers major        [28]. searched HomoloGene database metabolic pathways occurring human cell            1496 genes Recon 1 human match accounting 2,233 biochemical transformations         1,464 genes (97.8 ). mammalian organism 1,510 transport exchange reactions. Recon 1          highest number genes homologous Recon 1 genes converted functional silico model       mouse (Mus musculus) (1,415 genes, 97 ). converted functional model human metabo-        non-mammalian organism highest number lism, validated applying 288 flux balance       genes homologous Recon 1 genes zebra-fish
+analysis (FBA) based tests core functionality          (Danio rerio) (1,200 genes, 82 ) (Additional file 1).
+human metabolism [17]. recent use Recon 1
+includes study topology human disease       Creation draft metabolic network reconstructions
+ing morbid diseases functional         mammal, draft reconstruction created
+relationship Recon 1 [18].  expression profil-   different approaches (Figure 1a). approach ing data mapped Recon 1 used create cel-       (modelA), reactions linked Recon 1 genes did
+lular network human tissue types [19].               homologous gene removed Furthermore systems based analysis effects       reconstruction corresponding species. 
+imprinted genes metabolic functions recently          modelA included reactions linked genes homolo- published [20].                                         gous Recon 1 genes addition non-gene asso-
+   Metabolic networks reconstructed        ciated reactions (1,514). non-gene-associated mammals, central metabolic reconstruction       reactions, 676 transporter reactions, 452 cattle (Bos taurus) [21] mouse (Mus musculus)       demand exchange reactions, leaving 385 reactions
+reconstructions [22-25] mouse reconstruc-       metabolic pathway gene-associa-
+tions constructed manually [24,25],           tion. approach B (modelB), included genes
+remaining generated semi-automatically              reactions homologues Recon 1 genes [22,23]. genome-scale manual curated recon-        transporter demand reactions. struction represents metabolism mouse hybri-          reactions, including non-gene associated reactions, doma cell lines [25] recently expanded       removed reconstruction.
+represent 1494 reactions coded 724 genes           ratio Recon 1 genes homologous gene
+compartments [24]. addition, pre-genome sequen-         ratio reactions Recon 1 included
+cing reaction network intermediate metabolism          draft reconstructions mammal shown
+mouse hybridoma cell lines built analyzed            Figure 1b. mammal highest ratio using linear optimization [26].                              mapped genes (97 ) reactions (98 ) mouse
+   mouse serves fundamental experimental ani-       chimpanzee (Pan troglodytes) lowest
+mal human biomedical applications. Furthermore,          ratio mapped genes (84 ) reactions (91 ). availability phenotyped inbred knockout mouse         Furthermore, created mammalian
+strains [27] make ideal examining phenotype       modelA modelB compartmentalized non-
+prediction capabilities mammalian reconstructions.        compartmentalized version. complex, com-  detailed reconstruction mouse metabo-        partmentalized versions metabolic dead ends
+lism converted highly functional model      (321 vs. 150) reactions zero great importance.                                    fluxes. number reactions non-zero fluxes
+   Given high sequence homology             compartmentalized non-compartmentalized
+mammalian genomes, obvious starting point             versions draft mammalian models created using
+metabolic reconstruction mammals comprehen-        approach B summarized Table 1. 
+sive human metabolic reconstruction, Recon 1.             formed flux variability analysis (FVA) models sought create draft mammalian metabolic         reconstructions, allowing uptake extracellular
+reconstructions based Recon 1. mouse                  metabolites models order maximize
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                                           Page 3 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+ Figure 1 Creation draft mammalian reconstructions.  schematic figure showing approaches used generate draft
+ mammalian reconstructions using Recon 1. Approach removes gene-associated reactions Recon 1 homologous gene  reconstructed animal, keeping non-gene-associated reactions. Approach B removes gene-associated reactions Recon 1  homologous gene reconstructed non-gene-associated reactions (excluding transporters demand reactions). GAR - gene-
+ associated-reactions; nGAR - non-gene-associated reaction; transp/dem - transporters demand reactions. b) Ratio reactions (black bar)  genes (gray bar) successfully mapped Recon 1 indicated mammalian draft reconstruction. c) phylogenetic tree based  transcripts protein domain sequences SuperFamily database [64] reconstructed mammals. d) phylogenetic tree based  flux variability analysis (FVA) reactions mammals reconstructed approach  e) phylogenetic tree based flux variability analysis
+ (FVA) reactions mammals reconstructed approach B.
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                             Page 4 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+Table 1 Results flux variability analysis draft                     reactions existed humans 1 (1 ) reactions
+mammalian models compared human model (H.                                existed mouse (Additional file 2). 25
+sapiens, Recon 1)                                                               remaining Recon 1 subsystems (excluding transporters),
+                Approach                       Approach                         did extensive literature search differences
+                                             B                                species.  cytochrome P
+                Compartm. Non-                 Compartm. Non-                   450 metabolism reported differ significantly
+                          Compartm.                      Compartm.
+                                                                                mouse human [32]. defined differ-
+Organism        N              N               N              N         
+                                                                                ences guide subsequent gap filling process.
+H. sapiens      3189           2037            957            1280               metabolic functions P. troglodytes 1566     49     1074    53      394    41      688      54       present human mouse, employ
+R. norvegius    2113    66     1503    74      726    76      911      71       validation tests designed evaluate M. musculus     2753    86     1720    84      851    89      1127     88       predictive potential Recon 1 [17].
+B. taurus       1716    54     1129    55      556    58      787      61 
+C. lupus fam.   1971    62     1249    61      627    66      842      66       Gap filling mouse metabolic reconstruction
+Absolute number (N) percentage ( ) active reactions     decided test mouse meta-
+non-zero flux) compartmentalized non-compartmentalized
+models created using approach B.
+                                                                                bolic models able produce biomass optimiz-
+                                                                                ing corresponding reaction accounting likelihood non-zero fluxes. Compared humans,                          known biomass precursors required cell replication.
+mouse model highest percentage (84-89 )                             compartmentalized non-compartmentalized chimpanzee model lowest percentage (41-                             draft mouse models approach produced biomass
+54 ) active reactions non-zero fluxes                           modifications. contrast, versions model versions (Table 1). constructed phylo-                          modelB unable produce biomass.  genetic tree reconstructed mammals based                          sought gap draft non-compartmentalized
+FVA results (Figure 1d,e). results indicated                       modelB identify reactions needed added mouse draft model highest degree similarity                          model production biomass components. human model modelA (Figure 1d)                            SMILEY gap filling algorithm identifies reactions
+modelB (Figure 1e). findings surprising                        database need added model chimpanzee closest relative humans                               fulfill optimality condition (e.g. production bio-
+approximately 99  overall genome similarity [29].                         mass) [7]. Using SMILEY algorithm, searched closest ancestor humans mammals                              minimal number reactions entire
+reconstructed protein coding sequence com-                              KEGG database necessary add non-compart-
+pared (Figure 1c).                                                              mentalized mouse modelB order enable pro-
+                                                                                duction biomass.
+Identification unique metabolic functions mouse                         results 40 iterations algorithm Given high number reactions mapped draft                          checked manually criteria:  result did mouse reconstruction, high number reactions                          suggest reversible reaction known irreversible non-zero fluxes resulting corresponding                             reaction ii) added reaction(s) known metabolic modelA modelB, sought finalize                              occur mouse. 40 iterations, 30 suggested add- mouse reconstruction gap analysis/filling.                         ing reaction addition aimed understand metabolic differences                                metabolic reactions. reaction (KEGG human mouse ensure mouse                                ID R06522) exists mouse humans (according reconstruction merely modified version                              KEGG Entrez gene [33]) included human metabolism. implies genes                              Recon1. phosphohydrolase reaction involved pathways unique mouse metabolism needed                                sphingolipid metabolism. Adding reaction resulted
+identified.  employed Comparative                              ability refined non-compartmentalized
+Pathway Analyzer 1.0 [30] relying KEGG data-                             modelB model produce biomass similar rate base [31] extract metabolic maps displaying exis-                        non-compartmentalized modelA. addition did,
+tence enzymes mouse human 66                              result biomass production com- 99 Recon 1 subsystems (Additional file 2).                           partmentalized modelB. Subsequently, decided used maps perform manual search poten-                            focus remainder study modelA, cap-
+tial gaps human mouse metabolism.                            tures known metabolic capabilities 1550 reactions present subsystems, 1492                            mouse. ModelB developed (96 ) reactions existed species, 46 (3 )                                missing significant fraction metabolic reactions                                                                                 does function.
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                            Page 5 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+Validation mouse metabolic reconstruction             included reactions mouse reconstruction validate mouse reconstruction ensure           steroid metabolism (16 46 reactions) mouse-characteristic metabolic properties result-     blood group biosynthesis (14 46 reactions). 
+ing models, manually tested 288 FBA            largest percentage non-included reactions
+validation tests developed Recon 1 [17]        subsystems stilbene, coumarine lig-
+using versions modelA. literature survey      nin biosynthesis (50 , 1 2 reactions) limonene
+mouse metabolism, focusing mouse essenti-        pinene degradation (50 , 3 6 reactions). ality 288 human tests, revealed tests    data suggests simulation results metabo-
+essential human metabolism. Furthermore          lism subsystems likely inaccurate evidence mouse-specific additional tests      points areas future improvement mouse essentiality added validation pro-   model. remainder paper, use models
+cess.  evaluated manually required       derived iMM1415 computations.
+reactions test present mouse metabo-
+lism using Comparative Pathway Analyzer 1.0. total      Comparison iMM1415 published mouse metabolic
+260 tests passed requirements         networks
+used validation compartmentalized mouse           Table 2 provides comparison reconstruc-
+modelA (Additional file 3). non-compartmenta-        tion published reconstructions, lized version modelA, additional tests           detailed date recently published mouse
+removed compartment specific, resulting      metabolic network Selvarasu et al [24]. model 254 validation tests.                                     functions cellular compartments compared    ran validation tests compartmentalized      compartments reconstructions. mouse draft modelA iterative manner evalu-         detailed description mitochondria metabolism
+ated particularly failed tests. process revealed    date fewer reactions cytosol. Furthermore 131 reactions initially removed       iMM1415 contains attempt metabo-
+missing homologous genes HomoloGene data-             lism golgi apparatus, lysosome, ribosome, peroxi-
+base, 36 sequence physiological evidence          nucleus. compartmentalization, existence mouse (according KEGG Entrez-        greater number transport reactions Gene databases) (Additional file 4). 36 reactions      required reconstruction compared previous added model,             ones. biochemical data exists transport reac-
+remaining 95 reactions left final model      tions larger number non-gene associated reactions missing physiologic sequence evidence.        needed model models.
+addition resulted finalized mouse modelA           Albeit difficult compare directly different defi-
+passed 260 validation tests.  added      nition minimum growth medium biomass, reaction discovered gap filling modelB (KEGG       model predicts fewer essential genes higher 
+ID R06522). Furthermore, unique mouse reactions              centage experimentally verified lead metabolic dead ends model        models published date (Table 2). added (KEGG IDs R03184, R00647 R01465). non-compartmentalized modelA similarly passed            Essentiality mouse metabolic genes
+100  254 validation tests addition       Given high degree functionality iMM1415 reactions. determined functionality     decided employ phenotype simulations modelB, compartmentalized version            compare silico results published experimental produce biomass. compartmentalized            results knockout mice mice mutations non-compartmentalized models created approach B          metabolic genes.  performed simulation single
+passed 50  85  validation tests respectively.     gene knockouts genes iMM1415 order                                                              determine silico gene essentiality. minimal growth
+Properties iMM1415                                        medium supplemented glucose used resulting compartmentalized mouse metabolic              simulation  defined additional file 7). total 53
+reconstruction (Additional file 5), created curation   genes essential deletion resulted
+modelA, termed iMM1415, contains total 3,724 reac-      zero biomass production (Additional file 8). tions 1,415 metabolic genes (Additional file 6       information homozygous knockout phenotype 17
+tains detailed description reactions iMM1415,      genes literature (Table 3).  14 (82 )
+including biomass reaction). Analysis reactions   genes confirmed lethal phenotype, removed Recon 1 creation iMM1415          remaining (18 ) non-lethal phenotypes (Table
+revealed greatest absolute number non-           3). majority genes predicted  Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                                      Page 6 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+Table 2 Properties iMM1415 comparison existing models
+                                             iMM1415   Selvarasu et al (2010).    Evsikov et al (2009).   Quek et al (2008).    Sheikh et al (2005).
+Dominant reconstruction method               Manual             Manual                  Automatic              Automatic              Manual
+Genes                                         1,415              724                      1,060                  1,399                  473
+Reactions                                     3,724              715                      2,018                  1,757                   0
+Compounds                                     2,774              1,285                    1,377                  2,104                  872
+Compartments                                    8                  3                        1                      3                     3
+Reactions                                     3,726              1,494                    2,018                  2,037                 1,220
+    Demand& Exchange& Biomass reactions        455                 0                        0                      0                     0
+                                 Cytosol       931               1,085                     NA                    1,650                  618
+                           Mitochondrial       409                161                      NA                     387                    12
+                             Extracellular     473                NA                       NA                     NA                    NA
+                                    Golgi      250                NA                       NA                     NA                    NA
+                                Lysosome       194                NA                       NA                     NA                    NA
+                                Ribosome       184                NA                       NA                     NA                    NA
+                             Peroxisome        95                 NA                       NA                     NA                    NA
+                                 Nucleus       88                 NA                       NA                     NA                    NA
+                                Transport     1,101              248                        0                      64                   267
+Non-gene associated reactions                 1,514              291                        0                     148                   324
+Essential genes according modela            53a               109a                      NA                     NA                    72 experimental data available           17                 20                       NA                     NA                    NA
+  match experimental data                   82                70                        NA                     NA                    NA
+Produces biomass                                1                  1                        0                      1                     1  “minimum growth�? medium, differences exist biomass minimum growth medium definitions publications.
+NA - available.
+
+
+confirmed essentiality status cholesterol                    Prediction normal phenotypes
+metabolism. result indicates cholesterol metabo-                   evaluate predictive potential iMM1415,
+lism especially vulnerable mutations environmen-                   identified genes Mouse Genome Infor-
+tal insults, inability cholesterol                 matics database [27], null mutation resulted
+metabolism overcome disruption metabolic reactions                     normal phenotype. total genes alternative pathways.                                                    present mouse reconstruc-
+Second, searched Mouse Genome Informatics                             tion (OCRL, ACO1, PAFAH1B3, PGM1, FUT9, RHBG,
+database [27] mouse reconstruction genes                         ITPKC, SORD).  gene deletion phenotype described word “lethality�?.                      effect model, isozymes existed Furthermore, required genes homozy-                       reconstruction. remaining genes (PGM1,
+gous gene knockout embryonic                      FUT9, SORD), deletion led elimination corre-
+prenatal lethal phenotype. total 88 genes iden-                    sponding reactions. effect deletions tified way. genes overlapped silico                    growth depends  presence alternative reac-
+essential genes (FDFT1, SPTLC1, PHGDH, HMGCR,                                tions/pathways ii) importance reactions bio-
+CBS, SPTLC2). observed discrepancy lethality                      mass precursor synthesis. investigated effect explained   growth environment simula-                        gene deletions overall network tions, ii) incomplete biomass reaction, iii) missing regula-                 performing FVA. compared FVA results
+tion, iv) wrongly included reactions, v)                              essential gene knockout (DHCR7) FVA results
+combination aforementioned possibilities. Wrongly                     wild type (Table 4) considering major sec-
+included reactions identified systematically                     tions metabolism (Table 4). largest perturbation
+eliminating non-gene-associated reactions                               resulted knockout simulation essential
+iMM1415 (e.g., using GrowMatch algorithm [34])                            gene DHCR7, seven major subsections metabo-
+improve prediction lethality. contrast,                    lism changed significantly. knockout simulation genes essential silico vivo non-essen-                   PGM1 led significant changes major sub-
+tial growth suggest missing functions metabolic                   sections metabolism. knockout simulation network. Using SMILEY, related algorithms,                       FUT9 gene led significant changes major possible identify missing candidate genes.                             subsections metabolism knockout simulation
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                                       Page 7 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+Table 3 Results gene essentiality predictions finalized mouse model
+ Gene                          Reactions                               Subgroup           Mutation             Comment                   Reference
+                                                                                      lethal
+  EBP       3-beta-hydroxysteroid-delta(8),delta(7)-isomerase          Cholesterol          yes      X-linked genes, homozygous         Means et al.
+                                                                       Metabolism                    males non-viable (prenatal
+                                                                                                               lethality)
+DHCR7                7-dehydrocholesterol reductase                    Cholesterol          yes           Prenatal lethality           Yu et al.
+                                                                       Metabolism                            homozygotes
+DHCR24              24-dehydrocholesterol reductase                    Cholesterol          yes           Prenatal lethality          Mirza et al.
+                                                                       Metabolism                            homozygotes
+ FDFT1                     Squalene synthase                           Cholesterol          yes           Prenatal lethality         Tozawa et al.
+                                                                       Metabolism                            homozygotes
+HSD17B4     C-3 sterol keto reductase, Beta oxidation long          Cholesterol          yes      Pre/Peri/Postnathal lethality   Huyghe et al.
+           chain fatty acid, 3-hydroxyacyl-CoA dehydrogenase,          Metabolism                             homozygotes
+               hydroxysteroid (17-beta) dehydrogenase 4,
+           peroxisomal lumped long chain fatty acid oxidation
+NSDHL     C-3 sterol dehydrogenase, C-4 methyl sterol oxidase          Cholesterol          yes        X-linked gene, males         Cunningham
+                                                                       Metabolism                    homozygous females non-           et al
+                                                                                                       viable (prenatal lethality)
+ SC5DL                     Lathosterol oxidase                         Cholesterol          yes           Perinatal lethality        Krakowiak et
+                                                                      Metabolism                             homozygotes                     al.
+SPTLC1    serine palmitoyltransferase, long chain base subunit 1      Sphingolipid          yes          Embryonic lethality         Hojjati et al.
+                                                                      Metabolism                             homozygotes
+ DHFR           dihydrofolate reductase, folate reductase          Folate Metabolism        yes          Embryonic lethality          Di Pietro et
+                                                                                                            homozygotes                       al.
+  PISD      phosphatidylserine decarboxylase, mitochondrial        Glycerophospholipid      yes          Embryonic lethality         Steenbergen
+                                                                       Metabolism                           homozygotes                     et al.
+PHGDH              phosphoglycerate dehydrogenase                  Glycine, Serine,     yes          Embryonic lethality         Yoshida et al.
+                                                                        Threonine                           homozygotes
+                                                                       Metabolism
+HMGCR           Hydroxymethylglutaryl CoA reductase                 Cholesterol          yes          Embryonic lethality         Tanaka et al.
+                                                                       Metabolism                           homozygotes
+  CBS       cystathionine beta-synthase, selanocystathionine           Methionine           yes      Homozygous mice die 5       Watanabe et
+                             beta-synthase                             Metabolism                         weeks birth                 al.
+SPTLC2                serine C-palmitoyltransferase                   Sphingolipid          yes          Embryonic lethality         Hojjati et al.
+                                                                      Metabolism                            homozygotes
+  PAH          L-Phenylalanine,tetrahydrobiopterin:oxygen             Tyr, Phe, Trp                  Homozygous mice            http://www.
+                             oxidoreductase                           Biosynthesis                    dysruptions gene       informatics.
+                                                                                                                 viable                    jax.org
+TM7SF2                    C-14 sterol reductase                        Cholesterol                   mixture           http://www.
+                                                                       Metabolism                       mutations lethal,        informatics.
+                                                                                                     homozygotes mutations         jax.org
+                                                                                                                viable
+ Gpam             glycerol-3-phosphate acyltransferase                Triacylglycerol              Homozygous mice viable        Howerton et
+                                                                         Synthesis                                                          al.
+
+ SORD led significant changes major                       free fatty acids. Individuals born lipoprotein
+subsections metabolism.  suggest                        lipase deficiency elevated levels triglycerides genes likely notice-                    VLDL suffer recurrent episodes abdominal
+able metabolic phenotypes minimal medium                           pain pancreatitis eruptive xanthomas condition presence isozymes alternative                         skin [35]. Mutations associated reactions/pathways.                                                          increased risk ischemic heart disease man [36].
+                                                                             Mice lipoprotein lipase born greatly
+Analysis lipoprotein lipase deficiency silico                       elevated levels triglycerides VLDL, nur-
+phenotype                                                                    sing, triglyceride levels soon extremely high.
+Finally, sought simulate knockouts genes                       Heterozygotes null mutation LPL survive softer phenotypes. LPL gene encodes lipoprotein                          adulthood elevated triglyceride levels [37].
+lipase (EC 3.1.1.34) [35], enzyme hydrolyzes chy-                       simulated knockout LPL gene 
+lomicrons low-density lipoproteins (VLDL)                           formed FVA determine effect gene deletion
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                                                 Page 8 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+Table 4 Results Flux Variability Analysis (FVA) 3 knockout models genes confirmed normal
+phenotype (PGM1, FUT9, SORD) essential gene (DHCR7)
+                                                   PGM1                          FUT9                          SORD                         DHCR7
+                                                  p-value                p-value              p-value                p-value
+Amino Acid Metabolism                      61      160    <0.00001       85      133     0.00115      122       98     0.10560      68      152      <0.00001
+Carbohydrate Metabolism                    35      55      0.03501       48      48      1.00000       40       55     0.12380      22       75      <0.00001
+Cofactor Vitamin Metabolism            20      75     <0.00001       53      45      0.41900       60       37     0.01953      25       71      <0.00001
+Energy Metabolism                          12      34     0.001180       19      27      0.23820       27       19     0.23820      13       32      0.00462
+Glycan Metabolism                          60      283    <0.00001      118      229    <0.00001      166      182     0.39110      49      294      <0.00001
+Lipid Metabolism                          109      243    <0.00001      165      189     0.20210      196      162     0.07234      128     225      <0.00001
+Nucleotide Metabolism                      64      103     0.00255       80      91      0.40020       87       90     0.82160      45      122      <0.00001 Amino Acids Metabolism               6       19      0.00932       11      14      0.54850       12       13     0.84150       7       18      0.02781
+Secondary Metabolites Metabolism           0        0      1.00000       0        0      1.00000        0       0      1.00000       0       0       1.00000
+Transporters                              368      437     0.01502      397      422     0.38240      393      443     0.08376      337     479      <0.00001 reaction model, FVA determines minimum maximum flux resulting optimal solution objective function   biomass
+production). solutions resulted maximum biomass yield wild type model used analysis. comparing flux
+range  span vmax vmin reaction  knockout model wild type model, reaction assigned status decreased  , non-changing increased   flux capacity (representing metabolic activity). metabolism subsystem, number reactions decreased increased flux capacity shown. Significance testing performing single value Chi-Square test 1 degree freedom
+comparing probability increased decreased flux capacity. Significant p-values (p < 0.05/10) typeset bold.
+
+ network properties. largest perturbation                             Initial analysis sequenced mammalian genomes
+observed  glycan metabolism, 31                               revealed highest number genes orthologous
+reactions decreased 312 reactions increased flux                         Recon 1 genes mouse capacity (p < 10-16 probability decreased                        lowest number present chimpanzee (Table 1). increased flux capacity); ii) lipid metabolism,                          result surprising sequence homology 100 reactions decreased 253 reactions                             human chimpanzee ~99  [29] increased flux capacity (p < 10 -15                            sequence homology human mouse probability decreased increased flux capacity).                           range 85-92  [52,53]. observation reflects
+Additionally, flux capacity changed significantly                            fact enzymes involved human metabo- triacylglycerol metabolism (Figure 2).                            lism discovered analyzing mouse ortholo-
+results suggest increased flux capacity                            gues, leading high likelihood mouse metabolic triglyceride synthesis decreased                          enzymes known human present flux capacity triglyceride degradation.                              Recon 1.
+simulation results consistent hypertri-                          initial search homologous genes indicated glyceridemia resulting LPL mutations, pre-                               functional mouse reconstruction produced
+viously demonstrated mouse knockout model                               based Recon 1. Using different approaches, [37-51].                                                                         created versions draft mouse model (Figure 1).
+                                                                                 draft models completed automated
+Discussion                                                                       manual gap filling analysis validated 260 success metabolic systems biology                                  FBA-based tests. effort resulted iMM1415,
+microbes repeated complex organisms?                               accounts genes reactions, distribu-
+prerequisite success existence high                           ted cellular compartments, previously
+quality metabolic network reconstructions.                               published reconstructions (Table 2) addition examined detailed validated network recon-                            representation cellular compartments.  struction human metabolism, Recon 1, used                            mouse metabolic reconstruction presented basis reconstructing metabolic networks                              comprehensive reconstruction available date. mammals. focused mouse create                               usage human Recon 1 reactions
+manual curated, comprehensive reconstruction mouse                            information (including cellular location reversibility)
+metabolism subsequently employed deter-                              risks reactions included skewed normal lethal growth phenotypes. Overall,                            human metabolism reactions unique good agreement model’s prediction                              mouse missed. reported mouse phenotypes, suggesting                                  surprisingly high number non-gene-associated
+mouse reconstruction similar quality properties                           reactions included Recon 1. Recon 1.                                                                         intra-cellular transport reactions, demand exchange
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                                     Page 9 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+ Figure 2 Results comparison flux variability analysis (FVA) LPL knockout model wild type model. Results  comparison flux variability analysis (FVA) LPL knockout model wild type model.  triacylglycerol metabolism  shown. Reactions increased flux capacity knockout model shown red reactions decreased flux capacity shown  green. b) distribution fluxes FVA wild type model (dark gray) compared knockout model (black) indicates increased flux
+ diacylglycerol acetyltransferase (DGAT) monoacylglycerol acetyltransferase (MOGAT). results suggest  hypertriglyceridemia result knockout LPL gene. Reactions: AGPAT1 - 1-acylglycerol-3-phosphate O-acyltransferase 1; DGAT -
+ diacylglycerol acyltransferase; GPAM - glycerol-3-phosphate acyltransferase; LPS - lipoprotein lipase LPS2 - lipoprotein lipase 2; LPS3 - lipase;
+ MOGAT - monoacylglycerol acyltransferase; PPAP - phosphatidic acid phosphatase. Metabolites: lysophosphatidic acid; DAG - diacylglycerol
+ (Homo sapiens); G - glycerol; G3p - Glycerol 3-phosphate; MAG - monoacylglycerol 2; PA - phosphatidic acid; R - R groups (total); TAG -
+ triacylglycerol.
+
+
+reactions sparse literature supporting exis-                    biochemical activity characterized tence. included provide functional                          encoding gene unknown organism [54]. model human metabolism cellular                        enzymes (13-37 ) major metabolism
+compartments added                              pathways [55] suggesting metabolic reconstructions
+iMM1415. feel gain highly functional                     annotated organisms set non-
+model inclusion supersedes risk arti-                 gene associated reactions order ensure cor-
+ficially inflating properties mouse reconstruc-                 rect functionality. observation argues tion. Furthermore, 30-40  known enzymes                             reconstructing analyzing metabolic networks based EC number orphan meaning                            solely genomic data likely  Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                            Page 10 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+numerous missing metabolic functions.  non-            simulations resulted little perturbation gene associated reactions extremely interesting          mouse metabolic network. Recently, shown area future research suggest pathways            yeast deletion ~80  yeast genes
+enzymes require experimental exploration           resulted apparent phenotype grown rich
+[55]. Furthermore, reactions leading metabolic       medium, measurable growth phenotype observed
+dead ends model included Recon 1             ~97  yeast genes medium subsequently mouse reconstruction. high-            depleted certain ingredients biologically active
+light missing links knowledge form testable              compounds added medium [58]. Furthermore,
+hypotheses investigated.             virtually genes essential growth
+effort consensus metabolic reconstruction           conditions [58]. important subject future
+mouse focus reviewing non-gene-asso-              research mammalian models suggest similar
+ciated reactions leading dead-ends          findings, analysis understanding model                                                 complex genotypes effects environmen-
+   approach theory used             tal factors disease pathogenesis.
+struct high quality metabolic reconstructions mammals. Given results (Table 1), likely       Conclusions
+rat reconstruction obtained using similar             created reconstruction mouse
+approach presented (Figure 1).              metabolism based sequence homology, using resulting network expected complete, limit-       highly detailed Recon 1 human metabolism ing application requiring manual curation.         basis reconstruction. model rig-
+Metabolic reconstructions mammals           orously validated using 260 flux balance analysis based
+insufficient quality predictive potential using         tests. resulting reconstruction, iMM1415, presented approach low number homolo-             date comprehensive reconstruction mouse
+gous genes Recon1 genes.                                   metabolism. phenotype simulation results suggest
+   phenotype prediction properties metabolic mod-        current quality human Recon 1
+els extensively applied microorganisms,           derived iMM1415 models sufficient  limited studies exists mammals                phenotype predictions. existence [20,56,57]. mouse ideal model organism test-      reconstructions encourage creation ing validating phenotypic properties multiple         detailed metabolic network reconstructions inbred strains, thousand gene knockout strains      mammals. ongoing international knockout
+various cell lines exist [27] including knockouts       mouse project http://www.knockoutmouse.org aiming
+metabolic genes. majority predicted        produce knockout protein coding genes essential genes lethal phenotype vivo. Inter-     mouse genome Collaborative Cross project
+estingly, majority silico essential genes    aiming crossbreed inbred strains mice [59], cholesterol metabolism, indicating      validation mammalian metabolic models importance mutation vulnerability metabo-       extensive.  sequencing inbred
+lism pathway. observation concordance           strains experimental mice provide new opportu-
+results based earlier mouse metabolic model,        nities studying effects genetic variability majority essential genes cholesterol           metabolism, utilizing mouse reconstruction metabolism [24]. results guide             data analysis platform. existent emerging
+research helpful understanding human            reconstructions joined collaborative
+disease based lipid abnormalities, atherosclero-     effort reach consensus reconstruction sis [24].  genes identified           mouse metabolism maximize accuracy utili-
+mouse knockout databases [27] result lethal          zation properties. Reconstruction jamboree meetings
+phenotype vivo non-lethal phenotype silico.     held various organisms obtain  disagreement result non-tissue specifi-      sensus metabolic reconstructions increase city iMM1415 incomplete biomass reaction              content community driven approach [4,60]. Thor-
+highlights starting points future research   oughly validated genome-scale reconstructions insight mouse metabolism.                                  provide broad platform studying mammalian
+   majority genes vivo experimen-        metabolism form basis developing
+tal knockout strain developed non-              therapeutic interventions related pathological meta-
+lethal phenotype. Similarly, silico knockout                 bolic states [38,42-44,48,51,61].
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                           Page 11 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+Methods                                                      databases used determine candidate reac- model calculations MATLAB version           tions gaps non-compartmentalized draft
+2009a  Mathworks ) using COBRA toolbox           model. gap filling algorithm set run 40
+[6] Mosek linear solver (Mosek ApS, Denmark).        iterations. solution manually checked
+Statistical tests figure preparation R,     applicability  feasibility sug-
+version 2.9.1  R foundation, Austria). house          gested directionality) choosing proposed
+scripts data processing written Java     solution.
+available request authors.
+                                                             Validation
+Flux balance analysis flux variability analysis          validation mouse reconstruction, used Given reconstructed metabolic network mathe-          modification validation process used crea-
+matical form appropriate constraints reac-      tion human Recon 1 network. 288
+tion (representing reversibility, maximum minimum        validation tests used Recon 1 manually checked
+flux ) biological objective  biomass),   applicability mouse. manu-
+flux balance analysis (FBA) calculates set network      ally reviewing validation test using Comparative
+fluxes maximize  derived applica-      Pathway Analyzer 1.0 [30]. enzymes participating
+tions used analyze flow metabolites        validation test choice existed human metabolic model [62]. application      mouse, test used mouse validation. flux variability analysis (FVA) [63]. FVA uses linear pro-   resulted 260 validation tests mouse model.
+gramming methods minimal maximal             model improved manually iterative
+flux values achieved reaction      manner checking reactions involved failed
+contributing maximal production objective          tests passed validation tests.
+reaction.
+                                                             Simulations
+Creation draft reconstructions                            Information mouse knockout phenotypes entire HomoloGene build 52 downloaded             gained Mouse Genome Informatics site (http://
+11/17/2008 [28]. extracted data dataset      www.informatics.jax.org, accessed 1/12/2010) [27]. 1,496 genes Recon 1 [17]. 20 spe-     gene knockout simulated, model
+cies HomoloGene database, checked         corresponding reaction bounds set zero availability homologous gene Recon 1       created. wild type knockout simulation
+gene. created draft reconstructions         type models allowed cellular uptake vital amino acids,
+species using different approaches described       vital fatty acids, glucose, oxygen, hydrogen, sulfur oxide, result section. draft reconstructions       phosphate ions optimizing biomass
+verted condition-specific draft models [4]. draft   (detailed exchange constraints listing Additional
+models checked functionality optimizing      file 7). computational methods allow direct
+biomass allowing unrestricted uptake metabo-        sampling flux solution space large networks
+lites (v min, metabolite ≥ -1000 mmol/gdw hr). FVA       [65,66], performed FVA[63] estimate range performed draft models determine number         flux values reaction resulting optimal
+reactions non-zero flux. Following FVA        solution. comparing FVA wild type model
+draft model, drew phylogenetic trees results       knockout models, reaction assigned compared phylogenetic tree based tran-         status decreased flux capacity  e., reduced vmax , scripts protein domain sequence SuperFam-        change increased flux capacity. unbiased selec-
+ily database [64].                                           tion interesting metabolic subsystems, counted
+                                                             number reactions increased decreased flux
+Gap filling                                                  ranges calculated single value Chi-Square test
+Gap filling using SMILEY algorithm,          1 degree freedom comparing observation
+described [7]. downloaded used          probability increased decreased flux
+entire KEGG database (accessed 9/15/2009) [31]         capacity. independent tests universal reaction database. Additionally, created      10 major subsystems, p-value 0.05/10 
+database transport exchange reaction          sidered statistically significant correct multiple
+metabolites Recon1 KEGG database.           testing.
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                                                    Page 12 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+                                                                                   7.    Reed JL, Patel TR, Chen KH, Joyce AR, Applebee MK, Herring CD, Bui OT,
+Additional material                                                                      Knight EM, Fong SS, Palsson BO: Systems approach refining genome
+                                                                                         annotation. Proc Natl Acad Sci USA 2006, 103:17480-17484.
+ Additional file 1: Supplemental file S1: Absolute number                      8.    Nogales J, Palsson BØ, Thiele  genome-scale metabolic reconstruction
+ percentage Recon 1 genes species                             Pseudomonas putida KT2440: iJN746 cell factory. BMC Syst Biol
+ HomoloGene database.                                                                    2008, 2:79.
+                                                                                   9.    Pál C, Papp B, Lercher MJ, Csermely P, Oliver SG, Hurst LD: Chance  Additional file 2: Supplemental file S2: Details KEGG search                     necessity evolution minimal metabolic networks. Nature 2006,
+ unique reactions mouse human using Comparative Pathway                           440:667-670.
+ Analyzer 1.0.                                                                     10.   Zhang Y, Thiele  Weekes D, Li  Jaroszewski L, Ginalski K, Deacon 
+ Additional file 3: Supplemental file S3: List 260 flux balance                       Wooley J, Lesley SA, Wilson IA, Palsson B, Osterman  Godzik  
+ analysis tests used validation mouse reconstruction.                         dimensional structural view central metabolic network  Additional file 4: Supplemental file S4: List genes added                      Thermotoga maritima. Science (80-) 2009, 325:1544-1549.
+ validation process corresponding metabolic                     11.   Park JH, Lee KH, Kim TY, Lee SY: Metabolic engineering Escherichia coli
+ subgroups.                                                                              production L-valine based transcriptome analysis                                                                                          silico gene knockout simulation. Proc Natl Acad Sci USA 2007,
+ Additional file 5: Supplemental file S5: iMM1415 model                           104:7797-7802.
+ mouse metabolism SMBL format.                                                12.   Oberhardt MA, Palsson BØ, Papin JA: Applications genome-scale
+ Additional file 6: Supplemental file S6: detailed reaction list                metabolic reconstructions. Mol Syst Biol 2009, 5:320.
+ reactions iMM1415, including biomass reaction.                         13.   Lander ES, Linton LM, Birren B, Nusbaum C, Zody MC, Baldwin J, Devon K,
+ Additional file 7: Supplemental file S7: Uptake rates exchange                      Dewar K, Doyle M, FitzHugh W, Funke R, Gage D, Harris K, Heaford 
+ reactions mouse reconstruction minimal medium                              Howland J, Kann L, Lehoczky J, LeVine R, McEwan P, McKernan K,
+ conditions.                                                                             Meldrim J, Mesirov JP, Miranda C, Morris W, Naylor J, Raymond C, Rosetti M,
+                                                                                         Santos R, Sheridan  Sougnez C: Initial sequencing analysis  Additional file 8: Supplemental file S8: list genes predicted                   human genome. Nature 2001, 409:860-921.
+ essential mouse metabolic network,                           14.   Romero P, Wagg J, Green ML, Kaiser D, Krummenacker M, Karp PD:
+ bibliographic information available.                                                 Computational prediction human metabolic pathways                                                                                          complete human genome. Genome Biol 2005, 6:R2.
+                                                                                   15.   Hao T, Ma H, Zhao X, Goryanin  Compartmentalization Edinburgh
+                                                                                         Human Metabolic Network. BMC Bioinformatics 2010, 11:393.
+Acknowledgements                                                                   16.   Ma H, Sorokin  Mazein  Selkov  Selkov E, Demin O, Goryanin  work supported ERC grant agreement  232816 - SYSTEM_Us                    Edinburgh human metabolic network reconstruction functional European Research Council Bernhard Ø. Palsson                      analysis. Mol Syst Biol 2007, 3:135.
+Marie Curie International Reintegration Grant 7th European              17.   Duarte NC, Becker SA, Jamshidi N, Thiele  Mo ML, Vo TD, Srivas R,
+Community Framework Programme.                                                           Palsson BØ: Global reconstruction human metabolic network
+                                                                                         based genomic bibliomic data. Proc Natl Acad Sci USA 2007,
+Author details                                                                           104:1777-1782.
+1
+ Department Biochemistry Molecular Biology, Faculty Medicine,            18.   Lee D, Park J, Kay KA, Christakis NA, Oltvai ZN, Barabási  implications
+University Iceland, Reykjavik, Iceland. 2Department Genetics                   human metabolic network topology disease comorbidity. Proc Natl
+Molecular Medicine, Landspitali-University Hospital, Reykjavik, Iceland. 3Center         Acad Sci USA 2008, 105:9880-9885. Systems Biology, University Iceland, Reykjavik, Iceland. 4Department     19.   Shlomi T, Cabili MN, Herrgård MJ, Palsson BØ, Ruppin E: Network-based
+Bioengineering, University California, San Diego, La Jolla, California 92093-         prediction human tissue-specific metabolism. Nat Biotechnol 2008,
+0412, USA. 5Faculty Industrial Engineering, Mechanical Engineering &                  26:1003-1010. Science, University Iceland, Reykjavik, Iceland.                       20.   Sigurdsson MI, Jamshidi N, Jonsson JJ, Palsson BO: Genome-scale network
+                                                                                         analysis imprinted human metabolic genes. Epigenetics 2009, 4:43-46.
+Authors’ contributions                                                             21.   Seo S, Lewin HA: Reconstruction metabolic pathways cattle
+MIS, NJ, ES, BOP conceived study. MIS, NJ created               genome. BMC Syst Biol 2009, 3:33.
+validated models. MIS performed phenotype simulations. MIS drafted             22.   Evsikov AV, Dolan  Genrich MP, Patek E, Bult CJ: MouseCyc: curated manuscript. MIS, ES, BOP revised manuscript. authors read             biochemical pathways database laboratory mouse. Genome Biol approved final manuscript.                                                       2009, 10:R84.
+                                                                                   23.   Quek L, Nielsen LK: reconstruction Mus musculus genome-
+Received: 17 2010 Accepted: 19 October 2010                                          scale metabolic network model. Genome Inform 2008, 21:89-100.
+Published: 19 October 2010                                                         24.   Selvarasu S, Karimi IA, Ghim G, Lee D: Genome-scale modeling                                                                                          silico analysis mouse cell metabolic network. Mol Biosyst 2010,
+References                                                                               6:152-161.
+1. Edwards JS, Palsson BO: Systems properties Haemophilus                   25.   Sheikh K, Förster J, Nielsen LK: Modeling hybridoma cell metabolism
+    influenzae Rd metabolic genotype. J Biol Chem 1999, 274:17410-17416.                 using generic genome-scale metabolic model Mus musculus.
+2. Palsson B: Metabolic systems biology. FEBS Lett 2009, 583:3900-3904.                  Biotechnol Prog 2005, 21:112-121.
+3. Feist  Palsson BØ: growing scope applications genome-scale         26.   Savinell JM, Palsson BO: Network analysis intermediary metabolism
+    metabolic reconstructions using Escherichia coli. Nat Biotechnol 2008,               using linear optimization. II. Interpretation hybridoma cell
+    26:659-667.                                                                          metabolism. J Theor Biol 1992, 154:455-473.
+4. Thiele  Palsson BØ: protocol generating high-quality genome-          27.   Blake JA, Bult CJ, Eppig JT, Kadin JA, Richardson JE: Mouse Genome
+    scale metabolic reconstruction. Nat Protoc 2010, 5:93-121.                           Database genotypes::phenotypes. Nucleic Acids Res 2009, 37:D712-9.
+5. Price ND, Reed JL, Palsson BØ: Genome-scale models microbial cells:          28.   Sayers EW, Barrett T, Benson DA, Bryant SH, Canese K, Chetvernin V,
+    evaluating consequences constraints. Nat Rev Microbiol 2004,                  Church DM, DiCuccio M, Edgar R, Federhen S, Feolo M, Geer LY,
+    2:886-897.                                                                           Helmberg W, Kapustin Y, Landsman D, Lipman DJ, Madden TL, Maglott DR,
+6. Becker SA, Feist  Mo ML, Hannum G, Palsson BØ, Herrgard MJ:                        Miller V, Mizrachi  Ostell J, Pruitt KD, Schuler GD, Sequeira E, Sherry ST,
+    Quantitative prediction cellular metabolism constraint-based                 Shumway M, Sirotkin K, Souvorov  Starchenko G, Tatusova TA: Database
+    models: COBRA Toolbox. Nat Protoc 2007, 2:727-738.                               resources National Center Biotechnology Information. Nucleic
+                                                                                         Acids Res 2009, 37:D5-15.
+ Sigurdsson et al. BMC Systems Biology 2010, 4:140                                                                                                 Page 13 13
+http://www.biomedcentral.com/1752-0509/4/140
+
+
+
+
+29. Winckler W, Myers SR, Richter DJ, Onofrio RC, McDonald GJ, Bontrop          49. Watanabe M, Osada J, Aratani Y, Kluckman K, Reddick R, Malinow MR,
+    McVean GAT, Gabriel SB, Reich D, Donnelly P, Altshuler D: Comparison            Maeda N: Mice deficient cystathionine beta-synthase: animal models
+    fine-scale recombination rates humans chimpanzees. Science (80-)            mild severe homocyst(e)inemia. Proc Natl Acad Sci USA 1995,
+    2005, 308:107-111.                                                                 92:1585-1589.
+30. Oehm S, Gilbert D, Tauch  Stoye J, Goesmann  Comparative Pathway           50. Yoshida K, Furuya S, Osuka S, Mitoma J, Shinoda Y, Watanabe M, Azuma N,
+    Analyzer web server comparative analysis, clustering                     Tanaka H, Hashikawa T, Itohara S, Hirabayashi Y: Targeted disruption     visualization metabolic networks multiple organisms. Nucleic Acids           mouse 3-phosphoglycerate dehydrogenase gene causes severe
+    Res 2008, 36:W433-7.                                                               neurodevelopmental defects results embryonic lethality. J Biol
+31. Kanehisa M, Goto S: KEGG: kyoto encyclopedia genes genomes.                 Chem 2004, 279:3573-3577.
+    Nucleic Acids Res 2000, 28:27-30.                                              51. Yu H, Wessels  Tint GS, Patel SB: Partial rescue neonatal lethality 32. Nelson DR, Zeldin DC, Hoffman SMG, Maltais LJ, Wain HM, Nebert DW:                 Dhcr7 null mice nestin promoter-driven DHCR7 transgene
+    Comparison cytochrome P450 (CYP) genes mouse                       expression. Brain Res Dev Brain Res 2005, 156:46-60.
+    human genomes, including nomenclature recommendations genes,               52. Blatt C, DePamphilis ML: Striking homology mouse human
+    pseudogenes alternative-splice variants. Pharmacogenetics 2004,                transcription enhancer factor-1 (TEF-1). Nucleic Acids Res 1993, 21:747-748.
+    14:1-18.                                                                       53. Zhu L, Swergold GD, Seldin MF: Examination sequence homology
+33. Maglott D, Ostell J, Pruitt KD, Tatusova T: Entrez Gene: gene-centered             human chromosome 20 mouse genome: intense
+    information NCBI. Nucleic Acids Res 2007, 35:D26-31.                            conservation genomic elements. Hum Genet 2003, 113:60-70.
+34. Kumar VS, Maranas CD: GrowMatch: automated method                       54. Chen L, Vitkup D: Distribution orphan metabolic activities. Trends
+    reconciling silico vivo growth predictions. PLoS Comput Biol 2009, 5:        Biotechnol 2007, 25:343-348.
+    e1000308.                                                                      55. Lespinet O, Labedan B: Orphan enzymes unexplored
+35. Emi M, Wilson  Iverius PH, Wu L, Hata  Hegele R, Williams RR,                 reservoir new drug targets. Drug Discov Today 2006, 11:300-305.
+    Lalouel JM: Missense mutation (Gly——Glu188) human lipoprotein               56. Jamshidi N, Palsson BØ: Systems biology SNPs. Mol Syst Biol 2006, 2:38.
+    lipase imparting functional deficiency. J Biol Chem 1990, 265:5910-5916.       57. Shlomi T, Cabili MN, Ruppin E: Predicting metabolic biomarkers human
+36. Wittrup HH, Tybjaerg-Hansen  Steffensen R, Deeb SS, Brunzell JD,                 inborn errors metabolism. Mol Syst Biol 2009, 5:263.
+    Jensen G, Nordestgaard BG: Mutations lipoprotein lipase gene            58. Hillenmeyer  Fung E, Wildenhain J, Pierce SE, Hoon S, Lee W, Proctor M,
+    associated ischemic heart disease men. Copenhagen city                 St Onge RP, Tyers M, Koller D, Altman RB, Davis RW, Nislow C, Giaever G:
+    heart study. Arterioscler Thromb Vasc Biol 1999, 19:1535-1540.                     chemical genomic portrait yeast: uncovering phenotype 37. Weinstock PH, Bisgaier CL, Aalto-Setälä K, Radner H, Ramakrishnan R, Levak-        genes. Science (80-) 2008, 320:362-365.
+    Frank S, Essenburg AD, Zechner R, Breslow JL: Severe hypertriglyceridemia,     59. Threadgill DW, Hunter KW, Williams RW: Genetic dissection complex
+    reduced high density lipoprotein, neonatal death lipoprotein                quantitative traits: fantasy reality community effort.
+    lipase knockout mice. Mild hypertriglyceridemia impaired low             Mamm Genome 2002, 13:175-178.
+    density lipoprotein clearance heterozygotes. J Clin Invest 1995,            60. Herrgård MJ, Swainston N, Dobson P, Dunn WB, Arga KY, Arvas M,
+    96:2555-2568.                                                                      Blüthgen N, Borger S, Costenoble R, Heinemann M, Hucka M, Le Novère N,
+38. Cunningham D, Spychala K, McLarren KW, Garza LA, Boerkoel CF,                      Li P, Liebermeister W, Mo ML, Oliveira AP, Petranovic D, Pettifer S,
+    Herman GE: Developmental expression pattern cholesterogenic                 Simeonidis E, Smallbone K, Spasić  Weichart D, Brent R, Broomhead DS,
+    enzyme NSDHL negative selection NSDHL-deficient cells                Westerhoff HV, Kirdar B, Penttilä M, Klipp E, Palsson BØ, Sauer U:     heterozygous Bpa(1H)/+ mouse. Mol Genet Metab 2009, 98:356-366.                    consensus yeast metabolic network reconstruction obtained 39. Di Pietro E, Sirois J, Tremblay ML, MacKenzie  Mitochondrial NAD-               community approach systems biology. Nat Biotechnol 2008,
+    dependent methylenetetrahydrofolate dehydrogenase-                                 26:1155-1160.
+    methenyltetrahydrofolate cyclohydrolase essential embryonic             61. Mirza R, Hayasaka S, Kambe F, Maki K, Kaji T, Murata Y, Seo H: Increased
+    development. Mol Cell Biol 2002, 22:4158-4166.                                     expression aquaporin-3 epidermis DHCR24 knockout mice.
+40. Hojjati MR, Li  Jiang X: Serine palmitoyl-CoA transferase (SPT) deficiency       Br J Dermatol 2008, 158:679-684.
+    sphingolipid levels mice. Biochim Biophys Acta 2005, 1737:44-51.        62. Orth JD, Thiele  Palsson BØ: flux balance analysis? Nat Biotechnol
+41. Howerton SB, Nagpal  Williams LD: Surprising roles electrostatic              2010, 28:245-248.
+    interactions DNA-ligand complexes. Biopolymers 2003, 69:87-99.              63. Mahadevan R, Schilling CH: effects alternate optimal solutions 42. Huyghe S, Mannaerts GP, Baes M, Van Veldhoven PP: Peroxisomal                      constraint-based genome-scale metabolic models. Metab Eng 2003,
+    multifunctional protein-2: enzyme, patients knockout               5:264-276.
+    mouse model. Biochim Biophys Acta 2006, 1761:973-994.                          64. Gough J, Karplus K, Hughey R, Chothia C: Assignment homology 43. Krakowiak PA, Wassif CA, Kratz L, Cozma D, Kovárová M, Harris G,                   genome sequences using library hidden Markov models     Grinberg  Yang Y, Hunter AGW, Tsokos M, Kelley RI, Porter FD:                    represent proteins known structure. J Mol Biol 2001, 313:903-919.
+    Lathosterolosis: inborn error human murine cholesterol               65. Schellenberger J, Palsson BØ: Use randomized sampling analysis     synthesis lathosterol 5-desaturase deficiency. Hum Mol Genet                metabolic networks. J Biol Chem 2009, 284:5457-5461.
+    2003, 12:1631-1641.                                                            66. Thiele  Price ND, Vo TD, Palsson BØ: Candidate metabolic network states
+44. Means GD, Boyd Y, Willis CR, Derry JM: Transgenic rescue tattered           human mitochondria. Impact diabetes, ischemia, diet. J Biol
+    phenotype using BAC encoding Ebp. Mamm Genome 2001,                           Chem 2005, 280:11683-11695.
+    12:323-325.
+45. Mirza R, Hayasaka S, Takagishi Y, Kambe F, Ohmori S, Maki K, Yamamoto M,        doi:10.1186/1752-0509-4-140
+    Murakami K, Kaji T, Zadworny D, Murata Y, Seo H: DHCR24 gene knockout           Cite article  Sigurdsson et al.: detailed genome-wide
+    mice demonstrate lethal dermopathy differentiation                     reconstruction mouse metabolism based human Recon 1. BMC
+    maturation defects epidermis. J Invest Dermatol 2006, 126:638-647.       Systems Biology 2010 4:140.
+46. Steenbergen R, Nanowski TS, Beigneux  Kulinski  Young SG, Vance JE:
+    Disruption phosphatidylserine decarboxylase gene mice causes
+    embryonic lethality mitochondrial defects. J Biol Chem 2005,
+    280:40032

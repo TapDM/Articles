@@ -1,0 +1,915 @@
+BMC Bioinformatics                                                                                                                       BioMed Central
+
+
+
+Research article                                                                                                                       Open Access
+Relationship insertion/deletion (indel) frequency proteins essentiality
+Simon K Chan1,2, Michael Hsing2, Fereydoun Hormozdiari3 Artem Cherkasov*4
+
+Address: 1CIHR/MSFHR Strategic Training Program Bioinformatics, Canada's Michael Smith Genome Sciences Centre, 570 West 7th Ave – Suite
+100, Vancouver, BC, V5Z 4S6, Canada, 2Bioinformatics Graduate Program, University British Columbia, 570 West 7th Ave – Suite 100,
+Vancouver, BC, V5Z 4S6, Canada, 3School Computing Science, Simon Fraser University, 8888 University Drive, Burnaby, BC, V5A 1S6, Canada 4Division Infectious Diseases, Faculty Medicine, University British Columbia, 2733 Heather Street, Vancouver, BC, V5Z 3J5, Canada
+Email: Simon K Chan - sichan@bcgsc.ca; Michael Hsing - mhsing@interchange.ubc.ca; Fereydoun Hormozdiari - fhormozd@cs.sfu.ca;
+Artem Cherkasov* - artc@interchange.ubc.ca
+* Corresponding author
+
+
+
+
+Published: 28 June 2007                                                        Received: 6 November 2006
+                                                                               Accepted: 28 June 2007
+BMC Bioinformatics 2007, 8:227   doi:10.1186/1471-2105-8-227 article available  http://www.biomedcentral.com/1471-2105/8/227
+© 2007 Chan et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: previous study, demonstrated essential proteins pathogenic
+                 organisms contained sizable insertions/deletions (indels) aligned human proteins high
+                 sequence similarity. indels provide sufficient spatial differences pathogenic
+                 protein human proteins allow selective targeting. example, indel difference                  targeted large scale silico screening. resulted selective antibodies small
+                 compounds capable binding deletion-bearing essential pathogen protein
+                 cross-reactivity highly similar human protein. objective current study
+                 investigate indels frequently essential non-essential
+                 proteins.
+                 Results: investigated species, Bacillus subtilis, Escherichia coli, Saccharomyces
+                 cerevisiae, high-quality protein essentiality data available. Using data,                  demonstrated t-test calculations mean indel frequencies essential proteins                  greater non-essential proteins proteomes. abundance indels                  types proteins shown accurately modeled Weibull distribution. 
+                 Receiver Operator Characteristic (ROC) curves showed indel frequencies                  used marker accurately discriminate essential non-essential proteins                  proteomes. Finally, analyzed protein interaction data available S. cerevisiae                  observed indel-bearing proteins involved interactions greater
+                 betweenness values Protein Interaction Networks (PINs).
+                 Conclusion: Overall, findings demonstrated indels randomly distributed                  studied proteomes likely occur essential proteins                  highly connected, indicating possible role sequence insertions deletions                  regulation modification protein-protein interactions. observations provide new
+                 insights indel-based drug design using bioinformatics cheminformatics tools.
+
+
+
+
+                                                                                                                                       Page 1 13
+                                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                              http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+
+Background                                                      hypothesis essential proteins likely contain
+Essential genes encode products required       indels following observations: firstly,
+viability organism. major reasons       protein domain profiles characterized databases considerable determining set        Pfam [11] showed protein sequences essential genes organism. Firstly, provide      protein interaction domain contained large insights basic requirements needed sustain        residue variations multiple species, implied
+living cell. example, sequencing parasitic       single point mutation protein did bacterium Mycoplasma genitalium [1] subsequent          large impact function protein interaction
+studies determine essential genes [2,3] pro-        domains. Secondly, essential proteins undergo stronger
+vided depth understanding constitutes         selective pressure accumulate point mutations 'minimum genome.' Secondly, essential proteins             slower rate non-essential proteins [12,13]. 
+pathogens potentially excellent drug targets [4,5],      fore, taking considerations  propose interfering proper functioning          formation indels method likely interfere important pathway patho-        proteins, especially essential, use acquire
+gen, reducing threat host.  target-     new interaction sites modify existing ones, ing essential proteins pathogen major         interaction partners. example, drawback: essential proteins conserved         known PINs tend scale-free [14,15], species, drug targets essential protein     majority proteins interaction network
+pathogen cross-react similar host protein       fewer interactions highly 
+[6]. combat problem, laboratory recently        nected 'hub' proteins. greater number inter-
+developed strategy target insertions/deletions (indels)    actions participate  hubs tend essential occur proteins pathogen             proteins. hubs gain interactions network
+human host. example, Leishmania donovani proto-        gene encoding interacting partners dupli-
+zoan parasite infects inactivates macrophages      cates. process known preferential attachment human host [7]. main structural difference           [14,15]. indel occur interaction site essential elongation factor (EF-1 α) protein        duplicate copy gene, resulting protein L. donovani human host 12 amino         reflect change change number acid deletion occurs L. donovani sequence [7].      interaction partners. 12 amino acid sequence corresponds hair pin
+loop present human protein, absent        knowledge, body work presented L. donovani protein. Using computational chemistry          investigate possible relationship indel molecular docking, able develop inhibi-          frequency essentiality. chose species tors directly recognized exposed region L.      complete global knockout data: Bacillus subtilis,
+donovani protein cross-reactivity highly     Escherichia coli, Saccharomyces cerevisiae. Specifically,
+similar human host protein [6,8,9]. Interestingly,         purpose study determine 1) deletion potentially allow EF-1 α L. donovani       mean indel frequency essential proteins differed gain interaction, relative human EF-1 α, interact     non-essential proteins 2) Weibull dis- human tyrosine phosphatase, leads inacti-         tribution accurately model indel abundances vation host macrophage [7]. past stud-        types proteins 3) indel frequency ies, showed indels offer structural          protein used marker predict differences target specific pathogen essential proteins   given protein essential 4) proteins allow acquire modify protein-        indels participated interactions protein interactions involved                   defined indels insertions deletions
+                                                                proteins high sequence similarity  Recently, performed large scale survey potentially     50 ), regardless evolutionary relationship targetable indels aligning complete proteomes          e. just orthologs species). bacterial protozoan pathogens complete               work potentially locate similar situations L.
+human proteome [10]. results showed sizable            donovani case described explore meth-
+indels approximately 5–10  bacterial           odology targeting indels specific pathogen proteins
+proteins 25  protozoan proteins          cross-reactivity human host proteins.
+respect human proteins. large number pro-
+teins indels identified essential   Results discussion
+respective pathogens.  current study,      Query subject species analyzed
+set determine frequency indels essential    test indel frequency protein related
+proteins differed non-essential proteins.      essentiality, obtained protein sequences FASTA
+
+
+                                                                                                                    Page 2 13
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+format NCBI RefSeq [16 B. subtilis, E. coli, S.      significant difference indel
+cerevisiae. organisms chosen             frequencies essential non-essential proteins?
+genomes sequenced global knockout phe-              evaluate differences mean
+notype data available [17-19]. referred           indel frequencies essential non-essential proteins species 'query species,' respective pro-     statistically significant, calculated fre-
+teins queries sequence alignments (Table          quencies insertions deletions given minimum
+1). referred proteins query species         length  amino acids) query species
+'query proteins.' Essentiality data available        Methods).  calculated mean insertion
+organisms B. subtilis, E. coli, S. cerevisiae,    deletion frequencies essential non-  data produced complete gene dele-         essential proteins query species. Figure 2 contains
+tion, E. coli S. cerevisiae, insertion       plots mean insertion deletion frequencies
+marker, B. subtilis, transposon mutagenesis          minimum insertion deletion lengths (Mycoplasma genitalium [2,3], Haemophilus influenzae [20],        query species. figure illustrates, mean
+Escherichia coli (strain MG1655) [21]) anti-sense RNA          frequencies proteins query species
+(Staphylococcus aureus (strains RN450 RN4220) [22]).          decrease minimum indel lengths increase, suggest-
+Transposon mutagenesis miss essential genes tol-         ing short indels likely occur long
+erate transposon insertions produce false nega-        indels.  performed t-tests examine null
+tives non-polar insertions. Inhibition anti-sense       hypothesis mean indel frequencies essential
+RNA 'knock  knockout gene            non-essential proteins equal. observed result complete removal tran-           absolute differences mean indel fre-
+script target gene.  technique limited     quencies small, differences statistically sig-
+genes adequate expression anti-sense             nificant assessed t-test calculation (P < 0.05). RNA obtained [17,18]. considerations            seen figure, essential proteins B. subtilis, E. mind, performed analyses B. subtilis, E. coli,     coli, S. cerevisiae significantly different insertion S. cerevisiae essentiality data        deletion frequencies non-essential coun-
+organisms potentially reliable.                         terparts. significant t-test values positive                                                                   query species, suggested organ- downloaded protein sequences, FASTA format,            isms, essential proteins greater frequency indels 22 bacterial 15 eukaryote species fully              non-essential proteins. insertions sequenced genomes. referred species 'sub-          deletions occurred significantly essential
+ject species,' respective proteins sub-      proteins non-essential proteins E. coli S.
+jects sequence alignments (Additional file 1).          cerevisiae, deletions minimum length referred proteins subject species 'subject     amino acids produced significant results B. sub-
+proteins.'  14,214 query proteins (8342 bacte-       tilis.
+rial 5872 eukaryote) 336,086 subject proteins
+(53,454 bacterial 282,632 eukaryote) analyzed.           interesting note long indels S. cerevi-
+                                                                  siae significant, greatest t-test value occurred comparison indel frequencies essential          indel length defined amino
+non-essential proteins performed determine          acids. large t-test value suggested differences
+frequencies differed statistically significant manner.       mean indel frequencies essential non- aligned NCBI RefSeq proteins B. subtilis          essential proteins likely chance  Fur-
+E. coli proteins 22 bacteria subject species,      thermore, indels exactly amino acid long S. cerevisiae proteins 15 eukaryote          randomly distributed essential non-essential
+subject species BLASTP. gap opened query            proteins, expect t-test value protein reported deletion query pro-         longer minimum indel length produce greatest
+tein insertion subject protein. Similarly,      t-test value.  case expla-
+gap opened subject protein reported          nation trend essential proteins 
+deletion subject protein insertion         tained higher frequency indels exactly amino
+query protein. maintain consistent naming scheme,            acid length. test possible explanation, ran reported gaps respect query protein (Figure        BLASTP processing scripts S. cerevisiae, 1a). Figure 1b summarizes steps performed               time checking indels length exactly Additional file 2 shows summary number                amino acids. results new set (data indels proteins high sequence similarity          shown) showed significance species-species comparison.                                       amino acid indel length, confirmed suspi-
+                                                                  cions.
+
+
+                                                                                                                      Page 3 13
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                    http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+Table 1: Selected query species. query species completed genome projects complete global knockout data
+available
+
+      Query Species               Domain      Taxonomy ID   Number Proteins NCBI         Essential Genes                                                                        RefSeq                    mapped NCBI RefSeq ID:
+
+ Bacillus subtilis (strain 168)    Bacteria     224308                  4105                                  271/271
+ Escherichia coli (strain K12)     Bacteria      83333                  4237                                  299/303
+  Saccharomyces cerevisiae        Eukaryote       4932                  5872                                 1050/1105
+
+
+
+ initial t-test results supported predictions          annotation errors protein sequences essential proteins query species              resulted "pseudo-indels" BLASTP align- indels respective non-essential pro-             ments. observe proteins complete set
+teins, reasoned frequency indels produced              subject proteins 22 bacteria 15 eukaryotes partially dependent specific subject spe-          impacted initial t-test results, repeated
+cies chosen. observe choice subject species             analyses performed BLASTP S. cerevisiae impacted results, repeated t-test anal-           smaller set randomly chosen eukaryote subject
+ysis smaller set 14 randomly chosen subject spe-            species, time fully curated reviewed
+cies. performing BLASTP B. subtilis E. coli              NCBI RefSeq proteins included. focused proteins sequenced bacterial species              S. cerevisiae respective proteins NCBI S. cerevisiae proteins sequenced              RefSeq fully curated reviewed, eukaryote species (Additional file 3), observed similar            case proteins query spe-
+trends essential proteins significantly greater           cies. resulting trends smaller set subject
+indel frequencies non-essential proteins (P < 0.05)              species varied greatly observed (Additional file 4). example, complete set              complete set subject species (15 eukaryotes), bacterial subject proteins (22 bacteria species), E. coli             likely results produced com-
+insertions minimum length 10 20 amino acids                     plete set subject proteins caused pseudo-
+occurred frequently essential proteins non-              indels created alignments predicted non-
+essential proteins, smaller set bacterial           curated NCBI RefSeq proteins.  subject proteins, insertions seven               case trends seen highly curated proteins
+amino acids occurred frequently essential pro-                similar observed complete
+teins. Similarly, complete set bacterial subject            subject species set (Additional file 5).  
+proteins, B. subtilis deletions minimum length            cluded unlikely observed trend, amino acids occurred frequently essential              indel frequency essential proteins greater
+proteins, smaller set, trend extended           non-essential proteins, merely caused seven amino acids. results showed             sequencing annotation errors.  choice subject species did alter specific            formed check test results, wish indel lengths produced significant results, general,          remind reader sequences NCBI RefSeq repre- trends consistent predictions.             sent nearly non-redundant collection sequences exception shorter insertions B. subtilis.               described 'summary' currently available
+observed insertions minimum length                 information sequence [16]. frequently non-essential pro-
+teins, indicated negative t-test values.            Cumulative insertion deletion frequencies longer deletions B. subtilis, discussed, followed           approximation Weibull distribution predicted trend. specific result mind,            investigate abundance indels essential speculate longer indels, say                 non-essential proteins modeled consistent
+length greater equaled seven amino acids,              statistical distributions, calculated cumulative dis- likely essential proteins.                        tribution functions (CDF) minimum lengths                                                                       insertions deletions essential non-essential issue impacted initial t-test               proteins query species (Figure 3). seen results quality protein sequences used.             Figure 3, dependences abundance portion proteins obtained NCBI RefSeq                indels essential non-essential proteins resulted computational predictions               minimum indel lengths formed typical exponent-like dis-
+undergone manual curation.  sequencing                 tributions. previous work [10], demonstrated
+
+
+                                                                                                                          Page 4 13
+                                                                                                    (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                            http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+
+                  
+
+
+
+
+                  B)
+                       Obtain RefSeq proteins                                                                            Obtain RefSeq proteins 22 bacterial
+                       query species global knock                                                                            15 eukaryote species
+                       data: B. subtilis, E. coli, S. cerevisiae
+
+
+
+
+                                               Align B. subtilis & E. coli proteins proteins
+                                               22 bacterial species BLASTP.
+                                               Repeat S. cerevisiae eukaryote species
+
+
+
+
+                                               Calculate insertion deletion frequencies
+                                               B. subtilis, E. coli, S. cerevisiae
+
+
+
+
+                                                     Calculate mean insertion                                                      deletion frequencies essential
+                                                     non-essential proteins                                                      species
+
+
+
+
+Figure alignment
+Sample    1          pipeline
+Sample alignment pipeline.  Sample Alignment: Gaps reported insertions/deletions respect query sequence. seven insertions (red) deletions (blue) sample alignment. B) Pipeline: summary steps taken calculate mean insertion deletion frequencies essential non-essential proteins B. subtilis,
+E. coli, S. cerevisiae.
+
+
+
+
+                                                                                                                                  Page 5 13
+                                                                                                            (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                                                                                                       http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+
+                                                                       S. cerevisiae                                                                            S. cerevisiae
+                                                     6.735
+
+
+
+
+                                                                                                                                            6.164
+                                               4.5                                                                                     3
+                    Mean Insertion Frequency
+
+
+
+
+                                                                                                            Mean Deletion Frequency
+                                                4
+                                                                                                                                      2.5
+                                               3.5
+                                                             6.317
+
+
+
+
+                                                                                                                                                    4.952
+                                                3                                                                                      2
+                                                                                     6.008
+
+
+
+                                               2.5
+
+
+
+
+                                                                                                                                                                      4.530
+                                                                                                                                      1.5
+                                                                                 5.539
+
+
+
+
+                                                2
+
+
+
+
+                                                                                                                                                                  3.773
+                                                                              5.294
+                                                                            4.805
+
+
+
+
+                                                                                                                                                               2.679
+                                               1.5                                                                                     1
+                                                                           4.724
+
+
+
+
+                                                                                                                                                             2.417
+                                                                          4.410
+                                                                         4.111
+
+
+
+
+                                                                                                                                                            1.929
+                                                                        3.577
+                                                                       3.605
+                                                1
+                                                                       3.605
+                                                                      3.502
+                                                                      3.123
+                                                                      3.035
+                                                                     3.003
+                                                                     2.760
+                                                                     2.542
+                                                                     2.572
+                                                                     2.583
+                                                                                                                                      0.5
+                                               0.5
+
+                                                0                                                                                      0
+                                                       1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20                                     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+                                                                     Minimum Insertion Length (aa)                                                           Minimum Deletion Length (aa)
+
+
+                                                                           E. coli                                                                                      E. coli
+                                                2                                                                                      2
+                    Mean Insertion Frequency
+
+
+
+
+                                                                                                            Mean Deletion Frequency
+
+                                               1.8                                                                                    1.8
+                                               1.6                                                                                    1.6
+                                               1.4                                                                                    1.4
+                                               1.2                                                                                    1.2
+                                                1                                                                                      1
+                                               0.8                                                                                    0.8
+                                               0.6                                                                                    0.6
+                                               0.4
+                                                                                  2.076
+                                                                                  2.265
+                                                                                  2.339
+                                                                                 2.146
+
+
+
+
+                                                                                                                                      0.4
+                                                                                 2.141
+                                                                                 2.129
+                                                                                 2.127
+                                                                                 2.180
+                                                                                 2.399
+
+
+
+
+                                                                                                                                                                               1.818
+                                                                                 2.116
+                                                                                 2.161
+
+
+
+
+                                                                                                                                                                               1.702
+
+
+
+
+                                                                                                                                                                                          1.936
+                                                                                                                                                                                          1.934
+                                                                                                                                                                                          1.816
+                                               0.2                                                                                    0.2
+                                                0                                                                                      0
+                                                       1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20                                     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+                                                                     Minimum Insertion Length (aa)                                                           Minimum Deletion Length (aa)
+
+
+                                                                         B. subtilis                                                                               B. subtilis
+                                                2                                                                                      2
+                    Mean Insertion Frequency
+
+
+
+
+                                                                                                            Mean Deletion Frequency
+
+
+
+
+                                               1.8                                                                                    1.8
+                                               1.6                                                                                    1.6
+                                               1.4                                                                                    1.4
+                                               1.2                                                                                    1.2
+                                                1                                                                                      1
+                                               0.8                                                                                    0.8
+                                               0.6                                                                                    0.6
+                                                                                                                                                                                1.695
+                                                                                                                                                                                1.856
+
+
+
+
+                                               0.4
+                                                                                                                                                                               1.943
+
+
+
+
+                                                                                                                                      0.4
+                                                                                                                                                                               2.101
+                                                                                                                                                                               2.204
+                                                                                                                                                                              2.417
+                                                                                                                                                                              2.406
+                                                                                                                                                                              2.551
+                                                                                                                                                                              2.641
+                                                                                                                                                                              2.347
+                                                                                                                                                                              2.641
+                                                                                                                                                                              2.774
+                                                                                                                                                                              2.851
+
+
+
+
+                                               0.2                                                                                    0.2
+                                                0                                                                                      0
+                                                       1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20                                     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+                                                                     Minimum Insertion Length (aa)                                                           Minimum Deletion Length (aa)
+
+
+
+
+Figure
+Mean    insertion
+          2       deletion frequencies essential non-essential proteins plotted minimum indel length
+Mean insertion deletion frequencies essential non-essential proteins plotted minimum indel
+length. Mean insertion deletion frequencies calculated essential non-essential query proteins aligned pro-
+teins 22 bacteria 15 eukaryote species. t-test statistic shown minimum indel lengths significantly essential (blue bars) non-essential (purple bars) proteins. Significance set P < 0.05. Note difference observed insertions B. subtilis proteins.
+
+
+
+
+                                                                                                                                                                                                             Page 6 13
+                                                                                                                                                                                       (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                http://www.biomedcentral.com/1471-2105/8/227
+
+
+ distribution indels varying length      values insertions deletions, suggesting proteins studied accurately described             indels occur expand readily non-essential
+Weibull distribution:                                             proteins. observation appeared odds                                                                   earlier observations mean indel frequency essen-
+            SDF(x) = exp{-(x/α)β}, x ≥ 0, β > 0                   tial non-essential proteins. wondered                                                                   possible non-essential proteins acquire SDF(x) survival distribution function, α        expand indels slightly faster rate  scaling factor, β shape parameter reflect       general, observe indels essential proteins. evolutionary rates occurrence/expansion            observation explained differences indels proteomes examined. Weibull distribu-           evolutionary age essential non-essential genes. tion statistical function defined extreme value       recent study fungal species [26], Schizosaccharo-
+theory used reliability engineering model         myces pombe Saccharomyces cerevisiae, showed material strength durability electronic                ancient gene  likely mechanical components [23]. Weibull distribution              essential.  essential genes time
+utilizes time failure measure assess reliability      accumulate expand indels. predict stability. typical time 
+failure experiment involves applying disruptive stress       indel frequencies used discriminate sample objects representative population.         essential non-essential protein?
+time taken object break  e. fail) recorded.   t-test statistic assesses differ- resulting values used determine            ence means quantifiable trait popu-
+objects population follow Weibull distribution.          lations significant, does consideration example, recent study [24] characterized strength       actual magnitude difference. mean ceramic materials applying mechanical stresses        indel frequency essential proteins statistically dif- 70 – 400 MPa/s determine characteristics break-          ferent non-essential proteins, ing. Similarly, formation expansion indels          large overlap distributions, proteome organism place 'disruptive          difficult predict protein stress' (evolutionary pressure). indel 'breaks' 'fails'     essential based merely indel frequency. lost. previous Weibull analyses            determine indel frequencies used marker considered indels proteins regardless          differentiate essential non-essential pro- essentiality [10], examined statistical      teins, Receiver Operating Characteristic (ROC) curves
+function accurately abundance               utilized. Area ROC curve (AUROC)
+indels essential non-essential proteins separately.        used assessment accuracy predic- query species double logarithmic transforma-         tions. AUROC 1.0 implies predictions tion SDF(x), represented CDF, calculated         correct, suggesting essential proteins com- plotted:                                                      pletely separated non-essential proteins based                                                                   indel frequency threshold. AUROC 0.50 sug-
+           log(-log(SDF(x)) = βlog(x) - βlog(α)                   gests using indel frequency predict essentiality                                                                   50  sensitivity specificity, useful test. abundance indels query species       Finally, AUROC 0.50 implies accurately described distribution,            opposite trend, non-essential proteins resulting plots linear. observed            higher frequency indels essential proteins, Weibull distribution accurately model depend-           observed.
+ence length indels abundance essential non-essential proteins query spe-        calculated AUROCs query species. Sim-
+cies, indicated high r2 values (Figure 4). β        ilar t-tests, query species compared
+parameter represented slopes             species domain. AUROC
+graphs Figure 4 values suggested observa-          results query species moderate S. cer-
+tions. Firstly, described previously [25], β value   evisiae query species produce AUROCs indicates reliable growth sys-      0.57 0.59, B. subtilis E. coli AUROC
+tem rate failure decreasing. case,       values ranged 0.46 0.56 (data shown). results indicated indels retained evolu-       weak trends unexpected, reasoning
+tionary time, suggesting functional importance. Sec-         allowed non-essential proteins use indels way
+ondly, differences β values              acquire modify protein-protein interactions.
+essential non-essential proteins small, non-
+essential proteins query species greater β
+
+
+                                                                                                                      Page 7 13
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                                                                           http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+
+                                                S. cerevisiae                                                                         S. cerevisiae
+                                     0.35                                                                                  0.35
+
+
+
+
+                                                                                                 Indel Abundance Non-
+                                      0.3
+               Indel Abundance 
+
+
+
+                                                                                                                            0.3
+                Essential Proteins
+
+
+
+
+                                                                                                    essential Proteins
+                                     0.25                                                                                  0.25
+
+                                      0.2                                                                                   0.2
+
+                                     0.15                                                                                  0.15
+
+                                      0.1                                                                                   0.1
+
+                                     0.05                                                                                  0.05
+
+                                       0                                                                                     0
+                                            1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20                                    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+                                                 Minimum Indel Length (aa)                                                             Minimum Indel Length (aa)
+
+
+                                                      E. coli                                                                               E. coli
+                                     0.35                                                                                   0.4
+                                                                                                 Indel Abundance Non-
+
+
+
+                                      0.3                                                                                  0.35
+               Indel Abundance                 Essential Proteins
+
+
+
+
+                                                                                                    essential Proteins
+
+
+
+
+                                     0.25                                                                                   0.3
+
+                                                                                                                           0.25
+                                      0.2
+                                                                                                                            0.2
+                                     0.15
+                                                                                                                           0.15
+                                      0.1
+                                                                                                                            0.1
+                                     0.05
+                                                                                                                           0.05
+
+                                       0                                                                                     0
+                                            1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20                                    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+                                               Minimum Insertion Length (aa)                                                         Minimum Deletion Length (aa)
+
+
+                                                  B. subtilis                                                                           B. subtilis
+                                      0.4                                                                                  0.45
+                                                                                                 Indel Abundance Non-
+
+
+
+
+                                     0.35                                                                                   0.4
+               Indel Abundance                 Essential Proteins
+
+
+
+
+                                                                                                    essential Proteins
+
+
+
+
+                                      0.3                                                                                  0.35
+
+                                                                                                                            0.3
+                                     0.25
+                                                                                                                           0.25
+                                      0.2
+                                                                                                                            0.2
+                                     0.15
+                                                                                                                           0.15
+                                      0.1
+                                                                                                                            0.1
+                                     0.05                                                                                  0.05
+                                       0                                                                                     0
+                                            1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20                                    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+
+                                               Minimum Insertion Length (aa)                                                         Minimum Deletion Length (aa)
+
+
+
+
+Figure 3 essential non-essential proteins indels plotted minimum indel length
+Proportion
+Proportion essential non-essential proteins indels plotted minimum indel length. Insertions represented blue bars deletions represented purple bars.
+
+
+
+
+                                                                                                                                                                                        Page 8 13
+                                                                                                                                                                  (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                                                                                http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+
+                                        S. cerevisiae Essential Proteins                                                         S. cerevisiae Non-essential
+                                                                                                                                           Proteins
+                                      0.5
+
+                                      0.4                                                                                 0.5
+                                                        y = 0.4654x - 0.2522
+                                                              2                                                           0.4
+                                                                                                                                                  y = 0.514x - 0.2825
+                                      0.3                    R = 0.9997
+                  log(-log(CDF(x)))
+
+
+
+
+                                                                                                                                                        2
+                                                                                                                                                      R = 0.9902
+
+
+
+
+                                                                                                      log(-log(CDF(x)))
+                                      0.2                                                                                 0.3
+
+                                                                                                                          0.2
+                                      0.1
+                                                                                                                          0.1
+                                        0
+                                             0               0.5                 1              1.5                         0
+                                      -0.1                                                                                       0                0.5                 1               1.5
+                                                                         y = 0.5211x - 0.287                              -0.1
+                                      -0.2                                     2
+                                                                             R = 0.9993                                   -0.2                                    y = 0.5315x - 0.2937
+                                                                                                                                                                        2
+                                      -0.3                                                                                                                             R = 0.9992
+                                                                                                                          -0.3
+                                      -0.4                                                                                -0.4
+
+                                                 log(x), x = minimum indel length (aa)                                               log(x), x = minimum indel length (aa)
+
+
+                                                 E. coli Essential Proteins                                                  E. coli Non-essential Proteins
+                                      0.5                                                                                 0.6
+
+                                      0.4                                                                                 0.5
+                                                       y = 0.4896x - 0.2661                                                             y = 0.6367x - 0.3534
+                                      0.3                   R2 = 0.9833                                                   0.4                 2
+                                                                                                                                             R = 0.9979
+                  log(-log(CDF(x)))
+
+
+
+
+                                                                                                      log(-log(CDF(x)))
+
+
+
+
+                                                                                                                          0.3
+                                      0.2
+                                                                                                                          0.2
+                                      0.1
+                                                                                                                          0.1
+                                        0                                                                                   0
+                                             0               0.5                 1              1.5                              0                0.5                 1               1.5
+                                      -0.1                                                                                -0.1
+
+                                                                       y = 0.5334x - 0.2944                               -0.2                                 y = 0.6041x - 0.3347
+                                      -0.2                                    2
+                                                                            R = 0.997                                     -0.3                                       2
+                                                                                                                                                                    R = 0.9958
+                                      -0.3
+                                                                                                                          -0.4
+                                      -0.4                                                                                -0.5
+
+                                                 log(x), x = minimum indel length (aa)                                               log(x), x = minimum indel length (aa)
+
+
+                                             B. subtilis Essential Proteins                                               B. subtilis Non-essential Proteins
+                                      0.5                                                                                 0.6
+                                                          y = 0.5874x - 0.3259
+                                      0.4                       2
+                                                                                                                          0.5                   y = 0.651x - 0.3614
+                                                               R = 0.9932                                                                             2
+                                      0.3                                                                                 0.4                       R = 0.9981
+                  log(-log(CDF(x)))
+
+
+
+
+                                                                                                      log(-log(CDF(x)))
+
+
+
+
+                                      0.2                                                                                 0.3
+                                                                                                                          0.2
+                                      0.1
+                                                                                                                          0.1
+                                        0
+                                             0               0.5                 1              1.5                         0
+                                      -0.1
+                                                                                                                          -0.1 0                  0.5                 1               1.5
+                                      -0.2
+                                                                              y = 0.4944x - 0.2698                        -0.2                                    y = 0.5955x - 0.3308
+                                      -0.3                                          2                                                                                   2
+                                                                                   R = 0.9934                             -0.3                                         R = 0.9981
+                                      -0.4                                                                                -0.4
+                                      -0.5                                                                                -0.5
+
+                                                 log(x), x = minimum indel length (aa)                                               log(x), x = minimum indel length (aa)
+
+
+
+
+Figure 4
+Approximation    abundance indels Weibull distribution
+Approximation abundance indels Weibull distribution. r2 values close 1.0 indicated abundance insertions (blue points blue line) deletions (purple points purple line) essential non-essential proteins query species accurately modeled Weibull distribution.
+
+
+
+
+                                                                                                                                                                                                Page 9 13
+                                                                                                                                                                          (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                               http://www.biomedcentral.com/1471-2105/8/227
+
+
+ t-tests showed essential proteins sig-      tein B, direct indirect inter-
+nificantly indels non-essential proteins,       action protein X.
+AUROC results showed indels frequently non-essential proteins make difficult        naïve method used calculate betweenness
+accurately predict protein essential        measure require O(n3) time O(n2) based solely indel frequency. recent publication       space, making calculation inefficient.  [27] identified 14 characteristic sequence features,    used faster method developed Brandes [33], codon adaptation, hydrophobicity, localization sig-         implemented C executed Linux plat-
+nals, potentially associated essential genes     form. Briefly, method calculates betweenness fungal genomes.  different features            particular vertex, v, computing number likely indicative essential proteins pre-    times v occurs vertices, x y, dictions based indel frequency accurate        network.  value known pair-dependency features considered.                        calculated. value proportion shortest paths
+                                                                vertices x y v lines  step proteins indels different network properties       repeated vertices v, x, y values indels?                                      summed. Table 2 shows indel containing proteins documented essential proteins         greater betweenness, suggesting importance involved greater number interactions  e.      S. cerevisiae protein-protein interaction network.
+greater connectivity) non-essential proteins [28,29].      Taken  observations suggested indels tend occur external surface         presence indels related network properties
+proteins, usually reverse turns coils loops        (connectivity betweenness) proteins PINs. [30,31], structures play important roles pro-      application results bait-prey pull
+tein-protein interactions, reasoned formation        experiments. results suggest increase
+indels means proteins acquired          coverage PIN pull experiment, modified interactions involved          bait contains indel, indel
+Using protein-protein interaction counts 4148       containing proteins involved greater number S. cerevisiae proteins available Munich Informa-       interactions greater betweenness.
+tion Center Protein Sequences (MIPS) database [32], determined indel containing proteins S.           Conclusion
+cerevisiae greater mean connectivity      previously conducted large scale analysis poten-  calculated mean connectivity proteins         tially targetable indels bacterial protozoan patho- indels minimum length           gen proteins [10]. study, located amino acids (Table 2). absolute differences       examples essential pathogen proteins contained mean connectivity types proteins         sizable indels.  objective study small, differences statistically significant (P   determine indels related essential non-
+< 0.05) determined t-test.  general,     essential proteins. knowledge, relationship
+proteins indels connections proteins        previously explored. analyzed  explained indels creating       indels ability discriminate essential exposing new interaction sites, result new          non-essential proteins compared network
+interactions, illustrated L. donovani example     properties, connectivity betweenness, indel [7].                                                            non-indel containing proteins. determined                                                                 species, Bacillus subtilis, Escherichia coli, Saccharo- considered indel containing proteins            myces cerevisiae, essential proteins greater mean greater betweenness proteins indels.         indel frequency non-essential proteins. abun- betweenness measure graph theory deter-      dance indels types proteins accu-
+mined counting number times particular vertex       rately modeled Weibull distribution. Furthermore, located shortest path vertices       demonstrated ROC curves accurate discrimi-
+network [33]. biological perspective,        nation essential non-essential proteins based solely
+ness accounts direct indirect influences pro-    indel frequency achieved. Finally, teins distant location network. example,     showed indel containing proteins different net- clusters interacting proteins, B, joined       work properties, greater connectivity mutual interaction pro-        betweenness, suggesting possible role indels tein X, X high betweenness measure,           regulation interaction partners. protein interact pro-
+
+
+
+                                                                                                                    Page 10 13
+                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                                                http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+Table 2: Summary mean connectivity betweenness S. cerevisiae proteins indels: mean connectivity betweenness indel containing proteins significantly greater non-indel containing proteins. Significance set P < 0.05
+
+ Min Indel Length (aa)   Number proteins        Mean connectivity      Number proteins       Mean connectivity    Betweenness            Betweenness                          indel   proteins        proteins     proteins    proteins                          4 10 aa    indel 4   indel 4   indel   indel 4   indel                          long                      10 aa long             10 aa long               4 10 aa long   10 aa long             4 10 aa long
+
+
+ 4                       907                       4.194                     562                      3.986                   15354                     15133
+ 10                      381                       4.394                     1088                     4.017                   15712                     15115
+
+
+ analyses, did consider actual location                                 (35,429 bacterial 75,881 eukaryote). indels folded dimensional protein struc-                                   obtained fully curated reviewed proteins tures, critical effective drug design.                               eukaryote species (54,927 reviewed eukaryote future directions focus include                                  proteins).
+dimensional modeling indel containing proteins identifying functional protein domains                                    BLASTP parameters used determine alignments
+commonly disrupted indels. Given indels                                      used formatdb [36] format subject protein
+used selectively target essential pathogen proteins                                 sequences BLAST databases. align B. subtilis, E. high sequence similarity human proteins, charac-                                    coli, S. cerevisiae query proteins subject proteins,
+terization indels potentially lead new drug                                conducted BLASTP-based alignment B. subtilis targets infectious diseases.                                                            E. coli query proteins 53,454 bacterial subject
+                                                                                            proteins S. cerevisiae query proteins Methods                                                                                     282,632 eukaryote subject proteins. set maximum E-
+Systematic knockout data NCBI RefSeq proteins                                           value 10-5 considered sequence alignments conducted broad literature search identify fully                                    minimum 50  similarity. parameters
+sequenced genomes genome-wide knockout                                             used analyses smaller set subject
+data available  e. protein essentiality defined).                               species. BLASTP alignments performed located complete knockout data B. subtilis (strain 168)                                 IBM machines running CentOS Linux operating sys-
+[17], E. coli (strain K12) [18], S. cerevisiae [19].                                tem. species, downloaded complete non-
+redundant set proteins ('query proteins') FASTA                                   Processing alignments contain indels
+mat NCBI RefSeq [16]. total, 14,214 query pro-                                      developed house Perl scripts process teins analyzed.  obtained list essential                                results BLASTP alignments search indels.
+genes cross referenced NCBI RefSeq protein                                    alignments matched BLASTP parameters,
+ID using house Perl script utilized BioPerl mod-                                 searched gaps opened query pro-
+ules (Version 1.5.1) [34] search gene                                    tein (deletions) subject protein (insertions) complete set RefSeq Genbank protein files                                    minimum X amino acids long, values X
+particular query organism.                                                                  ranged amino acids. Note gaps
+                                                                                            reported insertions deletions based NCBI RefSeq proteins BLAST databases                                                    query protein (Figure 1a). insertion minimum searched Entrez Genome Project section NCBI                                       X amino acids long, calculated Insertion Frequency
+[35] bacterial eukaryote genome projects anno-                                    follows:
+tated completed. list, wide range bacte-
+rial eukaryote species chosen. chose species                                                                I1 + I2 + I3 + ... + I22 wide range different classes avoid biasing                                                    =
+                                                                                                                       H1 + H2 + H3 + ... + H22
+results particular organisms specific class. resulted 22 bacterial species 15 eukaryote species                                   Ii number insertions query species
+(Additional file 1).  obtained complete set                                  shares species Hi number proteins protein sequences selected organisms ('subject                                   satisfied alignment parameters query spe-
+proteins') NCBI RefSeq. total, set consisted                                cies species  Similarly, calculated Deletion
+53,454 bacterial 282,632 eukaryote subject proteins.                                    Frequency (DF) follows:
+ validate results, randomly chose                                                                D1 + D2 + D3 + ... + D22
+bacterial eukaryote species (Additional file 3)                                                   DF =
+obtained respective proteins NCBI RefSeq                                                                    H1 + H2 + H3 + ... + H22
+
+
+
+                                                                                                                                                            Page 11 13
+                                                                                                                                    (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                                 http://www.biomedcentral.com/1471-2105/8/227
+
+
+ Di number deletions query species
+shared species Hi number proteins                      Additional File 3
+satisfied alignment parameters query spe-                        bacteria eukaryote subject species utilized.
+cies species  Note S. cerevisiae query                     Click file
+                                                                                 [http://www.biomedcentral.com/content/supplementary/1471-
+species, I22, H22, D22 I15, H15, D15,                           2105-8-227-S3.ppt]
+respectively, 15 eukaryote subject spe-
+cies.                                                                            Additional File 4
+                                                                                 Mean insertion deletion frequencies essential non-essential
+Calculations statistical analyses                                            proteins plotted minimum indel length. Mean insertion Receiver Operator Characteristic (ROC) curves                            deletion frequencies calculated essential non-essential query
+corresponding Area ROC curve (AUROC)                              proteins aligned proteins 14 randomly chosen subject species.
+                                                                                 t-test statistic shown minimum indel lengths determined using R statistical package, version 2.3.1
+                                                                                 significantly essential (blue bars) non-essential (purple
+[37] Linux-like operating systems ROCR pack-                         bars) proteins. Significance set P < 0.05. Note differ-
+age [38]. ROC curve plots Sensitivity (True Posi-                         ence observed deletions E. coli proteins. note inser-
+tives/(True Positives + False Negatives)) vs False Positive                      tions minimum length   amino acids Rate (1 - (True Negatives)/(True Negatives + False Posi-                         frequently non-essential essential proteins B. subtilis. text
+tives)). Perl scripts performing t-test calculations                   discussion.
+                                                                                 Click file
+implemented significance set P < 0.05.                                [http://www.biomedcentral.com/content/supplementary/1471-
+                                                                                 2105-8-227-S4.ppt]
+Protein-protein interaction counts S. cerevisiae protein-protein interaction counts                        Additional File 5
+obtained Munich Information Center Protein                          Mean indel frequency calculated curated eukaryote proteins.
+Sequences (MIPS) database [32]. total, obtained                            Mean indel frequencies calculated curated S. cerevisiae
+interaction counts 4148 proteins. 4148 S. cere-                       essential non-essential proteins aligned curated proteins                                                                                  randomly chosen subject species. Note observed trend visiae proteins interaction counts, 837 (20.2 )                                                                                  mean indel frequency essential proteins greater essential. determined best match Homo sapiens                          non-essential proteins seen smaller set curated pro-
+using BLASTP algorithm.  specified maxi-                          teins, suggesting observed trend seen proteins mum E-value 10-5 query subject pro-                          complete set subject species merely sequencing/annota-
+teins shared 50  sequence similarity. Using                          tion errors. t-test statistic shown minimum indel lengths house Perl scripts, determined proteins                            significantly essential (blue bars) non-
+                                                                                 essential (purple bars) proteins. Significance set P < 0.05. text
+contained indel amino                      discussion.
+acids long.                                                                      Click file
+                                                                                 [http://www.biomedcentral.com/content/supplementary/1471-
+Authors' contributions                                                           2105-8-227-S5.ppt]
+SKC acquired data various online resources,
+developed code, performed analyses, wrote manuscript. FH implemented 
+ness algorithm performed network analyses. AC                       Acknowledgements
+conceived study, SKC, MH, AC partici-                      SKC funded award CIHR/MSFHR Strategic Training Pro-
+                                                                            gram Bioinformatics Health Research http://bioinformatics.bcgsc.ca.
+pated design interpretation results.                                                                             MH supported Michael Smith Foundation Health Research
+authors read approved final manuscript.                             (MSFHR) Natural Sciences Engineering Research Council
+                                                                            (NSERC). AC funded Genome Canada Genome BC Additional material                                                         PRoteomics Emerging PAthogen REsponse (PREPARE) Project.                                                                             authors acknowledge helpful comments suggestions provided                                                                             anonymous reviewers.
+ Additional File 1
+ 22 bacterial 15 eukaryote subject species utilized.                References
+ Click file                                                        1.       Fraser CM, Gocayne JD, White O, Adams MD, Clayton RA, Fleis-
+ [http://www.biomedcentral.com/content/supplementary/1471-                           chmann RD, Bult CJ, Kerlavage AR, Sutton G, Kelley JM, Fritchman
+ 2105-8-227-S1.ppt]                                                                  RD, Weidman JF, Small KV, Sandusky M, Fuhrmann J, Nguyen D,
+                                                                                     Utterback TR, Saudek DM, Phillips CA, Merrick JM, Tomb JF, Dough-
+                                                                                     erty BA, Bott KF, Hu PC, Lucier TS, Peterson SN, Smith HO,
+ Additional File 2                                                                   Hutchison CA 3, Venter JC: minimum gene complement  Indel similar protein counts query species compared            Mycoplasma genitalium. Science 1995, 270:397-403.
+ subject species.                                                      2.       Hutchison CA, Peterson SN, Gill SR, Cline RT, White O, Fraser CM,
+ Click file                                                                 Smith HO, Venter JC: Global transposon mutagenesis  [http://www.biomedcentral.com/content/supplementary/1471-                           minimal Mycoplasma genome. Science 1999, 286:2165-2169.
+ 2105-8-227-S2.ppt]
+
+
+
+                                                                                                                                            Page 12 13
+                                                                                                                      (page number citation purposes)
+ BMC Bioinformatics 2007, 8:227                                                                     http://www.biomedcentral.com/1471-2105/8/227
+
+
+
+3.    Glass JI, Assad-Garcia N, Alperovich N, Yooseph S, Lewis MR, Maruf                 K, Bussey H, Boeke JD, Snyder M, Philippsen P, Davis RW, Johnston
+      M, Hutchison CA 3, Smith HO, Venter JC: Essential genes                       M: Functional profiling Saccharomyces cerevisiae
+      minimal bacterium. Proc Natl Acad Sci 2006, 103:425-430.                           genome. Nature 2002, 418:387-391.
+4.    Cole ST: Comparative mycobacterial genomics tool                    20.   Akerley BJ, Rubin EJ, Novick VL, Amaya K, Judson N, Mekalanos JJ:       drug target antigen discovery. Eur Respir J Suppl 2002,                        genome-scale analysis identification genes required       36:78s-86s.                                                                        growth survival Haemophilus influenzae. Proc Natl Acad
+5.    Chalker AF, Lunsford RD: Rational identification new anti-                      Sci 2002, 99:966-971.
+      bacterial drug targets essential viability using              21.   Gerdes SY, Scholle MD, Campbell JW, Balazsi G, Ravasz E, Daugherty
+      genomics-based approach. Pharmacol Ther 2002, 95:1-20.                             MD, Somera AL, Kyrpides NC, Anderson  Gelfand MS, Bhattacharya
+6.    Nandan D, Lopez M, Ban F, Huang M, Li Y, Reiner NE, Cherkasov                     Kapatral V, D'Souza M, Baev MV, Grechkin Y, Mseeh F, Fonstein
+      Indel-based targeting essential proteins human patho-                         Overbeek R, Barabasi AL, Oltvai ZN, Osterman AL: Experi-
+      gens close host orthologue(s): discovery selec-                       mental determination level analysis essential
+      tive inhibitors Leishmania donovani elongation factor-1α.                      genes Escherichia coli MG1655.                    J Bacteriol 2003,
+      Proteins 2007, 67:53-64.                                                           185:5673-5684.
+7.    Nandan D, Reiner NE: Leishmania donovani engages regula-                  22.   Forsyth RA, Haselbeck RJ, Ohlsen KL, Yamamoto RT, Xu H, Trawick
+      tory interference targeting macrophage protein tyrosine                         JD, Wall D, Wang L, Brown-Driver V, Froelich JM, C KG, King P,
+      phosphatase SHP-1. Clin Immunnol 2005, 114:266-277.                                McCarthy M, Malone C, Misiner B, Robbins D, Tan  Zhu Zy ZY,
+8.    Cherkasov  Nandan D, Reiner NE: Selective targeting indel-                    Carr G, Mosca DA, Zamudio C, Foulkes JG, Zyskind JW: genome-
+      inferred differences spatial structures highly homolo-                       wide strategy identification essential genes Sta-
+      gous proteins. Proteins 2005, 58:959-954.                                          phylococcus aureus. Mol Microbiol 2002, 43:1387-1400.
+9.    Li YY, Jones SJ, Cherkasov  Selective targeting indel-                  23.   Coles S: introduction statistical modeling extreme values Lon-
+      inferred differences spatial structures homologous pro-                      don:Springer-verlag; 2001.
+      teins. J Bioinform Comput Biol 2006, 2:403-414.                              24.   Teixeira EC, Piascik JR, Stoner BR, Thompson JY: Dynamic fatigue
+10.   Cherkasov  Lee SJ, Nandan D, Reiner NE: Large-Scale Survey                       strength characterization ceramic materials. J
+      Potentially Targetable Indels Bacterial Protozoan                       Mater Sci Mater Med 2007, 18:1219-1224.
+      Proteins. Proteins 2006, 62:371-380.                                         25.   Cherkasov  Ho Sui SJ, Brunham RC, Jones SJ: Structural charac-
+11.   Bateman  Coin L, Durbin R, Finn RD, Hollich V, Griffiths-Jones S,                terization genomes large scale sequence-sequence
+      Khanna  Marshall M, Moxon S, Sonnhammer EL, Studholme DJ,                        threading: application reliability analysis structural
+      Yeast C, Eddy SR: Pfam protein families database. Nucleic                      genomics. BMC Bioinformatics 2004, 5:101.
+      Acids Res 2004, 32:D138-141.                                                 26.   Decottignies  Sanchez-Perez  Nurse P: Schizosaccharomyces
+12.   Jordan IK, Rogozin IB, Wolf YI, Koonin EV: Essential genes                     pombe essential genes: pilot study. Genome Res 2003,
+      evolutionarily conserved nonessential genes                          13:399-406.
+      bacteria. Genome Res 2002, 12:962-968.                                    27.   Seringhaus M, Paccanaro  Borneman  Snyder M, Gerstein M: Pre-
+13.   Zhang L, Li WH: Mammalian housekeeping genes evolve                           dicting essential genes fungal genomes. Genome Res 2006,
+      slowly tissue-specific genes. Mol Biol Evol 2004, 21:236-239.                 16:1126-1135.
+14.   Barabasi AL, Oltvai ZN: Network biology: understanding                   28.   Jeong H, Mason SP, Barabasi AL, Oltvai ZN: Lethality central-
+      cell's functional organization. Nat Rev Genet 2004, 5:101-113.                     ity protein networks. Nature 2001, 411:41.
+15.   Barabasi AL, Albert R: Emergence scaling random net-                   29.   X, Zhan  hubs tend essential protein net-
+      works. Science 1999, 286:509-512.                                                  works? PLoS Genet 2006, 2:e88.
+16.   Pruitt KD, Tatusova T, Maglott DR: NCBI Reference Sequence                   30.   Pascarella S, Argos P: Analysis insertions/deletions protein
+      (RefSeq): curated non-redundant sequence database                             structures. J Mol Biol 1992, 224:461-471.
+      genomes, transcripts proteins. Nucleic Acids Res 2005,                   31.   Benner SA, Cohen MA, Gonnet GH: Empirical structural
+      33:D501-D504.                                                                      models insertions deletions divergent evolu-
+17.   Kobayashi K, Ehrlich SD, Albertini  Amati G, Andersen KK, Arnaud                 tion proteins. Mol Biol Evol 1993, 11:316-324.
+      M, Asai K, Ashikaga S, Aymerich S, Bessieres P, Boland F, Brignell SC,       32.   Mewes HW, Frishman D, Guldener U, Mannhaupt G, Mayer K,
+      Bron S, Bunai K, Chapuis J, Christiansen LC, Danchin  Debarbouille               Mokrejs M, Morgenstern B, Munsterkotter M, Rudd S, Weil B: MIPS:
+      M, Dervyn E, Deuerling E, Devine K, Devine SK, Dreesen O, Err-                     database genomes protein sequences. Nucleic Acids
+      ington J, Fillinger S, Foster SJ, Fujita Y, Galizzi  Gardan R, Eschevins         Res 2002, 30:31-34.
+      C, Fukushima T, Haga K, Harwood CR, Hecker M, Hosoya D, Hullo                33.   Brandes U: faster algorithm betweenness centrality. J
+      MF, Kakeshita H, Karamata D, Kasahara Y, Kawamura F, Koga K,                       Math Sociol 2001, 25:163-177.
+      Koski P, Kuwana R, Imamura D, Ishimaru M, Ishikawa S, Ishio  Le            34.   Stajich JE, Block D, Boulez K, Brenner SE, Chervitz SA, Dagdigian C,
+      Coq D, Masson  Mauel C, Meima R, Mellado RP, Moir  Moriya S,                   Fuellen G, Gilbert JG, Korf  Lapp H, Lehvaslaiho H, Matsalla C, Mun-
+      Nagakawa E, Nanamiya H, Nakai S, Nygaard P, Ogura M, Ohanan T,                     gall CJ, Osborne BI, Pocock MR, Schattner P, Senger M, Stein LD,
+      O'Reilly M, O'Rourke M, Pragai  Pooley HM, Rapoport G, Rawlins                   Stupka E, Wilkinson MD, Birney E: Bioperl toolkit: Perl mod-
+      JP, Rivas LA, Rivolta C, Sadaie  Sadaie Y, Sarvas M, Sato T, Saxild              ules life sciences. Genome Res 2002, 12:1611-16118.
+      HH, Scanlan E, Schumann W, Seegers JF, Sekiguchi J, Sekowska               35.   Wheeler DL, Barrett T, Benson DA, Bryant SH, Canese K,
+      Seror SJ, Simon M, Stragier P, Studer R, Takamatsu H, Tanaka T,                    Chetvernin V, Church DM, DiCuccio M, Edgar R, Federhen S, Geer
+      Takeuchi M, Thomaides HB, Vagner V, van Dijl JM, Watabe K, Wipat                   LY, Helmberg W, Kapustin Y, Kenton DL, Khovayko O, Lipman DJ,
+       Yamamoto H, Yamamoto M, Yamamoto Y, Yamane K, Yata K,                           Madden TL, Maglott DR, Ostell J, Pruitt KD, Schuler GD, Schriml LM,
+      Yoshida K, Yoshikawa H, Zuber U, Ogasawara N: Essential Bacillus                   Sequeira E, Sherry ST, Sirotkin K, Souvorov  Starchenko G, Suzek
+      subtilis genes. Proc Natl Acad Sci 2003, 100:4678-4683.                             Tatusov R, Tatusova TA, Wagner L, Yaschenko E: Database
+18.   Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, Datsenko                    resources National Center Biotechnology Infor-
+      KA, Tomita M, Wanner BL, Mori H: Construction Escherichia                       mation. Nucleic Acids Res 2006, 34:D173-D180.
+      coli K-12 frame, single-gene knockout mutants: Keio                   36.   BLAST Binaries [ftp://ftp.ncbi.nih.gov/blast/]
+      collection. Mol Syst Biol 2006, 2:2006.0008.                                 37.   CRAN Project [http://www.r-project.org]
+19.   Giaever G, Chu  Ni L, Connelly C, Riles L, Veronneau S, Dow S,            38.   Sing T, Sander O, Beerenwinkel N, Lengauer T: ROCR: visualizing
+      Lucau-Danila  Anderson K, Andre B, Arkin AP, Astromoff  El-                    classifier performance R. Bioinformatics 2005, 20:3940-3941.
+      Bakkoury M, Bangham R, Benito R, Brachat S, Campanaro S, Curtiss
+      M, Davis K, Deutschbauer  Entian KD, Flaherty P, Foury F, Garfinkel
+      DJ, Gerstein M, Gotte D, Guldener U, Hegemann JH, Hempel S, 
+      man  Jaramillo DF, Kelly  Kelly SL, Kotter P, LaBonte D, Lamb
+      DC, Lan N, Liang H, Liao H, Liu L, Luo C, Lussier M, Mao R, Menard
+      P, Ooi SL, Revuelta JL, Roberts CJ, Rose M, Ross-Macdonald P, Sche-
+      rens B, Schimmack G, Shafer B, Shoemaker DD, Sookhai-Mahadeo S,
+      Storms RK, Strathern JN, Valle G, Voet M, Volckaert G, Wang CY,
+      Ward TR, Wilhelmy J, Winzeler EA, Yang Y, Yen G, Youngman E, Yu
+
+
+
+                                                                                                                       

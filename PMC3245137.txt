@@ -1,0 +1,248 @@
+Published online 18 October 2011                                  Nucleic Acids Research, 2012, Vol. 40, Database issue D687â€“D694
+                                                                                                              doi:10.1093/nar/gkr827
+
+
+PhenoM: database morphological phenotypes
+caused mutation essential genes Saccharomyces cerevisiae
+Ke Jin1,2, Jingjing Li1,2,3, Frederick S. Vizeacoumar4, Zhijian Li1,2,3, Renqiang Min1,5,
+Lee Zamparo1,5, Franco J. Vizeacoumar1,2, Alessandro Datti4,6, Brenda Andrews1,2,3,*,
+Charles Boone1,2,3,* Zhaolei Zhang1,2,3,5,*
+1
+ Donnelly Centre Cellular Biomolecular Research, University Toronto, 160 College Street, Toronto,  M5S 3E1, 2Banting Best Department Medical Research, University Toronto, 112 College Street,
+Toronto,  M5G 1L6, 3Department Molecular Genetics, University Toronto, 1 Kingâ€™s College Circle,
+Toronto,  M5S 1A8, 4Samuel Lunenfeld Research Institute, Mount Sinai Hospital, 600 University Avenue,
+Toronto,  M5G 1X5, Canada, 5Department Experimental Medicine Biochemical Sciences, University Perugia, del Giochetto, 06122, Perugia, Italy 6Department Experimental Medicine Biochemical
+Sciences, University Perugia, Perugia, Italy
+
+Received July 22, 2011; Revised September 16, 2011; Accepted September 19, 2011
+
+
+
+ABSTRACT                                                                        enrichment analysis gene sets showing similar fifth genes budding yeast                               morphological alterations. current PhenoM essential haploid viability                               version 1.0 contains 78 194 morphological images
+functionally assessed using standard genetic                                    1 909 914 cells covering subcellular compart-
+approaches gene deletion. facilitate                                 ments structures 775 ts alleles spanning 491
+genetic analysis essential genes,                              essential genes. PhenoM freely available http:// assembled collections yeast strains ex-                                 phenom.ccbr.utoronto.ca/.
+pressing temperature-sensitive (ts) alleles essen-
+tial genes. explore phenotypes caused                                 INTRODUCTION
+essential gene mutation used panel genet-                               Essential genes indispensable survival ically engineered fluorescent markers explore                            organism typically involved fundamental bio-
+morphology cells ts strain collection using                           logical processes, cell wall membrane biogen-
+high-throughput microscopy.                                esis, ribosome biosynthesis, DNA replication design implementation online database,                                cytoskeletal functions (1). thoroughly
+PhenoM (Phenomics yeast Mutants), storing,                               characterized model organisms, budding yeast
+retrieving, visualizing data mining quantita-                           Saccharomyces cerevisiae frequently used study
+tive single-cell measurements extracted                                    genes involved conserved biological pathways. micrographs ts mutant cells. PhenoM allows                               S. cerevisiae, 18  genes considered es-
+                                                                                sential growth rich medium glucose users rapidly search retrieve raw images                                                                                 carbon source (1,2). Essential genes evolutionarily quantified morphological data genes                                conserved yeast humans  database provides                                    non-essential genes, indicating deeper understanding
+data-mining tools, including PhenoBlast module                                functions yeast essential genes extend phenotypic comparison mutant strains                                understanding human gene function (3). Previous Gene Ontology module functional                                       studies characterized functions yeast essential
+
+
+
+
+ correspondence addressed. Tel: +1 416 978 8562; Fax: +1 416 978 8287; Email: brenda.andrews@utoronto.ca
+Correspondence addressed Charles Boone. Tel: + 416 946 7260; Fax: +1 416 978 8287; Email: charlie.boone@utoronto.ca
+Correspondence addressed Zhaolei Zhang. Tel: +416 946 0924; Fax: +1 416 978 8287; Email: zhaolei.zhang@utoronto.ca
+
+ÃŸ Author(s) 2011. Published Oxford University Press. Open Access article distributed terms Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ nc/3.0), permits unrestricted non-commercial use, distribution, reproduction medium, provided original work properly cited.
+ D688 Nucleic Acids Research, 2012, Vol. 40, Database issue
+
+
+genes using variety alleles allow conditional                   facilitate access valuable single-cell morpho-
+partial inactivation essential gene function.                      logical data including raw images, implemented mutant strains constructed genetic analysis                  web server integrated database capability essential genes past years, including              allow visualization analysis morphological data.
+harbouring tetracycline (tet)-repressible promoter alleles                 PhenoM (Phenomics Yeast Mutants) web-based
+(1), decreased abundance mRNA perturbation alleles                      platform contains quantitative single-cell measure-
+(4) temperature-sensitive (ts) alleles (5,6).               ments morphological images yeast cells carrying
+methods, ts alleles considered powerful                   ts alleles essential genes generated HCS technology
+genetic analysis perturb speciï¬?c aspects es-                (10â€“13) [reviewed (9)]. Figure 1 shows detailed record
+sential gene function (5â€“8).                                               allele smc4-1, describes basic information    Temperature-sensitive alleles essential genes allow                  gene phenotypic images. developed cell viability permissive temperature                     user-friendly fast accurate search
+protein encoded ts allele resembles encoded                    engine embedded data mining tools, PhenoDev normal wild-type allele mutant                           PhenoBlast. PhenoDev set tools calculating
+cells morphologically indistinguishable                     phenotypic differences mutant strains wild-type cells.  restrictive (non-                     mutant wild-type strain grown permissive) temperature, ts gene product defective                  different temperatures. tools used result loss function. Consequently                     identify genes  compromised, rise cells growth morphological defects                  speciï¬?c abnormal phenotype  conversely, strictive temperature. recently developed                        speciï¬?c ts allele, tools quickly identify
+method quantify cell morphological changes thou-                    signiï¬ phenotypic changes associated
+sands mutants parallel coupling synthetic genetic                 temperature shift. contrast, tool,
+analysis high-content screening (SGAâ€“HCS) (9,10).                     PhenoBlast, serves quantify morphological similar- used SGAâ€“HCS study essential yeast genes                         ity multiple ts alleles. tool best used recently published phenotypic proï¬?ling 497 yeast                      discover ts alleles cause abnormal phenotypes
+strains carrying ts conditional alleles essential genes (6).            similar ts allele  provides
+
+
+
+
+Figure 1. example allele interface based allele smc4-1. interface includes basic information allele phenotypic
+images allele different subcellular compartments structures.
+                                                                   Nucleic Acids Research, 2012, Vol. 40, Database issue   D689
+
+
+tools Gene Ontology   enrichment analysis ï¬?nd            website (18) customized according gene
+common annotation(s) ranked                       set database.
+mutants identiï¬?ed PhenoDev PhenoBlast.
+   Currently, PhenoM version 1.0 holds 78 194 morpho-              DATA MINING
+logical images 1 909 914 cells, covering yeast
+subcellular compartments structures, including actin ï¬?la-       current PhenoM database contains data 775 ts
+ments, DNA damage foci, mitochondria, nucleus, plasma              mutants covering 491 yeast essential genes. membrane mitotic spindle. data assembled            mutant strain, 865 morphological parameters studying strains carrying 775 different ts alleles spanning     catalogued database, corresponding different
+491 essential genes. knowledge, PhenoM ï¬?rst          temperatures, cellular compartments cell cycle
+database phenotypes caused mutation yeast essen-          stages. example, following parameters describing
+tial genes contains analyses quantitative data            morphology spindle quantiï¬?ed stored
+derived single-cell morphological images. PhenoM              database: area, perimeter, length orientation. valuable resource yeast genomics           aid biologists extracting biologically useful informa-
+communities large volume data efï¬?cient        tion, designed implemented data mining tools,
+analysis tools facilitate study essential genes        PhenoDev PhenoBlast, summarize function. Images available downloadable              phenotypic deviations genes isogenic cell popu-
+format facilitate future analysis using                 lations quantify morphological similarities sophisticated software developed compu-          different mutants, respectively.
+tational experts.                                                  Phenotypic deviation: PhenoDev
+                                                                   PhenoDev collection analytical tools DATA SOURCE                                                        help users evaluate phenotypic deviations                                                                    given morphological parameter response condition PhenoM database contains morphological images              changes. consists modules: PhenoTempDev,
+quantitative single-cell measurements yeast strains             PhenoMutaDev PhenoCycleDev. provide carrying 775 different ts alleles associated 491 essen-       detailed user manual examples using tools
+tial genes, covering following subcellular compart-        PhenoM website; tools user-friendly inter-
+ments structures: actin ï¬?laments, DNA damage foci,              faces extensively tested optimized.
+mitochondria, nucleus, plasma membrane mitotic                    phenotypic temperature deviation (PhenoTemp
+spindle. described previous report, MATa                 Dev) module help users identify ts strains query strains carrying different ï¬‚uorescent markers           signiï¬ changes speciï¬?c morphological parameter
+mated ts allele array MATa haploid ts strains           grown permissive restrictive temperature
+expressing different Green Fluorescent Protein (GFP)            Figure 2 example). example, researcher Red Fluorescent Protein (RFP) fusion proteins              interested asking ts allele affects â€˜spindle
+isolated using SGA technology (6,10,14). following             lengthâ€™, use PhenoTempDev extract cellular markers used: plasma membrane marker               sets measurements â€˜spindle lengthâ€™ (Psr1p-GFP), reporter DNA damage (Ddc2p-GFP),                 cell populations. statistical test allows ranking nuclear marker (Mad1p-Nuclear localization Signal-               ts alleles according signiï¬?cance difference
+RFP), mitotic spindle reporter (GFP-Tub1), mitochon-           tested strains. essence, tool help
+drial marker (OM45p-GFP) actin reporter                     researchers identify genes implicated particu-
+(Sac6p-GFP). Morphological images generated                lar yeast morphological trait. Phenotypic mutation devi-
+using SGA-HCS protocol (9,15) quantitative                 ation (PhenoMutaDev) intended quantify measurements particular morphological feature            phenotypic deviation wild-type strain extracted single-cell level. reporter,    ts mutant strain selected set morphological par-
+independent images captured different tempera-             ameters temperature. contrast tures referred â€˜sitesâ€™ database.        PhenoTempDev, detects morphological changes quantitative measurements cell                    caused temperature shift, PhenoMutaDev categorized factors temperature          identify mutants signiï¬?cantly different pheno- yeast strain grown, cell cycle stage      type wild-type cells.
+cell subcellular compartment structure                Finally, phenotypic cell cycle deviation (PhenoCycleDev) feature extracted. yeast cells rela-      allows users examine phenotypic changes single
+tively simple ellipsoidal shape, dimensions cells       mutant cell cycle. described  serve proxy determine cell cycle phase (16).        categorized cell cycle phases based PhenoM, categorized cells phases            daughter bud mother cell ratios. queries cell cycle according ratio daughter cell area     contiguous cell cycle transitions:   unbudded mother cell area:   unbudded cell; (ii) small budded cell;       small budded cells (G1-S phase); (ii) small budded (iii) medium budded cell; (iv) large budded cell               medium budded cells (S-G2); (iii) medium
+(detailed information provided PhenoM website).              budded large budded cells (G2-M). cell cycle
+Gene annotations downloaded SGD (17),                    transition, measurements morphological parameters annotations downloaded                   extracted compared. program ranks  D690 Nucleic Acids Research, 2012, Vol. 40, Database issue
+
+
+
+
+Figure 2. example â€˜PhenoTempDev  interface. ï¬?ve alleles presented ï¬?gure.
+
+
+
+
+mutants according changes morphological measure-                   colleagues developed software tool called PhenoBlast, ments associated transitions. tool,             analogy BLAST, gene pairs scored based essential mutant, users readily determine              similarities morphological phenotypes caused phenotypic features affected particular cell                knockdown gene expression RNAi. tool,
+cycle phase transition.                                                  47 phenotypic parameters used assess morpho-
+                                                                         logical phenotypes Caenorhabditis elegans (19).                                                                          adopted PhenoBlast comparing yeast morphology
+PhenoBlast
+                                                                         data. algorithm, directly compare rationale using morphological data study gene                 morphology different mutant strains.
+function stems recent observation genes                    Instead, mutant strain, morphological meas- annotated similar functions tend                     urements population mutant cells ï¬?rst rise similar morphological defects perturb-                 compared population wild-type cells. ation (6). huge volume morphology data generated                  used Wilcoxon rank-sum test determine high-content screens catalogued PhenoM                   particular morphological parameter (e.g. spindle length)
+database offers unique useful resource search               signiï¬?cantly increased (labelled â€˜+1â€™), unchanged
+alleles similar morphological phenotypes                   (labelled â€˜0â€™) signiï¬?cantly decreased (labelled similar cellular functions.                                    â€˜ 1â€™) mutant strain. way, obtain    contrast searching databases genes                vector 865 values consisting â€˜+1â€™, â€˜0â€™ â€˜ 1â€™ sequence similarities, searching morphological                       mutant strain, describes overall morpho-
+similarities pair yeast strains computa-               logical change comparison wild-type cells. tionally algorithmically challenging.                     quantify morphological similarities earlier study phenotypic changes Caenorhabditis                    mutant strains calculating similarities elegans RNAi interference experiments, Gunsalus                   corresponding vectors  detailed information,
+                                                                 Nucleic Acids Research, 2012, Vol. 40, Database issue   D691
+
+ PhenoM server). algorithm described           mutants number objects single cell implemented optimized                      particular compartment; (iv) searching mutants PhenoBlast. Users query single mutant          certain range particular cell shape parameter. mutants similar phenotypic proï¬?les         options uniï¬?ed Morphology Search.
+real time. Figure 3 shows example PhenoBlast
+comparison used default settings query              enrichment analysis
+smc4-1 strain. search identiï¬?ed mcd1-73 strain,          Depending usersâ€™ objective, running PhenoDev contains ts allele MCD1 gene           PhenoBlast automatically generates list mutants
+hit smc4-1 mcd1-73 strains shared similarity          showing phenotypic abnormality. provide 621 morphological parameters [122 parameters signiï¬?-             module enrichment analysis test cantly increased, 435 unchanged 64 signiï¬?cantly              genes associated phenotypic defects decreased (Figure 4)].                                           enriched known functions pathways. function-
+                                                                 ality particularly useful gauging biological sig-
+Search                                                           niï¬?cance highly ranked genes mutation
+                                                                 causes extreme phenotypic defects. implement search engine provides options,            analysis, compared tools GoMiner
+Quick Search Morphology Search. Quick Search,             (20), GOEAST (21) :TermFinder (22). users directly query mutant         chose use :TermFinder package (v0.86) database specifying gene  open reading frame         PhenoM uses modular design (ORF)  aliases. partial-word-match method           easy integrate  incorporated Quick Search. hand, users want ï¬?nd mutant strains share morpho-
+logical similarity pre-speciï¬?ed gene, search         DATABASE IMPLEMENTATION USER
+morphology proï¬?les performed. Morphology              INTERFACE
+Search utility ï¬‚exible allows users conduct
+                                                                 Database implementation
+speciï¬?c advanced searches including:   searching mutants certain cell cycle phase; (ii) searching        designed implemented PhenoM using Struts-
+mutants grown certain temperature; (iii) searching          Spring-Hibernate,   lightweight enterprise-level
+
+
+
+
+Figure 3. example â€˜Searchâ€™ interface PhenoBlast.
+ D692 Nucleic Acids Research, 2012, Vol. 40, Database issue
+
+
+
+
+Figure 4. example â€˜PhenoBlast  interface. interface includes analysis result section â€˜Search Resultâ€™ section. Smc4-1 used query allele 5 23â€“25 alleles presented ï¬?gure.
+
+
+
+
+developmental framework (23,24). MySQL (v5.0.77)                        charts. source code development performed used underlying relational database store                     Eclipse v3.4.2 (http://www.eclipse.org).
+large volume quantitative measurements links raw morphological images ï¬?le                    User interface end, Apache Server 2.0 deployed handle user
+                                                                            PhenoM server provides following primary web
+requests forward requests Java servlets
+                                                                            interfaces, allow users perform focused query Java Server Pages Apache Tomcat 6.0.                                                                             analysis tasks.
+provide user-friendly interface, JavaScript AJAX
+                                                                               â€˜Allele interfaceâ€™ presents detailed informa-
+(Asynchronous Javascript XML) technology                                                                             tion mutant strain. consists parts:
+adopted program client functionality Apache TilesTM used create reusable interface                            Basic information cross links databases
+components. online graphical visualization                                SGD (17) BioGRID (25);
+image manipulation, ImageJ (v1.44) incorporated                       (ii) Phenotypic images statistical information assist users morphological image processing Java                         subcellular compartments struc-
+applets, Java open source package JFreeChart                              tures. functional links provided,
+(http://www.jfree.org/jfreechart/) used plot bar                           option download original
+                                                                Nucleic Acids Research, 2012, Vol. 40, Database issue          D693
+
+
+      micrograph TIFF format, viewing image               (P = 0.04455) (Figure 4). results PhenoBlast
+      ImageJ, link dataset        consistent known biology (6,29â€“31),       particular image. ease analysis, images      believe useful tool suggesting
+      annotated names correspond             new biological gene associations yeast research
+      mutant  reporter imaged, temperature         community.
+      images captured site               Download: PhenoM allows users download       number  indicates set independent            data set mutants single
+      images used produce particular image           selected mutant tab-delimited format.
+      mutant) (iii) PhenoBlast results list, containing ï¬?fty
+      mutants share similar morphological            AVAILABILITY FUTURE DIRECTION
+      proï¬?les (Figures 1 4).                                PhenoM freely accessed http://phenom.ccbr.
+                                                                utoronto.ca/. future development PhenoM                                                                 include following aspects:   PhenoM include
+   PhenoDev: series tools measure pheno-        phenotypic information additional yeast strains
+typic deviations strains carrying different ts alleles       carrying mutant alleles non-essential essential varying conditions. PhenoTempDev               genes data available groups example navigate interfaces function           (ii) data subcellular compartments (Figure 2). Multiple options, morphological             structures incorporated database help
+features certain compartment, bud size                 biologists uncover association cell morph- provided customized. ana-              ology gene function; (iii) data mining lysis default parameters lead              statistical analysis tools developed, especially tools
+PhenoTempDev results interface (Figure 2),                integrate types data protein
+includes sections:   results analysis       complexes protein interactions.
+(ii) deviation details 50 mutants listed         database ultimately aims provide centralized
+descending order.                                               platform analysis gene function using quan-
+   PhenoBlast: comparison tool phenotyp-          titative measurements morphological images ic similarity accessed home          yeast mammalian cells. accomplish goal,
+interface PhenoM navigation bar.              PhenoM provide submission collect data
+execute PhenoBlast, query mutant                 image-based HCS experiments future.
+relevant morphological features speciï¬?ed. typing characters query allele box, automatically suggest list similar mutant         ACKNOWLEDGEMENTS
+names. facilitate customized search, list 865       like thank Xiaoli Wu helping design morphological features divided parts:   386     style interfaces Dr Yufang Zheng Fudan
+features phenotypic mutation deviation; (ii) 193           University critical readings early version features phenotypic temperature deviation;             article. wish thank Dr Judice L.Y. Koh (iii) 286 features phenotypic cell cycle deviation         helpful suggestions.
+(detailed information provided PhenoM
+server). feature chosen conduct analysis. PhenoBlast results interface dis-     FUNDING
+played following execution successful query                                                                 Fudan University - University Toronto Exchange
+contains parts:   analysis results (ii)                                                                 Scholarship  K.J.); postdoctoral fellowship
+details 50 mutants similar phenotypes.
+                                                                Best Foundation  F.J.V.); Canadian
+Figures 3 4 shows example navigating                                                                 Institutes Health Research grants (GMX-201237 PhenoBlast (Figures 3 4). SMC4 gene encodes                                                                 B  C.B.) (GMX-211012 B , C.B. member ubiquitous family chromosome-associated
+                                                                Z.). Infrastructure automated imaging ATPases (26). Smc4 protein subunit                                                                 Boone Andrews Lab funded condensin complex required chromosome
+                                                                Canadian Foundation Innovation (LEF-21475) condensation dynamics (27,28). search                                                                 Ontario Research Fund. Funding open access
+mutants sharing similar morphological proï¬?les                                                                 charge: Canadian Institutes Health Research
+smc4-1 mutant strain, input smc4-1 query
+                                                                (GMX-201237) (GMX-211012).
+allele box Search interface PhenoBlast (Figure 3) press button â€˜Run PhenoBlastâ€™ using default        Conï¬‚ict statement. declared.
+parameters. automatically leads interface PhenoBlast. search result section, ï¬?rst, ï¬?fth fourth ranked mutants, mcd1-73,           REFERENCES
+smc1-2 smc3-1, respectively, carry mutant alleles
+                                                                 1. Mnaimneh,S., Davierwala P., Haynes,J., Moffat,J., Peng,W.T., genes encoding condensin subunits list                Zhang,W., Yang,X., Pootoolal,J., Chua,G., Lopez  et al. (2004)
+mutants overall enriched DNA metabolic                   Exploration essential gene functions titratable promoter
+process (P = 0.01218) sister chromatid cohesion                 alleles. Cell, 118, 31â€“44.
+ D694 Nucleic Acids Research, 2012, Vol. 40, Database issue
+
+
+ 2. Giaever,G., Chu M., Ni,L., Connelly,C., Riles,L., Veronneau,S.,       17. Hong,E.L., Balakrishnan,R., Dong,Q., Christie,K.R., Park,J.,
+    Dow,S., Lucau-Danila , Anderson,K., Andre,B. et al. (2002)                Binkley,G., Costanzo,M.C., Dwight,S.S., Engel,S.R., Fisk,D.G.
+    Functional proï¬?ling Saccharomyces cerevisiae genome.                 et al. (2008) Gene Ontology annotations SGD: new data
+    Nature, 418, 387â€“391.                                                       sources annotation methods. Nucleic Acids Res., 36,
+ 3. Hughes,T.R. (2002) Yeast drug discovery. Funct. Integr.                 D577â€“D581.
+    Genomics, 2, 199â€“211.                                                   18. Ashburner,M., Ball,C , Blake,J , Botstein,D., Butler,H.,
+ 4. Schuldiner,M., Collins,S.R., Thompson,N.J., Denic,V.,                       Cherry,J.M., Davis P., Dolinski,K., Dwight,S.S., Eppig,J.T.
+    Bhamidipati , Punna,T., Ihmels,J., Andrews,B., Boone,C.,                  et al.; Gene Ontology Consortium (2000) Gene ontology:
+    Greenblatt,J.F. et al. (2005) Exploration function               tool uniï¬?cation biology. Nat. Genet., 25, 25â€“29.
+    organization yeast early secretory pathway            19. Gunsalus,K.C., Yueh,W.C., MacMenamin,P. Piano,F. (2004)
+    epistatic miniarray proï¬?le. Cell, 123, 507â€“519.                             RNAiDB PhenoBlast: web tools genome-wide phenotypic
+ 5. Ben-Aroya,S., Coombes,C., Kwok,T., Oâ€™Donnell,K , Boeke,J.D.               mapping projects. Nucleic Acids Res., 32, D406â€“D410.
+    Hieter,P. (2008) comprehensive                             20. Zeeberg,B.R., Feng,W., Wang,G., Wang,M.D., Fojo T.,
+    temperature-sensitive mutant repository essential genes           Sunshine,M., Narasimhan,S., Kane,D.W., Reinhold,W.C.,
+    Saccharomyces cerevisiae. Mol. Cell, 30, 248â€“258.                           Lababidi,S. et al. (2003) GoMiner: resource biological
+ 6. Li , Vizeacoumar,F.J., Bahr,S., Li,J., Warringer,J.,                      interpretation genomic proteomic data. Genome Biol., 4,
+    Vizeacoumar,F.S., Min,R., Vandersluis,B., Bellay,J., Devit,M.               R28.
+    et al. (2011) Systematic exploration essential yeast gene            21. Zheng,Q. Wang,X.J. (2008) GOEAST: web-based software
+    function temperature-sensitive mutants. Nat. Biotechnol., 29,          toolkit Gene Ontology enrichment analysis. Nucleic Acids
+    361â€“367.                                                                    Res., 36, W358â€“W363.
+ 7. Hartwell,L.H., Culotti,J. Reid,B. (1970) Genetic control         22. Boyle,E , Weng,S., Gollub,J., Jin,H., Botstein,D., Cherry,J.M.
+    cell-division cycle yeast.  Detection mutants. Proc. Natl       Sherlock,G. (2004) :TermFinderâ€“open source software                                                                                 accessing Gene Ontology information ï¬?nding signiï¬?cantly
+    Acad. Sci. USA, 66, 352â€“359.
+                                                                                enriched Gene Ontology terms associated list genes.
+ 8. Simchen,G. (1978) Cell cycle mutants. Ann. Rev. Genet., 12,
+                                                                                Bioinformatics, 20, 3710â€“3715.
+    161â€“191.
+                                                                            23. Sun,L.V., Jin,K., Liu,Y., Yang,W., Xie,X., Ye,L., Wang,L.,
+ 9. Vizeacoumar,F.J., Chong,Y., Boone,C. Andrews,B.J. (2009)
+                                                                                Zhu,L., Ding,S., Su,Y. et al. (2008) PBmice: integrated
+    picture worth thousand words: genomics phenomics                                                                                 database piggyBac (PB) insertional mutations     yeast Saccharomyces cerevisiae. FEBS Lett., 583, 1656â€“1661.             characterizations mice. Nucleic Acids Res., 36, D729â€“D734.
+10. Vizeacoumar,F.J., van Dyk,N.S., Vizeacoumar,F., Cheung,V.,              24. Yang,W., Jin,K., Xie,X., Li,D., Yang,J., Wang,L., Gu,N.,
+    Li,J., Sydorskyy,Y., Case,N., Li , Datti , Nislow,C. et al.             Zhong,Y. Sun,L.V. (2009) Development database     (2010) Integrating high-throughput genetic interaction mapping              mapping insertional mutations mouse genome     high-content screening explore yeast spindle                         large-scale experimental data. BMC Genomics, 10(Suppl. 3), S7.
+    morphogenesis. J. Cell. Biol., 188, 69â€“81.                              25. Stark,C., Breitkreutz,B.J., Chatr-Aryamontri , Boucher,L.,
+11. Bakal,C., Aach,J., Church,G. Perrimon,N. (2007)                         Oughtred,R., Livstone,M.S., Nixon,J., Van Auken,K., Wang,X.,
+    Quantitative morphological signatures deï¬?ne local signaling                 Shi,X. et al.

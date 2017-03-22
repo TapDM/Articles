@@ -1,0 +1,824 @@
+Guest et al. BMC Systems Biology 2011, 5:65
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                            Open Access
+ protein network-guided screen cell cycle
+regulators Drosophila
+Stephen T Guest1, Jingkai Yu2, Dongmei Liu1, Julie Hines1, Maria Kashat1 Russell L Finley Jr1,3*
+
+
+  Abstract
+  Background: Large-scale RNAi-based screens playing critical role defining sets genes regulate
+  specific cellular processes. Numerous screens completed cases screen   examined cellular process, enabling direct comparison genes identified separate screens.
+  Surprisingly, overlap observed results similar screens low, suggesting RNAi screens   relatively high levels false positives, false negatives, 
+  Results: examined genes identified previous RNAi-based cell cycle screens identify
+  potential false positives false negatives. able confirm originally observed phenotypes
+  reveal likely false positives. identify potential false negatives previous screens, used
+  protein interaction networks select genes screening. demonstrate cell cycle phenotypes   significant number genes protein interaction network efficient predictor new
+  cell cycle regulators. Combining results results previous screens identified group validated,
+  high-confidence cell cycle/cell survival regulators. Examination subset genes group regulate
+  G1/S cell cycle transition revealed presence multiple members structurally related protein
+  complexes: eukaryotic translation initiation factor 3 (eIF3) complex, COP9 signalosome, proteasome
+  lid. Using combinatorial RNAi approach, complexes required Cdk2/
+  Cyclin E activity, eIF3 complex specifically required step limits G1/S cell cycle
+  transition.
+  Conclusions: results false positives false negatives play significant role lack   overlap observed similar large-scale RNAi-based screens. results protein
+  network data used minimize false negatives false positives efficiently identify
+  comprehensive sets regulators process. Finally, data provides high confidence set genes   likely play key roles regulating cell cycle cell survival.
+
+
+Background                                                                         [2-7]. libraries opened door large- discovery RNA interference (RNAi) revolu-                               scale RNAi-based screens aimed identifying genes
+tionized way loss function studies                             involved wide variety cellular processes. Com- performed [1]. Activation RNAi using double-                                 pleted screens successfully identified novel regula-
+stranded RNA (dsRNA) targets transcript induces                             tors cell growth viability [4,7-10], signaling
+destruction transcript corresponding reduc-                           pathways [11-16], cell morphology cytoskeleton
+tion expression level encoded protein(s).                            [17-21], pathogen infection [15,22-24] Genome-wide RNAi libraries allow efficient                                important cellular processes [25-27]. cases, knockdown virtually gene available                              cellular process examined studying organisms ranging C. elegans human                                independent screen. Surprisingly, comparing                                                                                    results similar screens revealed low level * Correspondence: rfinley@wayne.edu                                                overlap genes identified [28-33]. low
+1
+ Center Molecular Medicine Genetics, Wayne State University School         level overlap suggests large-scale RNAi Medicine, Detroit, Michigan, 48201, USA                                         screens result high numbers false positives list author information available end article
+
+                                      © 2011 Guest et al; licensee BioMed Central  Open Access article distributed terms Creative Commons
+                                      Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                       medium, provided original work properly cited.
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                   Page 2 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+false negatives, relative rates     majority negative genes true negatives produced largely unknown. unknown rate            screening entire set negatives false positives raises questions best         inefficient approach. efficient
+interpret data level validation            approach identifying false negative results required. rate false negatives hand,      screen subset genes enriched limits extent information derived          potential positives, similar approach proposed large-scale screen biological process.         generating comprehensive interactome maps [40].   potential source false positives RNAi-based       information available gene protein
+screens comes target effects occur       interaction maps potential serve guide
+dsRNA contains homology mRNAs               identifying subsets genes.
+target mRNA. result reduced expression           Virtually cellular processes rely specific physical
+non-target genes incorrect association         interactions proteins. result, groups intended target gene phenotype. cultured         proteins regulate particular cellular process tend
+cells model organism Drosophila long             closely connected protein
+(300-800 bp) dsRNAs routinely used inducing           interaction network [41-51]. searching protein inter-
+RNAi, target effects shown prevalent      action data partners known regulators [34,35]. target effects shown        process, possible identify new regulators present human cells smaller siRNAs used          process [41,52-54]. simple ‘guilt association’
+[36-38]. Improvements design RNAi reagents          approach used successfully predict func- helped minimize target effects         tions novel proteins, sophisticated ana- eliminated problem [25,39]. experimental          lyses protein interaction networks [55-58] (reviewed
+approach identifying potential target effects          [59]). approaches use interaction data involves testing multiple dsRNAs gene identi-        predict proteins involved process, fied hit large-scale screen. Multiple dsRNAs        predict negatives large-scale homologous different regions gene        RNAi screen likely false negatives. unlikely affect non-        Independently confirming screening group target genes.  unrelated             genes potentially efficient approach identifying
+dsRNAs targeting transcript display         genes involved particular cellular
+phenotype likely phenotype result   process.
+knockdown intended target gene               important cellular process exam-
+result target effect. large-scale, RNAi-       ined multiple large-scale RNAi-based screens based screens possible importance         cell division cycle [30,31,60,61]. Drosophila, controlling target effects fully         screens aimed identifying cell cycle regulators appreciated. result, early screens did       performed treating cultured S2 cells test multiple dsRNAs hit       dsRNAs targeting large number different genes likely contain significant numbers false positives.     screening cell cycle defects flow cytometry. order confirm results early studies,       screen used dsRNAs targeting Drosophila hits identified screens need     protein kinases  e., kinome) [61] examined using additional dsRNAs.                          screen used dsRNA targeting genes [60].   source false negatives large-scale RNAi-          kinome genome-wide screens identified 41 based screens inefficient knockdown specific        >400 putative cell cycle regulators, respectively. target genes RNAi reagents           commonly screened genes, 24 identified
+conditions used. efficiency knock           17 uniquely identified kinome
+directly monitored quantitative assessment target       screen 19 uniquely identified genome-
+gene mRNA protein levels, rarely practical     wide screen. study confirmed hits multiple genome-wide large-scale screen.        dsRNAs guard target effects. cur-
+way gain increased confidence negative result     rent study, performed independent screen exam- confirm independent study, example,           ining cell cycle regulators identified using different RNAi reagent gene different      previous large-scale screens. screening conditions.  number          examined subset negatives screens
+genes scored negatives large-scale screen    identified possible false negatives based typically far exceeds number genes         protein interaction data. results confirm positive result, difficult independently    originally identified cell cycle phenotypes, identify
+firm set negatives. likely         previously unknown cell cycle regulators, establish
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                           Page 3 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+protein interaction map data effective tool                      Methods) obtain higher confidence set 
+guiding RNAi-based screens reducing false posi-                    sisted 1,843 interaction partners 642 bait pro-
+tive negative results.                                                 teins (Figure 1A Additional File 1).                                                                            hypothesized interaction partners baits
+Results                                                                    enriched cell cycle regulators relative virtual protein-protein interaction screen                               random proteins. support  analysis results large-scale, RNAi-based screens                      filtered unfiltered protein network showed cultured Drosophila cells identified genes                   bait proteins interact potential regulators cell cycle [60,61]. set                 expected random group proteins (p- provide independent confirmation identified                      value < 10 -82 ) (Additional File 2A). high level regulators, identify potential false negatives                 connectivity bait proteins evident previous screens. identify subset negative                 size maximally connected component subnet-
+genes likely enriched cell cycle regu-                 work baits, significantly
+lators, performed virtual protein-protein interac-                    larger equally sized random sets proteins (p-
+tion screen proteins interact known                   value < 10-18) (Additional File 2B). analysis demon-
+suspected cell cycle regulators. bait proteins                 strates protein interaction data used virtual screen proteins identified                    screened, cell cycle regulators frequently interact potential cell cycle regulators published                        supports hypothesis proteins
+RNAi-based screens genes annotated                     interact bait proteins used Gene Ontology   biological process [62] “cell                      virtual screen enriched novel cell cycle regu-
+cycle�?  Methods). 642 bait proteins used                    lators false negatives previous screens. query DroID, Drosophila Interactions Database                       Figure 1B shows subset interaction map data
+[63,64] identify 5,008 potential protein interaction                    involving 6 members COP9 signalosome protein
+partners (Additional File 1). filtered data                    complex identified regulator G1/S
+
+
+
+                                                                           B.
+
+
+
+
+ Figure 1 virtual protein-protein interaction screen.   642 Drosophila putative cell cycle regulators used baits query DroID,  Drosophila Interactions Database. Baits included hits previous RNAi-based screens cell cycle regulators set  additional genes annotated involved cell cycle. original interaction map filtered remove low confidence interactions
+  Methods). filtered map includes 473 bait proteins (red nodes), 1843 interactors (blue nodes). 94.8  proteins  connected large network. (B) subnetwork   involving members COP9 signalosome protein complex  previously identified regulator G1/S transition. Signalosome components shown triangles interaction partners  circles. Proteins used baits virtual protein-protein interaction screen shown red interaction partners  shown blue.
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                                                                                                                                                           Page 4 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+transition previous screens [60].                                                                                                                                       genes encoding proteins known inter-
+expected protein complex, number                                                                                                                                    act cell cycle baits interactors (Meth-
+interactions connect COP9 signalosome subunits                                                                                                                                   ods). treated Drosophila S2R+ cells dsRNAs map. number                                                                                                                                        targeting total 2,758 genes determined cell
+interactions COP9 signalosome subunits                                                                                                                                       cycle profiles flow cytometry. Cell cycle profiles
+non-complex members. interactors potentially                                                                                                                                       used determine percentage cells function conjunction COP9 signalosome                                                                                                                                     G1, G2/M, greater G2/M, G1 DNA
+regulate cell cycle progression represent possible                                                                                                                                   content (Additional File 3). dsRNAs induced false negatives previous screens.                                                                                                                                                   significant increase (>3 standard deviations                                                                                                                                                                                          mean) percentage cells directed RNAi screen cell cycle regulators                                                                                                                                      categories considered hits. Examples cell
+Drosophila cells                                                                                                                                                                         cycle phenotypes shown Figure 2A. Overall, used previously described library dsDNA tem-                                                                                                                                     screen identified 371 unique genes hits (Additional
+plates [3,65] allowed generation                                                                                                                                         File 4). global view data reveals dsRNAs targeting 596 642 bait protein genes                                                                                                                                       majority strong phenotypes observed 1,612 1,843 interaction partner genes.                                                                                                                                     dsRNAs targeting putative cell cycle proteins generated dsRNAs targeting random set 550                                                                                                                                      used baits interaction partners
+
+
+
+                                                   Control                            G1 Arrest                                    G2/M arrest                                                          >G2/M DNA                                   Sub G1
+                                                    G2/M         dsRNA: GFP            G1             dsRNA: Cyclin E                    G2/M                                            dsRNA: HLHmβ                           dsRNA:SkpA                           dsRNA: cdc27
+                                                                                                                                                                                                                 G2/M                                Sub G1
+                                                                                            G2/M                                                                                                                                 >G2/M DNA
+            G1                                                                                                                      G1                                                                    G1
+                                                                                                                                                                                                                                  content
+
+
+
+
+            # hits                                                                                149                                            11                                                                  27                                225
+
+
+ B.                                                                                    Baits                       Interactors                      Non-Interactors                                              GFP
+                                                    35                                                                                                                                   25
+
+
+                                                                                                                        subG1                                                                                                                           G1
+                                                                                                                                                     Standard Deviations Mean
+
+
+
+
+                                                    30
+                Standard Deviations Mean
+
+
+
+
+                                                                                                                                                                                         20
+                                                    25
+                                                                                                                                                                                         15
+                                                    20
+
+                                                    15                                                                                                                                   10
+
+
+                                                    10                                                                                                                                    5
+
+                                                    5
+                                                                                                                                                                                          0   0     500   1000           1500          2000   2500            3000
+
+
+
+
+                                                    0    0          500       1000          1500            2000          2500            3000
+
+
+
+
+                                                                                                                                                                                         -5
+                                                    -5
+
+                                             -10                                                                                                                      -10
+
+
+
+                                                    10                                                                                                                                   20
+
+                                                                                                                         G2/M                                                                                                                 >G2/M
+                                                                                                                                                     Standard Deviations Mean
+
+
+
+
+                                                                                                                                                                                         15
+             Standard Deviations Mean
+
+
+
+
+                                                     5
+
+                                                                                                                                                                                         10
+                                                     0       0        500       1000          1500            2000           2500            3000
+
+
+
+
+                                                                                                                                                                                          5
+                                                    -5
+                                                                                                                                                                                          0   0     500   1000           1500          2000   2500            3000
+
+
+
+
+                                                 -10
+                                                                                                                                                                                         -5
+
+                                                 -15
+                                                                                                                                                                      -10
+
+
+                                                 -20                                                                                                                  -15
+
+
+
+ Figure 2 Cell cycle defects induced dsRNA.   Examples cell cycle profile phenotypes. panel shows cell cycle profile  Drosophila S2R+ cells treated indicated dsRNA. location cell populations G1 G2/M DNA content  labeled. Cell populations >G2/M subG1 DNA content indicated panels significant increase cell
+ populations. number dsRNAs displayed increase greater 3 standard deviations mean shown  phenotype (# hits). (B) dsRNA targeting cell cycle baits interactors cause strong cell cycle defects frequently dsRNA
+ targeting proteins. percentage cells cell cycle phase following treatment individual dsRNAs determined  number standard deviations value differs mean plotted. Dot plots data dsRNAs targeting baits (red
+ diamonds), interactors baits (blue squares), non-interactors (green triangles), GFP (black circles). red horizontal line panel
+ drawn 3 standard deviations normalized mean control dsRNA. genes line considered hits, potential
+ cell cycle regulators.
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                             Page 5 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+(Figure 2B). expected, targeting baits                                       Validation Identified Cell Cycle Regulators
+resulted highest rate (26.0 ) cell cycle                                     Comparison results previous screens defects (Figure 3A). hit rate bait interaction                                 current screen revealed significant overlap partners 11.8 , significantly higher hit                                  genes identified hits (Figure 4A). rate set random non-interactors (4.5 ) (Fig-                                375 hits previous screens screened ure 3A). true interactors                                  current study, 138 36.8  identified hits
+derived just baits hits previous                                     current study.  screen pre-
+screens regard Gene Ontology anno-                                    vious cell cycle RNAi screens identified substantial
+tation.  12.3  (160/1303) hits, suggest-                                numbers unique hits. consider possible
+ing prior knowledge Gene Ontology                                          explanations lack overlap.  possible
+annotation baits necessary enrich                                screens different levels sensitivity hits random genes. Additionally, genes                                   screen captured larger fraction true
+group interactors hits interacted                                  positives  unlikely given greater number baits did interactors                                  screen (e.g., genome-wide screen) non-hits (p = < .0001) (Additional File 5).                                    similar numbers hits (371 vs. 361) genes quality protein interaction                                 screened common (Figure 4A). Second, lack data affected hit rate RNAi screens.                                    overlap high roughly equal rates example, interactors connected baits higher                                  experimental false negatives screen. false
+fidence interactions [66] likely hits                                  negatives, example, result inefficient connected low confidence interactions                                    knock gene expression specific dsRNAs. (Additional File 6). Interestingly, hit rate non-                              possibility novel hits interactors similar hit rate observed                                    screen result target effects. possibility
+undirected genome-wide screens [4,60]. results                                   given consideration previous protein interaction map data used                                  screens did control target effects  identify set genes enriched regulators                                genome-wide screen, length cDNAs cellular process like cell cycle.                                used produce dsRNA [60]. dsRNA generated identification phenotypes substantial number                                  length cDNAs likely lead target genes negative previous screens shows                                  effects dsRNA smaller regions tran- interaction map-guided approach help                                   script [35]. performed enrichment analysis [67]
+identify putative false negatives hits reported                               hits dataset (Additional File 7). individual screens (e.g., Figure 3B).                                           expected, hits dataset significantly
+
+
+                                                                                    B.
+
+                            30
+                                                                            155/596
+                            25
+ (# hits/# tested)*100
+
+
+
+
+                                                      P=.00003
+                            20
+
+
+                            15   371/2758
+                                                              191/1612
+
+                            10
+
+                                               25/550
+                             5
+
+
+                             0
+                                        Non-interactors   Interactors    Baits
+
+    Figure 3 interaction map-guided approach improves hit rate RNAi screen identifies novel cell cycle regulators.   Hit
+    rate different classes genes screen. Hit rate determined percentage genes scored hit total
+    number genes tested class. (B) COP9 signalosome interaction map Figure 1B showing genes identified hits current
+    study (yellow). included number genes previously identified hits RNAi screens cell cycle regulators (yellow circles).
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                                                                                                      Page 6 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+                                                                   B.
+             Genome-
+                                        Study
+             wide                                                                                             90                                                                             5/6
+
+
+
+
+                                                                         (# validated hits/# tested)*100
+              222            135           236                                                                80
+
+                                                                                                              70
+                                                                                                                                                                89/125 82/112                                       30/43
+                                                                                                                   155/256
+                                                                                                              60
+                                                                                                                                                64/123
+                                                                                                              50
+
+                                                                                                              40
+
+                                                                                                              30
+
+                                                                                                              20
+                                                                                                                             1/8
+                                                                                                              10
+              Kinome                    Study                                                            0
+
+
+
+
+                                                                                                                                                                                             Kinome study hits
+                                                                                                                     
+
+
+
+                                                                                                                                                                                                                      BP Cell Cycle
+                                                                                                                                                                         Genome study hits
+                                                                                                                             Non- interactors
+
+
+
+                                                                                                                                                  interactors
+
+
+
+                                                                                                                                                                 Baits
+                 30              8           3
+
+
+ Figure 4 Comparison genes identified study previous large-scale RNAi-based screens cell cycle regulators.  
+ Venn diagrams showing overlap hits identified current study identified Bjorklund et al. genome-wide
+ screen [60] Bettencourt-Dias et al. kinome-wide screen [61]. genes screened common pair screens  compared included analysis. genes displayed flow cytometry phenotype Bettencourt-Dias et al. used. (B)
+ Validation rates genes analyzed second dsRNA. shown validation rate genes annotated Gene Ontology
+ biological process  BP) “cell cycle�? [62]. Validation rate determined percentage genes tested second dsRNA
+ showed matching phenotype dsRNAs.
+
+
+enriched cell cycle regulators.  hits                 regulators biological processes cultured
+common screen previous genome-                        Drosophila cells [68-70]. validation rate hits
+wide screen significantly enriched cell                     identified current screen previous
+cycle regulators unique hits, consistent                    screen significantly higher genes identified idea overlapping data enriched true                   current screen (72.8  versus 50.7 ) positives.  hits unique                     suggesting genes identified  independent
+screen significantly enriched cell cycle reg-               screens likely true positives genes
+ulators (p values < 10-4 <10-16, respectively), indicat-              identified single screen. conclusion ing screen detected true positives                    supported repeat screen screened 4
+false negatives screen (Additional File 7).                  plates dsRNAs original screen second time
+Interestingly, set novel hits enriched                    (Additional File 3). 52 hits identified initial cell cycle regulators novel hits                    screen, 36 identified repeat screen.
+previous genome-wide screen, possibly used                     Hits identified initial screen repeat
+smaller dsRNAs prone target effects.                 screen likely confirmed validation confirm putative novel cell cycle regulators                  dsRNA (24/33 versus 2/7). Combined, results sug- identified determine rate                     gest major reason low level overlap target effects, generated validation                 different RNAi screens probe bio-
+dsRNAs 256 genes. validation dsRNAs targeted                      logical process prevalence target effects,
+regions transcripts overlapping mini-                  high 40-50  given screen.
+mally overlapping (<12 nucleotides) targeted                   consistent recent studies dsRNA used initial screen. Overall, 155                     highlights importance validating genes identified
+(60.5 ) hits primary screen vali-                    RNAi screens, previously recommended [34,35,71].
+dated testing additional dsRNA (Figure 4B; Addi-                      results suggest false negatives preva-
+tional File 3; Additional File 4). validation rate                lent individual RNAi screens. validation
+similar validated RNAi-based screens                     dsRNAs tested, 142 targeted genes hits  Guest et al. BMC Systems Biology 2011, 5:65                                                                                                                           Page 7 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+ initial screen previous screens. 72 (50.7 )     peak expression occurring G1/S transition, validation dsRNAs confirmed results        consistent role regulating G1/S [83]. primary screen (Additional File 3). finding indicates     remaining genes displayed G1 phenotype  genes false negatives previous          tained multiple members structurally related
+screens. Combining complete set validated genes         protein complexes  . current study genes identified current screen previous screen               related protein complexes regulate G1/S cell
+(regardless validation current screen) allows      cycle transition
+define set 210 genes high confidence regu-       examination genes list 210 high confi-
+lators cell cycle (Additional File 4).                  dence cell cycle regulators displayed G1 pheno-
+                                                               type revealed presence multiple members New cell cycle regulators                                      structurally related protein complexes: eukaryotic 155 validated hits current study, 46        translation initiation factor 3 complex, COP9 signa- classified cell cycle genes (based          losome, proteasome lid. complexes
+Gene Ontology identifier 0007049 [62])             referred  zomes�? based hits previous RNAi-based screens            related structures. complex composed protein
+[60,61]. genes novel cell cycle regu-      subunits contain domain named PCI (protea-
+lators identified current study. Thirty-      COP9-eukaryotic initiation factor) protein identified genes displayed subG1 pheno-         subunits contain domain named MPN (Mpr1-
+type, 11 displayed G1 phenotype, 1 (zipper) displayed        Pad1 N-terminus) [84,85]. sought identify greater G2/M phenotype, 1 displayed          mechanisms underlie G1 phenotype observed
+G1 sub-G1 phenotype (Additional File 4).          following RNAi targeting complexes. Pro-
+common ontology associated 33 genes dis-         gression cells G1 phase cell cycle
+played sub-G1 phenotype mRNA processing (11/             requires activation Cyclin dependent kinase 2
+33). finding suggests mRNA processing plays        (Cdk2) Cyclin E (CycE) complex [86-92]. Droso-
+critical role maintaining viability cells.       phila Dacapo (Dap), member p21CIP1/p27KIP1
+similar dependence mRNA processing cell viabi-          family Cdk inhibitors, block progression G1
+lity observed RNAi-based screens          S phase specifically inhibiting Cdk2/CycE
+Drosophila cells studies S. cerevisiae        [93,94]. determine Dap mediates G1 arrest
+[72,73], C. elegans [2,74] human cells [75]. sin-      induced RNAi targeting zomes, cells treated
+gle gene greater G2/M DNA content pheno-           dsRNA targeting members zome complex
+type Drosophila non-muscle Myosin II gene              combination dsRNA targeting Dap
+zipper. Zipper identified previous large-      transcript (Figure 5 Additional File 8). observed
+scale RNAi-based screens cytokinesis regulators
+[65,76] established role process                                       COP9               Proteasome              eIF3 complex
+cytokinesis (reviewed [77]). 11 novel G1                                    Signalosome              Lid
+
+regulators genes, Rae1 l(2)dtl,
+                                                                  Cells G1
+
+
+
+
+encoding proteins WD40 repeat domains [78,79].
+                                                                                                                                                                          +GFP gene annotated terms
+                                                                                                                                                                          +Dacapo molecular function biological process. literature
+search,  revealed previous study focused Rae1 cell cycle regulation [79]. Interestingly, study identified G1 phenotype Rae1 following
+                                                                                                                                                           eIF3-s10
+                                                                                                                                       eIF3-s8
+                                                                                                        CSN6
+
+
+
+
+                                                                                                                      rpn11
+
+
+
+
+                                                                                                                                                 eIF3-s9
+                                                                                                                              Dox-A2
+                                                                                          CSN4
+                                                                                   GFP
+
+
+
+
+                                                                                                               rpn6
+                                                                                                 CSN5
+
+
+
+
+RNAi cultured Drosophila cells [79]. case l
+(2)dtl, Drosophila gene anno-
+tated cell cycle regulator, data Droso-            Figure 5 Suppression G1 arrest simultaneous knockdown
+phila human cells suggest l(2)dtl protein            Dacapo protein complex-specific. S2R+ cells treated
+(L2DTL) targeting subunit CUL4/DDB1 ubi-              dsRNAs targeting indicated members COP9
+                                                                  signalosome, proteasome lid eIF3 protein complex quitin ligase complex targets critical cell cycle regu-      combination dsRNA targeting GFP (light grey) Dacapo
+lators degradation [80]. RNAi targeting human             (dark grey). percentage cells G1 DNA content ortholog shown cause growth arrest             determined flow cytometry. Error bars standard error increase p53 protein DNA replication              replicates. Results additional subunits complexes licensing factor CDT1 [81,82]. Additionally, human l(2)           genes produced G1 arrest knock                                                                   shown Additional File 8.
+dtl shown oscillate cell cycle
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                    Page 8 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+ Dap knockdown completely rescued G1 arrest            eIF3 required CycE translation. induced RNAi targeting members COP9 signa-           explore possibility, treated cultured cells losome, consistent similar demonstration             dsRNA targeting eIF3 complex subunits determined
+Bjorklund et al. [60] CSN1b, CSN2 CSN5.                effect CycE expression levels. Knockdown Dap completely rescued G1                expected, treating cells dsRNA targeting CycE tran-
+arrest caused targeting subunits proteasome          scripts results significant reduction CycE protein
+lid. COP9 signalosome proteasome lid com-              levels (Figure 6A).  treatment cells plexes play role ubiquitin-mediated proteolysis      dsRNA targeting eIF3 subunits significant effect Dap/p21/p27 human Drosophila cells [95-97].          CycE protein levels (Figure 6A). result suggests
+RNAi targeting proteasome lid COP9 signalo-             increase cells G1 DNA content follow-   likely stabilizes Dap leading              ing RNAi targeting eIF3 subunits result increased Cdk2 inhibition delayed progression         reduced expression CycE.
+G1 S phase. Interestingly, dsRNA targeting Dap              Activation Cdk2 G1 results phosphoryla-
+transcripts did significant effect G1        tion proteins mediate entry cells S
+arrest induced knocking members eIF3            phase. examined possibility RNAi target-
+complex (Figure 5 Additional File 8). results        ing eIF3 subunits affect Cdk2 expression acti-
+suggest G1 arrest induced knocking            vation Cdk2/CycE kinase activity. eIF3 subunits mediated Dap, solely         immunoprecipitated CycE complexes cells Dap, underlying mechanism distinct             treated dsRNAs targeting eIF3 subunits mediates COP9 signalosome              examined ability phosphorylate histone
+proteasome lid phenotypes.                                     H1, model Cdk2 substrate. observed significant
+   lines evidence pre-          decrease CycE-associated kinase activity com-
+viously implicated eIF3 complex regulation       plexes purified cells treated dsRNA targeting
+G1/S transition organisms. yeast S. cere-      eIF3 subunits comparison cells treated 
+visiae, cell division cycle mutant, cdc63, arrests   trol dsRNA (Figure 6B). Surprisingly, simultaneously
+G1 encodes component eIF3 complex [98-101]            targeting Dap rescued CycE-associated kinase activity ortholog Drosophila eIF3-S9 iden-       cells did rescue ability
+tified study. Temperature sensitive mutants         efficiently progress G1 S phase (Figure 6C
+TIF34, yeast eIF3 component, arrest G1         Figure 5).  reduction CycE-associated restrictive temperature [102,103]. Drosophila       kinase activity sufficient G1 phenotype
+TIF34 ortholog screened study        observed following knockdown eIF3 subunits. negative previous genome-wide screen [60].           results suggest eIF3 required G1 S rate-
+human tissue culture cells, overexpression 5 different      limiting process independent Cdk2/CycE
+eIF3 proteins resulted increase percen-      activation.
+tage cells S phase increased rate cell pro-
+liferation suggesting human eIF3 complex         Discussion
+regulates G1/S cell cycle progression [104].               Large-scale RNAi-based screens begun play results, studies indicate evo-      critical role defining sets genes regulate speci-
+lutionarily conserved role eIF3 protein complex        fic cellular processes [27]. Numerous screens regulating G1/S transition. mechanism            completed new screens published eIF3 complex regulates G1/S transition        rapid pace. data screens accumulates, cell cycle known, appears         increasingly important understand independent Dap regulation.                                 interpret results report particularly light
+                                                               fact similar screens shown relatively low
+RNAi directed members eIF3 protein              levels overlap. current study screened,
+complex does affect Cyclin E expression does           using different RNAi library, genes iden-
+affect Cyclin E associated kinase activity                     tified hits previous screens cell cycle regu-
+Activation CycE transcription, increased CycE protein       lators, able confirm original
+expression, activation Cdk2 CycE         phenotypes.  screen failed confirm
+required cells progress G1 S phase            significant number genes original
+[87,105]. eIF3 large, multi-subunit complex      screens. genes considered potential shown play key role regulating mRNA               false positives originally identified translation gene expression [106]. possible       previous screens result target effects. mechanism eIF3 required G1/S          failed confirm 62.6  phenotypes genes
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                            Page 9 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+                                                                              B.
+                                                                                   dsRNA:    GFP   eIF3-s4 eIF3-s8 eIF3-s9 eIF3-s10
+ dsRNA: GFP            CycE       eIF3-s4     eIF3-s8    eIF3-s9
+                                                                                                                                      IP CycE
+                                                                                                                                      Kinase assay
+                                                                        Cyclin E
+
+
+                                                                       α-Tubulin                                                      β-Tubulin
+                                                                                                                                      Western blot
+
+
+
+
+  C.
+                              +GFP                                      +Dap
+             GFP      eIF3-S8     CSN3      Cdk2         GFP      eIF3-S8     CSN3          Cdk2
+
+
+
+                                                                                                      IP Cyclin E
+                                                                                                      Kinase Assay
+
+
+
+
+                                                                                                      Cyclin E
+                                                                                                      Western Blot
+
+
+ Figure 6 RNAi directed members eIF3 protein complex does affect Cyclin E expression does affect Cyclin E-
+ associated kinase activity.   Western blot Cyclin E expression cell extracts S2R+ cells treated indicated dsRNAs. (B)
+ Kinase activity histone H1 Cyclin E immunoprecipitates S2R+ cells treated indicated dsRNAs. (C) Kinase activity histone
+ H1 Cyclin E immunoprecipitates S2R+ cells treated dsRNA targeting indicated members COP9 signalosome, proteasome
+ lid eIF3 protein complex combination dsRNA targeting GFP Dacapo.
+
+
+screened common genome-wide study (Fig-                           addition rescreening genes hits ure 4A). rate target effects observed                    previous screens, screened subset screen (39.5 ), defined phenotypes                         genes negatives previous screens. generated dsRNA confirmed                        identified subset negatives rescreen search- second unrelated dsRNA (Figure 4b), suggests                         ing DroID database protein interaction partners false positives account significant pro-                   putative cell cycle regulators. screening group portion unconfirmed phenotypes.                           interactors group non-interactors factors contribute lack overlap                       showed rate cell cycle phenotypes screens (e.g. differences RNAi protocol,                         identified significantly higher interactors
+knockdown efficiency, cell type), results suggest                  non-interactors. Confirmation phenotypes targets important factor. findings                     testing additional dsRNAs indicates highlight importance confirming hits                         genes true positives. means initial screen using multiple dsRNAs. Genes                         false negatives previous screens. phenotypes confirmed study consid-                        results demonstrate protein interaction data ered likely true positive cell cycle regulators.                   used guide RNAi-based screen efficient
+genes begin define complete list genes regu-                   random screen. similar network-guided
+late cell cycle cultured Drosophila cells                   approach used predict RNAi knock given priority genes identified                     phenotypes C. elegans [107,108]. results indicate
+single study determining genes                          use confidence scoring select examined specific roles regulating                     higher confidence protein network improve 
+cell cycle progression.                                                     formance approach (Additional File 6). data
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                    Page 10 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+ support use protein interaction data set         possible role eIF3 regulating Dap levels, similar thresholds distinguishing hits non-hits large-      way eIF3 regulates p27 KIP1 human cells.
+scale RNAi-based screens, previously sug-           Reducing expression human eIF3a causes increase
+gested [109,110]. Interaction network-guided screening          protein levels p27KIP1, overexpressing eIF3a
+approaches particularly important screens           leads decrease p27KIP1 protein levels [113,114]. undirected, genome-wide approach fea-           Surprisingly, knock Dap rescued CycE-
+sible, genome-wide combinatorial RNAi screens           associated kinase activity normal levels cells pairs genes targeted simultaneously.               eIF3 targeted, did overcome G1 arrest.    interpret results large-scale           persistence G1 phenotype eIF3 subunits
+RNAi-based screens cultured cells? data,         Dap targeted simultaneously indicates eIF3 data studies, screens         knockdown affects G1/S progression Cdk2-
+contain relatively high numbers false positives          independent mechanism. possible addition
+false negatives. gene identified hit initial     Dap, eIF3 regulates genes function downstream
+screen considered potential false positive          active Cdk2 promoting G1/S progression; e.g., eiF3 confirmed additional dsRNAs             regulate genes important executing initiation functional assays. Likewise, genes negative      DNA synthesis. support hypothesis
+initial screen remain potential false negatives         comes RNAi experiments targeting human
+probability particular negative actually false      DNA damage response gene TopBP1 [115]. RNAi tar-
+negative determined examining pro-            geting TopBP1 results G1 arrest activation tein interaction data. light presence         Cdk2 inhibitors p21CIP1 p27KIP1. Simultaneously
+false positive false negative results RNAi-based         targeting Cdk2 inhibitors rescued Cdk2 activity screens, surprising lack perfect   cells did affect G1 phenotype, similar
+overlap results reported similar screens.        observed eIF3. Interestingly, RNAi tar- results retesting genes positive        geting TopBP1 led defects loading replica- particular screen help validate role      tion factors DNA demonstrating mechanism
+biological process examined. addition, retesting       knockdown genes function downstream
+genes negative previous screens lead        Cdk2 result G1 arrest phenotype  comprehensive list regulators particular        sists presence active Cdk2.
+process.
+   results combined results pre-         Conclusions
+vious studies identify set genes           results indicate large-scale RNAi-based screens
+firmed, high-confidence cell cycle regulators cultured       contain significant numbers false positives Drosophila cells (Additional File 4). G1 reg-         false negatives. Protein interaction network data ulators list multiple members            used guide screening efforts generate related protein complexes known zomes.          comprehensive accurate lists genes involved knocking members zomes complexes               specific biological processes. case cell
+causes G1 arrest, showed mechanisms               cycle, protein interaction data helped efficiently iden-
+responsible arrest differ zomes. G1        tify false negatives previous screens, 
+arrest reduced CycE-associated kinase activity         screening secondary dsRNAs validated genes induced targeting subunits COP9 signalo-           authentic cell cycle regulators. Combining data proteasome lid suppressed simulta-            data previous screens allowed define neously targeting Drosophila Cdk2 inhibitor Dap.            set high confidence Drosophila cell cycle regulators. suggests COP9 signalosome protea-             high confidence regulators G1/S tran- lid function normal conditions destabilize        sition showed eiF3 complexes regulate cell
+Dap shown p27KIP1 vertebrate cells           cycle CycE/Cdk2-dependent independent
+[97,111,112]. cultured Drosophila cells, RNAi target-        mechanisms.
+ing signalosome subunit CSN1 results increased
+levels Dap protein [95] providing evidence           Methods G1 phenotype observed following signalosome            Virtual protein-protein interaction screen
+subunit knock result increased Dap stabi-        bait proteins used virtual protein-protein
+lity. Like zomes, targeting eIF3 subunits             interaction screen taken published hits
+resulted G1 arrest. Knock eIF3 reduced          identified large-scale, RNAi-based
+levels CycE-associated kinase activity,       screens cell cycle regulators cultured Drosophila
+rescued targeting Dap. consistent             cells [60,61]. genes gave G1 G2/M
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                   Page 11 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+phenotype taken Bjorklund et al. [60]             targeted template library performed
+study hits taken Bettencourt-           BLAST analysis predicted amplicon sequences
+Dias et al. [61] study. addition, baits included     provided distributor. cases,
+genes Gene Ontology contained biologi-          amplicon information provided. cal process term “cell cycle�?. genes obtained        positions library, obtained amplicon informa- batch download Flybase database [116]          tion library developer order determine
+09/26/07. complete list 642 baits used            targeted gene [3,65]. Templates PCR amplified
+search DroID, Drosophila Interactions Database [63]         using library universal primer (5’ TAA TAC GAC
+using dynamic graphing tool, IM Browser [117].              TCA CTA TAG GGA GAC CAC GGG CGG GT 3’) Seven datasets protein-protein interactions (PPI)       generate fresh template. 1.5 μl fresh template DroID searched, including data large-           used vitro transcription (IVT) reactions generate
+scale yeast hybrid studies [44,118,119], pub-           dsRNAs targeting baits, interactors, non-interactors.
+lished data curated PPI databases. remain-         Control templates targeting GFP gene gener-
+ing datasets contained interactions predicted         ated amplification GFP template DNA using T7-
+Drosophila proteins based experimental interaction           containing primer pair (5’-GAA TTA ATA CGA CTC
+data S. cerevisiae, C. elegans, human. rela-        ACT ATA GGG AGA TGC CAT CTT CCT TGA AGT
+tively high rate false positives reported large-scale    CA-3’, 5’-GAA TTA ATA CGA CTC ACT ATA
+protein interaction map data [120,121] suggests        GGG AGA TGA TGT TAA CGG CCA CAA GTT-3’). interaction partners identified         Templates arrayed 96 PCR plates 1
+querying DroID true interactors. cases false        3 GFP templates/plate 6 μl IVT reactions positives result called sticky proteins       performed using MegaScript (Ambion) Ampli- interaction partners interaction map [122].         scribe (Epicentre Biotechnologies) T7 kits according effort reduce number false positives,       manufacturer’s instructions. dsRNA purified
+bait proteins >30 interactions interaction       IVT reactions using MultiScreenHTS-96 filter
+partners removed. removed interactors             plates (Millipore) conjunction Biomek NX MC
+identified independent study              Laboratory Automation Workstation. 95 μl nuclease- added  Finally, interaction partners          free water added IVT reaction trans-
+Cdk1 Cdk2 added central            fer filter plate. Reactions passed role proteins play cell cycle regulation.     filter plate application vacuum pressure 35
+results analysis identified set proteins    minutes. dsRNA eluted filter 110 μl referred interactors. using somewhat arbi-          nuclease-free water shaking 1100 rpm 10
+trary criteria selecting interactions (e.g., interactions   minutes. Purified dsRNAs analyzed spectropho- baits <30 interactors, inclusion       tometry stored -80°C.
+Cdk1 Cdk2 interactors) effectively included low confidence interactions. enabled            Cell Culture, RNA interference, Flow Cytometry
+test high low confidence interactions            Drosophila S2R+ cells obtained Droso- useful network-guided RNAi screen (Addi-            phila Genomics Resource Center (Indiana University)
+tional File 6). set non-interactors randomly         cultured Schneider’s media (Invitrogen) supple-
+selected genes DroID overall           mented 10  Fetal Bovine Serum 0.1 mg/ml
+protein interaction map DroID, did          Gentamicin (GIBCO). induction RNAi, cells nect baits direct interactors.      suspended Schneider’s media density 4 × interesting note protein interaction data        105 cells/ml 75 μl cell suspension added organisms Drosophila performed            duplicate 96 cell culture plates cases better  protein interaction data          spotted 5 μl dsRNA  Cells available Drosophila proteins (Additional File      incubated 1.5 hours addition 150 μl 6 Additional File 9). screening approach           Schneider’s media containing 10  fetal bovine serum
+takes advantage protein interaction data        0.1 mg/ml gentamicin. 6-day incubation
+fore consider just interactions available parti-      period, media removed cells cellular DNA
+cular organism, available interaction data.             stained adding Schneider’s media containing 2
+                                                                μl/ml Vybrant DyeCycle Orange stain (Invitrogen). Cells
+Generating double stranded RNAs                                 dislodged growth surface pipetting
+Templates available Drosophila RNAi Library              incubated room temperature dark 1
+Release 1.0 2.0 (Open Biosystems) used              hour. Cell cycle profiles obtained analyzing cells
+generate dsRNA [3,65]. determine gene           FACSArray flow cytometer (BD Biosciences).  Guest et al. BMC Systems Biology 2011, 5:65                                                                             Page 12 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+percentage cells G1, G2/M, greater G2/M       targeting GFP Dacapo. Cellular DNA stained subG1 DNA content determined using BD          flow cytometry performed described 
+FACSArray software user-defined gates measured parameter.                                   Western Blot
+                                                           Drosophila S2R+ cells suspended Schneider’s
+Data Analysis                                              media density 6 × 106 cells/ml 1.5 ml cell order normalize data plates, global     suspension added 25 cm2 cell culture flasks. 20
+average (g) measured parameter calculated     μg dsRNA added cells incu-
+using non-GFP values plate average (p)      bated 25°C 1.5 hours addition 3 ml calculated measured parameter using       Schneider’s media containing 10  FBS 0.1 mg/ml
+non-GFP values plate. Raw data       gentamicin. Following 6-day incubation, cells plate normalized multiplying raw data    resuspended 1× RIPA lysis buffer (Cell Signaling) factor g/p. Normalized averages dsRNA        placed ice 30 minutes. Cells dis-
+determined calculating average normalized    rupted 10 needle strokes 21-gauge needle.
+duplicate values. mean normalized values     Clarified cell lysates collected, run SDS-PAGE,
+wells treated GFP dsRNA calculated.          immunoblotted using anti-Cyclin E antibody
+mean used calculate standard deviations        1:1000 (Santa Cruz SC-33748), anti-beta-tubulin 1:5000 mean normalized values non-GFP             (E7 antibody) anti-alpha-tubulin 1:10000 (Sigma B-5-
+dsRNA. dsRNA considered hit  e., affecting       1-2).
+cell cycle progression), percentage cells phase >3 standard deviations mean         Immunoprecipitation Kinase Assays phase. Gene Ontology analysis hits        Drosophila S2R+ cells suspended Schneider’s
+using term enrichment tool DAVID [67]           media density 2.3 × 106 cells/ml 1.5 ml data database release 2010-10-30 [62].           cell suspension added 25 cm2 cell culture flasks.
+                                                           20 μg dsRNA added cells incu-
+Validation dsRNAs                                          bated 25°C 1.5 hours addition 3 ml 258 genes scored hits primary    Schneider’s media containing 10  FBS 0.1 mg/ml
+screen, generated templates preparing mini-       gentamicin. Following 6-day incubation, cells dis-
+mally overlapping (0-11nt) validation dsRNA. Ampli-        lodged growth surface resuspended lysis sequences Open Biosystems library        buffer (0.2  NP-40, 200 mM Tris-HCl, 200 mM NaCl,
+compared amplicon sequences Droso-           100 mM Na 2 EDTA, 20 mM EGTA, 200 mM NaF,
+phila RNAi Screening Center (DRSC) RNAi library            Na3VO4, 100 mM glycerol phosphate, 40 mM PMSF, 1×
+[25]. amplicons showed overlap <12 nucleotides,      Protease Inhibitor Cocktail [123]) incubated ice
+primer pairs generating DRSC amplicon         30 minutes. Clarified lysates collected ordered. DRSC amplicon <12 nucleotide           stored -80°C. immunoprecipitation, 10 μl anti-
+overlap available, primer pairs generating       Cyclin E antibody (Santa Cruz sc-33748) added minimally overlapping amplicon manually               400 μg protein extract incubated 30 minutes designed. Templates generating dsRNA pre-         room temperature agitation. 20 μl Protein 
+pared using DRSC manually designed primer           agarose (Santa Cruz sc-2001) added immunopre-
+pairs 2-step PCR approach. step PCR        cipitations tubes placed 4°C agitation
+reaction performed primers containing GC        overnight. Immunoprecipitations pelleted rich anchor 5’GGGCGGGT3’ products          washed twice kinase assay buffer (10 mM MgCl2,
+reaction amplified second step PCR reac-       10 mM DTT, 50 mM Hepes pH7.5). second
+tion using T7-containing universal primer  .     wash, pellets resuspended 13 μl kinase assay
+dsRNA generation, cell treatment, data acquisition     buffer. initiate kinase assay reaction, 0.2 μg analysis performed described     histone H1 kinase assay buffer 5 μl [g32P]-ATP
+primary screen.                                            (1.0 μCi/μl) added. Kinase reactions incubated
+                                                           30 minutes room temperature termi-
+Combinatorial RNAi                                         nated addition gel loading buffer.
+Drosophila S2R+ cells suspended Schneider’s
+Media density 4 × 105 cells/ml 75 μl cell   Additional material
+suspension added 96 cell culture plates spotted triplicate 5 μl dsRNA tar-      Additional file 1: Baits interaction partners DroID.
+geting individual zomes subunits 5 μl dsRNA          file contains information genes used baits  Guest et al. BMC Systems Biology 2011, 5:65                                                                                                     Page 13 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+ virtual protein interaction screen list interactions       treated dsRNAs targeting indicated members COP9
+ discovered querying DroID. unfiltered filtered           signalosome eIF3 protein complex  , proteasome lid complex
+ sets interactions shown.                                                    (B) combination dsRNA targeting GFP (light grey)  Additional file 2: Baits significantly connected                  Dacapo (dark grey). percentage cells G1 DNA content  protein-protein interaction data random sets                  determined flow cytometry.
+ proteins.   Number protein-protein interactions                   Additional file 9: High confidence protein interaction data contains
+ proteins used baits virtual protein-protein interaction       higher percentage bait-bait interactions. chart shows  screen (red dot) compared random groups proteins containing               percentage bait-bait interactions indicated protein
+ number nodes. PPI network generated                  interaction data sets (dark grey) high confidence data  1000 random groups proteins   searching DroID                  indicated data set (light grey). high confidence interactions  interactions. number group interactions counted              confidence scores >0.5 determined [66].
+ plotted network. (B) Size largest connected subnetwork
+ component proteins used baits (red dot) compared  random groups proteins containing number nodes.   , interaction network generated 1000 random              Acknowledgements
+ groups proteins  . largest connected subnetwork               thank Huamei Zhang technical assistance Dumrong Mairiang  component network number nodes largest               bioinformatics help. work supported National Institutes
+ subnetwork nodes connected directly indirectly        Health grant HG001536 RLF.
+ network. B random groups proteins  selected distribution interactions/protein (degree)     Author details
+ baits. counted number baits degrees           1
+                                                                                 Center Molecular Medicine Genetics, Wayne State University School
+ ranges 374 baits degrees 1-49, 99 baits           Medicine, Detroit, Michigan, 48201, USA. 2National Key Laboratory  degrees 50-99, 75 baits degrees 100-199, 37              Biochemical Engineering, Institute Process Engineering, Chinese Academy
+ baits degrees 200-982. random group proteins              Sciences, Beijing, 100190, China. 3Department Biochemistry  selected randomly sampling proteins interaction data        Molecular Biology, Wayne State University School Medicine, Detroit,
+ number nodes degree ranges; e.g.,            Michigan, USA, 48201 Karmanos Cancer Institute, Detroit, Michigan,
+ 374 degrees 1-49, 99 degrees 50-99,              48201, USA.
+ 1000 random groups independently sample figure  B.                                                                         Authors’ contributions
+ Additional file 3: Data table initial screen, validation screen        STG designed carried experiments. JY carried bioinformatic
+ repeat screen. Raw normalized data gene information            computational analyses. DL examined gene expression S2R+ cells.
+ amplicon used initial screen, validation screen, repeat        JAH MAK contributed RNAi screens. RLF helped design  screen.                                                                        interpret experiments wrote paper STG. authors read
+ Additional file 4: Initial screen hits, validation screen hits, high       approved final manuscript.
+ confidence regulators. Gene information initial screen hits,  validated hits, high confidence regulators.                            Received: 17 November 2010 Accepted: 6 2011
+                                                                                Published: 6 2011
+ Additional file 5: Genes displayed phenotype  highly connected baits genes did display  phenotype. number interactor-bait interactions protein         References
+ classified interactor unfiltered interaction data. graph      1.  Xu S, Montgomery MK, Kostas SA, Driver SE, Mello CC: Potent  shows comparison interactors displayed phenotype              specific genetic interference double-stranded RNA Caenorhabditis
+ initial screen (hits) versus did (non-hits). box         elegans. Nature 1998, 391(6669):806-811.
+ plots median values (horizontal line) 25th 75th percentiles       2. Kamath RS, Fraser AG, Dong Y, Poulin G, Durbin R, Gotta M, Kanapin  Le
+ box line, respectively, whiskers              Bot N, Moreno S, Sohrmann M, et al: Systematic functional analysis  91st 9th percentile.                                                  Caenorhabditis elegans genome using RNAi. Nature 2003,
+                                                                                    421(6920):231-237.
+ Additional file 6: Performance protein interaction data sets             3. Foley E, O’Farrell PH: Functional dissection innate immune response
+ guiding discovery novel cell cycle regulators. chart shows              genome-wide RNAi screen. PLoS biology 2004, 2(8):E203.
+ percentage interactions bait interactor          4. Boutros M, Kiger AA, Armknecht S, Kerr K, Hild M, Koch B, Haas SA,
+ interactor validated hit screen. percentage based            Consortium HF, Paro R, Perrimon N: Genome-wide RNAi analysis  bait-interactor interactions indicated data set (dark grey)       growth viability Drosophila cells. Science 2004, 303(5659):832-835.
+ high confidence bait-interactor interactions (light grey). high    5. Moffat J, Grueneberg DA, Yang X, Kim SY, Kloepfer  Hinkle G, Piqani B,
+ confidence interactions confidence scores >0.5                   Eisenhaure TM, Luo B, Grenier JK, et al: lentiviral RNAi library human
+ determined [66]. datasets DroID. “Drosophila�? dataset          mouse genes applied arrayed viral high-content screen. Cell
+ includes experimentally measured protein-protein interactions (PPI).          2006, 124(6):1283-1298.
+ datasets (S. cerevisiae, C. elegans, human) predicted PPI        6. Silva JM, Li MZ, Chang K, Ge W, Golding MC, Rickles RJ, Siolas D, Hu G,
+ based experimental detection interactions orthologous                   Paddison PJ, Schlabach MR, et al: Second-generation shRNA libraries
+ proteins indicated organisms.                                             covering mouse human genomes. Nat Genet 2005,
+ Additional file 7: Cell cycle gene enrichment RNAi screens.                 37(11):1281-1288.
+ chart shows percentage genes data set            7. Kittler R, Putz G, Pelletier L, Poser  Heninger AK, Drechsel D, Fischer S,
+ annotated Gene Ontology [62] biological process cell cycle           Konstantinova  Habermann B, Grabner H, et al: endoribonuclease-
+   0007049). level enrichment cell cycle term, relative        prepared siRNA screen human cells identifies genes essential cell
+ Drosophila genes, determined term enrichment tool,               division. Nature 2004, 432(7020):1036-1040.
+ DAVID [67] located http://david.abcc.ncifcrf.gov/home.jsp. p-values     8. Neumann B, Walter T, Heriche JK, Bulkescher J, Erfle H, Conrad C, Rogers P,
+ enrichment scores calculated DAVID modified Fisher’s exact               Poser  Held M, Liebel U, et al: Phenotypic profiling human
+ test. q-values p-values corrected multiple testing using false         genome time-lapse microscopy reveals cell division genes. Nature
+ discovery rate (FDR) method [67].                                                  464(7289):721-727.
+ Additional file 8: Suppression G1 arrest simultaneous                    9. Luo B, Cheung HW, Subramanian  Sharifnia T, Okamoto M, Yang X,
+ knockdown Dacapo protein complex-specific. S2R+ cells                   Hinkle G, Boehm JS, Beroukhim R, Weir BA, et al: Highly parallel
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                                             Page 14 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+      identification essential genes cancer cells. Proc Natl Acad Sci USA              human cell-cycle regulators. Proc Natl Acad Sci USA 2006,
+      2008, 105(51):20380-20385.                                                             103(40):14819-14824.
+10.   Silva JM, Marran K, Parker JS, Silva J, Golding M, Schlabach MR, Elledge SJ,     32.   Baeg GH, Zhou R, Perrimon N: Genome-wide RNAi analysis JAK/STAT
+      Hannon GJ, Chang K: Profiling essential genes human mammary cells                   signaling components Drosophila. Genes Dev 2005, 19(16):1861-1870.
+      multiplex RNAi screening. Science 2008, 319(5863):617-620.                    33.   Muller P, Kuttenkeuler D, Gesellchen V, Zeidler MP, Boutros M:
+11.   Tu  Argmann C, Wong KK, Mitnaul LJ, Edwards S, Sach IC, Zhu J,                       Identification JAK/STAT signalling components genome-wide RNA
+      Schadt EE: Integrating siRNA protein-protein interaction data                   interference. Nature 2005, 436(7052):871-875.
+      identify expanded insulin signaling network. Genome Res 2009,                 34.   Ma Y, Creanga  Lum L, Beachy PA: Prevalence target effects       19(6):1057-1067.                                                                       Drosophila RNA interference screens. Nature 2006, 443(7109):359-363.
+12.   Bakal C, Linding R, Llense F, Heffern E, Martin-Blanco E, Pawson T,              35.   Kulkarni MM, Booker M, Silver SJ, Friedman  Hong P, Perrimon N, Mathey-
+      Perrimon N: Phosphorylation networks regulating JNK activity diverse                Prevot B: Evidence target effects associated long dsRNAs       genetic backgrounds. Science 2008, 322(5900):453-456.                                  Drosophila melanogaster cell-based assays. Nature methods 2006,
+13.   Xu L, Yao X, Chen X, Lu P, Zhang B, Ip YT: Msk required nuclear                 3(10):833-838.
+      import TGF-{beta}/BMP-activated Smads. J Cell Biol 2007,                      36.   Jackson AL, Bartz SR, Schelter J, Kobayashi SV, Burchard J, Mao M, Li B,
+      178(6):981-994.                                                                        Cavet G, Linsley PS: Expression profiling reveals target gene
+14.   Nybakken K, Vokes SA, Lin TY, McMahon AP, Perrimon N: genome-wide                    regulation RNAi. Nat Biotechnol 2003, 21(6):635-637.
+      RNA interference screen Drosophila melanogaster cells new                 37.   Semizarov D, Frost L, Sarthy  Kroeger P, Halbert DN, Fesik SW: Specificity
+      components Hh signaling pathway. Nat Genet 2005,                                short interfering RNA determined gene expression
+      37(12):1323-1332.                                                                      signatures. Proc Natl Acad Sci USA 2003, 100(11):6347-6352.
+15.   Karlas  Machuy N, Shin Y, Pleissner KP, Artarini  Heuer D, Becker D,         38.   Snove O Jr, Holen T: commonly used siRNAs risk target activity.
+      Khalil H, Ogilvie LA, Hess S, et al: Genome-wide RNAi screen identifies                Biochem Biophys Res Commun 2004, 319(1):256-263.
+      human host factors crucial influenza virus replication. Nature 2010,         39.   Wang X, Varma RK, Beauchamp L, Magdaleno S, Sendera TJ: Selection       463(7282):818-822.                                                                     hyperfunctional siRNAs improved potency specificity. Nucleic
+16.   Brown  Canonical Wnt signaling: high-throughput RNAi widens                     Acids Res 2009, 37(22):e152.
+      path. Genome Biol 2005, 6(9):231.                                                40.   Schwartz  Yu J, Gardenour KR, Finley RL Jr, Ideker T: Cost-effective
+17.   Kiger AA, Baum B, Jones S, Jones MR, Coulson  Echeverri C, Perrimon N:             strategies completing interactome. Nature methods 2009,
+      functional genomic analysis cell morphology using RNA interference.                 6(1):55-61.
+      J Biol 2003, 2(4):27.                                                            41.   Schwikowski B, Uetz P, Fields S: network protein-protein interactions
+18.   Sepp KJ, Hong P, Lizarraga SB, Liu JS, Mejia LA, Walsh CA, Perrimon N:                 yeast. Nat Biotechnol 2000, 18(12):1257-1261.
+      Identification neural outgrowth genes using genome-wide RNAi. PLoS            42.   Bader GD, Hogue CW: Analyzing yeast protein-protein interaction data
+      Genet 2008, 4(7):e1000111.                                                             obtained different sources. Nat Biotechnol 2002, 20(10):991-997.
+19.   Huang X, Wang JY, Lu X: Systems analysis quantitative shRNA-library           43.   Deane CM, Salwinski L, Xenarios  Eisenberg D: Protein interactions:       screens identifies regulators cell adhesion. BMC Syst Biol 2008, 2:49.              methods assessment reliability high throughput
+20.   Liu T, Sims D, Baum B: Parallel RNAi screens different cell lines               observations. Mol Cell Proteomics 2002, 1(5):349-356.
+      identify generic cell type-specific regulators actin organization         44.   Giot L, Bader JS, Brouwer C, Chaudhuri  Kuang B, Li Y, Hao YL, Ooi CE,
+      cell morphology. Genome Biol 2009, 10(3):R26.                                      Godwin B, Vitols E, et al: protein interaction map Drosophila
+21.   Cram EJ, Shang H, Schwarzbauer JE: systematic RNA interference screen                melanogaster. Science 2003, 302(5651):1727-1736.
+      reveals cell migration gene network C. elegans. J Cell Sci 2006,            45.   Li S, Armstrong CM, Bertin N, Ge H, Milstein S, Boxem M, Vidalain PO,
+      119(Pt 23):4811-4818.                                                                  Han JD, Chesneau  Hao T, et al: map interactome network 22.   Sessions OM, Barrows NJ, Souza-Neto JA, Robinson TJ, Hershey CL,                       metazoan C. elegans. Science 2004, 303(5657):540-543.
+      Rodgers MA, Ramirez JL, Dimopoulos G, Yang PL, Pearson JL, et al:                46.   Yu H, Braun P, Yildirim MA, Lemmens  Venkatesan K, Sahalie J, Hirozane-
+      Discovery insect human dengue virus host factors. Nature 2009,                  Kishikawa T, Gebreab F, Li N, Simonis N, et al: High-quality binary protein
+      458(7241):1047-1050.                                                                   interaction map yeast interactome network. Science 2008,
+23.   Agaisse H, Burrack LS, Philips JA, Rubin EJ, Perrimon N, Higgins                    322(5898):104-110.
+      Genome-wide RNAi screen host factors required intracellular              47.   Krogan NJ, Cagney G, Yu H, Zhong G, Guo X, Ignatchenko  Li J, Pu S,
+      bacterial infection. Science 2005, 309(5738):1248-1251.                                Datta N, Tikuisis AP, et al: Global landscape protein complexes 24.   Krishnan MN, Ng  Sukumaran B, Gilfoy FD, Uchil PD, Sultana H, Brass AL,              yeast Saccharomyces cerevisiae. Nature 2006, 440:637-643.
+      Adametz R, Tsui M, Qian F, et al: RNA interference screen human              48.   Beyer  Bandyopadhyay S, Ideker T: Integrating physical genetic
+      genes associated West Nile virus infection. Nature 2008,                          maps: genomes interaction networks. Nature reviews 2007,
+      455(7210):242-245.                                                                     8(9):699-710.
+25.   Flockhart  Booker M, Kiger  Boutros M, Armknecht S, Ramadan N,               49.   Luo F, Yang Y, Chen CF, Chang R, Zhou J, Scheuermann RH: Modular
+      Richardson K, Xu  Perrimon N, Mathey-Prevot B: FlyRNAi: Drosophila               organization protein interaction networks. Bioinformatics 2007,
+      RNAi screening center database. Nucleic Acids Res 2006, , 34 Database:                 23(2):207-214.
+      D489-494.                                                                        50.   Chua HN, Sung WK, Wong L: Exploiting indirect neighbours 26.   Gilsdorf M, Horn T, Arziman  Pelz O, Kiner E, Boutros M: GenomeRNAi:               topological weight predict protein function protein-protein
+      database cell-based RNAi phenotypes. 2009 update. Nucleic Acids Res                interactions. Bioinformatics 2006, 22(13):1623-1630.
+      2009, , 38 Database: D448-452.                                                   51.   Simonis N, Rual JF, Carvunis AR, Tasan M, Lemmens  Hirozane-Kishikawa T,
+27.   Mohr S, Bakal C, Perrimon N: Genomic screening RNAi: results                  Hao T, Sahalie JM, Venkatesan K, Gebreab F, et al: Empirically controlled
+      challenges. Annu Rev Biochem 2010, 79:37-64.                                           mapping Caenorhabditis elegans protein-protein interactome
+28.   Brass AL, Dykxhoorn DM, Benita Y, Yan N, Engelman  Xavier RJ,                        network. Nature methods 2009, 6(1):47-54.
+      Lieberman J, Elledge SJ: Identification host proteins required HIV        52.   Vazquez  Flammini  Maritan  Vespignani  Global protein function
+      infection functional genomic screen. Science 2008,                           prediction protein-protein interaction networks. Nat Biotechnol
+      319(5865):921-926.                                                                     2003, 21(6):697-700.
+29.   Zhou H, Xu M, Huang Q, Gates  Zhang XD, Castle JC, Stec E, Ferrer M,          53.   Hishigaki H, Nakai K, Ono T, Tanigami  Takagi T: Assessment       Strulovici B, Hazuda DJ, et al: Genome-scale RNAi screen host factors              prediction accuracy protein function protein–protein interaction
+      required HIV replication. Cell Host Microbe 2008, 4(5):495-504.                    data. Yeast 2001, 18(6):523-531.
+30.   Kittler R, Pelletier L, Heninger AK, Slabicki M, Theis M, Miroslaw L, Poser    54.   Spirin V, Mirny LA: Protein complexes functional modules       Lawo S, Grabner H, Kozak K, et al: Genome-scale RNAi profiling cell                 molecular networks. Proc Natl Acad Sci USA 2003, 100(21):12123-12128.
+      division human tissue culture cells. Nat Cell Biol 2007, 9(12):1401-1412.     55.   Samanta MP, Liang S: Predicting protein functions redundancies 31.   Mukherji M, Bell R, Supekova L, Wang Y, Orth AP, Batalov S, Miraglia L,                large-scale protein interaction networks. Proc Natl Acad Sci USA 2003,
+      Huesken D, Lange J, Martin C, et al: Genome-wide functional analysis                100(22):12579-12583.
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                                      Page 15 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+56. Ge H, Liu  Church GM, Vidal M: Correlation transcriptome        79. Sitterlin D: Characterization Drosophila Rae1 protein G1
+    interactome mapping data Saccharomyces cerevisiae. Nat Genet                  phase regulator cell cycle. Gene 2004, 326:107-116.
+    2001, 29(4):482-486.                                                          80. Higa LA, Zhang H: Stealing spotlight: CUL4-DDB1 ubiquitin ligase
+57. Boulton SJ, Gartner  Reboul J, Vaglio P, Dyson N, Hill  Vidal M:              docks WD40-repeat proteins destroy. Cell Div 2007, 2:5.
+    Combined functional genomic maps C. elegans DNA damage                 81. Higa LA, Mihaylov  Banks DP, Zheng J, Zhang H: Radiation-mediated
+    response. Science 2002, 295(5552):127-131.                                         proteolysis CDT1 CUL4-ROC1 CSN complexes constitutes 58. Tian W, Zhang LV, Tasan M, Gibbons FD, King OD, Park J, Wunderlich               new checkpoint. Nat Cell Biol 2003, 5(11):1008-1015.
+    Cherry JM, Roth FP: Combining guilt association guilt profiling     82. Banks D, Wu M, Higa LA, Gavrilova N, Quan J, Ye T, Kobayashi R, Sun H,
+    predict Saccharomyces cerevisiae gene function. Genome Biol 2008,               Zhang H: L2DTL/CDT2 PCNA interact p53 regulate p53
+    9(Suppl 1):S7.                                                                     polyubiquitination protein stability MDM2 CUL4A/
+59. Sharan R, Ulitsky  Shamir R: Network-based prediction protein                 DDB1 complexes. Cell Cycle 2006, 5(15):1719-1729.
+    function. Mol Syst Biol 2007, 3:88.                                           83. Pan HW, Chou HY, Liu SH, Peng SY, Liu CL, Hsu HC: Role L2DTL, cell
+60. Bjorklund M, Taipale M, Varjosalo M, Saharinen J, Lahdenpera J, Taipale J:         cycle-regulated nuclear centrosome protein, aggressive
+    Identification pathways regulating cell size cell-cycle progression         hepatocellular carcinoma. Cell Cycle 2006, 5(22):2676-2687.
+    RNAi. Nature 2006, 439(7079):1009-1013.                                    84. Aravind L, Ponting CP: Homologues 26S proteasome subunits 61. Bettencourt-Dias M, Giet R, Sinka R, Mazumdar  Lock  Balloux F,               regulators transcription translation. Protein Sci 1998,
+    Zafiropoulos PJ, Yamaguchi S, Winter S, Carthew RW, et al: Genome-wide             7(5):1250-1254.
+    survey protein kinases required cell cycle progression. Nature 2004,   85. Hofmann K, Bucher P: PCI domain: common theme     432(7020):980-987.                                                                 multiprotein complexes. Trends Biochem Sci 1998, 23(6):204-205.
+62. Consortium  Gene Ontology 2010: extensions                      86. Richardson H, O’Keefe LV, Marty T, Saint R: Ectopic cyclin E expression
+    refinements. Nucleic Acids Res 2010, 38 Database:D331-335.                         induces premature entry S phase disrupts pattern formation 63. Yu J, Pacifico S, Liu G, Finley RL, Jr : DroID: Drosophila Interactions        Drosophila eye imaginal disc. Development 1995, 121:3371-3379.
+    Database, comprehensive resource annotated gene protein             87. Knoblich JA, Sauer K, Jones L, Richardson H, Saint R, Lehner CF: Cyclin E
+    interactions. BMC Genomics 2008, 9:461.                                            controls S phase progression regulation Drosophila
+64. Murali T, Pacifico S, Yu J, Guest S, Roberts GG, Finley RLJ: DroID 2011:         embryogenesis required arrest cell proliferation. Cell 1994,
+    comprehensive integrated reources protein, transcription factor,               77(1):107-120.
+    RNA, gene interactions Drosophila. Nucleic Acids Research 2011,       88. Dulic V, Drullinger LF, Lees E, Reed SI, Stein GH: Altered regulation G1
+    39:D736-43.                                                                        cyclins senescent human diploid fibroblasts: accumulation inactive
+65. Echard  Hickson GR, Foley E, O’Farrell PH: Terminal cytokinesis events           cyclin E-Cdk2 cyclin D1-Cdk2 complexes. Proc Natl Acad Sci USA
+    uncovered RNAi screen. Curr Biol 2004, 14(18):1685-1693.                  1993, 90(23):11034-11038.
+66. Yu J, Finley RL Jr: Combining multiple positive training sets generate     89. Tsai LH, Lees E, Faha B, Harlow E, Riabowol K: cdk2 kinase required
+    confidence scores protein-protein interactions. Bioinformatics 2009,           G1 S transition mammalian cells. Oncogene 1993,
+    25(1):105-111.                                                                     8(6):1593-1602.
+67. Huang da W, Sherman BT, Lempicki RA: Systematic integrative               90. Sauer K, Knoblich JA, Richardson H, Lehner CF: Distinct modes cyclin E/
+    analysis large gene lists using DAVID bioinformatics resources. Nat             cdc2c kinase regulation S-phase control mitotic     Protoc 2009, 4(1):44-57.                                                           endoreduplication cycles Drosophila embryogenesis. Genes Dev 1995,
+68. DasGupta R, Nybakken K, Booker M, Mathey-Prevot B, Gonsalves F,                    9(11):1327-1339.
+    Changkakoty B, Perrimon N: case study reproducibility             91. Duronio RJ, O’Farrell PH: Developmental control G1 S transition
+    transcriptional reporter cell-based RNAi screens Drosophila. Genome             Drosophila: cyclin Eis limiting downstream target E2F. Genes Dev
+    Biol 2007, 8(9):R203.                                                              1995, 9(12):1456-1468.
+69. Ravi D, Wiles  Bhavani S, Ruan J, Leder P, Bishop AJ: network         92. Pagano M, Pepperkok R, Lukas J, Baldin V, Ansorge W, Bartek J, Draetta G:
+    conserved damage survival pathways revealed genomic RNAi                      Regulation cell cycle cdk2 protein kinase cultured
+    screen. PLoS Genet 2009, 5(6):e1000527.                                            human fibroblasts. J Cell Biol 1993, 121(1):101-111.
+70. Hao L, Sakurai  Watanabe T, Sorensen E, Nidom CA, Newton MA,                93. Lane  Sauer K, Wallace K, Jan YN, Lehner CF, Vaessin H: Dacapo,     Ahlquist P, Kawaoka Y: Drosophila RNAi screen identifies host genes                cyclin-dependent kinase inhibitor, stops cell proliferation     important influenza virus replication. Nature 2008, 454(7206):890-893.         Drosophila development. Cell 1996, 87(7):1225-1235.
+71. Echeverri CJ, Beachy PA, Baum B, Boutros M, Buchholz F, Chanda SK,            94. Nooij JC, Letendre MA, Hariharan IK: cyclin-dependent kinase
+    Downward J, Ellenberg J, Fraser AG, Hacohen N, et al: Minimizing risk          inhibitor, Dacapo, necessary timely exit cell cycle     reporting false positives large-scale RNAi screens. Nature methods           Drosophila embryogenesis. Cell 1996, 87(7):1237-1247.
+    2006, 3(10):777-779.                                                          95. Higa LA, Yang X, Zheng J, Banks D, Wu M, Ghosh P, Sun H, Zhang H:
+72. Mnaimneh S, Davierwala AP, Haynes J, Moffat J, Peng WT, Zhang W,                   Involvement CUL4 ubiquitin E3 ligases regulating CDK inhibitors
+    Yang X, Pootoolal J, Chua G, Lopez  et al: Exploration essential gene         Dacapo/p27Kip1 cyclin E degradation. Cell Cycle 2006, 5(1):71-77.
+    functions titratable promoter alleles. Cell 2004, 118(1):31-44.           96. Cayrol C, Knibiehler M, Ducommun B: p21 binding PCNA causes G1
+73. Gresham D, Boer V, Caudy  Ziv N, Brandt NJ, Storey JD, Botstein D:               G2 cell cycle arrest p53-deficient cells. Oncogene 1998,
+    Level Analysis Genes Functions Affecting Survival             16(3):311-320.
+    Nutrient Starvation Saccharomyces cerevisiae. Genetics 2010.               97. Pagano M, Tam SW, Theodoras  Beer-Romero P, Del Sal G, Chau V,
+74. Simmer F, Moorman C, van der Linden  Kuijk E, van den Berghe PV,                Yew PR, Draetta GF, Rolfe M: Role ubiquitin-proteasome pathway
+    Kamath RS, Fraser AG, Ahringer J, Plasterk RH: Genome-wide RNAi C.              regulating abundance cyclin-dependent kinase inhibitor p27.
+    elegans using hypersensitive rrf-3 strain reveals novel gene                   Science 1995, 269(5224):682-685.
+    functions. PLoS biology 2003, 1(1):E12.                                       98. Naranda T, MacMillan SE, Hershey JW: Purified yeast translational initiation
+75. Tanackovic G, Kramer  Human splicing factor SF3a, SF1,                factor eIF-3 RNA-binding protein complex contains PRT1
+    essential pre-mRNA splicing vivo. Mol Biol Cell 2005,                       protein. J Biol Chem 1994, 269(51):32286-32292.
+    16(3):1366-1377.                                                              99. Danaie P, Wittmer B, Altmann M, Trachsel H: Isolation protein
+76. Eggert  Kiger AA, Richter C, Perlman ZE, Perrimon N, Mitchison TJ,              complex containing translation initiation factor Prt1     Field CM: Parallel chemical genetic genome-wide RNAi screens                   Saccharomyces cerevisiae. J Biol Chem 1995, 270(9):4288-4292.
+    identify cytokinesis inhibitors targets. PLoS biology 2004, 2(12):e379.   100. Hanic-Joyce PJ, Johnston GC, Singer RA: Regulated arrest cell
+77. Barr FA, Gruneberg U: Cytokinesis: placing making final cut. Cell          proliferation mediated yeast prt1 mutations. Exp Cell Res 1987,
+    2007, 131(5):847-860.                                                              172(1):134-145.
+78. Higa LA, Banks D, Wu M, Kobayashi R, Sun H, Zhang H: L2DTL/CDT2               101. Hanic-Joyce PJ, Singer RA, Johnston GC: Molecular characterization     interacts CUL4/DDB1 complex PCNA regulates CDT1                   yeast PRT1 gene mutations affect translation initiation     proteolysis response DNA damage. Cell Cycle 2006, 5(15):1675-1680.           regulation cell proliferation. J Biol Chem 1987, 262(6):2845-2851.
+ Guest et al. BMC Systems Biology 2011, 5:65                                                                                                      Page 16 16
+http://www.biomedcentral.com/1752-0509/5/65
+
+
+
+
+102. Naranda T, Kainuma M, MacMillan SE, Hershey JW: 39-kilodalton
+     subunit eukaryotic translation initiation factor 3 essential      complex’s integrity cell viability Saccharomyces cerevisiae.
+     Mol Cell B

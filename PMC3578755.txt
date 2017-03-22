@@ -1,0 +1,523 @@
+From Hub Proteins Hub Modules: Relationship Essentiality Centrality Yeast
+Interactome Different Scales Organization
+Jimin Song, Mona Singh*
+Department Science Lewis-Sigler Institute Integrative Genomics, Princeton University, Princeton, New Jersey, United States America
+
+
+
+     Abstract
+     Numerous studies suggested hub proteins S. cerevisiae physical interaction network likely      essential proteins. proposed reasons underlying observed relationship topology      functioning subject controversy, recent work suggesting arises participation      hub proteins essential complexes processes.  essential modules distinct network
+     characteristics, essential proteins differ topological properties non-essential proteins?
+     aimed advance understanding protein essentiality analyzing proteins, complexes processes      broader functional context considering physical interactions complexes biological
+     processes. agreement view essentiality modular property, number intracomplex      intraprocess interactions protein better indicator essentiality overall number interactions.
+      essential complex, essential proteins average interactions, especially
+     intracomplex interactions, non-essential proteins. Finally, built module-level interaction network      essential complexes processes tend higher interaction degrees network non-essential
+     complexes processes;  exhibit larger functional cross-talk non-essential counterparts.
+
+  Citation: Song J, Singh M (2013) Hub Proteins Hub Modules: Relationship Essentiality Centrality Yeast Interactome Different
+  Scales Organization. PLoS Comput Biol 9(2): e1002910. doi:10.1371/journal.pcbi.1002910
+  Editor: Frederick P. Roth, Harvard Medical School, United States America
+  Received August 27, 2012; Accepted December 21, 2012; Published February 21, 2013
+  Copyright: ß 2013 Song, Singh. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: work supported NSF ABI-0850063, NIH GM076275, NIH Center Excellence grant P50 GM071508. JS partially
+  supported Samsung Scholarship Samsung Foundation Culture. funders role study design, data collection analysis, decision   publish, preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: msingh@cs.princeton.edu
+
+
+
+Introduction                                                                         proteins essential;  deletion proteins results
+                                                                                     cell death, optimal growth conditions [11,12]. Early
+   High-throughput experimental approaches determining                           computational analysis yeast S. cerevisiae protein-protein
+protein interactions resulted large-scale cellular networks                  physical interaction network revealed scale-free topology, numerous organisms. Graph-theoretic analyses                            ‘‘hub’’ proteins interactions, showed
+networks great aid advancing understanding                        hub proteins likely essential proteins cellular functioning organization (review, [1]).                   [13]. Numerous subsequent studies confirmed centrality- fundamental discoveries strong relationship                  lethality relationship, yeast [14–19] topological characteristics cellular networks                     organisms [20]. hand, relationship underlying functioning. example, cellular networks                         observed weak networks consisting interactions
+consist tightly clustered groups interacting proteins,                     determined high-throughput yeast hybrid experiments proteins work protein complexes biological                      stronger types networks [16,18,19], processes achieve specific biological functions [2–7].                         proposed  yeast hybrid networks, observed
+orthogonal decomposition reveals recurring                        relationship study bias favoring determination represented topological functional patterns larger                   interactions essential proteins [21].  positive
+cellular networks, network motifs [8,9] network                        correlation protein interaction degree essentiality schemas [10] associated dynamic regulatory properties                    generally accepted, numerous reasons proposed shared mechanisms functioning.  revisit                       literature explain relationship. basic structure function relationship                          Initial work suggested high-degree proteins essential
+proposed cellular networks number                            role interaction network connectivity [13]; 
+interactions protein overall functional importance.                    unlikely case subsequently shown    importance gene cell organism                          non-essential hubs just important essential hubs quantitatively measured considering phenotypic effects                     maintaining connectivity, essentiality better correlated
+gene deletion disruption. Experimental studies baker’s                     local, global, measures connectivity protein-
+yeast S. cerevisiae demonstrated approximately 19                   protein interaction networks [17,18]. alternatively proposed
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                1                          February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                        Essentiality Hub Proteins Hub Modules
+
+
+
+  Author Summary                                                               cerevisiae protein-protein interaction networks considered
+                                                                               functional modules derived protein complexes   Network analyses large-scale interactomes                     Gene Ontology   biological process annotations [25]   great aid advancing understanding cellular                         different levels resolution.  address issue study
+  functioning organization.  examine                    bias, performed analysis additional networks   basic intensely-studied structure function                       removed interactions determined small-scale experiments.
+  relationships observed cellular networks:                        began examining relationship protein
+  number interactions protein tendency                    essentiality network modularity. hypothesized   essential. develop new computational                              essentiality modular property, proposed previously
+  framework systematically analyze essential proteins                       [18], protein’s intramodular physical interaction degree
+  cellular context explicitly incorporating
+                                                                               better predictor protein’s essentiality   functional information. apply framework                                                                                intermodular physical interaction degree. test  utilized
+  yeast interactome demonstrate previously
+  observed positive relationship interaction degree                    biological process functional annotations proteins classified
+  essentiality largely intramodular interactions.                physical interactions intraprocess interactions processes
+   essentiality appears modular property                    interprocess interactions processes.   protein complexes broadly biological                         essential proteins tend interactions proteins
+  processes. essential complex, essential                        functional modules intraprocess
+  proteins tend interactions, especially intra-                   interaction degree correlated essentiality overall
+  complex interactions, non-essential proteins.                       degree.  relationship overall
+  Finally, computationally inferred module-level inter-                   degree essentiality significantly weakened controlling
+  action network, essential complexes processes tend                    intramodular degree, affected controlling   higher interaction degrees non-essential                     intermodular degree.  direct simple
+  counterparts. summary, relationship                             manner  essential proteins, essentiality likely
+  connectivity essentiality                        consequence participation essential modules
+  protein level, modules module                     consisting functionally similar proteins.
+  level, complexes processes essential                           ascertain modularity essential
+  tending interact functional groups.                             proteins roles essential protein complexes
+                                                                               generally essential biological processes, essentiality property interactions [22].        repeated analysis exclusively focusing proteins
+essential protein interactions, organism               protein complexes focusing proteins survive, randomly distributed network;                known protein complexes. hubs tend essential likely participate          essential proteins intraprocess interactions fact essential interactions.  model implies                participate essential protein complexes essential biological
+probabilities non-interacting proteins essential              processes include protein complexes;  independent  case [18]. Instead,             modularity protein essentiality appears consequence Zotenko et al. [18] argued correlation degree             protein complexes, broadly biological processes.
+essentiality participation essential proteins                   examined complexes contain essential proteins,
+essential functional modules consisting groups densely                   compared essential non-essential proteins. clustered functionally related proteins. showed               reasoned relationship essentiality essentiality hubs computationally            interaction degree proteins complexes entirely
+extracted modules weakly correlated degree [18].                 consequence complexes essential,  previously essential proteins tended            essential non-essential proteins complex densely connected [15] concentrated                 differ respect degree. contrary, complexes [23,24], suggesting essentiality modular                   essential proteins tend interactions, particularly
+property property individual proteins. Building               intracomplex interactions, non-essential counterparts  argued essential complexes tend              protein complexes.  essentiality appears large, proteins larger number                   modular property, degree protein associated interactions, explains hubs tend essential             essentiality essential complexes; hypothesize [19].                                                                          essential proteins play important role maintaining
+   substantial evidence essentiality modular          structure function complexes.
+property protein-protein interaction networks, clear                 Finally, analyzed modules containing essential proteins complexes processes consist entirely essential           context functional modules. inferred
+non-essential proteins. essential proteins essential              significant ‘‘cross-talks’’ protein complexes biological
+complex process differ non-essential ones?             processes used build module-level networks, complexes processes contain essential proteins.                complexes processes linked enriched
+essential modules distinctive roles cellular networks?         number physical interactions  Using paper, aimed discover  modules,                     module-level networks, uncovered functional modules
+essential non-essential proteins differ interaction               essential proteins tend average higher degree; properties, global scale, essential non-              degree module-level network positively correlated essential modules differ network-level properties.                 module essentiality.
+accomplish  developed computational framework                       Overall, considering proteins functional context incorporates information functional modules                   yeast interactome, evidence relationship
+context network analysis techniques. uncover general                 essentiality network topology different levels robust principles, performed analysis types S.              cellular organization: protein level, protein
+
+
+PLOS Computational Biology | www.ploscompbiol.org                          2                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                          Essentiality Hub Proteins Hub Modules
+
+
+complexes, globally module level,                     intraprocess interactions, interprocess interactions, total anno-
+complexes processes essential tending interact             tated interactions. considered intraprocess, functional groups.                                                         interprocess total annotated interaction degrees turn,                                                                                 ordered proteins high low degrees respect  Results                                                                         varied threshold number proteins considered,                                                                                 computed fraction essential proteins ‘‘high degree’’    analyzed 5640 proteins tested essentiality [12]          ‘‘hub’’ set. large range thresholds, high degree context large-scale S. cerevisiae protein physical               proteins, ranked intraprocess degree, higher fraction interaction datasets; networks captures different                 essential proteins high degree proteins ranked features biological interactions. network Direct              total annotated degree interprocess degree (Figures 1  , S1  
+interaction network, interaction proteins                  S2  ). Pull networks, fraction corresponds direct physical contact; network includes                 essential proteins tends decrease threshold intraprocess,
+interactions determined yeast hybrid method                    interprocess, total degree lowered. Direct network types approaches  Materials Methods).                  (Figure 1  ), trend true intraprocess interaction
+considered Pull network, interaction                degree notably true total degree; consistent proteins corresponds members multi-                  previous work showing relationship essentiality
+protein complex.  considered network consisting               overall interaction degree weak networks consisting of physical interactions BioGRID [26]; case,                 interactions determined yeast hybrid [16,18,21].
+interactions represent direct indirect interactions.              quantify correlation essentiality main body paper, primarily report results              degree, used Spearman’s rho rank correlation coefficient
+Direct interaction network, contains 4031 proteins (898                (SRCC) [29] (Figures 1 (b), S1 (b) S2 (b)), essential) 15,073 interactions. analysis                  SRCC highest intraprocess degree (0.25 Direct, 0.35 described performed Pull                     networks), lower interprocess degree (0
+networks  Table S1) reported Supplementary               Direct, 0.22 Pull 0.21 . note Material. considered additional networks interac-                 protein essentiality binary value tied
+tions determined small-scale experiments removed;                  values, possible SRCC achieve value 1. analysis outlined section high-throughput networks                 example, SRCC essentiality annotated degree  detailed figures given Supplementary Material.               Direct network reach maximum value                                                                                 0.7680  e., case essentiality values proteins Categorizing interactions intramodular                                    swapped essential proteins higher degrees intermodular                                                                    non-essential proteins).  disentangle contributions    given interaction network, labeled protein interactions             intraprocess interprocess degree observed correlations, ‘‘intramodular,’’ ‘‘intermodular’’ using               computed partial correlations essentiality sources functional data. particular, utilized yeast protein            annotated interactions, controlling intraprocess complex data compiled [27] Gene Ontology   Biological                 interprocess degree. networks Process (BP) annotations [25].  intramodular interactions              controlling intraprocess degree, SRCC total degree
+arise intracomplex intraprocess interactions,                essentiality notably diminished, controlling intermodular interactions arise intercomplex interpro-             interprocess degree, SRCC remained high (Figures 1 (b), S1 (b)
+cess interactions; separately consider types                    S2 (b)), increased Direct network.
+intramodular intermodular interactions. protein complex                    way looking difference intrapro-
+data, ‘‘intracomplex’’ interactions pairs proteins           cess interprocess interaction degree, compared degree participate shared complex ‘‘intercomplex’’ interac-              distributions essential proteins non-essential proteins
+tions pairs proteins         (Figures 1, S1 S2 (c)–(e)) using Wilcoxon rank sum test.
+complex complex.                                comparing degree distributions, included proteins    complicated characterize interactions intramodular          annotated interaction; proteins zero intermodular using BP terms, terms hierarchically              intraprocess interprocess interactions. number
+related annotate different numbers proteins,              proteins considered comparing total, intraprocess, general terms. informative specific terms,                   interprocess degree (Figures 1, S1 S2 (c)–(e)), p-values
+considered BP terms annotate 50 proteins                 given comparable. difference number yeast proteome. interaction unannotated unless proteins              interactions essential non-essential proteins annotated specific BP terms.                    significant intraprocess interactions consid-
+interaction ‘‘intraprocess’’ proteins sharing       ered (Figures 1 (d), S1 (d) S2 (d)), compared case specific BP terms. proteins interaction             annotated interactions considered (Figures 1 (c), S1 (c)
+annotated specific BP terms share                S2 (c)) interprocess interactions considered interaction ‘‘interprocess.’’ note physical                (Figures 1 (e), S1 (e) S2 (e)).
+interactions largely thought ‘ process,’’ especially           alternative categorizing annotated interactions compared types interactions [28], significant fraction         interprocess intraprocess, considered case
+physical interactions interprocess (Table S2); true         interactions weighted according semantic threshold choosing specific terms increased.                         similarity [30] functional terms annotating                                                                                 proteins. weight range 0 1 proteins
+Intraprocess interactions main factor relationship                 sharing highly specific functional terms getting higher scores  protein essentiality interaction degree                             Materials Methods details).  semantic
+ step relating protein essentiality network               similarity interacting proteins continuous
+modularity, protein, computed number                         measure ‘‘intramodularity’’ interaction.  
+
+PLOS Computational Biology | www.ploscompbiol.org                           3                        February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                        Essentiality Hub Proteins Hub Modules
+
+
+
+
+Figure 1. intraprocess interaction degree correlated protein essentiality overall interaction degree proteins Direct network, interactions categorized specific BP terms, annotates 50
+proteins.   fraction essential proteins hub proteins proteins considered hub proteins; proteins added groups 50 non-increasing order interaction degree. fraction highest intraprocess degree (green), followed annotated degree (blue) interprocess degree (red). (b) correlations measured SRCCs essentiality intraprocess, annotated interprocess degree. SRCC highest essentiality intraprocess degree. partial correlation computed annotated degree essentiality controlling intraprocess interprocess degree. Starred p-values indicate values w0:05.
+(c)–(e) degree distribution non-essential proteins compared essential proteins (c) annotated, (d) intraprocess, (e)
+interprocess degree, respectively. box plot, horizontal bar box corresponds median distribution; ends box indicate quartiles; small circles outliers 2–98th percentile range. significance difference degree distributions measured Wilcoxon rank sum test.
+doi:10.1371/journal.pcbi.1002910.g001
+
+
+semantic similarity degree protein defined sum              contribution intracomplex interactions. particular, previously
+semantic similarity interactions. Direct, Pull         observed essential proteins tend clustered networks, stronger correlation           essential protein complexes [18,24].  essentiality degree interactions weighted               hypothesized having intracomplex physical interactions semantic similarity just counted (Figure S3).           protein important predicting essentiality having words, proteins having interactions similar               types physical interactions.  defined
+functional context likely essential proteins               functional modules comprised protein
+having interactions. Altogether, range computational                complexes biological processes corresponding BP terms.
+analyses shows large portion observed relationship              previous section, utilized modules derived BP essentiality interaction degree explained             terms. focus modules derived protein complexes,
+considering just intraprocess interactions.                                   compiled [27]. begin observing complexes                                                                               enriched essential proteins. particular, correlation intramodular degree protein                       18.60   1049=5640) proteins essential yeast
+essentiality largely complexes, processes                       genome, 37.54   598=1593) essential considering
+   Having shown strong correlation intraprocess                   proteins involved set complexes considering. interaction degree essentiality, sought characterize            fact, 57.01   598=1049) essential proteins involved 
+
+PLOS Computational Biology | www.ploscompbiol.org                         4                        February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                         Essentiality Hub Proteins Hub Modules
+
+
+protein complexes, 28.24   1593=5640)                   dataset, clear positive correlation complex size
+proteins set complexes.  conclusions              fraction essential proteins complex (SRCC:
+arising analysis protein complexes based                 0.24, p-value: 2e-6).  strong correlation
+interaction properties significant fraction essential proteins.        protein essentiality size largest complex    network, derived subnetwork nodes                       belongs, SRCCs 0.25, 0.24 0.24 Direct,
+represent proteins involved protein complex edges                   Pull networks, respectively (Figures 2 (b), S4 (b) represent interactions original interactions            S5 (b) ).   relationship strong proteins. Direct network, 35.66   1364=3825)                      essentiality intracomplex degree networks
+interactions intracomplex (Table S2). Repeating analysis               (black vs. green curve Figures 2  , S4   S5  ). performed intraprocess vs. interprocess interactions,                   computed partial correlations essentiality intracomplex physical interactions correlated              annotated interactions, controlling intracomplex protein essentiality annotated physical interactions             degree, intercomplex degree, complex size. (Figures 2  , S4   S5  ).                                            controlling intracomplex degree, SRCC    previously observed strong correlation          total degree essentiality notably diminished  0.17, 0.32 complex size essentiality [19], argued                    0.32 20.01, 0.13 0.14 Direct, Pull essential complexes tend large, proteins                 networks, respectively), controlling intercomplex
+tend interactions, driving force             degree complex size, SRCC greatly diminished
+relationship essentiality interaction degree.               (Figures 2 (b), S4 (b) S5 (b)).  difference degree
+
+
+
+
+Figure 2. intracomplex interaction degree correlated protein essentiality overall interaction degree proteins Direct network, interactions categorized using protein complexes.   fraction essential proteins hub proteins proteins considered hub proteins; proteins added groups 50 non-increasing order interaction degree size largest complex protein belongs. relationship protein essentiality interaction degree shown intracomplex interactions (green), annotated interactions (blue) intercomplex interactions (red). relationship protein essentiality complex size shown (black). (b) correlations measured SRCCs essentiality intracomplex degree, annotated
+degree, intercomplex degree, complex size. SRCC highest essentiality intracomplex degree. partial correlation computed annotated degree essentiality controlling intracomplex degree, intercomplex degree, size largest complex protein belongs. Starred p-values indicate values w0:05. (c)–(f) degree distribution non-essential
+proteins compared essential proteins complexes (c) annotated degree, (d) intracomplex degree, (e) intercomplex degree, (f) complex size. box plot, horizontal bar box corresponds median distribution; ends box indicate quartiles; small circles outliers 2–98th percentile range. significance difference degree distributions measured Wilcoxon rank sum test.
+doi:10.1371/journal.pcbi.1002910.g002
+
+
+PLOS Computational Biology | www.ploscompbiol.org                          5                         February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                          Essentiality Hub Proteins Hub Modules
+
+
+
+
+Figure 3. networks (  Direct, (b) Pull  (c) network), set biological processes filtered remove effects complexes, intraprocess interaction degree correlated protein essentiality overall
+interaction degree. fraction essential proteins hub proteins function increasing number proteins considered hub
+proteins; adding proteins groups 50 non-increasing order interaction degree. relationship protein
+essentiality interaction degree shown intraprocess interactions (green), annotated interactions (blue) interprocess interactions (red).
+Correlations measured SRCCs essentiality type interaction degree given.
+doi:10.1371/journal.pcbi.1002910.g003
+
+distribution essential non-essential proteins                       degree (Figure 3  ,(b),(c)). correlations especially weak (Figuress 2, S4 S5 (c)–(f)) significant considering            Direct network.  Pull networks,
+intracomplex degree significant considering                      correlation essentiality interprocess filtered
+intercomplex degree. note correlation                interaction degree somewhat higher protein’s intracomplex degree size complex                  essentiality intraprocess filtered degree. belongs (SRCC: 0.3790, 0.7319 0.7809 Direct,
+Pull networks, respectively); stronger                   Essential proteins central essential
+correlations Pull networks compared             protein complexes
+Direct network expected networks include                     Having shown global analysis proteins complexes indirect  e., complex) interactions.                                  essential proteins tend intracomplex interactions
+    far, stronger correlation                      non-essential proteins, considered complex
+essentiality intramodular degree essentiality                  analysis. hypothesized  essential protein complex, annotated degree focus biological                     essential proteins central higher
+process protein complex derived modules. Instead using                    intracomplex degree non-essential proteins. tested biological process protein complex annotations categorize                 hypothesis subset protein complexes member
+interactions intramodular intermodular,                    proteins intracomplex interactions. particular, included
+considered modules derived network clustering approaches.                  complex test essential proteins particular, applied state art SPICi network                    non-essential proteins, intracomplex
+clustering algorithm [31], categorized interactions                  interactions. Table 1 shows large fraction complexes,
+clusters intramodular interactions clusters                   essential proteins tend higher average intracomplex
+intermodular. note clusters uncovered purely                   degree non-essential proteins. particular, Direct
+topological manner correspond protein                         network, 76  complexes, essential proteins complexes functional modules. Direct, Pull                   higher      average     intracomplex       degree     (empirical    p- networks, essentiality correlated intramodular                value~7|10{4 ). Pull network, interaction degree, defined network clustering,             fraction complexes higher average degree essential intermodular total degree (Figure S7).                                proteins lower Direct network (58.8  61.5 ,
+    happens consider intraprocess interactions                  respectively); expected networks include
+excluding intracomplex?  biological                 indirect intracomplex interactions. fact, Pull processes consist single protein complex                    networks, seven ‘‘clique’’ complexes protein complexes; cases observed intrapro-                protein intracomplex interactions proteins
+cess interactions specifically intracomplex interactions               complex, complexes complexes process. focus                     Direct network. clique complexes, percent interactions intracomplex, filtered biological                  complexes higher average intracomplex degree essential
+processes remove interactions  Materials Methods               proteins goes 68.2  71.1  Pull details). proteins annotated               networks, respectively.
+filtered biological process, 16.52   424=2567) proteins                     considering complex individually, analysis better
+essential, slightly considering                handles proteins involved multiple complexes. proteins genome. subnetwork set filtered                 removed highly overlapping complexes  Materials biological processes interaction networks,             Methods), 14   223=1593) proteins belong weaker correlation interaction degree essentiality             complexes.  proteins tend essential; compared correlation complexes, intraprocess              proteins complex, 53.81   120=223) degree correlated essentiality annotated              essential  opposed 37.54  proteins complexes).
+
+
+PLOS Computational Biology | www.ploscompbiol.org                           6                        February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                            Essentiality Hub Proteins Hub Modules
+
+
+
+ Table 1. essential protein complex, essential                         networks (Figures S8   S9  ). correlation
+ proteins tend higher average intracomplex degree.                       complex size fraction essential proteins                                                                                    complex [19], complex size correlated                                                                                    intracomplex degree member proteins, possible              Num                 Num Complexes                                     observed relationship intracomplex degree essential-
+             Complexes           Higher                    Empirical          ity correlation complex size              Tested              Avg Essential Degree           p-value            essentiality. address  normalized interaction
+ Direct      38                  29 (76.32 )                    7e-4               degree complex size;  normalized intracomplex
+                                                                                   degree protein computed number intracomplex
+ Pull   51                  30 (58.82 )                    3e-3
+                                                                                   interactions divided complex size.         52                  32 (61.54 )                    1e-3
+                                                                                   normalized degree essential proteins tends significantly
+ Num Complexes Tested gives number complexes considered             greater non-essential proteins (Figures 4 (b), S8 (b)  networks; complex required        S9 (b)).
+ essential proteins non-essential proteins,  intracomplex interactions. Num Complexes Higher Avg Essential
+ Degree gives number complexes tested complexes             Essential complexes processes tend higher
+ essential proteins higher intracomplex degree average        cross-talk degree module-level network
+ non-essential proteins. determine number significant,          just shown, essential proteins tend  randomly permuted essentiality assignments computed number  complexes higher average intracomplex degrees essential proteins.
+                                                                                   intramodular interactions, complexes essential
+ Empirical p-value gives fraction random permutations             proteins, essential proteins tend intracomplex
+ number complexes greater equal actual number,           interactions non-essential proteins. contrast,  computed 10,000 permutations.                                                intermodular interaction degree protein weaker
+ doi:10.1371/journal.pcbi.1002910.t001
+                                                                                   relationship essentiality.  noted earlier,
+                                                                                   significant number intermodular physical interac-  possible reason essential proteins tend               tions  Table S2), presumably physical interactions higher intracomplex degree (Figure 2) essentiality               connecting different functional modules network enriched proteins belonging multiple complexes,                   important module accomplish task.
+intracomplex degree essential protein computed                      hypothesized essentiality protein complex complexes belongs   looking complex                  functional module related topological prominence time alleviate problem.                                           module-level network. test  built ‘‘module
+   way addressing possible bias proteins                  network’’ nodes modules edges participating multiple complexes, protein,                          modules enriched number intermodular cross-talk
+computed intracomplex degree using interactions                    interactions. particular, constructed module network largest complex belongs.  compared                     protein complexes filtered biological processes proteins complexes, significant                   physical interaction network computing number physical
+difference degree distribution essential non-                       interactions modules comparing essential proteins (Figure 4  ), true          average number randomized networks  Materials 
+
+
+
+Figure 4. essential complexes, essential proteins tend higher intracomplex degree Direct network non-
+essential proteins.   intracomplex degree (b) normalized intracomplex degree essential proteins significantly larger non-essential proteins. protein complexes essential proteins non-essential proteins, intracomplex interactions, considered. Outliers 2–98th percentiles shown. significance difference degree distributions determined Wilcoxon rank sum test.
+doi:10.1371/journal.pcbi.1002910.g004
+
+
+PLOS Computational Biology | www.ploscompbiol.org                              7                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                                  Essentiality Hub Proteins Hub Modules
+
+
+
+ Table 2. Module-level networks protein complexes.                                 Table 3. Module-level networks filtered biological
+                                                                                       processes.
+
+                                                         Fraction  Network       Num Cross-talks       Num Modules         Essential Modules                           Num                  Num                Fraction Essential
+                                                                                       Network       Cross-talks          Modules            Modules
+ Direct        194                   143                 0.68
+ Pull     535                   242                 0.60                          Direct        1149                 307                0.79
+
+          727                   279                 0.56                          Pull     1409                 321                0.77
+                                                                                                2306                 371                0.74
+ module-level network built protein complexes using  networks. Num Cross-talks gives number inferred cross-talks. Num               module-level network built filtered biological processes using  Modules gives number modules inferred cross-talk.            networks. Num Cross-talks gives number inferred cross-talks.
+ Fraction Essential Modules gives fraction modules having           Num Modules gives number modules inferred cross-
+ essential protein, modules cross-talk.                  talk. Fraction Essential Modules gives fraction modules having  doi:10.1371/journal.pcbi.1002910.t002                                                 essential protein, modules cross-talk.
+                                                                                       doi:10.1371/journal.pcbi.1002910.t003
+Methods). network, number cross-talks
+uncovered using modules derived protein complexes                         complexes 0.23–0.28 considering filtered biological filtered biological processes Tables 2 3, respectively.                  processes.  significantly positive correlation
+note number cross-talks processes higher                      normalized cross-talk degree module, defined complexes relatively higher number                         cross-talk degree divided module size, module
+interactions processes intermodular intramod-                     essentiality (Table S3). compared cross-talk degree
+ular (86.98  vs. 64.34 , Table S2).                                                   distribution essential non-essential modules using    modules, defined complexes filtered biological                    Wilcoxon rank sum test. networks, considering
+processes, decrease threshold number cross-talks                 protein complexes biological processes, essential modules
+required module considered hub module,                   significantly higher cross-talk degree non-essential fraction modules contain essential protein tends                    modules (Figure 6). Finally, modules larger number
+decline (Figure 5).  significant positive correlation              proteins greater chance containing essential protein, module contains essential protein                        considered fraction proteins module cross-talk degree, SRCCs networks w0:33                        essential. cross-talk degree module considering complexes w0:34 considering filtered                             positively correlated fraction proteins module
+biological processes. modules proteins                       essential (Table S4), values high larger cross-talk degree, computed partial                      binary essentiality (SRCCs networks w0:27 correlation cross-talk degree module essentiality                    complexes w0:17 filtered biological processes).
+controlling number proteins module (Table S3);                    observed cross-talks occur functional
+varies networks 0.22–0.29 considering                          modules functionally related  e., 
+
+
+
+Figure 5. Cross-talk degree module-level network correlated module essentiality.   protein complexes (b)
+filtered biological processes, fraction modules containing essential protein ‘‘hub modules’’ tends decrease network modules considered hubs. data shown, modules added groups 20 non-increasing order cross-talk degree Direct (blue), Pull (cyan) (purple) networks. Correlations computed using SRCC shown network binary essentiality module inferred cross-talk degree. binary essentiality module 1 module essential
+protein, 0 
+doi:10.1371/journal.pcbi.1002910.g005
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                 8                          February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                    Essentiality Hub Proteins Hub Modules
+
+
+
+
+Figure 6. cross-talk degree distribution non-essential modules compared essential modules   Direct, (b)
+Pull (c) networks protein complexes (d) Direct, (e) Pull (f) networks filtered biological
+processes. case, modules essential proteins significantly higher cross-talk degree modules essential proteins, determined Wilcoxon rank sum test.
+doi:10.1371/journal.pcbi.1002910.g006
+
+ general, shared biological process). types cross-            Analysis high-throughput networks
+talks interpreted intraprocess interactions broader            low-throughput studies biased studying
+level functional similarity. example, Ndc80p                 essential proteins, essential proteins appear complex high cross-talk degree networks studied.           interactions existing network databases.  high  Direct network, uncover seven cross-talks (Figure 7).               studies utilize select set ‘‘bait’’ proteins
+Ndc80p component kinetochore, central              bias degree distribution interaction networks. chromosome segregation couples chromosomes microtu-                 address potential concerns, performed additional
+bule polymers. uncovered cross-talks               network analyses.
+DASH MIND complexes, kinetochore                    repeated analysis Y2H-union network [21]
+associated; cross-talks interpreted                recently built BinaryHQHT network [33], ‘‘intramodular’’ interactions higher level organization.           derived high-throughput yeast hybrid data. hand, Ndc80 cross-talks                   networks, interactions experiments involving bait
+complexes range distinct biological                 proteins removed, high-quality yeast hybrid
+processes, including nucleosome remodeling complex SWI/                interactions  experiments) retained. SNF, dynactin microtubule associated complex, MRX                  networks notably smaller size focusing annotated
+complex involved DNA damage repair, nuclear condensin               interactions (Tables S9, S10 S11);  outline
+complex nuclear cohesion complex.                                   repeating analysis yields similar results Direct
+   essential functional modules cross-talks            network. functional modules representing truly different biological               Y2H-union BinaryHQHT networks, intraprocess
+processes, considered set expert-selected BP terms           interaction degree protein weak statistically
+yeast [32], focused annotate 500                 significant correlation essentiality overall degree
+proteins. considered functional module annotated           protein correlated essentiality Y2H-union terms §70  proteins annotated           network weakly correlated essentiality ignored cross-talks functional modules              BinaryHQHT network (Figures S10 S11,   (b)).  annotated shared term; case,          protein essentiality reflected intraprocess degree essential functional modules correlated          networks, overall degree.  intraprocess degree cross-talk degree (Table S5).  range analyses reveals       significantly higher essential proteins non- relationship topological importance            essential proteins (Figure S10 (d) S11 (d)), true
+functional module tendency contain essential proteins.          overall degree interprocess degree (Figures S10 
+
+PLOS Computational Biology | www.ploscompbiol.org                      9                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                          Essentiality Hub Proteins Hub Modules
+
+
+
+
+Figure 7. Cross-talk network centered Ndc80 complex. Cross-talk analysis Direct network uncovers seven cross-talks Ndc80 complex annotated complexes. Ndc80 complex kinetochore, cross-talks subcomplexes kinetochore (shown dark green box), remaining cross-talks non-kinetochore complexes. individual proteins colored red essential, blue 
+doi:10.1371/journal.pcbi.1002910.g007
+
+S11, (c) (e)). 84.62  78.57  essential protein                    overall interaction degree essentiality (Figure S16  
+complexes Y2H-union BinaryHQHT networks, essential                    (b)).  relationship overall interaction
+proteins tend higher average intracomplex degree                  degree essentiality longer significant controlling non-essential proteins (Table S12), essential proteins                  intraprocess degree (Figure S16 (b)).  intraprocess
+higher intracomplex degree normalized intracomplex degree                    degree bait proteins higher essential proteins non-essential proteins (Figures S12 S13).                   non-essential proteins (Figure S16), complexes module-level analysis, cross-talk degree                   essential bait non-essential bait proteins, essential proteins
+complex-level network significantly correlated complex                   higher intracomplex degree (Figure S17).
+essentiality BinaryHQHT network (Figure S14 ),                     Overall, relationships intraprocess degree cross-talk degree process-level network significantly                    protein essentiality, degree complexes essentiality, correlated process essentiality networks (Figures                   module essentiality cross-talk degree largely recapitulated
+S14 (b) S15 (c) (d)). Y2H-union network,               smaller networks, Y2H-union BinaryHQHT networks,
+complexes cross-talks, relationship                    low-throughput experiments experiments biased cross-talk degree complex essentiality weak (Figures              essential proteins specifically excluded. 
+S14   S15  ); small number                     comparisons bait proteins, enriched intercomplex interactions network (Table S10).                           interactions, confirms relationship number    second analysis, removed interactions uncovered                  (intraprocess) interactions protein essential.
+low-throughput experiments  50 interactions determined) Pull network, restricted analysis              Discussion interaction properties proteins labelled bait proteins. Bait
+proteins higher fraction essential proteins network              long line previous research studied relationship
+(Table S14). considering just bait proteins, stronger               network topology protein essentiality. Recent work
+relationships intraprocess degree essentiality                  argued hubs densely connected essential
+
+
+PLOS Computational Biology | www.ploscompbiol.org                           10                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                         Essentiality Hub Proteins Hub Modules
+
+
+complexes processes [18], essential complexes tend                Materials Methods large [19].  argued essentiality modular property, essential proteins essential modules               Physical interaction datasets
+tend interactions modules tend large.                   performed analysis physical interaction datasets. initial analysis, revealing protein’s intramodular                   network, physical interactions gathered interaction degree predictive essentiality overall          BioGRID [26], release 3.1.78, using evidence codes indicative
+degree, largely supports argument.                physical interactions ‘‘Affinity Capture-RNA’’ focus proteins belong complexes, intraprocess             ‘‘Protein-RNA.’’ early yeast hybrid paper Ito et
+interaction degree does correlate essentiality better              al. [42], included core data. remove artifacts overall interaction degree; suggests observed                ‘‘sticky proteins’’ certain experiments, protein network modularity essential proteins largely                      30 interactions single experimental data source, complexes, general feature biological                      removed interactions. second network, extracted
+processes.                                                                      direct physical interactions initial network utilizing
+   observed positive correlation protein essentiality               interactions determined following intramodular degree attributed module-                    experimental systems: Biochemical activity, crystal structure,
+level complex essentiality. particular, essential protein             Far western, FRET, Protein-peptide, Reconstituted complex, complexes, essential proteins tend                  hybrid. network, extracted initial
+higher intracomplex degrees non-essential counterparts.              network interactions determined Affinity  essential complexes, topological prominence              capture-Western Affinity capture-MS. refer constitutent proteins related essentiality;        networks  Direct Pull  respectively, sizes importance proteins maintaining structural                  given Table S1.
+integrity complexes. view consistent                      considered additional networks, comprised relative enrichment essentiality proteins                  interactions determined small-scale experimental
+structural interfaces opposed just structural                  assays; manner, attempt minimize effect study
+interfaces [34].                                                                bias. networks, refer Y2H-union,
+   intermodular interactions                      built earlier study [21]; included interactions
+important intramodular interactions explaining protein                  determined large-scale high-quality yeast hybrid studies,
+essentiality, observed significant number intermodular             excluded experiment using specific set ‘‘bait’’ proteins
+interactions physical interaction networks. considered              enriched essential proteins [43]. used interactions modular level, demonstrated essential                recently built high-throughput yeast hybrid network functional modules tend cross-talks                     [33], refer BinaryHQHT. Finally, built high-
+functional modules.  analysis showed                  throughput network Pull network keeping correlation network topology essentiality               interactions experiments uncovering protein level modular level.  observed             50 interactions 10 ‘‘bait’’ functionally related modules likely interconnect            proteins. refer second network Pull-downf network,  revealing hierarchical structure physical                 use compare network properties bait proteins interaction networks.                                                           respect 
+   Overall, work advanced understanding relationship essentiality network topology.                 Protein complexes biological processes
+shown importance intramodular interactions, especially                      used set 430 protein complexes compiled [27],
+intracomplex interactions, demonstrated essential mod-                 includes SGD Macromolecular Complex standard
+ules tend higher cross-talk degree non-essential                 [44], CYC2008 protein complex catalog [45] set modules. findings likely yield improvements                 manually curated complexes. initial set, removed
+ability predict protein essentiality.  integrative machine            highly overlapping complexes follows.  proteins
+learning approaches use range network sequence                    comprising complex subset proteins comprising
+features previously applied predict protein essenti-               complex, smaller complex removed.  ality (e.g., [35–41]); based work, information                 complexes, Jaccard index proteins making functional modules protein complexes, especially respect                e., number overlapping proteins divided size intramodular cross-talk degree, incorporated              union protein sets) §0:5, removed smaller frameworks.                                                        complexes. Additionally, previous work [19], removed    future, interesting characterize network           complexes corresponding subunits ribosome, properties essential proteins central protein                contain large number proteins;  physical interaction networks. Based current findings,                complexes disproportionately affect protein analysis. speculate proteins important                 filters, left 390 complexes.  functioning specific essential modules, reflected            Supplement Figure S6, Text S1 intraprocess interprocess interactions proteins modules,             results including ribosomal complexes). relationships better represented types                   functional analysis, worked subset specific
+interactions (e.g., regulatory, metabolic genetic). frame-               Gene Ontology   Biological Process (BP) terms [25] work incorporating functional information network                      derived entire (version 1.1.2130) follows.  analysis likely useful establishing             extracted 1418 BP terms, annotates 5 yeast case. Finally, performed analysis S.                proteins 50.  hone contribution cerevisiae, approach applied study essential proteins          specific biological process  opposed effects arising annotated organisms large-scale interaction                     proteins annotated process networks genome-scale gene deletion disruption data.                     protein complexes), pruned set proteins 
+
+PLOS Computational Biology | www.ploscompbiol.org                          11                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                         Essentiality Hub Proteins Hub Modules
+
+
+associated functional terms. specifically, size          tSS b)~0.  terms  intersection biological process                 tSS b)~1.
+original set 430 protein complexes §2, proteins                   measure naturally extended functional relationships
+intersection longer associated process. left           proteins multiple annotations. protein p,
+fewer 2 proteins associated process,            let p) set terms p annotated. term
+half number proteins known annotate,             annotates p, parent terms naturally included term removed consideration. Finally, highly overlapping                p).  proteins p q, protein semantic
+processes removed manner described                    similarity (pSS) defined follows [7]: complexes. procedure resulted 391 ‘‘filtered’’ processes, 2567 proteins associated processes.                                        2: maxa p) q) s 
+                                                                                           pSS(p,q)~                                   :
+                                                                                                        maxa p) s maxa q) s 
+Detecting cross-talk complexes processes
+   given network, exhaustively determined pairs functional modules enriched number interactions [10]. considered modules arising                     Supporting Information
+complexes processes turn  e., functional modules consist                                                                                 Figure S1 intraprocess interaction degree proteins complex, shared
+                                                                                correlated protein essentiality overall
+process annotation 391 filtered processes considered).                                                                                 interaction degree proteins Pull net-
+considered proteins network associated                                                                                 work, interactions categorized specific BP modules considering, edges
+                                                                                terms, annotates 50 proteins.   correspond intermodular interactions                                                                                 fraction essential proteins hub proteins proteins.  modules c1 c2 counted                                                                                 proteins considered hub proteins; proteins added groups
+number ‘‘cross-talk’’ interactions proteins compris-             50 non-increasing order interaction degree. ing modules. Note interactions           fraction highest intraprocess degree (green), followed proteins annotated c1 c2 included            annotated degree (blue) interprocess degree (red). (b) intramodular interactions. determine number               correlations measured SRCCs essentiality observed cross-talk interactions pair            intraprocess, annotated interprocess degree. expected chance, randomized intermodular interactions                 SRCC highest essentiality intraprocess degree. network 100 times using stub-rewiring  [8]),           partial correlation computed annotated degree
+preserving degree distribution, module annotation, overall              essentiality controlling intraprocess number cross-talk interactions.  countfc1 ,c2 g number        interprocess degree. Starred p-values indicate values cross-talk interactions c1 c2 real network,           w0:05. (c)–(e) degree distribution non-essential proteins avgfc1 ,c2 g average number corresponding cross-talk                  compared essential proteins (c) annotated, (d)
+interactions randomized networks, odds-score module               intraprocess, (e) interprocess degree, respectively. box
+pair defined                                                              plot, horizontal bar box corresponds median                                                                                 distribution; ends box indicate                           (countfc1 ,c2 g z1)                                   quartiles; small circles outliers 2–98th
+                                              :                                 percentile range. significance difference                            (avgfc1 ,c2 g z1)                                    degree distributions measured Wilcoxon rank sum
+                                                                                test.
+                                                                                (TIFF)
+  addition pseudocount 1 downweighs contribution rare cross-talks obtain               Figure S2 intraprocess interaction degree high scores simply small  zero) average counts            correlated protein essentiality overall
+randomized graphs. order module pair considered                interaction degree proteins network, cross-talk, required                       interactions categorized specific BP terms,
+independent  e., non-overlapping) cross-talk interactions,                annotates 50 proteins.   odds-score 2. observed relationship             fraction essential proteins hub proteins proteins module essentiality cross-talk degree persists                considered hub proteins; proteins added groups 50 range odds-scores  Tables S6–S8).                                        non-increasing order interaction degree. fraction                                                                                 highest intraprocess degree (green), followed annotated
+                                                                                degree (blue) interprocess degree (red). (b) Semantic similarity                                                             correlations measured SRCCs essentiality    semantic similarity terms                 intraprocess, annotated interprocess degree. SRCC ontology estimate functional similarity                highest essentiality intraprocess degree. partial
+terms. use semantic similarity measure introduced [30].               correlation computed annotated degree particular, let f   fraction proteins yeast annotated         essentiality controlling intraprocess interprocess term total number proteins.                            degree. Starred p-values indicate values w0:05. (c)–(e)
+s ~{log(f  ) measure specific term                    degree distribution non-essential proteins compared compute term semantic similarity b, tSS b)                    essential proteins (c) annotated, (d) intraprocess,             2:s(LCA b))                                                       (e) interprocess degree, respectively. box plot, tSS b)~                     , LCA b) common
+               s zs(b)                                                        horizontal bar box corresponds median ancestor b ontology. Note LCA                 distribution; ends box indicate terms root term (e.g., 0008150 ‘biological process’),               quartiles; small circles outliers 2–98th
+
+
+PLOS Computational Biology | www.ploscompbiol.org                          12                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                      Essentiality Hub Proteins Hub Modules
+
+
+percentile range. significance difference             essentiality intracomplex degree. partial degree distributions measured Wilcoxon rank sum                correlation computed annotated degree test.                                                                        essentiality controlling intracomplex degree,
+(TIFF)                                                                       intercomplex degree, size largest complex                                                                              protein belongs. Starred p-values indicate values
+Figure S3 networks, semantic similarity
+                                                                             w0:05. (c)–(f) degree distribution non-essential proteins degree correlated protein essentiality                                                                              compared essential proteins complexes (c) overall interaction degree.  –(c) fraction                                                                              annotated degree, (d) intracomplex degree, (e) intercomplex
+essential proteins hub proteins proteins considered hub proteins Direct, Pull networks;         degree, (f) complex size. box plot, horizontal
+proteins added groups 50 non-increasing order          bar box corresponds median distribution; semantic similarity degree. network, SRCC                    ends box indicate quartiles; computed protein essentiality semantic                    small circles outliers 2–98th percentile range. similarity annotated degree; values boxed           significance difference degree distributions
+panel. (d)–(f) semantic similarity weighted degree distribution          measured Wilcoxon rank sum test. non-essential proteins compared essential proteins          (TIFF) Direct, Pull networks.                                 Figure S6 correlations interaction degree
+(TIFF)                                                                       essentiality proteins complexes, including
+Figure S4 intracomplex interaction degree                        ribosomal complexes,   Direct, (b) Pull correlated protein essentiality overall                        (c) networks. Interactions categorized using protein
+interaction degree proteins Pull net-                        complexes including ribosomal complexes. fraction work, interactions categorized using protein                        essential proteins hub proteins proteins complexes.   fraction essential proteins hub                  considered hub proteins; proteins added groups 50 proteins proteins considered hub proteins; proteins          non-increasing order interaction degree size added groups 50 non-increasing order interaction           largest complex protein belongs. relationship
+degree size largest complex protein               protein essentiality interaction degree shown belongs. relationship protein essentiality                   intracomplex interactions (green), annotated interactions (blue)
+interaction degree shown intracomplex interactions (green),           intercomplex interactions (red). relationship annotated interactions (blue) intercomplex interactions              protein essentiality complex size shown (black).
+(red). relationship protein essentiality complex             (TIFF)
+size shown (black). (b) correlations measured                 Figure S7 Essentiality correlated intra-
+SRCCs essentiality intracomplex degree,               modular interaction degree intermodular
+annotated degree, intercomplex degree, complex size.                  total degree, modules determined SRCC highest essentiality intracomplex degree.                network (  Direct, (b) Pull (c)  partial correlation computed annotated               network clustering approaches. obtain clusters, used
+degree essentiality controlling intracomplex             SPICi clustering algorithm, local clustering approach, degree, intercomplex degree, size largest complex           density threshold 0.5 minimum increment ratio 0.3. protein belongs. Starred p-values indicate              fraction essential proteins hub proteins values w0:05. (c)–(f) degree distribution non-essential               proteins considered hub proteins; proteins added groups
+proteins compared essential proteins complexes          50 non-increasing order interaction degree. (c) annotated degree, (d) intracomplex degree, (e)                   relationship protein essentiality interaction degree intercomplex degree, (f) complex size. box plot,             shown intramodular interactions (green), total interactions
+horizontal bar box corresponds median                 (blue) intermodular interactions (red).
+distribution; ends box indicate           (TIFF)
+quartiles; small circles outliers 2–98th
+percentile range. significance difference             Figure S8 essential complexes, essential proteins degree distributions measured Wilcoxon rank sum                tend higher intracomplex degree Pull-
+test.                                                                        network non-essential proteins.   intra-
+(TIFF)                                                                       complex degree (b) normalized intracomplex degree                                                                              essential proteins significantly larger non-essential
+Figure S5 intracomplex interaction degree                        proteins. protein complexes essential
+correlated protein essentiality overall                        proteins non-essential proteins, interaction degree proteins network,                    intracomplex interactions considered. Outliers 2–
+interactions categorized using protein complexes.                      98th percentiles shown. significance difference fraction essential proteins hub proteins                degree distributions determined Wilcoxon rank sum test.
+proteins considered hub proteins; proteins added groups
+                                                                             (TIFF) 50 non-increasing order interaction degree size largest complex protein belongs.                     Figure S9 essential complexes, essential proteins
+relationship protein essentiality interaction degree             tend higher intracomplex degree shown intracomplex interactions (green), annotated                network non-essential proteins.   intracomplex
+interactions (blue) intercomplex interactions (red).                 degree (b) normalized intracomplex degree essential
+relationship protein essentiality complex size           proteins significantly larger non-essential proteins.
+shown (black). (b) correlations measured SRCCs                protein complexes essential proteins
+essentiality intracomplex degree, annotated degree,           non-essential proteins, intracomplex
+intercomplex degree, complex size. SRCC highest                    interactions considered. Outliers 2–98th percentiles
+
+
+PLOS Computational Biology | www.ploscompbiol.org                       13                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                          Essentiality Hub Proteins Hub Modules
+
+ shown. significance difference degree                  interprocess degree.  essential proteins higher
+distributions determined Wilcoxon rank sum test.                       average intraprocess degree non-essential proteins (TIFF)                                                                           network (panel (d)), significant difference                                                                                  interprocess degree (panel (e)).
+Figure S10 intraprocess interaction degree                                                                                  (TIFF)
+correlated protein essentiality overall
+interaction degree proteins Y2H-union network,                        Figure S12 Essential proteins tend higher interactions categorized specific BP                            intracomplex degree non-essential proteins terms, annotates 50 proteins.                        protein complexes Y2H-union network.   fraction essential proteins hub proteins proteins           intracomplex degree (b) normalized intracomplex degree considered hub proteins; proteins added groups size 20              essential proteins significantly greater non-essential
+larger proteins degree group).            proteins. protein complexes essential fraction highest intraprocess degree (green), followed        proteins non-essential proteins intracomplex
+annotated degree (blue) interprocess degree (red). (b)           interactions tested. Outliers 2–98  shown. correlations measured SRCCs essentiality                   significance difference degree distributions intraprocess, annotated interprocess degree. SRCC                  determined Wilcoxon rank sum test.
+highest essentiality intraprocess degree. partial                (TIFF)
+correlation computed annotated degree                    Figure S13 Essential proteins tend higher
+essentiality controlling intraprocess interprocess            intracomplex degree non-essential proteins degree. Starred p-values indicate values w0:05. (c)–(e)               protein complexes BinaryHQHT network.   degree distribution non-essential proteins compared            intracomplex degree (b) normalized intracomplex degree of essential proteins (c) annotated, (d) intraprocess, (e)           essential proteins significantly greater non-essential
+interprocess degree, respectively. box plot, horizontal bar          proteins. protein complexes essential box corresponds median distribution;              proteins non-essential proteins intracomplex
+ends box indicate quartiles; small            interactions tested. Outliers 2–98  shown. circles outliers 2–98th percentile range.                    significance difference degree distributions significance difference degree distributions              determined Wilcoxon rank sum test. measured Wilcoxon rank sum test. Y2H-union                     (TIFF)
+network, essentiality intraprocess degree small statistically significant correlation. Essentiality significantly         Figure S14 Cross-talk degree module-level network
+correlated overall degree interprocess degree.                  correlated module essentiality.   protein
+essential proteins higher average intraprocess degree non-             complexes (b) filtered biological processes, fraction essential proteins network (panel (d)),             modules containing essential protein ‘‘hub
+significant difference annotated degree interprocess degree            modules’’ tends decrease network modules (panels (c) (e)).                                                            considered hubs. data shown, modules added non-
+(TIFF)                                                                           increasing order cross-talk degree Y2H-union (blue)                                                                                  BinaryHQHT (cyan) networks. Correlations binary
+Figure S11      intraprocess interaction degree                      essentiality module inferred cross-talk degree correlated protein essentiality overall                            computed using SRCC shown network. interaction degree proteins BinaryHQHT                                binary essentiality module 1 module network, interactions categorized specific                         essential protein, 0  Y2H-union module BP terms, annotates 50                                  network comprised complexes (panel  ), correlation proteins.   fraction essential proteins hub                       significant uncover complexes crosstalks proteins proteins considered hub proteins; proteins              small network (549 edges, Table S10).
+added groups size 20  larger proteins             (TIFF) degree group). fraction highest intraprocess degree (green), followed annotated degree (blue)             Figure S15 cross-talk degree distribution non- interprocess degree (red). (b) correlations                      essential modules compared essential
+measured SRCCs essentiality intraprocess,                  modules   Y2H-union (b) BinaryHQHT annotated interprocess degree. SRCC highest                        networks protein complexes (c) Y2H-union essentiality intraprocess degree. partial correla-               (d) BinaryHQHT networks filtered biological pro-
+tion computed annotated degree essentiality              cesses. Y2H-union BinaryHQHT networks, modules controlling intraprocess interprocess degree.                 (derived biological processes) essential proteins Starred p-values indicate values w0:05. (c)–(e)                   significantly higher cross-talk degree modules degree distribution non-essential proteins compared             essential proteins, determined Wilcoxon rank sum test.
+                                                                                 modules derived complexes Y2H-union network,
+essential proteins (c) annotated, (d) intraprocess, (e)
+                                                                                 differences essential non-essential modules interprocess degree, respectively. box plot, horizontal
+                                                                                 significant, modules bar box corresponds median distribution;                                                                                  uncover cross-talks. ends box indicate quartiles;                                                                                  (TIFF)
+small circles outliers 2–98th percentile range. significance difference degree distributions              Figure S16 intraprocess interaction degree measured Wilcoxon rank sum test. BinaryHQHT                    correlated protein essentiality network, essentiality intraprocess degree small                   overall interaction degree bait proteins statistically significant correlation. Essentiality smaller                Pull-downf network excluding small-scale experi-
+correlation overall degree correlated                       ments, interactions categorized spe-
+
+
+PLOS Computational Biology | www.ploscompbiol.org                           14                       February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                               Essentiality Hub Proteins Hub Modules
+
+
+cific BP terms, annotates 50                              Table S6 significant correlation cross-talk
+proteins. tests bait proteins Pull-                  degree binary module essentiality persists downf network.   fraction essential proteins hub                    range odd-scores Direct network.
+proteins proteins considered hub proteins; proteins                    (PDF) added non-increasing order interaction degree.                     Table S7 significant correlation cross-talk fraction highest intraprocess degree (green),                          degree binary module essentiality persists followed annotated degree (blue)                                range odd-scores Pull network.
+interprocess degree (red). (b) correlations measured                        (PDF)
+SRCCs essentiality intraprocess, annotated interprocess degree. SRCC highest                              Table S8 significant correlation cross-talk essentiality intraprocess degree. partial                          degree binary module essentiality persists correlation computed annotated degree                          range odd-scores network. essentiality controlling intraprocess                       (PDF)
+interprocess degree. Starred p-values indicate values                   Table S9   number proteins, number w0:05. (c)–(e) degree distribution non-essential                            interactions fraction essential proteins proteins compared essential proteins (c)                     Y2H-union BinaryHQHT physical interaction
+annotated, (d) intraprocess, (e) interprocess degree,                          networks.
+respectively. box plot, horizontal bar                        (PDF)
+box corresponds median distribution; ends box indicate quartiles; small                   Table S10 substantial fraction physical interactions
+circles outliers 2–98th percentile range.                      Y2H-union network intermodular.
+significance difference degree                              (PDF)
+distributions measured Wilcoxon rank sum test.                           Table S11 substantial fraction physical interactions
+(TIFF)                                                                             BinaryHQHT network intermodular.
+Figure S17     essential complexes, essential bait                          (PDF)
+proteins tend higher intracomplex degree                              Table S12   essential protein complex, Pull-downf network non-essential bait proteins.                           essential proteins tend higher average
+  intracomplex degree (b) normalized intracomplex                     intracomplex degree Y2H-union BinaryHQHT
+degree essential bait proteins significantly larger             networks.
+non-essential bait proteins. protein complexes                   (PDF) essential bait proteins non-essential bait
+                                                                                   Table S13Module-level networks Y2H-union proteins, intracomplex interactions, considered.
+                                                                                   BinaryHQHT networks.
+Outliers 2–98th percentiles shown. significance
+                                                                                   (PDF) difference degree distributions determined Wilcoxon rank sum test.                                          Table S14       Numbers bait proteins Pull-downf
+(TIFF)                                                                             network.
+                                                                                   (PDF)
+Table S1   number proteins, number interactions fraction essential proteins                            Table S15   essential protein complex, physical interaction networks consid-                            essential bait proteins tend higher average
+ered.                                                                              intracomplex degree non-essential bait proteins (PDF)                                                                              Pull-downf network.
+                                                                                   (PDF)
+Table S2 substantial fraction physical interactions Direct network intermodular.                                            Text S1 Analysis correlations interac-
+(PDF)                                                                              tion degree essentiality proteins complex-
+                                                                                   es, including ribosomal complexes, net-
+Table S3 Correlation cross-talk (CT) degree                                works. binary module essentiality.                                                    (PDF)
+(PDF)
+Table S4 Correlation cross-talk (CT) degree                                Acknowledgments fraction essential proteins module.                              authors thank members Singh group helpful discussions
+(PDF)                                                                              comments manuscript.
+Table S5 Correlation cross-talk (CT) degree binary module essentiality removing function-                            Author Contributions
+ally similar cross-talks.                                                          Conceived designed experiments: JS MS. Performed (PDF)                                                                              experiments: JS. Analyzed data: JS MS. Wrote paper: JS MS.
+
+References
+ 1. Aittokallio T, Schwikowski B (2006) Graph-based methods analysing           3. Rives AW, Galitski T (2003) Modular organization cellular networks. Proc
+    networks cell biology. Briefings Bioinformatics 7: 243–255.                  Natl Acad Sci USA 100: 1128–1133.
+ 2. Hartwell LH, Hopfield JJ, Leibler S, Murray AW (1999) molecular         4. Spirin V, Mirny LA (2003) Protein complexes functional modules     modular cell biology. Nature 402: C47–C52.                                         molecular networks. Proc Natl Acad Sci USA 100: 12123.
+
+
+
+
+PLOS Computational Biology | www.ploscompbiol.org                             15                          February 2013 | Volume 9 | Issue 2 | e1002910
+                                                                                                                             Essentiality Hub Proteins Hub Modules
+
+
+ 5. Bader GD, Hogue CW (2003) automated method finding molecular                       26. Stark C, Breitkreutz BJ, Reguly T, Boucher L, Breitkreutz  et al. (2006)
+    complexes large protein interaction networks. BMC Bioinformatics 4: 2.                     BioGRID: general repository interaction datasets. Nucleic Acids Research
+ 6. Pereira-Leal J, Enright AJ, Ouzounis CA (2004) Detection functional modules                34(Database Issue): D535–D539.
+    protein interaction networks. Proteins 54: 49–57.                                    27. Baryshnikova  Costanzo M, Kim Y, Ding H, Koh J, et al. (2010) Quantitative
+ 7. Song J, Singh M (2009) interactome-derived clusters used               analysis fitness genetic interactions yeast genome scale. Nature
+    predict functional modules protein function? Bioinformatics 25: 3143–3150.             Methods 7: 1017–1025.
+ 8. Milo R, Shen-Orr S, Itzkovitz S, Kashtan N, Chklovskii D, et al. (2002) Network           28. Schwikowski B, Uetz P, Fields S (2000) network protein-protein interactions
+    motifs: simple building blocks complex networks. Science 298: 824–827.                     yeast. Nature Biotechnology 18: 1257–1261.
+ 9. Luscombe NM, Babu MM, Yu H, Snyder M, Teichmann SA, et al. (2004)                         29. Spearman C (1904) proof measurement association     Genomic analysis regulato

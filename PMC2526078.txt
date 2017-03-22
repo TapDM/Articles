@@ -1,0 +1,505 @@
+BMC Systems Biology                                                                                                                      BioMed Central
+
+
+
+Methodology article                                                                                                                    Open Access
+Machine learning based analyses metabolic networks supports
+high-throughput knockout screens
+Kitiporn Plaimas1,2, Jan-Phillip Mallm1, Marcus Oswald3, Fabian Svara4,
+Victor Sourjik4, Roland Eils*1,2 Rainer König1,2
+
+Address: 1Department Bioinformatics Functional Genomics, Institute Pharmacy Molecular Biotechnology, Bioquant, University Heidelberg, Im Neuenheimer Feld 267, 69120 Heidelberg, Germany, 2Division Theoretical Bioinformatics, German Cancer Research Center
+(DKFZ), Im Neuenheimer Feld 280, 69120 Heidelberg, Germany, 3Department Discrete Optimization, Interdisciplinary Center Scientific
+Computing, University Heidelberg, Im Neuenheimer Feld 368, 69120 Heidelberg, Germany 4Center Molecular Biology Heidelberg
+(ZMBH), Im Neuenheimer Feld 282, 69120 Heidelberg, Germany
+Email: Kitiporn Plaimas - k.plaimas@dkfz  Jan-Phillip Mallm - jpmallm@gmx  Marcus Oswald - Marcus.Oswald@Informatik.Uni-
+Heidelberg  Fabian Svara - fabian.svara@urz.uni-heidelberg  Victor Sourjik - v.sourjik@zmbh.uni-heidelberg 
+Roland Eils* - r.eils@dkfz  Rainer König - r.koenig@dkfz * Corresponding author
+
+
+
+
+Published: 24 July 2008                                                       Received: 29 April 2008
+                                                                              Accepted: 24 July 2008
+BMC Systems Biology 2008, 2:67   doi:10.1186/1752-0509-2-67 article available  http://www.biomedcentral.com/1752-0509/2/67
+© 2008 Plaimas et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: Computational identification new drug targets major goal pharmaceutical
+                 bioinformatics.
+                 Results: paper presents machine learning strategy study validate essential enzymes
+                 metabolic network. single enzyme characterized local network topology, gene
+                 homologies expression, flux balance analyses. machine learning trained
+                 distinguish essential non-essential reactions. validated comprehensive
+                 experimental dataset, consists phenotypic outcomes single knockout mutants                  Escherichia coli (KEIO collection). yielded reliable results high accuracy (93 )                  precision (90 ). topologic, genomic transcriptomic features describing                  network sufficient defining essentiality reaction. features substantially
+                 depend specific media conditions enabled apply approach specific
+                 media conditions, like lysogeny broth rich medium.
+                 Conclusion: analysis feasible validate experimental knockout data high throughput
+                 screens, used improve flux balance analyses supports experimental knockout screens
+                 define drug targets.
+
+
+
+
+Background                                                                     silico helps identify enzymes essential Defining drug targets drug design major                      survival organism [2,3]. general model goals biomedical research. particular, metabolic                         metabolic network described graph theoreti-
+enzymes successfully targeted specific drugs                      cal approaches applied identify drug targets inhibit essential processes pathogenic organisms                      pathogenic organisms [4]. term 'damage' used human host [1]. Analyzing metabolic network                         assess enzymes serve drug targets 
+
+                                                                                                                                       Page 1 11
+                                                                                                                 (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                              http://www.biomedcentral.com/1752-0509/2/67
+
+
+
+inhibition influences substantial number             targets. Supporting claim, 19 37 predictions stream metabolic reactions products [5].           novel targets literature reported  concepts choke points load points            experimental evidence.
+successfully applied estimate essentiality enzyme [2,3]. Load points defined hot spots     Methods
+metabolic network (enzymes/metabolites) based           Network reconstruction
+ratio number k-shortest paths passing      data metabolic network taken pre-
+metabolite/enzyme  , number nearest          vious study reconstructed way (iAF1260,
+neighbor links   attached  ratio com-    Feist workers [8]). Basically, metabolic net-
+pared average load value network [2]. Choke      work represented undirected bipartite graph
+points uniquely consume produce certain metabolite,       consisting metabolites reactions alternating make indispensable. example,             nodes. network taken flux balance analy-
+Plasmodium falciparum d-aminolevulinate dehydratase            ses. analyses, unspecific compounds (ALAD) considered choke point [3]        water, ATP,  discarded.
+proven experimentally serve valid antimalarial tar- [6].                                                       gold standard
+                                                               order demonstrate efficiency approach Flux balance analyses (FBA) widely used          used data KEIO collection [10] gold stand-
+established method assess essentiality genes         ard. dataset consisted phenotypic outcomes
+[7,8].  FBA approaches need clear definitions       set knockout mutants single genes nutrition availability biomass production spe-       used define classes "essential" "non-essential"
+cifically given environmental conditions  good      reactions. Genes knocked frame
+view aspects e.g. [9]). High-throughput           replacement PCR product containing kanamycin
+experiments performed investigate essen-      resistance gene. start-codon stream trans-
+tiality major portion genes organism [10-    lational signal replaced fully intact. 12]. Escherichia coli, essentiality virtually   kanamycin treatment, frame single gene deletions open reading frames observed comprehensive            verified PCR loci specific primers. knockout screen (KEIO collection [10]). data enables      unable create mutant formed colonies plate, test performance silico metabolic model        mutated gene considered essential. Knock- predicts essential genes. Analyzing flux balances         experiments performed LB rich medium aerobic glucose condition using COBRA tool-          glucose minimal medium, resulting datasets
+box [13] newly reconstructed metabolic network        (denoted rich medium glucose minimal medium,
+E. coli yielded 92  accuracy predicting essenti-      respectively). rich medium, 4,288 tested
+ality genes [8]. Feist workers compared        genes, 303 genes mutants predictions KEIO collection yielded 88        defined essential. Genes considered rich media conditions. study, FBA cor-      essential rich medium condition 
+responding experimental knockout screen performed          sidered essential glucose minimal medium  study opportunistic behavior pathogen Pseu-      dition. Additionally, genes, 119 genes domonas aeruginosa systems view [14].                   assigned essential glucose minimal medium                                                                showed slow growth minimal media (growth paper propose integrative machine learning       rate ≤ 0.0926 24 hours). Experimental criteria gene
+approach applying broad list described tools.     essentiality glucose minimal medium described machine learning supplied qualitative          [8,12]. Genes mapped corresponding quantitative descriptors derived biochemical          proteins, enzymes reactions using gene-protein-
+knowledge, genomic transcriptomic data, flux           reaction Table Feist et al. [8]. reaction(s) associ-
+balance analyses. Using KEIO collection [10]        ated gene defined essential non-
+gold standard, yielded overall accuracy 93        essential way activate reac-
+rich media conditions. Comparative analysis        tion(s) genes coding gene experi-
+flux balance approach machine learning                 mentally essential non-essential, respectively.
+approach yielded improvements FBA,          discarded training test-
+consider aminyl-tRNA reactions modeling. Predictions        ing analysis. Furthermore, 133 reactions discarded contradicted KEIO collection experimentally      analysis, corresponding genes couldn't tested successfully used detect errors experi-   defined. Finally, 303 essential genes determined
+mental data. Predicted reactions matching experimen-       set 231 essential 1125 non-essential reactions
+tal screen strengthen candidacy potential drug        rich medium. 1125 non-essential reac-
+
+
+                                                                                                                   Page 2 11
+                                                                                             (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                                               http://www.biomedcentral.com/1752-0509/2/67
+
+
+
+tions rich medium, 107 reactions defined                       Topology based features
+essential glucose minimal medium. total, 1356                       set breadth algorithm investigate net-
+reactions used experimental results (KEIO)                      work single reaction blocked. defined essentiality taken class labels reac-               reaction essential survival basically tions (samples) training validating classifiers.                 mutated network yield products reac-
+Note  didn't use experimental data fea-                 tion upstream substrates reaction.  fea-
+tures reactions.                                                      tures defined knocked reaction
+                                                                             substantial producing downstream metabolites
+Defining features                                                        products produced path- list relevant features obtained differ-                  ways. investigation tested knocked reac-
+ent aspects: network topology, genomics flux balance                     tion performed following algorithm.
+analyses. Table 1 gives overview features abbreviations.
+Table 1: List features
+
+ Short form Explanation
+
+                Topology features: local structures
+ RUPa           Reachable/Unreachable Products (RUP): equal product produced blocking reaction
+ PUP            Percentage Unreachable Products (PUP): percentage products produced blocking reaction
+ NSa            Number Substrates (NS)
+ NPa            Number Products (NP)
+ NNRa           Number Neighbouring Reactions (NNR)
+ NNNRa          Number Neighbours Neighbouring Reactions (NNNR)
+ CCVa           Clustering Coefficient Value (CCV): clustering coefficient reaction
+ DIRa           Directionality reaction (DIR)
+
+                Topology features: deviations, choke points, load scores damage
+ ND             Number Deviations (ND)
+ APL            Average Path Length (APL): average path length deviations
+ LSPa           Length Shortest Path (LSP): length shortest path deviations
+ CP             Choke Point (CP): reaction choke point (Rahman et al, 2006)
+ LSa            Load Score (LS): load score reaction (Rahman et al, 2006)
+ NDRa           Number Damaged Reactions (NDR): number damaged reactions blocking reaction (Lemke et al, 2004)
+ NDCa           Number Damaged Compounds (NDC): number damaged compounds blocking reaction (Lemke et al, 2004)
+ NDRDa          Number Damaged Reactions having Deviations (NDRD): number damaged reactions alternative paths
+                reached blocking reaction
+ NDCDa          Number Damaged Compounds having Deviations (NDCD): number damaged compounds alternative
+                paths reached blocking reaction
+ NDCRa          Number Damaged Choke point Reactions (NDCR): number damaged choke point reactions blocking reaction
+ NDCCa          Number Damaged Choke point Compounds (NDCC): number damaged choke point compounds blocking reaction
+ NDCRDa         Number Damaged Choke point Reactions having Deviations (NDCRD): number damaged choke point reactions                 alternative paths reached blocking reaction
+ NDCCDa         Number Damaged Choke point Compounds having Deviations (NDCCD): number damaged choke point compounds
+                alternative paths reached blocking reaction
+
+                Gene expression data, genomic data miscellaneous
+ NCGa           Number Coding Genes (NCG): number coding genes reaction
+ H10a           Homology 10-10 (H10): number homologous genes e-value cutoff 10-10
+ H7             Homology 10-7 (H7): number homologous genes e-value cutoff 10-7
+ H5a            Homology 10-5 (H5): number homologous genes e-value cutoff 10-5
+ H3a            Homology 10-3 (H3): number homologous genes e-value cutoff 10-3
+ NRSGa,b        Number Reactions Genes (NRSG): number reactions derived genes
+ NRSEa,b        Number Reaction having Similar Expression
+                (NRSE): number reactions similar expression (correlation coefficient >0.8)
+ MCCa,b         Maximum Correlation Coefficients (MCC): maximum value correlation coefficients neighbouring reactions
+
+                Flux distribution
+ BFVa           Biomass Flux Value (BFV): biomass flux value blocking reaction  aerobic glucose condition)
+
+ athe   optimized features, bfeatures gene expression
+
+
+                                                                                                                                      Page 3 11
+                                                                                                                (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                               http://www.biomedcentral.com/1752-0509/2/67
+
+
+  metabolites acting input nodes (substrates)       blocked. organism pathways pro-
+output nodes (products) knocked reaction        duce products making robust. 
+selected. set substrates S defined input nodes       counted number possible alternative paths set products P defined output nodes.      yielding feature ND (ND, number deviations). broader list available substrates integrated substrates S. included substrates      Choke points, load points damage
+upstream reactions products downstream           reaction uniquely consumes produces certain
+reactions sets S P, respectively. Substrates    metabolite metabolic network considered reactions substrates S sub-   choke point. reaction shows high potential strate included S.  substrates reactions    essentiality [2,3]. checked observed reaction metabolite P substrate         choke point (CP, choke points). According 
+included S.                                                cept load scores [2], computed load score                                                                 reaction average number pathways passing
+ii. Reactions selected used available com-      reaction, comparison number pounds substrates.                                           pathways metabolites network. used                                                                 definition damaged compounds/reactions reported iii. selected reactions products incor-    [5]. Basically, damage defined determining porated network. products set new        potentially effected metabolites reactions 
+available metabolites network.                           stream knocked reaction. applied def-
+                                                                inition calculating features NDR (NDR, number iv. Steps ii iii repeated reactions   damaged reactions) NDC (number damaged com- identified incorporation.                          pounds). turn, damaged compounds/reactions
+                                                                produced alternative pathways.
+v. output nodes produced counted          calculated number damaged com-
+(reachable products P).                                         pounds/reactions did alternative way                                                                 reached substrates knocked reac- finishing process, used number defined      tion (NDRD, number damaged reactions having output nodes produced mutated          deviations; NDCD, number damaged compounds hav-
+network features, e. quality feature defining    ing deviations). addition analysis dam- product produced (RUP, reacha-        aged compounds/reactions, included number
+ble/unreachable products), percentage prod-          damaged choke points (NDCR, number damaged
+ucts produced (PUP, percentage             choke point reactions; NDCC, number damaged choke
+unreachable products).                                          point compounds; NDCRD, number damaged choke
+                                                                point reactions having deviations; NDCCD, number run breadth search network esti-     damaged choke point compounds having deviations).
+mate possible deviations. time focused rele-
+vant pathways using similarity measure          Local topology features
+SIMCOMP software [15]. SIMCOMP used define               number substrates products knocked relevant substrates products reac-         reaction counted (NS, number substrates, NP,
+tion. Starting S, breadth search explored    number products, respectively).  defined
+network finding direct products knocked      features number neighbouring reactions (NNR,
+reaction. algorithm visited products,         number neighbouring reactions), number neigh-
+stored corresponding pathway continued              bours neighbouring reactions (NNNR, number search alternative paths network      neighbours neighbouring reactions) clustering entirely explored maximal path length 10 reac-      coefficient (CCV, clustering coefficient values) [16,17] tions reached. took average path length (APL,        knocked reaction. reaction direction (DIR,
+average path length) shortest path length (LSP,         directionality reaction) taken model
+length shortest path) deviations features      Feist et al.[8]. classifier. deviation features used alternative pathways produce products knocked         Gene expression data, genomic data miscellaneous reaction substrates S. metabolic network,     case study, collected gene expression data substrates consumed reactions        study observing regulation oxygen depriva-
+yielding products   kept track        tion [18]. dataset taken unspe-
+alternative paths metabolic network poten-       cific regulation, e. small band broad
+tial organism survive reaction             range effected metabolic pathways. gene expression
+
+
+                                                                                                                   Page 4 11
+                                                                                             (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                                 http://www.biomedcentral.com/1752-0509/2/67
+
+
+
+data data-set mapped corresponding          diction value (number true negatives/number nega-
+reactions. reaction catalysed complex        tively predicted reactions). proteins, took mean gene expression val-
+ues corresponding genes  details            Feature selection
+[19]). Genes pathway regula-           feature selection approach.
+tion [20].  maximum correlation coefficient        trained Support Vector Machines terms max- neighboring reactions knocked reaction         imizing overall accuracy using features. single
+(MCC, maximum correlation coefficient) number            feature discarded data set perform- reactions having similar gene expression (correlation         ance machine observed. Testing perform-
+coefficient > 0.8) calculated (NRSE, number reac-        ance machine leave cross
+tions having similar expression).              validation. accuracies machines missing number reactions coming gene (NRSG,             feature compared best machine kept number reactions genes), features             iteration. repeated accuracy did served machine estimating knocked reac-       increase. machine best accuracy selected
+tion biosynthesis degradation pathway.            best classifier features optimized fea- included number homologous genes                ture set. taken function knocked gene. Homologous genes searched using Blast [21]            Experimental protocol knockout verification open reading frames E. coli differ-     Knockout mutations verified PCR amplification
+ent e-value cutoffs, e. 10-3, 10-5, 10-7, 10-10 yielding   genomic loci expected contain 1327 base pair features H3, H5, H7 H10, respectively.               gene replacement cassette specific primers (Table S4
+method flux balance simulations described           Additional file 1). Primers chosen equal
+Results discussion (section Comparing perform-           predicted melting temperatures ~60°C hybridised
+ance performance flux balance analyses).               specific distances upstream downstream tar-
+                                                                 gene. PCR reactions performed directly Machine learning                                                 freshly grown bacterial colonies 30 cycles applied Support Vector Machines R package            annealing temperature 54°C. product sizes
+e1071 [22] classify essential non-essential       obtained KEIO collection strains compared
+reactions metabolic network. radial basis func-         wild-type E. coli strain MG1655 1 
+tion used kernel function. Parameter optimiza-        agarose gels.
+tion performed regularization term defined costs false classifications (5 steps    Assembling list drug targets
+range: 2n, n = -4, -2, 0, 2, 4). range taken    map enzymes drug targets, drugs corre- kernel width γ. optimization realized            sponding drug targets selected drug data-
+training grid search combinations       base Drugbank [23]. took drugs account parameters [22]. sizes classes differed sig-      affected organism excepting humans mam-
+nificantly data set (essential: 17 , non-essential:       mals. Entries metabolites reaction
+83 ). broad spectrum different precisions           KEGG database [24] discarded restrict sensitivities, varied weight factor positive      drug list non-endogenous compounds. targets'
+instances data set optimized feature set       annotated EC numbers remaining drugs col- range 0.1 5.0. performed leave         lected validated drug targets.
+cross validation measure effectiveness machine learning method. single reaction selected          Results discussion validation data predicted remaining         overview machine learning procedure shown
+reactions training data. repeated       Figure 1. machine learning trained reaction data set. assessing performance       validated large set features. Firstly, local topology classifiers, calculated standard measures accu-       based features used qualitatively possi-
+racy (number correctly predicted reactions/number          ble flux deviations. Secondly, choke load points predicted reactions), sensitivity (number true posi-      defined damage used qualitative
+tives/(number true positives + number false nega-          flux load stream effects knocked tives)), specificity (number true negatives/(number        reaction. Thirdly, functional genomics data, 
+true negatives + number false positives)), positive pre-      expression genes  stream reactions
+diction value precision (number true positives/            used indicate conjoint reactions pathway. number positively predicted reactions), negative pre-         addition features, considered existence                                                                  homologous genes corresponding knockout reac-
+
+
+                                                                                                                      Page 5 11
+                                                                                                (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                                     http://www.biomedcentral.com/1752-0509/2/67
+
+
+
+
+                       Metabolic Network                           1) Topology based features
+                                                                             - Local topology
+                                                                             - Deviations
+                                                                             - Choke load points
+                                                                             - Damages
+                                                                   2) Genomic transcriptomic data
+                                                                                             ATCGAGTTGCAAT
+                                                                                             ATAGAA – TGCA-T
+                                                                                            - Gene expression
+                                                                                            - Homologous genes
+                         reaction                                 3) Flux balance analysis
+                         metabolite
+                                                                                       - Biomass objective flux
+
+
+                                                                             Feature creation
+                                                                                    Features
+                                                                                           R
+                                                                                                          Essentiality
+                                                                             P S P NR NN V             classes
+                                                                           RU P N N N N CC . . .
+                                                                       1                                    E   E: Essential
+                                                                                                            N   N: Non-essential
+                                                                                                          N
+                                                           Reactions
+                                                                         ...   3 1    4   ...             E
+                                                                                                            .
+                                                                                                            .
+                                                                       .
+                                                                                                            .
+                                                                       .
+                                                                       .
+
+                                                                                 Reaction profile
+
+
+      machine learning (SVM)
+
+             Essential             φ
+               o o                                           o                                    Trained classifier
+                o o x                                     oo
+              o                                         o o o
+                       x x                                x xx
+              x ox                                                                             Prediction                         Non-essential                    x x
+                                                                                            reaction essential
+                 Input space                           Space kernel
+
+
+Figure 1 overview method
+Schematic
+Schematic overview method. reaction, features calculated describing 1) local topology metabolic network, 2) genomic transcriptomic relations, 3) biomass production using flux balance analyses discarding reaction. E.g. given reaction educts, product 4 neighbors, feature NS (number sub-
+strates), NP (number products), NNR (number neighboring reactions) set 3, 1 4, respectively. table reaction profiles created used training classifier distinguish essential non-essential reac-
+tions. Support Vector Machine (SVM) applied classifier optimal separating hyperplane.
+
+
+
+
+                                                                                                                             Page 6 11
+                                                                                                       (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                                   http://www.biomedcentral.com/1752-0509/2/67
+
+
+
+tion, expected function           positive instances recognized knocked gene. Finally, used flux balance anal-          weight factor increased. highest specificity (99 ) yses estimate network's biomass production follow-          best precision (95 ) yielded data
+ing knocking reaction. list features given    point weight factor 0.1. beneficial Table 1.                                                           predicting drug targets high reliability. Alternatively,
+                                                                   avoid overlooking potential targets, increased sensitiv-
+Performance machine learning algorithm                      ity achieved raising weight factor 1.0 small data set 1356 reactions training           (sensitivity = 75 ). following, analyses validation, performed leave cross vali-           performed weight factor 
+dation measure effectiveness machine learn-
+ing  Using KEIO-collection data rich                 Identifying drug targets
+medium reference, gained overall accuracy          compared enzymes predictions 92  features taken (Table 2). increase            results KEIO collection comprehensive list performance, did systematic feature reduction             valid drug targets Drugbank database [23] (Fig- procedure. yielded better result            ure 3). Surprisingly, 80  drug target enzymes optimized feature set 25 features (accuracy =           KEIO high-throughput screen 93 , Table 2). 25 features regarded            machine. fact drug dominating factors leading good performance.          targets broad range organisms having different relevant,              topologies metabolic networks dif-
+started procedure, stopping          ferent alternative pathways corresponding drug tar-
+step. features, compared accuracy          gets. noted study focused classifier lacking feature, respectively. turned     reactions essential rich media conditions. loosing feature NNNR yielded worst classifi-          suggest 37 promising drug target enzymes cation performance (accuracy -0.89 compared clas-           Drugbank database, validated inter-
+sifier features) hinting      section predictions results exper- relevant feature. feature followed NRSE           imental KEIO screen. list reactions (-0.82), BFV (-0.74), NNR (-0.52) H10 (-0.52). Inter-          references reported experimental evidences given estingly, features span set     Table S1  Additional file 1]. feature categories (NNNR NNR: network
+toplogy; NRSE: gene expression, genomics; H10: homol-              Comparing performance machine learning
+ogy, genomics; BFV: flux balance analysis).                    approach flux balance analyses
+                                                                   performed single reaction deletion network sizes classes "essential reactions" "non-       calculated flux values FBA using Cobra Tool-
+essential reactions" differed significantly data set        box [13] assess essential reactions aerobic glu-
+(essential: 17 , non-essential: 83 ). obtaining differ-        cose minimal media conditions  described ent stringencies, weighted positive instances          supplementary material Feist et al. 2007). anal-
+factor ranging 0.1 5.0 step size 0.1 (Fig-       ysis, reaction assessed essential respective
+ure 2). sensitivity increased significantly smaller       prediction mutated network's maximal biomass higher weights, reaching plateau weight factors        production < 1  wildtype's biomass produc-
+1.0  expected, smaller weight classi-        tion. biomass objective function used analysis
+fier tended overwhelmed large negative class.         taken explained [8]. Note simulating
+
+Table 2: Performance machine learning based predictions rich media condition
+
+                                                                         Machine Learning                          Machine Learning
+                                                                           30 features)                   (25 optimized features)
+
+ true positives                                                                         168                                        174
+ true negatives                                                                        1078                                       1092
+ false positives                                                                         47                                         33
+ false negatives                                                                         63                                         57
+ sensitivity (recall)                                                                72.73                                      75.32 
+ specificity                                                                         95.82                                      97.07 
+ positive predictive values (precision)                                              78.14                                      84.06 
+ negative predictive values                                                          94.48                                      95.04 
+ overall accuracy                                                                    91.89                                      93.36 
+
+
+
+
+                                                                                                                        Page 7 11
+                                                                                                  (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                                         http://www.biomedcentral.com/1752-0509/2/67
+
+
+
+                                                                       medium according experimental criteria gene
+                                              ROC Plot                 essentiality glucose minimal media KEIO col-
+                    90                                                 lection [8,10,12]. 996 reactions identified non-
+                    80                                                 essential. remaining reactions associated gene,
+                    70                                                 exchange reactions, clearly identi-
+ sensitivity ( )
+
+
+
+
+                    60                                                 fied. FBA approach detected essentiality reac-
+                                                                       tion aerobic glucose minimal condition                     50                                                 accuracy 86 , sensitivity 52  specificity                     40                                                 98 . performed machine learning glucose
+                    30                                                 minimal conditions BFV (Biomass flux
+                    20                                                 value FBA simulation) BFV improve
+                    10                                                 results (Table 3). BFV, approach yielded 90 
+                                                                       precision 79  recall experimental results, com-
+                     0 
+                        0  1  2  3  4  5  6  7                         pared FBA results 87  precision 51  recall.
+                                                                       Results reactions given Table S2 [Additional
+                                      100 – specificity ( )            file 2].
+
+ROC-curve
+Figurefactors
+weight         positive
+         2 showing    prediction
+                            instances results different           Improving flux balance simulations
+ROC-curve showing prediction results dif-                     Figure 4 shows comparison method FBA ferent weight factors positive instances. (blue)              categorizing results according KEGG pathways
+diamond shows result different weight. left          [24]. essential reactions right, weight increased 0.1 5.0, step size
+                                                                       machine learning approach FBA 0.1. weight factors higher 1.0, sensitivity remained constant. dotted line manually            reactions amino acid metabolism lipid
+fitted.                                                                metabolism. amino acid metabolism, tRNA trans-
+                                                                       ferases amino acids essen-
+                                                                       tial machine learning approach FBA. rich media conditions challenging, difficult            improved FBA simulations adding corresponding
+characterize uptake rates compound rich              aminyl-tRNA reactions products biomass
+medium (Adam Feist, personal communication 2008).                      objective function. ensured tRNA transferases  compared performances                   predicted essential FBA method. approach FBA glucose minimal media. 338                    simulations subsequently gained better results cor-
+reactions essential glucose minimal                rectly predicting essentiality aminyl-tRNA reac-
+                                                                       tions.
+
+                                                                       Using approach means validate                                             Machine Learning
+                                                                       experimental knockout screen
+                                 8                                     Predicting different outcome experimental high
+                                                                       throughput screen (KEIO) error 
+                            37         17                              Table 3: Comparison machine learning method Flux
+                                 15                                    Balance Analyses glucose minimal media condition
+                                                                 183
+                       22        16         125                         Performance                         ML\BFV1          ML2         FBA3
+
+                                                                        true positives                          192          266          174
+                                                  Drug targets          true negatives                          932          968          971
+                   KEIO (rich medium)                                   false positives                          64           28           25
+                                                                        false negatives                         146           72          164
+                                                                        sensitivity                          56.80        78.70        51.48  Figureinvestigated
+          3        enzymes                                              specificity                          93.57        97.19        97.49  investigated enzymes. sets shown: essen-                  positive predictive values           75.00        90.48        87.44 
+tial enzymes machine learning approach                 negative predictive values           86.46        93.08        85.55 
+circle), essential enzymes KEIO knockout                   overall accuracy                     84.26        92.50        85.83 
+screen [10]  left circle) enzymes valid
+                                                                        1machine learning feature BFV (biomass flux value drug targets taken database Drugbank [23] (bot-
+tom-right).                                                             FBA).
+                                                                        2machine learning including feature BFV
+                                                                        3Flux Balance Analysis
+
+
+
+
+                                                                                                                               Page 8 11
+                                                                                                         (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                                       http://www.biomedcentral.com/1752-0509/2/67
+
+
+
+                                                                        4 genes list, mutations                                                      FBA
+                                                        Non essential   stated 100  correct Baba et al.                                                          Essential
+                                                     ML                 genes (aspC, epd, luxS, thiE) correct PCR
+          Metabolism                                 Non essential
+  Cofactors Vitamins                                Essential
+                                                                        product corresponding knockout allele   Amino Acid Metabolism                              Experiment         observed.
+                                                       Nonessential
+   Nucleotide Metabolism                               Essential
+                                                                        Conclusion
+        Lipid Metabolism
+                                                                        Defining drug targets challenging task. experi-
+ Carbohydrate Metabolism                                                ments rely conditional essentiality screen genes       pathway                                                define associated enzymes possible drug targets.
+                                                                        Machine learning methods help validate exper-
+                                                                                         imental data. approach used experimental knock-
+                           0   50 100 150 200 250 300 350               data E. coli KEIO [10]. machine                                Number reactions                      trained data predicted quite accurately                                                                         experimental outcomes. methods based graphi-
+Figure
+Comparison experimental
+        4  data,  according
+                     machine  learning
+                                   different
+                                       predictions,
+                                                pathways
+                                                    FBA             cal networks aim finding weak points net-
+Comparison machine learning predictions,                         work. set machine learning integrates
+FBA experimental data, according differ-                     features describing network topology functional
+ent pathways. pathway KEGG [24], lowest                 genomics properties elaborated way. bars represent experimental result (KEIO), reactions                                                                         gained valuable insights. Firstly, grouped non-essential (left, blue) essential (right,
+magenta). mid bars prediction results              topologic, genomic transcriptomic data describing machine learning approach flux balance analyses,             network attributes sufficient defining respectively. Larger differences machine learn-             essentiality certain reaction. pathogens ing prediction FBA amino acid metabo-               hard define environmental parameters lism lipid metabolism.                                              complex changeable e.g. intestinal infections.
+                                                                        approach  principle, handle media condi-
+                                                                        tions, shown rich media conditions study. algorithm, error experimental knock-               Rich media conditions better reflect situation screen. examined lists false positives                pathogens host (like e.g. gut), compar-
+false negatives experimental set-ups. list                ison minimal media conditions clearly defined
+false negatives contained 71 genes algorithm                  carbon sources flux balance analyses predicted non-essential glucose minimal                 adapted. second benefit study experimental
+dition contradiction outcome KEIO exper-               validation support estimations potential drug
+iment [10]. 33 obtained corresponding                    targets. regarding intersection results knockout clones KEIO library (growing rich                  KEIO collection, 37 potential targets media), grew M9 glucose medium.                      novel drugs, 19 able grow 9 33 clones good growth                reported experimental evidence literature. rates (OD600 ≥ 0.2 48 hours) 3 clones rea-               advantage machine learning approaches easily
+sonable growth rates (OD600 0.07 0.2                  change stringency parameter, e.g. increasing preci-
+48 hours). complete list given Table S3  Addi-             sion avoid loosing potential candidates, weight fac-
+tional file 1]. turn, tested list false posi-         tor positive instances increased. used
+tives, algorithm predicted 33 genes                 gene expression data E. coli wild-type single
+essential, contrast experimental high throughput              knock strains. single knock outs regulators
+screen. assumed genes weren't                     respiration effecting large number genes knocked correctly. Baba et al. (2006) provided valid-             treatment unspecific (growth oxygen rich
+ity estimation clones. compared results             deprived conditions).  large portion net- estimations selected 6 genes, mutants               work pathways metabolic network differen- estimated equal 37.5  correct.               tially expressed [25]. presented approach, data 5 6 genes (alaS, coaA, coaE, glyS                  pathway unspecific examinations suited let
+hemE) PCR specific primer pairs (Table S4 Addi-                 classifier learn neighboring enzymes jointly
+tional file 1) yielded products sizes correspond-              work   multiple gene expres-
+ing wild-type knockout alleles, respectively.               sion datasets variety conditions suit indicated genes correctly knocked                 approach.  needs investigated wild-type gene present. PCR product                gene expression data suits best optimize  observed ileS knockout. Additionally tested              formance.
+
+
+                                                                                                                            Page 9 11
+                                                                                                      (page number citation purposes)
+ BMC Systems Biology 2008, 2:67                                                               http://www.biomedcentral.com/1752-0509/2/67
+
+
+ presented broadly applied                    SYS consortium Viroquant (# 0313923), Deutscher Akademischer Aus- systems seeking potential drug targets variety                  landsdienst, Helmholtz Alliance Systems Biology Cancer substantial bacterial infections organisms.                   Commission Higher Education (CHE) Thailand.
+E. coli benefited rich data pool including elaborated metabolic network, genome wide knock                                                                             References
+                                                                            1.    Hopkins AL, Groom CR: druggable genome. Nature reviews
+viability screen, genome sequence feasible gene                         2002, 1(9):727-730.
+expression dataset. Nowadays, genomic sequence                      2.    Rahman SA, Schomburg D: Observing local global proper-
+                                                                                  ties metabolic pathways: 'load points' 'choke points' limiting factor applications                             metabolic networks. Bioinformatics 2006, 22(14):1767-1774.
+remarkable number genomes sequenced                          3.    Yeh  Hanekamp T, Tsoka S, Karp PD, Altman RB: Computational sequenced future. approach uses                        analysis Plasmodium falciparum metabolism: organizing
+                                                                                  genomic information facilitate drug discovery. Genome Res
+unspecific gene expression data obtained                         2004, 14(5):917-924. publically available resources obtained                   4.    Schuster S, Fell DA, Dandekar T: general definition meta-
+straightforward experiments. elaborated meta-                           bolic pathways useful systematic organization analy-
+                                                                                  sis complex metabolic networks. Nat Biotechnol 2000,
+bolic networks assembled organisms                             18(3):326-332.
+(e.g. B. subtilis [11], H. pylori [26], M. barkeri [27], M.                 5.    Lemke N, Heredia F, Barcellos CK, Dos Reis  Mombach JC:
+                                                                                  Essentiality damage metabolic networks. Bioinformatics
+tuberculosis [28], S. cerevisiae [29]) expect                    2004, 20(1):115-119. method transferred major difficulties.                   6.    Bonday ZQ, Dhanasekaran S, Rangarajan PN, Padmanaban G: Import networks received large                            host delta-aminolevulinate dehydratase malarial
+                                                                                  parasite: identification new drug target. Nat Med 2000,
+organisms existing excellent databases like BioCyc                           6(8):898-903.
+[30] Kegg [24]. challenging exploit                 7.    Edwards JS, Palsson BO: Metabolic flux balance analysis                                                                                   silico analysis Escherichia coli K-12 gene deletions. BMC
+networks method. Finally,                              Bioinformatics 2000, 1:1.
+approach genome wide essentiality screen sub-                  8.    Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,
+stantial laborious. methodological challenging                         Broadbelt LJ, Hatzimanikatis V, Palsson BO: genome-scale met-
+                                                                                  abolic reconstruction Escherichia coli K-12 MG1655 task remains employ approach different                              accounts 1260 ORFs thermodynamic information.
+organisms, e.g. using essentiality screen                           Molecular systems biology 2007, 3:121.
+organism infer information                                9.    Schuetz R, Kuepfer L, Sauer U: Systematic evaluation objec-
+                                                                                  tive functions predicting intracellular fluxes Escherichia
+                                                                                  coli. Molecular systems biology 2007, 3:119.
+Authors' contributions                                                      10.   Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, Datsenko
+                                                                                  KA, Tomita M, Wanner BL, Mori H: Construction Escherichia
+KP, J–PM, RK general concept                                coli K-12 frame, single-gene knockout mutants: Keio
+design study. KP carried data analysis. MO                         collection. Molecular systems biology 2006, 2:2006 0008. KP conceptualized implemented breath                      11.   Oh YK, Palsson BO, Park SM, Schilling CH, Mahadevan R: Genome-
+                                                                                  scale reconstruction metabolic network Bacillus subtilis
+search algorithm. FS VS validated model predic-                           based high-throughput phenotyping gene essentiality
+tions experimentally lab. KP RK drafted                            data. J Biol Chem 2007, 282(39):28791-28799.
+                                                                            12.   Joyce AR, Reed JL, White  Edwards R, Osterman  Baba T, Mori
+manuscript. authors read approved final man-                          H, Lesely SA, Palsson BO, Agarwalla S: Experimental compu-
+uscript.                                                                          tational assessment conditionally essential genes                                                                                   Escherichia coli. J Bacteriol 2006, 188(23):8259-8271.
+                                                                            13.   Becker SA, Feist  Mo ML, Hannum G, Palsson BO, Herrgard MJ:
+Additional material                                                               Quantitative prediction cellular metabolism 
+                                                                                  straint-based models: COBRA Toolbox. Nature protocols
+                                                                                  2007, 2(3):727-738.
+ Additional File 1                                                          14.   Oberhardt MA, Puchalka J, Fryer KE, Dos Santos VA, Papin JA:
+                                                                                  Genome-scale metabolic network analysis opportun-
+ Supplementary tables. Tables S1, S3 S4.
+                                                                                  istic pathogen Pseudomonas aeruginosa PAO1. J Bacteriol 2008.
+ Click file                                                        15.   Hattori M, Okuno Y, Goto S, Kanehisa M: Development  [http://www.biomedcentral.com/content/supplementary/1752-                        chemical structure comparison method integrated anal-
+ 0509-2-67-S1.pdf]                                                                ysis chemical genomic information metabolic
+                                    

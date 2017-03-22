@@ -1,0 +1,1299 @@
+                            NIH Public Access
+                            Author Manuscript
+                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Published final edited form 
+NIH-PA Author Manuscript
+
+
+
+
+                            Ecosal Plus. 2014 ; 2014: . doi:10.1128/ecosalplus.ESP-0009-2013.
+
+
+
+                           EcoCyc Database
+                           Peter D. Karp1, Daniel Weaver1, Suzanne Paley1, Carol Fulcher1, Aya Kubo1, Anamika
+                           Kothari1, Markus Krummenacker1, Pallavi Subhraveti1, Deepika Weerasinghe1, Socorro
+                           Gama-Castro2, Araceli M. Huerta2, Luis Muñiz-Rascado2, César Bonavides-Martinez2,
+                           Verena Weiss2, Martin Peralta-Gil2, Alberto Santos-Zavaleta2, Imke Schröder3,4, Amanda
+                           Mackie5, Robert Gunsalus3,4, Julio Collado-Vides2, Ingrid M. Keseler1, Ian Paulsen5
+                           1Bioinformatics     Research Group, SRI International, Menlo Park, USA
+                           2Programade Genómica Computacional, Centro Ciencias Genómicas, Universidad Nacional
+                           Autónoma México, P. 565  Cuernavaca, Morelos 62100, México
+                           3Department Microbiology, Immunology, Molecular Genetics, University California, Los
+NIH-PA Author Manuscript
+
+
+
+
+                           Angeles, CA 90095, USA
+                           4UCLA     Institute Genomics Proteomics, University California, Los Angeles, CA 90095,
+                           USA
+                           5Department Chemistry Biomolecular Sciences, Macquarie University, Sydney, New South
+                           Wales 2109, Australia
+
+                           Abstract
+                                EcoCyc bioinformatics database available EcoCyc.org describes genome                                 biochemical machinery Escherichia coli K-12 MG1655. long-term goal project                                 complete molecular catalog E. coli cell, functions                                 molecular parts, facilitate level understanding E. coli. EcoCyc electronic
+                                reference source E. coli biologists, biologists work related microorganisms.
+                                database includes information pages E. coli gene, metabolite, reaction, operon,                                 metabolic pathway. database includes information E. coli gene essentiality, NIH-PA Author Manuscript
+
+
+
+
+                                nutrient conditions support growth E. coli. web site downloadable
+                                software contain tools analysis high-throughput datasets. addition, steady-state
+                                metabolic flux model generated new version EcoCyc. model predict
+                                metabolic flux rates, nutrient uptake rates, growth rates different gene knockouts                                 nutrient conditions. chapter provides detailed description data content EcoCyc,
+                                procedures content generated.
+
+
+                           1 EcoCyc Overview
+                                             EcoCyc1 bioinformatics database describes genome biochemical
+                                             machinery E. coli K-12 MG1655. project’s long-term goal describing complete
+                                             molecular catalog E. coli cell, functions molecular parts,
+
+
+
+                           1“EcoCyc�? pronounced “eeko-sike.�? sounds like “ecology�? like “encyclopedia�?.
+                           Karp et al.                                                                                             Page 2
+
+
+                                         facilitate level understanding E. coli. EcoCyc electronic reference source
+                                         E. coli biologists researchers work E. coli related
+                                         microorganisms. addition database, steady-state metabolic flux model NIH-PA Author Manuscript
+
+
+
+
+                                         available, generated new version EcoCyc.
+
+                                         chapter provides overview EcoCyc’s data content procedures                                          data enter EcoCyc.
+
+                                         EcoCyc accelerates science. EcoCyc designed different modes interactive
+                                         use EcoCyc.org web site conjunction downloadable Pathway
+                                         Tools [1] software (Section 13 lists resources available assist users learning web
+                                         site software)):
+
+                                             •    EcoCyc encyclopedic reference providing information biological
+                                                  roles E. coli genes, metabolites, pathways. Visualization tools,                                                   genome browser, metabolic map display, regulatory network diagram, aid                                                   comprehension complex data.
+
+                                             •    EcoCyc facilitates analysis high-throughput data gene-expression                                                   metabolomics data tools enrichment analysis, visualizing omics data
+NIH-PA Author Manuscript
+
+
+
+
+                                                  metabolic map diagram, complete genome diagram, regulatory network
+                                                  diagram.
+
+                                             •    EcoCyc metabolic flux model predict growth growth wildtype                                                   knock E. coli strains different nutrient conditions.
+
+                                         Users EcoCyc fall different groups. Experimental biologists use EcoCyc                                          encyclopedic reference genes, pathways, regulation, use omics-data
+                                         analysis tools analyze gene-expression metabolomics data. Examples papers citing
+                                         EcoCyc analysis functional genomics data include: [2, 3, 4, 5, 6].
+
+                                         EcoCyc data structured sophisticated ontology amenable                                          computational analyses, EcoCyc enables scientists ask computational questions spanning
+                                         entire genome E. coli, known metabolic network E. coli, known transport
+                                         complement E. coli, known genetic regulatory network E. coli, combinations
+                                         thereof. Past work includes use EcoCyc develop methods studying path lengths
+NIH-PA Author Manuscript
+
+
+
+
+                                         metabolic networks [7, 8, 9]; studies relating protein structure metabolic
+                                         network [10, 11]; analysis E. coli regulatory network [12, 13].
+
+                                         development new bioinformatics methods requires high-quality, gold-standard
+                                         datasets training validation methods. EcoCyc used gold-
+                                         standard dataset development genome-context methods predicting gene
+                                         function [14, 15], operon-prediction methods [16, 17], prediction promoters                                          transcription start sites [18, 19], regulatory network reconstruction [20], prediction
+                                         functional direct protein-protein interactions [21, 22, 23]. EcoCyc metabolic data
+                                         used studies concerning predicted metabolic networks growth prediction
+                                         [24, 25], model checking symbiotic bacteria’s metabolic network [26].
+
+
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                             Page 3
+
+
+                                         Metabolic engineers alter microbes produce biofuels, industrial chemicals,                                          pharmaceuticals; grade toxic pollutants; sequester carbon [27, 28, 29].
+                                         Metabolic engineers use E. coli host organism consult EcoCyc aid NIH-PA Author Manuscript
+
+
+
+
+                                         optimizing production end product better standing                                          metabolic network regulation, predict undesirable effects metabolic
+                                         alteration. Metabolic engineering studies using EcoCyc include [30, 31, 32].
+
+                                         According Thomson Reuters Web Knowledge citation index, August 2013,
+                                         23 EcoCyc RegulonDB papers authored 1997 cited 2,395 publications
+                                         1997–2013. According Google Analytics, approximately 100,000 visitors query                                          EcoCyc website year, generating 177,000 object page views month average                                          2012.
+
+                                         EcoCyc data available download multiple file formats  http://biocyc.org/
+                                         download.shtml) queried programmatically web services  http://
+                                         biocyc.org/web-services.shtml).
+
+                                         Pathway Tools software underlies EcoCyc [1] specific E. coli,                                          applied manage genomic biochemical data thousands organisms.
+NIH-PA Author Manuscript
+
+
+
+
+                              2 Overview EcoCyc Data Content
+                                         EcoCyc covers broad array data types. Key understanding EcoCyc data                                          presentation EcoCyc website Pathway Tools notion database class,
+                                         describes specific type data. example, class Genes provides database
+                                         definition gene, including attributes (e.g., starting nucleotide position                                          genome) relationships (e.g., linkage gene gene product) class.
+                                         specific gene EcoCyc stored single database object, frame,                                          instance class Genes.
+
+                                         mapping exists EcoCyc classes data pages                                          EcoCyc website, data page typically integrates information multiple
+                                         classes. example, pathway data page integrates information objects                                          classes Pathways, Reactions, Genes, Proteins, Chemicals.
+NIH-PA Author Manuscript
+
+
+
+
+                              Genome
+                                         EcoCyc contains complete genome sequence E. coli describes nucleotide
+                                         position function known protein-coding RNA-coding E. coli genes. Genome-
+                                         related classes populated EcoCyc include Genes, Pseudo-Genes, Promoters,
+                                         DNA-Binding-Sites, REP-Elements. Gene Ontology   terms assigned genes
+                                         EcoCyc curators import terms UniProt [33]. EcoCyc data                                          essentiality E. coli genes described Section 6.
+
+                              Proteome
+                                         EcoCyc describes known monomers multimeric protein complexes E. coli.
+                                         EcoCyc contains extensive annotation features E. coli proteins, 
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                                Page 4
+
+
+                                           phosphorylation sites, metal-ion binding sites, enzyme active sites, assigned EcoCyc
+                                           curators imported UniProt. Relevant classes EcoCyc include Polypeptides
+                                           Protein-Complexes.
+NIH-PA Author Manuscript
+
+
+
+
+                              RNAome
+                                           EcoCyc describes known RNAs protein-RNA complexes E. coli. Relevant classes
+                                           EcoCyc include RNAs, rRNAs, Regulatory-RNAs. Note EcoCyc does                                            explicitly represent messenger RNAs.
+
+                              Regulation
+                                           EcoCyc contains complete description regulatory network organism.
+                                           covers E. coli operons, promoters, transcription factors, transcription-factor binding sites,
+                                           attenuators, small-RNA regulators, substrate-level regulation E. coli
+                                           enzymes. molecular regulatory interaction described instance class
+                                           Regulation, subclasses different types regulation.
+
+                              Metabolism
+NIH-PA Author Manuscript
+
+
+
+
+                                           EcoCyc describes known metabolic signal-transduction pathways E. coli.                                            describes metabolic enzyme E. coli including cofactors, activators, inhibitors,                                            subunit structure.
+
+                              Membrane Transporters
+                                           EcoCyc annotates E. coli transport proteins associated transport reactions                                            mediate.
+
+                              Growth Observations
+                                           EcoCyc integrates data growth E. coli different growth conditions,                                            described Section 5.
+
+                              Database Links
+                                           EcoCyc linked biological databases containing protein nucleic acid sequence
+                                           data, bibliographic data, protein structures, descriptions different E. coli strains.
+NIH-PA Author Manuscript
+
+
+
+
+                              3 Literature-Based Curation
+                                           Curation process manually refining updating bioinformatics database.                                            EcoCyc project uses literature-based curation approach database updates                                            based evidence experimental literature. EcoCyc largely date respect                                            curation activities. October 2013, EcoCyc encodes information                                            25,000 publications. staff time curators updates annotation E. coli
+                                           genome ongoing basis.
+
+                                           transcriptional regulatory information EcoCyc RegulonDB curated                                            group Dr. Julio Collado-Vides UNAM;  databases include 
+
+
+                                               Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                            Page 5
+
+
+                                         data content transcriptional regulation gene expression. actual data curation occurs
+                                         EcoCyc, information periodically propagated RegulonDB.
+NIH-PA Author Manuscript
+
+
+
+
+                                         Curators collect gene, protein, pathway, compound names synonyms. classify
+                                         genes gene products using Gene Ontology [34] MultiFun [35] ontologies,                                          classify pathways Pathway Tools pathway ontology. Protein complex
+                                         components stoichiometry subunits captured; cellular localization                                          polypeptides protein complexes entered, experimentally determined protein
+                                         molecular weights; enzyme activities enzyme prosthetic groups, cofactors,
+                                         activators, inhibitors captured. Operon structure gene regulation information                                          encoded.
+
+                                         Curators author textual summaries extensive citations. summaries                                          proteins, RNAs, pathways, operons, curators capture additional information                                          captured highly structured database fields EcoCyc. example, curators
+                                         use free-text summary sections overall function gene product,                                          phenotypes caused mutation, depletion, overproduction gene product;                                          known genetic interactions; protein domain architecture structural studies; similarity
+NIH-PA Author Manuscript
+
+
+
+
+                                         proteins; functional complementation experiments described.
+                                         Summaries used note cases published reports present
+                                         contradictory results. cases, viewpoints presented proper
+                                         attribution. approach strives ensure information lost.
+
+                                         EcoCyc entries generally updated new literature available. Regular
+                                         PubMed searches used generate lists potentially curatable publications,                                          evaluated prioritized curation. Papers containing newly identified functions                                          gene products, substantial advances understanding functions known gene
+                                         products, given highest priority curation. Pathway Tools software
+                                         continues evolve enable addition new data types, older entries                                          updated systematic fashion (e.g., enzyme metabolic pathway) time allows.
+
+                              4 Statistics EcoCyc Content
+                                         Tables 1, 2, 3, 4 present statistics EcoCyc content. listed numbers current                                          version 17.5, released October 2013.
+NIH-PA Author Manuscript
+
+
+
+
+                              5 Conditions E. coli Growth Non-Growth
+                                         2011, EcoCyc incorporates media shown experimentally support                                          support growth wildtype knock strains E. coli K-12. work                                          goals. assemble comprehensive encyclopedia E. coli growth conditions
+                                         experimentalists. spectrum environmental conditions supporting growth                                          bacterium important phenotypic traits. expect understand                                          functions genes organism unless understand range environments                                          cell grow. Second, comprehensive collection E. coli growth media                                          drive accurate systems biology modeling E. coli. larger set growth media
+
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                          Page 6
+
+
+                                         computational models validated, accurate                                          comprehensive models 
+NIH-PA Author Manuscript
+
+
+
+
+                                         EcoCyc captures approximately 20 media commonly used E. coli laboratories;
+                                         growth data provided media. EcoCyc records results high-
+                                         throughput experiments using Biolog Phenotype Microarrays (PMs), measure cell
+                                         respiration sensitive indicator microbial growth [36]. commercially available PM
+                                         microorganisms provides comprehensive set phenotype tests including
+                                         information ability metabolize 190 carbon (C) compounds, 95 nitrogen (N)
+                                         compounds, 59 phosphorus (P) compounds, 35 sulfur (S) compounds. EcoCyc currently
+                                         documents sets PM data following sources:
+
+                                             •    B. Bochner X. Lei, personal communication, 2012.
+
+                                                  Strain: E. coli K–12 BW30270 (rph+ (RNase PH) derivative MG1655;                                                   strains PyrE deficiency. fnr+  according                                                   Datsenko Wanner, unpublished results.)
+
+                                                  dataset includes aerobic growth observations complement C, N,
+                                                  P, S compounds included PM plus growth observations
+NIH-PA Author Manuscript
+
+
+
+
+                                                  95 C sources anaerobic conditions.
+
+                                             •    “Genome Scale Reconstruction Salmonella Metabolic Model�?
+
+                                                  AbuOun et al. 2009 [37]
+
+                                                  Strain: E. coli K–12 MG1655 (American Type Culture Collection 700926)
+
+                                                  dataset includes growth observations complement C, N, P, S
+                                                  compounds aerobic conditions. Bacteria pre-grown LB agar prior                                                   inoculation Biolog plates incubation 37°C 26 hours. Omnilog
+                                                  instrument  specialized incubator plus reader) used data collection                                                   analysis.
+
+                                             •     Evolution Metabolic Networks E. coli�?
+
+                                                  Baumler et al. 2011 [38]
+
+                                                  Strain: E. coli K–12 MG1655
+NIH-PA Author Manuscript
+
+
+
+
+                                                  dataset consists growth observations 95 C compounds aerobic                                                   anaerobic conditions. Bacteria pre-grown Biolog Universal Growth Agar
+                                                  plus sheep blood (BUG-S), prior inoculation Biolog plates incubation                                                   37°C. Growth monitored measuring optical density 600nm readings
+                                                  taken 3, 6, 12, 24, 48 hours (D. Baumler, personal communication).
+
+                                             •    Mackie et al. 2013 [39]
+
+                                                  Strain: E. coli K–12 MG1655 (Coli Genetic Stock Center 7740).
+
+                                                  data set consists growth observations complement C, N, P
+                                                  S compounds aerobic conditions. Bacteria pre-grown LB
+
+
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                           Page 7
+
+
+                                                  R2A agar prior inoculation Biolog plates incubation 37°C 48
+                                                  hours. Omnilog instrument used data collection analysis.
+NIH-PA Author Manuscript
+
+
+
+
+                                             •    “Comparative Multi-Omics Systems Analysis Escherichia coli strains B                                                   K-12�?
+
+                                                  Yoon et al. 2012 [40]
+
+                                                  Strain: E. coli K–12 MG1655
+
+                                                  data set consists growth observations complement C, N, P
+                                                  S compounds aerobic conditions. Bacteria pregrown BUG-S
+                                                  agar prior inoculation Biolog plates incubation 37°C 48 hours.                                                   Omnilog instrument used data collection analysis.
+
+                                         Data growth conditions accessed EcoCyc website invoking menu
+                                         command Search → Growth Media clicking button  Growth Media                                          Organism.�? Individual media shown initial table; PM data shown                                          following tables. coloring box indicates degree growth observed                                          condition. levels growth recorded: growth, low growth, growth                                           legend indicates colors associated level growth). Click growth
+NIH-PA Author Manuscript
+
+
+
+
+                                         medium request page describing composition, genes essential                                          essential growth condition.
+
+                              6 Essential Gene Information
+                                         2011, EcoCyc incorporates large-scale datasets gene essentiality E. coli.
+                                         Gene essentiality information useful 
+                                             •    Predicting antibiotic targets pathogenic bacteria.
+
+                                             •    Guiding design minimal genomes.
+
+                                             •    Validating genome-scale metabolic flux models. Model predictions                                                   compared experimental data recorded EcoCyc assess model accuracy.
+
+                                             •    Providing clues regarding functions genes unknown function,                                                   essentiality varies depending conditions growth.
+NIH-PA Author Manuscript
+
+
+
+
+                                         EcoCyc incorporates data essentiality following publications:
+
+                                             •    “Experimental Determination Level Analysis Essential Genes                                                   Escherichia coli MG1655�?
+
+                                                  Gerdes et al. [41]
+
+                                                  Strain: E. coli K–12 MG1655 (F - λ - ilvG rfb-50 rph-1)
+
+                                                  study used genetic footprinting technique Tn5 based transposome
+                                                  reported unambiguous assessment approximately 87  E. coli
+                                                  ORFs essentiality. 626 genes identified essential aerobic growth                                                   rich media 3126 genes dispensable. Note inability obtain                                                   insertion mutant using cases reflection non-
+
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                           Page 8
+
+
+                                               targeted nature transposon insertion reflection gene essentiality.
+                                               technical reasons 327 genes classified study                                                ambiguous regard essentiality.
+NIH-PA Author Manuscript
+
+
+
+
+                                         •     Construction Escherichia coli K-12 Frame, Single-Gene Knockout Mutants:
+                                               Keio Collection Baba et al. [42] corrections [43]
+
+                                               Strain: E. coli K–12 BW25113 (rpoS  rph-1 λ - rrnB3 ΔlacZ4787 hsdR514
+                                               Δ(araBAD)567 Δ(rhaBAD)568 rph-1)
+
+                                               study created 3985 frame, single gene deletion mutants using lambda
+                                               RED recombinase  303 genes unable disrupted                                                predicted essential growth rich media 37°C. Note cases
+                                               secondary impacts single-gene deletions, compensating
+                                               suppressor mutations. errors mutants described                                                paper, later corrected [43]. study profiled growth                                                mutants minimal glucose MOPS media identify genes                                                conditionally essential conditions.
+
+                                         •     “Experimental Computational Assessment Conditionally Essential Genes NIH-PA Author Manuscript
+
+
+
+
+                                               Escherichia coli�? Joyce et al. [44]
+
+                                               Strain: E. coli K–12 BW25113 (rpoS  rph-1 λ - rrnB3 ΔlacZ4787 hsdR514
+                                               Δ(araBAD)567 Δ(rhaBAD)568 rph-1)  [42])
+
+                                               study used Keio collection single gene knockout mutants profiled
+                                               growth glycerol supplemented minimal medium. 119 genes                                                identified essential growth glycerol. combined                                                observations Baba et al [42] regarding conditional
+                                               essentiality mutants grown glucose supplemented minimal media
+                                               able identify conserved conditionally essential core 94 genes
+                                               required E. coli K–12 grow minimal nutritional
+                                               supplementation essential growth rich conditions.
+
+                                         •      Genome-Scale Metabolic Reconstruction Escherichia coli K-12 MG1655
+                                               Accounts 1260 ORFs Thermodynamic Information�?
+
+                                               Feist et al. [45]
+NIH-PA Author Manuscript
+
+
+
+
+                                               publication used experimental data regarding conditional gene essentiality
+                                               Joyce et al. [44] Baba et al. [42] compared                                                computationally predicted essential genes genome scale metabolic
+                                               reconstruction E. coli. dataset included EcoCyc facilitate
+                                               benchmarking computational predictions essentiality EcoCyc model
+                                               computations model Feist et al. Multicopy suppression underpins
+                                               metabolic evolvability.
+
+                                         •     “Multicopy suppression Underpins Metabolic Evolvability�?
+
+                                               Patrick et al. 2007 [46]
+
+
+
+
+                                         Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                             Page 9
+
+
+                                                  Strain: E. coli BW25113 (rpoS  rph-1 λ - rrnB3 ΔlacZ4787 hsdR514
+                                                  Δ(araBAD)567 Δ(rhaBAD)568 rph-1)
+NIH-PA Author Manuscript
+
+
+
+
+                                                  study used conditionally essential gene sets identified Baba et al                                                   Joyce et al tested ability form colonies glucose M9 agar.
+                                                  identified 107 genes conditionally essential conditions.
+
+                                         essentiality data available given gene, EcoCyc gene page includes table
+                                         conditions gene essential essential
+                                         growth. Clicking condition navigate growth-medium page lists                                          essentiality information growth condition.
+
+                              7 EcoCyc Metabolic Flux Model
+                                         quantitative steady-state metabolic flux model derived EcoCyc using flux
+                                         balance analysis (FBA) [47, 48]. running model different parameters, scientists
+                                         model growth E. coli different nutrient conditions different gene
+                                         knock-outs. time model executed, freshly generated EcoCyc, meaning
+                                         reactions EcoCyc updated curation, model automatically reflects
+                                         changes.
+NIH-PA Author Manuscript
+
+
+
+
+                                         EcoCyc FBA model distinct E. coli FBA models derived Palsson
+                                         group [49, 45, 50], models common EcoCyc                                          iAF1260 model partially unified 2007 [45], groups consult s
+                                         work updating models.
+
+                                         Supplementary Information, provided accompanying paper-suppl-info.xlsx file,
+                                         details E. coli biomass metabolite set used model biomass production metabolite
+                                         requirements EcoCyc FBA. metabolite set derived iJO1366 model WT
+                                         biomass reaction Orth et al. [50]. Supplementary Information contains                                          description nutrient secretion metabolite sets supply inputs outputs                                          FBA model, description differences EcoCyc FBA biomass
+                                         metabolite set iJO1366 WT biomass reaction.
+
+                                         run EcoCyc FBA model, download install Pathway Tools software
+                                         configuration includes EcoCyc, invoke MetaFlux modeling component NIH-PA Author Manuscript
+
+
+
+
+                                         Pathway Tools  Chapter 8 Pathway Tools User’s Guide).
+
+                                         EcoCyc provides example files describing invocations FBA model                                          different nutrient conditions. files installed Pathway Tools
+                                         directory tree pathway-tools/aic-export/pgdbs/biocyc/ecocyc/VERSION/data/fba/. Output
+                                         files produced result successful FBA runs supplied. fba files included.
+                                         supplied input files 
+
+                                             1.   GlucoseAer.fba: 10 mmol/gCDW/hr glucose uptake, minimal media, aerobic
+                                                  conditions
+
+                                             2.   GlucoseAnaer.fba: 10 mmol/gCDW/hr glucose uptake, minimal media, anaerobic
+                                                  conditions
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                            Page 10
+
+
+                                              3.   GlycerolAer.fba: 10 mmol/gCDW/hr glycerol uptake, minimal media, aerobic
+                                                   conditions
+NIH-PA Author Manuscript
+
+
+
+
+                                              4.   GlycerolAnaer.fba: 10 mmol/gCDW/hr glycerol uptake, minimal media, anaerobic
+                                                   conditions
+
+                              7.1 External Flux Predictions
+                                          MetaFlux metabolic flux predictions EcoCyc version 17.5 aerobic growth                                           glucose glycerol given Tables 5 6. Model predictions anaerobic growth                                           glucose glycerol given Tables 7 8. cases, uptake rate carbon
+                                          source set upper bound reflecting experimental uptake rates mmol/gCDW/hr. O2
+                                          uptake rates set upper bound 0.00 mmol/gCDW/hr anaerobic conditions.
+                                          nutrient sources left free.
+
+                              7.2 Improvement Metabolic Model
+                                          EcoCyc release plan include improved version EcoCyc metabolic
+                                          flux model reflects recent improvements knowledge E. coli metabolic
+                                          network.
+NIH-PA Author Manuscript
+
+
+
+
+                                          Model predictions differ experimental measurements number reasons
+                                          including operation additional, unmodeled reactions metabolites; existing
+                                          reactions operating different fashion model (e.g. model contains “perfect�?
+                                          respiratory electron-transfer chain possibility reactive oxygen-species
+                                          generation); presence regulation product inhibition deactivates reactions                                           limits throughput; differences optimization objective functions depending                                           specified feed source.
+
+                              8 Update Frequency
+                                          EcoCyc.org BioCyc.org websites downloadable files updated 3–4 times                                           year. faster, powerful version EcoCyc install locally                                           (Macintosh, PC/Windows, PC/Linux) released semiannually.
+
+                              9 Data Sources Incorporated EcoCyc
+NIH-PA Author Manuscript
+
+
+
+
+                                          EcoCyc includes data imported following bioinformatics databases. cases,
+                                          data imported twice year. note literature references
+                                          EcoCyc obtained PubMed.
+
+                              9.1 UniProt Features
+                                          UniProt protein features  UniProt KB term sequence annotations) complete
+                                          proteome E. coli K-12 MG1655 SwissProt imported EcoCyc EcoCyc
+                                          release. import protein features experimental non-experimental evidence
+                                          qualifiers following types: turn, helix, beta strand, coiled-coil. chain
+                                          type imported does span entire length protein. Examples                                           imported feature types include catalytic domains, phosphorylation sites, metal ion
+
+
+
+                                             Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                          Page 11
+
+
+                                         binding sites. import citations associated UniProt protein features include                                          associated PubMed ID.
+NIH-PA Author Manuscript
+
+
+
+
+                                         import protein features EcoCyc UniProt Feature Importer tool
+                                         Pathway Tools software.
+
+                              9.2 Gene Ontology
+                                         years, EcoCyc EcoliWiki/PortEco collaborating improving
+                                         maintaining annotations E. coli. applications described                                          [56]. summer 2008, periodically generating file
+                                         containing E. coli K-12 term annotations, called gene_association.ecocyc,                                          obtained Gene Ontology Consortium.
+
+                                         annotation standard EcoCyc’s manual literature-based curation process.                                          annotations added database objects represent functional gene products
+                                         multimers, directly gene objects. approach models biology                                          accurately indicates exactly form gene product specified                                          function. parallel, manual annotation E. coli genes ongoing EcoliWiki.
+NIH-PA Author Manuscript
+
+
+
+
+                                         regular basis, annotations merged. latest UniProt EcoliWiki
+                                         annotations imported EcoCyc. consortium does accept
+                                         electronic annotations gene association file annotations                                          year old, UniProt annotations reimported EcoCyc regular basis.
+
+                                         EcoCyc incorporates electronic experimental term annotations E. coli K-12
+                                         gene products obtained “UniProt [multispecies] Annotations @ EBI�? file
+                                         downloaded Gene Ontology Consortium. import performed                                          2007, approximately 30,000 new IEA (“Inferred Electronic Annotation�?) term
+                                         assignments added EcoCyc, approximately 1,000 assignments                                          experimental evidence codes including assignments high-throughput protein-
+                                         interaction studies. import terms UniProt EcoCyc, filtering
+                                         operation applied prune term annotations based solely computational (IEA)
+                                         evidence EcoCyc gene product specific annotations                                           words, terms children term imported) experimental
+                                         evidence available. example, gene product contained experimental
+NIH-PA Author Manuscript
+
+
+
+
+                                         annotation term “galactose kinase,�? software add computational
+                                         annotation “carbohydrate kinase.�? filtering leads removal approximately 1,000
+                                         specific redundant annotations.
+
+                                         gene association file generated quarterly EcoCyc releases. file sent                                          EcoliWiki team Texas M processing. EcoliWiki, annotations                                          wiki-based community annotation EcoCyc update added                                          file, annotations containing qualifiers (mainly contributes_to)                                          supported EcoCyc. annotations complete consortium standards
+                                         extracted EcoliWiki; incomplete annotations left hope community
+                                         members eventually complete  EcoliWiki runs consortium validation
+
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                             Page 12
+
+
+                                            scripts deposits file consortium Concurrent Versioning
+                                            
+NIH-PA Author Manuscript
+
+
+
+
+                              9.3 Genbank
+                                            Genbank record U00096, produced Blattner laboratory October 1997,                                             source original E. coli MG1655 genome sequence annotation incorporated                                             EcoCyc. corrected nucleotide sequence deposited GenBank U00096.2 2004,
+                                            revised sequence incorporated EcoCyc version 8.6 (November 2004).
+                                            revised genome annotation published [57] incorporated EcoCyc version
+                                            10.0 (March 2006).
+
+                              9.4 RefSeq Collaboration
+                                            EcoCyc involved collaboration update genome annotation GenBank
+                                            (U00096.2) RefSeq (NC 000913.2) entries E. coli K-12 MG1655 ongoing
+                                            basis. primary collaborators include EcoCyc, EcoGene, UniProtKB/Swiss-Prot,                                             NCBI. collaborators routinely share data resolve data conflicts. updates                                             gene names, gene positions, gene product names shared partners.
+NIH-PA Author Manuscript
+
+
+
+
+                              9.5 MetaCyc
+                                            EcoCyc MetaCyc databases exchange data release processes                                             databases. updates occurred enzymes, genes, pathways, reactions,                                             metabolites exchanged databases based automated comparisons                                             update dates ensure latest information corrections propagated                                             databases.
+
+                              10 EcoCyc Accession Numbers
+                              10.1 Gene Accession Numbers
+                                            systems accession numbers typically available genes EcoCyc.                                             accession numbers used querying EcoCyc genes  �?                                             website Quick Search.
+
+                                                •    EcoCyc ID: EcoCyc project assigns unique identifiers gene                                                      historical reasons variable syntax, form “Gnnnn,�? “EGnnnnn,�?
+NIH-PA Author Manuscript
+
+
+
+
+                                                     “G0-nnnnn.�? EcoCyc IDs stored frame id EcoCyc gene object.
+
+                                                •    B-numbers: Originally assigned Blattner laboratory E. coli
+                                                     genome project, b-number identifiers form “bnnnn.�? B-numbers                                                      originally assigned sequentially genome. gene object removed
+                                                     genome decision insufficient evidence existence
+                                                     gene available, b-number retired reused. new
+                                                     genes added genome, assigned highest available b-
+                                                     number.  b-numbers longer purely sequential genome. B-
+                                                     numbers stored EcoCyc slot Accession-1.
+
+
+
+
+                                               Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                          Page 13
+
+
+                                             •    ECK numbers: ECK numbers assigned E. coli K-12 MG1655                                                   W3110 genomes 2005 attempt provide shared accession numbers                                                   genes common genomes [57]. ECK numbers stored EcoCyc
+NIH-PA Author Manuscript
+
+
+
+
+                                                  slot Accession-2. 18 genes E. coli K-12 MG1655
+                                                  genome b-number ECK number number; subsequent genes
+                                                  numbers diverged.
+
+                              11 E. coli Shigella PGDBs BioCyc
+                                         EcoCyc larger BioCyc collection Pathway/Genome Databases (PGDBs).
+                                         BioCyc version 17.5 (2013) includes 160 E. coli Shigella PGDBs. PGDBs
+                                         generated computationally lack extensive manual literature-based curation                                          EcoCyc K-12 database. E. coli genomes BioCyc focused complete
+                                         genomes, include draft genomes.
+
+                                         PGDBs undergone additional curation: BioCyc PGDBs strains E.
+                                         coli W3110 E. coli B str. REL606. strains underwent computational
+                                         annotation-normalization procedure gene names, product names, heteromultimeric
+                                         protein complexes, Gene Ontology terms propagated EcoCyc NIH-PA Author Manuscript
+
+
+
+
+                                         orthologous genes strains  orthologs computed SRI                                          bidirectional best-BLAST hits additional manual review curation). procedure
+                                         performed assumption genome-annotation pipelines typically introduce
+                                         syntactically large semantically insignificant variation naming genes gene
+                                         products. addition, E. coli B str. REL606 underwent literature-based curation SRI                                          incorporate experimental information regarding genes pathways present strain
+                                         EcoCyc strain MG1655. curation supported PortEco project.
+
+                                         select given genome querying BioCyc website, click words “change
+                                         organism database�? Quick Search Gene Search buttons upper right
+                                         corner EcoCyc webpages.
+
+                              12 Encourage Feedback
+                                         Feedback scientific community proved invaluable improving EcoCyc                                          years development. strongly encourage comments suggestions NIH-PA Author Manuscript
+
+
+
+
+                                         improvements areas, including:
+
+                                             •    database content EcoCyc
+
+                                             •    presentation information EcoCyc website
+
+                                             •    analysis tools provided conjunction EcoCyc
+
+                                             •    performance EcoCyc website
+
+                                         error omission EcoCyc, report using “Report Errors                                          Provide Feedback�? link data page. email suggestions                                          questions biocyc-support ai dot sri dot com.
+
+
+
+
+                                            Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                                               Page 14
+
+
+                                         EcoCyc release email summary new developments biocyc-users
+                                         mailing list. subscribe mailing list, http://biocyc.org/subscribe.shtml.
+NIH-PA Author Manuscript
+
+
+
+
+                              13 Learn                                               •     use Pathway Tools website EcoCyc
+
+                                              •     Downloadable instructional videos use EcoCyc
+
+                                              •     Pathway/Genome Database Concepts Guide
+
+                                              •     Publications EcoCyc: [58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+
+                                              •     BioCyc User’s Guide
+
+                                              •     MetaCyc User’s Guide
+
+                                              •     Guide Pathway Tools Schema
+
+                                              •     download Pathway Tools organism flat-file databases
+
+                              14 Cite EcoCyc
+NIH-PA Author Manuscript
+
+
+
+
+                                         cite EcoCyc publications benefit use EcoCyc database                                          website. cite EcoCyc recent Nucleic Acids Research Database issue
+                                         article, currently:
+
+                                         Keseler et al., Nuc Acids Res, 41:D605–12 2013.
+
+
+                              Supplementary Material
+                                         Refer Web version PubMed Central supplementary material.
+
+
+                              Acknowledgments
+                                         Monica Riley led curation EcoCyc years, inception. efforts created content                                          organism-scale metabolic database. John Ingraham valued advisor EcoCyc years. thank
+                                         scientists contributed corrections suggestions EcoCyc years, thank                                          scientists served EcoCyc Steering Committee. contributors EcoCyc listed                                          EcoCyc credits page.
+
+                                         development EcoCyc funded NIH grants GM77678 GM71962 NIH National Institute NIH-PA Author Manuscript
+
+
+
+
+                                         General Medical Sciences.
+
+
+                              References
+                                         1. Karp PD, Paley SM, Krummenacker M, Latendresse M, Dale JM, Lee T, et al. Pathway Tools
+                                            version 13.0: Integrated Software Pathway/Genome Informatics Systems Biology. Brief
+                                            Bioinform. 2010; 11:40–79. Available  http://bib.oxfordjournals.org/cgi/content/abstract/
+                                            bbp043. 10.1093/bib/bbp043 [PubMed: 19955237]
+                                         2. Kim KS, Lee S, Ryu CM. Interspecific bacterial sensing airborne signals modulates
+                                            locomotion drug resistance. Nat Commun. 2013; 4:1809. [PubMed: 23651997]
+                                         3. Bower JM, Gordon-Raagas HB, Mulvey MA. Conditioning uropathogenic Escherichia coli                                             enhanced colonization host. Infect Immun. 2009  77(5):2104–2112. [PubMed: 19255192]
+                                         4. Rhodius V, Dyk TKV, Gross C, LaRossa RA. Impact genomic technologies studies                                             bacterial gene expression. Annu Rev Microbiol. 2002; 56:599–624. [PubMed: 12142487]
+
+
+                                             Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                                  Page 15
+
+
+                                         5. Gonzalez R, Tao H, Purvis JE, York SW, Shanmugam KT, Ingram LO. Gene array-based
+                                            identification changes contribute ethanol tolerance ethanologenic Escherichia coli:
+                                            Comparison KO11 (parent) LY01 (resistant mutant). Biotechnol Prog. 2003 Mar; 19(2):612–
+NIH-PA Author Manuscript
+
+
+
+
+                                            623. [PubMed: 12675606]
+                                         6. Taoka M, Yamauchi Y, Shinkawa T, Kaji H, Motohashi W, Nakayama H, et al. small subset
+                                            horizontally transferred chromosomal genes Escherichia coli translated proteins.
+                                            Mol Cell Proteomics. 2004 Aug; 3(8):780–787. [PubMed: 15115803]
+                                         7. Ravasz E, Somera AL, Mongru DA, Oltvai ZN, Barabasi AL. Hierarchical organization                                             modularity metabolic networks. Science. 2002 Aug; 297(5586):1551–1555. [PubMed: 12202830]
+                                         8. Simeonidis E, Rison SC, Thornton JM, Bogle ID, Papageorgiou LG. Analysis metabolic
+                                            networks using pathway distance metric linear programming. Metab Eng. 2003 Jul; 5(3):
+                                            211–219. [PubMed: 12948755]
+                                         9. Arita M. metabolic world Escherichia coli small. Proc Natl Acad Sci USA. 2004 Feb;
+                                            101(6):1543–1547. [PubMed: 14757824]
+                                         10. Jardine O, Gough J, Chothia C, Teichmann SA. Comparison small molecule metabolic
+                                              enzymes Escherichia coli Saccharomyces cerevisiae. Genome Res. 2002 Jun; 12(6):916–
+                                              929. [PubMed: 12045145]
+                                         11. Rison SC, Thornton JM. Pathway evolution, structurally speaking. Curr Opin Struct Biol. 2002
+                                              Jun; 12(3):374–382. [PubMed: 12127458]
+                                         12. Ma HW, Kumar B, Ditges U, Gunzer F, Buer J, Zeng AP. extended transcriptional regulatory
+                                              network Escherichia coli analysis hierarchical structure network motifs. Nuc
+NIH-PA Author Manuscript
+
+
+
+
+                                              Acids Res. 2004; 32(22):6643–6649.
+                                         13. Shen-Orr SS, Milo R, Mangan S, Alon U. Network motifs transcriptional regulation network
+                                              Escherichia coli. Nat Genet. 2002  31(1):64–68. [PubMed: 11967538]
+                                         14. Karimpour-Fard  Leach SM, Gill RT, Hunter LE. Predicting protein linkages bacteria:                                               method best depends task. BMC Bioinformatics. 2008; 9:397. [PubMed: 18816389]
+                                         15. Bowers PM, Pellegrini M, Thompson MJ, Fierro J, Yeates  Eisenberg D. Prolinks: database
+                                              protein functional linkages derived coevolution. Genome Biol. 2004; 5(5):R35. [PubMed:
+                                              15128449]
+                                         16. Price MN, Huang KH, Alm EJ, Arkin AP. novel method accurate operon predictions                                               sequenced prokaryotes. Nuc Acids Res. 2005; 33(3):880–892.
+                                         17. Steinhauser D, Junker BH, Luedemann  Selbig J, Kopka J. Hypothesis-driven approach                                               predict transcriptional units gene expression data. Bioinformatics. 2004 Aug; 20(12):1928–
+                                              1939. [PubMed: 15044239]
+                                         18. Burden S, Lin YX, Zhang R. Improving promoter prediction NNPP2.2 algorithm: case
+                                              study using Escherichia coli DNA sequences. Bioinformatics. 2005 Mar; 21(5):601–607.
+                                              [PubMed: 15454410]
+                                         19. Gordon L, Chervonenkis AY, Gammerman AJ, Shahmuradov IA, Solovyev VV. Sequence
+                                              alignment kernel recognition promoter regions. Bioinformatics. 2003 Oct; 19(15):1964–
+                                              1971. [PubMed: 14555630]
+NIH-PA Author Manuscript
+
+
+
+
+                                         20. Fu Y, Jarboe LR, Dickerson JA. Reconstructing genome-wide regulatory network E. coli using
+                                              transcriptome data predicted transcription factor activities. BMC Bioinformatics. 2011;
+                                              12:233. [PubMed: 21668997]
+                                         21. Watanabe RL, Morett E, Vallejo EE. Inferring modules functionally interacting proteins using
+                                              Bond Energy Algorithm. BMC Bioinformatics. 2008; 9:285. [PubMed: 18559112]
+                                         22. Muley VY, Ranjan  Effect reference genome selection performance computational
+                                              methods genome-wide protein-protein interaction prediction. PLoS  2012; 7(7):e42057.
+                                              [PubMed: 22844541]
+                                         23. Moreno-Hagelsieb G, Jokic P. evolutionary dynamics functional modules                                               extraordinary plasticity regulons: Escherichia coli perspective. Nucleic Acids Res. 2012;
+                                              40(15):7104–12. [PubMed: 22618875]
+                                         24. Kastenmuller G, Schenk  Gasteiger J, Mewes HW. Uncovering metabolic pathways relevant                                               phenotypic traits microbial genomes. Genome Biol. 2009; 10(3):R28. [PubMed: 19284550]
+
+
+
+                                             Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                                 Page 16
+
+
+                                         25. Kumar VS, Maranas CD. GrowMatch: automated method reconciling silico vivo
+                                             growth predictions. PLoS Comput Biol. 2009 Mar.5(3):e1000308. [PubMed: 19282964]
+                                         26. Thomas GH, Zucker J, Macdonald SJ, Sorokin  Goryanin  Douglas AE. fragile metabolic
+NIH-PA Author Manuscript
+
+
+
+
+                                             network adapted cooperation symbiotic bacterium Buchnera aphidicola. BMC Syst Biol.
+                                             2009; 3:24. [PubMed: 19232131]
+                                         27. Frazier  Johnson GM, Thomassen DG, Oliver CE, Patrinos  Realizing potential                                              genome revolution: Genomes Life program. Science. 2003 Apr; 300(5617):290–293.
+                                             [PubMed: 12690188]
+                                         28. Bailey JE. Science Metabolic Engineering. Science. 1991 Jun.252:1668–1675.
+                                             [PubMed: 2047876]
+                                         29. Stephanopoulos G, Vallino JJ. Network rigidity metabolic engineering metabolite
+                                             overproduction. Science. 1991 Jun.252:1675–1681. [PubMed: 1904627]
+                                         30. Arense P, Bernal V, Charlier D, Iborra JL, Foulquie-Moreno MR, Canovas M. Metabolic
+                                             engineering high yielding L(−)-carnitine production Escherichia coli. Microb Cell Fact.
+                                             2013; 12(1):56. (ENG). [PubMed: 23718679]
+                                         31. Jantama K, Zhang X, Moore JC, Shanmugam KT, Svoronos SA, Ingram LO. Eliminating                                              products increasing succinate yields engineered strains Escherichia coli C. Biotechnol
+                                             Bioeng. 2008 Dec; 101(5):881–893. [PubMed: 18781696]
+                                         32. Weber J, Hoffmann F, Rinas U. Metabolic adaptation Escherichia coli temperature-
+                                             induced recombinant protein production: 2. Redirection metabolic fluxes. Biotechnol Bioeng.
+                                             2002 Nov; 80(3):320–330. [PubMed: 12226865]
+NIH-PA Author Manuscript
+
+
+
+
+                                         33. Update activities Universal Protein Resource (UniProt) 2013. Nuc Acids Res. 2013;
+                                             41(Database issue):D43–7.
+                                         34. Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM, et al. Gene Ontology: Tool                                              unification biology. Nature Genetics. 2000; 25:25–29. [PubMed: 10802651]
+                                         35. Serres MH, Riley M. MultiFun, multifunctional classification scheme Escherichia coli K–12
+                                             gene products. Genome Biol. 2000; 5(4):205–222.
+                                         36. Bochner BR, Gadzinski P, Panomitros E. Phenotype Microarrays High-Throughput Phenotypic
+                                             Testing Assay Gene Function. Genome Res. 2001 Jul; 11(7):1246–1255. [PubMed:
+                                             11435407]
+                                         37. Oun MA, Suthers PF, Jones GI, Carter BR, Saunders MP, Maranas CD, et al. Genome scale
+                                             reconstruction Salmonella metabolic model: comparison similarity differences                                              commensal Escherichia coli strain. J Biol Chem. 2009; 284(43):29480–8. [PubMed: 19690172]
+                                         38. Baumler DJ, Peplinski RG, Reed JL, Glasner JD, Perna NT. evolution metabolic networks
+                                             E. coli. BMC Syst Biol. 2011; 5:182. [PubMed: 22044664]
+                                         39. Mackie  Paley S, Keseler IM, Shearer  Paulsen  Karp PD. Addition Escherichia coli K–
+                                             12 Growth-Observation Gene Essentiality Data EcoCyc database. J Bacteriol. 2013
+                                         40. Yoon SH, Han MJ, Jeong H, Lee CH, Xia XX, Lee DH, et al. Comparative multi-omics systems
+                                             analysis Escherichia coli strains B K–12. Genome Biol. 2012; 13(5):R37. [PubMed:
+NIH-PA Author Manuscript
+
+
+
+
+                                             22632713]
+                                         41. Gerdes SY, Scholle MD, Campbell JW, Balazsi G, Ravasz E, Daugherty MD, et al. Experimental
+                                             determination level analysis essential genes Escherichia coli MG1655. J
+                                             Bacteriol. 2003 Oct; 185(19):5673–5684. [PubMed: 13129938]
+                                         42. Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, et al. Construction Escherichia
+                                             coli K–12 frame, single-gene knockout mutants: Keio collection. Mol Syst Biol. 2006;
+                                             2:2006.0008.
+                                         43. Yamamoto N, Nakahigashi K, Nakamichi T, Yoshino M, Takai Y, Touda Y, et al. Update                                              collection Escherichia coli single-gene deletion mutants. Mol Syst Biol. 2009; 5:335. [PubMed:
+                                             20029369]
+                                         44. Joyce AR, Reed JL, White  Edwards R, Osterman  Baba T, et al. Experimental                                              computational assessment conditionally essential genes Escherichia coli. J Bacteriol. 2006
+                                             Dec; 188(23):8259–8271. [PubMed: 17012394]
+                                         45. Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD, et al. genome-scale
+                                             metabolic reconstruction Escherichia coli K–12 MG1655 accounts 1260 ORFs 
+
+                                             Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                                Page 17
+
+
+                                             thermodynamic information. Mol Syst Biol. 2007; 3:121–38. Available  http://
+                                             www.nature.com/doifinder/10.1038/msb4100155. [PubMed: 17593909]
+                                         46. Patrick WM, Quandt EM, Swartzlander DB, Matsumura  Multicopy suppression underpins
+NIH-PA Author Manuscript
+
+
+
+
+                                             metabolic evolvability. Mol Biol Evol. 2007; 24(12):2716–22. [PubMed: 17884825]
+                                         47. Orth JD, Thiele  Palsson BO. flux balance analysis? Nat Biotechnol. 2010; 28(3):245–8.
+                                             [PubMed: 20212490]
+                                         48. Thiele  Palsson BO. protocol generating high-quality genome-scale metabolic
+                                             reconstruction. Nat Protoc. 2010; 5(1):93–121. [PubMed: 20057383]
+                                         49. Reed JL, Vo TD, Schilling CH, Palsson BO. expanded genome-scale model Escherichia coli
+                                             K-12 (iJR904 GSM/GPR). Genome Biol. 2003; 4(9):R54. [PubMed: 12952533]
+                                         50. Orth JD, Conrad TM, Na J, Lerman JA, Nam H, Feist  et al. comprehensive genome-scale
+                                             reconstruction Escherichia coli metabolism — 2011. Mol Syst Biol. 2011; 7:535. [PubMed:
+                                             21988831]
+                                         51. Kayser  Weber J, Hecht V, Rinas U. Metabolic flux analysis Escherichia coli glucose-
+                                             limited continuous culture.  Growth-rate-dependent metabolic efficiency steady state.
+                                             Microbiology. 2005; 151:693–706. [PubMed: 15758216]
+                                         52. Ibarra RU, Edwards JS, Palsson BO. Escherichia coli K-12 undergoes adaptive evolution                                              achieve silico predicted optimal growth. Nature. 2002; 420:186–189. [PubMed: 12432395]
+                                         53. Belaich  Belaich JP. Microcalorimetric study anaerobic growth Escherichia coli:
+                                             growth thermograms synthetic medium. J Bacteriol. 1976; 72:497–9.
+                                         54. Varma  Boesch BW, Palsson BO. Stoichiometric interpretation Escherichia coli glucose
+NIH-PA Author Manuscript
+
+
+
+
+                                             catabolism various oxygenation rates. Applied Environmental Microbiology. 1993;
+                                             59(8):2465–73. [PubMed: 8368835]
+                                         55. Dharmadi Y, Murarka  Gonzalez R. Anaerobic fermentation glycerol Escherichia coli:
+                                             anew platform metabolic engineering. Biotechnology Bioengineering. 2006; 94(5):821–9.
+                                             [PubMed: 16715533]
+                                         56. Hu JC, Karp PD, Keseler IM, Krummenacker M, Siegele DA. learn                                              Escherichia coli application Gene Ontology. Trends Microbiol. 2009 Jul; 17(7):269–
+                                             278. [PubMed: 19576778]
+                                         57. Riley M, Abe T, Arnaud MB, Berlyn MK, Blattner FR, Chaudhuri RR, et al. Escherichia coli
+                                             K-12: cooperatively developed annotation snapshot–2005. Nuc Acids Res. 2006; 34(1):1–9.
+                                         58. Keseler IM, Collado-Vides J, Santos-Zavaleta  Peralta-Gil M, Gama-Castro S, Muniz-Rascado
+                                             L, et al. EcoCyc: Comprehensive Database Escherichia coli Biology. Nuc Acids Res. 2011;
+                                             39:D583–90.
+                                         59. Keseler IM, Bonavides-Martinez C, Collado-Vides J, Gama-Castro S, Gunsalus RP, Johnson DA,
+                                             et al. EcoCyc: comprehensive view E. coli biology. Nuc Acids Res. 2009; 37:D464–70.
+                                             Available  http://nar.oxfordjournals.org/cgi/reprint/gkn751?
+                                             ijkey=7epgizfnGFYQHCe&keytype=ref.
+                                         60. Karp PD, Keseler IM, Shearer  Latendresse M, Krummenacker M, Paley SM, et al.
+NIH-PA Author Manuscript
+
+
+
+
+                                             Multidimensional annotation Escherichia coli K-12 genome. Nuc Acids Res. 2007;
+                                             35:7577–90. Available  http://nar.oxfordjournals.org/cgi/content 35/22/7577.
+                                         61. Keseler IM, Collado-Vides J, Gama-Castro S, Ingraham J, Paley S, Paulsen  et al. EcoCyc:                                              comprehensive database resource E. coli. Nuc Acids Res. 2005; 33:D334–7. Available 
+                                             http://nar.oupjournals.org/cgi/content 33/suppl_1/D334?
+                                             ijkey=80p4BbGpEFjLQ&keytype=ref.
+                                         62. Karp PD, Arnaud M, Collado-Vides J, Ingraham J, Paulsen  Saier MHJ. E. coli EcoCyc
+                                             Database: Longer Just Metabolic Pathway Database. ASM News. 2004; 70(1):25–30.
+                                         63. Karp PD, Riley M, Saier M, Paulsen  Paley S, Pellegrini-Toole  EcoCyc Database. Nuc
+                                             Acids Res. 2002; 30(1):56–8.
+                                         64. Karp PD, Riley M, Saier M, Paulsen  Paley S, Pellegrini-Toole  EcoCyc MetaCyc
+                                             Databases. Nuc Acids Res. 2000; 28(1):56–59.
+                                         65. Karp, PD. Nucleic Acid Protein Databases Use  London: Academic Press;
+                                             1999. Using EcoCyc Database; p. 269-280.
+
+
+
+                                             Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                                Page 18
+
+
+                                         66. Karp, PD.; Riley, M. Bioinformatics Databases Systems. Norwell, MA: Kluwer Academic
+                                             Publishers; 1999. EcoCyc: resource lessons learned; p. 47-62.
+                                         67. Karp P, Riley M, Paley S, Pellegrini-Toole  Krummenacker M. EcoCyc: Electronic
+NIH-PA Author Manuscript
+
+
+
+
+                                             Encyclopedia E. coli Genes Metabolism. Nuc Acids Res. 1999; 27(1):55–58.
+                                         68. Karp P, Riley M, Paley S, Pellegrini-Toole  Krummenacker M. EcoCyc: Electronic
+                                             Encyclopedia E. coli Genes Metabolism. Nuc Acids Res. 1998; 26(1):50–53.
+                                         69. Karp P, Riley M, Paley S, Pellegrini-Toole  Krummenacker M. EcoCyc: Electronic
+                                             Encyclopedia E. coli Genes Metabolism. Nuc Acids Res. 1997; 25(1):43–50.
+                                         70. Karp P, Riley M, Paley S, Pellegrini-Toole  EcoCyc: Electronic Encyclopedia E. coli Genes
+                                             Metabolism. Nuc Acids Res. 1996; 24(1):32–40.
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                             Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                          Page 19
+
+
+
+
+                                                                                        Table 1
+
+                           Genes gene products EcoCyc. Protein features annotations protein sites regions NIH-PA Author Manuscript
+
+
+
+
+                           enzyme active sites, metal ion binding sites, transmembrane domains. small number elements                            included count Genes included sub-categories genes.
+
+                            Genes/Proteins
+
+                            Genes                                    4501
+                               Protein-Coding Genes                  4284
+                               tRNA Genes                               86
+                               rRNA Genes                               22
+                               Regulatory RNA Genes                     41
+                               RNA Genes                          56
+                            Pseudogenes                                133
+                            Polypeptides                             4393
+                            Protein Complexes                          995
+                               Heteromultimeric Protein Complexes      290
+                               Homomultimeric Protein Complexes        705
+NIH-PA Author Manuscript
+
+
+
+
+                            Protein Features                        23,114
+                            Enzymes (excluding transporters)         1245
+                            Transporters                               267
+NIH-PA Author Manuscript
+
+
+
+
+                                                      Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                         Page 20
+
+
+
+
+                                                                                        Table 2
+
+                           Gene annotation status EcoCyc. Genes known molecular function experimental evidence NIH-PA Author Manuscript
+
+
+
+
+                           assigned function, genes predicted molecular function function predicted
+                           computationally.
+
+                            Gene Annotation Status
+
+                            Genes known predicted molecular function   3127
+                               Genes known molecular function             2710
+                               Genes predicted molecular function          417
+                            Genes unknown molecular function              1374
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                      Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                        Page 21
+
+
+
+
+                                                                                               Table 3
+
+                           Reactions, compounds pathways EcoCyc. Superpathways connected sets base metabolic
+NIH-PA Author Manuscript
+
+
+
+
+                           pathways (connected shared substrates.)
+
+                            Reactions/Metabolites/Pathways
+
+                            Metabolic Reactions                                                1443
+                            Transport (including Electron Transfer) Reactions                   379
+                            Pathways                                                            401
+                               Small-molecule metabolism base pathways                          291
+                               Signaling pathways                                                29
+                               Superpathways                                                     81
+                            Metabolites                                                        2466
+                               Metabolites substrates enzyme-catalyzed reactions   1331
+                               Metabolites physiological enzyme regulators             121
+                               Metabolites cofactors prosthetic groups               56
+                               Transported metabolites                                          274
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                         Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                                Page 22
+
+
+
+
+                                                                                            Table 4
+
+                           Regulation-related objects interactions EcoCyc. member “Instances Regulation NIH-PA Author Manuscript
+
+
+
+
+                           Transcription Initiation�? describes single regulatory interaction transcription factor binding
+                           site.
+
+                            Transcriptional/Translational Regulation
+
+                            Transcription Units                                      4510
+                            Promoters                                                3777
+                            Terminators                                               259
+                            Transcription Factors                                     194
+                            Transcription Factor Binding Sites                       2773
+                            Instances Regulation Transcription Initiation      3293
+                            Instances Regulation Transcriptional Attenuation     20
+                            Instances Regulation Translation                    146
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                       Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                           Page 23
+
+
+
+
+                                                                                     Table 5
+
+                           Comparison experimental aerobic glucose-limited chemostat growth data EcoCyc iJO1366 FBA
+NIH-PA Author Manuscript
+
+
+
+
+                           model predictions (389 reactions active EcoCyc). Metabolite uptake production rates units mmol/
+                           gCDW/hr. Growth units hr−1. Experimental data Kayser et al. [51].
+
+                                               Experimental   EcoCyc
+                            Glucose uptake        3.008       3.008
+
+                            Growth rate           0.300       0.276
+
+                            O2 uptake             7.413       4.472
+
+                            NH4 uptake            2.367       3.026
+
+                            Sulfate uptake                    0.068
+
+                            Phosphate uptake                  0.288
+
+                            CO2 production         7.38       5.480
+
+                            H2O production                    13.026
+
+                            H+ production                     2.582
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                   Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                           Page 24
+
+
+
+
+                                                                                     Table 6
+
+                           EcoCyc FBA model performance aerobic glycerol-limited growth (385 reactions active Eco-Cyc).
+NIH-PA Author Manuscript
+
+
+
+
+                           Uptake production rates units mmol/gCDW/hr. Growth units hr−1. Experimental G1-UR
+                           estimated graphically Ibarra et al. [52].
+
+                                               Experimental   EcoCyc
+                            Glycerol uptake        10         10.00
+
+                            Growth rate                        0.53
+
+                            O2 uptake              11          8.96
+
+                            NH4 uptake                         5.80
+
+                            Sulfate uptake                     0.13
+
+                            Phosphate uptake                   0.55
+
+                            CO2 production                     5.74
+
+                            H2O production                    30.36
+
+                            H+ production                      4.95
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                   Ecosal Plus. Author manuscript; available PMC 2014 November 25.
+                           Karp et al.                                                                                         Page 25
+
+
+
+
+                                                                                      Table 7
+
+                           EcoCyc FBA model performance anaerobic glucose-limited growth (383 reactions active EcoCyc).
+NIH-PA Author Manuscript
+
+
+
+
+                           Uptake production rates units mmol/gCDW/hr. Growth units hr−1. Experimental data                            Belaich Belaich [53] Varma et al. [54]. FHL set inactive purposes comparison.
+
+                                                   Experimental   EcoCyc
+                            Glucose uptake             10.0       10.00
+
+                            Growth rate                0.30        0.25
+
+                            O2 uptake                  0.00        0.00
+
+                            NH4 uptake                             2.76
+
+                            Sulfate uptake                         0.06
+
+                            Phosphate uptake                       0.26
+
+                            CO2 production                         0.27
+
+                            H2O production                         0.57
+
+                            H+ production                         27.14
+
+                            Acetate production         7.5         8.03
+NIH-PA Author Manuscript
+
+
+
+
+                            Formate production         11.3       16.76
+
+                            Succinate production       1.2         0.00
+
+                            Ethanol production         8.7     

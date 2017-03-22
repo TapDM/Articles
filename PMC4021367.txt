@@ -1,0 +1,508 @@
+Lee et al. Microbial Cell Factories 2014, 13:61
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+ RESEARCH                                                                                                                                     Open Access
+
+Genome-scale metabolic network reconstruction silico flux analysis thermophilic
+bacterium Thermus thermophilus HB27
+Na-Rae Lee1†, Meiyappan Lakshmanan2†, Shilpi Aggarwal2, Ji-Won Song1, Iftekhar Karimi2, Dong-Yup Lee2,3* Jin-Byung Park1,4*
+
+
+  Abstract
+  Background: Thermus thermophilus, extremely thermophilic bacterium, widely recognized model
+  organism studying microbes survive adapt high temperature environment.    thermotolerant mechanisms cellular metabolism remains unravelled.  highly required   consider systems biological approaches T. thermophilus metabolic network model employed   high throughput experimental data elucidating physiological characteristics harsh
+  conditions.
+  Results: reconstructed genome-scale metabolic model T. thermophilus, iTT548, large-scale
+  network thermophilic bacterium, accounting 548 unique genes, 796 reactions 635 unique metabolites.
+  initial comparative analysis model Escherichia coli revealed distinctive metabolic reactions,
+  mainly amino acid metabolism carotenoid biosynthesis, producing relevant compounds retain cellular
+  membrane withstanding high temperature. Constraints-based flux analysis   applied simulate   metabolic state glucose minimal amino acid rich media. Remarkably, resulting growth predictions   highly consistent experimental observations. subsequent comparative flux analysis different
+  environmental conditions highlighted cells consumed branched chain amino acids preferably utilized
+  directly relevant anabolic pathways fatty acid synthesis. Finally, gene essentiality study   conducted single gene deletion analysis, identify conditional essential genes glucose minimal   complex media.
+  Conclusions: reconstructed genome-scale metabolic model elucidates phenotypes T. thermophilus,   allowing gain valuable insights cellular metabolism silico simulations. information obtained
+  analysis shed light understanding physiology thermophiles helps   devise metabolic engineering strategies develop T. thermophilus thermostable microbial cell factory.
+  Keywords: Thermus thermophilus, Thermophile, Genome-scale metabolic model, Constraints-based flux analysis, Ethanol
+
+
+
+
+* Correspondence: cheld@nus.edu.sg; jbpark06@ewha.ac.kr
+†
+ Equal contributors
+2
+ Department Chemical Biomolecular Engineering, National University Singapore, 4 Engineering Drive 4, Singapore 117585, Singapore
+1
+ Department Food Science & Engineering, Ewha Womans University, 11-1
+Daehyun-dong, Seodaemun-gu, Seoul 120-750, Korea list author information available end article
+
+                                       © 2014 Lee et al.; licensee BioMed Central  Open Access article distributed terms Creative
+                                       Commons Attribution License (http://creativecommons.org/licenses 4.0), permits unrestricted use, distribution,                                        reproduction medium, provided original work properly credited. Creative Commons Public Domain
+                                       Dedication waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies data available article,
+                                       unless stated.
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                  Page 2 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+Background                                                      utilized postulate various strain improvement strategies
+Thermus thermophilus gram-negative, obligate aerobic       [17-19,24,25].  development T. thermophilus
+bacterium, representing best-studied ther-           GSMM based currently available biochemical mophiles. usually colonizes terrestrial volcanic hot     genomic information subsequent silico analysis
+springs (grows optimally 65 72°C)           enables elucidate unique metabolic behaviour.
+originally isolated Japanese thermal spa [1].           thermophilic microbes regard, addition ability surviving high tempera-      initial attempts model cellular metabolisms.
+tures, T. thermophilus resistant stress      silico model Thermotoga maritima pre-
+harsh chemical conditions [2]. properties motivated       sented, covering central metabolism 3D
+researchers extract isolate numerous proteins        structures enzymes accounted network
+T. thermophilus, making model organism struc-        [26]. Recently, genome-scale metabolic model tural genomics significant industrial potential [3-6].     thermophilic archeon, Sulfolobus solfataricus, example, thermostable proteins used     developed, used autotrophic growth commercial processes, including DNA polymerase        bicarbonate hydroxypropionate-hydroxybutyrate
+PCR techniques, α-amylases glucose isomerases            cycle aerobic conditions [27].  models
+starch processing, esterases, lipases proteases          mature explain molecular mecha-
+organic synthesis, xylanases paper pulp              nisms high temperature adaptations 
+manufacturing [7,8].  T. thermophilus         sider detailed biosynthetic machinery biomolecules
+recognized potential microbial cell factory low    help retain integrity cell wall
+cost ethanol fermentation lignocellulosic waste ma-        membranes.  work, reconstructed terials grow utilizing C5/C6        genome-scale metabolic model T. thermophilus based
+carbon sources relatively high temperatures, e. 70–80°     genome annotation HB27 wild-type strain [28]
+C, reducing energy costs: cooling step        investigating unique characteristics thermophilic
+quired following enzymatic hydrolysis, rendering easier      microbes. Additionally, model functionally char- distil subsequent fermentations [9].                         acterized gene essentiality studies identify essential
+   Despite enormous potentials biotechnological ap-         genes cellular growth growing glucose
+plications, current knowledge unique cellular        minimal amino acid supplemented complex media.
+physiology T. thermophilus limited; date, production distinctive carotenoid molecules [10]         Results use adaptive protein synthesis strategies [11]       Reconstruction T. thermophilus genome-scale notable traits unravelled molecular         metabolic network
+level. limited studies technical     genome-scale metabolic network T. thermophilus
+difficulties cultivating analysing thermophilic mi-      HB27 reconstructed step procedure:
+crobes; cell culture experiments require high         (1) construction draft network compilation genes,
+energy maintain optimal growth conditions.         reactions pathway information biochemical data- required develop systematic approaches     bases based genome annotation T. thermophilus improving understanding T. thermophilus cellu-       HB27, (2) manual curation draft model verifying
+lar behaviour. regard, constraints-based silico      elemental balances reactions assigning proper
+metabolic modeling analysis considered        gene-reaction relationships, (3) gap filling using promising techniques characterize physio-         organism specific knowledge  Methods). logical behaviour metabolic states organism           reconstruction process, significant efforts highly  various environmental/genetic changes sys-         quired identify resolve network gaps tematically capture genotype-phenotype relationships        various metabolic pathways. gaps exist entire genome information [12,13]. result,        incomplete genome annotations result missing genome-scale metabolic models (GSMMs)           biochemical reactions dead ends. gaps available describing metabolic organization vari-    appropriately filled addition new reactions based
+ous organisms including Escherichia coli [14], Bacillus         information obtained literature inferred subtilis [15], Saccharomyces cerevisiae [16], Pichia pastoris   genome annotation organisms. example,
+[17], Corynebacterium glutamicum [18], Ralstonia eutro-         initial model contained metabolic gaps pha [19], Pseudomonas aeruginosa [20],             synthetic pathway thermozeaxanthin thermobis-
+multicellular eukaryotes Mus musculus [21]          zeaxanthin, unique type carotenoids Homo sapiens [22].  availability           thermophiles, enabling cellular membrane conveniently accessible constraints-based model-        retain fluidity high temperatures [29-31].
+ing software tools [23], models largely          order gaps, added reactions
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                        Page 3 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+corresponding glycosyltransferase acyltransferase 
+zymes Staphylococcus aureus subsp. aureus 11819–97 Halobacillus halophilus DSM 2266 sequential
+glycosylation esterification zeaxanthin glucose branched-chain fatty acids, producing thermozeax-
+anthin. Similarly, draft model gaps carbon assimilatory pathways, unable consume carbon sources,  trehalose, palatinose,
+isomaltose, cellobiose, glutamate mannose. 
+earlier studies reported T. thermophilus grow carbon sources [32,33]. discrepancies resolved adding new reactions corresponding α-glucosidase mannokinase enzymes based information available KEGG MetaCyc
+databases. Overall, included 74 new reactions 63
+enzymes, improving network connectivity
+ Additional file 1 complete list reactions added). gap filling draft model followed identifi-      Figure 1 Distribution reactions genes various
+cation genetic evidence newly added enzymes            metabolic subsystems iTT548. sequence-based homology searches. purpose, BLASTp search performed NCBI database enzymes resolve network gaps using            comparison, 363 enzymes/genes common amino acid sequences collected various          E. coli T. thermophilus, belonging organisms non-redundant protein sequences            central metabolic pathways glycolysis, pentose T. thermophilus HB27 genome. way, 63         phosphate pathway TCA cycle.  certain
+enzymes added, assign putative locus 10           notable differences observed amino acid  providing possible new annotations             synthetic pathways T. thermophilus. instance, lysine
+Additional file 1 list new annotations).          synthesized alpha-aminoadipate pathway instead
+final genome-scale metabolic network T. thermophilus,         diaminopimelate pathway. Similarly, upstream iTT548, contains 548 unique genes (ORF coverage –                methionine synthetic pathway conserved E.
+24 ), 796 reactions 635 unique metabolites.               coli: precursor molecule, homocysteine, produced
+iTT548, 796 reactions classified seven         O-acetyl-L-homoserine hydrogen sulphide major metabolic subsystems: carbohydrates, amino acid,           O-acetyl-L-(homo) serine sulfhydrylase T. thermophilus
+energy cofactors, lipids, nucleotides, carotenoids       O-succinyl-L-homoserine cysteine transport.  amino acid metabolism largest         O-succinyl-homoserine lyase E. coli. comparison
+number reactions genes, followed carbohydrates         transport reactions revealed T. energy cofactors metabolism (Figure 1).           thermophilus lacks phosphoenolpyruvate-dependent
+tailed list completely curated T. thermophilus HB27           phosphotransferase (PTS), typical bacterial trans-
+metabolic network containing various genes, reactions,       port  consumes carbohy- metabolites obtained Additional file 1,          drates including glucose ATP-binding cassette (ABC) available Systems Biology Markup Language            transporters.
+(SBML) file (level 2, version 1, http://sbml.org/) (Additional      Interestingly, unique feature T. thermophilus,
+file 2).                                                         iTT548 contains necessary biosynthetic machinery
+                                                                 synthesizing molecules help Network characteristics iTT548 comparison        habituating high temperatures. Unlike gram-
+E. coli GSMM                                                     negative bacteria, T. thermophilus does contain lipo-
+Figure 2A presents overall network features iTT548        polysaccharides cell outer membrane [34]. Instead, comparison E. coli using metabolic model        embeds complex carotenoid glucoside esters various
+(iAF1260) [14] terms EC numbers.               branched chain fatty acids, known thermozeaxanthins noted unable fairly compare        thermobiszeaxanthins, lipid bilayers. metabolic characteristics T. thermophilus          arrangement offers multiple advantages including thermophiles T. maritima model limited         retention membrane fluidity high temperatures central metabolism S. solfataricus GSMM             reduction oxygen diffusion membrane accessible link provided.            preventing oxidation damage [10,35]. Furthermore,
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                                       Page 4 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+ Figure 2 Metabolic organization biomass composition T. thermophilus E. coli.   General features iTT548 comparison
+ E. coli iAF1260 GSMM (Feist et al. 2007), (B) Central metabolic network T. thermophilus, (C) amino acid composition (mol ) (D) fatty
+ acid composition (mol ). numbers Venn diagram represents enzymes organism. common unique pathways T.
+ thermophilus highlighted blue red backgrounds, respectively. number unique common enzymes identified using  EC numbers. biomass data E. coli obtained iAF1260 GSMM. supplementary 1 metabolite enzyme abbreviations used
+ network diagram.
+
+
+T. thermophilus synthesizes unique polyamines                      branched chain fatty acids amino acids thermine, spermine, thermospermine caldo-                      valine, leucine isoleucine ketoisovalerate oxi-
+pentamine using distinct pathway L-arginine                     doreductase (vorA) gram-positive bacteria aminopropyl agmatine [36]. polyamines essen-                     Bacillus. Table 1 list unique carotenoid poly-
+tial high temperature protein synthesis ensuring                amine molecules, relevant genes corresponding
+proper structure formation initiation complex                       synthetic pathways accounted iTT548; Figure 2 illus- 30S ribosomal subunit, messenger,                        trates central metabolic network T. thermophilus
+initial aminoacyl-tRNA. notable exception gram-                    branched chain fatty acids carotenoid syn-
+negative bacterium, T. thermophilus synthesizes                       thetic pathways highlighted.
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                                Page 5 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+Table 1 Biosynthetic machinery unique molecules T. thermophilus
+Molecules                                                     Genes involved                              Major metabolic
+                                                          reactions                                             precursors
+Branched fatty acids                                      19       ilvE (TTC1870), vorA (TTC1756) vorB      Leucine, valine, isoleucine
+                                                                   (TTC1757), FabF (TTC0049 TTC0045), FabG   acetyl-coA
+ 15:0, ai-15:0, 16:0, 17:0, ai-17:1)                         (TTC0047 TTC0394), FabZ (TTC1463), FabI
+                                                                   (TTC0343)
+Carotenoids                                               18       CrtE (TTC1986), CrtB (TT_P0057), CrtI         Isopentenyl diphosphate
+                                                                   (TT_P0066), CrtY (TT_P0060), CrtZ (TT_P0059), (IPP), UDP-glucose (thermocryptoxanthin, thermozeaxanthin                                                                    CruC (TT_P0062), CruD (TT_P0061)              branched fatty acids
+thermobiszeaxanthin)
+Polyamines                                                16       SpeA (TTC1277), SpeB (TTC0764 TTC1132), Putrescine, spermidine                                                                    SpeD1 (TTC0473), SpeD2 (TTC1093), SpeE     spermine
+(1,3-diaminopropane, norspermidine, sym-homospermidine,            (TTC0472)
+thermine, thermospermine, homospermine, caldopentamine,
+thermopentamine, homocaldopentamine, caldohexamine,
+homocaldohexamine, tris(3-aminopropyl)amine,
+tetrakis(3-aminopropyl)ammonium)
+
+
+  iTT548, included biomass equation               70°C. noted medium supple-
+based amino acid compositional analysis              mented 20 amino acids. nutrient consump-
+data obtained literature. Importantly, biomass            tion profiles indicated glucose consumed 
+composition carefully formulated avoid               Subsequently, carbohydrates trehalose erroneous conclusions flux balance analysis                amino acids assimilated (Figure 3B). Notably, cells
+[37]. noted earlier thermophile               did consume amino acid supplemented models, T. maritima S. solfataricus, adopted bio-           medium preferred branched chain amino acids ahead
+mass equation E. coli M. bakeri, respectively,             amino acids, possibly synthesize branched grow 37°C optimal grow-             chain fatty acids (Figures 3C D). Furthermore, ing temperature range thermophiles (50 ~ 80°C).               complex medium did appreciable lag phase regard, compositions amino acids, val-             cells grew twice fast minimal
+ine, lysine, threonine, lysine, glutamine isoleucine,           media. distinctive T. thermophilus E. coli              simulate cellular growth minimal medium,
+(Figure 2C). Similarly, fatty acid compositions T.           biomass equation maximized flux analysis
+thermophilus different E. coli; linear           simulations simultaneously constraining glucose
+chain fatty acids composition negligible              uptake rates measured exponential phase based
+T. thermophilus branched-chain fatty acids                assumption wild-type organisms typically iso-C17:0 iso-C15:0, present              evolve maximization cellular growth E. coli, contribute bulk total lipid compositions         exponential phase [38]. exchange fluxes NH3,
+(Figure 2D). Collectively, results highlight need         phosphate, sulphite, H2O, Fe2+, Mg H+ left careful estimation biomass equation mod-           unconstrained provide basic nutrients minerals eling thermophiles.                                                 cell growth. oxygen uptake rate constrained                                                                     average specific uptake rate 10 mmol g−1 DCW
+Model validation using minimal complex media                    hr−1 based previous publication [39]. Additionally, batch cultures                                               lactate exchange flux constrained validated iTT548 using data batch cultures              measured uptake/secretion rates phase. growth T. thermophilus growing glucose minimal                   associated maintenance (GAM) value 58.34 mmol g−1
+complex media. case glucose minimal medium,                   DCW h−1, E. coli GSMM, NGAM requirement
+cells cultured DMM containing 0.6  (w/v) glu-             14 mmol g−1 DCW h−1, calculated based established
+cose 70°C. residual concentration glucose             methods [14], used simulations  cell density monitored (Figure 3A). Initially,           Additional file 3 detailed calculation NGAM calcu-
+prolonged lag phase 2 d observed, followed             lations).  noted comparing
+exponential growth phase 8 h stationary               NGAM requirement T. thermophilus E. coli
+phase reached. cell cultures indicated             [14], possess high value (14 compared presence acetate, lactate ethanol trace amounts           8 mmol g−1 DCW h−1) possibly differences lag exponential growth phases. order               H+ permeability cytoplasmic membrane optimal
+analyse growth behaviour T. thermophilus rich           growth temperature; T. thermophilus cytoplasmic mem-
+medium, cells grown complex TM medium                 brane highly permeable H+,  leaks protons
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                                    Page 6 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+ Figure 3 Batch fermentation profile optical density various nutrients glucose minimal complex medium.   Profiles  optical density residual concentrations glucose, acetate lactate glucose minimal medium, (B) optical density residual
+ concentrations glucose, trehalose, lactate acetate complex medium, (C) concentrations amino acids rapidly consumed  complex media (D) amino acids completely consumed. Highlighted regions correspond exponential growth phases  cultures corresponding nutrient consumption/secretion profiles used silico simulations.
+
+
+ ATP synthesis ATPase [40]. Notably, simula-
+tion results highly consistent observed growth
+rates (Figure 4). complex media, biomass equation maximized simultaneously
+constraining uptake/secretion rates nutrients
+(glucose, trehalose, lactate, acetate amino acids) exponential growth phase. silico pre-
+dicted cell growth 0.66 h−1 close  acceptable error range 10 ) experimentally
+observed specific growth rate 0.64 h−1, clearly
+indicating high predictive ability iTT548 complex media.
+ silico comparative metabolic flux analysis minimal complex media comparing cellular growth rates T. thermophi-                  Figure 4 Comparison silico growth rate experimentally
+                                                                           observed growth rate exponential phase cell culture
+lus minimal complex media, surprisingly,                                                                            glucose minimal medium.
+significantly higher owing availability Lee et al. Microbial Cell Factories 2014, 13:61                                                                    Page 7 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+rich carbon nitrogen sources form various           media, (ii) conditionally essential – required amino acids. microbe            media (iii) non-essential – dispensable amino acids directly medium, possible        media. gene essentiality study revealed 23.5  protein biosynthetic demand partially ful-        19.5  total 548 genes iTT548 essential
+filled. order confirm hypothesis, compared          cell growth minimal complex media, respect- simulated metabolic fluxes minimal (phase P1)         ively  Additional file 4 complete list essential complex media, observed lower fluxes                 genes). total 107 genes essential condi- relevant biosynthetic reactions amino acids        tions additional 21 genes essential complex medium (Table 2).              minimal media. order understand knock-
+noted conducted flux variability analysis        functional category genes crucial
+[41] assure confidence simulated metabolic       cell viability condition, identified states environmental condition.                           distribution essential genes various metabolic
+   Interestingly, 20 amino acids supple-        processes (Figure 5). Interestingly, carotenoids metab-
+mented complex medium, cells consumed             olism contained lethal genes (82 ), suggesting preferably. order understand cel-        unique pathway synthesizing thermozeax-
+lular behavior, compared uptake rate individual         anthin thermobiszeaxanthin does al-
+amino acids actual biosynthetic demands.               ternative routes quite rigid T. thermophilus.
+Methionine cysteine consumed medium             Following carotenoids metabolism, nucleotides according biosynthetic demands alanine,            lipids metabolism second highest number valine, leucine, isoleucine glutamate consumed           completely essential genes (32.7  24.6 , respectively). excess individual biosynthetic requirements           hand, examination conditionally essential
+(Table 3). analysis revealed surplus valine/     genes, e. genes essential minimal
+leucine/isoleucine alanine/glutamate utilized         media, revealed amino acid metabolism contains
+synthesize branched chain fatty acids amino         genes (Figure 5). complex media
+acids, respectively. Notably, leucine consumed           supplemented amino acids, biosynthetic demand  7 times                 directly consumed media utilizing
+higher) mainly synthesize iso-15 iso-17 fatty acids,       biosynthetic pathways, classifying genes constitute major composition T. thermophi-           pathways non-essential condi-
+lus. Remarkably, amino acid utilization pattern           tions.  time, distribution certain
+completely different E. coli grown complex media,         completely essential genes amino acid metabolism consumed serine, aspartate, glycine threonine           indicates biosynthetic pathways tryptophan, proline
+ahead amino acids [42]. subsequent silico         tyrosine crucial cell growth analysis E. coli revealed rapidly depleted serine     synthesized cell albeit availabil- primarily converted pyruvate serine deaminase,       ity complex medium. Interestingly, gene dele- acetate producing ATP similarly           tion analyses showed high number completely
+observed microbes C. glutamicum          essential genes oxidative phosphorylation Lactococcus lactis. regard, interesting      TCA cycle. Oxygen key electron acceptor cellular
+note T. thermophilus possess unique nutrient             metabolism accept electrons redox
+sumption pattern, preferably synthesizing branched chain          cofactors involved TCA cycle generates energy
+fatty acids improving energy production       oxidative phosphorylation. oxygen devoid Overall, silico analysis highlights consumed   oxidative phosphorylation TCA cycle reac-
+amino acids contribute directly indirectly      tions perturbed, generally, bacteria regen-
+biomass synthesis, strategies increase uptake non-      erate redox cofactors switching fermentative
+consumed amino acids tyrosine, lysine, tryptophan         growth help substrate level phosphorylation. histidine postulated enhance cellular           regard, T. thermophilus lacks PTS growth complex medium.                                         utilizes ABC transporters glucose uptake,                                                                   possible microbe switch fermenta-
+Analysis essential genes T. thermophilus                       tive metabolism completely  requires oxygen analysed essentiality individual genes T.        generate sufficient energy cell growth TCA cycle
+thermophilus glucose minimal complex TT                 oxidative phosphorylation.
+medium conditions using iTT548 model deleting gene time  Methods). genes             Discussion
+categorized classes:   completely essential –        Thermophilic microbes represent unique class organ-
+genes required cellular growth          isms distinct cell wall assembly enables                                                                                                                                                                                                                          http://www.microbialcellfactories.com/content/13/1/61
+                                                                                                                                                                                                                         Lee et al. Microbial Cell Factories 2014, 13:61
+Table 2 Comparison metabolic reaction fluxes amino acids biosynthetic reactions minimal complex media
+Reaction ID Enzyme (Gene)                                              Reaction details                                                              Complex media                  Minimal media
+                                                                                                                                                          (LB < L < UB)                  (LB < L < UB)
+R192           Alanine dehydrogenase (ald)                                  H[c] + NADH[c] + PYR[c] + NH4[c] < = > L_ALA[c] + NAD[c] + H2O[c] −0.031 < −0.031 < −0.031 0.234 < 0.234 < 2.416
+R521           Asparagine synthase (asnB)                                   L_ASP[c] + L_GLN[c] + ATP[c] + H2O[c] < = > L_GLU[c] + L_ASN[c] +             −1.808 < −1.808 < −1.783       −0.537 < −0.537 < −0.522
+                                                                            PPi[c] + H[c] + AMP[c]
+R198           Aspartate aminotransferase (aspC)                            L_ASP[c] + AKG[c] < = > L_GLU[c] + OAC[c]                                     −1.782 < −1.782 < −1.782       −0.416 < −0.416 < −0.416
+R205           Glutamine synthetase (gln)                                   L_GLU[c] + ATP[c] + NH4[c] - > L_GLN[c] + ADP[c] + Pi[c] + H[c]               −1.793 < −1.793 < −1.793       −0.474 < −0.474 < −0.474
+R202           Glutamate dehydrogenase (gdh)                                L_GLU[c] + NADP[c] + H2O[c] < = > H[c] + NADPH[c] + AKG[c] + NH4[c]           −9.830 < −9.145 < 4.713        −9.288 < −8.813 < 2.977
+R227           Cysteine synthase (cysM)                                     OAC_SER[c] + H2S[c] - > L_CYS[c] + H[c] + AC[c]                               0<0<0                          0 < 0.005 < 0.005
+R235           Methionine synthase (metH)                                   L_HCYS[c] + 5MTHF[c] - > L_MET[c] + H[c] + THF[c]                             0<0<0                          0 < 0.009 < 0.009
+R272           N2-acetyl-L-lysine deacetylase (lysK)                        H2O[c] + N2AC_L_LYS[c] - > L_LYS[c] + AC[c]                                   0.229 < 0.229 < 0.229          0.05 < 0.05 < 0.05
+R651           3-phosphoserine phosphatase (serB)                           H2O[c] + PPTD_SER[c] - > L_SER[c] + Pi[c]                                     0<0<0                          0 < 1.072 < 2.545
+R655           Serine hydroxymethyltransferase (glyA)                       L_SER[c] + THF[c] - > L_GLY[c] + H2O[c] + METHF[c]                            0<0<0                          0 < 0.512 < 6.42
+R213           Serine hydroxymethyltransferase (glyA)                       L_GLY[c] + H2O[c] + 5_10_MNTHF[c] < = > L_SER[c] + THF[c]                     0.135 < 0.135 < 0.135          −1.787 < −0.442 < 3.993
+R212           Tryptophan synthase (trpA)                                   L_SER[c] + IND_GLYP[c] < = > L_TRP[c] + H2O[c] + GAP[c]                       0.054 < 0.054 < 0.054          0.026 < 0.026 < 0.026
+R221           Threonine synthase (thrC)                                    H2O[c] + OP_HSER[c] - > L_THR[c] + Pi[c]                                      0.0714 < 0.0714 < 0.0714       0.063 < 0.063 < 0.063
+R245           Branched-chain amino acid aminotransferase (ilvE) L_VAL[c] + AKG[c] < = > L_GLU[c] + 2K3M_BUT[c]                                           0.113 < 0.113 < 0.113          −0.068 < −0.068 < −0.068
+R244           Branched-chain amino acid aminotransferase (ilvE) L_GLU[c] + 4M_2OPENTN[c] < = > L_LEU[c] + AKG[c]                                         −1.179 < −1.179 < −1.179 0.154 < 0.154 < 0.154
+R246           Branched-chain amino acid aminotransferase (ilvE) L_ILE[c] + AKG[c] < = > L_GLU[c] + 3M_2OPENTN[c]                                         0.478 < 0.478 < 0.478          −0.024 < −0.024 < −0.024
+R341           Pyrroline-5-carboxylate reductase (ProC)                     L_PRO[c] + NADP[c] < = > 2 H[c] + NADPH[c] + PYRR5CARB[c]                     −0.432 < −0.432 < −0.432       −0.119 < −0.119 < −0.119
+R195           Argininosuccinate lyase (argH)                               L_ARG_SUCC[c] - > L_ARG[c] + FUM[c]                                           1.144 < 1.144 < 1.144          0.132 < 0.132 < 0.132
+R297           Aspartate aminotransferase (aat)                             L_PHE[c] + AKG[c] < = > L_GLU[c] + PPYR[c]                                    0<0<0                          −0.054 < −0.054 < −0.054
+R284           Histidinol dehydrogenase (hisD)                              2 NAD[c] + H2O[c] + L_HISN[c] - > L_HIS[c] + 3 H[c] + 2 NADH[c]               0.025 < 0.025 < 0.025          0.015 < 0.015 < 0.015 reactions highlighted bold possess flux complex media. FVA conducted assure simulated fluxes results provided attainable lower upper bounds identified analysis.
+
+
+
+
+                                                                                                                                                                                                                                                       Page 8 14
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                                          Page 9 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+Table 3 Consumption production pattern amino acids complex media
+Amino acids     Supply    Biosynthetic    Contribution
+                medium         demand
+                                                       Remarks
+Alanine         0.7399         0.355           0.3853                        Surplus alanine contributes glycine synthesis
+Glycine         0.116          0.308                         0.1918          produced alanine
+Valine          0.224          0.109           0.1151                        Excess valine utilized synthesis anteiso-17:1 anteiso-15:0
+                                                                             fatty acids
+Leucine         1.427          0.244           1.1827                        Excess leucine utilized iso-15:0 iso-17:0 fatty acids synthesis
+Isoleucine      0.5181         0.039           0.4794                        Excess isoleucine utilized synthesis anteiso fatty acid synthesis
+Proline         −0.24          0.189                         0.4291          Synthesized glutamate
+Methionine      0.015          0.015                                         Utilized media biosynthetic demand
+Serine          0.057          0.135                         0.0785          Synthesized glycine
+Threonine       0.03           0.100                         0.0699          Synthesized aspartate
+Phenylalanine   0.086          0.086                                         Utilized media biosynthetic demand
+Aspartate       −0.12          0.103                         0.2232          Synthesized oxaloacetate glutamate
+Cysteine        0.0087         0.009                                         Utilized media biosynthetic demand
+Glutamate       1.48           0.176           1.3041                        Excess glutamate utilized amino acid synthesis
+Arginine        −0.93          0.211                         1.1409          Synthesized aspartate
+Asparagine      −0.023         0.103                         0.1262          Synthesized aspartate
+Lysine          −0.141         0.087                         0.2283          Synthesized oxoglutarate
+Glutamine       0              0.177                         0.1771          Synthesized glutamate
+Histidine       0              0.024                         0.0245          Synthetsized PRPP
+Tyrosine        −0.03204       0.069                         0.1007          Synthesized PEP, E4P
+Tryptophan      −0.01116       0.043                         0.0538          Synthesized serine
+
+
+ maintain cellular membrane integrity                 temperatures [10]. regard, iTT548 completely cap-
+high temperatures. reported thermophilic                 tures biosynthetic pathways thermozeaxanthins,
+organisms, including T. maritima S. solfataricus,                    addition metabolic routes biomass
+synthesize ether lipids long chain dicarboxylic                     precursors amino acids, nucleotides lipids.
+fatty acids fatty alcohols [43].  Thermus                    Similarly, iTT548 contains unique biosynthetic
+sp. synthesize ether lipids produce unique                    pathways unusual polyamines help carotenoid molecules thermozeaxanthin                        stabilizing nucleotide strands proteins synthesis
+thermobizeaxanthin, embed lipid bi-layer                 high temperatures. earlier reported attain required cellular membrane fluidity high                T. thermophilus unique polyamine synthesis: 
+
+
+
+ Figure 5 Distribution essential genes T. thermophilus metabolic subsystems. Black, grey white colors indicate completely-,
+ conditionally- non-essential genes, respectively. numbers parenthesis represent number genes subsystem.
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                           Page 10 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+ extreme thermophiles S. solfataricus pro-                low temperature range, hypothesize duces relatively shorter polyamines [36]. Collectively,              thermophiles likely adjust biomass results clearly detailed metabolic cover-             composition selectively better adapt growth
+age iTT548 thermophiles comparing                environment.  use appropriate biomass
+preceding GSMMs.                                                     equations simulating cellular growth correspond-
+  Furthermore, work includes prudently drafted                ing temperature ranges crucial reliable prediction.
+biomass equation specific thermophiles, espe-                gene deletion analyses iTT548 revealed
+cially Thermus sp. mentioned earlier, comparative             interesting traits function deleted
+analysis T. thermophilus E. coli biomass composi-             genes respect overall cellular metabolism T.
+tions highlighted significant differences               thermophilus.  notable rela-
+amino acid fatty acid compositions. Noticeably,              tively high percentage essential genes compared
+T. thermophilus biomass analysis revealed               E. coli (23  13 ), possibly smaller
+centration thermolabile amino acids              Open Reading Frames (ORF) content  2,263 com- threonine histidine substantially lesser E.          pared 4,623) despite possessing necessary modules
+coli proline concentration higher.            cell viable high temperatures. Furthermore, highlighted observations                 observation highlights fact T. ther-
+good agreement earlier reports suggested              mophilus thrives higher temperatures selective usage amino acid residues key             microbes, fitness relatively competitive
+adaptive strategy employed thermophiles [44,45].                  rigid network organization. Interestingly, Arguably, cellular compositions thermophilic                  gene essentiality analyses indicated carotenoids
+microbes change depending growth temperature;                 metabolism functionally quite fragile current biomass equation derived based com-               genes essential cellular growth.  positional analysis T. thermophilus grown 70°C.             noted gene deletion analysis results order clarify temperature dependent compositional             sensitive parameters silico medium
+change biomass, measured amino acid compositions               setup biomass composition. regard, current T. thermophilus 45°C. comparison com-               biomass composition obtain T. thermophilus positional data 70°C clearly indicated           optimum growth temperatures, e. 70°C, gene
+significant difference individual overall amino          deletion results current study applicable acid concentrations (Figure 6A). Similarly, com-             condition.
+pared fatty acid compositions 40°C 70°C
+using data literature [30]. interestingly,             Conclusions
+unlike amino acid comparison, fatty acid compositions,               presented genome-scale metabolic network T. overall individual lower 40°C                  thermophilus, iTT548, representing ther-
+(Figure 6B). able make complete            mophiles, containing 548 unique genes, 796 reactions
+comparison low high growth temperatures                  635 unique metabolites. unique feature data available cellular constituents           T. thermophilus, iTT548 contains necessary metabolic peptidoglycans thermotolerant carotenoids             pathways synthesizing unique carotenoids
+
+
+
+
+ Figure 6 Influence temperature T. thermophilus biomass composition.   amino acid composition (mol ) 70°C 45°C  (B) fatty acid composition (mol ) 70°C 40°C.
+Lee et al. Microbial Cell Factories 2014, 13:61                                                               Page 11 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+ polyamines help habituating high            butyldimethylsilyl-trifluoro-acetamide (MBDSTFA) temperatures. reconstructed metabolic model           DMF 80°C 30 min. centrifugation 14,000 g
+subsequently validated batch culture experiments     5 min, supernatant injected GC/MS split glucose minimal complex medium            injection mode (1:10 split ratio).
+silico growth predictions iTT548 good
+agreement observed experimental results.         Metabolic network reconstruction
+comparative flux analysis minimal complex         genome-scale metabolic network T. thermophilus
+media highlighted consumption utilization     HB27 reconstructed using published genome
+branched chain amino acids directly relevant fatty     annotation [28] information collected vari-
+acids anabolic pathways, resulting higher growth      ous biological genomic databases basis rates rich medium. gene essentiality study       established procedure [48].  initial draft model conducted silico simulation studies   constructed compiling annotated metabolic
+minimal complex media, highlighting high           genes corresponding biochemical reactions
+percentage lethal genes comparison E. coli,        KEGG [49] MetaCyc [50].  reactions
+suggesting metabolic backbone T. thermo-          corrected elemental imbalances mapped
+philus quite rigid. Overall, metabolic        appropriate genes devise proper gene-protein-
+network presented current study expected         reaction (GPR) relationships. Additionally, spontan- significant contribution systems analysis     eous non-gene-associated reactions including
+thermophiles metabolic model utilized        metabolite transport incorporated high throughput datasets better         model based physiological evidence literature
+derstanding organism.                                      databases. connectivity draft network                                                               checked using GapFind algorithm Methods                                                       gaps [51]. identified missing links filled Microorganism culture conditions                          introduction sink reactions allow material
+T. thermophilus HB27 strain used model organ-        exchange cell surrounding environ-
+ism. fermentation complex medium, single colony      ment adding reactions similar microbes cultivated overnight 70°C 150 rpm 5 mL      close knowledge gaps. TM medium [46], culture transferred 500 mL baffled-flask containing 100 mL TM broth. case cultivation defined glucose minimal medium,        Biomass composition overnight seed grown 70°C 150 rpm 5 mL         Cellular biomass composition important pre- TM medium transferred 500 mL             requisite silico flux analysis, especially baffled-flask containing 100 mL defined minimal            exponential growth phase, primary cellular
+medium (DMM) 0.6  (w/v) glucose cultivated           objective maximize growth. Amino acid composition 24 hours.  5 mL flask culture DMM       T. thermophilus HB27 estimated hydrolyzing
+oculated 100 mL fresh DMM. fermentations,        cell pellets 6 N HCl 24 h 130°C, subse-
+cell growth monitored measuring optical density    quently analysing hydrolysates using HPLC equipped 600 nm. dry cell weight (DCW) estimated       UV-detector C18 column. Cell wall lipid predetermined conversion factor 0.34.                 compositions obtained previous publications
+                                                              Thermus sp. [30,31,35,52]. overall DNA RNA
+Analytical methods                                            composition assumed E. coli [14] Concentrations glucose, organic acids ethanol       data available Thermus sp. individual culture broth measured high performance           weights nucleotides DNA RNA calcu-
+liquid chromatography (HPLC) (Waters, Milford, MA)            lated based reported G + C content 69.4  [28].
+equipped HPX-87H column (Bio-Rad, Hercules,           Detailed information biomass composition calculations
+CA), dual λ absorbance detector. collected samples      Additional file 3. centrifuged 14,000 g 4°C 5 min supernatant analyzed column using 5 mM           Constraints-based flux analysis
+sulfuric acid mobile phase 0.6 mL−1 min. Concen-      implemented constraints-based flux analysis trations amino acids determined gas chromato-      simulate T. thermophilus metabolism varying
+graph/mass spectrophotometer (GC/MS) (Agilent, Santa          environmental conditions. biomass reaction Ciara, CA) equipped HP-5MS column (Agilent),          maximized simulate exponential growth phase previously reported [47]. brief, samples       described [53-55]. Mathematically, op-
+centrifuged, dried derivatized methyl-N-t-           timization problem, e. maximization biomass subjected
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                                  Page 12 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+ stoichiometric capacity constraints, formu-           supplied carbon source based complex
+lated follows:                                                   media based nutrient consumption profile. simu-
+               X                                                    lation results subsequently analyzed identify     max ¼       cj vj                                             essential genes gene classified essential
+                       j
+                                                                    resulting cell growth prediction correspond-
+           X                                                        ing mutant equal 5  wild-type. Note
+    s:t:          S ij vj ¼ 0 ∀ metabolite             j
+                                                                    gene deletion analysis study 
+                                                                    formed using COBRA toolbox.
+    vmin
+     j   ≤ vj ≤ vmax
+                 j               ∀ reaction j
+                                                                    Additional files Sij refers stoichiometric coefficient 
+tabolite involved reaction j, vj denotes flux            Additional file 1: Details iTT548 containing genes, reactions, specific rate metabolic reaction j, vmin j   vmax
+                                                          j
+                                                                     metabolites. list reactions added gap-filling possible
+                                                                     new annotations identified study provided.
+represent lower upper limits flux                                                                      Additional file 2: SBML file iTT548.
+reaction j, respectively; corresponds cellular
+                                                                     Additional file 3: Biomass composition T. thermophilus HB27 objective linear function metabolic reactions        NGAM calculations. relative weights determined coeffi-             Additional file 4: List essential genes glucose minimal cient cj. study, constraints-based flux analysis         complex media.
+problems solved using COBRA toolbox [56].
+                                                                    Competing interests
+Flux variability analysis                                           authors declare competing interests. constraints-based flux analysis optimization
+                                                                    Authors’ contributions
+based technique, possible multiple              NRL, ML, JBP DYL conceived designed study. NRL JWS
+flux distributions attaining physiological state.          performed batch culture experiments. NRL SA created draft  order confirm plausibility internal         model. ML refined model performed simulations. NRL, ML, IAK,
+                                                                    JBP DYL wrote manuscript. JBP DYL coordinated metabolic fluxes simulated minimal complex media             directed project. authors read approved final flux analysis, performed flux variability analysis        manuscript.
+(FVA) identify possible range fluxes                                                                     Acknowledgements
+simulating particular phenotypic state. Mathematically,           work supported National University Singapore, Biomedical optimization problem specific FVA repre-              Research Council STAR (Agency Science, Technology Research),
+sented follows:                                                  Singapore, Korea Research Foundation (KRF- 2010–0009169), Republic                                                                     Korea, grant Generation BioGreen 21 Program (SSAC,
+     max= min              vj                                        PJ009520), Rural Development Administration, Republic Korea.
+                           X
+                s:t:              S ij vj ¼ 0                       Author details
+                                                                    1
+                                                                     Department Food Science & Engineering, Ewha Womans University, 11-1
+                             j
+                           X                                        Daehyun-dong, Seodaemun-gu, Seoul 120-750, Korea. 2Department                                   cj vj ¼ obj                     Chemical Biomolecular Engineering, National University Singapore, 4
+                             j                                      Engineering Drive 4, Singapore 117585, Singapore. 3Bioprocessing
+                                                                    Technology Institute, Agency Science, Technology Research
+                           vmin
+                            j   ≤ vj ≤ vmax
+                                        j         j ¼ 1; …; n    STAR), 20 Biopolis Way, #06-01, Centros, Singapore 138668, Singapore.
+                                                                    4
+                                                                     Global Top5 Research Program, Ewha Womans University, 11-1
+                                                                    Daehyeon-dong, Seodaemun-gu, Seoul 120750, Korea. Zobj denotes value objective calculated flux analysis n number fluxes. upper              Received: 14 February 2014 Accepted: 17 April 2014
+range fluxes identified maximizing objective           Published: 28 April 2014 lower range obtained minimizing                                                                     References  study, FVA implemented using                  1. Oshima T, Imahori K: Description Themus thermophilus (Yoshida COBRA toolbox.                                                          Oshima) comb. nov., nonsporulation thermophilic bacterium                                                                         Japanese thermal spa. Int J Syst Bacteriol 1974, 24:102–112.
+                                                                    2. Cava F, Hidalgo  Berenguer J: Thermus thermophilus biological model.
+Gene deletion analysis                                                  Extremophiles 2009, 13:213–231.
+Gene deletion simulations performed maximiz-                3. Wimberly BT, Brodersen  Clemons WM Jr, Morgan-Warren RJ, Carter AP,
+ing cellular biomass constraining flux                Vonrhein C, Hartsch T, Ramakrishnan V: Structure 30S ribosomal
+                                                                        subunit. Nature 2000, 407:327–339. corresponding reaction(s) zero GPR             4. Sazanov LA, Hinchliffe P: Structure hydrophilic domain lationships defined nutrient uptake rates. case                respiratory complex Thermus thermophilus. Science 2006, glucose minimal medium, glucose fueled                   311:1430–1436.
+                                                                    5. Selmer M, Dunham CM, Murphy FV, Weixlbaumer  Petry S, Kelley AC, Weir
+carbon source. hand, glucose, trehalose                    JR, Ramakrishnan V: Structure 70S ribosome complexed amino acids valine, leucine isoleucine                  mRNA tRNA. Science 2006, 313:1935–1942.
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                                                      Page 13 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+6.    Yokoyama K, Ohkuma S, Taguchi H, Yasunaga T, Wakabayashi T, Yoshida M:         28. Henne  Bruggemann H, Raasch C, Wiezer  Hartsch T, Liesegang H,
+      V-type H + −ATPase/synthase thermophilic eubacterium, Thermus               Johann  Lienard T, Gohl O, Martinez-Arias R, Jacobi C, Starkuviene V,
+      thermophilus - Subunit structure operon. J Biol Chem 2000,                     Schlenczeck S, Dencker S, Huber R, Klenk HP, Kramer W, Merkl R, Gottschalk
+      275:13955–13961.                                                                   G, Fritz HJ: genome sequence extreme thermophile Thermus
+7.    Pantazaki AA, Pritsa AA, Kyriakidis DA: Biotechnologically relevant enzymes        thermophilus. Nat Biotechnol 2004, 22:547–553.
+      Thermus thermophilus. Appl Microbiol Biotechnol 2002, 58:1–12.            29. Kaneda T: Iso- anteiso-fatty acids bacteria: biosynthesis, function,
+8.    Niehaus F, Bertoldo C, Kahler M, Antranikian G: Extremophiles source          taxonomic significance. Microbiological Rev 1991, 55:288–302.
+      novel enzymes industrial application. Appl Microbiol Biotechnol 1999,   30. Nordstrom KM, Laakso SV: Effect growth temperature fatty acid
+      51:711–729.                                                                        composition Thermus strains. Appl Environ Microbiol 1992,
+9.    Riyanti EI: Genetic manipulation thermophiles ethanol production.           58:1656–1660.
+      PhD Thesis. University New South Wales: School biotechnology      31. Pask-Hughes RA, Shaw N: Glycolipids extreme thermophilic
+      biomolecular sciences; 2007.                                                   bacteria belonging geus Thermus. J Bacteriol 1982, 149:54–58.
+10.   Tian B, Hua Y: Carotenoid biosynthesis extremophilic Deinococcus–Thermus    32. Alarico S, da Costa MS, Empadinhas N: Molecular physiological role       bacteria. Trends Microbiol 2010, 18:512–520.                                       trehalose-hydrolyzing alpha-glucosidase Thermus thermophilus
+11.   Shigi N, Suzuki T, Tamakoshi M, Oshima T, Watanabe K: Conserved bases           HB27. J Bacteriol 2008, 190:2298–2305.
+      TPsi C loop tRNA determinants thermophile-specific              33. Lengsfeld C, Schonert S, Dippel R, Boos W: Glucose- glucokinase-
+      2-thiouridylation position 54. J Biol Chem 2002, 277:39128–39135.               controlled mal gene expression Escherichia coli. J Bacteriol 2009,
+12.   Lewis NE, Nagarajan H, Palsson BO: Constraining metabolic                      191:701–712.
+      genotype-phenotype relationship using phylogeny silico                 34. Holst O: Structure Lipopolysaccharide Core Region. Bacterial
+      methods. Nat Rev Microbiol 2012, 10:291–305.                                       Lipopolysaccharides. Edited Knirel YA, Valvano MA. Wien: Springer-Verlag;
+13.   Liu L, Agren R, Bordel S, Nielsen J: Use genome-scale metabolic models          2011:21–39.
+      understanding microbial physiology. FEBS Letters 2010, 584:2556–2564.      35. Mandelli F, Yamashita F, Pereira JL, Mercadante AZ: Evaluation biomass
+14.   Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,                    production, carotenoid level antioxidant capacity produced       Broadbelt LJ, Hatzimanikatis V, Palsson BO: genome-scale metabolic               Thermus filiformis using fractional factorial design. Braz J Microbiol 2012,
+      reconstruction Escherichia coli K-12 MG1655 accounts 1260             43:126–134.
+      ORFs thermodynamic information. Mol Syst Biol 2007, 3:121.                 36. Oshima T: Unique polyamines produced extreme thermophile,
+15.   Oh YK, Palsson BO, Park SM, Schilling CH, Mahadevan R: Genome-scale                Thermus thermophilus. Amino Acids 2007, 33:367–372.
+      reconstruction metabolic network Bacillus subtilis based              37. Raghunathan AU, Perez-Correa JR, Bieger LT: Data reconciliation       high-throughput phenotyping gene essentiality data. J Biol Chem                parameter estimation flux-balance analysis. Biotechnol Bioeng 2003,
+      2007, 282:28791–28799.                                                             84:700–709.
+16.   Mo ML, Palsson BO, Herrgard MJ: Connecting extracellular metabolomic           38. Schuster S, Pfeiffer T, Fell DA: maximization molar yield metabolic
+      measurements intracellular flux states yeast. BMC Syst Biol 2009,            networks favoured evolution? J Theor Biol 2008, 252:497–504.
+      3:37.                                                                          39. Demirtas MU, Kolhatkar  Kilbane JJ 2nd: Effect aeration agitation
+17.   Chung BK, Selvarasu S, Andrea C, Ryu J, Lee H, Ahn J, Lee DY:                      growth rate Thermus thermophilus batch mode. J Biosci Bioeng
+      Genome-scale metabolic reconstruction silico analysis                    2003, 95:113–117.
+      methylotrophic yeast Pichia pastoris strain improvement. Microb            40. Mckay  Quilter J, Jones CW: Energy conservation extreme
+      Cell Fact 2010, 9:50.                                                              thermophile Thermus Thermophilus HB8. Arch Microbiol 1982, 131:43–50.
+18.   Kjeldsen KR, Nielsen J: silico genome-scale reconstruction              41. Mahadevan R, Schilling CH: effects alternate optimal solutions       validation Corynebacterium glutamicum metabolic network.                    constraint-based genome-scale metabolic model. Metab Eng 2003,
+      Biotechnol Bioeng 2009, 102:583–597.                                               5:264–276.
+19.   Park JM, Kim TY, Lee SY: Genome-scale reconstruction silico             42. Selvarasu S, Ow DS-W, Lee SY, Lee MM, Oh SK-W, Karimi IA, Lee D-Y:
+      analysis Ralstonia eutropha H16 polyhydroxyalkanoate                    Characterizing Escherichia coli DH5α growth metabolism       synthesis, lithoautotrophic growth, 2-methyl citric acid production.           complex medium using genome-scale flux analysis. Biotechnol Bioeng
+      BMC Syst Biol 2011, 5:101.                                                         2009, 102:923–934.
+20.   Oberhardt MA, Puchalka J, Fryer KE, Martins dosSantos VA, Papin JA:            43. Koga Y: Thermal adaptation archaeal bacterial lipid
+      Genome-scale metabolic network analysis opportunistic pathogen              membranes. Archaea 2012, 2012:789652.
+      Pseudomonas aeruginosa PAO1. J Bacteriol 2008, 190:2790–2803.                  44. Kumar S, Tsai CJ, Nussinov R: Factors enhancing protein thermostability.
+21.   Selvarasu S, Karimi IA, Ghim GH, Lee DY: Genome-scale modeling              Protein Eng 2000, 13:179–191.
+      silico analysis mouse cell metabolic network. Mol bioSyst 2010,             45. Mallik S, Kundu S: comparison structural evolutionary attributes
+      6:152–161.                                                                         Escherichia coli Thermus thermophilus small ribosomal subunits:
+22.   Duarte NC, Becker SA, Jamshidi N, Thiele  Mo ML, Vo TD, Srivas R, Palsson        signatures thermal adaptation. PloS 2013, 8:e69898.
+      BO: Global reconstruction human metabolic network based              46. Koyama Y, Hoshino T, Tomizuka N, Furukawa K: Genetic transformation       genomic bibliomic data. Proc Natl Acad Sci U S 2007,                         extreme thermophile Thermus thermophilus Thermus
+      104:1777–1782.                                                                     spp. J Bacteriol 1986, 166:338–340.
+23.   Lakshmanan M, Koh G, Chung BK, Lee DY: Software applications flux          47. Yang KM, Lee NR, Woo JM, Choi W, Zimmermann M, Blank LM, Park JB:
+      balance analysis. Brief Bioinform 2014, 15:108–122.                                Ethanol reduces mitochondrial membrane integrity impacts
+24.   Lee SJ, Lee DY, Kim TY, Kim BH, Lee J, Lee SY: Metabolic engineering            carbon metabolism Saccharomyces cerevisiae. FEMS Yeast Res 2012,
+      Escherichia coli enhanced production succinic acid, based                12:675–684.
+      genome comparison silico gene knockout simulation. Appl Environ         48. Thiele  Palsson BO: protocol generating high-quality genome-scale
+      Microbiol 2005, 71:7880–7887.                                                      metabolic reconstruction. Nat Protocol 2010, 5:93–121.
+25.   Matsuda F, Furusawa C, Kondo T, Ishii J, Shimizu H, Kondo  Engineering       49. Kanehisa M, Goto S, Hattori M, Aoki-Kinoshita KF, Itoh M, Kawashima S,
+      strategy yeast metabolism higher alcohol production. Microb Cell            Katayama T, Araki M, Hirakawa M: genomics chemical genomics:
+      Fact 2011, 10:70.                                                                  new developments KEGG. Nucleic Acids Res 2006, 34:D354–D357.
+26.   Zhang Y, Thiele  Weekes D, Li  Jaroszewski L, Ginalski K, Deacon        50. Caspi R, Altman T, Dreher K, Fulcher CA, Subhraveti P, Keseler IM, Kothari
+      Wooley J, Lesley SA, Wilson IA, Palsson BO, Osterman  Godzik                    Krummenacker M, Latendresse M, Mueller LA, Ong Q, Paley S, Pujar 
+      dimensional structure view central metabolic network               Shearer AG, Travers M, Weerasinghe D, Zhang P, Karp PD: MetaCyc
+      Thermotoga maritima. Science 2009, 325:1544–1549.                                  database metabolic pathways enzymes BioCyc
+27.   Ulas T, Riemer SA, Zaparty M, Siebers B, Schomburg D: Genome-scale                 collection pathway/genome databases. Nucleic Acids Res 2012,
+      reconstruction analysis metabolic network                        40:D742–D753.
+      hyperthermophilic archaeon Sulfolobus solfataricus. PloS 2012,             51. Satish Kumar V, Dasika MS, Maranas CD: Optimization based automated
+      7:e43401.                                                                          curation metabolic reconstructions. BMC Bioinform 2007, 8:212.
+Lee et al. Microbial Cell Factories 2014, 13:61                                                                                              Page 14 14
+http://www.microbialcellfactories.com/content/13/1/61
+
+
+
+
+52. Ray PH, White DC, Brock TD: Effect growth temper

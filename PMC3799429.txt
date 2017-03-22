@@ -1,0 +1,497 @@
+Published online 30 July 2013                                                Nucleic Acids Research, 2013, Vol. 41,  19 9033â€“9048
+                                                                                                                 doi:10.1093/nar/gkt654
+
+
+High-resolution definition Vibrio cholerae
+essential gene set hidden Markov modelâ€“based
+analyses transposon-insertion sequencing data
+Michael C. Chao1,2,3, Justin R. Pritchard4, Yanjia J. Zhang4, Eric J. Rubin1,2,4,
+Jonathan Livny5, Brigid M. Davis1,2,3 Matthew K. Waldor1,2,3,*
+1
+ Division Infectious Disease, Brigham & Womenâ€™s Hospital, Boston, MA 02115, USA, 2Department Microbiology Immunobiology, Harvard Medical School, Boston, MA 02115, USA, 3Howard Hughes Medical
+Institute, Boston, MA 02115, USA, 4Department Immunology Infectious Diseases, Harvard School Public Health, Boston, MA 02115, USA 5Genome Sequencing Analysis Program, Broad Institute,
+Cambridge, MA 02142, USA
+
+Received June 13, 2013; Revised July 1, 2013; Accepted July 2, 2013
+
+
+
+ABSTRACT                                                                        INTRODUCTION coupling high-density transposon mutagen-                                coupling high-density transposon mutagenesis esis high-throughput DNA sequencing (trans-                                  high-throughput DNA sequencing (referred poson-insertion sequencing) enables simultaneous                                â€˜transposon-insertion sequencingâ€™) given microbiolo- genome-wide assessment contributions                                 gists potent new tool capacity simultaneously
+                                                                                comprehensively assess genome-wide fashion individual loci bacterial growth survival.
+                                                                                contributions individual loci growth. refined analysis transposon-insertion                                different methods transposon-insertion
+sequencing data normalizing effect                                sequencing, using different transposons methods DNA replication sequencing output using                                library preparation {e.g. TnSeq, InSeq, TraDIS HITS
+hidden Markov model (HMM)-based filter exploit                               [reviewed (1,2)]}.  transposon-insertion
+heretofore unappreciated information inherent                            sequencing studies start construction high-
+transposon-insertion sequencing data sets.                                  density transposon library, principle contain
+HMM smooth variations read abundance                                     mutations disrupting nonessential locus reduce effects read noise,                                genome.  generation DNA sequencing used permit fine scale mapping independ-                             map transposon insertion sites masse. Quantitative
+ent genomic annotation enable classification                             analyses frequency mutations                                                                                 genetic locus detected enables discrimination loci functional categories (e.g. essen-
+                                                                                loci required dispensable growth tial, domain essential â€˜sickâ€™). generated                               conditions  Mutations absent es-
+high-resolution map genomic loci (encompassing                               sential loci underrepresented loci promote, intra- intergenic sequences)                                  required  survival proliferation.
+required beneficial vitro growth                                  independent introduction 2009 dif-
+cholera pathogen, Vibrio cholerae. work                                 ferent groups (3â€“6), transposon-insertion sequencing
+covered new metabolic physiologic require-                                  approaches applied study diverse bac-
+ments V. cholerae survival, combining                                teria variety growth conditions  (1,2)].
+transposon-insertion sequencing transcri-                                    past current methods analysis ptomic data sets, identified novel                              transposon-insertion sequencing data ad-
+noncoding RNA species contribute                                        vantage information stored large data
+                                                                                sets. example, studies yield genome-
+V. cholerae growth. findings suggest                                                                                 wide information, analyses characterize
+HMM-based approaches enhance extraction                                 annotated open reading frames (ORFs) omit
+biological meaning transposon-insertion                                    consideration untranslated loci cis-acting sites
+sequencing genomic data.                                                        noncoding RNAs (ncRNAs) (1).  
+
+
+ correspondence addressed. Tel: +1 617 525 4646; Fax: +1 617 525 4660; Email: MWALDOR@research.bwh.harvard.edu
+
+ÃŸ Author(s) 2013. Published Oxford University Press. Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 3.0/), permits unrestricted reuse, distribution, reproduction medium, provided original work properly cited.
+ 9034 Nucleic Acids Research, 2013, Vol. 41,  19
+
+
+transposon-insertion sequencing study reported fully          optimal V. cholerae growth. Collectively, study
+exploited local context information inherent high-         provides highly reï¬?ned curation essential V.
+density transposon libraries. general, insertion mutants       cholerae gene set, illustrates utility HMM- genetic locus high probability          based analyses bring transposon-insertion
+causing similar phenotypes.  tech-         sequencing data sets.
+nical biological sources noise, including library
+undersaturation, ampliï¬?cation bias/jackpots stochas-
+tic variation replicates, number reads         MATERIALS METHODS
+insertion mutants adjacent sites vary widely.         Strains, media culture conditions
+noise obscure biologically meaningful
+patterns data, especially reads          strains grown LB Miller (1  NaCl) unless
+locus averaged                                       noted. Antibiotic concentrations used    work, exploit hidden Markov model                 200 mg/ml streptomycin (Sm), 50 mg/ml kanamycin (Km)
+(HMM) improve previous analyses lessening im-           100 mg/ml ampicillin (Amp). Wild-type V. cholerae
+pact intrinsic variability (noise) transposon-insertion     C6706 Escherichia coli SM10 lambda pir carrying
+sequencing data generating robust consist-           Himar1 suicide transposon vector pSC189 (9) ent biological signals. HMMs widely used             grown 37 C LB+Sm LB+Amp, respectively.
+ï¬?nd meaningful patterns bioinformatics contexts,          Individual transposon mutants ordered V.
+including DNA alignment, protein fold prediction              cholerae transposon library (10) propagated motif searching (7), analyses trans-           LB+Sm+Km 37 C, overnight, unless poson-insertion sequencing data. HMM calculates               stated. indicated, transposon mutant strains likely sequence nonobserved â€˜hidden statesâ€™           grown M9 media+0.2  glucose+Sm+Km.
+given series observed â€˜emissionsâ€™. Speciï¬?cally,         Riboï¬‚avin (Sigma) supplemented indicated.
+adapted mariner-based transposon-insertion seque-
+ncing data, number reads insertion site            Transposon mutant library construction
+(emissions) enables discovery hidden identity           independent transposon libraries created TA site  e. site â€˜essentialâ€™, â€˜neu-   V. cholerae C6706 conjugation. Brieï¬‚y, 1.6 ml tralâ€™ â€˜sickâ€™ locus). HMM approach creates stat-          overnight culture SM10 lambda pir E. coli carrying istical framework incorporates local context            suicide transposon vector, pSC189 (9), mixed predictions, hidden identity TA site          1.6 ml overnight culture V. cholerae C6706. inferred reads              Cells pelleted, media removed, washed previous TA site. approach relatively insensitive         LB resuspended 800 ml LB. micro- read count noise confound previous analysis           liters aliquots resuspended cells spotted methods, creates genomic proï¬?le  e. regions      0.45 mm HA ï¬?lters (Millipore) LB agar plate. essential growth display similar pattern      mating plate incubated 37 C 2 h, reads) used functionally separate genomic          ï¬?lters single tube 7.5 ml LB loci different biological categories.                        cells resuspended vortexing. resuspended cells     present high-resolution transposon-insertion        equally plated 245  245 mm2 (Corning)
+sequencing-based study contribution genetic         LB+Sm+Km agar plates colonies grown 30 C
+loci growth rich medium Vibrio cholerae,            24 h.
+Gram-negative etiologic agent diarrheal disease               Colonies library plates scraped, resuspended
+cholera. categorized genes intergenic loci          LB pooled ï¬?nal volume 15 ml. 3 ml genome based contribution growth              aliquot cells used genomic DNA extraction using survival organism vitro, using HMM-              Wizard Genomic DNA extraction kit (Promega), using
+based secondary analysis enhanced ability             10 volumes reagents lysis. discern essential gene signals noise. trans-         ï¬?nal DNA precipitation step, isopropanol added poson-insertion sequencing methods constrained                                                                   precipitated genomic DNA spooled iso-
+sequencing capacity, use â€˜essentialâ€™ study                                                                   propanol solution using blunted glass Pasteur pipette.
+refer loci absolutely necessary survival                                                                   DNA pellet successively washed 70 loci interruption compromises growth                                                                   100  ethanol, spooling wash new point represented sequenced
+                                                                  tube. ï¬?nal wash, excess ethanol pressed library. Comparison V. cholerae essential gene set                                                                   DNA pipette air dried RT Escherichia coli identiï¬?ed differences                                                                   30 min. Dry DNA pellets ï¬?nally resuspended 1.5â€“
+related organisms critical metabolic physiologic
+                                                                  2.5 ml nuclease-free water 65 C 1 h, processes.  HMM allowed identify                                                                   frequent mixing.
+new class â€˜sickâ€™ genes inactivation impaired
+growth. identiï¬?ed cis-acting noncoding essential
+                                                                  Transposon junction ampliï¬?cation, sequencing
+loci, including putative 50 untranslated regions
+                                                                  mapping
+(UTRs) essential genes. Finally, comparing data set transcriptome data (8), identiï¬?ed candi-         general, transposon junctions prepared 
+date trans acting ncRNA species required             pliï¬?ed according previously published method (11).
+                                                                       Nucleic Acids Research, 2013, Vol. 41,  19 9035
+
+  digested genomic DNA using                     distribution enabled calculate boundary Fragmentase (NEB) opposed mechanical                     left peak encompasses shearingâ€”speciï¬?cally, 25 mg genomic DNA              number genes. Using boundary, used Excel replicate library treated Fragmentase (ï¬?ve reac-      calculate fraction (0.34) 1  tions worth enzyme 250 ml solution 1â€“1.25 h     neutral genes  genes
+37 C). fragmentation, DNA end repaired              cutoff  Hit Distribution Hit Dist List)
+(Quick Blunt kit, NEB), adaptors ligated (sequences         underrepresented transposon insertion used
+Supplementary Table S15) PCR ampliï¬?cation              compare downstream analysis pipelines  e.
+ducted previously described. ï¬?nal PCR ampliï¬?ed          sliding window (SW) HMM data sets].
+products gel puriï¬?ed 2  agarose gel isolate
+200â€“500 bp fragments, subjected qPCR using              SW analysis
+primers Illumina P5 P7 hybridization           Mapped reads run custom scripts sequence (Supplementary Table S15) estimate input           SW pipeline; scripts  Supplementary Methods) ensure equal multiplexing downstream sequencing.        example input ï¬?les Supplementary Materials
+Equimolar DNA fragments library                 (11). Brieï¬‚y, TA-site count X, null distributions
+combined sequenced MiSeq V2.0                  generated data set totaling number
+platform 65 cycles using 50-cycle cartridge              reads X randomly sampled sites 10 000 times. 
+(Illumina).                                                    number reads monitored 10 bp intervals
+   Libraries 1â€“3 following number total reads:      genome overlapping 200 bp windows, 812 415; 1 857 563; 1 510 158. Reads trimmed          numbers compared null distribution.
+transposon adaptor sequences using CutAdapt (12),          window, P-value calculated rank mapped V. cholerae N16961 genome          test mean divided 10 000. false discovery rate allowable mismatches using Bowtie aligner (13).      (FDR) window calculated using Note V. cholerae El Tor clinical isolates, like C6706     Benajminiâ€“Hochberg test (17). Deï¬?nition signiï¬?cantly N16961, differ 50â€“250 single nucleotide           underrepresented windows data set (P < 0.01 polymorphisms (SNPs) entire genome (14).            FDR < 0.05) required presence seven TA
+Duplicated loci mapped absent         sites reads. windows locus study loci, loci absent V. cholerae    ï¬?ltered following criteria: loci containing
+C6706 compared V. cholerae N16961 (personal com-          signiï¬?cantly underrepresented windows (P < 0.01,
+munication) listed Supplementary Table S7.          FDR < 0.05) assigned essential, loci contain-
+libraries 1â€“3, number total mapped reads           ing nonsigniï¬ windows assigned neutral.
+375 775, 588 918 494 757 (30â€“45  mapping efï¬?-             Loci contain signiï¬ nonsigniï¬?-
+ciency), hit 31, 33 35  TA dinucleotides      window assigned domain essential. Loci genome, respectively. mapping, reads      contained windows TA sites capable TA site tallied, assigned known gene      reaching statistical signiï¬?cance  seven TA sites)
+intergenic region visualized DNAplotter         unable evaluated. Intergenic loci deï¬?ned
+Artemis (15). Finally, library contained similar   sequence lies entirely end percentage TA sites hit normalized 375 000 total     previous gene start current  mapped reads combined single data set               intergenic regions 50 locus number covering 1.1 million reads genome  insertions      forward strand [e.g. IG_VC0001 comprises nucleotides 56  TA sites) using R (16).                          1â€“324  bp coding sequence VC0001)].
+                                                               Analyses performed using Python 2.7.3 Positional correction replication hit                  NumPy 1.7.1 SciPy 0.12.0 add packages.
+distribution analysis normalize chromosomal replication biases             Hidden Markov modeling functional categorization
+read counts, chrI chrII divided 10 kb            loci
+nonoverlapping windows starting windows centered          adapt HMM framework mariner-based origins. Using Microsoft Excel functions,       transposon-insertion sequencing data, fol-
+number reads window  removing          lowing analogy: hidden states â€˜essentialâ€™, â€˜neutralâ€™
+sertion sites reads reduce overscaling     â€˜sickâ€™. Emissions read counts given TA site. essential loci) normalized based factor           adapt continuous read count data discrete
+calculated average read depth              modeling framework, binned data based window divided average depth chromosome.        distribution read counts TA sites. bin
+   normalization, fraction TA sites containing    size chosen smallest number bins transposon insertion calculated genes.       allowed separate true-positive sick genes (visualized
+genes sorted bins based fraction    Artemis) true-positive essential genes. TA sites hit transposon, distribution      analysis, bin size seven reads plotted. visually estimated distribution        discretized bin. Following discretization, random insertions neutral genes peak centered         trained HMM blocks SW calls 0.75. Counting number genes right half     entire genomeâ€”TA sites underrepresented windows
+ 9036 Nucleic Acids Research, 2013, Vol. 41,  19
+
+ assigned essential, TA sites nonsigniï¬      grown 37 C Bioscreen C optical density
+windows assigned neutral. incorporate sick            reader (Growth Curves USA) OD600 measurements
+genes, manually annotated small set 20 candidate       taken 15-min intervals 12 h. Additionally, candidate
+sick genes (Supplementary Table S8) training set          sick transposon mutants diluted 1:1 lacZ wild-
+ genes chosen appeared consistently        type V. cholerae grown 30 C, overnight. lower read depth compared likely neutral loci).        mutants ordered V. cholerae transposon library initial estimates emission transition prob-       constructed lacZ background (10), trans-
+ability matrices derived using Baumâ€“Welch algo-         poson used study carried lacZ reporter gene,
+rithm implemented Matlab R2011b (Mathworks) (code             making insertion mutants functionally lacZ+ Supplementary Methods). Following initial training,       blue X-gal media. Inoculum overnight sequence hidden states uncovered implement-        cultures plated LB+Sm200+60 mg/ml Xgal
+ing Viterbi method. Furthermore, exact               resultant mutant (blue) wild-type (white)
+training sets produce biases, iteratively reï¬?ned          colonies counted. Competitive indices hidden states using sequence ï¬?rst iteration    calculated ratios mutant wild-type colony- rederive transition emission matrices        forming units (CFUs).
+iteration Viterbi parse. did emission transition matrices equivalent subse-       ribE
+quent iterations. Iteration necessary reduce bias   Tn cells grown ordered transposon library, given training set. Different training sets differ-   pelleted, washed phosphate buffered saline streaked
+ent answers ï¬?rst implementation Viterbi algo-      agar plates containing riboï¬‚avin
+rithm, practice, iteration converges set   [LB+Sm+Km (LB)], M9+glucose+Sm+Km+
+predictions, training sets vary.                     5 mM riboï¬‚avin (M9+B2) [M9+glucose+
+   HMM ran convergence  e. algorithm          Sm+Km (M9)]. Cells grown 48 h 37 C longer changed assignments looped           visualize colonies. Additionally, washed cells data), set secondary ï¬?lters (Supplementary Methods)         diluted 1:1000 LB, M9 M9+B2 used functionally separate loci appropri-       Bioscreen C OD600 measurements taken 15-min
+ate categories. Essential genes deï¬?ned       intervals 24 h.
+central 80  coding sequence contained TA sites clas-
+siï¬?ed HMM essential. Essential intergenic regions          Identiï¬?cation ncRNAs important optimal essential TA sites entire intergenic space.      growth vitro
+Neutral genes intergenic regions deï¬?ned              Annotated known ncRNA species (18), putative transcrip-
+regions containing neutral TA sites. Regions clas-      tional units identiï¬?ed comparative genomics-
+siï¬?ed essential neutral loci investigated po-      based searches (19) small intergenic RNAs tential domain essential sick regions. classed      analyses RNA-Seq data sets (8) overlaid
+domain essential, genes/loci contain nonessen-       SW results.  P-values overlapping
+tial TA sites contiguous stretch ï¬?ve es-       windows ï¬?t ncRNA averaged
+sential TA sites, covers 15â€“300 bp 90  loci       ncRNAs containing window(s) stat- genome. Regions classiï¬?ed sick          istically underrepresented reads (P < 0.05) majority â€˜sickâ€™ TA sites entire locus.       identiï¬?ed candidate species required optimal
+Regions did meet criteria domain essential       growth.
+sick categories placed neutral category. calculate conï¬?dence HMM assignment, assessed posterior probabilities (likelihood)      RESULTS DISCUSSION
+TA site categorized essential, neutral sick.     Generation high-density transposon library data calculated using modiï¬?ed version              V. cholerae
+â€˜hmmdecodeâ€™ function Matlab (code available Supplementary Methods), average                      used characterized Himar1 mariner-based
+probabilities loci presented Supplementary        transposon vector pSC189 (9) create high-density
+Table S14 (raw data Supplementary Sample              transposon insertion library V. cholerae. Himar1
+input ï¬?le folder). inputs â€˜hmmdecodeâ€™                inserts TA dinucleotides additional sequence
+function transition emission probability            constraints (20,21), rendering extremely useful matrices readcount emissions ï¬?nal iteration         high-density mutagenesis organism HMMconvergence script.                                    V. cholerae, T 52 . V. cholerae
+                                                                 genome consists unequally sized chromosomes,
+                                                                 chrI (3 Mb) chrII (1.1 Mb) (22). Comparative
+Growth analysis candidate sick riboï¬‚avin
+                                                                 analyses chromosomes V. cholerae
+synthesis mutants
+                                                                 N16961  sequenced seventh pandemic El Tor strain) transposon mutant candidate sick genes ribE           revealed chrI 2.75-fold TA dinucleotides
+(vc2268) isolated ordered V. cholerae trans-        chrII (140 000 versus 50 000), difference poson library (10) grown LB+Sm+Km.                        mirrors 2.76-fold difference size. addition, Candidate sick genes diluted 1:1000 LB+Sm                distances adjacent TA sites                                                                       Nucleic Acids Research, 2013, Vol. 41,  19 9037
+
+
+chromosomes extremely similar,                transposon mutant library. circumvent annotated genes intergenic sequences (Supple-          issue, normalized read depth chromosome
+mentary Figure S1A).  mariner transposition           position-dependent correction, pre-
+likely genome, chromo-         viously applied transposon-insertion sequencing studies
+somes analyzed using pipeline.                (26). Brieï¬‚y, chromosome divided 10 kb
+   generated independent transposon libraries,       wide windows reads window scaled contained 600 000 transposon         average reads entire chromosome. mutants  average, 3-fold saturation TA sites),      normalized data [Figure 2A (inner track), 2C] enabled seventh pandemic El Tor V. cholerae clinical isolate      direct comparison transposon insertion frequency C6706 (10). sites Himar1 insertion library     loci, regardless genomic position. determined generation sequencing             pooled library contained insertions 56  MiSeq platform subsequently mapped               TA dinucleotides genome. translates closely related V. cholerae N16961 genome. El Tor             average insertion 15â€“16 transposons locus V. cholerae clinical isolates  N16961 C6706)      library (Supplementary Figure S1B) average 11 thought differ 50â€“250 SNPs         8 reads TA position chrI chrII, respect-
+genome (13), did expect systematic difï¬?culties     ively (Supplementary Figure S1C). TA sites lacking inser- mapping C6706 reads N16961 reference genome.        tions eluded transposition chance number insertions TA site tallied,     located regions tolerate insertions normalized library contained equal        essential growth LB plates. numbers mapped reads. precise sites        distinguish possibilities estimate insertion varied expected libraries,     true saturation library, assessed distribution
+sertion sites assessed annotated locus          insertion frequencies gene. expected (6000 combined genic intergenic loci), compos-       subsaturating insertions â€˜neutralâ€™ genes  e. genes
+ition libraries appeared extremely         inactivation impact bacterial growth), similar. Pearson correlation coefï¬?cient (R)       observed large symmetric peak centered genes libraries 0.94 0.95, coefï¬?cients         insertion fraction 0.70â€“0.75, suggesting genes determination (R2 value) 0.88 0.89              likely intergenic loci) average underwent random
+(Figure 1A). high degree concordance           transposon insertion 75  available TA sites. biological replicates suggests transposition   Importantly, estimating area peak, occurred similarly samples subsequent        set 1 percentile cutoff curve 34  ampliï¬?cation did introduce distortion data       TA sites gene disrupted (Figure 1B, dotted line).
+set. Furthermore, sequencing protocol pre-      Notably, cutoff yields 502 genes  referred
+viously accurately maintain composition       â€˜Hit Distâ€™ gene set) fewer transposon inser- library (11).  pooled mapped reads      tions expected chance (P < 0.01). single high-density transposon insertion       insertedâ€™ genes (Supplementary Table S1) data set downstream analysis.                             likely loci essential survival                                                               required optimal growth e. transposon insertions
+Distribution transposon insertions                         genes render cells â€˜sickâ€™ likely
+                                                              represented transposon library.  add- plotted position read depth trans-         itional analysis tools (discussed  required dis-
+poson insertion chromosomes evaluate          tinguish possibilities. genomic â€˜hotspotsâ€™ transposition. transposon insertions mapped                                                               SW hidden Markov analysis
+chromosomes (Figure 2A), noticeable pos-
+itional bias read depth; chromosome, reads        different analytical approaches, abundant replication origin region,      beneï¬?ts drawbacks, used identify
+gradually decreased minimum level near         genes required growth using transposon-insertion
+chromosome terminus (Figure 2A B). skew           sequencing data (3,11,27,28). data set, likely relative abundance origin-proximal       high number transposition sites relatively chromosomal regions result ongoing initiation       mapped reads insertion locus average bidirectional DNA replication sites (23).      (Figure 1C), permits evaluation genomic insertion
+elevated number chrI insertion sites, relative chrII    sites high resolution, requires analysis method-
+sites, observed (Figure 2B), consistent    ology does depend large differences read
+fact chrII replication initiates cell cycle,    depth essential neutral loci. recent SW multiple chrI initiation events occur (24,25).    approach developed Zhang et al. (11),  positional skew read depth appears reï¬‚ect     frequency insertions sequential overlapping known replication-based skew chromosome                windows compared random null distribution
+abundance.                                                    based data set, allowed evaluate    positional bias informative             loci underrepresented relatively low read
+V. cholerae chromosome replication dynamics, interferes    depth library. Furthermore, approach enables comparison relative abundance             analysis variably sized genomic windows, allowing
+ 9038 Nucleic Acids Research, 2013, Vol. 41,  19
+
+
+
+
+Figure 1. Reproducibility distribution Himar1 transposon insertions V. cholerae.   total reads transposon insertions intergenic genic region (6000 loci) summed library. Pairwise comparisons read abundance locus plotted libraries used determine coefï¬?cient determination (R2 value) pair. (B) fraction TA sites containing transposon insertion calculated gene pooled transposon-insertion sequencing data set, number genes associated fraction plotted. Using distribution presumed neutral genes (right peak), 1  signiï¬?cance cutoff calculated 0.34 (dotted
+line). Genes left line signiï¬?cantly fewer transposon insertions expected neutral insertion events (P < 0.01). (C) positional correction, total reads transposon insertions gene data set averaged total TA sites gene. number genes associated average frequency plotted.
+
+
+
+characterization small loci, including intergenic regions                   secondary ï¬?lter used P-values window subdomains ORFs, analyses                            categorize V. cholerae genes func-
+explicitly address (28). Deï¬?ning essential domains                          tional categories:   essential growth, (ii) containing valuable evaluating effect truncation point                     domain essential growth (iii) neutral. SW
+mutations locus, allowing separate cat-                    analysis, 247 V. cholerae genes classiï¬?ed essential
+egorization subregions multi-domain genes                        growth (having windows signiï¬?cantly fewer contribution growth. Alternative approaches                      reads core 80  coding sequence gene); 332
+average reads entire locus mask                              genes putative essential domains  e. genes presence domains tolerate insertion.                            signiï¬?cantly underrepresented windows neutral
+   SW pipeline, genomic regions data                        windows); 2759 genes neutral growth (did randomly sampled create null distribution expected                     contain underrepresented windows) signiï¬?cance
+reads given window size.  overlapping windows                       412 genes able determined scanned data compared null                        (Supplementary Table S1). Additionally, 136 genes distribution assess given window contained                        V. cholerae N16961 duplicated absent statistically fewer reads expected chance                     V. cholerae C6706 (Supplementary Table S7) principle, optimum SW small                             included analyses study.
+resolve protein domains noncoding regions,                               SW approach statistically robust, retaining sufï¬?cient number TA dinucleotides                         secondary ï¬?ltering SW results appears overly stringent reach statistical signiï¬?cance. applied SW algo-                      assigning essential genes permissive rithm (11) minor modiï¬?cations  â€˜Materials                         domain essential candidates. example, essen-
+Methodsâ€™ section) data using 200 bp window.                           tial ORFs deï¬?ned genes underrepresented  windows given locus compiled,                          windows central 80  coding sequence                                                                                    Nucleic Acids Research, 2013, Vol. 41,  19 9039
+
+
+
+
+Figure 2. Normalization transposon-insertion sequencing read abundance correct positional bias.   Reads mapped V.
+cholerae chromosomes; amplitude peak represents read abundance speciï¬?c insertion site. Annotated genes encoded strand shown red, genes â€“ strand green (outer track). Raw mapped reads plotted outer gold track, position-normalized read abundance shown inner gold track. (B) Raw mapped reads plotted according genomic
+positions chromosomes II. Origin proximal sequences located ends graphs, termini located near midpoints. spot represents unique transposon insertion site. (C) Read abundance following normalization using moving average smoothing
+method plotted function chromosomal position.
+
+
+
+approach, known essential gene dnaA erroneously                   long stretches essential dispensable sequence
+assigned domain essential category single                 (Figure 3B), SW ï¬?lter does assess charac-
+window containing read mapped gene                         teristic, makes approach susceptible false-
+(Figure 3A). True domain essential genes contain                   negative classiï¬?cations essential genes.  9040 Nucleic Acids Research, 2013, Vol. 41,  19
+
+
+
+
+Figure 3. Examples read abundance essential, domain essential sick genes chrII origin replication (oriCII). Read abundance sites transposon insertions shown   essential, (B) domain essential, (C) sick loci (D) oriCII. Red bars represent number reads insertions facing forward strand green bars reï¬‚ect insertions complementary strand. Black bars represent potential
+transposon insertion sites (TA dinucleotides) indicated regions. (B), previously mapped E. coli RneE domains, including RNase catalytic
+domain, arginine-rich ribosomal binding site (ARBBS) scaffolding protein interaction domain aligned VC2030 overlaid transposon-insertion sequencing data. (D), transposon insertions mapped oriCII. schematic spans noncoding vca0001 (rctA), intergenic region IG_vca0002 rctB (vca0002), encodes initiator chrII replication. Genetic analyses revealed chrII
+origin includes regions dispensable (blue) essential (orange) DNA replication (29,30). Functional assignments study [NE = neutral
+locus, D = locus essential domain (subregion)] shown 
+
+
+
+limitation published SW approach inability                  read counts, used HMM predict reï¬?ne
+categorize genes essential required               essentiality TA site genome. logic optimal growth. Insertions â€˜sickâ€™ genes impair                  beneï¬?t approach illustrated growth,  lead fewer reads relative                       reexamining dnaA (Figure 3A). HMM-based
+neutral loci library (Figure 3C). SW                           analysis, probability having stretch essential
+pipeline, V. cholerae genes ultimately                        TA dinucleotides followed single neutral TA site 
+validated â€˜sickâ€™   classiï¬?ed                            taining read returning stretch nonessential contain reads gene                      essential TA dinucleotides highly unlikely;  (Supplementary Table S1).                                                    HMM discounts single read assigns dnaA    circumvent limitations, used HMM                         essential gene category (Supplementary Table S2).
+reï¬?ne SW predictions. HMM incorporates local                            fashion, HMM able use local
+TA context insertion acknowledging es-                     TA context make calls possible sentiality given site consideration                  SW pipeline. SW algorithm unable categorize number mapped reads adjacent insertion site                     294 unique genes fewer seven TA dinucleotides transposon mutants genomic region                        possessed potential insertion sites likely behave similarly. Speciï¬?cally, HMM uses                         make statistical determination underrepresentation.
+series observed â€˜emissionsâ€™  number reads                        HMM assign functional categoriza- TA site) calculate probability nonobserved                    tion genes (Supplementary Table S6) taking
+hidden states  e. site â€˜essentialâ€™,              advantage information provided adjacent loci.
+â€˜neutralâ€™ â€˜sickâ€™ region). HMM incorporates                        genes did beneï¬?t having prelim-
+read count previous TA site predicted                         inary essentiality assignment SW method, state evaluating likelihood insertion                 gene calls statistically robust (Supplementary
+site belongs essential, neutral sick category given                Table S14) genes containing transposon inser- read count.  HMM requires training set                     tions presented separate  estimate likelihood TA site essential,                     stream analyses. Finally, HMM trained
+neutral sick region producing speciï¬?c read count.                       small set candidate genes (Supplementary  trained emission hidden state                               Table S8) impaired growth detect regions probabilities HMM using preliminary SW es-                       contain reduced transposon insertions lower
+sentiality assignments TA site associated                 read depth truly neutral regions, e. regions
+                                                                        Nucleic Acids Research, 2013, Vol. 41,  19 9041
+
+
+corresponding â€˜sickâ€™ genes. example, case      V. cholerae homologs essential promote
+ubiA (Figure 3C), SW algorithm classiï¬?ed           optimal growth V. cholerae (Supplementary Table S9).
+nonessential (Supplementary Table S1), HMM                  Collectively, good correspondence recognized TA sites gene fewer reads       HMM results separate essential gene studies, sug- true neutral genes.  addition HMM           gesting HMM-based analysis sufï¬?ciently sensi-
+appears generate accurate assignments essen-        tive identify V. choleraeâ€™s essential genes.
+tial genes SW pipeline capable          HMM method generated noticeably smaller categorizing small sick genes.                           list domain essential candidates compared SW
+                                                                approach (91 versus 332), expect given
+Comparisons HMM-based classiï¬?cation                 SW ï¬?lter categorizes domain essential essential genes analyses                           gene essential nonessential
+                                                                window. means essential genes HMM-based analysis data set yielded 343 es-          single nonsigniï¬?cantly underrepresented window, sential, 91 domain essential, 128 sick 2894 neutral         dnaA (Figure 3A), misclassiï¬?ed domain essen-
+genes good conï¬?dence probabilities (Figure 4A          tial. fact, 88 (27 ) genes SW domain
+Supplementary Tables S2â€“S5, S14). includes (343         essential list classed essential HMM
+versus 246) number V. cholerae genes classed        (Figure 4D), 10 88 mutants essential using SW pipeline (Figure 4A),       map central 80  gene Cameron
+given hypothesis SW approach              ordered      transposon     library.       addition    prone false negatives, HMM results likely          underestimating essential genes, SW domain essential accurate list true essential genes. supported   list likely include genes fact independent analyses.  nearly (342      neutral. library 75  saturation, 343) HMM essential genes overlap Hit Dist       likely single underrepresented windows present
+list, identiï¬?ed 502 genes having fewer transposon      neutral genes low detectable frequency.
+insertions expected chance (Supplementary         Consistent idea, 97 (29 ) Table S1, Figure 4A). Furthermore, 78  HMM               SW domain essential loci classiï¬?ed neutral essential genes essential (having rep-      HMM, 69 genes (21 ) shared resentative transposon mutant) previously deï¬?ned           approaches (Figure 4D).
+ordered V. cholerae transposon library Cameron                  set HMM-assigned domain essential
+et al. (10) (Figure 4B). Additionally, 16  HMM           genes likely includes false positives, analysis essential genes transposon mutants ordered          concordant previous analyses individual
+library ï¬?rst 10  genesâ€™ coding       loci. example, HMM identiï¬?ed essential dispens-
+regions, consistent possibility  suggested     able regions VC2030, encodes ribonuclease
+Cameron et al. (10)] disruptions termini es-     E, essential enzyme required 5S rRNA processing
+sential genes compromise gene                 (32) mRNA turnover (33). highly homologous
+function. contrast, Cameron library contains cen-        E. coli RneE domains:   ribonuclease cata-
+trally located mutations  core 80  coding            lytic domain; (ii) arginine-rich RNA binding domain
+region) 6  essential gene candidates            (ARRBS) (iii) C-terminal scaffolding region (34).
+(Figure 4B). discordance represent false posi-         transposon insertions VC2030 (Figure 3B)
+tives HMM assignments, conï¬?dence              genetic analyses rneE E. coli (34,35) indicate
+values genes appear good (Supplementary               N-terminal catalytic domain essential,
+Table S14). Interestingly, HMM essential genes list         ARRBS scaffolding domains dispens-
+contained far fewer 789 essential genes identiï¬?ed      able cell growth. Similarly, HMM assigned rctB, Cameron et al. Given relatively small transposon       encodes initiator chrII replication, library, suggested 350 essential candi-     domain essential class. Transposon insertions dates lacked transposon insertions owing chance       tolerated C-terminal 373 nucleotides rctB truly essential. data support               (Figure 3D), consistent genetic analyses indicating 44  789 genes apparent         revealed deletions 400 bp 30 end
+effect V. cholerae growth (Figure 4C).                       rctB abolish RctBâ€™s ability initiate chrII rep-
+   conducted comparative analyses pre-           lication (29,36).  HMM facilitated identiï¬?-
+dicted 343 essential genes 287 known essential      cation essential genes tolerate insertions genes related gamma-proteobacterium E. coli           sites reduced misclassiï¬?cation neutral loci identiï¬?ed based individual frame deletion studies         domain essential comparison SW method.
+(31)]. Homology searches revealed extensive concordance          optimization HMM predictions E. coli data set (Supplementary         possible reduce false-positive assignments; Table S9)â€”homologs 87  E. coli essential genes        example, robust identiï¬?cation domain essential loci categorized essential V. cholerae; 2.5      favored generation saturated trans- E. coli genes did apparent V. cholerae          poson libraries, lower chance containing
+homolog, remaining 10  essential            underrepresented windows chance. Additionally, E. coli genes V. cholerae homologs sick         domain essential candidates validated, likely size
+gene list. total, 90  E. coli essential genes   essential domain better estimated allow
+ 9042 Nucleic Acids Research, 2013, Vol. 41,  19
+
+
+
+
+Figure 4. Comparative analyses V. cholerae gene classiï¬?cations.   Overlap V. cholerae essential genes predicted using various analytical
+approaches. overlap essential genes predicted using HMM SW analyses (SW) shown, genes Hit Dist list, signiï¬?cantly low (P < 0.01) fraction TA sites disrupted. (B) 343 V. cholerae genes classiï¬?ed essential based HMM analyses compared assignments Cameron et al. Genes representative transposon mutants ordered transposon library marked â€˜Essentialâ€™, genes contained transposon insertion separated groups: insertion 10  ends genes (â€˜N/C terminalâ€™), insertions central 80  geneâ€™s coding sequence (â€˜Core insertionâ€™). (C) HMM-based gene
+classiï¬?cations shown 789 putative essential genes deï¬?ned Cameron et al (10). frequency duplicated loci genes V. cholerae C6706 genome (duplicate/absent), classiï¬?ed HMM, shown. (D) HMM classiï¬?cation 332 genes
+identiï¬?ed domain essential using SW analysis.
+
+
+ accurate ï¬?ltering genes regions containing                      optimal growth V. cholerae LB (Supplementary
+signiï¬?cantly fewer insertions.                                               Table S4). Interestingly, list contains 72 genes                                                                              overlap Hit Dist list (Supplementary Table S1),
+                                                                             indicating sick genes Identifying genes contribute optimum growth
+                                                                             fewer templates (reads) library, HMM
+                                                                             low frequency TA sites disrupted. principle, HMM approach facilitates identiï¬?cation genes                     fraction TA sites disrupted gene vary
+required optimal growth permits detection                     â€˜sickâ€™ neutral loci.  relatively regions consistently represented fewer reads                      low read depth data (average 10 reads expected growth-neutral genes. â€˜sickâ€™ genes                     transposon mutant; Supplementary Figure S1C) likely readily distinguished growth neutral loci using                     results insertions sick loci undetected; SW pipeline, missed studies treat insertions                 library greater read depth, expect binary events regardless reads (28), require                    Hit Dist list contain sick genes.
+outgrowth step ï¬?tness-based studies (2).                           validate HMM assignments sick genes, HMM results indicate 128 genes required                         compared growth insertion mutants                                                                                         Nucleic Acids Research, 2013, Vol. 41,  19 9043
+
+
+
+
+Figure 5. vitro growth mutants transposon insertions sick genes.   Culture density (OD 600) wild-type V. cholerae mutants transposon insertions â€˜sickâ€™ gene candidates plotted function time. (B) Competitive indices vitro competition assays wild-type V. cholerae mutants insertions candidate â€˜sickâ€™ genes shown. Competitive indices calculated ratios mutant wild-type CFUs overnight culture LB. *P < 0.001.
+
+
+
+candidate genes ordered V. cholerae transposon                       essentiality tyrosyl tRNA synthetase paralogs
+library (10) growth wild-type cells. Mutants                     vc0465 vc0631, vc0631 appears essential.
+sick genes contained lowest level mapped reads                    Likewise, genes encoding glycerol 3 phosphate
+(average 1â€“2 reads/insertion; Supplementary Table S4) ex-                     acyltransferases (vc0093 vc2024), vc2024 hibited reduced growth rate vitro ï¬?ve genes                   required growth (Table 1). nonessential paralogs
+tested (Figure 5A), conï¬?rming HMM analysis                        pseudogenes, diverged function dif-
+transposon-insertion sequencing data accurately                           ferentially expressed.
+identify mutations result growth defects.                                removing paralogous loci, remain 14
+Insertion mutants sick genes higher average                           nonessential genes V. cholerae considered es-
+mapped reads exhibited degree                              sential E. coli (Supplementary Table S9). 
+growth impairment. example, insertion mutants                          stances, differences organisms vc0309 vc0753, average reads 5.6                         explained conditional essentiality. ftsE ftsX 4.7, respectively, severely attenuated growth                         E. coli essential list, E. coli strains inactivating
+(Figure 5A). Likewise, vc0237 vc1773 mutants                              mutations genes grown presence (average 3 5.4 reads TA insertion)                       high salt (1  NaCl) (37). likely, V. cholerae ftsE ï¬?t wild-type cells vitro competition experi-                    ftsX assigned nonessential category ment (Figure 5B).  vc0246, vc0259 vc0831                          isolated insertion library LB medium containing
+mutants (average reads TA insertion 5, 6.9                         1  NaCl.  cases, differences essenti-
+9.5, respectively) grew comparably wild-type                         ality E. coli V. cholerae reï¬‚ect interesting
+strain (Figure 5B).  HMM calls candidate                          differences organismsâ€™ physiologies (Table 1).
+sick genes appear accurate insertions                     example, ï¬?ve essential E. coli genes ribABCDE taining lower average reads, false-positive assign-                     required synthesis riboï¬‚avin (vitamin B2) [reviewed
+ments likely genes higher average                           (38)], ribCDE homologs dispensable reads. provided HMM relatively                          V. cholerae (ribA ribB paralogs genome).
+small uncharacterized training set candidate sick                      observation suggests V. cholerae, like
+genes, possible improve accuracy                   Lactobacillus (39) Bacillus species (40), able
+HMM detecting sick genes training algorithm                        use riboï¬‚avin present environment (e.g. LB larger set biologically validated candidates.                       media), relying solely novo synthesis.                                                                               support hypothesis, ribE::Tn
+Differentially essential genes V. cholerae E. coli                     (vc2268::Tn) strain does grow M9 media, initially surprising ï¬?nd 25 E. coli                     does grow M9 supplemented riboï¬‚avin
+essential genes V. cholerae homologs neutral                        (Supplementary Figure S2).  V. cholerae study (Supplementary Table S9).  11                         lacks recognizable riboï¬‚avin transporters, likely genes appear duplicated V. cholerae                        organism, unlike E. coli, encodes riboï¬‚avin uptake
+genome cases likely functionally                        mechanism substitute novo synthesis. redundant (Table 1). example,                               addition ribCDE, homologs mukB, mukE nonessential paralogs peptide deformylase (vc0046                          mukF, required chromosome compaction vca0150), aspartate semialdehyde dehydro-                      E. coli (41), essential V. cholerae
+genase (vc2107 vc2036) V. cholerae. Intriguingly,                      (Table 1). readily detected V. cholerae transposon additional paralogous pairs exhibited differential                        insertions sites, mutants present  9044 Nucleic Acids Research, 2013, Vol. 41,  19
+
+
+Table 1. Genes functions selected loci differentially essential V. cholerae E. coli
+
+Essential homolog         Neutral homolog               Homolog          Essential         Annotated function
+V. cholerae                  V. cholerae                      E. coli             E. coli?
+
+vc0631                       vc0465                           tyrS                Yes                  Tyrosyl tRNA synthetase
+vc2024                       vc0093                           plsB                Yes                  Glycerol 3 phosphate acyltransferase
+                             vc0743, vca0693                  secD                Yes                  General secretion pathway translocase
+
+                             vc2269, vc1263                   ribA                Yes                  GTP cylclohydrolase subunit II
+
+                             vc2269, vca1060                  ribB                Yes                  3,4 dihydroxy-2-butanone 4-phoshate synthase
+
+                             vc2107, vc2036                   asd                 Yes                  Aspartate semialdehyde dehydrogenase
+
+                             vc0058, vc0586, vca0274                          Yes                  Carbonic anhydrase
+
+
+                             vc0046, vca0150                  def                 Yes                  Peptide deformylase
+
+                             vc2268                           ribE                Yes                  Riboï¬‚avin synthase beta subunit
+                             vc2270                           ribC                Yes                  Riboï¬‚avin synthase alpha subunit
+                             vc2271                           ribD                Yes                  Riboï¬‚avin-speciï¬?c deaminase
+                             vc1714-vc1716                    mukBEF              Yes                  Condensin subunits BEF
+vc2626                                                        dam                                   Adenine Methyltransferase
+vc2763-vc2767                                                 atpCDGAH                              F1 ATP synthase (e,b,g d) subunits
+vc2768-vc2770                                                 atpFEB                                F0 ATP synthase (B,C  subunits
+
+
+
+ ordered transposon insertion library (10), raising                    remodeling hypothetical proteins (Figure 6A,
+possibility V. cholerae encodes machinery outside                    Supplementary Table S10). ï¬?rst classes ex-
+mukBEF locus carry genome compaction.                            pected represent conserved multicomponent
+   343 V. cholerae genes classiï¬?ed HMM                              pathways required fundamental metabolic struc-
+analysis essential  growth LB), 56                     tural functions bacteria, genes disrupted lack homologs E. coli (Supplementary                       predominated studies essential genes organ-
+Table S2). genes falsely                          isms (27,51,52). better understand role se-
+classed essential HMM owing small size;                        quences initially annotated hypothetical essential genes  list likely reï¬‚ect true differences                  (53), constitute 13  (45 genes) essential genes, bacterial processes organisms,                         performed sequence protein structure homology
+does include previously described differentially essential                    searches. Notably, analyses medium high
+loci, including dam (vc2626), parA2 (vca1114) parB2                       conï¬?dence (e.g. PHYRE conï¬?dence values > 50 ) func-
+(vca1115) (Table 1) (42â€“44). list includes                         tional predictions 33 genes (Figure 6B,
+number antitoxin genes putative toxin/antitoxin                       Supplementary Table S11). substantial number
+addiction loci, including vca0360, vca0477, vca0486                       predicted involved metabolic vca0488 (Supplementary Table S2). genes                              nucleic acid catabolism processes, enrichment
+presumed essential associated active                          phage toxin-associated genes (15 versus 1  toxins, activity V. choleraeâ€™s                             total essential genes), essential antitoxins
+numerous toxin/antitoxin pairs previously                        described earlier (Supplementary Table S11). preva-
+assessed. Genes newly reported essential                             lence phage/toxin-related genes essential
+V. cholerae include seven genes F0/F1 ATP                          hypotheticals likely reï¬‚ects diversity relatively
+synthase locus (vc2763-vc2770). ATP synthase essential                     understudied nature, centrality, horizontally variety bacteria (45â€“48), E. coli                    acquired elements bacterial growth survival.
+(49), survive absence aerobic res-
+piration machinery fermentation (50). Vibrio cholerae                      Intergenic noncoding regions required metabolic requirements fermentation                         V. cholerae growth optimally available LB.  comparison                       transposon-insertion sequencing studies reported essential genes organisms uncover distinct                     date restricted analyses annotated open
+ecological physiological requirements species.                   reading frames, exception studies
+                                                                              (11,27,52,54).  SW HMM methods
+Predicted functions essential V. cholerae genes
+                                                                              enable comprehensive analysis entire genome, 343 V. cholerae essential genes identiï¬?ed                      useful deï¬?ning unannotated
+fall major categories [based predicted gene                      regions important growth, cis acting
+ontology   categorization annotated N16961                          sites ncRNAs. used HMM-based pipeline genome]: translation, metabolism, cell wall/envelope                          functionally categorize intergenic region                                                                                         Nucleic Acids Research, 2013, Vol. 41,  19 9045
+
+
+
+
+Figure 6. Essential gene processes V. cholerae.   V. cholerae genes predicted essential based HMM analysis categorized terms broader biological processes highlight essential activities V. cholerae. (B) Essential hypothetical proteins   subjected homology searches protein fold threading evaluate additional functional assignments genes. analyses
+allowed preliminary categorization biological roles 32 46 essential hypothetical proteins general biological categories.
+
+
+
+V. cholerae genome (Supplementary Table S12 S13),                         processing pre-tRNA RNA species (58,59). identiï¬?ed 200 intergenic regions                           HMM classiï¬?ed sick domain essential
+appear essential domain essential (Supplementary                     intergenic regions encode V. cholerae
+Table S12). HMM-based assignments consistent                         ncRNAs [(8) unpublished]. subsequent analyses, experimental data. example, closely mirror                      assessed extent correspondence experi-
+previous genetic studies deï¬?ning essential sequences                   mentally identiï¬?ed ncRNA coordinates regions chrI chrII origins replication (oriCI oriCII,                  SW analysis underrepresented insertion
+respectively) (30,55). precision transposon                     sites. approach enabled identiï¬?cation sertion sequencing data illustrated reads                  intergenic transcribed loci associated signiï¬?cantly
+intergenic region includes oriCII (IG_vca0002). 50                   fewer sequencing reads (P < 0.05), likely end intergenic sequence, known dis-                    required optimal growth vitro (Table 2). pensable replication, contains Himar1 insertions,                         ncRNAs encode previously mentioned RNase P M1, 30 sequence, known essential                       S15 Alpha RBS ncRNAs, ï¬?ve novel ncRNA
+(30), contains insertions (Figure 3D). fact,                   species functions remain uncharacterized.
+insertion intergenic region occurred position                  Interestingly,  B2 M9_15_chrII_36, 753, TA dinucleotide DnaA box                       signiï¬?cantly different expression vitro vivo
+essential replication. HMM essential region                      conditions [(8) unpublished]. Additional combined
+includes sequence upstream rctB, essential                    analyses transposon-insertion sequencing trans-
+replication (30). Similarly, 41  essential domain                   criptomic data cells grown diverse environ-
+essential intergenic regions lie immediately upstream                      mental conditions powerful approach predicted essential domain essential genes, consistent                     identifying regulatory ncRNAs mediate cell survival expectation promoters 50 UTRs                          stress conditions. essential genes required growth
+(Supplementary Table S12). fact, transcribed 50
+UTR regulatory sequences governing expression essen-                       CONCLUSIONS
+tial ribosomal proteins [S15 (56) Alpha RBS (57)]                         high-resolution analysis essentiality genic deï¬?ned domain essential (Table 2),                          intergenic loci V. cholerae genome provides analyses shown similar essential ribosomal leader se-                    wealth data considerable value future
+quences organisms (52).                                              studies important human pathogen. example,
+   Underrepresented intergenic sites                             knowledge essential genes pathways inform
+associated essential genes represent trans-                          screens new drugs treat cholera facilitate acting ncRNA loci required optimal growth.                          enhanced understanding speciï¬?c metabolic known essential ncRNAs, HMM algo-                           physiologic growth requirements organism. rithm correctly identiï¬?ed RNase P ncRNA M1 es-                         addition, ï¬?ne scale mapping allowed identiï¬?cation sential (Table 2). M1 ribozyme forms catalytic                  â€˜subdomainsâ€™ genes intergenic regions core RNase P, essential enzyme required                             required optimal growth. regions included
+ 9046 Nucleic Acids Research, 2013, Vol. 41,  19
+
+
+Table 2. selected list intergenic regions signiï¬?cantly underrepresented transposon insertion
+
+Intergenic locus       Annotation                Category         Functional description
+
+IG_1                   Origin                    E                Chromosome origin
+IG_vca0002             Origin                    D                Chromosome II origin: essential region 380 nucleotides                                                                     contain DnaA RctB boxes
+IG_vc2410              Rnase P                   E                M1 ribozyme compoent Rnase P, essential tRNA rRNA processing
+IG_vc2574              Alpha_RBS                 E                Ribosome binding site containing pseudoknot required expression 4 essen-
+                                                                    tial ribosome components
+IG_vc0647              Rab_I_chrI_7              S                ncRNA discovered transcriptomics; function unknown
+IG_vc0431              C-CF                      D                ncRNA discovered transcriptomics; function unknown
+IG_vc0143              B2                        D                ncRNA discovered transcriptomics; expression signiï¬?cantly
+                                                                    upregulated mouse rabbit infection
+IG_vc0646              S15                       D                Ribosome binding site containing pseudoknot required expression es-
+                                                                    sential ribosomal gene rpsO
+IG_vc2473              RabM9_I_chrI_27           S                ncRNA discovered transcriptomics; signiï¬?cantly upregulated                                                                     rabbit infection
+IG_vca0933             M9_I5_chrII_36            D                ncRNA discovered transcriptomics; signiï¬?cantly downregulated                                                                     rabbit infection, upregulated mice
+ intergenic region classiï¬?ed E = essential region; D = domain essential (contains subdomain essential); S = â€˜sickâ€™ (nonessential, required optimal growth vitro).
+
+
+
+ protein domains, promoters UTR se-                          ACKNOWLEDGEMENTS
+quences  Furthermore, overlay transcriptomic                      thank Robins information regarding data high-density transposon insertion data                    V. cholerae C6706 genome, members set facilitated identiï¬?cation small ncRNA species                    Waldor lab discussion, especially Yoshi Yamaichi,
+appear regulate growth V. cholerae.                                    Andrea MoÂ¨ell Stavroula Hatzios editing.
+   approach developed analysis high-
+density transposon mutagenesis data broadly
+applicable useful future transposon-insertion
+sequencing studies. propose factors                          FUNDING routinely considered analyzing trans-                         Howard Hughes Medical Institute National
+poson-insertion sequencing data.  correction                       Institutes Health [AI R37-42347 M.K.W., F32
+DNA replicationâ€”especially data sets different                       GM108355-01 M.C.C.]; National Institute growth conditions comparedâ€”allows direct com-                        Allergy Infectious Diseases, National Institutes parisons data sets bias rate repli-                   Health, Department Health Human Services
+cation experiment. Second, genomically unbiased                      [HHSN272200900018C J.L.]  analysis pipelines, SW approach, permit                     Federal funds). Funding open access charge: Howard
+characterization requirement unannotated loci                     Hughes Medical Institute.
+ outside coding regions) bacterial
+growth. Finally, importantly, incorpor-                     Conï¬‚ict statement. declared.
+ation HMM-based ï¬?lter enhance biological
+signal intrinsic noise high-density transposon
+data sets HHM takes advantage fea-                          REFERENCES
+ture inherent transposon-insertion sequencing data                      1. Barquist,L., Boinett,C.J. Cain K. (2013) Approaches setsâ€”local context information ex-                              querying bacterial genomes transposon-insertion sequencing.
+ploited previous analyses. Additionally,                             RNA Biol., 10, 1161â€“1169.
+modiï¬?cations, HMM approach useful                          2. van Opijnen,T. Camilli  (2013) Transposon insertion
+                                                                                  sequencing: new tool systems-level analysis nonmarinerâ€“based transposon insertion sequence tech-                              microorganisms. Nat. Rev. Microbiol, 11, 435â€“442.
+niques TraDIS (6).  HMM-based                                 3. van Opijnen,T., Bodi,K.L. Camilli  (2009) Tn-seq: high-
+approaches adaptable analyses condi-                             throughput parallel sequencing ï¬?tness genetic interaction
+tional essentiality, data multiple conditions                          studies microorganisms. Nat. Methods, 6, 767â€“772.
+                                                                               4. Gawronski,J.D., Wong,S.M., Giannoukos,G., Ward,D.V. genetic backgrounds compared.  antici-                            Akerley,B.J. (2009) Tracking insertion mutants libraries
+pate study ï¬?rst applications                         deep sequencing genome-wide screen Haemophilus HMM-based analyses transposon-insertion                                    genes required lung. Proc. Natl Acad. Sci. USA, 106,
+sequencing data.                                                                  16422â€“16427.
+                                                                               5. Goodman L., McNulty,N.P., Zhao,Y., Leip,D., Mitra,R.D.,
+                                                                                  Lozupone,C , Knight,R. Gordon,J  (2009) Identifying
+                                                                                  genetic determinants needed establish human gut symbiont SUPPLEMENTARY DATA                                                                habitat. Cell Host Microbe., 6, 279â€“289.
+                                                                               6. Langridge,G.C., Phan,M.D., Turner,D.J., Perkins,T.T., Parts,L.,
+Supplementary Data available NAR Online.                                   Haase,J., Charles , Maskell,D.J., Peters,S.E., Dougan,G. et al.
+                                                                                   Nucleic Acids Research, 2013, Vol. 41,  19 9047
+
+
+    (2009) Simultaneous assay Salmonella Typhi gene using            essentiality based sequencing transposon insertion libraries.
+    million transposon mutants. Genome Res, 19, 2308â€“2316.                Bioinformatics, 29, 695â€“703.
+ 7. Amitai,M. (1998) Hidden models biopolymers. Science, 282,          29. Koch,B., Ma,X. Lobner-Olesen  (2012) rctB mutations     1436â€“1437.                                                                increase copy number Vibrio cholerae oriCII Escherichia
+ 8. Mandlik , Livny,J., Robins,W.P., Ritchie,J.M., Mekalanos,J.J.           coli. Plasmid, 68, 159â€“169.
+    Waldor,M.K. (2011) RNA-Seq-based monitoring infection-         30. Venkova-Canova,T., Srivastava,P. Chattoraj,D.K. (2006)
+    linked changes Vibrio cholerae gene expression. Cell Host              Transcriptional inactivation regulatory site replication     Microbe., 10, 165â€“174.                                                    Vibrio cholerae chromosome II. Proc. Natl Acad. Sci. USA, 103,
+ 9. Chiang,S.L. Rubin,E.J. (2002) Construction mariner-              12051â€“12056.
+    based transposon epitope-tagging genomic targeting.           31. Kato,J. Hashimoto,M. (2007) Construction consecutive
+    Gene, 296, 179â€“185.                                                       deletions Escherichia coli chromosome. Mol. Syst. Biol., 3,
+10. Cameron,D.E., Urbach,J.M. Mekalanos,J.J. (2008) deï¬?ned              132.
+    transposon mutant library use identifying motility genes   32. Ehretsmann,C.P., Carpousis J. Krisch,H.M. (1992)
+    Vibrio cholerae. Proc. Natl Acad. Sci. USA, 105, 8736â€“8741.            Speciï¬?city Escherichia coli endoribonuclease RNase E: vivo
+11. Zhang,Y.J., Ioerger,T.R., Huttenhower,C., Long,J.E.,                      vitro analysis mutants bacteriophage T4 mRNA
+    Sassetti,C.M., Sacchettini,J.C. Rubin,E.J. (2012) Global              processing site. Genes Dev, 6, 149â€“159.
+    assessment genomic regions required growth                  33. Mudd,E , Krisch,H.M. Higgins,C.F. (1990) RNase E,     Mycobacterium tuberculosis. PLoS Pathog, 8, e1002946.                     endoribonuclease, general role chemical decay 12. Martin,M. (2011) Cutadapt removes adapter sequences high-            Escherichia coli mRNA: evidence rne ams     throughput sequencing reads. EMBnet J., 17, 3.                            genetic locus. Mol. Microbiol., 4, 2127â€“2135.
+13. Langmead,B. Salzberg,S.L. (2012) Fast gapped-read                 34. Ow,M.C., Liu,Q. Kushner,S.R. (2000) Analysis mRNA
+    alignment Bowtie 2. Nat. Methods, 9, 357â€“359.                        decay rRNA processing Escherichia coli absence 14. Mutreja , Kim,D.W., Thomson,N.R., Connor,T.R., Lee,J.H.,                RNase E-based degradosome assembly. Mol. Microbiol., 38,
+    Kariuki,S., Croucher,N.J., Choi,S.Y., Harris,S.R., Lebens,M.              854â€“866.
+    et al. (2011) Evidence waves global transmission    35. Claverie-Martin,F., Diaz-Torres,M.R., Yancey,S.D.     seventh cholera pandemic. Nature, 477, 462â€“465.                       Kushner,S.R. (1989) Cloning altered mRNA stability (ams)
+15. Carver,T., Thomson,N., Bleasby , Berriman,M. Parkhill,J.            gene Escherichia coli K-12. J. Bacteriol., 171, 5479â€“5486.
+    (2009) DNAPlotter: circular linear interactive genome             36. Yamaichi,Y., Gerding,M , Davis,B.M. Waldor,M.K. (2011)
+    visualization. Bioinformatics, 25, 119â€“120.                               Regulatory cross-talk links Vibrio cholerae chromosome II
+16. R Development Core Team. (2008) R: language                         replication segregation. PLoS Genet, 7, e1002189.
+    environment statistical computing. R Foundation Statistical   37. Reddy,M. (2007) Role FtsEX cell division Escherichia
+    Computing, Vienna, Austria.                                               coli: viability ftsEX mutants dependent functional SufI 17. Benjamini,Y. Hochb

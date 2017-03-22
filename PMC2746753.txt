@@ -1,0 +1,497 @@
+                            NIH Public Access
+                            Author Manuscript
+                            Science. Author manuscript; available PMC 2009 September 18.
+                           Published final edited form 
+NIH-PA Author Manuscript
+
+
+
+
+                            Science. 2008 October 3; 322(5898): 104â€“110. doi:10.1126/science.1158684.
+
+
+
+                           High Quality Binary Protein Interaction Map Yeast
+                           Interactome Network
+
+                           Haiyuan Yu1,2,*, Pascal Braun1,2,*, Muhammed  Yildirim1,2,3,*, Irma Lemmens4, Kavitha
+                           Venkatesan1,2, Julie Sahalie1,2, Tomoko Hirozane-Kishikawa1,2, Fana Gebreab1,2, Na
+                           Li1,2, Nicolas Simonis1,2, Tong Hao1,2, Jean-FranÄ‡ois Rual1,2, AmÃ©lie Dricot1,2, Alexei
+                           Vazquez5, Ryan R. Murray1,2, Christophe Simon1,2, Leah Tardivo1,2, Stanley Tam1,2, Nenad
+                           Svrzikapa1,2, Changyu Fan1,2, Anne-Sophie Smet4, Adriana Motyl6, Michael E.
+                           Hudson6, Juyong Park1,7, Xiaofeng Xin8, Michael E. Cusick1,2, Troy Moore9, Charlie
+                           Boone8, Michael Snyder6, Frederick P. Roth1,10, Albert-LÃ¡szlÃ³ BarabÃ¡si1,7, Jan
+                           Tavernier4, David E. Hill1,2, Marc Vidal1,2,+
+                           1Center Cancer Systems Biology (CCSB), Dana-Farber Cancer Institute, Boston, MA 02115,
+
+                           USA
+NIH-PA Author Manuscript
+
+
+
+
+                           2Department Cancer Biology, Dana-Farber Cancer Institute Department Genetics, Harvard
+
+                           Medical School, Boston, MA 02115, USA
+                           3School   Engineering Applied Sciences, Harvard University, Cambridge, MA 02138, USA
+                           4Department Medical Protein Research, VIB, Department Biochemistry, Faculty                            Medicine Health Sciences, Ghent University, 9000 Ghent, Belgium
+                           5The Simons Center Systems Biology, Institute Advanced Studies, Princeton, NJ 08540, USA
+
+                           6Department     Molecular, Cellular, Developmental Biology, Yale University, New Haven, CT
+                           06620, USA
+                           7Centerfor Complex Network Research Departments Physics, Biology                            Science, Northeastern University, Boston, MA 02115, USA
+                           8Banting Best Department Medical Research Department Medical Genetics                            Microbiology, Terrence Donnelly Centre Cellular Biomolecular Research, University                            Toronto, Toronto, Canada M5S 3E1
+                           9Open
+NIH-PA Author Manuscript
+
+
+
+
+                                   Biosystems, Huntsville, AL 35806, USA
+                           10Departmentof Biological Chemistry Molecular Pharmacology, Harvard Medical School,
+                           Boston, MA 02115, USA
+
+                           Abstract
+                                Current yeast interactome network maps contain molecular complexes limited
+                                somewhat controversial representation direct binary interactions. carried comparative
+                                quality assessment current yeast interactome datasets, demonstrating high-throughput yeast
+                                hybrid (Y2H) provides high-quality binary interaction information. large fraction                                 yeast binary interactome remains mapped, developed empirically-controlled mapping
+                                framework produce â€œsecond-generationâ€? high-quality high-throughput Y2H dataset covering
+                                ~20  yeast binary interactions. Y2H affinity-purification followed mass
+
+
+                            correspondence addressed. Email: marc_vidal@dfci.harvard.edu.
+                            authors contributed equally work.
+                           Supporting Online Material SOM Text Figs. S1-35 Tables S1-5 References
+                            Yu et al.                                                                                                          Page 2
+
+
+                                       spectrometry (AP/MS) data equally high quality fundamentally different                                        complementary nature resulting networks different topological biological properties.
+                                       Compared complex interactome models, binary map enriched transient signaling
+NIH-PA Author Manuscript
+
+
+
+
+                                       interactions inter-complex connections highly significant clustering essential
+                                       proteins. correlating essentiality, protein connectivity correlates genetic
+                                       pleiotropy.
+
+                                                 crucial step understanding cellular systems properties mapping networks                                                  physical DNA-, RNA- protein-protein interactions, â€œinteractome networkâ€?,                                                  organism completely accurately possible. approach consists                                                  systematically testing pairwise combinations predicted proteins derive â€œbinaryâ€?
+                                                 interactome. Early attempts binary interactome mapping used high-throughput yeast 
+                                                 hybrid (Y2H), protein interaction reconstitutes transcription factor activates
+                                                 expression reporter genes. High-throughput Y2H maps generated                                                  Saccharomyces cerevisiae (1-3), Caenorhabditis elegans (4-6), Drosophila melanogaster (7),
+                                                 human (8-10). alternative approach consists generating  complexâ€? interactome
+                                                 maps, achievable high-throughput affinity purification followed mass spectrometry
+                                                 (AP/MS) identify proteins bound tagged baits, Escherichia coli (11,12), S.
+                                                 cerevisiae (13-16), human (17).
+
+                                                 investigate fundamental questions interactome network structure function, NIH-PA Author Manuscript
+
+
+
+
+                                                 necessary understand size quality currently available maps, including
+                                                 thorough evaluation differences binary complex maps, affected
+                                                 conclusions global local properties interactome networks (18,19).                                                   address issues using yeast S. cerevisiae model 
+
+                                                  compared quality existing high-throughput binary complex datasets                                                  information obtained curating low-throughput experiments described literature
+                                                 (Fig. 1A). binary interactions examined:   subset Uetz et al. proteome-
+                                                 scale screen (â€œUetz-screenâ€?), excluding pairs focused, potentially
+                                                 biased experiment involving 193 baits (â€œUetz-arrayâ€?) (2); (ii) Ito et al. interactions
+                                                 times (â€œIto-coreâ€?), independently times (â€œIto-
+                                                 noncoreâ€?), distinction recommended authors seldom applied literature (3).
+                                                 complex associations, investigated high-throughput AP/MS datasets referred
+                                                 â€œGavinâ€? (15) â€œKroganâ€? (16). literature-curated interactions, considered
+                                                 curated publications (â€œLC-multipleâ€?) (20), considered                                                  higher quality curated single publication.
+
+                                                 experimentally compare quality datasets, selected representative sample
+NIH-PA Author Manuscript
+
+
+
+
+                                                 ~200 protein interaction pairs tested means independent
+                                                 interaction assays, Y2H yellow fluorescent protein complementation assay (PCA) (21)
+                                                 [Supporting Online Material (SOM) . PCA, bait prey proteins fused non-
+                                                 fluorescent fragments yellow fluorescent protein  brought close proximity                                                  interacting proteins, reconstitute fluorescent protein mammalian cells. contrast,
+                                                 reconstitution transcription factor Y2H experiments takes place nucleus yeast
+                                                 cells. terms assay designs, Y2H PCA considered orthogonal assays                                                  used validate s results.
+
+                                                 single assay expected detect 100  genuine interactions, actual fraction                                                  positives detected inherently linked stringency assay implemented.                                                  identify optimal scoring condition assay selected set ~100 documented
+                                                 yeast protein-protein interaction pairs [â€œpositive reference setâ€? (PRS)] set ~100 random
+                                                 pairs [â€œrandom reference setâ€? (RRS)] (Fig. 1B; SOM II). RRS pairs picked
+
+
+                                                      Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                                Page 3
+
+
+                                       uniformly 14Ã—106 possible pairings proteins yeast ORFeome collection
+                                       (22) (excluding reported interacting), pairs extremely unlikely                                        interacting.
+NIH-PA Author Manuscript
+
+
+
+
+                                       Sampled pairs binary Uetz-screen Ito-core datasets tested positive levels high
+                                       positive control PRS, demonstrating high quality (Fig. 1C). sample literature-
+                                       curated LC-multiple interactions tested slightly lower Y2H, indistinguishable
+                                       PCA (Fig. 1C), demonstrating high-throughput Y2H datasets comparable                                        quality literature-curated information. striking contrast, sampled pairs Ito-noncore
+                                       tested levels similar negative control RRS, confirming low quality particular
+                                       dataset (Fig. 1C).
+
+                                       Sampled pairs Gavin Krogan high-throughput AP/MS datasets tested poorly                                        binary interaction assays (Fig. 1C), albeit levels similar Munich Information Center
+                                       Protein Sequences (MIPS) complexes, widely-used gold standard (23). observation
+                                       demonstrates  detecting binary interactions, Y2H performs better AP/MS
+
+                                       experimental data quality assessment shows binary Uetz-screen, Ito-core, LC-
+                                       multiple datasets high quality, Ito-noncore used. AP/MS datasets,
+                                       intrinsically good quality (15,16), used caution binary
+                                       interaction information needed.
+NIH-PA Author Manuscript
+
+
+
+
+                                       experimental results contrast strikingly computational analyses suggested                                        high-throughput Y2H datasets contain false positives literature-curated high-
+                                       throughput AP/MS datasets (24,25). computational analyses, quality dataset                                        determined fraction interactions present pre-defined gold standard set (24).
+                                       Generally, MIPS complexes considered gold standard proteins
+                                       constituting given complex modeled interacting  modeling results                                        limited biased sampling issues binary interactions proteins                                        complex contact directly (fig. S1), direct physical interactions occur
+                                       complexes (fig. S2; SOM III).  MIPS complexes appropriate                                        benchmarking complex membership datasets, binary interaction datasets.
+                                       distinction corroborated poor experimental confirmation rate pairs MIPS
+                                       complexes using binary assays (Fig. 1C).
+
+                                       computationally examine quality existing yeast interactome datasets assembled
+                                       binary gold standard set (â€œBinary-GSâ€?) 1,318 high-confidence physical binary interactions
+                                       (Fig. 1B; SOM III). Binary-GS includes direct physical interactions established
+                                       complexes conditional interactions (e.g., dependent posttranslational
+                                       modifications) represents documented direct physical interactions yeast
+NIH-PA Author Manuscript
+
+
+
+
+                                       interactome (26). measured Binary-GS, quality high-throughput Y2H
+                                       datasets  exception Ito-noncore) substantially better (SOM IV V)                                        high-throughput AP/MS datasets (Fig. 1D). results demonstrate distinct nature                                        binary complex data. Generally, Y2H datasets contain high quality direct binary
+                                       interactions, AP/MS complex datasets composed direct interactions mixed
+                                       preponderant indirect associations (SOM VI).
+
+                                       proteome-wide binary datasets, Uetz-screen Ito-core, contain 682 843 interactions,
+                                       respectively (2,3). overlap datasets appears low (3,24): 19  Uetz-
+                                       screen 15  Ito-core interactions detected dataset. Given                                        demonstration high quality datasets (Fig. 1C, D), conclude small overlap
+                                       stems primarily low sensitivity  e., false negatives) low specificity
+                                        e., false positives previously suggested).
+
+
+                                            Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                               Page 4
+
+
+                                       factors affect sensitivity.  space pair-wise protein combinations
+                                       actually tested dataset considerably different. refer fraction
+                                       possible pairs tested given screen â€œcompletenessâ€?. example, missing 10 
+NIH-PA Author Manuscript
+
+
+
+
+                                       ORFs mapping project reduce common tested space 66 
+                                       [(0.9Ã—0.9) Ã— (0.9Ã—0.9)] possible pair-wise combinations. Second, different protein
+                                       interaction assays different versions assay detect different subsets pairs
+                                       possible interactions, explaining partly limited overlap datasets obtained
+                                       different Y2H versions. assay, â€œassay-sensitivityâ€? estimated fraction
+                                       PRS interactions detected, Y2H assay determined empirically ~20 
+                                       (Fig. 1C). Finally, screening tens hundreds millions protein pairs tested
+                                       space, search space need sampled multiple times report nearly                                        interactions detectable assay used. fraction theoretically detectable
+                                       interactions particular assay given experiment â€œsampling-sensitivityâ€?.
+                                       parameters fully account seemingly small overlap Ito-core                                        Uetz-screen (SOM VII), demonstrating large fraction S. cerevisiae binary
+                                       interactome remains mapped.  carried new proteome-scale yeast high-
+                                       throughput Y2H screen (fig. S3).
+
+                                       used 5,796 Gateway-cloned ORFs available yeast MORF collection (22).                                        subcloning ORFs Y2H vectors removing auto-activators (27,28), search
+                                       space 3,917 DB-Xs 5,246 AD-Ys, representing completeness 77  (Fig.
+NIH-PA Author Manuscript
+
+
+
+
+                                       2A; SOM VI), comparable recent AP/MS datasets (15) (~78 ; SOM VI).
+
+                                       address sampling-sensitivity, determined fraction detectable interactions                                        pass trials search space 658 DB-X 1,249 AD-Y ORFs.                                        single trial identified 60  possible interactions detected high-
+                                       throughput Y2H, repeats required obtain 80-90  (Fig. 2B; SOM
+                                       VI). decided screen search space times independently yield                                        estimated sampling-sensitivity 85  (Fig. 2B). total ~88,000 colonies picked,                                        21,432 scored positive detailed phenotyping (SOM . identifying                                        putative interaction pairs sequencing, phenotypically retesting using fresh cultures
+                                       archival stocks, eliminating novo auto-activators (28), obtained final dataset,
+                                       â€œCCSBYI1â€?, 1,809 interactions 1,278 proteins.
+
+                                       validate overall quality CCSB-YI1, tested 94 randomly-chosen interactions                                        PCA mammalian protein-protein interaction trap (MAPPIT; SOM  (21,29). MAPPIT
+                                       takes place mammalian cell membrane measures interactions activation                                        STAT3-dependent reporter expression. Using PCA MAPPIT confirmation rate
+                                       CCSB-YI1 similar Ito-core Uetz-screen (Fig. 1C). precision  e.,
+NIH-PA Author Manuscript
+
+
+
+
+                                       fraction true positives dataset (30)] CCSB-YI1 estimated 94-100  (Fig. 2C;
+                                       fig. S4; SOM VI). Additionally, performance high-throughput Y2H approach                                        confirmed larger RRS 1,000 random pairs (30) (Fig. 1B), tested positive
+                                       (SOM II).
+
+                                       overlaps Uetz-screen (27 ) Ito-core (35 ) CCSB-YI1 (Fig. 2D)                                        explained completeness, assay- sampling-sensitivity experiments (SOM
+                                       VII) agree results pairwise confirmation datasets (Fig.
+                                       1C). Similar principles apply large-scale experiments AP/MS, likely
+                                       accounting low overlap Krogan Gavin (~25 ; fig. S5B).
+
+                                       Factoring completeness, precision, assay-, sampling-sensitivity, estimated                                        yeast binary interactome consists ~18,000Â±4,500 interactions (SOM VI), experimentally
+                                       validating previous computational estimates 17,000 25,000 interactions (31,32). obtain
+
+
+                                            Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                                Page 5
+
+
+                                       comprehensive map binary yeast interactome combined available
+                                       high-quality proteome-scale Y2H datasets (SOM VII). union Uetz-screen, Ito-core,                                        CCSB-YI1, â€œY2H-unionâ€?, contains 2,930 binary interactions 2,018 proteins, 
+NIH-PA Author Manuscript
+
+
+
+
+                                       according empirical estimate interactome size, represents ~20  yeast
+                                       binary interactome (Fig 3A).
+
+                                       examined global topological features new yeast interactome network, facing
+                                       lower risk interpreting properties limited sampling various biases data
+                                       (18). contrast topological properties binary Y2H-union network 
+                                       complex network, used integrated AP/MS dataset (33), generated                                        combining raw high-throughput AP/MS data (15,16). â€œCombined-AP/MSâ€? dataset,
+                                       composed 9,070 complex membership associations 1,622 proteins, attempts                                        model binary interactions complex data (Fig. 3A).
+
+                                       previously macromolecular networks, connectivity â€œdegreeâ€?
+                                       distribution datasets best approximated power-law (34) (fig. S6; SOM VIII).
+                                       Highly connected proteins, â€œhubsâ€?, reportedly likely encoded essential genes
+                                       connected proteins (35). Surprisingly, Y2H-union lacked correlation                                        degree essentiality (Fig. 3B). discrepancy stem biases datasets
+                                       available time original observation: interactions reported Uetz et al. (Uetz-array
+                                       Uetz-screen) literature-curated interactions. Uetz-array high quality
+NIH-PA Author Manuscript
+
+
+
+
+                                       (fig. S7), experimental design negatively influence network analyses. hub
+                                       proteins Uetz-array baits (fig. S8) percentage essential proteins                                        193 bait proteins times higher (34.7 ) protein-encoding ORFs                                        yeast genome (18.4 ), explaining high correlation degree essentiality (Fig.
+                                       3C). Likewise, literature-curated interactions prone sociological inspection
+                                       biases (SOM VII).  refrain heretofore using LC-multiple                                        topological biological analyses. significant correlation degree                                        connectedness essentiality observed proteome-wide high-
+                                       throughput binary datasets available today  e., Ito-core, Uetz-screen, CCSB-YI1; Fig.
+                                       3C), new versions C. elegans human interactome maps (fig. S9; SOM
+                                       IX).
+
+                                       Hub proteins instead relate pleiotropy, number phenotypes observed consequence
+                                       gene knock (SOM . significant correlation Y2H-union                                        connectivity number phenotypes observed global phenotypic profiling analyses
+                                       yeast genes (36) (Fig. 3D). number binary physical interactions mediated                                        protein better correlate number cellular processes participates
+                                       essentiality. correlation degree number phenotypes observed
+NIH-PA Author Manuscript
+
+
+
+
+                                       Combined-AP/MS, likely complex associations reflect size protein
+                                       complexes number processes involved 
+
+                                       confirmed concept modularity yeast interactome network, date hubs
+                                       dynamically interact partners appear particularly central global connectivity
+                                       static party hubs appear function locally specific biological modules (37).                                        proportion date party hubs strikingly different Y2H-union Combined-
+                                       AP/MS (Fig. 3E). significantly date hubs binary network, party
+                                       hubs prevalent complex network. binary network, date hubs crucial                                        topological integrity network, party hubs minimal effects.                                         complex network, date party hubs affect topological integrity network
+                                       equally, likely hubs Combined-AP/MS reside large stable complexes,                                        hubs Y2H-union preferentially connect diverse cellular processes.
+
+
+
+                                            Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                                              Page 6
+
+
+                                       Surprisingly, essential proteins strongly tended interact (Fig. 4A; SOM IX).
+                                       Concentrating subnetwork formed interactions mediated essential
+                                       proteins (fig. S10), giant component size larger expected NIH-PA Author Manuscript
+
+
+
+
+                                       chance (Fig. 4B). better understand clustering essential proteins, examined                                        interacting essential protein pairs reported complex, finding 106
+                                       interacting essential protein pairs, greater number expected chance (Fig. 4C; SOM
+                                       IX).
+
+                                       investigated overall relationships Y2H-union Gene Ontology  
+                                       attributes (38), phenotypic expression profiling similarities (39), transcriptional
+                                       regulatory networks (40). Y2H-union Combined-AP/MS significant
+                                       enrichment  P<10-10) functionally similar pairs branches (Fig. 5A)
+                                       (41). significant enrichment positive correlations phenotypic profiles (36)
+                                       interacting pairs datasets (Fig. 5B; fig. S11). interactions supported                                        strong phenotypic information constitute likely possibilities functional relationships. Lastly,
+                                       datasets significantly enriched pairs expressed conditions (fig.
+                                       S12), Combined-AP/MS shows higher enrichment (Fig. 5C), agreeing                                        different nature assays: AP/MS aims detecting stable complexes Y2H
+                                       tends detect transient condition specific protein interactions. observation                                        supported enrichment kinase-substrate pairs Y2H-union (SOM X; fig. S13).
+NIH-PA Author Manuscript
+
+
+
+
+                                       explore mechanisms expression interacting protein pairs combined
+                                       transcriptional regulatory networks interactome network information (40). Interacting
+                                       proteins networks showed tendency regulated common transcription
+                                       factors (TFs; Fig. 5D). Similarly observed expression correlation analysis
+                                       (Fig. 5C), enrichment interacting pairs Combined-AP/MS significantly higher
+                                       Y2H-union. Strikingly, observed significant enrichment protein-protein
+                                       interactions TFs involved common â€œmulti-input motifâ€? (42,43) (MIM,                                        multiple TFs regulate given set genes; Fig. 5D; SOM Ã—). fraction regulating
+                                       TF pairs higher binary interactome complex network, suggesting
+                                       various TFs function form transient complexes differentially regulate
+                                       transcriptional targets (44).
+
+                                       observations suggest binary interactome dataset enriched transient                                        condition-specific interactions linking different subcellular processes molecular machines.
+                                       explore possibility calculated â€œedge-betweennessâ€? interaction                                        merged network available interactions (SOM XI), measuring number shortest paths
+                                       protein pairs traverse given edge. higher edge-betweenness                                        interactions Y2H-union shows tendency Y2H detect key interactions outside NIH-PA Author Manuscript
+
+
+
+
+                                       complexes, significantly AP/MS (Fig. 5D). examples complex-
+                                       complex connectivity evident complete map MIPS complexes connected Y2H
+                                       interactions (fig. S14).
+
+                                       Overall, infer Y2H interrogates different subspace interactome                                        AP/MS, Y2H interactions represent key connections different complexes                                        pathways. Y2H AP/MS provide orthogonal information interactome                                        vital obtain complete picture cellular protein-protein interaction networks.
+
+                              Acknowledgments
+                                       Supported funds W.M. Keck Foundation awarded M.V. F.P.R.; Institute Sponsored Research
+                                       funds Dana-Farber Cancer Institute Strategic Initiative awarded M.V. CCSB; National Institutes
+                                       Health (NIH) grant (R01-HG001715) awarded M.V. F.P.R.; National Institutes Health (NIH) grants
+                                       (U01-A1070499-01 U56-CA113004) awarded -L.B.; grants University Ghent
+
+
+
+                                             Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                                             Page 7
+
+                                       (GOA12051401) Fund Scientific Research Flanders (FWO-V G.0031.06) awarded J.T.; grant                                        National Cancer Institute Canada awarded C.B.; NIH grant (HG003224) awarded F.P.R. L.                                        postdoctoral fellow FWO-V. M.V. â€œChercheur QualifiÃ© Honoraireâ€? Fonds la Recherche
+                                       Scientifique (FRS-FNRS, French Community Belgium). thank members laboratories helpful
+NIH-PA Author Manuscript
+
+
+
+
+                                       discussions, Agencourt Biosciences sequencing assistance.
+
+
+                              References Notes
+                                       1. Fromont-Racine M, Rain JC, Legrain P. Nat. Genet 1997;16:277. [PubMed: 9207794]
+                                       2. Uetz P, et al. Nature 2000;403:623. [PubMed: 10688190]
+                                       3. Ito T, et al. Proc. Natl. Acad. Sci. USA 2001;98:4569. [PubMed: 11283351]
+                                       4. Walhout AJ, et al. Science 2000;287:116. [PubMed: 10615043]
+                                       5. Reboul J, et al. Nat. Genet 2003;34:35. [PubMed: 12679813]
+                                       6. Li S, et al. Science 2004;303:540. [PubMed: 14704431]
+                                       7. Giot L, et al. Science 2003;302:1727. [PubMed: 14605208]
+                                       8. Colland F, et al. Genome Res 2004;14:1324. [PubMed: 15231748]
+                                       9. Rual JF, et al. Nature 2005;437:1173. [PubMed: 16189514]
+                                       10. Stelzl U, et al. Cell 2005;122:957. [PubMed: 16169070]
+                                       11. Butland G, et al. Nature 2005;433:531. [PubMed: 15690043]
+                                       12. Arifuzzaman M, et al. Genome Res 2006;16:686. [PubMed: 16606699]
+                                       13. Gavin AC, et al. Nature 2002;415:141. [PubMed: 11805826]
+NIH-PA Author Manuscript
+
+
+
+
+                                       14. Ho Y, et al. Nature 2002;415:180. [PubMed: 11805837]
+                                       15. Gavin AC, et al. Nature 2006;440:631. [PubMed: 16429126]
+                                       16. Krogan NJ, et al. Nature 2006;440:637. [PubMed: 16554755]
+                                       17. Ewing RM, et al. Mol. Syst. Biol 2007;3:89. [PubMed: 17353931]
+                                       18. Han JD, Dupuy D, Bertin N, Cusick  Vidal M. Nat. Biotechnol 2005;23:839. [PubMed: 16003372]
+                                       19. Scholtens D, Vidal M, Gentleman R. Bioinformatics 2005;21:3548. [PubMed: 15998662]
+                                       20. Reguly T, et al. J. Biol 2006;5:11. [PubMed: 16762047]
+                                       21. Remy  Michnick SW. Methods Mol. Biol 2004;261:411. [PubMed: 15064473]
+                                       22. Gelperin DM, et al. Genes Dev 2005;19:2816. [PubMed: 16322557]
+                                       23. Mewes HW, et al. Nucleic Acids Res 2006;34:D169. [PubMed: 16381839]
+                                       24. von Mering C, et al. Nature 2002;417:399. [PubMed: 12000970]
+                                       25. Bader JS, Chaudhuri  Rothberg JM, Chant J. Nat. Biotechnol 2004;22:78. [PubMed: 14704708]
+                                       26. Yu H, et al. Genome Res 2004;14:1107. [PubMed: 15173116]
+                                       27. Vidalain PO, Boxem M, Ge H, Li S, Vidal M. Methods 2004;32:363. [PubMed: 15003598]
+                                       28. Walhout AJ, Vidal M. Genome Res 1999;9:1128. [PubMed: 10568752]
+                                       29. Eyckerman S, et al. Nat. Cell Biol 2001;3:1114. [PubMed: 11781573]
+NIH-PA Author Manuscript
+
+
+
+
+                                       30. Jansen R, Gerstein M. Curr. Opin. Microbiol 2004;7:535. [PubMed: 15451510]
+                                       31. Grigoriev  Nucleic Acids Res 2003;31:4157. [PubMed: 12853633]
+                                       32. Jansen R, et al. Science 2003;302:449. [PubMed: 14564010]
+                                       33. Collins SR, et al. Mol. Cell. Proteomics 2007;6:439. [PubMed: 17200106]
+                                       34. BarabÃ¡si AL, Albert R. Science 1999;286:509. [PubMed: 10521342]
+                                       35. Jeong H, Mason SP, Barabasi AL, Oltvai ZN. Nature 2001;411:41. [PubMed: 11333967]
+                                       36. Dudley  Janse DM, Tanay  Shamir R, Church GM. Mol. Syst. Biol 2005;1:0001. [PubMed:
+                                            16729036]
+                                       37. Han JD, et al. Nature 2004;430:88. [PubMed: 15190252]
+                                       38. Gene Ontology Consortium. Nucleic Acids Res 2008;36:D440. [PubMed: 17984083]
+                                       39. Vidal M. Cell 2001;104:333. [PubMed: 11239391]
+                                       40. Yu H, Gerstein M. Proc. Natl. Acad. Sci. USA 2006;103:14724. [PubMed: 17003135]
+                                       41. Yu H, Jansen R, Stolovitzky G, Gerstein M. Bioinformatics 2007;23:2163. [PubMed: 17540677]
+
+
+
+                                             Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                           Page 8
+
+
+                                       42. Lee TI, et al. Science 2002;298:799. [PubMed: 12399584]
+                                       43. Milo R, et al. Science 2002;298:824. [PubMed: 12399590]
+                                       44. Luscombe NM, et al. Nature 2004;431:308. [PubMed: 15372033]
+NIH-PA Author Manuscript
+
+
+
+
+                                       45. Yu H, Kim PM, Sprecher E, Trifonov V, Gerstein M. PLoS Comput. Biol 2007;3:e59. [PubMed:
+                                           17447836]
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                            Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                     Page 9
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                       Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                          Page 10
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                       Fig. 1.
+                                       Evaluation S. cerevisiae protein-protein interaction datasets.   Number interactions
+                                       reported various large-scale S. cerevisiae protein-protein interaction datasets. (B) Schema
+                                       pipeline used assemble binary positive random reference sets. (C) Fraction                                        random sample interactions dataset confirmed Y2H PCA. (D) Fraction                                        positives dataset calculated using MIPS Binary-GS. (Error bars indicate standard
+                                       error).
+NIH-PA Author Manuscript
+
+
+
+
+                                             Science. Author manuscript; available PMC 2009 September 18.
+                            Yu et al.                                                                                    Page 11
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                       Fig. 2.
+                                       Large-scale Y2H interactome screen.   Completeness Y2H screen. (B) Sampling-
+                                       sensitivity CCSB Y2H screens measured screening subspace multiple times. (C)
+                                       Fraction protein pairs PRS, RRS, CCSBYI1 test positive PCA, MAPPIT                                        Y2H. (D) Overlaps high-quality large-scale S. cerevisiae Y2H datasets
+                  

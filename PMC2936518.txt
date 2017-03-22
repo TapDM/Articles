@@ -1,0 +1,422 @@
+An Integrative Multi-Network Multi-Classifier
+Approach Predict Genetic Interactions
+Gaurav Pandey1.  Bin Zhang2,3.*, Aaron N. Chang2¤b, Chad L. Myers1, Jun Zhu2,3, Vipin Kumar1,
+Eric E. Schadt2¤c*
+1 Department Science Engineering, University Minnesota, Twin Cities, Minneapolis, Minnesota, United States America, 2 Rosetta Inpharmatics, LLC,
+Seattle, Washington, United States America, 3 Sage Bionetworks, Seattle, Washington, United States America
+
+
+
+     Abstract
+     Genetic interactions occur combination mutations results surprising phenotype. interactions capture
+     functional redundancy, important predicting function, dissecting protein complexes functional
+     pathways, exploring mechanistic underpinnings common human diseases. Synthetic sickness lethality      studied types genetic interactions yeast.  yeast, small proportion gene pairs      tested genetic interactions large number possible combinations gene pairs. expand set      known synthetic lethal (SL) interactions, devised integrative, multi-network approach predicting      interactions significantly improves existing approaches.  defined large number features      characterizing relationships pairs genes various data sources. particular, features      independent known SL interactions, contrast previous approaches. Using features, developed      non-parametric multi-classifier predicting SL interactions enabled simultaneous use multiple
+     classification procedures. comprehensive experiments demonstrated SL-independent features      conjunction advanced classification scheme led improved performance compared current
+     state art method. Using approach, derived yeast transcription factor genetic interaction network,      supported literature. used approach predict SL interactions non-essential
+     gene pairs yeast (http://sage.fhcrc.org/downloads/downloads/predicted_yeast_genetic_interactions.zip). integrative
+     approach expected effective robust uncovering new genetic interactions tens millions      unknown gene pairs yeast hundreds millions gene pairs higher organisms like mouse human,      genetic interactions identified date.
+
+  Citation: Pandey G, Zhang B, Chang  Myers CL, Zhu J, et al. (2010) Integrative Multi-Network Multi-Classifier Approach Predict Genetic
+  Interactions. PLoS Comput Biol 6(9): e1000928. doi:10.1371/journal.pcbi.1000928
+  Editor: Gary D. Bader, University Toronto, Canada
+  Received September 18, 2009; Accepted August 10, 2010; Published September 9, 2010
+  Copyright: ß 2010 Pandey et al. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: work supported Merck &  funders role study design, data collection analysis, decision publish,   preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: bin.zhang@sagebase.org (BZ); eschadt@pacificbiosciences.com (EES)
+   Current address: Department Plant Microbial Biology, University California, Berkeley, Berkeley, California, United States America.
+  ¤b Current address: Regulus Therapeutics, Carlsbad, California, United States America.
+  ¤c Current address: Pacific Biosciences, Menlo Park, California, United States America.
+  . authors contributed equally.
+
+
+
+
+Introduction                                                                           SSL interactions uncovered limited contexts
+                                                                                       interactions assessed [1].
+    Genetic interactions occur combination mutations                            expand set known SSL interactions, efforts
+results surprising phenotype. interactions capture                          undertaken build models predict genetic
+functional redundancy, important predicting                           interactions, particularly SSL ones, yeast organisms
+function [1,2], dissecting protein complexes functional                           [4,5,6,7,8,9,10,11]. multiple network decision tree (MNDT)
+pathways [3] exploring sources underlying complex                              approach [8] represents comprehensive work predict
+inherited human diseases [1].                                                          SSL interactions high precision. MNDT extracted     yeast, systematic deletion genes (,6000)                    SSL-dependent features (referred 2-hop features instrumental delineating non-essential genes                            networks known SSL interaction
+combination gene mutations lead loss                            network), SSL-independent features  known SSL network
+viability.  testing pair-wise combinations                        involved) train decision tree-based classifier. Given genes genetic interactions different conditions                      networks characterizing relationships genes, 2-hop prohibitive terms time materials. Synthetic sickness                   feature genes B used represent lethality (SSL) studied types genetic                              2-step path B gene C interactions yeast.  small portion possible                   links  C B–C) different networks [8]. example, 
+
+        PLoS Computational Biology | www.ploscompbiol.org                          1                        September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                    Predicting Genetic Interactions
+
+
+
+  Author Summary                                                             interaction networks, used SVM classifier                                                                              predict SSL interactions [11]. Zhong Sternberg [9] predicted
+  Genetic interactions occur combination                           genetic interactions C. elegans genes using machine
+  mutations results surprising phenotype.                         learning approach.  limited   interactions capture functional redundancy,                   genome-wide data available C. elegans, integrated
+  important predicting function, dissecting protein                      features orthologous gene pairs yeast fly.   complexes functional pathways, exploring                      predictions C. elegans genes, provided
+  mechanistic underpinnings common human diseases.                        estimates accuracy predictor using examples   large number possible combinations                        specific pathways biological systems, making compre-
+  genes, small portion gene pairs yeast                hensive estimation utility biological features C.
+  pairs higher organisms like mouse human
+                                                                             elegans itself (organism-specific features) difficult. Overall, MNDT
+  tested.  predicting genetic interac-
+                                                                             [8] remains extensive effective organism-
+  tions received significant attention past   years. existing methods primarily rely known                    specific approach literature extracting integrating   genetic interactions, far effective                   wide variety biological features predicting genetic interac-
+  classifying gene pairs connected                        tions basis validating new algorithms [9].
+  known genetic interactions. developed non-                          paper, build existing approaches   parametric multi-classifier predicting genetic                  developing Multi-Network Multi-Classifier (MNMC)
+  interactions based large number novel features                     framework predicts SL interactions yeast effectively.
+  independent known genetic interactions.                        enhanced accuracy predictions achieved   approach led improved performance com-                          incorporating comprehensive set SL-independent
+  pared current state art method. Using                   features capture relationships genes,   approach, derived yeast transcription factor                  simultaneously employing multiple classification procedures,   genetic interaction network,                        leveraging strengths reducing effects   supported literature. integrative approach                      respective weaknesses. method based SL-
+  expected effective robust uncovering                     independent features, appropriate settings   new genetic interactions yeast species.                       gene pairs tested, including higher organisms
+                                                                             large-scale genetic interaction screens feasible.
+physical-SSL relationship, link protein                applied approach predict genetic
+interaction network SSL interaction                   interactions known transcription factors (TFs) S.
+network, SSL-dependent feature involves known             cerevisiae uncovered number novel SL interactions SSL interactions. results MNDT showed                   TFs, supported available knowledge effective features differentiating SSL non-SSL interactions              TFs. expanded effort predicting genetic 2-hop features derived overlay multiple             interactions approximately 7.5 million pairs non-
+networks, particularly networks known                essential S. cerevisiae genes, results available SSL network.  use SSL-independent features               http://sage.fhcrc.org/downloads/downloads/predicted_yeast_- study led true positive rate 40         genetic_interactions.zip. details results false positive rate 20 . Given small fraction          materials methods used subsequent
+total set gene pairs various organisms tested            sections.  discussion, like note
+SSL interactions, SSL-dependent features available           focused prediction SL interactions, remaining gene pairs,  prediction            demonstrate approach capable predicting new pairs expected low accuracy.             categories genetic interactions, like synthetic sickness.
+problem exacerbated higher organisms genetic interactions identified date. Chipman               Results Singh extended MNDT approach utilizing existing
+SL data, features gene expression, protein              step building classifier predict SL pairs interaction functional annotation data, predict SSL                identification set features treat variables interactions S. cerevisiae C. elegans genes [4].           prediction procedure. ideal features case primary focus work demonstrate random                capture information relationships genes.
+walks networks produced effective features 2-hop                end, extracted 152 SL-independent features
+features prediction problem, did help                known SL interaction involved) number sources,
+address problem dependence SSL data making novel               including multiple gene expression studies [12,13,14,15], protein-
+SSL predictions. Particular emphasis placed              protein interaction databases (www.yeastgenome.org Sept best use features addressing problem.                  2007), transcription factor binding databases [16], functional
+   specialized approach, Qi et al. focused network          annotations defined Gene Ontology (www.yeastgenome. SSL interactions genes S. cerevisiae, used diffusion       org 2008), gene network modules clique
+kernels defined network SVM classifier predict          communities [16]. 152 features identified, 62 novel SSL interactions [7]. predicted              intended capture likelihood genes directly
+pairs functionally associated genes high likelihood        related (e.g., regulated gene expression studies,
+belonging complexes, pathways functional                  protein/DNA sequence similarity, direct physical interactions
+classes.  approach faces challenge Wong             PPI network). 90 features derived et al.’s approach effective predicting genetic        overlaying pairs networks (individual features) using (SSL) interactions genes represented            methodology similar used deriving binary 2-hop known SSL network. efforts, Paladugu et al.               features previously described MNDT approach [8]. focused extracting multiple features protein                    MNDT, overlay (2-hop) features essentially capture binary
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                 2                     September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                           Predicting Genetic Interactions
+
+
+transitive relationships gene pairs. extended                   Text S1 presents complete ranking 152 SL-
+approach computing weights edges overlaid                     independent features 15 SL-dependent ones  known
+networks exhaustive search strongest transitive link             SL interactions involved) considered study. (maximum product weights input edges)                surprisingly, features derived physical protein interactions set weighted networks, shown Figure 1.                 functional annotations discriminative,
+‘‘overlay’’ feature generalization 2-hop               consistent previous findings [8,18].
+involves finding strongest link connecting genes,                       Using set features, developed integrative
+opposed finding ‘ ’ link 2-hop feature.                    classification predicting given gene pair generalization makes use information weighted                    synthetic lethal  step, negative (majority) class
+networks overlaid, overlay features expected              (non-SL, 92.9  set) randomly sampled produce effective predicting genetic interactions.                 set negative examples size positive
+details compute overlay features, Materials                (minority) class (SL, 7.1  set) handling rare class Methods section. complete list features used                problem [19] data set. balanced combination study Table S1 Text S1.                                      sets used train non-parametric multi-classifier
+                                                                                enabled simultaneous use multiple classification
+Datasets classification method                                              procedures, SVM, neural networks decision trees.
+   characterize extent features                     multi-classifier combination (henceforth referred differentiate SL non-SL classes, collected 9,994 SL                  ensemble MNMC) desirable complex problems like SL
+interactions 125,509 non-SL interactions SGD                       prediction involving noisy inputs, precise solutions database (www.yeastgenome.org, 2008). Note                  high coverage difficult achieve single classification interactions SGD labeled SL actually synthetic              procedure [20]  Materials Methods details). Note sick (SS) interactions, stemming SS interactions               sampling applied training set, having referred ‘synthetic lethal’ original                   true ratio number positive negative examples publications [2,17].  (SS) interactions                 maintained test set.  results presented expected strong effects, exhibit similar                unbiased comparable methods.
+characteristics synthetic lethal interactions learning classification. simplicity, refer interactions        Validation
+SL paper. SL network prepared comprised                        tested individual classifiers ensemble
+9994 SL interactions covering 2502 genes average,                    (MNMC) SGD-SL dataset. Figure 3  shows receiver gene 8 connections, overall data set, referred            operating characteristic (ROC) curves seven classifiers based SGD-SL, consisted 135,503 interactions.                                   10-fold cross-validation. observe figure,
+   employed Kolmogorov-Smirnov (KS) test                        ensemble consistently outperformed individual classifiers,
+capture difference distributions feature sets            SVM classifier performing best individual positive (SL) negative (non-SL) examples [11]. D-                    classifiers k-NN performing worst. false positive rate
+statistic KS test used measure                   20 , true positive rate ensemble roughly 55 ,
+discriminative power feature. Figure 2 shows                        2  higher best individual classifier (SVM). addition,
+distribution 6 discriminative features                  prediction precision (fraction number true SL
+classes, D-statistic values, Figure S1 Text             predictions size complete set SL predictions) S1 shows ratio frequencies features. Table S1            ensemble high 49  vis vis recall (fraction 
+
+
+
+Figure 1. Computing overlay features. feature overlaid feature generate overlay feature. feature treated undirected network genes nodes, value feature gene pair weight edge connecting 
+Given weighted networks N1 N2 , corresponding features respectively, value overlay feature nodes B, strongest (max product weights edges) transitive link, e., max (w Ci )  w(B,Ci )),  Ci ) [ N1 (Ci ,B) [ N2 vice versa.
+                                                                               doi:10.1371/journal.pcbi.1000928.g001
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                    3                       September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                        Predicting Genetic Interactions
+
+
+
+
+Figure 2. 6 discriminative SL-independent features used MNMC prediction approach. Kolmogorov-Smirnov (KS)
+test used capture difference distributions feature SL non-SL classes. D-statistics p-values KS test shown  features left right    Pathway Comembership — number pathways genes
+belong  (B) SemanSim BP — similarity genes using annotations Biological Process terms semantic similarity terms, (C) PPI Community Comembership — number PPI communities genes belong  (D) O(PPI, SemanSim BP) — overlay
+feature PPI SemanSim BP based networks, (E) Common Functions — number common functions genes belong  (F)
+SemanSim CC — similarity genes using annotations Cellular Component terms semantic similarity terms. description features used study Table S1 Text S1.
+doi:10.1371/journal.pcbi.1000928.g002
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                  4                      September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                      Predicting Genetic Interactions
+
+
+
+
+Figure 3. Classification SL dataset.   Receiver operating characteristic (ROC) curves individual classifiers ensemble
+(MNMC) using SL-independent features. (B) ROC curves ensemble classifier data set using features (MNMC  AUC = 0.837) SL-
+independent features (MNMC.slif; AUC = 0.741). (C) Precision-recall curves using features (MNMC  SL-independent features (MNMC.slif). corresponding ROC precision-recall curves random classifier shown.
+doi:10.1371/journal.pcbi.1000928.g003
+
+
+number true SL predictions size complete set known              evaluate importance SL-independent
+SL examples) 16.6  classification score threshold 0.2.            feature set predicting SL pairs, constructed positive test set type high precision important predicting new SL               337 connected SL pairs network 9,994
+interactions high confidence. tested performance            known SL interactions, positive training set 9,129 ensemble based expanded feature set including               positive SL examples did share gene test set.
+152 SL-independent features additional set 15 SL-                  connectivity SL pair SL network defined dependent features  details, Materials Methods).              minimum degrees genes comprising pair.
+shown Figure 3(B), observed 15  increase true                  337 connected pairs, SL-dependent
+positive rate false positive rate 20  using expanded             features based network overlay missing feature set (MNMC , SL-independent set                    effective connected pairs. 337 SL gene
+(MNMC.slif), demonstrating ensemble able             pairs covered 283 unique genes, giving rise 199 pairs make effective use information provided features.           included non-SL interactions original data set used similar advantage SL-dependent features reflected           negative test set. negative training set comprised precision-recall results experiment (Figure 3(C)).            125,310 non-SL interactions obtained removing negative
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                 5                      September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                      Predicting Genetic Interactions
+
+
+test set original 125,509 non-SL interactions data           discriminative 730 unseen samples. contrary, set. Predictions carried test sets using         discriminative features dataset ensemble classifier trained using training sets. overall             highly discriminative unseen samples. example, performance SL-independent SL-dependent features                 discriminative features, O(SemanSim CC, Brem Abs evaluated terms respective ROC precision-recall            TOM), O(SemanSim CC, SemanSim BP) O(SemanSim MF,
+curves. shown Figure 4 , performance predictor            SemanSim BP) larger D-statistics (0.92, 0.88 0.85
+based SL-independent feature set (MNMC.slif)                       respectively) unseen data set (0.03, 0.09 0.07
+consistently better SL-dependent feature set                respectively) SGD-SL data set. interesting
+(MNMC . example, false positive rate 20 , SL-            observations actually point future research direction independent features lead true positive rate 75 , 5                  predicting genetic interactions: partition samples
+higher obtained SL-dependent features. Note               distinct groups based discriminative utility features difference performance sets features        available train individual classifiers group. large expected, allow Weka  implementation
+platform) impute missing values, SL-dependent            Comparison MNDT approaches
+features absent training test set examples.                evaluate effectiveness overall prediction approach,  strictest case imputation allowed,         e., set features multi-classifier predictive model, gap expected larger. difference                    performed direct comparison approach current
+performance likely overfitting results          state art algorithm MNDT [8], using SSL dataset used
+classifiers using feature set. conclusion,                study. dataset comprised 3,866 SSL
+experiment showed SL-independent features                     examples 688,045 non-SSL examples [8]. number effective predicting new SL interactions weakly                 slightly different Wong et al.’s data set use
+connected known SL interaction network. Given             ORF names instead SGD IDs deletion duplicates
+small fraction gene pairs experimentally tested         version data set. Figure 4(C) shows ROC SL interactions  given majority             curves result fold cross-validation procedure, untested pairs expected weakly connected             corresponding MNMC based features (MNMC , known SL network, SL-independent features conjunc-                MNMC based SL-independent features (MNMC.slif),
+tion multi-classifier approach expected lead          MNDT based features (MNMC , MNDT based
+robust accurate predictions, largely reduce             SL-independent features (MNDT.slif), addition burden experiments.                                                       curve corresponding random classifier. Note feature
+   test performance approach based              sets used MNDT [8] different used MNMC. independent test set constructed 730 new SL interactions             surprisingly, methods better performance added SGD interaction database                        features, including SL-dependent –independent features,
+November 2008. interactions formed positive test set               used. seen precision-recall ROC experiment, negative test set 5163 non-SL                curves MNMC higher MNDT interactions genes constituting positive test set       range score threshold, reflected extracted non-SL interactions original data set.             higher AUC score (0.897 vs 0.862). ensemble classifier trained using 9994 positive             difference agreeably high, indicates advantage 120346 ( = 125509-5163) negative examples original                sampling multi-classifier prediction technique.
+data set. trained classifier used make predictions          hand, MNMC.slif (AUC = 0.805) outperforms new test set, results evaluated using ROC              MNDT.slif (AUC = 0.598) substantially, shows curves. Differences performance different classifiers          approach able make better use SL-independent
+(shown Figure 4(E)) similar discussed             features SL prediction, performance MNDT largely false positive rate 10 , SL-independent features         comes SL-dependent features. example, FPR produce 5  higher true positive rate SL-dependent                 20 , MNMC.slif leads TPR 65 , 28  higher features.                                                                    produced MNDT.slif using SL-independent features, 
+   advantage SL-independent features                     FPR 30 , gap TPRs clearer corresponding precision-recall curves, shown            larger (31 ). Similar observations form Figure 4(B) 4(F). result unseen data               precision-recall curves experiment (Figure 4(D)). example (Figure 4(F)), precision MNMC.slif 10                results demonstrates advantage approach existing
+higher MNMC recall 20                       approaches, arises facts 1) employ difference precision larger (30 ) recall             extended set features characterize gene pairs, 2) 10 . provides additional evidence currently                employ sampling multi-classifier ensemble carry
+unscreened gene pairs, SL-independent features provide              training predictions.
+accurate predictions lower dependence                       compared results produced PPI-
+currently known SL pairs.                                                    SVM method proposed Paradugu et al [11]. SL-
+   MNMC.slif outperforms MNMC recall               independent features used, MNMC.slif outperforms PPI-SVM
+45  unseen samples, precision MNMC.slif          dataset. example, FPR 18 , highest TPR
+high, shown Figure 4(F). low performance results          PPI-SVM w/o 2Hop 52.4  MNMC.slif leads TPR
+fact discriminative features based data         62.4 . available 730 SL pairs. example, Pathway Comembership Common Functions features                       Discovery novel SL interactions transcription
+available 3  30  730 pairs respectively,           factors numbers 5  40  9994 SL pairs.                 Given accuracy SL predictions provided discriminative features based data                  approach, applied study functional redundancy 
+
+       PLoS Computational Biology | www.ploscompbiol.org                 6                      September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                           Predicting Genetic Interactions
+
+
+
+
+PLoS Computational Biology | www.ploscompbiol.org   7   September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                      Predicting Genetic Interactions
+
+
+
+Figure 4. Receiver operating characteristic (ROC) curves ensemble based SL-dependent (MNMC  –independent
+features (MNMC.slif).   ROC curves (AUC MNMC = 0.819 MNMC.slif = 0.851) (B) Precision-recall curves classification 337 connected SL 199 corresponding non-SL interactions using SL-independent SL-dependent features; (C) ROC curves (AUC MNDT = 0.862, MNMC = 0.897, MNDT.slif = 0.598 MNMC.slif = 0.805) (D) Precision-recall curves classification Wong et al.’s SSL
+dataset [8] using MNMC MNDT based features   SL-independent features (slif); (E) ROC curves (AUC MNMC = 0.616 MNMC.slif = 0.633) (F) Precision-recall curves classification independent test set constructed SGD
+interaction database using MNMC MNMC.slif. corresponding ROC precision-recall curves random classifier applied prediction problems shown.
+doi:10.1371/journal.pcbi.1000928.g004
+ yeast transcriptional regulatory network. Knock studies           synthetic interactions YAP TFs, yeast revealed surprising robustness single deletions,             YAP1:YAP2, YAP1:YAP3, YAP1:YAP5 YAP4:YAP6. Previous
+particularly transcription factors, rate gene             clustering analyses YAP protein sequences [23] YAP DNA
+essentiality 8  compared genome background rate                 binding sequences [26] revealed YAP TFs 17  [21]. Expression profiling experiments revealed                grouped related subfamilies: 1) YAP1 YAP2, 2) YAP4
+putative targets change relatively little expression           YAP6, 3) YAP5 YAP7.  predict genes deletion corresponding regulators, provides                subfamilies synthetic lethal interactions evidence robustness transcriptional network            particular, YAP1 predicted SL suggests limitations current understanding         interactions YAP2, YAP3 YAP5. YAP1 plays central role
+transcriptional network [22]. hypothesized predicted             response oxidative stress regulates response SL interactions transcription factors (TFs) provide            H2O2-induced stress, cadmium, drug stress, YAP2
+insights genetic relationships underlying redundancy.          responds cadmium stress [27].  SL interaction end, generated test set 6,903 TF pairs             YAP1 YAP2 implies loss ability respond currently available 118 TFs yeast  MATA1) [16],             cadmium stress TFs deleted, consistent 8 known SL interactions 5 known             previous finding double mutant yap1yap2 SL interactions. used ensemble classifier trained             sensitive cadmium [27]. example, consider SGD-SL data set make predictions remaining 6,890              predicted SL interaction YAP4 YAP6. YAP4
+TF gene pairs using SL-independent feature set.              YAP6 regulate osmotic stress, yap4 null mutant
+6,890 pairs, predicted 467 SL interactions based                     shows impaired growth exposed hyperosmolarity [28].
+classification score threshold 0.2, achieved precision             double mutant yap4yap6 strain displays 49  recall 14  determined 10-fold cross-                    reduction glycerol metabolism accumulation, validation collected SGD-SL dataset. threshold           crucial osmo-tolerance [27].  analyses imply 0.2, precision MNMC.slif 41  recall 14              condition-specific SL interactions YAP1 YAP2, 730 new SL interactions (unseen data set), estimate          YAP4 YAP6. Finally, known YAP
+precision predicted TF SL network lie 41                 proteins, class basic leucine zipper (bZIP) proteins, 49  recall 14 . Fourteen TF pairs                     DNA-binding domains similar true yeast AP-1 factor
+predicted synthetic lethal classification scores 0.4.       GCN4 [23,27]. GCN4 MET28 group 14 TF SL interactions terms classification             known bZIP proteins [23]. predicted TF SL interaction
+scores GZF3:DAL80, NRG1:AZF1, HAP3:HAP5, SWI5:ACE                       network includes SL interactions YAP1 GCN4, YHP1:YOX1. Figure 5  shows network 467                      YAP5 MET28.
+predicted 8 known SL interactions 106 transcription                 surveyed predicted SL interactions HAP TFs,
+factors. Table S2 Text S1 lists 475 TF SL interactions            shown network Figure 5(C). Interestingly, HAPs (2,
+Table S3 Text S1 shows degree transcription factor
+                                                                             3, 4 5) form fully connected clique missing link network. average, 106 TFs participates
+                                                                             HAP2 HAP4, HAP1 does interact 9 SL interactions, slightly observed known SL
+                                                                             HAP TFs. surprisingly, HAP2, HAP3, HAP4, interaction network (8 interactions gene). TFs (FKH1,
+                                                                             HAP5 share CCAAT-binding factor (CBF) form protein-
+AZF1, GZF3, STP1, REB1 CHA4) involved 25
+                                                                             protein protein-DNA interaction complex [29]. fact synthetic lethal interactions 
+                                                                             assembly Hap2p, Hap3p, Hap5p requires    predicted SL interactions transcription
+                                                                             subunits simultaneously suggests condition-specific SL interactions
+factors actually supported literature. Recent studies
+                                                                             TFs. Furthermore, previously identified revealed functions YAP family transcription
+                                                                             interaction Hap4p Hap2p/Hap3p/Hap5p-DNA
+factors (YAP1, YAP2 (CAD1), YAP3, YAP4 (CIN5), YAP6-8)                                                                              complex [29] supported predictions.
+response stress induced drug treatments, oxidative stress,
+                                                                                summary, exploration small predicted TF
+metal detoxification, DNA damage,                                                                              SL interaction network leads interesting findings.
+[23,24,25,26]. studies suggested YAP
+TFs overlapping distinct functions,                     predicted TF SL interactions expected useful
+relationships understood.                   studying specific functions TFs particular, systematic study genetic                    understanding general mechanisms underlying robustness interactions YAP transcription factors date.                    regulatory networks.
+Figure 5(B) shows sub-network predicted SL interactions
+involving YAP transcription factors. network comprised           Prediction genetic interactions non- 56 links 36 TFs, including 7 YAP TFs (YAP1-7). YAP5                 essential yeast genes highest number interactions (14), followed YAP6 (12),            order expand utility genetic interactions, used
+YAP2 (11), YAP1 (9), YAP3 (7) YAP4 (6), YAP7            approach make predictions synthetic lethal interactions
+single SL interaction REB1. shown Figure 5(B),              pairs non-essential genes S. cerevisiae. 
+
+       PLoS Computational Biology | www.ploscompbiol.org                 8                     September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                      Predicting Genetic Interactions
+
+
+
+
+Figure 5. network predicted synthetic lethal interactions yeast transcription factors (TFs).   global TF SL
+interaction network including 467 predicted 8 experimentally verified interactions SGD (highlighted red). (B) YAP-TF related synthetic
+lethal interactions; C) HAP-TF related synthetic lethal interactions.
+doi:10.1371/journal.pcbi.1000928.g005
+
+endeavor, adopted list 3885 non-essential genes used           perfectly balanced training set (1:1 ratio number construction SGA arrays [30] derived possible            examples positive negative classes), did observe gene pairs set. excluding 135,503 gene pairs         dependence results sampling ratio. Table 1 lists SGD-SL data set, obtained 7,471,681 gene pairs potentially encode genetic interactions.  MNMC.slif, trained
+                                                                             Table 1. Dependence AUC scores ensemble
+using SGD-SL data set, employed compute                                                                              classifiers trained using SSL-dependent SSL-independent
+classification scores denoting likelihood 7.5 million
+                                                                             features sampling ratio used generated training
+unseen gene pairs encode genetic interactions. Applying                 set Wong et al’s SSL data set [8].
+threshold 0.2 scores, results 
+wepredicted 50,210 SL interactions 3477 genes, demonstrating wide gene coverage predictions.                 Sampling Ratio         SSL-dependent         SSL-independent
+prediction scores predicted classes (SL non-SL)                                                                              1                      0.8972                0.8053
+threshold 0.2 7.5 million pairs available http://sage.fhcrc.org/downloads/downloads/predicted_yeast                 1.5                    0.9024                0.8083
+_genetic_interactions.zip. expect valuable resource             2                      0.8978                0.8120 useful computational experimental biologists                 3                      0.8928                0.8045
+aiming understand utilize synthetic lethal interactions            5                      0.8827                0.7831
+yeast.
+                                                                             7                      0.8745                0.7711
+                                                                             10                     0.8627                0.7607
+Effect sampling                                                     20                     0.7977                0.6268
+  important characteristic approach                   50                     0.6370                0.5542
+sampling non-SL class construct training set. results presented paper generated using            doi:10.1371/journal.pcbi.1000928.t001
+
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                9                      September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                                  Predicting Genetic Interactions
+
+
+
+ Table 2. Dependence prediction performance                                  Effect size positive training samples
+ size positive training sample set.                                                        tested available SL interactions
+                                                                                           (positive examples) training affected combined classifier’s
+                                                                                           performance. Different portions (10 , 20 , 30 ,…, 100 )  Percentage ( ) positive training examples             AUC MNMC.slif                 9994 SL examples SGD-SL data set used 10-fold
+                                                                                           cross-validation procedure test efficacy resultant
+ 100                                                      0.7298
+                                                                                           predictor. Table 2 shows AUCs obtained  90                                                       0.7332
+                                                                                           prediction experiments. seen table  80                                                       0.7289                           performance classifier quite robust  70                                                       0.7328                           training SL examples available, AUC varying narrow
+ 60                                                       0.7261                           range ,0.7–0.74.
+ 50                                                       0.7211
+ 40                                                       0.7187                           Comparing PPI non-PPI features predicting
+ 30                                                       0.7051                           genetic interactions
+                                                                                              investigated performance PPI non-
+ 20                                                       0.7125
+                                                                                           PPI features predicting genetic interactions. experiment,
+ 10                                                       0.7019
+                                                                                           split 152 SL-independent features sets: (1) set
+ Different portions (10  100 ) 9994 SL examples data set             PPI features derived PPI network
+ used 10-fold cross-validation procedure test efficacy resultant        (2) set non-PPI features don’t involve PPI
+ predictor.                                                                                network. Note PPI-related overlay features, involve
+ doi:10.1371/journal.pcbi.1000928.t002
+                                                                                           PPI network networks, excluded                                                                                            feature sets. feature sets used train test
+AUC scores ensemble classifiers constructed using SL-                               multi-classifier SGD-SL data set. Figure 6 shows dependent SL-independent features previously described                            performance terms ROC precision-recall curves. SSL data set [8] varying ratio number                             expected, non-PPI feature set substantially outperforms positive negative examples training set. expected,                       PPI  FPR 20 , TPR non-PPI features
+performance classifiers deteriorates imbalance                          16.6  higher PPI features (53.4  versus classes increases, performance                             36.8 ). recall 20 , precision non-PPI features quite stable ratio 10.  results                        18.9  higher PPI features (36.7  versus sensitive reasonable skewing sizes                          17.8 ) recall 30 , precision non-PPI
+classes, determination optimal sampling ratio given                       features 15.7  higher PPI features data set difficult.                                                                 (29.9  versus 14.2 ).
+
+
+
+
+Figure 6. performance PPI non-PPI features predicting genetic interactions. experiment, split 152 SL-
+independent features sets: (1) set PPI features derived PPI network (2) set non-PPI features don’t involve PPI network. feature sets used train test multi-classifier SGD-SL data set.   ROC curves ensemble based PPI (AUC = 0.605) non-PPI (AUC = 0.731) feature sets. (B) Precision-recall curves ensemble based PPI non-PPI feature sets. corresponding ROC precision-recall curves random classifier shown.
+doi:10.1371/journal.pcbi.1000928.g006
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                              10                     September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                       Predicting Genetic Interactions
+
+
+    difference performance results factors: (1)         classifier. generally, partition GI interactions non-PPI features, annotations, microrarray data ,             different groups based features characterizing gene pairs form richer source information just physical                train classifier group. ideas worth
+interaction proteins corresponding genes              exploring future work important problem.
+measuring strength association  (2) PPI features generally smaller coverage.                 Materials Methods
+believe performance PPI features potentially improved including PPI-based features,             Data sources Paladugu et al.’s study [11]             purpose feature extraction, compiled yeast
+included PPI features), non-PPI features            microarray datasets [12,13,14,15], protein-protein interaction valuable predicting genetic interactions, shown         databases (www.yeastgenome.org Sept 2007), transcription [8].                                                               factor binding databases [16], functional annotations defined     summary, results presented section demonstrated           Gene Ontology (www.geneontology.org 2008), utility MNMC approach predicting novel SL                     mutant phenotype data (www.yeastgenome.org 2008),
+interactions, particularly using SL-independent features.               phylogenetic profiles proteins [31], KEGG pathway member-
+                                                                             ships genes [32], BLAST sequence similarity scores yeast
+                                                                             genes proteins [33] gene network modules clique
+Discussion
+                                                                             communities [16].
+   devised integrative, multi-network approach                        addition, prepared dataset 9994 SL 125,509 non-
+predicting synthetic lethal (SL) interactions, extends             SL interactions SGD interaction database (www.
+previously proposed MNDT approach [8]. approach,                  yeastgenome.org 2008). SL interactions defined large number features characterizing              directly extracted database. maintain consistency,
+relationships pairs genes, developed multi-            non-SL interactions identified classifier predicting given gene pair belongs           corresponding bait prey proteins determined SL non-SL class. Comprehensive experiments              SL interactions corresponding studies. dataset,
+data sets demonstrated features, conjunction          named SGD-SL, minor variants, used advanced classification scheme, led improved performance               cross-validation experiments, training set making compared current state art method.                     novel predictions.
+particular, large number features identified independent known SL interactions  contrast MNDT),              Feature extraction shown effective making predictions                order build classifier predicting SL pairs, step gene pairs connected known SL                 construct set features various characteristics
+interactions.                                                                gene pairs. used types features study,    Application approach known transcription factor            features derived individual data sets features derived pairs led TF SL interaction network.             overlaying pairs data sets. Details features follow.
+predicted synthetic lethal interactions transcription
+factors supported literature. note         Features derived individual data sets
+SL data used paper obtained rich media,                 used types sources data derive predicted SL interactions expected refer rich          likelihood genes related different
+media conditions.  showed condition-               forms. relationships captured using various measures,
+specific SL interactions predicted approach.              degree expression different microarray reflect fact features functional              data sets, direct indirect links protein interaction annotation, gene expression signatures, sequence similarity              types networks, similarity evolution patterns using mutual help identify condition-specific interactions.                      information phylogenetic profiles genes,
+   approach expected effective uncovering new               similarity functional labels assigned genes Gene
+genetic interactions millions gene pairs yeast               Ontology,  included measures
+hundreds millions gene pairs higher organisms like mouse            importance gene pair itself computing betweenness human tested interactions.               corresponding interaction protein interaction addition, type predictor utility               Bayesian networks. computation gave set 62 features,
+comprehensive empirical screens carried  given            details provided Table S1 Text S1.  effects leading genetic interactions context-        discuss novel features used study
+dependent feasible experimentally assess            discriminative interactions contexts.                                             nonSL SL classes.
+   Given difficulty problem predicting genetic
+interactions, best classification methods suffer low                Number shared biological process functions
+precision low coverage. hand, opens                  straightforward way measure functional similarity door exploring new methods. fact features               genes count functions shared.
+independent known genetic interaction (GI) network                 case assignments functional classes better predict gene pairs connected GI network             ontologies, count biased general classes features including GI dependent independent               genes assigned.  used 138
+features lead better performance pairs connected           populated biological process terms Myers et al. GI network, suggests new avenue improve                 suggested useful functional analyses prediction
+prediction performance: use connectivity candidate               studies [34]. use number shared annotations gene pair known GI network select appropriate                   functions features data set.  
+
+      PLoS Computational Biology | www.ploscompbiol.org                 11                      September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                      Predicting Genetic Interactions
+
+
+computation carried                      input features undirected network, genes ontologies, list functions available.             nodes, value feature gene pair weight used extensive method calculating functional             edge connecting  value feature
+similarity genes, described                                    obtained overlaying networks N1 N2 computed
+                                                                               max½w(g1 ,c)|w(c,g2 ), (g1 ,c) [ N1 (c,g2 ) [ N2 Functional similarity using semantic similarity                          vice versa. missing value placed edges does functional classes                                                             exist networks. illustration computation    computed similarity functions genes            shown Figure 1. basis entire hierarchical structures ontologies           used approach derive overlay features gene pairs  specifically, compute similarity               using fourteen input networks maximum coverage
+functional classes ontologies using Lin’s semantic            gene pairs SGD-SL data set, computing similarity measure [35], defined                                   overlay feature using pair networks  self-overlays,                                                                                captured individual features). input
+                                                                               networks included correlation topological overlap measure-
+                                    2|½log pms (c1 ,c2 )                      ments microarray data sets, number common
+                linsim(c1 ,c2 )~
+                                   log p(c1  log p(c2 )                      mutant phenotypes, direct links protein interaction network,
+                                                                               semantic similarity-based relationships  c1 c2 classes  nodes) similarity            ontologies, sequence similarity scores using BLAST e-value calculated, p(c) denotes probability                   gene protein sequences, causality
+protein annotated class c, estimated                    measure Bayesian network. input networks available set annotations organism.                      chosen covered substantial fraction pms (c1 ,c2 )~ min p(c), S(c1 ,c2 ) set common                 non-essential yeast genes reasonably high individual
+             c[S(c1 ,c2 )
+ancestors c1 c2 .  pms (c1 ,c2 ) denotes probability        discriminative power.  networks occurrence minimum subsumer c1 c2 . Intuitively,                 sparsified using pre-specified thresholds (list networks Lin’s measure measures semantic similarity c1 c2                 corresponding thresholds provided Table S2 Text S1)                                                                                order make computation feasible. particular, terms contents minimum subsumer node                                                                                edges (gene pairs) carrying weights higher positive
+ontology, used extensively quantifying relation-
+                                                                               threshold lower negative threshold   ships functional classes ontologies [36,37,38].
+                                                                               retained sparsified network.  used flexible
+    given set annotations genes entire
+                                                                               formulation overlay features, maximum value
+ontology, groups B, functional similarity
+                                                                               product scores constituting overlay assigned genes computed using Tao et al.’s
+                                                                               value gene pair, compared just trying approach [37] follows. annotation group                                                                                 path, Wong et al. [8].  study, similar annotation group B, vice versa. 
+                                                                               able expand set features overlaid, use set P mutually similar pairs annotations                                                                                flexible formulation, leading good results. Note overlay groups B, functional similarity                                                                                feature constructed using semsim_mf semsim_cc features genes computed                                                                                used data sets prohibitive time
+                                             P                                 requirements computing feature thousands gene
+                                     2|                 linsim(ai ,bi )        pairs.  generated 14 additional overlay features, using                                           (ai ,bi )[P                          known SL interaction network input networks,          FunctionalSim B)~
+                                               DADzDBD                         mentioned fourteen networks, 15th                                                                                overlaying SL network itself. Note additional
+                                                                               features computed fair manner, positive SL
+   similarity measure takes specificity relative                examples training set used.
+positioning annotations account robustly                  differentiate sets features rest simple count common functional annotations,                      study, depending set features include features
+complexity annotations ontologies.                 computation depends known SL interactions Tao et al. [37] demonstrated measure computes                    (referred SL-dependent SL-independent features
+similarity set annotations genes accurately              respectively). total, feature sets included 152 SL- measures, pair average similarity used           independent features, 15 SL-dependent features. Descriptions studies [36].                                                            features Table S1 Text S1. Note    Using measure, created features functional            combination 167 SL-dependent SL-independent
+similarity gene pair, corresponding           features referred ‘ ’ features discussion ontologies, Biological Process, Molecular Function                   results. Cellular Component. used features computing additional features using network overlays, described             sampling                                                                             mentioned  data set significantly skewed,                                                                                small fraction examples belonging positive (SL)
+Features derived overlaying pairs data sets                              class, rest negative (non-SL) class. known
+(Network Overlay Features)                                                     standard classification algorithms ideally designed    Previous work suggested interesting set 2-hop features            balanced classes [39,40].  integral overall
+gene pairs [8].  individual features                  methodology sampling majority (negative) class,
+‘‘overlaid’’ individual features generate transitive           randomly sample negative examples feature. formulation overlay features, treat            complete set number equal positive
+
+
+       PLoS Computational Biology | www.ploscompbiol.org                  12                     September 2010 | Volume 6 | Issue 9 | e1000928
+                                                                                                                                                 Predicting Genetic Interactions
+
+
+ones [19]. classifiers trained balanced                         obtain balanced training set. ensemble classifier
+set. Note sampling carried test set,                        trained revised training set, predictions ensuring evaluation results unbiased                                    test examples remaining fold using comparable methods.                                                                score discussed  Repeating procedure n times                                                                                               fold treated test set produces score example Training classification                                                                   data set. collection evaluated using ROC curve
+   features gene pairs consideration                                corresponding AUC score. addition, conducted computed, adopted multi-classifier predicting                            experiments independent test constructed SGD given gene pair synthetic lethal  balanced                              interaction database (www.yeastgenome.org), data set combination positive negative training sets (described                             treated training set classifiers trained.  used train non-parametric multi-classifier                             similar setting, used dataset training set make enabled simultaneous use multiple classification                                  predictions SL interactions 118 transcription factors
+procedures, SVM, neural network, RIPPER (rule-based                                    pairs non-essential genes yeast.
+classifier), random forest, k-nearest neighbor decision tree. combination strategy based noisy function,                                 Supporting Information
+denoted following formula:
+                                                                                              Text S1 Supplementary figures tables.
+                               N              N
+                                                                                               doi:10.1371/journal.pcbi.1000928.s001 (0.22 MB PDF)
+                     p(x)~ P pi (x){ P (1{pi (x)),                               ð1Þ
+                              1            1
+                                                                                              Acknowledgments x given gene pair pi(x) represents probability                             thank Dr. Sharyl Wong Prof. Frederick Roth providing x predicted SL classifier   score simply                            details SSL data set used study. Thanks computes difference products probabilities                            Weka team promptly answering questions use example belong SL non-SL classes                              Weka efficiently tasks. Finally, deepest gratitude classifiers, higher score, likely test                         Prof. Vipin Chaudhary Center Computational Research example denotes SL interaction constituent genes.                              State University New York Buffalo providing probabilities pi(x) obtained individual classifier                           computing resources run large-scale experiments. Weka machine learning suite [41] using entire
+classification methodology implemented.                                                   Author Contributions
+   classification methodology used n-fold cross-                            Conceived designed experiments: GP BZ ANC CLM JZ VK EES.
+validation framework SGD-SL Wong et al.’s datasets.                                Performed experiments: GP. Analyzed data: GP BZ JZ.
+n21 randomly constructed n folds treated                                    Contributed reagents/materials/analysis tools: ANC. Wrote paper:
+training set, sampling procedure executed                             GP BZ CLM EES.
+
+References
+ 1. Boone C, Bussey H, Andrews BJ (2007) Exploring genetic interactions                         Saccharomyces cerevisiae microarray hybridization. Mol Biol Cell 9:
+    networks yeast. Nat Rev Genet 8: 437–449.                                                  3273–3297.
+ 2. Tong AH, Lesage G, Bader GD, Ding H, Xu H, et al. (2004) Global mapping                16.   Zhu J, Zhang B, Smith  Drees B, Brem RB, et al. (2008) Integrating large-
+    yeast genetic interaction network. Science 303: 808–813.                                    scale functional genomic data dissect complexity yeast regulatory
+ 3. Collins SR, Miller KM, Maas NL, Roguev  Fillingham J, et al. (2007)                           networks. Nat Genet 40: 854–861.
+    Functional dissection protein complexes involved yeast chromosome                   17.   Tong AH, Evangel

@@ -1,0 +1,292 @@
+BMB
+   Reports
+
+
+
+Partial AUC maximization essential gene prediction using
+genetic algorithms
+                                                                  & Sangsoo Kim *
+                     1                     1                1,†                2,
+Kyu-Baek Hwang , Beom-Yong Ha , Sanghun Ju
+1
+ School Science Engineering, Soongsil University, 2School Systems Biomedical Science, Soongsil University, Seoul
+156-743, Korea
+
+
+
+Identifying genes indispensable organism‘s life                 screening. example, computational prediction essential
+characteristics central questions current                       genes pathogenic microbes implication prioritizing
+biological research, helpful develop                    antimicrobial drug targets (2). addition candidate list,
+computational approaches prediction essential                     computational predictions identify sequence features genes. performance predictor usually measured                     related properties relevant essentiality. area receiver operating characteristic curve                       　Computationally, predicting essential genes amounts (AUC). propose novel method implementing genetic                         problem classifying genes binary classes essen-
+algorithms maximize partial AUC restricted                   tial nonessential ones based number features specific interval lower false positive rate (FPR), region                 calculated gene. features relevant follow experimental validation. predictor                     relevance essentiality. Previous studies used various
+uses various features based sequence information, protein-                    types features, comparative genomic properties, se-
+protein interaction network topology, gene expression                        quence-based features, functional genomic properties. profiles. feature selection wrapper developed                           established essential genes conserved alleviate fitting problem weigh feature’s                   nonessential ones (3). Phyletic retention, number organ-
+relevance prediction. evaluated method using                       isms ortholog conserved, used widely
+proteome budding yeast. implementation genetic                         prediction essential genes (4). comparative ge-
+algorithms maximizing partial AUC 0.05 0.10                      nomic features, number sequence-based features FPR outperformed popular classification methods. [BMB                      directly calculated sequenced genome em-
+Reports 2013; 46(1): 41-46]                                                      ployed predicting essential genes (4, 5). newly se-
+                                                                                 quenced genome, sequence-based features typi-
+                                                                                 cally available,  essentiality prediction solely based INTRODUCTION                                                                     features important applications.
+                                                                                 　Proliferation high-throughput functional genomics data
+Identifying genes indispensable organism‘s life,               provided opportunities explore properties relation identifying characteristics genes, cen-               essentiality. example, protein-protein interaction network
+tral questions biology. essential genes number                 crucial biological processes. Essential genes tend ganisms identified catalogued ge-                          play special roles, like hubs network,  topo-
+nome-wide knock experiments (1).  identification                     logical properties used predict gene essentiality essential genes wet experiments time-consuming                     (6-8). fact, Hwang et al. combined protein-protein inter- labor-intensive.  helpful develop com-                  action network properties sequence features predict-
+putational approaches essential gene prediction candidate                 ing essential genes, demonstrated essentiality pre-
+                                                                                 diction improved adding network properties (9). Gene ex-
+                                                                                 pression fundamental process tightly regulated sys-
+*Corresponding author. Tel: +82-2-820-0457; FAX: +82-2-820-0816,
+                                                                                 tem level, related gene essentiality. shown
+E-mail: sskimb@ssu.ac.kr
+†
+ Present address: Platform R&D Team, Technical Group, Daum                       gene expression variation related gene essentiality (7,
+Commnucations, Seoul 140-894, Korea.                                             10, 11).
+http://dx.doi.org/10.5483/BMBRep.2013.46.1.159                                    integrated features, based sequence information
+                                                                                 protein-protein interaction network topology, Received 2 August 2012, Revised 8 August 2012,                                   used methods. addition, included gene ex-
+Accepted 8 August 2012                                                           pression properties transcriptional activity variation,
+Keywords: AUC, Classification, Essential genes, Genetic algo-
+                                                                                 phyletic retention. inclusion fea-
+rithms, Partial AUC                                                              tures improve prediction power, irrelevant 
+
+ISSN: 1976-6696 (print edition) / 1976-670X (electronic edition)
+Copyright ⓒ 2013 Korean Society Biochemistry Molecular Biology
+   open-access article distributed terms Creative Commons Attribution Non-Commercial License (http://creativecommons.org/li-
+censes nc/3.0) permits unrestricted non-commercial use, distribution, reproduction medium, provided original work properly cited.
+   PAUC maximization using genetic algorithms 
+   Kyu-Baek Hwang, et al.
+
+
+
+
+   distracting features confuse machine learning         ture selection wrapper training set fold.    cause fitting. Pruning features improve         fold, feature selection procedure repeated 50 times 
+   performance predictor, help assess rela-       duce variability  MATERIALS METHODS). doing 
+   tive importance feature essentiality prediction.        identify features consistently selected.
+    various techniques used. example, corre-       features relevant    lation coefficient feature essentiality, näive    essentiality. Table 1 summarizes number times fea-
+   Bayes technique used assess relative importance         ture selected fold.
+   feature essentiality predictor (4, 12). Wilcoxon rank        31 features, following selected
+   sum tests used evaluate statistical difference essen-   50 times fold: nucleus, phyletic retention, essentiality
+   tial nonessential genes feature (9). receiver op-      index (EI), clique level (KL), variance gene expression.
+   erating characteristic (ROC) curves evaluated         findings highly important features essentiality
+   dividual features assess performances (9). employed        concordant previous studies follows.  essential
+   rigorous robust method avoids fitting.            genes tend localized nucleus, essential bio-
+   Using backward greedy search elimination, features se-            logical processes information storage processing
+   lected based ROC evaluation, followed 10-fold                place (4, 16). Second, essential genes known    cross-validation.                                                      evolutionarily-conserved nonessential genes bacteria
+    area ROC curve  k , AUC) common                (3) eukaryotes (17). regard, Gustafson et
+   formance measure evaluate classification method.             al. (5) showed phyletic retention, surrogate evolu-
+   applied binary classification problem, conventional         tionary conservation, highly correlated gene essentiality
+   AUC maximization concerns range true pos-            yeast E. coli.  essential genes likely 
+   itive rate false positive rate (FPR). practical purpose    teract essential genes nonessential genes. ex-
+   prioritizing candidates undergo experimental vali-       ample, Hwang et al. (9) showed essential genes higher
+   dation, important produce short list depleted    values essentiality index  proportion essential genes
+   false positives. Seringhaus et al. (4) approached problem      interacting partners) nonessential genes. Fourth,
+   assigning relatively higher costs false positives false     clique level  size largest cliques protein belongs
+   negatives.  propose partial AUC maximization fo-          protein-protein interaction network) related 
+   cuses scoring candidates, entire       nectedness gene, known related gene es-
+   set. Partial AUC used medical diagnostic screening,        sentiality (18). outperformed network-based features    high true-positive rate fixed lower FPR pref-        Hwang et al.’s study (9). Finally, variance gene expression    erable (13). developed method maximized partial          known negatively correlated gene essentiality    AUC directly given FPR 0.05 0.1 using genetic      evolutionary conservation rate eukaryotes, including yeast (7,
+   algorithm. heuristic search techniques      10).
+   inspired evolutionary biology, used wide-          transcriptional variability, transcriptional activity    ly solve complicated problems various fields. evaluated       gene expression level observed related es-
+   method using proteome Saccharomyces cerevisiae,             sentiality, highly expressed genes evolve slowly bac-
+   comprehensive set experimentally validated es-          teria mammals (10). study, mean gene expression    sential genes available. addition, high throughput pro-          selected essentiality features time
+   tein-protein interaction data gene expression profiles     (＞90  average). sequence-based features, e.,
+   model organism readily available DIP (14) GEO             A3s, Gravy, CLOSE STOP RATIO, chosen    (15), respectively. comparisons machine              Gravy, general average hydropathicity,    learning algorithms.                                                   TM_HELIX, number transmembrane helices,                                                                           shown negatively correlated essentiality (4).    RESULTS                                                                correlated hydropathy im-
+                                                                          portant factors contributing prediction transmembrane
+   compiled total 31 features 5825 S. cerevisiae genes        proteins. transmembrane proteins function transporters
+   various sources. removing genes missing val-       participate metabolic nonessential roles. yeast, high-
+   ues, final dataset comprised 3979 genes (including 940 es-      ly expressed  likely essential nonessential) genes pre-
+   sential genes). fold cross validation used dataset     fer pyrimidine bases (C T) synonymous codon po-
+   performance comparison.                                            sition prefer codons T richness,                                                                           characteristics yeast genome (38  G+C content) (19).
+   Features relevant gene essentiality                                 fact A3s, frequency synonymous po-
+   Pruning irrelevant distracting features important step   sition codons, relatively frequently chosen feature
+   machine learning  maintaining highly-relevant           selection experiments high frequency    features, simple fast model built. applied fea-      nonessential genes. essential genes yeast prefer pyr-
+
+
+42 BMB Reports                                                                                                             http://bmbreports.org
+                                                                                                           PAUC maximization using genetic algorithms
+                                                                                                                              Kyu-Baek Hwang, et al.
+
+
+
+
+imidine bases synonymous codon position,                   G3s showed negative correlation (C.C. = −0.78) expect C3s T3s, frequencies C T,               fold feature selection experiments (Table 1).
+spectively, synonymous codon position, similar
+prediction powers.  number times C3s se-                  Prediction performance gene essentiality
+lected showed high correlation T3s (C.C. = 0.88),            Genetic algorithms different objective functions: 
+
+Table 1. number timesa feature selected fold
+
+                                                                            Fold number
+                                Features                                                                                              Average
+                                                        1    2    3    4     5       6        7       8           9       10
+                            1
+       Cytosol                                          17   20   23   3     23      6        7       13         14        5            13.1
+                                        1
+       Extracellular                                    0    2    0    0     0       0        1       0           0        0             0.3
+                                                1
+       Plasma membrane                                  2    5    6    1     14      4       21       3          16       12             8.4
+                                            1
+       Mitochondria                                     0    0    0    0     0       1        0       0           0        0             0.1
+                            1
+       Nucleus                                          50   50   50   50    50      50      50       50         50       50             50
+                                    2
+       TM_HELIX                                         44   44   43   16    47      43      38       45         50       18            37.8
+                3
+       T3s                                              38   21   23   28    38      10       7       19         16       25            22.5
+       C3s3                                             29   14   14   24    23      14       7       13         15       23            17.6
+                3
+       A3s                                              50   50   50   50    50      50      50       50         50       49            49.9
+                 3
+       G3s                                              19   29   32   22    21      49      43       41         33       49            33.8
+       CAI3                                             2    0    1    6     1       0        3       2           1        2             1.8
+                3
+       CBI                                              34   10   24   27    43      19      38       22         18       30            26.5
+                3
+       Fop                                              12   42   18   22    10      32      11       25         29       19             22
+             3
+       Nc                                               15   0    5    1     8       2        7       3           1        1             4.3
+                        3
+       GC3s                                             39   24   19   27    36      12       8       16         17       18            21.6
+             3
+       GC                                               2    2    17   0     11      2        2       10          7        9             6.2
+                        3
+       L_sym                                            4    6    16   9     2       9        4       9          17        7             8.3
+                    3
+       L_aa                                             4    6    15   9     2       9        4       9          17        6             8.1
+                        3
+       Gravy                                            50   49   49   49    50      50      48       49         48       47            48.9
+       Aromo3                                           28   3    7    0     6       34       5       16          8        2            10.9
+                                                    4
+       RAREAMINO_ACID                                   9    4    2    0     6       6        0       5           2        0             3.4
+                                                    4
+       CLOSE STOP RAIO                                  46   44   46   50    50      48      50       45         46       47            47.2
+       Phyletic retention5                              50   50   50   50    50      50      50       50         50       50             50
+                                6
+       DegreeK                                          2    5    0    6     3       7        2       29          8        1             6.3
+                    6
+       CCo                                              9    0    0    0     0       0        0       3           3        2             1.7
+             6
+       BC                                               5    4    3    43    4       3        0       5           0        2             6.9
+             6
+       CC                                               33   26   34   38    25      37      16       50         41       25            32.5
+            6
+       KL                                               50   50   50   50    50      50      50       50         50       50             50
+         6
+       EI                                               50   50   50   50    50      50      50       50         50       50             50
+                        7
+       Mean                                             49   48   50   47    45      41      47       50         49       47            47.3
+                                7
+       Variance                                         50   50   50   50    50      50      50       50         50       50             50  number times feature selected. colored background highlights cells selected time (dark blue),                                                                1                                                              2 90  (puple), 80  (cyan) 50 trials fold. subcellular localization probabilities calculated ConLoc. Number trans-
+membrane helices calculated TMHMM. 3Condon usage freqeuncies calculated CondonW. 4Ratios derived results CondonW.
+5                                        6                                             7
+ Number organisms having ortholog. Protein-protein interaction network features. Gene expression features.
+
+http://bmbreports.org                                                                                                                   BMB Reports     43
+   PAUC maximization using genetic algorithms 
+   Kyu-Baek Hwang, et al.
+
+
+
+
+   fold, applied criteria feature selection: filtering   genetic algorithm-based methods generally useful    (Entire), ≥80  (FS_80), ≥90  (FS_90) 50 trials         classification methods task performance
+   Table 1 MATERIALS METHODS). selected fea-            measure partial AUC. methods ob-
+   ture subset, linear discriminant function trained ge-      jective functions. Multilayer perceptrons usually trained    netic algorithm. objective functions genetic algorithm,     minimizing squared error maximizing cross entropy
+   employed performance measures suitable task         function. Logistic regression performed maximizing    essential gene prediction, e., partial AUC 5  FPR (GA_           likelihood. Support vector machines trained maximizing
+   PAUC_0.05) partial AUC 10  FPR (GA_PAUC_0.10)               distance decision boundary closest data
+   AUC (GA_ AUC). Supplementary Fig. 1 shows perform-            point. objective functions calculated train-
+   ance comparisons different objective functions fea-         ing data examples.  partial AUC calculated    ture selection criteria. Supplementary Figs. 1A 1B compare        subset data examples, e., examples classified positive
+   performance, measured partial AUC 5  10  FPR,           specific value FPR.  optimal classifier 
+   respectively. Regardless feature selection criteria,           spect objective functions achieve suboptimal partial
+   GA_PAUC_ 0.05 GA_PAUC_0.10 performed significantly                AUC values. contrary, methods trained di-
+   better GA_AUC terms partial AUC 5  10               rectly maximizing performance measure, e., partial AUC
+   FPR, respectively. Supplementary Fig. 1C shows GA_AUC            likely achieve better performance terms
+   achieved higher AUC values GA_ PAUC_0.05                measure.
+   GA_PAUC_0.10. results, conclude            　Feature selection different impact classification
+   objective function used genetic algorithms highly influen-     method. feature selection methods greatly improved    tial performance.  objective function     performance multilayer perceptrons, regardless 
+   matched performance measure.                                   formance measure feature selection criteria (Supple-
+    feature selection method improved prediction perform-        mentary Fig. 2).  feature selection did strong
+   ance general, performance GA_PAUC_0.05 sig-         influence performance classification methods.    nificantly enhanced feature selection (Supplementary Figs. 1A      experiments, multilayer perceptrons severely overfitted    1C). GA_PAUC_0.10 showed performance enhancement               training dataset fold  Supplementary Tables 4, 5,    feature selection terms AUC (Supplementary Fig. 1C).            6). Overfitting reduced eliminating relevant
+    performance measured partial AUC 10  FPR           features. explains feature selection improved 
+   degraded feature selection (Supplementary Fig. 1B).        formance multilayer perceptrons, methods.
+   performance GA_AUC improved feature selection
+   measured partial AUC 10  FPR (Supplementary Fig.           DISCUSSION
+   1B). measured partial AUC 5  FPR AUC, 
+   formance did significant difference feature se-       ultimate goal developing computational methods    lection criteria (Supplementary Figs. 1A 1C). ob-         prediction essential genes predictability stud-
+   served variance performance reduced feature        ied organisms based universal set features devel-
+   selection (Entire vs. FS_80 FS_90; Supplementary Tables       oped studied model organisms. prediction    1, 2 3). reducing number features, feature se-      robust applicable distantly 
+   lection method effectively enhances generalization perform-       lated organisms. Deng et al. investigated issue dis-
+   ance genetic algorithm cases.                          tantly related bacteria (12). report, did address    　Comparison classification methods: compared            transferability issue, focused core issues, feature se-
+   genetic algorithm-based methods (GA_PAUC_0.05, GA_                lection classification algorithms.
+   PAUC_0.10, GA_AUC) popular classification               newly sequenced genome, sequence-based fea-
+   methods multilayer perceptrons (multiLayer), logistic      tures usually available.  advent    gression (logistic), support vector machines RBF (radial     generation sequencing technology, gene expression profil-
+   basis function) polynomial kernels (smoRBF smoPoly,           ing using RNA-seq technology performed concomitantly
+   respectively) (Supplementary Fig. 2). parameters        independent genome sequencing. Considering    methods set default Weka  MATERIALS                gene expression properties closely related evolu-
+   METHODS). genetic algorithm-based methods outperfor-              tionary conservation essentiality, appropriate include
+   med case, e., performance meas-      features prediction models. Unlike gene expression
+   ured partial AUC 5  FPR using entire feature set,       profiles, high throughput protein-protein interaction data usu-
+   GA_PAUC_0.05 achieved second highest perform-               ally require lengthy experiments. gene coexpression    ance (Supplementary Fig. 2A). Furthermore, methods                observed permanent, transient, protein com-
+   showed lower variance performance  regardless          plex partners (20), gene coexpression network properties
+   performance measure feature selection criteria         compensate protein-protein interaction network properties.
+   Supplementary Tables 1, 2, 3).  conclude          power predict essential genes varies various
+
+
+44 BMB Reports                                                                                                            http://bmbreports.org
+                                                                                                        PAUC maximization using genetic algorithms
+                                                                                                                           Kyu-Baek Hwang, et al.
+
+
+
+
+types features. Unlike previous studies meas-        DEG (16) used calculating EI 4662 genes.
+ured feature’s power independently, using statistical meas-         　Gene expression features: downloaded gene expression
+ures, employed feature selection wrapper technique,               profiles yeast obtained Affymetrix Yeast Genome S98 evaluated feature based classification models           Array (9335 probes) GEO (http://www.ncbi.nlm.nih.gov/
+volving features. measure relevance es-       geo/) (15). Total number samples 2015. raw CEL
+sentiality, used number times feature selected.          files, expression level probe calculated RMA majority consistently selected features           (21).  calculated mean variance expression study previously reported powerful pre-             5885 genes (10). multiple probes mapped dictors studies. possible rationalize se-   gene, used average values.
+lection terms biological knowledge.  feature se-           　Phyletic retention features: obtained phyletic retention
+lection essential gene prediction essen-       data 4728 genes S. cerevisiae (5), phyletic
+tial steps machine learning strong biological          retention defined number organisms having foundation.                                                              ortholog.
+ computational prediction biological effects            　Final dataset: Finally, obtained dataset consisting shed insight features play major roles, results        3979 genes 31 features excluding genes having missing bigger impact experimental validations.          value. 940 essential genes. experiments, better suggest candidate list short          10-fold cross validation used.
+pleted false positives order minimize labor 
+tensive time-consuming wet experiments. cases,               Feature selection
+partial AUC, measured fixed lower FPR,          employed backward search-based wrapper feature se-
+important AUC. implemented genetic algorithms            lection (22). Feature selection wrappers known produce
+maximize directly partial AUC. classification            better results filter methods, information gain, 
+methods objective functions, genetic algorithms           cause consider classification models involved. AUC (Area
+allow flexibility formulating s objective                 ROC Curve) 3-fold cross validation adopted
+functions. knowledge, implementation         performance measure wrapper. classification
+genetic algorithms maximizing partial AUC biomedical               model wrapper, used logistic regression. applied
+applications. believe flexibility robustness         wrapper 50 times selected features based number
+stimulate wide acceptance.                                               times selected. According result                                                                          50 trials, different feature groups: filtering,
+MATERIALS METHODS                                                    80  selected, 90  selected.
+
+Data preparation                                                         Partial AUC maximization genetic algorithms
+Sequence-based features: downloaded 5885 ORF se-                      partial AUC (area ROC curve) sub-area quences S. cerevisiae ftp://genome-ftp.stanford.edu.             AUC measured range false positive rates  CodonW (http://codonw.sourceforge.net/) used calculate            Supplementary Fig. 1). order maximize partial AUC 14 features related codon usage  Supplementary Table          training dataset, used genetic algorithms. linear discrim-
+7). ConLoc (http://sbi.postech.ac.kr/conloc/) used predict        inant function used scoring essential gene candi- subcellular localizations: cytosol, extracellular matrix, plas-      date, c, follows.
+ma membrane, mitochondria, nucleus. probabilities locations estimated used features,                                         score(c) = w�? f,
+respectively. TMHMM Server (http://www.cbs.dtu.dk/ services/
+TMHMM/) predicted number transmembrane helices                 w weight vector f denotes set feature values 5825 amino acid sequences. Finally, ratios rare           c. feature value fi normalized [0, 1] follows:
+amino acids amino acids close stop codons calcu-
+lated suggested (4).                                                              fi = (fi - min(fi)) / (max(fi) - min(fi)).
+　Protein-protein interaction network features: followed protocol established Hwang et al. (9). Briefly, protein-pro-         genetic algorithm used finding w maximizes
+tein interaction data S. cerevisiae downloaded DIP           partial AUC. Supplementary Table 8 parameter setting (version Scere20091230), contained 5033 proteins               genetic algorithm. experiments, used partial AUCs
+22,118 interactions. yeast protein-protein interaction         FPRs (false positive rates) 5  10  examples ac-
+network, calculated following topological properties           ceptable FPRs subsequent validation.
+suggested (9): degree (degreeK), clustering coefficient (CCo),
+betweenness centrality (BC), closeness centrality (CC), clique           classification methods
+level (KL), essentiality index (EI). list essential genes       used Weka package (http://www.cs.waikato.ac.nz/ml/
+
+
+http://bmbreports.org                                                                                                                BMB Reports     45
+   PAUC maximization using genetic algorithms 
+   Kyu-Baek Hwang, et al.
+
+
+
+
+   weka/) comparing performance GA-based methods                network sequence analysis. Mol. Biosyst. 5, 1672-1678.
+   following popular classification methods: multilayer           10. Choi, J. K., Kim, S. C., Seo, J., Kim, S. Bhak, J. (2007) Impact
+   perceptrons, logistic regression, support vector machines.              transcriptional properties essentiality evolutionary
+   Default settings models Weka used. multi-             rate. Genetics. 175, 199-206.
+   layer perceptrons, number hidden layers          11. Zhou, L., Ma, X. Sun, F. (2008) effects protein inter-
+                                                                               actions, gene essentiality regulatory regions ex-
+   number hidden nodes 16. backpropagation algo-
+                                                                               pression variation. BMC Syst. Biol. 2, 54.
+   rithm used training multilayer perceptrons. ridge esti-       12. Deng, J., Deng, L., Su, S., Zhang, M., Lin, X., Wei, L., Minai,
+   mator used l

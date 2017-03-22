@@ -1,0 +1,750 @@
+BMC Bioinformatics                                                                                                                       BioMed Central
+
+
+
+Research article                                                                                                                       Open Access
+Mining protein networks synthetic genetic interactions
+Sri R Paladugu1,3, Shan Zhao2, Animesh Ray1 Alpan Raval*1,3
+
+Address: 1Keck Graduate Institute Applied Life Sciences, 535 Watson Drive, Claremont, CA 91711, USA, 2Virtual Endoscopy 
+Aided Diagnosis Laboratory, Department Radiology, National Institutes Health Clinical Center, Bethesda, MD 20892-1182, USA 3School Mathematical Sciences, Claremont Graduate University, 710 N. College Avenue, Claremont, CA 91711, USA
+Email: Sri R Paladugu - spaladug@kgi.edu; Shan Zhao - zhaosha@mail.nih.gov; Animesh Ray - aray@kgi.edu; Alpan Raval* - araval@kgi.edu
+* Corresponding author
+
+
+
+
+Published: 9 October 2008                                                      Received: 19 March 2008
+                                                                               Accepted: 9 October 2008
+BMC Bioinformatics 2008, 9:426   doi:10.1186/1471-2105-9-426 article available  http://www.biomedcentral.com/1471-2105/9/426
+© 2008 Paladugu et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: local connectivity global position protein protein interaction
+                 network known correlate functional properties, including essentiality                  dispensability. extend observation examine network
+                 properties proteins considered simultaneously determine joint dispensability, e.,
+                 propensity synthetic sick/lethal interaction. Accordingly, examine predictive power
+                 protein interaction networks synthetic genetic interaction Saccharomyces cerevisiae,                  organism high confidence protein interaction networks available synthetic sick/
+                 lethal gene pairs extensively identified.
+                 Results: design support vector machine uses graph-theoretic properties                  proteins protein interaction network input features prediction synthetic sick/lethal
+                 interactions. trained interacting non-interacting gene pairs culled large
+                 scale genetic screens literature-curated data. method capable                  predicting synthetic genetic interactions sensitivity specificity exceeding 85 .                  prediction performance reasonably robust respect errors                  protein interaction network respect changes features test datasets. Using                  prediction  carried novel predictions synthetic sick/lethal gene pairs genome-
+                 wide scale. pairs appear functional properties similar                  characterize known synthetic lethal gene pairs.
+                 Conclusion: analysis shows protein interaction networks used predict
+                 synthetic lethal interactions accuracies par exceeding computational
+                 methods use variety input features, including functional annotations. indicates                  protein interaction networks plausibly rich sources information epistatic effects
+                 genes.
+
+
+
+
+Background                                                                     emergence organization function genome
+Successful prediction gene function disparate data                     level, lead understanding disease mecha-
+sources important challenge post-genomic era.                     nisms prediction drug targets. Functional organiza-
+Methods illuminate new mechanisms                         tion genes dramatically revealed 
+
+
+                                                                                                                                       Page 1 14
+                                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                              http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+positions biomolecular networks topological          lations reported earlier. Tong et.al. [20]
+constraints positions entail. work          observed synthetic genetic interactions, including using graph properties protein interac-         synthetic lethal (SL) synthetic sick (SS, simul-
+tion networks (PINs) elucidate gene protein func-        taneous deletion genes causes growth retardation)
+tion, particularly baker's yeast Saccharomyces           interactions, prevalent genes encoding
+cerevisiae high quality genome-scale interaction      proteins protein complex  maps  graphs) constructed. interaction       proteins form clique) encoding
+graphs, nodes represent individual proteins edges           proteins complexes proteins represent physical binding. previous reports      known complex. authors interesting correlations network properties        addressed issue using correlation predict pro- aspects biological function [1-10]. example,         tein-protein interactions synthetic genetic interac-
+pairwise correlations protein           tions, concluded predictive value limited
+degree/centrality, gene essentiality, evolutionary rate     (approximately 1 ) gene pairs encode pro-
+[1-4]. methods attempt uncover sets genes           teins members complex. implicated common function, e., functional mod-          number common neighbors ules, network structure [5-9]. methods           genes synthetic genetic network correlates combine graph-theoretic data data sources,           existence protein-protein interaction cor- expression levels [11] functional annotation      responding gene products. understood pro-
+neighboring proteins interaction map [12-16],         teins encoded genes having synthetic genetic elucidate function.                                     interaction enriched proteins lie sepa-
+                                                                rate pathways opposed pathway   earliest observed correlations graph-      example, [9,17]), indicating preference theoretic property functional attribute       protein network position products synthetic
+known correlation degree  e., number       gene pairs. spite studies, open question
+interaction partners "hubness") protein yeast      information PINs PIN essentiality corresponding protein-cod-      determining synthetic lethal interactions. conceptual
+ing gene [1,17]  essential gene produces       basis expectation biological function lethal phenotype deleted). Correlations            ultimately defined interaction proteins essentiality graph properties, including various      proteins, DNA/RNA, small molecules (metabo-
+centrality measures, reported yeast [2-4]     lites). protein-DNA/RNA protein-metabo- organisms nematode worm                   lite interactions directly indirectly influenced Caenorhabditis elegans fruit fly Drosophila melanogaster    protein-protein interactions, reasonable [4]. principal observation emerging stud-        structure PIN encode sufficient information
+ies essential proteins tend represented      interaction networks.  encoding proteins high degrees high centralities       subtle simple linear statisti- PIN. leads hypothesis indispensabil-     cal correlations envisaged explicit analytical models.
+ity given protein cellular function par-
+tially determined local connectivity                Arguably systematic accurate method date
+(quantified degree) global position (quantified      genome-wide prediction synthetic sick lethal centrality measures) PIN [2,1].                   (SSL) interactions carried Wong et al. [21]                                                                 Saccharomyces cerevisiae using multiple input features,
+Synthetic lethal interactions important genetic interac-    including protein interactions, gene expression, func-
+tions understanding biological function poten-      tional annotation, sequence motifs. method tially developing novel classes drug targets [18].       used streamline SSL discovery process genes said participate synthetic lethal interac-    require experimentally test 20  tion simultaneous deletion mutations         pairs discover SSL pairs 80  success rate.  cause lethality.  concept syn-    method relies disparate data sources (viz., expres-
+thetic lethality viewed extension essenti-      sion data, subcellular localization, physical complexes)
+ality.  recently proposed type      readily available organisms genetic redundancy conferred synthetic lethality          S. cerevisiae. Furthermore, success method does
+leads redundancy prevalent pro-             answer question posed previous paragraph.
+teins highly connected highly central PINs
+[19]. finding implies correlations PIN graph       study, S. cerevisiae, extent SSL
+properties synthetic lethality similar correla-      interaction genes predicted solely
+tions essentiality single genes. fact, corre-   topological properties corresponding pro-
+
+
+                                                                                                                    Page 2 14
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                 http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+teins PIN knowledge SSL inter-         network including r: (n - 1)(n - 2), n actions genes question participate             number proteins PIN  essentially
+motivation stems expectations                   measures fraction network shortest paths described  observation           given protein lies 
+yeast protein interaction network formed literature
+curated interactions [22], composed ~3300 proteins             (e) Eigenvector centrality [27]: Let v denote (row ~12000 interactions, substantially larger         column) index particular protein adjacency
+size recent synthetic genetic network formed          matrix corresponding PIN. eigenvector cen- literature curated high-throughput screen interac-         trality protein defined vth element tions (~1000 genes ~7000 interactions [20,23,22]),            principal eigenvector adjacency matrix. princi- potentially enabling discovery new SSL inter-         pal eigenvector normalized largest entry actions. Strikingly, best overall accuracy       1. centrality measure connected SSL prediction protein interaction data compa-        protein highly connected proteins network.
+rable higher combination dis-
+parate inputs [21], confirming predictive power          (f) Stress centrality: absolute number network PINs SSL interactions opening possibil-         shortest paths pass protein r.
+ity predicting SSL network organisms genome-scale protein interaction networks              (g) Bridging centrality [28]: bridging centrality                                                        protein (r) defined product betweenness
+                                                                  centrality bridging coefficient protein.
+Methods                                                           betweenness centrality measures fraction Protein Interaction Network (PIN) data                            network shortest paths given protein lies  bridg- computing network properties associated pro-             ing coefficient measures extent protein tein-protein interactions yeast, used literature        lying densely connected proteins net-
+curated protein interactions Saccharomyces cerevisiae          work. Let dr Nr represent degree set culled Reguly et.al [22]. network contains 3289           neighbors protein r. bridging coefficient
+proteins 11334 interactions.                                  (BC) protein r defined 
+                                                                                                        d r−1
+PIN graph-theoretic properties used predicting SSLs use inputs Support Vector Machine (SVM) clas-                            BC(r ) =                              .
+                                                                                                         −1
+sifier, computed following PIN graph-theoretic                                            N r d properties protein.
+                                                                  (h) Information centrality [29]: Let adjacency
+  Degree: number direct interactions          matrix PIN, D diagonal matrix degrees proteins.                                                         protein, J matrix elements equal                                                                   1. Let B = D - + J let C = B-1. construction yields
+(b) Clustering coefficient [24]: fraction possible         information matrix elements Iij = (Cii + Cjj - Cij)-
+interactions direct neighbors protein           1. information centrality IC  protein 
+PIN.                                                              defined harmonic mean:
+
+(c) Closeness centrality [25]: Let d(p, q) shortest dis-                                                       −1
+                                                                                               ⎛                  ⎞
+tance proteins p q PIN. close-
+ness centrality protein p defined (n - 1)/Σq d(p, q),
+                                                                                     IC  = n ⎜
+                                                                                               ⎜   ∑     ij−1   ⎟
+                                                                                                                  ⎟
+                                                                                                                           . n total number proteins PIN.                                         �?    j             ⎠ measures extent protein p close         recognized [30], measure essentially measures proteins PIN.                                 mean lengths paths ending protein  similar
+                                                                  interpretation given [31], showed infor-
+(d) Normalized betweenness centrality [26]: Let σp,q       mation centrality identical current-flow closeness
+number shortest paths proteins p q            centrality.
+PIN, let σp,q(r) number shortest paths p q pass protein r.               Current-flow betweenness centrality [31]: central-
+betweenness centrality r defined Σσp,q(r)/σp,q,          ity measure generalization standard  sum taken distinct pairs p q.        ness centrality index takes account just
+normalize measure lie 0 1 dividing         shortest paths paths  definition betweenness centrality total number pairs        obtained definition betweenness centrality 
+
+                                                                                                                               Page 3 14
+                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                    http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+replacing σp,q(r)/σp,q τp,q(r), throughput           scale genetic interaction screen [20] non-
+node r [31]. related distance traversed ran-      essential genes yeast protein products dom walk network ends particular pro-           localized mitochondria removing tein node.                                                          dataset SSL interactions confirmed high 
+                                                                    experimental methods. resulting properties properties single nodes          number SSL pairs non-SSL pairs obtained network. sensitive local         literature curated high throughput methods network structure node,             presented Table 1. important bear mind sensitive global network topology. Furthermore,          inferred non-SSL pairs SSL properties depend shortest paths           errors high throughput screen. network, paths                     explains decrease number non-SSL pairs
+                                                                    inclusion literature curated (LC) data. addition 9 single-node properties,          combined data literature curated genome wide
+computed set node properties,                   screens, generated probability distributions inverse shortest distance d(p, q) proteins p         PIN graph-theoretic property discussed  sepa-
+q, number mutual neighbors proteins p q,             rately SSL non-SSL pairs. Probability distributions indicator variables 2Hop S-S 2Hop S-P,                  converted histograms smoothed probability exploit fact known synthetic genetic             density functions using Gaussian smoothing imple-
+network contains large number triangles [21]. 2Hop             mented 'density' function R statistical com-
+S-S takes value 1 genes encoding proteins          puting platform.
+p q share synthetic lethal partner 0  2Hop S-P takes value 1 exists protein          Support vector machine classifier
+r r physical interaction protein p           use support vector machines (SVMs) model correla- gene corresponding protein r SSL interaction           tions PIN properties existence SSL protein q vice versa. computed properties  -           interaction. Various graph-theoretical properties (local (d) using network analysis tool Pajek [32], (e) (f)         global) proteins PIN fed inputs
+using SNA package R statistical computing plat-         SVM classifier, schematically represented
+form [33], (g) based formula given [28], (h)          Figure 1.   using implementation algorithm given [31].                                                            output SVM classifier score measures
+                                                                    propensity corresponding genes partake
+Synthetic genetic interaction data                                  SSL interaction. High scores indicate higher propensi- primary data sources training testing SVM           ties SSL interactions, low scores indicate higher
+classifier (described  literature curated            propensities lack SSL interaction. genetic interactions [22] large-scale genetic              SVMs highest overall accuracy compared interaction screens [20,23], filtered SSL interactions.      prediction systems experimented  sources extracted pairs genes           including naive Bayes classifiers neural networks. protein products literature                 study, used libSVM, publicly available integrated
+curated protein interaction network [22], resulting         software support vector classification [34]. dataset 4553 confirmed SSL pairs [20,23],               prediction 22 inputs lumped single vec-
+7020 pairs combined literature curated SSL                tor x: averages absolute differences 9 prop-
+interactions [22]. excluded gene pairs             erties  -  protein pair, shortest distance
+protein products localized mitochondria –              d(p, q) proteins, number mutual necessary initial results showed         neighbors proteins PIN, indica-
+difficult distinguish synthetic sick mutants yeast          tor variables 2Hop S-S 2Hop S-P. raw output SVM
+mutants slow growth conferred                   scores assigned protein pairs SVM
+absence single  opposed  mitochondrial
+                                                                    Table 1: Statistics known SSL pairs yeast
+protein. resulted dataset 3962 pairs 
+firmed SSL interactions [20,23], 6074 pairs                                Lethal/Sick          Non-Lethal/Non-Sick
+confirmed SSL interactions included pairs literature curated genetic interactions [22]. order            HTP                3962                     400,869
+train classifier, required list negatives, e.,     HTP + LC             6074                     400,473
+pairs genes confirmed partaking SSL inter-
+action. constructed non-SSL pairs generating               table lists number SSL pairs non-SSL pairs high
+                                                                     throughput (HTP) combined (HTP + literature curated (LC)) data
+pairwise combinations 227 baits used large             sets.
+
+
+                                                                                                                           Page 4 14
+                                                                                                     (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+
+   'RAPH PROPERTIES PAIR PROTEINS
+   0 
+ 0
+                                                     /PTIMAL (YPERPLANE
+    !VERAGE "ETWEENNESS #ENTRALITIES PAIR 
+    0 
+ 0
+    !VERAGE #LOSENESS #ENTRALITIES PAIR 
+    0 
+ 0
+
+                                              
+    !BSOLUTE DIFFERENCE "ETWEENNESS                                                                  /UTPUT     #ENTRALITIES PAIR 0 
+ 0                                                                               MEASURES
+    !BSOLUTE DIFFERENCE #LOSENESS
+                                                                                                             PROPENSITY     #ENTRALITIES PAIR 0 
+ 0                                                                             3, INTERACTION
+
+                                              
+      3HORTEST DISTANCE 0  0
+
+       -UTUAL NEIGHBHORHOOD 0  0
+
+                                                                                  3UPPORT 6ECTORS
+
+ Figure
+  schematic
+       1 diagram representing SVM classifier various graph theoretic properties fed inputs schematic diagram representing SVM classifier various graph theoretic properties fed inputs.
+
+
+classifier mapped posterior probabilities          prediction accuracy   example, [37]) com-
+value ranging 0 1 measure propensity           puted non-parametric manner using trapezoidal SSL interaction corresponding genes [35].           approximation. similar manner, posi- SVMs trained using radial basis function kernel        tive predictive value (precision rate) method parameters optimized performing              function threshold κ, positive predictive
+fold cross-validation entire training set, sug-         value defined ratio correctly predicted positives
+gested [36]. SVM classifier trained randomly         total number predicted positives.
+selected balanced subset pairs genes SSL interaction, e., training set comprised      Cross validation studies thirds known synthetic lethal pairs             fold cross-validation studies performance equal number known non-SSL pairs. test set             SVM classifier carried using balanced SSL
+sisted remaining gene pairs  known SSL            non-SSL training data training representative
+non-SSL) used training SVM classifier.       datasets testing, follows. Known SSL pairs                                                                   divided randomly 10 groups. equal number SVM output score takes continuum values            non-SSL pairs randomly selected 0 1, set variable cutoff κ deciding          pairs randomly assigned 10 groups. pair genes partakes SSL interaction. Pairs       group contained equal number SSL scored κ predicted SSL, pairs         non-SSL pairs. groups combined train- scored κ predicted non-SSL.              ing SVM classifier, subsequently tested measured sensitivity specificity              SSL pairs withheld group non-SSL
+method test sets function κ generated          pairs withheld group remaining
+ROC (Receiver Operating Characteristic) curves sensi-          data. repeated 10 times group playing
+tivity vs. 1-specificity represent overall accuracy     role test group  method. Sensitivity defined proportion true positives classified correctly method        Prediction novel SSL interactions specificity defined proportion true nega-        Finally, sought identify novel SSL interactions. tives classified correctly method. area       end, culled data set consisting gene pairs ROC curve, statistic commonly used assess
+                                                                  tested synthetic genetic interactions
+
+
+                                                                                                                      Page 5 14
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                             http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+
+(obtained generating possible pairwise combina-                       tions obtained SVM output threshold level
+tions non essential genes S. cereviseae                       κ = 0.75 (Figure 2).
+removing known SSL non-SSL pairs used assessment cross-validation accuracy). score                   Results discussion
+new set gene pairs retrained classifier                     used thirteen different graph-theoretic properties                                                                              proteins  Methods section) PIN putative predic-
+complete set known SSL pairs equal number                                                                              tors existence SSL interaction cor-
+randomly selected non-SSL pairs. retrained classifier
+                                                                             responding gene pair. resulted maximum 22 used evaluate propensity ≈1,                  inputs SVM classifier: values single
+620, 000 gene pairs newly constructed data set                  node property, value shortest dis-
+SSL. prediction task repeated times,                      tance, mutual protein neighborhood, 2Hop S-S 2Hop
+time training different set randomly selected non-                   S-P.
+SSL pairs. gene pairs scored desired cut- runs reported putative novel SSLs                Input feature distributions SSLs non-SSLs
+                                                                             order assess suitability graph 
+ number putative novel SSLs different thresholds
+                                                                             oretic properties distinguishing SSL pairs non-SSL shown Figure 2). Based results high                    pairs obtained distributions properties genetic analysis studies, estimated                 SSL pairs non-SSL pairs. property, global SSL network yeast contain ≈200,000 interac-                   plot distribution average property tions [38]. ≈4500 non-essential genes S.                     genes pair, absolute difference cerevisiae, expect newly constructed data set pro-                 property genes. properties studied
+                                                                             statistically significant small distributional
+                                                              ⎛ 4500 ⎞
+portionately contain ≈200,000 × 1,620,000/ ⎜                         ⎟   =   differences SSL pairs non-SSL pairs  Fig-
+                                                              �? 2 ⎠          ure 3). Properties display greatest distributional
+31,307 true SSL interactions, turns                          differences  measured Kolmogorov-Smirnov sta-
+approximately equal number novel SSL predic-                       tistic) eigenvector centrality, degree bridging cen-
+                                                                             trality. shortest distance technically infinite                                                                              proteins lie different components                                   predicted SSL pairs                  PIN, used inverse shortest distance input                           5000    10000 15000 20000 25000 30000              SVM classifier. Table 2 infer                                                                               viewed PIN, SSL pairs compared non-SSL
+                   0.75
+
+
+
+
+                                                                             ones tend higher average degree, higher average
+                                                                             closeness centrality, higher average information centrality
+                                                                             higher number mutual neighbors.
+                   0.80
+
+
+
+
+                                                                             Accuracy SSL predictions
+                                                                             assessed performance SVM classifier
+ Threshold level
+                   0.85
+
+
+
+
+                                                                             PIN properties used "triangle-
+                                                                             completing" 2Hop properties excluded.                                                                              2Hop properties binary inputs predic-
+                   0.90
+
+
+
+
+                                                                             tion accuracy extremely sensitive choice test
+                                                                             data set (described . randomly selected 2/3                                                                              known SSL pairs equal number non-SSL
+                                                                             pairs training SVM classifier withheld                    0.95
+
+
+
+
+                                                                             Table 2: Network statistics SSL vs. non-SSL pairs
+                   1.00
+
+
+
+
+                                                                                  Gene pair characteristic             t statistic        P-value
+
+
+threshold
+Number
+Figure  2of predicted novel SSL pairs different levels                          Average Degree                    21.1908        < 2.2 × 10-16
+Number predicted novel SSL pairs different lev-                           Average Closeness Centrality            22.9225        < 2.2 × 10-16
+                                                                                Average Information Centrality          53.1484        < 2.2 × 10-16
+els threshold. threshold level 0.75, total
+                                                                                    Mutual Neighborhood                 18.2122        < 2.2 × 10-16
+number predictions classifier equals number true SSL predictions data set expected contain.
+                                                                              Difference mean values various graph properties SSL
+                                                                              non-SSL pairs, assessed using independent sample t-test.
+
+
+                                                                                                                                       Page 6 14
+                                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                               http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+
+Figure 3
+Distributional differences PIN graph-theoretic properties SSL non-SSL pairs
+Distributional differences PIN graph-theoretic properties SSL non-SSL pairs. distributions average difference property proteins case SSL pairs (solid curves) non-SSL pairs (dashed
+curves) displayed  Numbers plot indicate D-statistic associated Kolmogorov-Smirnov test difference distributions corresponding P-value.
+
+
+
+
+                                                                                                                    Page 7 14
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                                 http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+remaining pairs genes testing accuracy 
+
+
+
+                                                                                 1.0
+method. tested method withheld data,
+resulting ROC curves different training sets. clear Figure 4, overall performance pre-
+
+
+
+
+                                                                                 0.8
+dictor, measured area ROC curve,
+shows slight improvement interactions litera-
+ture curated data included training set opposed using interactions high throughput syn-
+
+
+
+
+                                                                        True Positive Rate
+                                                                                       0.6
+thetic lethal screens  overall accuracies 0.7960 0.7550 respectively. note higher val-
+ues SVM classifier output threshold, κ, (correspond-
+ing lower false positive rate) lead higher specificity,
+
+
+
+
+                                                                        0.4 lower values κ (corresponding lower false
+negative rate) lead higher sensitivity.
+                                                                                                            2Hop Features
+                                                                                                            2Hop−SS
+
+
+
+
+                                                                                 0.2
+Addition 2Hop features inputs improves                                                        2Hop−SP
+                                                                                                            2Hop−SS 2Hop−SP
+performance classifier 2Hop features included additional inputs SVM classifier significant improvement
+
+                                                                                 0.0 performance classifier randomly cho-                                0.0    0.2        0.4           0.6         0.8           1.0
+                                                                                                          False Positive Rate
+sen test set (Figure 5), consistent previously reported
+increases accuracy 2Hop features included                   Figurecharacteristics
+                                                                        Comparison
+                                                                        2Hop      5 ROC curves addition [21]. best overall accuracy, measured AUC,                Comparison ROC curves addition 90.4 , obtained SVM classifier trained                2Hop characteristics. ROC curves SVM classifiers
+                                                                        trained combined data (literature curated high
+                                                                        data) using 2Hop characteris-
+                                                                        tics inputs.
+          1.0
+
+
+
+
+                                                                        literature curated high throughput data using                                                                         PIN properties 2Hop features.
+          0.8
+
+
+
+
+                                                                        Comparison approaches
+                                                                        compared results earlier study [21]                  0.6
+ True Positive Rate
+
+
+
+
+                                                                        probabilistic decision trees used distinguish
+                                                                        SSL non-SSL pairs. accuracy                                                                         method appears higher reported [21]  0.4
+
+
+
+
+                                                                        AUC explicitly computed , diverse
+                                                                        genomic datasets 2Hop properties included                                                        HTP              putative determinants SSL interaction  Additional
+                                                       LC+HTP
+                                                                        file 1 detailed comparison results [21]).
+          0.2
+
+
+
+
+                                                                         accuracy obtained method 2Hop
+                                                                        properties excluded significantly higher                                                                         [21] 2Hop properties excluded, fur-
+          0.0
+
+
+
+
+                   0.0   0.2   0.4               0.6        0.8   1.0   ther discussed  Supplementary Informa-
+                                False Positive Rate
+                                                                        tion). note accuracies measured area Figure
+ROC
+SSL data
+      curves
+        4aloneforand
+                   SVM
+                     combined
+                       classifierdata
+                                  trained high throughput            ROC curve account false positive false
+ROC curves SVM classifier trained high
+                                                                        negative errors.  account low
+throughput SSL data combined data. combined data comprised high throughput litera-             prevalence SSLs pairs genes genome.
+ture-curated SSL interactions. cases, inputs         compute positive predictive accura-
+SVM classifier included graph theoretic PIN properties          cies SVM classifiers function threshold
+ 2Hop features).                                                level (Figure 6). interesting note addition                                                                         2Hop characteristics leads decrease predictive
+
+
+                                                                                                                                      Page 8 14
+                                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                                 http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+
+accuracy high thresholds, AUC                               icity sensitivity certain test sets  Table 4),
+increases features included. rea-                      large number SSL protein
+                                                                               interactions genes/proteins, specificities
+son increase sensitivity addition
+                                                                               sensitivities vary greatly properties test 2Hop characteristics offset faster increase                                                                                set changed (discussed .
+false positive rate. positive predictive values (PPV) predictors threshold level 0.999 listed                     Robustness prediction respect choice test
+Table 3. Note order assess fold-improve-                    data
+ment prediction ability, PPV compared                      performed fold cross validation SVM estimated prevalence SSLs gene pairs                       classifier (Methods) inputs,                                              ⎛ 4500 ⎞
+                                                                               1  variation classification accuracy measured yeast  prevalence ≈200000/ ⎜                ⎟   = 0.0198,        area ROC curve (Table 5), confirming                                              �? 2 ⎠
+                                                                               robustness classification performance respect estimated ≅ 200,000 SSL interactions                     different choices randomly constructed test sets.
+≈4500 non-essential genes S. cerevisiae) [38].
+                                                                                order assess role 2Hop prop-
+Individual importance predictor variables                                   erties prediction task, designed test set investigated importance individual                       genes SSL interactions predictor variables training SVM classifier                     genes/proteins. 2Hop properties identically zero separately (Figure 7). Classifiers trained using                       pairs test set properties individual predictors perform better random classifi-                     lose predictive value set. type test
+ers, classification performance                      set does reflect enhanced prevalence triangles predictor variables used better                    SSL networks, carried procedure order classifiers trained individual predictor variables.                  assess PIN properties PIN predictor variables studied, degree turns                    significantly lose predictive value triangles best performing individual predictor. known                            completed known SSL interactions test
+importance degree characterizing gene essentiality                       pair. Table 6 shows loss extends SSL properties gene pairs                      accuracy, accuracy 70  considerably larger  strong correlations synthetic lethality                        corresponding accuracy Wong et al. [21] node degree reported earlier [39]. sec-                      2Hop properties included.
+ond best predictor information centrality, hybrid
+measure relates closeness centrality                         Robustness prediction respect errors random walk based eigen-centrality, turned                       protein interaction network significant predictor variables                         prediction method relies strongly protein  significant contribution information central-                     interaction data, important assess prediction
+ity SSL prediction indicate information prop-                      quality respect errors protein interaction data.
+agation biological network does favor                          use high confidence protein interaction data
+shortest paths. tested individual impor-                         low false positive rate), surmised dom-
+tance 2Hop characteristics used singly                          inant error protein interaction network jointly predictor variables. features                    attributed missing interactions. added assign equal scores pairs "triangle comple-                   predetermined number new edges randomly tion" possible equal scores pairs                      original protein interaction network, retrained reeval- possible, inputs lead fixed specificity                   uated SVM classifier. task repeated, time sensitivity values. possible predict SSL                    adding different number random interactions (250,
+pairs triangle completion reasonably high specif-                      500, 750, 1000) PIN. adding 500
+
+Table 3: Predictive power SVM classifiers
+
+                              Set input features SVM classifier                                               Positive predictive value
+
+                               graph theoretic protein characteristics                                                     0.08
+                         graph theoretic protein characteristics + 2Hop SS                                                 0.50
+                         graph theoretic protein characteristics + 2Hop SP                                                 0.15
+                   graph theoretic protein characteristics + 2Hop SS + 2Hop SP                                             0.14
+
+ Positive predictive values classifiers trained 2Hop characteristics threshold level 0.999.
+
+
+                                                                                                                                          Page 9 14
+                                                                                                                    (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                                                                        http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+
+                                                    0.6
+
+
+
+
+                                                                           50000
+                                                    0.5
+
+
+
+                                                                   Predictions
+                                                                           30000
+                                                    0.4
+                        Positive Predictive Value
+
+
+
+
+                                                             10000
+                                                    0.3
+
+
+
+
+                                                                           0
+
+
+
+
+                                                                                  0.75        0.80       0.85     0.90         0.95     1.00
+                                                                                                           Threshold
+                                                    0.2
+
+
+
+
+                                                                                       2Hop Features
+                                                                                       2Hop−SS
+                                                                                       2Hop−SP
+                                                                                       2Hop−SS 2Hop−SP
+                                                    0.1
+                                                    0.0
+
+
+
+
+                                                      0.75                             0.80               0.85               0.90              0.95             1.00
+                                                                                                                 Threshold
+
+Figure 6 PPVs various classifiers
+Comparison
+Comparison PPVs various classifiers. Positive predictive value SVM classifiers trained combined data using 2Hop characteristics inputs. threshold level 0.999, classifier trained graph theoretic
+protein properties 2Hop SS inputs highest positive predictive value. Addition extra indicator variable
+2Hop SP input results classifier decreased positive predictive accuracy. subplot figure shows number predicted pairs (true positives false positives) different levels threshold.
+
+
+
+
+Table 4: Accuracy prediction performance using 2Hop characteristics 
+            2Hop Characteristic                                                                       Threshold Level (T)                       Sensitivity              Specificity
+
+                    2HopSS                                                                           0.000000 ≤ T ≤ 0.235290                      1.000                      0.000
+                                                                                                     0.235290 < T ≤ 0.860423                      0.723                      0.886
+                                                                                                     0.860423 < T ≤ 1.000000                      0.000                      1.000
+                    2HopSP                                                                           0.000000 ≤ T ≤ 0.217713                      1.000                      0.000
+                                                                                                     0.217713 < T ≤ 0.905607                      0.755                      0.922
+                                                                                                     0.905607 < T ≤ 1.000000                      0.000                      1.000
+             2HopSS 2HopSP                                                                       0.000000 ≤ T ≤ 0.138735                      1.000                      0.000
+                                                                                                     0.138735 < T ≤ 0.840256                      0.868                      0.835
+                                                                                                     0.840256 < T ≤ 0.840260                      0.723                      0.886
+                                                                                                     0.840260 < T ≤ 0.840392                      0.610                      0.973
+                                                                                                     0.860423 < T ≤ 1.000000                      0.000                      1.000
+
+ table lists sensitivity specificity values different threshold levels case classifiers trained using 2Hop characteristics 
+
+
+                                                                                                                                                                            Page 10 14
+                                                                                                                                                       (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                                  http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+                                                                                 Table 6: Effect exclusion gene pairs non-zero 2Hop
+         1.0
+
+
+
+                                                                                 properties
+
+                                                                                         10                AUC –           AUC –                                                                                     cross-validation runs          exclusion              exclusion
+         0.8
+
+
+
+
+                                                                                           Average                      0.797                 0.697
+                                                                                      Standard Deviation                0.038                 0.005
+True Positive Rate
+               0.6
+
+
+
+
+                                                                                  fold cross-validation carried excluding
+                                                                                  gene pairs having non-zero 2Hop properties training test
+                                                                                  sets. cases classifiers trained using 2Hop
+                                                  Betweenness Centrality          characteristics.
+                                                  Closeness Centrality
+0.4
+
+
+
+
+                                                  Clustering Coefficient
+                                                  Degree                         Comparison predicted SSL network known SSL
+                                                  Eigenvector Centrality
+                                                  Current−Flow Betweenness C     network
+                                                  Information Centrality         Having achieved reasonably high cross-validation accu-
+                                                  Bridge Centrality
+         0.2
+
+
+
+
+                                                  Stress Centrality              racy, proceeded predicted SSL net-
+                                                  1/(Shortest Distance)          work shared characteristics known SSL
+                                                  Mutual Neighborhood
+                                                  Features                   network  Methods construction network
+                                                                                 comprising novel SSL predictions). Earlier studies          0.0
+
+
+
+
+                 0.0     0.2       0.4           0.6         0.8           1.0   indicated genes known SSL interaction tend
+                                  False Positive Rate
+                                                                                 share similar Gene Ontology   annotation, Figure 7 individual predictor variables
+Importance                                                                       enriched common upstream regulators, preferen-
+Importance individual predictor variables. ROC                                tially protein complex [40,41]. curves SVM classifiers trained literature curated                     characteristics used input features
+high throughput data using individual predictor variables.                   prediction method   indirectly, participa-
+diagonal line indicates random prediction. ROC curve                         tion protein complex), investigated SVM classifier trained using input features                   predicted SSLs enriched shown figure.                                                        features different threshold levels starting 0.75                                                                                  1.000  Supplementary Information list                                                                                  predictions threshold levels). evident random interactions (representing approximately 5                             Table 8, predicted SSL interactions threshold number existing protein interactions) significantly                       levels appear properties similar known SSL
+changes numerical value propensity SSL                            interactions. existence common upstream
+interaction assigned SVM, detectable                          regulator predicted novel SSL pairs does change ROC curves  AUC values Table 7).                            appear statistically significant threshold level suggests random additional interactions contrib-                       0.85, attributed small sample size ute roughly equally input features SSL non-SSL                         high thresholds. Odds ratios properties generally
+pairs, resulting significant change overall discrim-                    increasing trend threshold level ination ability.                                                                 increased, showing SVM classifier preferentially
+                                                                                 selects gene pairs having properties studied Table 5: Area ROC curves cross validation
+runs
+                                                                                 higher accuracy higher thresholds,                                                                                  properties used input features                        CrossValidation Run #                       AUC
+                                                                                 Table 7: Robustness analysis respect addition random
+                               Run1                                0.913         edges PIN
+                               Run2                                0.901
+                               Run3                                0.916          Number random              P-value difference           AUC
+                               Run4                                0.900          edges added PIN            propensities
+                               Run5                                0.905
+                               Run6                                0.912          250                           0.7905                           0.8692
+                               Run7                                0.906          500                           0.1391                           0.8724
+                               Run8                                0.896          750                           < 2.2 × 10-16                    0.8646
+                               Run9                                0.899          1000                          < 2.2 × 10-16                    0.8671
+                               Run10                               0.908
+                                                                                  Paired sample t-test P-values difference SSL propensities
+  classifier trained using graph-theoretic properties         assigned test dataset SVM adding
+  2Hop characteristics.                                                       random edges protein interaction network.
+
+
+
+                                                                                                                                          Page 11 14
+                                                                                                                     (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                               http://www.biomedcentral.com/1471-2105/9/426
+
+
+
+Table 8: Comparison predicted SSL network known SSL network
+
+Threshold Level (Number pre dictions)          Gene-pair Characteristic        S∩C       Sonly     Conly       S'∩C'        Odds          P-value
+
+Known SSL Pairs (6074)                            Cellular Component               4467     1607     193007       207466       2.988      < 2.2 × 10-16
+                                                  Molecular Function               1464     4610      38865       361608       2.955      < 2.2 × 10-16
+                                                  Biological Process               4074     2000     137827       262646       3.882      < 2.2 × 10-16
+                                                  Protein Complex                   197     5877        747       399726      17.937      < 2.2 × 10-16
+                                                  Upstream Regulator               220      5854     10327        390146      1.420         9 × 10-7
+0.75 (30087)                                      Cellular Component              17967    12120     781640       799150       1.516      < 2.2 × 10-16
+                                                  Molecular Function               4115    25972     113100      1467690       2.056      < 2.2 × 10-16
+                                                  Biological Process              12966    17121     314562      1266228       3.048      < 2.2 × 10-16
+                                                  Protein Complex                   363    29724       1339      1579451      14.405      < 2.2 × 10-16
+                                                  Upstream Regulator              1052     29035      47294      1533496      1.175        3.76 × 10-7
+0.80 (28440)                                      Component                       16942    11498     782665       799772      1.506       < 2.2 × 10-16
+                                                  Function                         3826    24614     113389      1469048       2.014      < 2.2 × 10-16
+                                                  Process                         12245    16195     315283      1267154       3.039      < 2.2 × 10-16
+                                                  Protein Complex                   346    28094       1356      1581081      14.360      < 2.2 × 10-16
+                                                  Upstream Regulator                986    27454      47360      1535077      1.164        3.01 × 10-6
+0.850 (5149)                                      Component                        3799     1350     795808       809920      2.864       < 2.2 × 10-16
+                                                  Function                         1309     3840     115906      1489822       4.382      < 2.2 × 10-16
+                                                  Process                          3221     1928     324307      1281421       6.601      < 2.2 × 10-16
+                                                  Protein Complex                   287     4862       1415      1604313      66.927      < 2.2 × 10-16
+                                                  Upstream Regulator                173     4976      48173      1557555      1.124           0.024
+0.900 (1398)                                      Component                        1184      214     798423       811056      5.602       < 2.2 × 10-16
+                                                  Function                          508      890     116707      1492772       7.301      < 2.2 × 10-16
+                                                  Process                          1060      338     326468      1283011      12.325      < 2.2 × 10-16
+                                                  Protein Complex                   151     1247       1551      1607928     125.535      < 2.2 × 10-16
+                                                  Upstream Regulator                49      1349      48297      1561182      1.174          0.1525
+0.950 (953)                                       Component                         831      122     798776       811148      6.917       < 2.2 × 10-16
+                                                  Function                          368      585     116847      1493077       8.038      < 2.2 × 10-16
+                                                  Process                           776      177     326752      1283172      17.217      < 2.2 × 10-16
+                                                  Protein Complex                   126      827       1576      1608348     155.485      < 2.2 × 10-16
+                                                  Upstream Regulator                29      924       48317      1561607      1.014          0.4958
+0.999 (202)                                       Component                         184       18     799423       811252     10.373       < 2.2 × 10-16
+                                                  Function                           93      109     117122      1493553      10.880      < 2.2 × 10-16
+                                                  Process                           179       23     327349      1283326      30.511      < 2.2 × 10-16
+                                                  Protein Complex                    37      165       1665      1609010     216.702      < 2.2 × 10-16
+                                                  Upstream Regulator                 5      197       48341      1562334      0.820          0.7274
+
+Association SSL interaction gene-pair characteristic, following framework [20]. S ∩ C represents number gene pairs SSL interaction(S) gene-pair characteristic(C). Sonly represents number gene pairs SSL interaction  Conly
+represents number non-SSL gene pairs share characteristic. S' ∩ C' represents number gene pairs SSL
+interaction share specified characteristic. Odds represents odds ratio SSL pair sharing given characteristic non-SSL pair sharing characteristic. P-value represents statistical significance overlap SSL interaction specified characteristic computed Fisher's exact test. protein corresponding gene assigned known protein complexes gene interacting partner considered come different protein complexes. Similarly case upstream regulators, gene does known upstream regulator gene interacting partner treated don't share common upstream regulator. P-values significant case common upstream regulator fact number predicted positives share common
+upstream regulator small comparison total number pairs share common upstream regulator, reflected low odds ratio seen different levels threshold.
+
+
+prediction. simultaneous increase predictive                       Conclusion
+accuracy SSL prediction  threshold level increased)                  results clearly demonstrate informative value enrichment participation protein                          protein interaction networks SSL genetic interactions.
+complex (evinced increase protein complex                           graph-theoretic properties proteins enrichment odds) consistent dominance                          protein interaction network serve compelling rela-
+ pathway" explanations genetic interactions                        tively robust determinants existence synthetic
+suggested Kelley Ideker [42].                                          lethality gene counterparts. members
+                                                                              gene pair question known SSL interactions
+                                                                              genes, predictive power SSL interaction
+                                                                              gene pair greatly enhanced tendency
+
+
+                                                                                                                                        Page 12 14
+                                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2008, 9:426                                                               http://www.biomedcentral.com/1471-2105/9/426
+
+
+ triangles form SSL networks (2Hop properties).                       8.    Guimerá R, Amaral L: Functional cartography complex met-
+                                                                                    abolic networks. Nature 2005, 433:895-900.  absence known SSL interactions,                       9.    Kelley R, Ideker T: Systematic interpretation genetic inter- shown PINs predict SSL                               actions using protein networks. Nature Biotechnology 2005,
+interactions significantly higher accuracy previ-                         23:561-566.
+                                                                              10.   Deng M, Tu  Sun F, Chen T: Mapping Gene Ontology pro-
+ously  Inclusion PIN centralities develop-                          teins based protein-protein interaction data. Bioinformatics
+ment meta-servers SSL prediction likely                         2004, 6(20):895-902. useful.  functional                         11.   Han JD, Bertin N, Hao T, Goldberg D, Berriz G, Zhang L, Dupuy D,
+                                                                                    Walhout  Cusick M, Roth F, Vidal M: Evidence dynamically
+properties used input features method,                            organized modularity yeast protein-protein interac-
+method identifies gene pairs enriched partici-                         tion network. Nature 2004, 430:88-93.
+                                                                              12.   Schwikowski B, Uetz P, Fields S: network protein-protein
+pation common categories, protein                                 interactions yeast. Nat Biotechnol 2000, 18:1257-1261.
+complex, limited extent, having                         13.   Hishigaki H, Nakai K, Ono T, Tanigami  Takagi T: Assesment upstream regulator. properties                              prediction accuracy protein function protein-protein
+                                                                                    interaction data. Yeast 2001, 18:523-531.
+fore viewed predictions method,                        14.   Vazquez  Flammini  Maritan  Vespignani  Global protein earlier used inputs identifying SSLs                        function prediction protein-protein interaction net-
+                                                                                    works. Nat Biotechnol 2003, 21:697-700.
+[21]. shows PINs, absence qualify-                   15.   Karaoz U, Murali T, Letovsky S, Zheng Y, Ding C, Cantor C, Kasif S:
+ing data gene regulatory gene expression studies,                          genome annotation using evidence integration informative gene function normally                              functional-linkage networks. Proc Natl Acad Sci USA 2004,
+                                                                                    101:2888-2893.
+envisioned.                                                                   16.   Nabieva E, Jim K, Agarwal  Chazelle B, Singh M: proteome
+                                                                                    prediction protein function graph-theoretic analysis                                                                                     interaction maps. Bioinformatics 2005, 21(Suppl 1):i302-i310.
+Authors' contributions                                                        17.   Ulitsky  Shamir R: Pathway redundancy protein essential-
+SP & SZ performed analysis wrote paper. AlR                             ity revealed Saccharomyces cerevisiae interaction net-
+& AnR conceived project wrote paper.                                    works. Molecular Systems Biology 2007, 3:104.
+                                                                              18.   Parsons AB, Geyer R, Hughes T, Boone C: Yeast genomics                                                                                     proteomics drug discovery target validation. Progress
+Additional material                                                                 Cell Cycle Research 2003, 5:159-166.
+                                                                              19.   Kafri R, Dahan O, Levy J, Pilpel Y: Preferential protection pro-
+                                                                                    tein interaction network hubs yeast: Evolved functionality
+                                                                                    genetic redundancy. Proceedings National Academy Sci-
+     Additional file 1                                                              ences 2008, 105(4):1243-1248.
+     Supplementary Information. file contains analysis perform-   20.   Tong  Lesage G, Bader G, Ding H, Xu H, Xin X, Young J, et al.: Glo-
+     ance SSL prediction method compared method used            bal mapping yeast genetic interaction network. Science
+     [21]. contains novel SSLs predicted method different         2004, 303:808-813.
+     threshold levels.                                                        21.   Wong SL, Zhang LV, Tong AH, Li  Goldberg DS, King OD, Lesage
+                                                                                    G, Vidal M, Andrews B, Bussey H, Boone C, Roth FP: Combining
+     Click file
+                                                                                    biological networks predict genetic interactions. Proc Natl
+     [http://www.biomedcentral.com/content/supplementary/1471-                      Acad Sci USA 2004, 101(44):15682-15687.
+     2105-9-426-S1.pdf]                                                       22.   Reguly T, Breitkreutz  Boucher L, Breitkreutz B, Hon G, Myers CL,
+                                                                                    Parsons  Friesen H, Oughtred R, Tong  Stark C, Ho Y, Botstein
+                         

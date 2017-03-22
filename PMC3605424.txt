@@ -1,0 +1,376 @@
+A New Method Discovery Essential Proteins
+Xue Zhang1,2*, Jin Xu1,2, Wang-xin Xiao3
+1 Key Laboratory High Confidence Software Technologies, Ministry Education, Peking University, Beijing, China, 2 School Electronics Engineering Science, Peking University, Beijing, China, 3 Research Institute Highway Ministry Transport, Beijing, China
+
+
+
+     Abstract
+     Background: Experimental methods identification essential proteins costly, time-consuming,      laborious. challenging task protein essentiality experiments. development high
+     throughput technologies, vast protein-protein interactions available, enable identification      essential proteins network level. computational methods task proposed based      topological properties protein-protein interaction (PPI) networks.  currently available PPI networks      species complete, e. false negatives, noisy, e. high false positives, network topology-based centrality
+     measures sensitive noise.  exploring robust methods identifying essential proteins
+     great value.
+
+     Method: paper, new essential protein discovery method, named CoEWC  Expression Weighted Clustering
+     coefficient), proposed. CoEWC based integration topological properties PPI network 
+     expression interacting proteins. aim CoEWC capture common features essential proteins date
+     hubs party hubs. performance CoEWC validated based PPI network Saccharomyces cerevisiae.
+     Experimental results CoEWC significantly outperforms classical centrality measures,      outperforms PeC, newly proposed essential protein discovery method outperforms 15 centrality measures      PPI network Saccharomyces cerevisiae. Especially, predicting 500 proteins, 50 
+     improvements obtained CoEWC degree centrality (DC), better centrality measure identifying protein
+     essentiality.
+
+     Conclusions: demonstrate robust essential protein discovery method developed integrating      topological properties PPI network expression interacting proteins. proposed centrality measure,
+     CoEWC, effective discovery essential proteins.
+
+  Citation: Zhang X, Xu J, Xiao W-x (2013) New Method Discovery Essential Proteins. PLoS 8(3): e58763. doi:10.1371/journal.pone.0058763
+  Editor: Vladimir N. Uversky, University South Florida College Medicine, United States America
+  Received December 25, 2012; Accepted February 6, 2013; Published March 21, 2013
+  Copyright: ß 2013 Zhang et al. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: work partially supported Key project National Natural Science Fund   61133010  61127005) National Natural
+  Science Foundation China   50708085  50978127). funders role study design, data collection analysis, decision publish,   preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: lindajia03@126.com
+
+
+
+Introduction                                                                            advances high-throughput experimental technolo-
+                                                                                     gies, Y2H mass spectrometry, large amounts    Genome-wide gene deletion studies small fraction                   protein-protein interaction (PPI) data produced, genes genome indispensable survival                               make possible study proteins network level. order reproduction organism [1,2]. genes referred                       break experimental constraints, recently researchers essential genes, essential proteins just products                     paid attention computational methods based essential genes. deletion essential proteins result              network topological characteristics. correlations lethality infertility. identification essential proteins           network topological features protein essentiality important understanding minimal requirements                        explored researchers. observed survival organism, finding human disease                      species, Saccharomyces cerevisiae, Caenorhabditis elegans
+genes [3] new drug targets. genome-wide identification                    Drosophila melanogaster [9,10], hub proteins PPI
+essential genes valuable rational drug design [4]. Essential                  network, highly connecting proteins, proteins pathogenic organisms taken potential                       likely essential low connections [11]. targets new antibiotics [5].                                                     called centrality-lethality rule [11]. researchers tried
+   experimental methods discovery essential                       explain correlation different hypotheses [12–15].
+proteins conducted, single gene knockouts [6],                     controversies exist explanations, RNA interference [7] conditional knockouts [8].                          researchers confirmed correlation topological experimental methods time-consuming                               centrality protein essentiality [10,16–18].
+laborious, require large amounts resources.                           Computational methods seen useful preprocessing
+                                                                                     techniques help experimental methods quickly 
+
+PLOS | www.plosone.org                                                       1                                March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                   Method Discovery Essential Proteins
+
+
+essential proteins. centrality measures proposed            neighbors consideration. result, CoEWC expected capture correlation network topological properties          identify essential proteins date hubs party hubs  protein essentiality. Local network features based centrality          performance CoEWC tested studied species measures include degree centrality (DC) [11],sum edge                   Saccharomyces cerevisiae. Compared previous centrality
+clustering (SoECC) [18], local average connectivity (LAC) [19],            measures better predicting precision, CoEWC density maximum neighborhood component (DMNC) [20].                 achieves higher predicting precision identification Global network characteristics based centrality measures include           essential proteins. experimental results demonstrate betweenness centrality (BC) [21], closeness centrality (CC)            centrality measures, based appropriate integration [22]. previously proposed centrality measures include                network topological properties gene expression, subgraph centrality [23], eigenvector centrality [24], information         robust effective, based network topological
+centrality [25], bottle neck [26,27], method integrating        features, discovery essential proteins, CoEWC network topology gene expression data (PeC) [28]. Compar-              good example integration.
+ative studies kinds measures local features
+based measures effective identifying essential proteins       Methods
+[28–29].
+   currently available PPI networks species         Motivations complete, e. false negatives, noisy, e. high false           reported [32], hubs yeast interactome network positives, especially obtained high-throughput                classified date party hubs basis partners’
+technologies, identification essential proteins based            expression profiles,  party hubs date hubs network topology challenging. centrality measures       similar probability essential.  exploring  sensitive noise PPI network. addition,        expression protein interacting neighbors PPI
+known false negatives false positives PPI networks        network identify protein’s essentiality reasonable. hard cleaned   robust centrality measures             use Pearson Correlation Coefficient (PCC) capture discovery essential proteins great value.           expression, yeast interactome non-
+Biological information integrated network topology           essential hubs tend express neighbors PCC improve precision essential protein discovery methods            values large range negative positive. [28,30]. [28], authors proposed PeC method integrating           protein YJR091C example illustrate phenomenon.
+edge clustering coefficient gene expression. [30],                  YJR091C non-essential hub protein yeast proteome. essential proteins explored based integration               maximal degree, 280, yeast PPI network. YJR091C
+network topological features types annotations:              ranges according DC SoECC mainly cellular localization biological process.                              large degree. let expression neighbors.
+   reported [13], essential proteins tend form highly             Figure 1 shows pearson correlation coefficients YJR091C
+connected clusters function independently.                280 neighbors. PCC values ranges 20.846 researchers began pay attention relationship             0.802. sum PCC values 3.37, YJR091C
+protein essentiality cluster property [18,31]. According         gets 451th place according sum PCC. tells PCC [32], hubs yeast interactome network classified           suitable discriminate non-essential proteins like date party hubs basis partners’ expression        YJR091C DC SoECC.
+profiles. distinction suggests model organized modularity           motivation proposed centrality measure, yeast proteome. Modules connected date             CoEWC, demonstrated toy network figure 2.
+hubs act regulators, mediators adaptors, party           edge clustering coefficient (ECC) measures hubs represent integral elements modules tend            interacting nodes high probability clustered,
+function lower level organization proteome.         according definition SoECC [18,28], edges AC BC
+party hubs clustered neighbors PPI               weight determining node C’s essentiality, edges
+network date hubs  addition, party hubs date
+                                                                           CD1, CE1 CF1.  goes intuition. hubs similar probability essential [32]. Cluster-
+                                                                           intuition, edges CD1, CE1 CF1 weight based centrality measures, clustering coefficient sum                                                                            determining node C’s essentiality.  basis 
+edge clustering coefficient, effective identifying
+                                                                           expression, reasonable clustering properties
+essential proteins date hubs.
+                                                                           node’s neighbors consideration clustering
+   respect various difficulties progresses,                                                                            property node itself.
+propose new centrality measure, named CoEWC, integrating
+                                                                              observing topological properties date hubs PPI data gene expression data. CoEWC determines                                                                            party hubs, know essential proteins kinds
+protein’s essentiality based high probability
+                                                                           hubs different clustering property  expressed neighbors                                                                            neighbors tend common features, e. clustering
+neighbors takes densely connected clusters. Different                                                                            property.  cheerful clustering property SoECC PeC, emphasize clustering relationship
+                                                                           discriminate non-essential hubs extent. Centrality protein neighbors, CoEWC pay attention clustering property protein’s neighbors          measures based idea effective essential protein itself. know, proteins cluster tend          proteins date hubs based ECC. Clustering
+share similar biological functions neighbors             coefficient (CC) measures node’s neighbors proteins similar functions tend expressed.         connected  used capture think expression protein interacting          node’s clustering property. According CC, edges CD1, CE1
+neighbors PPI network capture clustering relation-           CF1 weight determining node C’s essentiality
+ship protein neighbors extent.                 edges AC BC toy network.  CoEWC takes clustering properties protein’s
+
+
+PLOS | www.plosone.org                                             2                            March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                      Method Discovery Essential Proteins
+
+
+
+
+Figure 1. PCCs YJR091C neighbors.
+doi:10.1371/journal.pone.0058763.g001
+
+
+New centrality measure: CoEWC                                                functional gene product. consider gene expressions
+   paper, new centrality measure, CoEWC, proposed               proteins functional RNAs non-protein coding
+based integration PPI network gene expression data.            genes exist. protein u, gene expressions s basic ideas CoEWC follows: (1) highly                    different times denoted Ge(u) = {g(u,1),g(u,2),…,g(u,s)}. connected protein likely essential low                  probability proteins expressed evaluated based
+connected  (2) Essential proteins tend form densely                   pearson correlation coefficient (PCC). clustering
+connected clusters; (3) Essential Proteins cluster          property protein evaluated based clustering chance expressed; (4) Party hubs date hubs               coefficient (CC). similar probability essential               Pearson correlation coefficient. Pearson correlation coef-
+different clustering property. CoEWC, protein’s essentiality         ficient (PCC) measure correlation determined number protein’s neighbors                  variables, giving value +1 -1 inclusive. widely
+probability protein expressed neighbors           used sciences measure strength linear neighbors’ clustering properties.                                dependence variables. PCC pair genes (X
+   method simply clearly,                    Y), encode corresponding paired proteins (u v)
+following definitions descriptions. PPI network                   interacting PPI network, defined 
+represented undirected graph G(V, E), node vMV
+represents protein edge e(u,v denotes interaction                                                                 
+                                                                                              1 Xs    g(X  {g(X ) : g(Y  {g(Y ) proteins u v. Gene expression process              PCC(X ,Y )~                                              ð1Þ information gene used synthesis                                  s{1 1      s(X )           s(Y )
+
+
+                                                                                s number samples gene expression data;
+                                                                             g(X   g(Y ) expression level gene X  Y) sample
+                                                                             specific condition; g(X )  g(Y )) represents mean
+                                                                             expression level gene X  Y) s(X )  s(Y )) represents                                                                              standard deviation expression level gene X  Y).
+                                                                                pearson correlation coefficient pair proteins (u v)
+                                                                             defined PCC corresponding paired
+                                                                             genes (X Y), PCC(u,v) = PCC(X,Y). PCC(u,v)                                                                              positive value, positive linear correlation u                                                                              v.
+                                                                                know, clustered proteins tend share similar
+Figure 2. toy network.  A1, B, B1 C nodes toy             functions proteins similar functions tend 
+network. D, E, F complete sub-networks size 20, 30,       expressed.  proteins u v larger value 40. Node C connects node D, E, F respectively, say       PCC(u,v) likely cluster function
+D1, E1 F1.                                                               similarly.
+doi:10.1371/journal.pone.0058763.g002
+
+
+PLOS | www.plosone.org                                               3                             March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                   Method Discovery Essential Proteins
+
+
+
+
+Figure 3. Comparison number essential proteins detected CoEWC previously proposed centrality
+measures.
+doi:10.1371/journal.pone.0058763.g003
+
+   Clustering coefficient. graph theory, clustering coeffi-              Nu set neighbors protein u ku denotes cient measure degree nodes graph tend             number immediately connected neighbors u.
+cluster  Evidence suggests real-world                   CC(u) local variable characterizes clustering
+networks, particular social network, create tightly knit            property protein u. protein u larger value CC(u) groups characterized relatively high density ties [33,34].         expected impact neighbors, Yeast PPI network small world network. versions           demonstrated section 2. measure exist: global local. global version          CoEWC method. proved exist designed overall indication clustering            number protein complexes play key role carrying network, local gives indication embedded-            biological functionality [35] essential proteins tend form
+ness single nodes.  refer local clustering               protein complexes [36]. addition, essential proteins coefficient.                                                               cluster tend expressed. centrality measures
+   local clustering coefficient node graph quantifies        exploring clustering expression properties close neighbors clique (complete graph).            protein work task identifying essential proteins,
+Watts Strogatz introduced measure 1998 determine             just like PeC does. PeC outperforms previous centrality graph small world network [34]. local                   measures   reported [32], hubs clustering coefficient protein u PPI network defined       divided date hubs party hubs, kinds hubs                                                                         tend essential similar probability. PeC mainly
+                                                                           emphasizes clustering expression properties                           P                                                protein neighbors, effective identify
+                             v[Nu e(u,v u,v)[E
+                 CC(u)~                           :             ð2Þ        essential proteins date hubs clustered
+                              ku |ðku {1Þ=2
+                                                                           neighbors. According analysis toy network                                                                            section motivations, SoECC capture wrong features
+
+
+
+PLOS | www.plosone.org                                             4                            March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                      Method Discovery Essential Proteins
+
+ date hubs, make effective identifying essential         Results Discussion
+proteins date hubs.
+   date hubs party hubs different                  Test data
+clustering property, neighbors similar               evaluate performance proposed new centrality clustering property. party hub, neighbors            measure, CoEWC, PPI network gene expression data generally member densely connected module                 Saccharomyces cerevisiae used, characterized hub involves  exploring clustering property         knockout experiments widely used evaluation hub’s neighbors, capture hub’s high degree            methods essential proteins discovery. test data used property. date hubs, mediate different densely                paper come [28]. briefly follows.
+connected modules. Generally neighbor date hub                        PPI data Saccharomyces cerevisiae downloaded involves densely connected cluster, clusters             DIP database [37]. 24,743 interactions 5093
+neighbors involve different. exploring           proteins total self-interactions repeated
+neighbors’ clustering property, capture high             interactions filtered. PPI network consists 21
+degree property date hub, filter hubs neighbors           components. largest component consists 5052 proteins.
+seldom connected proteins. Hubs large number                 Essential proteins Saccharomyces cerevisiae collected disconnected neighbors tend non-essential.                             databases, MIPS, SGD, DEG SGDP.    order capture characteristics essential proteins based       5093 proteins PPI network, 1167 proteins standpoints, propose new centrality measure                essential 1165 proteins largest component named CoEWC. use PCC capture                        PPI network.
+clustering expression properties protein                   gene expression data Saccharomyces cerevisiae retrieved
+neighbors, use local clustering coefficient capture high          [38], containing 6,777 gene products 36 samples total.
+connectivity protein neighbors’ clustering         4,981 proteins corresponding gene expression
+property.                                                                    data 112 proteins corresponding gene
+   protein u, CoEWC(u) defined sum PCC            expression data 6 proteins essential. proteins u neighbors weighted corresponding            corresponding gene expression data, simply set
+neighbor’s clustering coefficient. definition given                zero values.
+equation (3).
+                                                                             Compare CoEWC centrality measures
+                            X                                                   order validate performance proposed new
+            CoEWC(u)~           v[Nu
+                                       PCC(u,v)|CC(v)             ð3Þ        centrality measure, CoEWC, carry comparison                                                                              state art centrality measures: Degree Cen-
+                                                                             trality (DC) [11], Sum Edge Clustering Coefficient (SoECC)
+  Nu denotes set immediately connected                      [18], PeC [28] Clustering Coefficient (CC) [34].
+neighbors node u PPI network.                                             reasons choose centrality measures   analysis definition CoEWC,                       compare follows. DC proved good
+CoEWC identify essential proteins party hubs                   indicator protein essentiality researchers [11,28], date hubs, discriminate non-essential hubs                 comparing  want ability CoEWC neighbors mainly disconnected single proteins.                     identify essential proteins hub proteins. SoECC better
+
+
+
+
+Figure 4. Comparison results jackknife methodology.
+doi:10.1371/journal.pone.0058763.g004
+
+
+PLOS | www.plosone.org                                               5                            March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                   Method Discovery Essential Proteins
+
+
+
+ Table 1. relationships CoEWC centrality measures predicting 200 proteins.
+
+
+                                                                 Non-essential            Non-essential         Percentage non-essential
+                                                                 proteins              proteins           proteins {Mi - CoEWC} low
+ Centrality measures (Mi)          |CoEWC > Mi|   |Mi - CoEWC|   {Mi -CoEWC}              {CoEWC - Mi }         CoEWC
+
+ Degree Centrality (DC)            60             140            95                       33                    49.5 
+ Clustering Coefficient (CC)        19            181            123                      50                    69.9 
+ Sum ECC (SoECC)                78             122            70                       27                    52.9 
+ PeC                               155            45             19                       12                    21.1 
+
+ doi:10.1371/journal.pone.0058763.t001
+
+
+method discovery essential proteins centrality           figure 3 CoEWC significantly outperforms
+measures based network topological property [18,28]. PeC           centrality measures based network topological features centrality measure based integration PPI data          (DC, CC SoECC) predicting essential proteins yeast gene expression data outperforms 15 previous centrality            PPI network. CoEWC outperforms PeC predicting measures yeast PPI network: Betweenness Centrality (BC),                essential proteins PeC does. Especially, CoEWC obtains
+Closeness Centrality, Subgraph Centrality (SC), Eigenvector                50  improvement DC CC predicting 500
+Centrality (EC), Information Centrality (IC), Bottle Neck (BN),            proteins, obtains 20  improvement SoECC.
+Density Maximum Neighborhood Component (DMNC), Local                    4  improvement CoEWC PeC Average Connectivity-based method (LAC), Sum ECC                        predicting 600 proteins.
+(SoECC), Range-Limited Centrality (RL), L-index (LI), Leader
+Rank (LR), Normalized Centrality (NC), Moduland-                     Validated jackknife methodology
+Centrality (MC).  compare CoEWC                        use jackknife methodology [39] test comparison
+PeC, don’t compare mainstream centrality                     proposed centrality measure CoEWC measures outperformed PeC yeast PPI network                  previously proposed centrality measures (DC, CC, SoECC identifying essential proteins. PeC aims capture 
+                                                                           PeC). comparison results shown figure 4. figure 4,
+clustering property protein neighbors                                                                            proteins ordered highest value lowest value topological view biological view.  CoEWC aims                                                                            centrality measure cumulative counts essential
+capture properties date hubs party hubs                                                                            proteins plotted. areas curve (AUC) hubs different clustering property. CC used                                                                            CoEWC centrality measures compared. addition, improvements obtained properly
+                                                                           random assortments plotted comparison.
+integrating gene expression data, just like CoEWC does.
+   Figure 3 gives comparison number essential                   shown figure 4, clear sorted curve CoEWC
+proteins detected CoEWC previously proposed              appears better centrality measures: DC, CC
+centrality measures. Proteins ranked according values         SoECC. 180 ranked proteins, CoEWC ties PeC.
+calculated centrality measure. centrality                 sorted curve CoEWC increasingly better measure, certain number proteins selected                  PeC increase number ranked proteins. candidates essential proteins, number true         results centrality measures better essential proteins determined.                                          randomized sortings. figure 4, AUC CoEWC 
+
+
+
+Figure 5. Comparison percentage essential proteins different proteins CoEWC centrality measures: DC, CC, SoECC PeC.
+doi:10.1371/journal.pone.0058763.g005
+
+
+PLOS | www.plosone.org                                             6                           March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                     Method Discovery Essential Proteins
+
+
+
+ Table 2. List 26 proteins predicted CoEWC  ignored centrality measures DC, CC, SoECC,  PeC predicting 200 proteins.
+
+
+ Rank     Protein      Degree       CoEWC      Essentiality
+
+ 104      YDR365C           23           1.698583   essential
+ 124      YDL232W           18           1.503577   essential
+ 127      YJL033W           19           1.49437    essential
+ 128      YGL099W           14           1.492625   essential
+ 130      YBR234C           23           1.473234   essential
+ 131      YIL075C           32           1.472131   essential
+ 139      YLR200W           10           1.435959   non-essential
+ 145      YDL087C           23           1.401966   essential
+ 147      YKL095W           38           1.390057   essential
+ 151      YHR081W           5            1.358778   non-essential
+                                                                          Figure 6. YOL142W interacting neighbors.
+ 152      YPR088C           14           1.351337   essential             doi:10.1371/journal.pone.0058763.g006
+ 154      YOL094C           37           1.327599   essential
+ 156      YHL030W           21           1.310346   non-essential         detected CoEWC centrality measure Mi. {Mi -
+ 158      YOR259C           28           1.282556   essential             CoEWC}  {CoEWC -Mi}) denotes set proteins identified
+ 161      YBL041W           9            1.275247   essential             Mi  CoEWC) CoEWC (Mi), |Mi - CoEWC|                                                                           number proteins identified Mi CoEWC.
+ 163      YNL182C           21           1.268987   essential
+                                                                             table 1, common proteins identified  170      YMR314W           16           1.246819   essential
+                                                                          CoEWC DC, CC 30 , common
+ 178      YBR126C           29           1.219773   non-essential         proteins predicted CoEWC SoECC 40 ,  179      YOL142W           6            1.219508   essential             common proteins predicted CoEWC PeC  181      YBL023C           14           1.211368   essential             80 . small overlap predicted proteins  187      YNL290W           34           1.176549   essential             CoEWC DC, CC shows CoEWC special centrality
+                                                                          measure different classical centrality
+ 190      YFL008W           24           1.156859   essential
+                                                                          measures. addition, investigated non-essential proteins
+ 191      YPL012W           20           1.153688   essential
+                                                                          predicted centrality measures, 50 
+ 193      YER025W           26           1.140787   essential             non-essential proteins predicted network
+ 194      YOR210W           16           1.138906   essential             topology-based centrality measures (DC, CC SoECC)  199      YKL068W           35           1.119936   non-essential         low values CoEWC  0.128)                                                                           21.1  non-essential proteins predicted PeC  doi:10.1371/journal.pone.0058763.t002                                    low values CoEWC  0.128).
+                                                                             Secondly, evaluate different proteins identified 4.3174e+005, AUC PeC 4.0450e+005. tells             CoEWC centrality measures. Figure 5 gives CoEWC effective PeC task identifying         number proteins predicted different
+essential proteins.  idea capturing                proteins identified CoEWC identified DC, CC,
+properties date hubs party hubs using               SoECC PeC. shown figure 5, percentage essential
+expression protein neighbors weighted                proteins identified CoEWC consistently higher corresponding neighbor’s clustering coefficient better       identified centrality measures different capturing clustering property protein           proteins  CC example, neighbors.                                                                largest different number proteins CoEWC.                                                                           200 proteins, 181 proteins differently identified CC Analysis differences CoEWC compared centrality measures
+   analyze CoEWC performs               Table 3. Information neighbors YOL142W.
+identification essential proteins, study relationship difference compared centrality measures
+                                                                           Proteins           PCC            CC           Essentiality
+(DC, CC, SoECC, PeC) predicting small fraction proteins. 200 proteins selected centrality            YDR280W            0.8046         0.3399       essential
+measure.                                                                   YER025W            0.639          0.1354       essential
+   Firstly, compare CoEWC centrality                YNL265C            20.357         0.1648       non-essential
+measures (DC, CC, SoECC PeC) investigating                                                                            YGR195W            0.771          0.4083       essential
+proteins predicted CoEWC                                                                            YGR095C            0.7414         0.3897       essential centrality measures. number overlaps CoEWC centrality measures shown                 YOL021C            0.8391         0.375        essential
+table 1. |CoEWC > Mi| denotes number common proteins                doi:10.1371/journal.pone.0058763.t003
+
+
+
+PLOS | www.plosone.org                                            7                                March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                    Method Discovery Essential Proteins
+
+
+
+
+Figure 7. Properties 125 neighbors YLR295C.
+doi:10.1371/journal.pone.0058763.g007
+ CoEWC, respectively. 181 proteins CoEWC,                 neighbors PPI network, rank proteins according 72.4  proteins essential, 32  proteins            SoPCC. YLR295C gets rank 121 according SoPCC 181 proteins CC essential. PeC example,              gets rank 123 according PeC. Figure 7 gives smallest difference CoEWC. 45                  properties YLR295C 125 neighbors captured PCC,
+different proteins identified CoEWC PeC. 45                CC ECC. figure 7, neighbor proteins 24
+different proteins, CoEWC identified 73.3  essential              neighbor IDs essential, proteins non-
+proteins PeC identified 57.8  essential                essential.
+proteins. similar results obtained DC                  distributions PCC, CC ECC figure 7, SoECC.                                                                      quarter neighbors clustered    26 proteins predicted CoEWC               YLR295C  ECC value equals 1), included 200 proteins centrality        neighbors large CC values. ECC values measures. 26 proteins shown table 2. table 2,            neighbors larger zero, half neighbors’ following information 26 proteins: rank              CC values zero. YLR295C’s interacting proteins,
+CoEWC, protein  degree, value CoEWC essentiality.               essential proteins tend non-zero CC values, accords shown table 2, 26 proteins 80.8  essential.            assumption essential proteins tend clustered
+   YOL142W example. YOL142W essential                      neighbors. According definition SoECC,
+protein degree 6. interactions                    sum ECC, YLR295C’s SoECC value large YOL142W neighbors shown figure 6.                 high degree. According definition PeC, study characteristic YOL142W neighbors,              sum product ECC PCC, PeC value YLR295C following information neighbors: PCC value, CC value,            considerably smaller SoECC negative essentiality table 3. table 3, 5            values PCC.  according definition CoEWC,
+neighbors 6 neighbors essential proteins,           sum product PCC CC, CoEWC YOL142W expressed 5 neighbors            value YLR295C smaller SoECC PeC, essential. CC values neighbors significantly        negative PCC values smaller CC values. figure 7,
+larger average CC value PPI network             understand CoEWC discriminate 0.097. Table 3 tells clustered essential proteins        YLR295C non-essential DC, SoECC PeC 
+tend expressed CoEWC capture                        Table 4 shows list non-essential proteins high
+property                                                               degree low value CoEWC. order compare    non-essential protein, YLR295C, example.              centrality measures, values DC, CC,
+YLR295C 125 neighbors, 24 essential.              SoECC PeC. values predicted different centrality
+YLR295C gets rank 16, 2388, 8 according DC, CC,               measures comparable directly, 1110th SoECC, respectively. According definition DC, CC              proteins’ values, sorted descending order according SoECC corresponding ranks YLR295C according                  centrality measure, reference values. reference values centrality measures, conclude YLR295C            DC, CoEWC, CC, SoECC PeC 12, 0.127, 0.1428, hub protein clustered neighbors,       3.057 0.55, respectively. table 4, connections neighbors           non-essential proteins discriminated DC CC value 0.0017). obvious YLR295C              SoECC. considering expression properties discriminated DC SoECC.                                              protein interacting proteins, CoEWC PeC    addition, order compare CoEWC PeC,              improved discrimination ability non-essential compute sum PCC (SoPCC) protein               proteins. shown table 4, non-essential proteins 
+
+PLOS | www.plosone.org                                              8                           March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                        Method Discovery Essential Proteins
+
+
+
+ Table 4. List non-essential proteins high degree low value CoEWC.
+
+
+ Protein                Essentiality               DC           CoEWC                  CC                    SoECC               PeC
+
+ YCL018W                     non-essential              156          0.0723                 0.0244                21.2481             0.1766
+ YBR127C                     non-essential              113          0.0502                 0.0207                11.7541             20.2884
+ YMR106C                     non-essential              110          -0.2571                0.0283                18.9553             20.543
+ YLR288C                     non-essential              99           20.1364                0.0033                31.4151             3.3742
+ YLR191W                     non-essential              97           21.5164                0.0215                24.9253             21.6514
+ YLR447C                     non-essential              95           20.0429                0.0035                26.2248             2.4992
+ YOL055C                     non-essential              93           0.0942                 0.0140                8.1786              20.3599
+ YHR135C                     non-essential              84           20.2160                0.0203                13.849              20.3505
+ YGR040W                     non-essential              79           0.1058                 0.0207                8.6171              0.3374
+ YLR453C                     non-essential              78           0.0411                 0.003                 23.4248             0.3608
+ YER118C                     non-essential              72           20.2675                0.0274                14.6054             20.2627
+ YDL059C                     non-essential              67           0.1163                 0.0407                7.3506              20.0661
+ YCL027W                     non-essential              67           0.0730                 0.009                 18.7385             4.1962
+ YBL085W                     non-essential              67           20.2364                0.0212                13.4245             20.8018
+ YGR254W                     non-essential              67           20.0167                0.0298                7.08                20.0244
+ YAR014C                     non-essential              65           20.20841               0.016346              13.29514            22.5911
+ YDR171W                     non-essential              61           20.28158               0.023497              4.637564            0.0205
+ YHR140W                     non-essential              60           20.55414               0.249718              30.04586            22.13
+ YML048W                     non-essential              60           20.44267               0.136723              18.25437            20.4479
+ YGR262C                     non-essential              60           20.09723               0.029379              7.759587            0.4257
+ YJL098W                     non-essential              59           20.26835               0.04851               10.58723            20.5065
+ YLR096W                     non-essential              58           20.27887               0.047792              11.02443            20.6211
+ YJL095W                     non-essential              58           20.03866               0.050817              13.54987            0.7098
+ YGL237C                     non-essential              57           20.39525               0.025063              10.00474            0.8943
+ YNL135C                     non-essential              57           0.046016               0.022556              8.115793            0.1006
+ YDR386W                     non-essential              57           20.65712               0.030702              6.746308            21.4038
+ YCL040W                     non-essential              55           20.11312               0.020875              5.221536            0.0757
+ YDL101C                     non-essential              55           0.069512               0.041077              9.862956            20.4066
+ YGL173C                     non-essential              52           20.80869               0.032428              5.137779            20.8367
+ YER179W                     non-essential              50           20.14783               0.04                  6.687021            20.357
+ YKL065C                     non-essential              50           20.3737                0.173061              15.15515            20.7295
+
+ doi:10.1371/journal.pone.0058763.t004
+
+ high degree consistently low value CoEWC.               features essential proteins distinguish non- analysis, CoEWC help filter false           essential proteins.
+predictions centrality measures. integration PCC              tackle difficulties, propose new centrality CC effective prediction essential proteins.                 measure, named CoEWC, based integration PPI data
+                                                                              gene expression data. CoEWC aims capture common
+Conclusions                                                                   features essential proteins date hubs party hubs                                                                               integrating PCC CC  CoEWC applied PPI
+   large PPI data available species,              network Saccharomyces cerevisiae. experimental results discovery essential proteins network level          CoEWC significantly outperforms network topology-
+hot topic. network topology-based centrality measures                based centrality measures: DC, CC SoECC, discovery essential proteins proposed.               CoEWC outperforms PeC, currently proposed centrality currently available PPI networks species                     measure based integration PPI data gene
+incomplete (false negatives) noisy (high false positives).           expression data. time, network topology-based methods                     CoEWC performs discovery essential
+depend reliability available protein-protein interac-           proteins, space improve prediction
+tions sensitive network.                    precision.  integration PCC CC simple essential proteins distinct clustering properties, e. date        paper, exist abstruse relationship hubs party hubs, time essential non-essential             PCC CC. Second, exist excellent
+proteins common features, e. high degree              method capture distinct properties essential
+hub proteins. challenging capture true distinct
+
+
+PLOS | www.plosone.org                                               9                              March 2013 | Volume 8 | Issue 3 | e58763
+                                                                                                                          Method Discovery Essential Proteins
+
+
+proteins non-essential proteins. Finally, gene                              Author Contributions
+expression data, protein related data, biological
+                                                                                            Participated revising draft: JX. Conceived designed process, domain information, localization,                               experiments: XZ WXX. Performed experiments: XZ WXX. Analyzed
+valuable task identifying essential proteins.                                    data: XZ WXX. Contributed reagents/materials/analysis tools: XZ
+                                                                                            WXX. Wrote paper: XZ.
+
+References
+ 1. Winzeler EA, Shoemaker DD, Astromoff  Liang H, Anderson K, et al. (1999)              20. Lin CY, Chin CH, Wu HH, Chen SH, Ho CW, et al. (2008) Hubba: hub objects
+    Functional characterization S. cerevisiae genome gene deletion                analyzer framework interactome hubs identification network biology.
+    parallel analysis. Science 285: 901–906.                                                    Nucleic Acids Res, 36:438–443.
+ 2. Kamath RS, Fraser AG, Dong Y, Poulin G, Durbin R, et al. (2003) Systematic              21. Joy MP, Brock  Ingber  Huang S (2005) High-betweenness proteins     functional analysis Caenorhabditis elegans genome using RNAi. Nature    

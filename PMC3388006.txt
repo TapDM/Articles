@@ -1,0 +1,869 @@
+Chavali et al. BMC Systems Biology 2012, 6:27
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                                Open Access
+
+Metabolic network analysis predicts efficacy FDA-approved drugs targeting causative
+agent neglected tropical disease
+Arvind K Chavali1, Anna S Blazier1, Jose L Tlaxca1, Paul Jensen1, Richard D Pearson2,3 Jason Papin1,4*
+
+
+  Abstract
+  Background: Systems biology holds promise new approach drug target identification drug discovery
+  neglected tropical diseases. Genome-scale metabolic reconstructions, assembled annotated genomes
+  vast array bioinformatics/biochemical resources, provide framework interrogation human
+  pathogens serve platform generation future experimental hypotheses. article,   application selection criteria Leishmania major targets (e.g. silico gene lethality) drugs (e.g.
+  toxicity), method (MetDP) rationally focus subset low-toxic Food Drug Administration (FDA)-
+  approved drugs introduced.
+  Results: metabolic network-driven approach identified 15 L. major genes high-priority targets, 8 high-
+  priority synthetic lethal targets, 254 FDA-approved drugs. Results compared previous literature findings
+  existing high-throughput screens. Halofantrine, antimalarial agent prioritized using MetDP, showed
+  noticeable antileishmanial activity experimentally evaluated vitro L. major promastigotes.
+  Furthermore, synthetic lethality predictions aided prediction superadditive drug combinations.   proof concept, double-drug combinations evaluated vitro L. major combinations
+  involving drug disulfiram showed superadditivity presented.
+  Conclusions: direct metabolic network-driven method incorporates single gene essentiality synthetic
+  lethality predictions proposed generates set high-priority L. major targets, turn associated
+  select number FDA-approved drugs candidate antileishmanials. Additionally, selection high-
+  priority double-drug combinations provide attractive alternative avenue drug discovery
+  leishmaniasis.
+
+
+Background                                                                             Caused Leishmania species, disease manifest billion people infected                                    itself varying clinical pathologies including visceral, cuta-
+neglected tropical diseases (NTDs) [1,2]. diseases                               neous mucocutaneous forms [3,4]. parasites tran-
+comprise group parasitic bacterial infections                            sition different morphological stages - affect poorest marginalized popula-                               flagellated promastigotes female phlebotomine
+tions world, live 1.25                                sandfly (vector) gut non-flagellated amastigotes host
+USD day [2]. Leishmaniasis NTD ende-                             macrophages [5]. Leishmaniasis NTDs tend mic 88 countries total 350 million people                              overshadowed research focused malaria,
+risk. disease associated global prevalence                            tuberculosis HIV/AIDS [6]. lack 12 million cases, yearly incidence 1.5 2 million cases,                        pharmaceutical companies pursuing drug annual mortality rate 59,000 deaths [3].                                development NTDs complicated profit
+                                                                                       motive [7]. Issues high toxicity, life-threatening 
+* Correspondence: papin@virginia.edu                                                   effects, cost, parenteral administration emergence 1
+ Department Biomedical Engineering, University Virginia, Charlottesville,        resistance drawbacks common existing antileishma-
+VA, USA list author information available end article
+                                                                                       nial drugs sodium stibogluconate, meglumine
+
+                                         © 2012 Chavali et al; licensee BioMed Central  Open Access article distributed terms Creative Commons
+                                         Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                          medium, provided original work properly cited.
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                      Page 2 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+antimoniate, pentamidine amphotericin B [4,8].          Subsequently, set criteria imposed select fore, limited viable treatment options alterna-    approved drugs demonstrate effective
+tives pipeline, exists obvious need          antileishmanial activity. Constraints applied develop radically new strategies conceptual frameworks      L. major genes  select high-priority targets) identify compounds novel antileishmanial activity.      drugs  select high tolerance terms   Computational metabolic networks recon-             toxicity). arrive suitable cutoff values, sensitivity
+structed pathogenic organisms [9,10], including     associated various cutoffs used MetDP Leishmania major, agent cutaneous leishmaniasis           explored  Additional file 1: Figures S1 S2). [11]. Implementing constraint-based modeling techniques,        selection high-priority L. major targets, metric flux balance analysis (FBA), network recon-          applied druggability score L. major genes ran-
+structions yielded valuable insight gene essential-    ging 0  druggable) 1 (highly druggable).
+ity enzyme robustness varying environmental           Druggability indices obtained TDR Targets
+conditions [11,12]. Accordingly, analysis pathogen intra-    database. imposition moderate druggability 
+cellular processes used predict critical protein      straint 0.6 selected 88 L. major genes associated
+targets perturbed singly combination       638 drugs  Figure 2A).  computational pre-
+adverse effects virulence growth.  direct      dictions abnormal growth phenotype (lethal metabolic network-driven method incorporates single        growth-reducing silico gene deletions) perform-
+gene essentiality synthetic lethality predictions pro-   ing FBA metabolic reconstruction posed generates set high-priority L. major targets,   applied selection priority L. major genes. turn associated select number Food       Following sensitivity analysis  Additional file 1: Figure Drug Administration (FDA)-approved drugs           S1), genes knocked candidate antileishmanials. Subsequently, candidate drugs,      metabolic model yielded greater 30  growth defect clinical use indications,    selected. cutoff, 22 L. major genes linked begin investigated clinical use leishmania-   372 drugs remained  Figure 2A).  flux varia-
+sis. addition, selection high-priority double-drug    bility analysis (FVA) performed metabolic
+combinations demonstrate superadditivity pro-        network L. major determine flux ranges gene-
+vide attractive alternative avenue drug dis-     associated  enzyme-catalyzed) reactions. motiva-
+covery leishmaniasis. integrating publicly           tion use FVA score genes based available resources using direct efficient method,    assumption genes linked reactions little
+approach presented offers significant implications      variability flux good targets disrupt future drug discovery drug repurposing strategies           metabolic network. elaborate, assumed leishmaniasis NTDs.                           enzymatic reactions inflexible wide range                                                                 flux values necessarily robust network 
+Results                                                         turbations.  FVA score genes computed
+Conceptual platform MetDP: pipeline                     Methods) used metric alongside drugg-
+prioritization targets FDA-approved drugs                ability index silico gene essentiality analysis flowchart conceptual framework prioriti-        prioritize L. major targets. FVA cutoff 1  zation drug drug targets L. major          Additional file 1: Figure S1 sensitivity associated forth titled MetDP Metabolic network guided Drug            various FVA cutoffs), number L. major genes
+Pipeline) presented Figure 1. specific datasets,      reduced 15 332 FDA-approved drugs passing
+tools cutoffs used process prioritizing effec-    cutoff  Table 1 list targets).
+tive drugs drug targets L. major depicted       parallel, high-priority synthetic lethal targets diagram presented Figure 2. previously pub-       selected MetDP framework. motivation
+lished metabolic reconstruction L. major accounted       investigating synthetic lethal targets function 560 genes [11]. Using bioinformatics tools,     drugs act multiple L. major targets mapping created 560 genes drugs         simultaneous perturbation results growth inhibi- publicly available DrugBank STITCH databases.            tion parasite. Using rationale, synthetic lethal-
+Using BLAST-based sequence similarity, association           ity constraint introduced MetDP order L. major genes known targets           account FDA-approved drugs target genes transitively drugs. Deliberately implementing E-     involved ‘non-trivial lethal’ double combination  e.
+value cutoff STITCH confidence metric          genes combination individually non-essential
+selecting approved drugs resulted 538 L. major      combination essential). Using meta-
+genes linked 926 FDA-approved drugs                bolic network reconstruction L. major, 56 double gene
+Methods).                                                       deletions  total 156,520 combinations)  Chavali et al. BMC Systems Biology 2012, 6:27                                                                                           Page 3 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+                       STEP 1                                          STEP 2                                        STEP 3
+    Aim
+
+
+                  Association L.                               Prioritizing L. major                           Removing toxic
+                 major genes drugs                                    targets                                   compounds
+
+
+
+
+                DrugBank STITCH                                Metabolic network                               DrugBank;
+    Datasets
+
+
+
+
+                    databases                                  reconstruction L.                          ChemIDplus (NIH);
+                    targets/drugs                                       major                                     MSDS (Sigma)
+
+
+                                                                      TDR Targets
+                                                                    druggability score
+
+
+                                                                Druggability score L.
+                                                                    major genes                                                                     reconstruction
+    Analysis
+
+
+
+
+                Sequence similarity                                                                 Flux Balance Analysis                            Toxicity FDA
+                L. major genes known
+                                                                  predicted abnormal                          approved drugs (LD50)
+                         targets
+                                                                  growth phenotype
+
+                                                                    Flux variability
+                                                                Analysis enzymes                                                                  assessing robustness
+
+
+
+                   E-value cutoff 1e-3                             Druggability >= 0.6                        Remove metabolites,
+                                                                                                               illicit substances;
+    Cutoffs
+
+
+
+
+                  FDA-approved                                 Lethal growth-
+                        drugs                                        reducing genes                          Tolerance toxicity
+                                                                                                              rating > 3 (Hodge                    STITCH conf. > 0.4                             FVA gene score = 1                              Sterner scale)
+
+
+
+
+                                                                                                                     Potential
+                                                                                                              antileishmanial drugs
+                                                                                                              associated high-
+                                                                                                                 priority targets
+
+ Figure 1 MetDP concept. flowchart illustrates conceptual framework (MetDP) prioritization drug drug targets L.
+ major. step deals association L. major genes drugs. second step includes prioritization L. major targets  drugs using constraints druggability, gene essentiality flux variability. final step allows removal toxic compounds  prioritized list drugs yield set low-toxic candidate antileishmanials.
+
+
+previously identified non-trivial lethal [11].                druggability index greater equal 0.5. addition, moderate druggability constraint 0.3 0.6                    genes combination needed moderate
+range considered: gene combinations average                     druggability indices 0.5 higher  Figure 2B).  Chavali et al. BMC Systems Biology 2012, 6:27                                                                                                                                                                                                       Page 4 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+                                    MetDP – single gene deletions                                                                            B                             MetDP – double gene deletions
+
+
+                                           Met. Recon.                                                                                                                          Met. Recon.       TDR Targets
+                                                               TDR Targets
+                                                                                        STITCH                                                                                                                             STITCH
+                                             560 genes                                                                                                                          560 genes
+                                                             Druggability indices                                                                                                               Druggability indices
+                                           1112 reactions                           74000+ compounds                                                                          1112 reactions                           74000+ compounds
+                          DrugBank        1101 metabolites                            2.5M proteins
+                                                                                                                                                              DrugBank       1101 metabolites                            2.5M proteins
+                                                                                      630 organisms                                                                                                                      630 organisms
+                            4774 drugs                                                                                                                         4774 drugs
+                           4554 targets                                                          ChemIDplus;                                                  4554 targets                                                          ChemIDplus;
+                          796 organisms                                                                                                                      796 organisms                                                             MSDS
+                                                                                                    MSDS
+                            LD50 data                                                                                                                          LD50 data
+                                                                                                   LD50 data                                                                                                                          LD50 data
+
+
+
+
+                                                                                                       1st cutoff: E-value < 0.001                                                                                                        1st cutoff: E-value < 0.001
+          538 L. major genes                                                                                                                   538 L. major genes
+  BLAST                                                                                                2nd cutoff: Approved drugs      BLAST                                                                                              2nd cutoff: Approved drugs
+              926 Drugs                                                                                                                            926 Drugs
+                                                                                                       3rd cutoff: STITCH conf > 0.4                                                                                                      3rd cutoff: STITCH conf > 0.4
+              88 L. major genes                                                                                                                      42 synthetic lethals                                                           4th cutoff: Synthetic lethality
+                                                                                                  4th cutoff: Drugg. >= 0.6                    FBA
+                  638 Drugs                                                                                                                               330 Drugs
+
+                    22 L. major genes                                                        5th cutoff: Abnormal growth                                  8 synthetic lethals                                                   5th cutoff: Avg. drugg. >= 0.5
+              FBA
+                        372 Drugs                                                            phenotype (>30  defect)                                          148 Drugs
+                          15 L. major genes                                                                                                                  8 synthetic lethals                                            6th cutoff: Removing metabolites;
+                    FVA                                                                  6th cutoff: Flux var. = 1
+                              332 Drugs                                                                                                                          107 Drugs                                                  illicit drugs; Tox. rating >= 3
+
+                               15 L. major genes                                     7th cutoff: Removing                                                         8 synthetic lethals                                   7th cutoff: Targeting genes
+                                   285 Drugs                                         metabolites; illicit drugs                                                        37 Drugs                                         combination
+
+                                   15 L. major genes                            8th cutoff: Tox. rating >= 3                                                          8 synthetic lethals                          8th cutoff: Unique drugs                                        240 Drugs                                                                                                                           14 Drugs                                list 240
+
+
+
+
+                                                    FDA-approved drugs                                                                                                             FDA-approved drugs                                                     potential antileishmanial                                                                                                           potential antileishmanial
+                                                             activity                                                                                                                            activity
+
+
+ Figure 2 Pipelines prioritization targets drugs. funnel diagrams panels B depict specific datasets, tools  cutoffs used process prioritization. Panel presents prioritization scheme includes single gene deletions constraint,  Panel B presents prioritization scheme includes double gene deletions  synthetic lethality) constraint.
+
+
+total 8 non-trivial lethal double gene combinations                                                                                     Consequently, implementation MetDP satisfied criterion  Table 2 list synthetic                                                                             means iterating pipeline (presented lethal targets). synthetic lethality druggability                                                                          Figures 2A 2B), prioritized list single L. major
+constraints yielding 8 double gene deletions,                                                                             targets included 15 metabolic genes  560 genes FVA constraint applied search high-                                                                               metabolic reconstruction; 2.7 ) prioritized
+priority synthetic lethal targets.                                                                                                      list synthetic lethal targets included 8 double-gene
+  final step MetDP involved considerations                                                                                    combinations  156,520; 0.005 ). Collectively, tolerance toxicity order place emphasis                                                                                    lists high-priority targets associated 254
+drugs potential clinical relevance leish-                                                                             FDA-approved drugs  4329 drugs DrugBank;
+maniasis. Drugs known common metabolites                                                                                    5.9 ). list prioritized L. major targets presented
+chemical elements (e.g. NADH, adenine, ATP, amino                                                                                       Tables 1 2, list 254 FDA-approved drugs
+acids, ethanol, iron zinc) present meta-                                                                                 (henceforth referred ‘Lm254’) presented Addi-
+bolic reconstruction removed analysis.                                                                                tional file 1: Table S2, list drugs associated  illicit drugs controlled substances (Sche-                                                                                8 synthetic lethal targets presented Addi-
+dule V) removed. Second, lethal                                                                                     tional file 1: Table S3.
+dose 50 (LD50) data culled DrugBank data-                                                                                        summary, MetDP direct rational method base material safety data sheets available online,                                                                              prioritizing drugs drug targets metabolic net- toxicity rating based Hodge Sterner scale                                                                                  work underlying framework providing
+ Additional file 1: Table S1) applied. Following                                                                                possible mechanism action drugs
+tolerance toxicity analysis, 15 single drug targets                                                                             selected  Figure 3). associated 240 drugs toxicity rating
+greater equal 3 (’moderately toxic’                                                                                   Target validation: Comparison target predictions Hodge Sterner scale).  total 107                                                                                     observations previous literature
+drugs associated 8 non-trivial lethal gene                                                                                initial validation, genes Table 1
+combinations.  37 drugs mapped                                                                                    identified proven drug targets literature
+genes involved combination 14                                                                                    previously identified inhibitors Leish- unique compared list 240 drugs                                                                                      mania related species. particularly interesting
+ Figure 2B).                                                                                                                        target LmjF05.0350 encoding trypanothione
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                                                 Page 5 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+Table 1 list prioritized L. major targets
+L. major              Enzyme                   E.C.           Metabolic pathway(s)               Sub-cellular     Druggability    Growth        targets                                                                                             localization(s)†                   defect*      drugs
+LmjF04.0580         spermidine synthase            2.5.1.16        methionine metabolism                cytosol             0.8        100  (L)          3
+LmjF05.0350       trypanothione reductase          1.8.1.12     trypanothione metabolism               glycosome            0.9        100  (L)         45
+LmjF05.0830        methylthioadenosine             2.4.2.28        methionine metabolism                cytosol             0.8        100  (L)         15
+                     phosphorylase
+LmjF06.0650         lanosterol synthase            5.4.99.7         steroid biosynthesis                   ER               0.6        100  (L)          3
+LmjF11.1100        sterol 14-demethylase          1.14.13.70        steroid biosynthesis                   ER               0.8        100  (L)         133
+LmjF12.0280       ornithine decarboxylase          4.1.1.17    urea cycle metabolism             cytosol             1          100  (L)         40
+                                                                       amino groups
+LmjF13.1620      squalene monooxygenase           1.14.99.7         steroid biosynthesis                   ER               0.8        100  (L)         14
+LmjF18.0020        diphosphomevalonate             4.1.1.33         steroid biosynthesis           glycosome/cytosol        0.6        100  (L)          5
+                       decarboxylase
+LmjF22.1360     dimethylallyltranstransferase       2.5.1.1         steroid biosynthesis           glycosome/cytosol        0.8        100  (L)         11
+                  geranyltranstransferase          2.5.1.10
+LmjF25.1120      aldehyde dehydrogenase            1.2.1.3              pathways                mitochondria           1         > 30  (GR)        28
+LmjF30.3190     hydroxymethylglutaryl CoA          1.1.1.34         steroid biosynthesis             glycosome/             0.8        100  (L)         29
+                       reductase                                                                     mitochondria
+LmjF31.2940          squalene synthase             2.5.1.21         steroid biosynthesis           glycosome/cytosol        0.8        100  (L)          9
+LmjF32.1580 phosphomannose isomerase               5.3.1.8         fructose mannose                 cytosol             0.6        100  (L)          5
+                                                                         metabolism
+LmjF33.2720      beta-ketoacyl-acyl-carrier-       2.3.1.41        fatty acid biosynthesis           mitochondria           0.7        100  (L)          5
+                    protein synthase LmjF35.3340          phosphogluconate              1.1.1.44    pentose phosphate pathway                cytosol             0.8        100  (L)         13
+                      dehydrogenase
+* (L) Lethal, (GR) Growth-reducing; † (ER) Endoplasmic Reticulum
+
+
+reductase. trypanosomatids, trypanothione reductase                             exclusive substrate specificities conferring advantage
+takes place glutathione reductase mainte-                           purposes drug targeting parasite
+nance intracellular redox balance [13]. Trypanothione                           enzyme [13]. inhibitors identified reductase required survival Leishmania sp.                           trypanothione reductase, including trivalent antimony important physiological role enzyme                             (Sb (III)) ions recently demonstrated [14].  defense oxidative damage parasites resi-                          nitrofuran derivative compounds experimentally
+dent inside macrophages [13]. Host glutathione reductase                           shown effective non-competitive inhibitors try- parasite trypanothione reductase mutually                                 panothione reductase Trypanosoma cruzi, 
+
+Table 2 list prioritized synthetic lethal targets
+Gene#1               Enzyme                Druggability          Gene#2              Enzyme            Druggability       Avg.
+                                                             drugs                                                                  drugs    druggability
+LmjF27.2050         ribonucleoside-                  1             13     LmjF22.1290           ribonucleoside-             1          13           1
+                 diphosphate reductase                                                       diphosphate reductase
+                       small chain                                                                 small chain
+LmjF06.0860     dihydrofolate reductase-             1             76     LmjF21.1210          thymidine kinase            0.8         10          0.9
+                  thymidylate synthase
+LmjF20.0100     phosphoglycerate kinase              0.8           7      LmjF24.0850 triose-phosphate isomerase           0.8         7           0.8
+LmjF24.0850 triose-phosphate isomerase               0.8           7      LmjF30.3380      phosphoglycerate kinase         0.5         7           0.65
+LmjF04.0960         adenylate kinase                 0.5           5      LmjF34.0110           adenylate kinase           0.8         4           0.65
+LmjF30.3520      S-adenosylmethionine                0.6           17     LmjF30.3500        S-adenosylmethionine          0.6         17          0.6
+                      synthetase                                                                  synthetase
+LmjF05.0510      F-type H+-transporting              0.5           2      LmjF05.0500        F-type H+-transporting        0.5         2           0.5
+                   ATPase alpha chain                                                          ATPase alpha chain
+LmjF25.1180      F-type H+-transporting              0.5           3      LmjF25.1170        F-type H+-transporting        0.5         3           0.5
+                   ATPase beta chain                                                            ATPase beta chain
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                                         Page 6 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+trypanosomatid organism causative agent Chagas                      Drug validation: Comparison drug predictions disease [15]. MetDP predicted efficacy nitro-                    literature findings existing high-throughput screens
+furans associated LmjF05.0350  nitrofura-                       additional preliminary validation, literature zone nitrofurantoin  Figure 3). interesting                   mined consider drugs evaluated clini-
+targets prioritized list include LmjF12.0280                     cally leishmaniasis  Additional file 1: Table S4).
+LmjF04.0580 encoding ornithine decarboxylase                        positives Lm254: amphotericin B
+spermidine synthase, respectively. Similarly trypa-                      [17-20], ketoconazole [17,21], fluconazole [17,22], clotri-
+nothione reductase, genes essential Leishma-                    mazole [23], itraconazole [19,24], miconazole [23], terbina-
+nia sp. model predictions consistent                           fine [25], metronidazole [19,26] allopurinol [17-19].
+experimental observations [11]. Ornithine decarboxylase                     Note drugs, literature contro- important target Trypanosoma brucei,                          versial regards efficacy treating leishmania- trypanosomatid organism causative agent                         sis. computational network analysis, seven human African trypanosomiasis, estab-                       positive candidates predicted exclusively target
+lished inhibitor (eflornithine) [16]. discussion                 L. major enzymes involved steroid biosynthesis, false negative target predictions Additional file 1.                  exceptions ketoconazole allopurinol. anti-
+
+
+
+
+                                             Leishmania major metabolic network
+
+
+
+
+                                                                                                                                 Ketoconazole
+
+
+
+
+                   Nitrofurazone
+
+                                                                                           Disulfiram
+               Nitrofurantoin
+
+                                                             Halofantrine
+
+
+
+
+                                                                                                                   Amoxicillin
+
+
+
+
+ Figure 3 Metabolic network analysis prediction high-priority targets drugs. pipeline prioritization drug  drug targets L. major (MetDP) based underlying metabolic network. framework enables hypothesized description  mechanism action drugs identified. figure highlights specific prioritized targets (singly lethal lethal combination)  associated drugs. Compound structures obtained PubChem database.
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                     Page 7 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+fungal ketoconazole predicted associated    drugs, bioactive compounds natural products pro-
+L. major enzymes: involved steroid biosynthesis     duced 35 hits assayed concentration 1 μM participating fructose mannose metabo-          [38]. drug, paclitaxel, included list
+lism.  allopurinol associated enzyme            35 hits present Lm254. Paclitaxel involved methionine metabolism  Additional file 1:      included set 68 drugs evaluated Sharlow et
+Table S4; note ‘Dependency confidence      al. study. previous literature, paclitaxel IFNg
+interactions DrugBank STITCH’ Additional file        shown induce killing L. major infected murine
+1). Previous research identified azole drugs ketoco-   macrophages [39]. summary, comparison HTS
+nazole, itraconazole, miconazole fluconazole         data, 10 71 (14.1 ) drugs Lm254 sterol 14-demethylase inhibitors evaluated      experimentally evaluated HTS classified vitro T. cruzi parasites mouse models      potential antileishmanial hits.
+T. cruzi infection [27]. Additionally, fungal species      Taken  inclusion clinically relevant
+Candida albicans, clotrimazole terbinafine       candidates existing HTS data yields total 18
+shown inhibitors sterol 14-demethylase squa-      drugs (7.1  Lm254) having potential antileish-
+lene monooxygenase, respectively [28,29]. refer-         manial activity  Additional file 1: Table S2 list
+ences organisms serve check        18 drugs). HTS data data drugs computationally predicted links MetDP           used clinically leishmaniasis account L. major genes drugs.                                      83 254 drugs. drugs Lm254 pre-
+   false negative results: imiquimod      viously evaluated L. major parasites  vitro 
+[20], paromomycin [17,19,20], pentamidine [17-20]          vivo) serve prime candidates future investiga-
+sodium stibogluconate [17-21]. Imiquimod modulator        tion discovery antileishmanial compounds. innate immune response [30], paromomycin aminoglycoside antibiotic binds aminoacyl       vitro experimental evaluation halofantrine
+decoding site ribosomal 16S RNA [31,32].          step involved vitro evaluation candidate imiquimod paromomycin primarily target         antileishmanials prioritized using MetDP. Halofantrine,
+L. major proteins, exclusion Lm254              antimalarial agent, 14 drugs obvious.  reasons exclusion        selected synthetic lethality analysis  Figure 4A), drugs Lm254 examined           experimentally evaluated antileishmanial activity
+Additional file 1).  thirteen (69.2 )        L. major promastigotes. drug included
+clinically relevant drugs leishmaniasis present    HTS data used validate selection Lm254. drugs used clinically leishma-      high-priority drugs. Halofantrine showed noticeable antil-
+niasis (meglumine antimoniate [17-20], miltefosine [20,33]     eishmanial activity concentration response assay  sitamaquine [19,20,34]) considered         Figure 4B). compared  Drug’ control, analysis present DrugBank.                 effect halofantrine 3 μM higher concentrations
+   Additionally, high-throughput drugs screens         statistically significant (p < 0.05). IC50 halofan- vitro growth Leishmania Trypanosoma          trine L. major promastigotes calculated species recently published [35-38]. particular,   approximately 9.5 μM (Figure 4C). study Sharlow et al. screened 196,146 compounds           Originally, DrugBank database, halofantrine 10 μM L. major promastigotes [37]. total       associated vacuolar ATP synthase catalytic
+187 FDA-approved drugs DrugBank              subunit Plasmodium falciparum. imple-
+database overlapped set 196,146 compounds;         mentation MetDP pipeline, halofantrine asso-
+68 187 present Lm254. 68 drugs,        ciated following synthetic lethal pairs:
+seven (pimozide, furazolidone, perphenazine, bifonazole,       LmjF05.0500 &LmjF05.0510, genes encoding F-type
+disulfiram, clotrimazole floxuridine) active       H+-transporting ATPase alpha chain, LmjF25.1170
+primary hits high-throughput screen,            &LmjF25.1180, genes encoding F-type H+-transporting
+remaining 61 classified inactive did       ATPase beta chain. exact mechanism meet 50  inhibition threshold evaluated 10         action halofantrine L. major requires μM. Furthermore, assay optimization valida-         investigation, model predictions halofantrine
+tion screening study, additional drugs     represent testable hypotheses. end, included list 68, tamoxifen mycophenolic         ATP bioluminescence assay performed acid, deemed primary hits [37].      investigate effect halofantrine ATP levels L.
+drugs included Lm254. second high-              major promastigotes.
+throughput screening (HTS) study inhibitors cytotoxic        Figure 4D demonstrates, parasites incubated bloodstream form T. brucei tested 2,160 FDA-approved        10 μM halofantrine various
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                                                                                                                                                                                                      Page 8 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+                                                                                   Non-essential genes                           Synthetic lethal targets
+                                                                                                                                                                       B                                                                                                        ** p < 0.05
+                                                                                                                                                                                                 140                                                                            ** p < 0.01
+
+
+
+
+                                                                                                                                                                       AlamarBlue fluorescence
+                 Agent                                                          Drug                     Drug                               Drug                                                 120
+
+
+
+
+                                                                                                                                                                            (normalized)
+                                                                                                                                                                                                 100
+                                                                                                                                                                                                                                      *       *
+                                                                                                                                                                                                   80                                                 **
+                                                                                                                                                                                                   60                                                          ** **
+            Target                                                             Gene X                  Gene Y                      Gene X             Gene Y                                                                                                         ** **
+                                                                                                                                                                                                   40                                                                                **
+                                                                                                                                               &                                                                                                                                              **
+                                                                                                                                                                                                   20
+                                                                                                                                                                                                    0
+
+
+                Effect                                                                                                                                                                                                        Halofantrine concentration (μM)
+                                                                               GROWTH                GROWTH
+                                                                                                                                         GROWTH
+
+
+
+                   C                                                                                                                                                   D
+                                                                         120
+                                  AlamarBlue fluorescence (normalized)
+
+
+
+
+                                                                                                                                                                                                                                                  Conditions
+                                                                                                                                                                                                                                                  Inhibition                                                                          100                                                                                                                                                                        F1-ATPase
+                                                                                                                                                                                                                                                             Inhibition Inhibtion                                                                                                                                                                                                                     Media                                                                                                                                                                                                                                                               inhibition                      glycolysis                                                                                80                                                                                                                                                                        cytochrome
+                                                                                                                                                                                                                                                    c oxidase
+
+                                                                         60                                                   IC50 = 9.5μM
+                                                                                                                                                                                                          Media      +
+                                                                                                                                                                                                 HBS glucose                     +                    +
+                                                                                                                                                                       Reagents
+
+
+                                                                         40                                                                                                         HBS glucose                                                                   +               +
+                                                                                                                                                                                                    Sodium Azide                                           +                              +
+                                                                         20
+                                                                                                                                                                                                 2-deoxy glucose                                                          +               +
+                                                                          0                                                                                                                      Sodium Pyruvate                                                          +               +
+                                                                               0.1           1                10              100           1000
+                                                                                             Concentration (μM)
+
+
+
+                     E                                                                                                                                                 F
+                                                 600000                                *                                Parasites                                                                                                                                                                                                                                                                                 ** p < 0.05
+                                                 500000                                                                 Parasites + Halofantrine (10 μM)
+                                                                                                                                                                                                 0.14                                                                           ** p < 0.01
+                                                 400000                                            ***                                                *** p < 0.05                                                                    Parasites                                                                                                                                                                                                  0.12
+            ATP Bioluminescence
+
+
+
+
+                                                                                                                                                      *** p < 0.01
+                                                 300000                                                                                               *** p < 0.001                               0.1                                 Parasites + Halofantrine (10 μM)
+                                                                                                                                                                             Absorbance
+
+
+
+
+                                                                 60000                                                                   ***                                                     0.08
+                                                                                                                                                                                                                                                  *                 **
+                                                                                                                                                                                                 0.06
+                                                                 50000                                                  ***
+                                                                                                                                                                                                 0.04
+                                                                 40000
+                                                                                                                                                                                                 0.02
+                                                                 30000
+                                                                                                                                                                                                    0
+                                                                 20000                                                                                                                                      Media                      Inhibition         Inhibition   Parasites
+                                                                                                                                                                                                                         inhibition        F1-ATPase              glycolysis                                                                        10000                                                                                                                                                                                                      inhibition
+                                                                                                                                                                                                                                          cytochrome                                                                                                        0                                                                                                                                                                c oxidase
+                                                                                     Media                      Inhibition      Inhibition       Parasites
+                                                                                                 inhibition         F1-ATPase           glycolysis                                                                                                                                                                 inhibition
+                                                                                                                   cytochrome                                                                                                                                                   c oxidase
+
+ Figure 4 Synthetic lethality experimental evaluation halofantrine L. major promastigotes. Synthetic lethality analysis
+ highlights interaction genes combination; simultaneous knockout genes combination causes perturbation  functioning associated reactions network, leading adverse effect biomass production. similar effect biomass
+ occur genes combination knocked individually. Panel illustrates concept drug acting multiple
+ targets  synthetically lethal) order inhibit growth L. major. effect halofantrine evaluated different concentrations  L. major promastigotes presented Panel B. y-axis indicates alamarBlue fluorescence normalized  Drug’ control. AMP-B refers  Amphotericin B, used positive control assay. Panel C, parameter log-logistic regression performed  concentration response data compute IC50 halofantrine L. major promastigotes. Panel D provides setup experimental
+ conditions corresponding reagents used ATP bioluminescence assay determine effects halofantrine ATP levels L.
+ major. results ATP bioluminescence assay presented Panel E. Parasites incubated halofantrine 10 μM
+ presence mitochondrial glycolytic ATP blocks 2 hours. absorbance monitored 18 hours results  shown Panel F. error bars indicate standard error. Statistical significance panels B E determined using tailed Student’s t-
+ test, statistical significance panel F determined using tailed Student’s t-test. additional note, absorbance
+ measurements panel F parasites incubated halofantrine significant conditions.   significance attributable precision microplate reader meaningful biological implications regarding variations  absorbance. Panels E F, condition parasites incubated mitochondrial glycolytic ATP blocks displayed  dashed bar serves reference. particular case, halofantrine added.
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                    Page 9 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+conditions follows:   media, (b) HEPES-buffered sal-       combinations power network analysis ine (HBS)  inhibition’, (c) HBS sodium azide        augment single compound discovery strategies. ‘Inhibition F1-ATPase cytochrome c oxidase’,            disulfiram previously shown sub-
+(d) HBS glucose, supplemented 2-               micromolar IC50 [37]  dose response data dis-
+deoxy-D-glucose sodium pyruvate ‘Inhibition          ulfiram Additional file 1: Figure S7), goal glycolysis’, (e) HBS glucose, supplemen-        identify superadditive drug combinations involve dis-
+ted sodium azide, 2-deoxy-D-glucose sodium             ulfiram. Marketed Antabuse, disulfiram LD50 pyruvate ‘Inhibition . assay, sodium         8600 mg/kg (rat; oral) used treatment alco-
+azide used inhibit mitochondrial oxidative ATP           holism. moderate STITCH confidence greater generation [40].  2-deoxy-D-glucose  glucose          0.4, 8 high-priority synthetic lethal gene pre-
+analog competing substrate hexokinase)              dictions associated disulfiram.  used sodium pyruvate glucose-free buffer          search criterion expanded include gene-drug inter- inhibit glycolytic ATP synthesis [40]. Figure 4E,         actions lower STITCH confidence (greater 0.15; parasites subject  inhibition,’ halo-       Methods mapping L. major genes fantrine caused significant reduction ATP levels.          drugs; Additional file 2 list initial gene-
+Figure 4E shows ATP levels parasites         drug associations).
+‘Inhibition F1-ATPase cytochrome c oxidase’                 relaxation STITCH confidence 
+dropped significantly halofantrine added.              straint, pair high-priority synthetic lethals Likewise, ATP levels parasites ‘Inhibition          associated disulfiram: LmjF25.1170 &LmjF25.1180,
+glycolysis’ dropped significantly halofantrine         genes encoding F-type H+-transporting ATPase beta
+added. instances, ATP levels dropped         chain. tolerance toxicity analysis, genes
+level comparable parasites subject simulta-           associated 16 drugs  neous inhibition glycolysis F1-ATPase/cyto-              disulfiram; Additional file 1: Table S5). chrome c oxidase (’Inhibition ).  ATP         16 drugs predicted act genes syn-
+bioluminescence assay suggests halofantrine         thetic lethal pair, consequently predicted effect glycolytic mitochon-        effective individually  possible drug combina-
+drial oxidative ATP generation mechanisms. Future               tions involving disulfiram  total 15) experimental efforts directed precise            selected. Combinations disulfiram drugs
+characterization underlying mechanism action          (kanamycin, clozapine, amoxicillin, chlorpromazine, dox- drug elucidating potential metabolic           ycycline isoniazid) experimentally evaluated
+targets halofantrine L. major. Correspondingly,           L. major promastigotes using alamarBlue
+absorbance monitored make certain               assay. Figure 5 demonstrates superadditive nature effects seen regard ATP levels           experimental combinations disulfiram kana- function variations cell count var-      mycin, clozapine, amoxicillin, chlorpromazine. ious conditions (Figure 4F). Finally, halofan-         cases, experimental combinations signifi-
+trine known associated cardiotoxicity [41],       cantly greater inhibitory effect parasite growth potential antileishmanial agent inves-      compared calculated additive results  Methods
+tigated                                          calculations additivity; representative
+                                                                concentration profile displayed Figure 5; Model-guided drug combinations alternative                Additional file 1: Figures S8, S9, S10 S11 data strategy leishmaniasis                                  concentrations tested). Combinations disulfiram ability computationally simulate synthetically      doxycycline isoniazid did statistically
+lethal gene deletions, exists opportunity predict   significant superadditivity (data shown). prioritize multiple combination drug therapies            combinations demonstrated superaddi- superadditive/synergistic. potential advantage      tivity involved antibiotics - kanamycin aminoglycoside
+superadditive drug combinations overcoming toxicity       antibiotic amoxicillin common b-lactam antibiotic. effects linked high doses individual drugs needed    combinations involved antipsychotics - clo- establish inhibitory effect combination      zapine chlorpromazine used treatment [42]. strategy prioritizing clinically-relevant      symptoms associated schizophrenia. com-
+drug combinations selectively focus drug          binations, disulfiram + amoxicillin best overall demonstrated excellent antileishmanial activity         toxicity rating.  clozapine chlorproma-
+vitro associated low-toxicity. combina-        zine demonstrated inhibitory effects L. major promasti-
+tions involving particular drug prioritized   gotes tested individually  Additional file 1:
+experimental analysis. Selection high-priority drug     Figures S9 S11). Kanamycin amoxicillin did  Chavali et al. BMC Systems Biology 2012, 6:27                                                                                                                                    Page 10 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+               Disulfiram + Kanamycin                                                       B                            Disulfiram + Clozapine
+                                                                                                                                                                          **
+                                                                                                                         1
+                   1                                                 **
+                                                                                                                       0.9
+                 0.8
+                                                                                                                       0.8
+                 0.6                                                                                                   0.7
+
+
+
+
+                                                                                                          Inhibition
+    Inhibition
+
+
+
+
+                                                                                                                       0.6
+                 0.4
+                                                                                                                       0.5
+                 0.2                                                                                                   0.4
+                   0                                                                                                   0.3
+                                                                                                                       0.2
+                 -0.2
+                                                                                                                       0.1
+                 -0.4   Disulfiram   Kanamycin     Additive result        Experimental                                   0
+                         (0.2 μM)     (10 μM)          (bliss)            combination                                           Disulfiram      Clozapine    Additive result    Experimental
+                                                                                                                                (0.15 μM)        (10 μM)         (bliss)        combination
+
+
+                                                                             *** p < 0.01                                                                                          *** p < 0.01
+
+
+ C               Disulfiram + Amoxicillin                                                        D                         Disulfiram + Chlorpromazine
+                                                                ***                                                                                                        **
+                   1                                                                                                   1
+
+                 0.8                                                                                               0.8
+
+                 0.6                                                                                               0.6
+                                                                                             Inhibition
+    Inhibition
+
+
+
+
+                 0.4                                                                                               0.4
+
+                 0.2                                                                                               0.2
+
+                   0                                                                                                   0
+
+                 -0.2                                                                                           -0.2          Disulfiram     Chlorpromazine Additive result     Experimental
+                        Disulfiram   Amoxicillin   Additive result    Experimental                                             (0.1 μM)          (4 μM)         (bliss)         combination
+                         (0.3 μM)     (100 μM)         (bliss)        combination
+
+
+                                                                           **** p < 0.001                                                                                          *** p < 0.01
+
+ Figure 5 Drug combinations involving disulfiram. Disulfiram kanamycin, clozapine, amoxicillin chlorpromazine  predicted individually effective antileishmanial agents act genes synthetic lethal pair.   potential act synergistically produce growth inhibition L. major.  predictions model-guided superadditivity,  assumed interactive relationship present genes synthetic lethal deletion translate directly associated drug
+ combinations. panels  B, C D, results concentration profile disulfiram + kanamycin, disulfiram + clozapine, disulfiram +
+ amoxicillin disulfiram + chlorpromazine evaluated L. major promastigotes presented, respectively. theoretical additivity bar
+ computed using bliss additivity metric comparing effects individual drugs. sample t-test comparing means
+ used determine statistical significance theoretical experimental combinations. Concentrations provided  parentheses. Error bars signify standard error. y-axis indicates fractional experimental effect inhibition growth relative  Drug�?
+ control (0 equals inhibition, 1 equals max inhibition). data generated 48 hours post addition alamarBlue dye.
+
+
+demonstrate inhibitory effect concentrations                                     drug combinations individual drugs
+tested  Additional file 1: Figures S8 S10).                                         involved independently effective antileishmanial
+  Interestingly, disulfiram, kanamycin                                       agents, limitation potentially overcome. chlorpromazine present Lm254. future,                                    organism resistant drugs evaluating drug combinations drugs                                       infection, potential compensatory mechanism
+predicted effective individually acting single                                  place drug inhibit growth. redun-
+lethal growth-reducing targets certain                                          dancy serve prevent delay onset resis-
+advantages. Based solely synthetic lethality analysis,                                tance [43]. event parasite develops resistance drugs  combination) mutations                                         Discussion
+enzyme/gene product encoded single gene syn-                                      Recent literature described applicability meta-
+thetic lethal deletion, overall drug combination                                  bolic network analysis target identification predicted ineffective.  considering                                     drug discovery general. study (targetTB) used  Chavali et al. BMC Systems Biology 2012, 6:27                                                               Page 11 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+variety network analyses bioinformatics-based         bring novel drug market [47].  FDA-
+sequence/structural assessments predict list tar-    approved drug demonstrated antileishmanial activ-
+gets Mycobacterium tuberculosis [44]. priori-     ity prescribed label, making acces-
+tizing targets using layered approach, proteins did   sible patients urgently need alternative pass sequential cut-offs filtered [44].         treatment option. study implemented network analysis mole-
+cular docking simulations identify small molecule         Conclusions
+inhibitors type II fatty-acid biosynthesis enzymes     Ultimately, metabolic reconstructions provide frame-
+Escherichia coli Staphylococcus aureus experi-       work interrogation human pathogens mentally evaluated computational predictions [45].       serve platform generation future experimental
+FBA used simulate drug synergy effects        hypotheses. metabolic network-driven approach
+assigning synergy scores combinations enzymes          identified 15 L. major genes high-priority targets, 8 inhibit growth E. coli various environ-     high-priority synthetic lethal targets, 254 FDA-
+mental conditions [42]. Network reconstructions P.        approved drugs potential antileishmanial agents. falciparum Vibrio vulnificus guided        experimental validation, antimalarial drug halofan-
+prediction drug targets, investigational com-         trine shown noticeable antileishmanial
+pounds experimentally evaluated           activity.  ATP bioluminescence
+pathogens [9,46].                                            assay, halofantrine affected glycoly-
+    novel pipeline prioritization drugs    tic mitochondrial ATP generation mechanisms. drug targets presented ways dis-      Additionally, synthetic lethal predictions meta-
+tinct approaches previously developed. Instead       bolic network aided selection drug combina-
+restricting search compounds tar-       tions potential superadditivity. proof  non-human proteins computed Tanimoto             concept, double-drug combinations evaluated similarity important metabolites, MetDP undertook       vitro L. major novel superadditive com- expansive strategy making use protein-com-        binations involving drug disulfiram discovered.
+pound interactions present DrugBank              Selection high-priority double-drug combina-
+STITCH resources. Importantly, clear majority       tions guided metabolic network analysis pro-
+approved drugs target human proteins opposed           vide attractive alternative avenue drug
+proteins single organism (e.g. DrugBank).    discovery infectious diseases like leishmaniasis.  avoiding selection patho-        rational method prioritizing drugs drug tar-
+gen targets similar human proteins, MetDP        gets metabolic network underlying frame-
+explicitly sought targets order create      work provides possible mechanism action
+link L. major genes drugs       drugs selected (e.g., network model
+approved. effects caused drugs     enables analysis biosynthetic pathways prioritized list act related human targets   inhibited particular enzyme’s function phar-
+relatively known.                                       macologically inhibited). Surely mechanism action
+   addition, restricting search FDA-       predicted needs validated follow-
+approved drugs eliminating investigational drugs         experimentation.  given drug poten- selection process, major regulatory hurdles         tial target, starting experimental hypothesis pro- novel compounds subject approval      vided. network-driven approach guiding selection
+widespread clinical use bypassed. instance,       prioritized drugs immensely advantageous average, 15 years 800         terms cost efficiency beginning phases million USD bring single novel drug market [47].     drug discovery offer significant implications  20 30 new drugs approved        future drug repurposing strategies variety FDA annually [47]. Instead, drugs approved       NTDs.
+clinical use known pharmacokinetics toxicity/
+safety profiles  approved drugs met superior       Methods
+safety standards phase IV post-market safety sur-       Datasets used
+veillance) [47].  demonstrating novel antil-    L. major reconstruction
+eishmanial activity drug clinical use   previously published metabolic reconstruction L. indication, candidate drug combi-       major kind protozoan. nations drugs begin effectively repurposed      accounted 560 genes, 1112 reactions, 1101 evaluated phase II clinical trials bypass-   metabolites spanning unique sub-cellular localiza-
+ing approximately 40  overall cost takes      tions [11].
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                 Page 12 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+DrugBank                                                       extensively implemented metabolic networks various DrugBank knowledgebase (version 2.5; http://www.           organisms ranging prokaryotes eukaryotes [12].
+drugbank.ca/) included 4774 drugs classified categories    small molecule, (b) bio-   Mapping L. major genes drugs DrugBank
+tech, (c) approved, (d) experimental, (e) nutraceutical, (f)   STITCH
+illicit, (g) withdrawn. drugs linked 4554     BLASTP search performed 560 L. major
+peptide/protein non-peptide/non-protein drug targets.      genes metabolic reconstruction (query
+STITCH                                                         sequences) 4538 target proteins DrugBank (tar- STITCH database (version 2.0; http://stitch.embl )      sequences). E-value cutoff set 0.001, comprised 74000 small molecules 2.5 million+          repetitious links L. major genes DrugBank
+proteins 630 organisms. STITCH database includes        target proteins removed. cutoff, 440 potentially important targets particular com-      L. major genes linked 1116 DrugBank target pro-
+pounds (derived experimental data, curated          teins transitively 1129 drugs. list drugs databases text mining) addition primary           refined focus FDA-approved drugs removing
+known targets, protein-compound interactions        experimental withdrawn drugs, resulted 313
+STITCH associated confidence metric.         L. major genes linked 257 FDA-approved drugs. noted L. major present list organ-     parallel, similar approach variations isms targets explicitly included STITCH.          undertaken STITCH database. order TDR Targets                                                    expansive possible making initial associations
+Druggability indices L. major genes downloaded        L. major genes drugs, DrugBank TDR Targets database (version 3; http://tdrtar-       STITCH resources used. BLASTP search 
+gets.org/). druggability index calculated using      formed 560 L. major genes 2.5 million+
+combination approaches including sequence similarity        proteins (2,590,259) associate L. major genes known biological targets associated FDA-               proteins STITCH. Protein sequences derived approved drugs curated databases (e.g. DrugStore          related STRING database (http://string-db.org/).  StARLITe), sequence-based Bayesian learning          E-value cutoff 0.001 chosen repetitious asso-
+algorithm, methods [48]. index ranges          ciations L. major genes STITCH proteins 0  druggable) 1 (highly druggable).         removed. cutoff, 560 genes associated  1598 L. major genes corresponding druggabil-       131,250 protein targets STITCH.
+ity index TDR Targets database.  261         Subsequently, STITCH compound-protein interac-
+accounted metabolic reconstruction.                 tion dataset refined consider compounds DEA controlled substances                                      FDA-approved drugs  classified DrugBank list controlled substances Schedule         database). PubChem compound identifiers used loaded Drug Enforcement Administration                map drugs DrugBank compounds STITCH.
+(DEA) Office Diversion Control database (http://            1337 1466 approved drugs DrugBank www.deadiversion.usdoj.gov/schedules).                         readily available PubChem compound identifiers                                                                 similar PubChem IDs).  1330 drugs Tools programs used                                        unique DrugBank IDs mapped 1305 unique compounds
+BLAST                                                          STITCH dataset.  STITCH database BLAST+ v.2.2.24 executable downloaded           reduced consider protein targets strictly present
+NCBI FTP site (ftp://ftp.ncbi.nih.gov/blast/executables/       list 131,250 unique protein targets blast+/). program makeblastdb implemented           BLAST cut. Finally, STITCH dataset  DrugBank STITCH target protein sequences.             strained include medium confidence higher amino acid sequences 560 L. major genes       interactions (STITCH scores greater 0.4). newly metabolic reconstruction obtained GeneDB         constrained STITCH dataset BLAST results
+(version 2.1; http://www.genedb.org/genedb/leish). Subse-      used link 538 L. major genes 905 FDA-
+quently, program blastp used query 560              approved drugs. stage, results DrugBank L. major sequences DrugBank STITCH            STITCH merged refinement analysis.
+target databases.                                              merged list linked 538 L. major genes 926 FDA-
+FBA/FVA/COBRA toolbox                                          approved drugs  Additional file 2).
+Flux Balance Analysis (FBA) Flux Variability Analysis
+(FVA) implemented using COBRA toolbox (ver-           Generating FVA score genes
+sion 1.3.3; http://opencobra.sourceforge.net/openCOBRA/        Flux variability analysis (FVA) allows ascertaining Welcome.html) MATLAB. FBA FVA                 complete range numerical values flux  Chavali et al. BMC Systems Biology 2012, 6:27                                                                  Page 13 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+biochemical network given optimal value                  gene absent, GPR evaluated objective [49]. FBA computes possible optimal             TRUE (e.g. presence isozymes). ‘PFi’
+reaction network state.  flux distribution           refers number gene states particu-
+resulting FBA  e. enumeration possible           lar gene present, GPR evaluated fluxes network) feasible solu-          FALSE (e.g. subunits larger protein complex
+tions exist optimal value             need present . Finally, ‘AFi’ refers
+cellular objective. Enzymatic reactions associated            number gene states particular gene
+small ranges flux values necessarily robust          absent, GPR evaluated FALSE. various kinds network perturbations.            weights (c g,r ) calculated totaling FVA score genes developed based                      matches (counted positively) mis-matches
+assumption genes linked reactions little flux         (counted negatively) dividing number variability good targets disrupt meta-          possible states given GPR.  gene-reac-
+bolic network.                                                     tion matrix (C) constructed elements   Step 1: Conferring weights reactions based FVA             matrix representing weights genes linked                                                                    corresponding reactions.
+    FVA output, computed flux ranges
+    [MaxFlux - MinFlux] reaction net-            Step 3: Conferring weights genes based FVA
+    work used generate FVA reaction score
+    (r) 0 (low) 1 (high).                               FVA reaction scores (ri) multiplied                                                                    gene weights GPR (cg,r) yield
+                      MaxFluxi − MinFluxi                          FVA-gene matrix dimensions C.
+    ri = 1 −                                                       maximum value genes reactions
+                 2 ∗ max(|MaxFluxi | , |MinFluxi |)
+                                                                   considered FVA score gene (value
+                                                                   resided 0 1).
+    scoring method gives high score reactions
+    little variability flux. example, reactions
+    spanned entire flux range [-999999, 999999]
+                                                                Calculations additive results
+    receive score 0, reactions                                                                 additive results Figure 5  e. non-synergistic
+    change flux receive score 1.
+                                                                expectation experimental results individual
+                                                                drugs) computed based bliss additivity
+  Step 2: Evaluating contributions genes gene-
+                                                                metric [50]:
+protein-reaction (GPR) relationships
+                                                                   E(x, y) = E(x) + E(y) − E(x)E(y)
+    Separately, GPR relationships, formulated Boolean
+    logic statements published reconstruction           equation  ‘E’ refers fractional effect
+    L. major [11], used confer weights genes         0 1, ‘x’ ‘y’ concentrations
+    accounted network. weights cal-         drugs experimental combination.
+    culated follows:                                         Additionally, error propagated using formula
+                                                                [50]:
+                PTik + AFik − PFik − ATik                                                               
+    cgi ,rk =                                                      δE1,2 = δE1 + δE2 + δE1 /E1 + δE2 /E2 ∗ E1 (x) ∗ E2 (y)
+                         Nstates
+                                                                   E1±δE1 refers effect drug 1 E2±δE2
+    Nstates refers number possible states       refers effect drug 2.
+    given GPR, calculated 2 n n            Subsequently, sample t-test performed     number genes GPR. GPR evalu-            compare additive result experimental com-
+    ated TRUE FALSE state.             bination. t-score test statistic generated using     given reaction k GPR, presence (P)            formula:
+    absence   particular gene TRUE (T)
+                                                                      [¯x1 − x¯ 2 ]
+    FALSE (F) outcome GPR tabulated              t=
+    matches (PT AF ) mis-matches (PF                  s 1 2 s2 2
+    ATi). Explicitly, given reaction k, ‘PTi’ refers                +
+                                                                        n1      n2
+    number gene states  2n) parti-
+    cular gene present, GPR evaluated           x¯ 1 x¯ 2 refer means samples, s1
+    TRUE. ‘ATi’ refers number gene states          s2 refer standard deviations samples,
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                               Page 14 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+ n1 n2 refer number samples. tail       Bioluminescence assay
+p-value subsequently determined referring t-     protocol bioluminescence assay modi-
+table (degrees freedom computed follows: n1 + n2 -     fied [40]. Parasites 8 × 106 cells/mL incu-
+2).                                                          bated culture medium various buffers 2 hours
+                                                             26°C presence 10 μM halo-
+Experimental methods                                         fantrine. Mitochondrial oxidative ATP generation Materials                                                    inhibited incubating parasites HBS buffer Black flat 96 microtiter plates purchased   glucose plus 20 mM sodium azide, inhibitor F1- Fisher Scientific (http://www.fishersci.com) used   ATPase cytochrome c oxidase complex IV alamarBlue experiments. White flat 96     [40]. Glycolytic ATP generation inhibited incu-
+microtiter plates purchased Fisher Scientific      bating parasites glucose-free HBS buffer plus 5 used bioluminescence experiments. alamarBlue     mM 2-deoxy-D-glucose, competitor glucose purchased Invitrogen (http://www.invitrogen.        hexokinase binding, 5 mM sodium pyruvate [40]. com). CellTiter-Glo purchased Promega (http://      white opaque flat 96 microtiter plate, 25
+www.promega.com). compounds used study           μL parasite samples condition seeded purchased Sigma-Aldrich (http://www.sigmaal-       triplicate. Heat-killed parasite samples (incubated drich.com/). Compounds solubilized dimethyl          60°C 20 minutes) prepared 8 × 106 cells/
+sulfoxide (DMSO) water.                                   mL seeded triplicate. Additionally, Parasite cultures                                            wells seeded 25 μL media  Subse-
+Previously published protocols culturing L. major [37]    quently, 25 μL CellTiter-Glo added control adhered study. L. major promastigotes        experimental wells. plate incubated protocol preparing media kindly provided        dark 26°C 10 minutes. Luminescence moni- Mary E. Wilson Melissa  Miller, University       tored using FLUOstar Optima plate reader (BMG Lab-
+Iowa. Parasites complete HOMEM  Additional file       tech). absorbance measurements, 100 μL control
+1) cultured 25 cm2 plastic tissue culture flasks     experimental samples seeded triplicate sealed vented caps maintained 26°C.           18 hour time point. plate immediately
+alamarBlue assay                                             transferred Tecan infinite200 Pro microplate reader, assay conducted accordance previously        absorbance monitored 600 nm. Calibration
+established protocols [51-53]. Briefly, promastigotes        data bioluminescence assay provided Addi- diluted 1 × 106 cells/mL, black flat-bot-   tional file 1: Figures S12 S13.
+tom 96 microtiter plate, 180 μL suspension incubated varying concentrations drugs (singly       Additional material combination) triplicate. Specifically, 160 μL parasite samples seeded triplicate.        Additional file 1: supplement, additional experimental data,
+sample wells topped 20 μL media +            analysis network characteristics presented                                                               described main article [11,17-22,54].
+drug(s) (ratio altered achieve specific concentrations
+                                                              Additional file 2: supplement, initial gene-drug associations, drug(s)) total volume equaled 180 μL.        various metric scores L. major genes, synthetic lethal
+Heat-killed parasite samples (incubated 60°C 20        predictions, toxicity ratings drugs, list drugs removed
+minutes) prepared 1 × 106 cells/mL seeded        MetDP analysis presented. triplicate (160 μL sample + 20 μL media) serve positive control. Amphotericin B 1 μM served positive control. DMSO used      Acknowledgements
+solubilize drug(s), wells highest rele-   AKC gratefully acknowledges expresses appreciation Kevin M. D’Auria
+                                                             insightful invaluable discussions course vant concentration DMSO included plate        project. addition, authors wish thank Erwin P. Gianchandani, Joseph negative control. Additionally, wells        Klembczyk Matthew Oberhardt respective contributions. seeded 180 μL media  plate incu-       authors acknowledge financial support National Science
+                                                             Foundation (CAREER program grant  0643548 JP GRFP PAJ), bated 26°C 24 hours time point 20 μL      National Institutes Health (grant  GM088244 JP), Double Hoo
+alamarBlue dye added control experimen-       research grant University Virginia (awarded AKC Joseph
+tal wells. Using Gemini EM Microplate Spectrofluo-         Klembczyk).
+rometer, fluorescence monitored excitation/           Author details
+emission wavelengths 544 nm/590 nm 24 48           1
+                                                              Department Biomedical Engineering, University Virginia, Charlottesville,
+hours post addition dye wells. Calibration data    VA, USA. 2Department Medicine, Division Infectious Diseases                                                              International Health, University Virginia, Charlottesville, VA, USA.
+alamarBlue assay provided Additional file 1: Figures   3
+                                                              Department Pathology, University Virginia, Charlottesville, VA, USA.
+S4, S5 S6.
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                                                     Page 15 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+4
+ Mail: Box 800759, Health  University Virginia, Charlottesville, VA,     19. Singh S, Sivakumar R: Challenges new discoveries treatment
+22908, USA.                                                                            leishmaniasis. J Infect Chemother 2004, 10(6):307-315.
+                                                                                   20. Mishra J, Saxena  Singh S: Chemotherapy leishmaniasis: past, present
+Authors’ contributions                                                                 future. Curr Med Chem 2007, 14(10):1153-1169.
+AKC performed computational experimental analysis. AKC, ASB            21. Navin TR, Arana BA, Arana FE, Berman JD, Chajon JF: Placebo-controlled
+JLT performed experiments. PAJ helped computational analysis.             clinical trial sodium stibogluconate (Pentostam) versus ketoconazole
+RDP assisted interpretation experimental data. AKC JP              treating cutaneous leishmaniasis Guatemala. J Infect Dis 1992,
+conceived designed study. authors read approved final              165(3):528-534.
+manuscript.                                                                        22. Alrajhi AA, Ibrahim EA, Vol EB, Khairat M, Faris RM, Maguire JH:
+                                                                                       Fluconazole treatment cutaneous leishmaniasis caused Competing interests                                                                    Leishmania major. N Engl J Med 2002, 346(12):891-895. authors declare competing interests.                         23. Larbi EB, al-Khawajah  al-Gindan Y, Jain S, Abahusain  al-Zayer                                                                                         randomized, double-blind, clinical trial topical clotrimazole versus
+Received: 16 January 2012 Accepted: 27 April 2012                                      miconazole treatment cutaneous leishmaniasis eastern
+Published: 27 April 2012                                                               province Saudi Arabia. AmJTrop Med Hyg 1995, 52(2):166-168.
+                                                                                   24. Dogra J, Saxena VN: Itraconazole leishmaniasis: randomised
+References                                                                             double-blind trial cutaneous disease. Int J Parasitol 1996,
+1. Hotez PJ, Fenwick  Savioli L, Molyneux DH: Rescuing billion            26(12):1413-1415.
+    control neglected tropical diseases. Lancet 2009,                   25. Bahamdan KA, Tallab TM, Johargi H, Nourad MM, Ibrahim K, el Sherbini AH,
+    373(9674):1570-1575.                                                               Karkashan E, Khare AK, Nauri MM: Terbinafine treatment 2. Hotez PJ: Mass drug administration integrated control                   cutaneous leishmaniasis: pilot study. Int J Dermatol 1997, 36(1):59-60.
+    world’s high-prevalence neglected tropical diseases. Clin Pharmacol Ther       26. Mishra M, Thakur BD, Choudhary M: Metronidazole Indian kala-azar:
+    2009, 85(6):659-664.                                                               results clinical trial. Br Med J (Clin Res Ed) 1985, 291(6509):1611.
+3. Desjeux P: Leishmaniasis: current situation new perspectives. Comp          27. Buckner FS: Sterol 14-demethylase inhibitors Trypanosoma cruzi
+    Immunol Microbiol Infect Dis 2004, 27(5):305-318.                                  infections. Adv Exp Med Biol 2008, 625:61-80.
+4. Croft SL, Coombs GH: Leishmaniasis-current chemotherapy recent              28. Ryder NS: Terbinafine: mode action properties squalene
+    advances search novel drugs. Trends Parasitol 2003,                     epoxidase inhibition. Br J Dermatol 1992, 126(Suppl 39):2-7.
+    19(11):502-508.                                                                29. Marriott MS: Inhibition sterol biosynthesis Candida albicans 5. Molyneux D, Killick-Kendrick R: Morphology, ultrastructure life cycles.         imidazole-containing antifungals. J Gen Microbiol 1980, 117(1):253-255.
+    Leishmaniases Biology Medicine. Volume 1. Edited  Peters W,   30. Stanley MA: Imiquimod imidazoquinolones: mechanism     Killick-Kendrick R. London: Academic Press  1987:121-176.                      action therapeutic potential. Clin Exp Dermatol 2002, 27(7):571-577.
+6. Hotez PJ, Molyneux DH, Fenwick  Savioli L, Takeuchi T: Global Fund       31. Vicens Q, Westhof E: Crystal structure paromomycin docked     Fight Neglected Tropical Diseases: G8 Hokkaido Toyako 2008                  eubacterial ribosomal decoding site. Structure 2001, 9(8):647-658.
+    Summit ready? PLoS Negl Trop Dis 2008, 2(3):e220.                              32. Fernandez MM, Malchiodi EL, Algranati ID: Differential effects 7. Caffrey CR, Steverding D: Recent initiatives strategies developing           paromomycin ribosomes Leishmania mexicana mammalian
+    new drugs tropical parasitic diseases. Expert Opin Drug Discov 2008,        cells. Antimicrob Agents Chemother 2011, 55(1):86-93.
+    3(2):173-186.                                                                  33. Garnier T, Croft SL: Topical treatment cutaneous leishmaniasis. Curr
+8. Guerin PJ, Olliaro P, Sundar S, Boelaert M, Croft SL, Desjeux P, Wasunna MK,        Opin Investig Drugs 2002, 3(4):538-544.
+    Bryceson AD: Visceral leishmaniasis: current status control, diagnosis,     34. Wasunna MK, Rashid JR, Mbui J, Kirigi G, Kinoti D, Lodenyo H, Felton JM,
+    treatment, proposed research development agenda.                     Sabin AJ, Albert MJ, Horton J: phase II dose-increasing study     Lancet Infect Dis 2002, 2(8):494-501.                                              sitamaquine treatment visceral leishmaniasis Kenya.
+9. Plata G, Hsiao TL, Olszewski KL, Llinas M, Vitkup D: Reconstruction             AmJTrop Med Hyg 2005, 73(5):871-876.
+    flux-balance analysis Plasmodium falciparum metabolic network.          35. Siqueira-Neto JL, Song  Oh H, Sohn JH, Yang G, Nam J, Jang J,
+    Mol Syst Biol 2010, 6:408.                                                         Cechetto J, Lee CB, Moon S, et al: Antileishmanial high-throughput drug
+10. Jamshidi N, Palsson BO: Investigating metabolic capabilities                screening reveals drug candidates new scaffolds. PLoS Negl Trop Dis
+    Mycobacterium tuberculosis H37Rv using silico strain iNJ661             2010, 4(5):e675.
+    proposing alternative drug targets. BMC Syst Biol 2007, 1:26.                  36. St George S, Bishop JV, Titus RG, Selitrennikoff CP: Novel compounds
+11. Chavali AK, Whittemore JD, Eddy JA, Williams KT, Papin JA: Systems                 active Leishmania major. Antimicrob Agents Chemother 2006,
+    analysis metabolism pathogenic trypanosomatid Leishmania                 50(2):474-479.
+    major. Mol Syst Biol 2008, 4:177.                                              37. Sharlow ER, Close D, Shun T, Leimgruber S, Reed R, Mustata G, Wipf P,
+12. Oberhardt MA, Palsson BO, Papin JA: Applications genome-scale                   Johnson J, O’Neil M, Grogl M, et al: Identification potent chemotypes
+    metabolic reconstructions. Mol Syst Biol 2009, 5:320.                              targeting Leishmania major using high-throughput, low-stringency,
+13. Dumas C, Ouellette M, Tovar J, Cunningham ML, Fairlamb AH, Tamar S,                computationally enhanced, small molecule screen. PLoS Negl Trop Dis
+    Olivier M, Papadopoulou B: Disruption trypanothione reductase               2009, 3(11):e540.
+    gene Leishmania decreases ability survive oxidative stress        38. Mackey ZB, Baca  Mallari JP, Apsel B, Shelat  Hansell EJ, Chiang PK,
+    macrophages. EMBO J 1997, 16(10):2590-2598.                                        Wolff B, Guy KR, Williams J, et al: Discovery trypanocidal compounds 14. Baiocco P, Colotti G, Franceschini S, Ilari  Molecular basis antimony         cell HTS Trypanosoma brucei. Chem Biol Drug Des 2006,
+    treatment leishmaniasis. J Med Chem 2009, 52(8):2603-2612.                      67(5):355-363.
+15. Jockers-Scherubl MC, Schirmer RH, Krauth-Siegel RL: Trypanothione              39. Doherty TM, Sher  Vogel SN: Paclitaxel (Taxol)-induced killing     reductase Trypanosoma cruzi. Catalytic properties enzyme               Leishmania major murine macrophages. Infect Immun 1998,
+    inhibition studies trypanocidal compounds. Eur J Biochem 1989,            66(9):4553-4556.
+    180(2):267-272.                                                                40. Manzano JI, Carvalho L, Perez-Victoria JM, Castanys S, Gamarro F: Increased
+16. Heby O, Persson L, Rentala M: Targeting polyamine biosynthetic                 glycolytic ATP synthesis associated tafenoquine resistance     enzymes: promising approach therapy African sleeping sickness,             Leishmania major. Antimicrob Agents Chemother 2011, 55(3):1045-1052.
+    Chagas’ disease, leishmaniasis. Amino Acids 2007, 33(2):359-366.           41. Bouchaud O, Imbert P, Touze JE, Dodoo  Danis M, Legros F: Fatal
+17. Blum J, Desjeux P, Schwartz E, Beck B, Hatz C: Treatment cutaneous              cardiotoxicity related halofantrine: review based worldwide
+    leishmaniasis travellers. J Antimicrob Chemother 2004,                       safety data base. Malar J 2009, 8:289.
+    53(2):158-166.                                                                 42. Lehar J, Krueger  Avery W, Heilbut  Johansen LM, Price ER, Rickles RJ,
+18. Olliaro PL, Bryceson AD: Practical progress new drugs changing             Short GF, Staunton JE, Jin X, et al: Synergistic drug combinations tend     patterns leishmaniasis. Parasitol Today 1993, 9(9):323-328.                     improve therapeutically relevant selectivity. Nat Biotechnol 2009,
+                                                                                       27(7):659-666.
+ Chavali et al. BMC Systems Biology 2012, 6:27                                                                                                  Page 16 16
+http://www.biomedcentral.com/1752-0509/6/27
+
+
+
+
+43.  Guidelines treatment malaria (2nd ed.). 2 edition. Geneva,
+    Switzerland: Press, World Health Organization; 2010.
+44. Raman K, Yeturu K, Chandra N: TargetTB: target identification pipeline
+    Mycobacterium tuberculosis interactome, reactome     genome-scale structural analysis. BMC Syst Biol 2008, 2:109.
+45. Shen Y, Liu J, Estiu G, Isin B, Ahn YY, Lee DS, Barabasi AL, Kapatral V,
+    Wiest O, Oltvai ZN: Blueprint antimicrobial hit discovery targeting
+    metabolic networks. Proc Natl Acad Sci USA 2010, 107(3):1082-1087.
+46. Kim HU, Kim SY, Jeong H, Kim TY, Kim JJ, Choy  Yi KY, Rhee JH, Lee SY:
+    Integrative genome-scale metabolic analysis Vibrio vulnificus drug
+    targeting discovery. Mol Syst Biol 2011, 7:460.
+47. Chong CR, Sullivan DJ Jr: New uses old drugs. Nature 2007,
+    448(7154):645-646.
+48. Aguero F, Al-Lazikani B, Aslett M, Berriman M, Buckner FS, Campbell RK,
+    Carmona S, Carruthers IM, Chan AW, Chen F, et al: Genomic-scale
+    prioritization drug targets: TDR Targets database. Nat Rev Drug
+    Discov 2008, 7(11):900-907.
+49. Mahadevan R, Schilling CH: effects alternate optimal solutions     constraint-based genome-scale metabolic models. Metab Eng 2003,
+    5(4):264-276.
+50. Goldoni M, Johansson C: mathematical approach study combined
+    effects toxicants vitro: evaluation Bliss independence
+    criterion Loewe additivity model. Toxicol Vitro 2007,
+    21(5):759-769.
+51. Oliveira-Silva F, Morais-Teixeira E, Rabello  Antileishmanial activity
+    azithromycin Leishmania (Leishmania) amazonensis,
+    Leishmania (Viannia) braziliensis, Leishmania (Leishmania) chagasi.
+    AmJTrop Med Hyg 2008, 78(5):745-749.
+52. Mikus J, Steverding D: simple colorimetric method screen drug
+    cytotoxicity Leishmania using dye Alamar Blue. Parasitol Int
+    2000, 48(3):265-269.
+53. Shimony O, Jaffe CL: Rapid fluorescent assay screening drugs     Leishmania amastigotes. J Microbiol Methods 2008, 75(2):196-200.
+54. Urbina JA, Concepcion JL, Rangel S, Visbal G, Lira R: Squalene synthase     chemotherapeutic target Trypanosoma cruzi Leishmania
+    mexicana. Mol Biochem Parasitol 2002, 125(1-2):35-45.
+
+ doi:10.1186/1752-0509-6-27
+ Cite article  Chavali et al.: Metabolic network analysis predicts
+ efficacy FDA-approved drugs targeting causative agent  neglected tropical disease. BMC Systems Biology 2012 6:27.
+
+
+
+
+                                                                                     Submit manuscript BioMed Central
+                                                                                     advantage 
+
+                                                                                     • Convenient online submission
+                                                                                     • Thorough peer review
+                                                                                     • space constraints color figure charges
+                                                                                     • Immediate publication acceptance
+                                                                                     • Inclusion PubMed, CAS, Scopus Google Scholar
+                                                                                     • R

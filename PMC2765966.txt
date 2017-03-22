@@ -1,0 +1,510 @@
+BMC Systems Biology                                                                                                                      BioMed Central
+
+
+
+Research article                                                                                                                       Open Access identify essential genes molecular networks?
+Gabriel del Rio*1, Dirk Koschützki2,3 Gerardo Coello1
+
+Address: 1Department Biochemistry Structural Biology, Universidad Nacional Autónoma México, Instituto Fisiología Celular, Circuito
+Exterior s/n ciudad Universitaria, 04510 México D.F., México, 2Department Molecular Genetics, Leibniz Institute Plant Genetics Crop
+Plant Research (IPK), Corrensstr. 3, 06466 Gatersleben, Germany 3Department Electrical Engineering, Furtwangen
+University Applied Sciences, Robert-Gerwig-Platz 1, 78120 Furtwangen, Germany
+Email: Gabriel del Rio* - gdelrio@ifc.unam.mx; Dirk Koschützki - dirk.Koschuetzki@hs-furtwangen  Gerardo Coello - gcoello@ifc.unam.mx
+* Corresponding author
+
+
+
+
+Published: 13 October 2009                                                     Received: 26 February 2009
+                                                                               Accepted: 13 October 2009
+BMC Systems Biology 2009, 3:102   doi:10.1186/1752-0509-3-102 article available  http://www.biomedcentral.com/1752-0509/3/102
+© 2009 del Rio et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: prediction essential genes molecular networks way test                  understanding essentiality context known network.                   current knowledge molecular network structures incomplete  consequently                  strategies aimed predict essential genes prone uncertain predictions. propose                  simultaneously evaluating different network structures different algorithms representing gene
+                 essentiality (centrality measures) identify essential genes networks reliable fashion.
+                 Results: simultaneously analyzing 16 different centrality measures 18 different
+                 reconstructed metabolic networks Saccharomyces cerevisiae, single centrality
+                 measure identifies essential genes networks statistically significant way; 
+                 combination 2 centrality measures achieves reliable prediction                  essential genes. improvement achieved prediction essential genes 3                  4 centrality measures combined.
+                 Conclusion: method reported describes reliable procedure predict essential genes
+                 molecular networks. results essential genes predicted                  combining centrality measures, revealing complex nature function essential genes.
+
+
+
+
+Background                                                                     feature biological  ability rests Modelling molecular mechanisms present living                           assumed relationship biological observed fea-
+organisms represents active area research biology.                    ture (commonly referred phenotype) molecular modelling appealing scientists applied                      structure cell. refer relationship, basic research areas, represent way                      structure-function relationship paradigm. paradigm
+test basic understanding cells organized.                       stated follows: models potential accelerate dis-
+covery new drugs (e.g., antibiotics) guide engi-                  S1. given cellular phenotype related molecular
+neering new organisms better producing                          structure cell.
+desired compounds (e.g., vitamins). Different approaches available build molecular networks, case                     Additionally, molecular structure cell repre- models need able reproduce observed                          sented molecular network;  set molecules
+
+
+                                                                                                                                       Page 1 12
+                                                                                                                 (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                            http://www.biomedcentral.com/1752-0509/3/102
+
+
+ molecule-molecule interactions (e.g., genetic rela-        used known genetic relationships yeast infer
+tionships, protein-protein interactions).                      role genes [4];  reported genetic
+                                                               relationships used particular process 
+According S1, molecules interactions      formed yeast (e.g., sexual reproduction use dif- known order model phenotypes. advances         ferent set genes genetic relationships cell
+DNA manipulation techniques allowed scientists         division). Hitherto, best knowledge, systematically identify genes different organ-    available experimental data theoretical approaches
+isms consequently, genes set mol-      completed mapping genetic rela-
+ecules model phenotypes. important note       tionships cellular phenotype. genes represent different
+types molecules biological systems (e.g., proteins,      hand, diverse nature essential genes
+ions, carbohydrates, lipids), genetic relationships     [5] explain limited success previous attempts hand represent different molecular interactions          predict [6-8].  current scenario
+(e.g., protein-protein interactions, protein-DNA interac-      uncertainty completeness tions). Mapping genetic relationships advantage        network likely algorithms fail identify observed relatively simple experiments       true nature essentiality. order evaluate sig- gene deletion experiments gene expression           nificance algorithm used predict essential genes,
+studies. instance, using culture media           necessary vary network structure Arginine grow different gene deletion mutant strains        algorithm predict essentiality. way, compar- used identify genes related biosynthesis      ing significance prediction algorithm differ- Arginine; alternatively, extracting comparing       ent network structures possible mRNA strain cultured Arginine          significant result tested networks. used identify regulated gene transcripts presence Arginine, indicating potential func-      combined analysis tional relationship.  having access set      aspects reliably predict essential genes net-
+genes relationships   having access     works follows  Figure 1).  according S1, genetic network) ultimately render model            phenotype represented molecular network phenotype.                                          n genes; formally, network G defined sets,
+                                                               set genes V set relations R,  goal present work computa-
+tional procedure achieve reliable prediction         V(G) = {v1, v2, ... vn} n total number essential genes genetic networks. achieve         genes network V(G)   need access set molecular networks algorithms reproducing features essentiality.      R(G) �? V(G) × V(G) R(G) 
+need different sets networks justified cur-
+rent incompleteness biological networks.                    define set critical genes associated phe-
+                                                               notype c;  previous studies effective reconstruction tran-
+scriptional regulatory networks (TRN) achieved                                  c ⊂ V(G)
+[1,2]. Wagner instance [1], described algorithm parsimonious TRN built based exper-        Consequently, postulate 
+imental data source n2 steps, n number genes. parsimonious network uses lowest number        P1. mathematical operation G genetic relationships connect pair genes [1].   rank V(G) way obtain c.  algorithm does attempt establish completeness network, instead depends         expected G incomplete, ability iden-
+available data. Alternatively, group Palsson [2]        tify c limited  condition, best
+described procedure TRN reconstruction        approach predict c identify G allows validate completeness TRN, predicted cell           complete prediction set c. constitutes growth rates metabolic enzymes included        limiting condition P1.
+TRN compared observed ones [2]. powerful tool, argue based      present work, develop method based chemicals genetic networks based genes;        postulate P1,  method achieve argued  information genes read-       reliable prediction essential genes genetic net-
+ily available complete [3]. reports        works. propose mathematical operation
+
+
+                                                                                                                   Page 2 12
+                                                                                             (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                                http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+
+Figure 1prediction essential genes
+Reliable
+Reliable prediction essential genes. Prediction essential genes depends quality network efficacy prediction algorithm reproduce features essentiality. account factors, method
+uses set n networks modelling biological process, m different centrality measures applied identify network(s) largest predictable set essential genes centrality(ies) effective identify essential genes. determine reliability predictions necessary access set known essential
+genes.
+
+
+
+
+described P1 calculation network centralities.        genes KEGG database EC classifica-
+centrality defined, measure computes rela-       tion. KEGG2, genes EC number dif-
+tive importance network elements (genes) net-         ferent substrate forced accept substrates work.  given centrality measure satisfies        given EC number. programs used rebuild
+postulate P1, include basic features           analyze genetic metabolic networks coded determine essentiality gene network.          Java programming language.
+
+Methods                                                           Directionality networks
+Databases programs                                   Enzymatic reactions involved metabolism genetic metabolic networks S. cerevisiae described         reversible irreversible. refer reac- work based KEGG PATHWAY database              tion type.  genetic relationships reversi-
+[9] hand-curated model iND750 [10]. Genetic               ble irreversible consequence experimental
+metabolic networks built connecting genes             way detected (gene deletions gene transcrip-
+annotated enzymes metabolites.             tion profiles). account different ways rep-
+genes coding metabolic enzymes linked          resent relationships genes, built genetic
+share metabolite product reac-        metabolic networks assuming annotated reversibility
+tions substrate  metabolites       reaction (e.g., KEGG-derived networks considered cases indicated  .        "type" word, e.g., KEGGtype network) assuming Additionally, depurated version KEGG built           genetic relationships reversible (KEGG-derived net-
+named KEGG2. version obtained eliminating             works "type" word, e.g., KEGG KEGGpath)
+
+
+                                                                                                                       Page 3 12
+                                                                                                 (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                                             http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+ Table 1). summary, KEGG-derived networks                         lism present anaerobic conditions [12]. named "type" keyword include reversible                          order account insulation metabolic path-
+genetic relationships  e., undirected networks).                           ways, built group genetic metabolic networks                                                                              linking genes pathway; additionally, Pathway insulation compartamentalization                                 different pathway genes present decades metabolism organized path-                         different pathways (e.g., KEGGpath network). Alterna-
+ways recently observed genes path-                   tively, build metabolic networks linking genes
+ways regulated [11]. known                 disregarding pathway (e.g., KEGG network)  Table genes pathways expressed.                     1). summary, KEGG-derived networks labelled instance, enzymes involved aerobic primary metabo-                        "path" keyword include genetic relationships
+
+Table 1: Genetic metabolic networks used study
+
+ Network                                      linked metabolites                                   Vertices:Edges          Overlap ( )
+
+ KEGG                              H2O, ATP, ADP, NAD+, NADH, NADP+, NADPH, Oxygen                              636:10038                33.85
+
+ KEGGtype                                                       Ibid                                             629:6590                26.81
+
+ KEGGpath                                                       Ibid                                             634:7752                31.57
+
+ KEGGtypepath                                                   ibid                                             621:5223                25.11
+
+ KEGG2                                                          Ibid                                            609:10518                34.24
+
+ KEGG2type                                                      Ibid                                             602:7099                27.44
+
+ KEGG2path                                                      Ibid                                             608:8130                31.89
+
+ KEGG2typepath                                                  Ibid                                             595:5691                25.65
+
+ iND750_0                                                    H2O, H+                                             990:8427                19.19
+
+ iND750_1                                                  H2O, H+, Pi                                           976:6995                18.27
+
+ iND750_2                                               H2O, H+, Pi, ATP                                         976:6278                17.85
+
+ iND750_3                                            H2O, H+, Pi, ATP, Glu-L                                     974:5742                17.60
+
+ iND750_4                                         H2O, H+, Pi, ATP, Glu-L, ADP                                   969:5186                17.18
+
+ iND750_0nh                                                  H2O, H+                                             634:4761                19.19
+
+ iND750_1nh                                                H2O, H+, Pi                                           619:3963                18.27
+
+ iND750_2nh                                             H2O, H+, Pi, ATP                                         618:3387                17.85
+
+ iND750_3nh                                          H2O, H+, Pi, ATP, Glu-L                                     617:3122                17.60
+
+ iND750_4nh                                       H2O, H+, Pi, ATP, Glu-L, ADP                                   613:2720                17.18
+
+ names KEGG iND750-derived networks indicated "Network  column. Note networks end
+ "nh", indicating hypothetical reactions included networks. column labeled  linked metabolites" indicates
+ metabolites removed reconstructing network: H2O: water; H+: proton; Pi: inorganic phosphorus; ATP: adenosine
+ triphosphate; Glu-L: L-glutamate ADP: adenosine diphosphate, NADP+/NADPH: Nicotinamide adenine dinucleotide phosphate, NAD/NADH:
+ Nicotinamide adenine dinucleotide. number genes (values bold) gene gene relationships (values italics) graph  indicated separated colon Vertices:Edges column. column labeled "Overlap ( )" indicates percentage known gene gene
+ relationships (network links) reconstructed network reported probabilistic functional network yeast genes [4] included
+ metabolic genes. According procedure build networks, KEGG, KEGGpath, KEGG2 KEGG2path networks undirected.
+
+
+                                                                                                                                      Page 4 12
+                                                                                                                (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                                http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+restricted annotated pathways, share      clustering coefficient, degree   sphere
+metabolite.                                                     degree  number reachable vertices distance
+                                                                2) [16-18]. inverse network derived Finally, known, inside eukaryotic cells   directed network switching nodes edge. barriers proteins small molecules sorted     Note centrality value equal zero, compartments [10]. insulation taken               inverse value set zero study. Eccentricity,
+account iND750 derived networks. Specifically,        average distance, closeness, shortest-path betweenness,
+did link genes different cellular compartments.          Katz index, PageRank, radiality integration global
+Additionally, groups networks derived          centrality measures local sense hand-curated iND750 network. group,        measure depends immediate connec- reactions contained original model consid-      tions gene.  gene assigned centrality
+ered (e.g., iND750_0, Table 1), second,        value list genes sorted descendent fash-
+hypothetic reactions eliminated (e.g., iND750_0nh).        ion. ordered list, took possible fraction groups, different sets linked         list determine correspondence metabolites eliminated network               known lethal genes coding metabolic enzymes.
+Table 1).
+                                                                Additionally performing analysis based single
+Elimination genetic relationships emerging highly       centrality, combined individual centrality connected metabolites                                           groups 2, 3 4 centralities generated combined
+Including highly connected metabolites (e.g., ATP            centrality score gene network, CS(v),
+water) reconstructed metabolite networks induce          according following formula:
+small average path length 3 [13]. eliminating highly
+
+                                                                          ∑
+connected metabolites, distinct chemical metabolic                       m
+                                                                CS( v ) = (          ((MAX _ C − C ( v )) /(MAX _ C − MIN _ C ) 2 )1 / 2
+networks obtained [14]. recon-                         =1
+
+structed networks treated bipartite networks, com-      MAX_Ci MIN_Ci define maximum posed enzymes metabolites, effect         minimum score obtained ith-centrality given net-
+prediction essential genes evaluated.          work, respectively, Ci(v) refers centrality given  evaluated effect eliminating highly       gene m summation refers centrality com-
+nected metabolites prediction essential           binations evaluated; instance, m = 2 groups 2
+genes using genetic networks. KEGG-derived net-         centralities, m = 3 groups 3 centralities m = 4
+works eliminated following linked metabolites:         groups 4 centralities. CS(v) estimates far water, ATP, ADP, NAD+, NADH, NADP+, NADPH                   largest observed centrality measures centralities
+Oxygen.                                                         genes analysed.  lower combined score
+                                                                 higher individual centrality measures 
+Network properties sets determined genetic networks,           Assessing reliability centrality predictions genes network (vertices) connections           Yeast Genome Consortium [19] provides list genes (edges). sets, eccen-        genes deletion yeast genome prevent
+tricity radius determined; eccentricity         yeast growth YPD media. lethal phenotypes
+defined largest shortest path given gene,    arising deletion genes involved metabolism radius defined smallest eccentricity        considered critical metabolism function, inacti-
+value genes.  path connecting   vation primary metabolism lead cell death. genes, radius network equal infinitum        included total 246 genes: iND750 networks network connected. measure used        work 107 115 essential metabolic genes determine presence giant strong component         KEGG KEGG2 networks number varies 127 models [15].                                             131. iND750 networks KEGG networks
+                                                                share 93 essential genes.
+Centrality measures used 16 different centrality measures  Table 2       genes network ranked according mathematical description : eccentricity, 1/eccen-     16 centrality values  4 non directed networks
+tricity, closeness, average distance, shortest-path     used 13 measurements).  created 276 gene
+ness, Katz index  network analysis        lists compare list known essential genes
+corresponding inverse network), PageRank  net-          single centrality values used. pairs work analysis corresponding inverse net-          centrality used score gene, 2,736 compari-
+work), radiality, integration, clustering coefficient, 1/
+
+
+                                                                                                                                Page 5 12
+                                                                                                        (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                                              http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+Table 2: Centrality measures used study
+
+ Centrality                                          Formula                                                    Description
+
+ degree                                          Cu = kin(u)                                     Number connections node u
+
+ degree                                        Cu = kout(u)                                   Number connections node u
+
+ Sphere degree                Cu = kout(u) + wu kout(w); w neighbor u.         Number nodes 1 2 connections node u
+
+
+                                                              |e|
+ Clustering coefficient                    Cu = ktot(u)(ktot(u) −1)                    fraction connections neighbors node u
+
+
+
+                                                   ktot( u)( ktot( u) −1)
+ 1/Clustering coefficient                  Cu =             |e|
+
+
+ Eccentricity                              Cu = max{dist(u, w): w  V}                  distance node u distant node                                                                                                                net.
+
+ 1/Eccentricity                           Cu = 1/max{dist(u, w): w  V}
+
+
+                                                    ∑ w∈V dist( u , w )
+ Average distance                            Cu =        n −1
+                                                                                         Average distance node u rest nodes net
+
+
+
+ Closeness                                   Cu =        n −1                                            Inverse average distance
+                                                    ∑ w∈V dist( u , w )
+
+
+                                                         ∞
+ Katz                                      c katz = ∑ =1 �?� ( T ) a1                node larger ckatz value paths reach 
+
+
+
+                                                          ∞
+ KatzR                                      c katz = ∑ =1 �?� (  a1                  node larger ckatz value paths leave                                                                                                                     node.
+
+
+ PageRank                                    cPR = d P cPR + ((1 - d) 1)               centrality node depends incoming connections
+                                                                                            relative connectivity connections
+
+ PageRankR                                  cPR = d PT cPR + ((1 - d) 1)                     centrality node depends outcoming
+                                                                                             connections relative connectivity                                                                                                                  connections
+
+
+                                              ∑ t∈V (diamG +1− dist( t , u))
+ Integration                           Cu =              n −1
+                                                                                           easiness reaching node u node
+
+
+
+                                              ∑ t∈V (diamG +1− dist( u,t ))
+ Radiality                             Cu =              n −1
+                                                                                              easiness reaching node node u
+
+
+
+                                                               �?� G ( s , t|u)
+ SP-betweenness                             Cu =       ∑
+                                                   s ≠ u ≠ t∈V
+                                                                �?� G (s , t )
+                                                                                          fraction shortest paths inside network,                                                                                                                utilize node u
+
+
+ table, kin(u), kout(u) ktot(u) refer incoming, outgoing total number edges node u. diamG refers diameter  graph dist(u, v) stands distance nodes u v. clustering coefficient, |e| stands observed paths  neighbours node. Katz adjacency matrix �?� damping factor. PageRank d damping factor P transition matrix.  formula shortest path (SP) betweenness �?�G denotes number shortest path s t. detailed description  centralities, read [17].
+
+
+
+                                                                                                                                        Page 6 12
+                                                                                                                  (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                               http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+sons performed, 13,200 groups 3 centrali-         using different methods analyze alterna-
+ties, 48,300 groups 4.                                tive representations network, identify
+                                                                 algorithm(s) reproduce(s) best quality comparisons assessed               feature essential genes presented networks
+Receiver-Operator Characteristic curve (ROC curve),               hand network(s) largest sensitivity vs. false discovery rate (FDR)     identifiable number essential genes. refer possible cut ranked gene list plotted.      Rich Essential Metabolic Genetic network, area ROC curve (AUC) calculated using          REMG network.
+empirical method [20]. AUC estimate good classifier differentiate essential      18 different networks built following procedures
+non-essential genes. variant Mann Whitney       described  Methods). networks U statistic. effective classifier generate AUC sig-   grouped according data source used build 
+nificantly greater 0.50  expected AUC value       KEGG iND750  Table 1). data sets 
+random classifier), calculated confidence       stitute common sources metabolism recon-
+intervals (CI) AUC scores using formula CI = ±       struction S. cerevisiae. Note reconstructing * SE(AUC), z-value given significance      model metabolism, assumptions level (0.1, 0.05, 0.01 case) SE(AUC)           regarding edge set present model. study
+standard error AUC [20]. addition, calculated       consider common assumptions, minimum error   ROC curve follows,          including reversibility relationships, insulation = (MIN [(1-sensitivity)2+(FDR)2]1/2). tracks       organelle function, elimination highly
+point curve closer perfect prediction.   connected metabolites  Methods).  genetic
+prediction accuracy ROC curve calculated         networks used study similar  Table 1) [TP+TN]/[TP+TN+FP+FN] [7]. Sensitivity defined TP/         constitute sampling common reconstructing strat-
+(TP+FN), TP = true positives (genes truly predicted        egies build models metabolism. essential) FN = false negatives (missed essential
+genes). FDR defined FP/(TN+FP), TN = true            networks analyzed disconnected  e.,
+negatives (genes truly predicted non-critical) FP =       presented gene false positives (missed non-essential genes). Note          path connect rest genes) presented
+Specificity = 1 - FDR.
+
+Estimating completeness genetic networks estimated fraction identical edges reconstructed network work probabilistic
+functional network yeast genes [4]; percentage identical links estimated dividing value number edges present reconstructed network
+ Table 1, column "Overlap").
+ estimate completeness networks, missing
+relationships non-predicted essential genes KEGG2path network determined grouping essential genes Gene Ontology biological process
+ID.  missing local relationships unpredicted
+essential genes groups determined.
+                                                                 Figure
+                                                                                                                                  trality
+                                                                       efficacy
+                                                                         measures
+                                                                           2 predict essential metabolic genes cen-
+Using criteria, estimated completeness       efficacy predict essential metabolic genes reconstructed networks;  kept        centrality measures. maximum Area                                                                  ROC Curve (max AUC) obtained Mann-Whitney
+mind precise approach estimate
+                                                                 test  Methods) applied 18 different metabolic net- completeness genetic networks, results           works used study  Table 1) shown plot used approximation problem.                 black squares. square represent max AUC
+                                                                 obtained groups 1, 2, 3 4 centrality measures used
+Results                                                          differentiate essential non-essential genes. verti- reliable identification essential genes biologi-     cal lines crossing square represent confidence inter-
+cal network depends network structure            val 99 . algorithm used identify essentiality genes.
+
+
+                                                                                                                     Page 7 12
+                                                                                               (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                               http://www.biomedcentral.com/1752-0509/3/102
+
+
+ giant component (data shown), previously                 REMGNetSuppTable3?modo=2&table=suppTable3B reported metabolic networks [15].                       derBy=C&orderMode=DESC                           http://
+                                                                  bis.ifc.unam.mx:8090/REMGNets/
+Prediction essential genes single centrality measure      SuppTable3?modo=2&table=suppTable3C&orderBy=AU
+Using Mann Whitney U test normalized                   C&orderMode=DESC). Particularly, combined cen-
+number possible pairings  Methods), evaluated           tralities closeness-"1/clustering coefficient", excentricity- efficacy 16 different centrality measures differen-     "1/clustering coefficient", 1/excentricity-"1/clustering
+tiate essential non-essential genes 18 genetic net-       coefficient" radiality-"1/clustering coefficient" ren-
+works. selected best network-centrality pairs           dered significant predictions iND750 KEGG  AUC score 0.50  ii) AUC             networks.
+score confidence interval 0.50 99  significance  Methods). analysis,                Completeness REMG networks
+detected KEGG2path-Closeness pair satisfied         combination 2 centralities did criteria  Additional File 1 Figure 2).          improve correct prediction metabolic essential  276 tests performed (14 × 16 + 4 × 13),          genes  Figure 2). case, possible 3 network-centrality pairs expected chance         essential genes detected positive level significance.  results   REMG networks include relevant genetic
+indicate single centrality measures identify         relations metabolism, reasons. 
+critical genes statistical significance.                     observed networks did include                                                                   known genetic relationships metabolic genes: Prediction essential genes combining centrality             17  34  known metabolic genetic relationships
+measures                                                           Methods) included given network used noticed genes predicted individual centrality          study  Table 1).
+measures did overlap  access specific sets overlapping genes http://bis.ifc.unam.mx:8090/REM             Furthermore, identify relevant missing genetic rela-
+GNets/SupplementaryData/SuppTable2.html);               tionships REMG network (KEGG2path network, hypothesized combining predictions dif-          detected combining 1 2, 3 4 centrality measures;
+ferent centralities improve reliability achieved                     http://bis.ifc.unam.mx:8090/REMGNets/ individual centralities. test hypothesis, com-      SuppTable3?modo=2&table=suppTable3A&orderBy=AU
+bined scores 2, 3 4 centrality measures sin-      C&orderMode=DESC,              http://bis.ifc.unam.mx:8090/
+gle Combined Score, CS(v), assigned new                  REMGNetSuppTable3?modo=2&table=suppTable3B centrality measure gene  Methods).           derBy=C&orderMode=DESC                           http://
+instead assigning 16 different centrality measures          bis.ifc.unam.mx:8090/REMGNets/ gene given network, number combined             SuppTable3?modo=2&table=suppTable3C&orderBy=AU
+centrality measures n!/(n !  (n: number indi-          C&orderMode=DESC respectively), aimed vidual centrality measures applied given network;          unpredicted essential metabolic genes. shown
+number combined centralities, e., = 2, 3 4).       essential genes tend Essential Complex  number combined centralities 2,562,               Biological Modules [21]; case, missing local
+13,244 48,300 groups 2, 3 4 individual         genetic relationships unpredicted essential genes centrality measures, respectively. group com-         modules. proof concept,
+bined centralities, efficiency differentiating essen-      essential genes predicted local (Clustering
+tial non-essential genes estimated using               coefficient) global (Closeness centrality) centrality
+variant Mann Whitney U test  Methods).         measures using minimum error criteria case.
+case  best network-"combined centrality meas-             identifies 99 essential genes 131 total known
+ures" pairs selected based AUC score > 0.5             metabolic        essential       genes           http:// confidence interval 99  > 0.5. Figure 2          bis.ifc.unam.mx:8090/REMGNets/SupplementaryData/
+shows maximum AUC scores obtained groups 2,            SuppTable2.html). missing 32 essential genes 3 4 centralities. numbers positive hits observed       reduced 18 including essential genes predicted
+(884, 5,023 20,250) clearly expected            local centrality measure (YBR153W, YDR236C,
+number positive hits chance (26, 132 483            YDR050C, YKL192C, YNR016C, YBR196C, YDL055C, groups 2, 3 4 combined centrality measure-             YBL076C, YPR033C, YPL160W, YFL022C, YDR023W,
+ments, respectively), 99  confidence level  http://        YGR185C, YHR019C, YGR094W, YDR341C, YBR121C,
+bis.ifc.unam.mx:8090/REMGNets/                                    YDR037W). genes classified using April's
+SuppTable3?modo=2&table=suppTable3A&orderBy=AU                    2008 Gene Ontology classification [22] 6
+C&orderMode=DESC,             http://bis.ifc.unam.mx:8090/        (YER003C, YKL152C, YCR012W, YKL182W, YPL231W,
+
+
+                                                                                                                      Page 8 12
+                                                                                                (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                                                  http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+YBR256W) 18 unpredicted essential meta-                            centrality measures. results indicate closeness
+bolic genes shared classification predicted                       centrality applied KEGG2path network identify essential genes  Additional File 2). According                       largest fraction essential metabolic genes  Addi-
+reported probabilistic functional gene network yeast                         tional File 1). stated, result agreement [4], 6 genes engaged 119 different metabolic                       previous reports showing global centrality measures
+genetic relations, 26 present                    (e.g., betweeness, closeness, synthetic lethality) KEGG2path network (data shown).  REMG                              chemical-based approaches [23-25] efficient identifi-
+network KEGG2path does missing genetic relation-                           ers essential genes [26-32].  overall
+ships.                                                                          number predictions study taken account,
+                                                                                prediction significant: closeness Discussion                                                                      observed 4 times reliable predictor work describes procedure identify essential genes                      18 similar networks.  closeness highly genetic networks  Figure 1). claim                      depends structure KEGG2path network current scenario knowledge molecular                           achieve correct identification essential genes. network structures complete  necessary                      conclude single centrality measure tested
+test mathematical operation reproduce essenti-                       predict essential genes statistically significant way.
+ality genes single model network. achieve  report procedure simultaneously varies                          discrepancy results previous reports network structure mathematical opera-                          explained different statistical analysis 
+tion reproduces gene essentiality. Considering                         formed: previous studies prediction essential
+infinite number possible network structures given                      genes achieved particular centrality cut value
+set genes, reasonable approach use knowledge-                        (e.g., 20  genes largest centrality values) based networks reconstructed different criteria.                           cut value statistical parameter reported  used 2 knowledge-based networks sharing                              e., sensitivity, specificity, accuracy; Table 3 common set genes genetic relationships  e.,                            summary reports). assumption KEGG iND750) use variations accounting                              induce errors parameters reported Table common assumptions metabolic                            dependent chosen cut value: large cut-
+network reconstruction  Methods Table 1).                               values, sensitivity tend present large values                                                                                 specificity small ones, trend reversed differentiate essential non-essential genes 18                       small cut values. method considered possi-
+different metabolic genetic networks, total 204,233                        ble cut values did observe statistical
+centrality calculations performed using 16 different
+
+Table 3: Comparison statistical parameters used estimate efficacy identify essential metabolic genes yeast
+
+ Model         Method         Essentials/Non-essentials                Sensitivity        Specificity        Error      Accuracy          Reference
+
+ iFF708        FBA            23/90                                    0.13               1                  0.87       82                22
+
+ iFF708        FBA            91/508                                   0.31               0.95               0.69       85                6
+
+ iFF708        FBA            79-146/562-629                           0.40-0.53          90-96              NR         NR                33
+
+ iND750        FBA            118/NR                                   0.31               NR                 NR         NR                10
+
+ iLL672        FBA            NR/NR                                    0.68-0.80          96-98              NR         NR                33
+
+ iFF708        MOMA           46/302                                   0.60               0.92               0.41       88                34
+
+ iLL672        MOMA           NR/NR                                    0.73-0.80          NR                 NR         NR                33
+
+ iND750        SA             100/NR                                   0.14               NR                 NR         NR                7
+
+ Previous studies efficiency identify essential metabolic genes yeast, report different statistical parameters confidence (Sensitivity,
+ Specificity, Error Accuracy columns), commonly use single network (Model column) single method (Method column) identify
+ essential genes. data obtained works reported "Reference" column. FBA: Flux-Balance Analysis; MOMA: Method  Minimization Metabolic Adjustment; SA: Synthetic accessibility; NR: value reported cited reference.
+
+
+                                                                                                                                              Page 9 12
+                                                                                                                     (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                             http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+significance predictions gene essentiality      results indicate best way represent gene individual centrality measure.                             essentiality combining single features estimated
+                                                               individual centrality measures. turn, reflects  valid ask current net-   complex nature essential genes [5]. Specifically, genes
+work structure metabolism efficiently related     essential establish different relationships
+gene essentiality? Recent studies shows incom-        (local global) genes organism:
+plete knowledge gene function metabolism          genes local contacts pathways essential
+explain incorrect gene essentiality predictions achieved    cell survival (e.g., glycolysis); alternatively, essential
+centrality factors responsible    genes distant relationships genes essential role genes metabolism [8,21,33,34].        non-essential pathways essential maintain  argue ways measure centrality net-   cellular homeostasis instance.
+works improve correct prediction essential
+genes. argument based observation dif-      important emphasize method
+ferent essential genes predicted different centrality   improved limitations previous works reliably
+measures  http://bis.ifc.unam.mx:8090/REMGNets/            identify essential genes, does correctly predict SupplementaryData/SuppTable2.html).  combining            known essential metabolic genes. expected, centrality measures improve significance          essentiality genes comes regulatory dynam- predictions.                                             ics quantitative aspect function.                                                                aspects captured static net-  combining 2 centrality measures improved           works analyzed work centrality measures
+overall significant predictions  Figure 2). com-       tested  possible missing essential genes
+bined predictions specifically achieved best          detected adding missing genetic relations
+results included local global centralities        metabolic networks,  determine http://bis.ifc.unam.mx:8090/REMGNets/                          missing genetic relationships REMG networks, SuppTable3?modo=2&table=suppTable3A&orderBy=AU                 performed analyses:  identification known
+C&orderMode=DESC,             http://bis.ifc.unam.mx:8090/     metabolic genetic relationships  Methods) REMGNetSuppTable3?modo=2&table=suppTable3B                  reconstructed networks ii) identification derBy=C&orderMode=DESC                           http://   missing local relationships non-predicted essential
+bis.ifc.unam.mx:8090/REMGNets/                                 genes  Methods).
+SuppTable3?modo=2&table=suppTable3C&orderBy=AU
+C&orderMode=DESC). Particularly, ranked com-           results known metabolic genetic
+bined centralities (AUC > 0.60) successfully identified        relationships missing networks. case,
+essential genes KEGG iND750 networks:          improvements prediction essential genes
+observed number predictions (4  4         achieved adding missing genetic
+combined centralities expected number        relationships; missing relations random prediction 18 different networks tested (p      added?
+= 0.01). combined centralities composed local centrality 1/"clustering coefficient" global     achieved particular REMG
+centralities closeness, radiality excentricity. Small 1/   network (KEGG2path) extracting unpredicted
+"clustering coefficient" values identify genes highly     essential genes Essential Complex Biological Mod-
+connected neighbouring genes, like edge        ules [21]. observed 6 18 unpredicted
+networks leaf node  node network)        essential metabolic genes share classification 1 single neighbour connected;       truly predicted ones  Additional File 2) genes large CS(v) values tend end      local interactions essential complexes metabolic pathways critical enzymatic            belong  instance, gene YER003C reactions located. hand, closeness, excen-    unpredicted essential gene shares biological
+tricity radiality estimate near gene       process classification  e., GDP-mannose biosynthetic   genes high values centrali-    process) essential genes  Additional File 2); ties tend hubs network communication             location YER003C end metabolic network essential proteins located   com-      connects pathways, detected bining centrality measures identify genes       approach. Interestingly, 2 genes constitute hubs metabolism, genes located end met-      GDP-mannose biosynthetic process S. cerevisiae abolic pathways                                        KEGG dataset, KEGG did include                                                                GDP-mannose biosynthetic pathway, REMG net-
+                                                               work did include relationship. summary, 
+
+                                                                                                                   Page 10 12
+                                                                                              (page number citation purposes)
+ BMC Systems Biology 2009, 3:102                                                            http://www.biomedcentral.com/1752-0509/3/102
+
+
+
+REMG network does missing relations. Adding                      Acknowledgements improved prediction essential                     like thank Aurora Labastida performing cal-
+genes using method.                                                    culations reported work suggestion use statistical test
+                                                                           reported study. Dr. Boris Thibert providing code                                                                            calculate centralities used work; acknowledge noted  essential role genes deter-
+                                                                           technical support received Dra. Maria Teresa Lara Ortiz mined factors included network                     Information Technology core Instituto Fisiología Celular-UNAM;
+structures, variations media composi-                   like acknowledge fruitful encouraging discussions tion kinetics.  method comple-                    subject Dra. Alicia Gonzalez Manjarrez. Finally, greatly appre-
+ment analysis guide                              ciate reviewers BMC Systems Biology journal helped experimentalists direct experiments complete                     improve description work.
+understanding structure-function relationship
+present metabolism.                                                     work supported grants Universidad
+                                                                           Nacional Autónoma Mexico (Macroproyecto UNAM: Tecnologías para
+                                                                           la Universidad la Información y la Computación PAPIIT IN217708)
+Conclusion                                                                 grant SEP-CoNaCyT 82308, GDR, Ger- summary, effective procedure identify                 man Ministry Education Research (BMBF) grant 0312706A essential genes genetic networks. method use-                  DKO.
+ful current scenario uncertainty completeness network consequently,                   References
+correct representation gene essentiality.                  1.    Wagner  reconstruct large genetic network                                                                                  n gene perturbations fewer n2 easy steps. Bioinformatics
+essentiality represented combination centrality                       2001, 17:1183-1197.
+measures, revealing complex nature function                  2.    Barret CL, Palsson BO: Iterative reconstruction transcrip-
+essential genes. expected improvements                        tional regulatory networks: algorithmic approach. PLoS
+                                                                                 Comp Biol 2006, 2:e52. essential gene predictions achieved adding                    3.    Ideker T, Thorsson V, Ranish JA, Christmas R, Buhler J, Eng JK, Bum-
+missing genetic relationships metabolic networks.                           garner R, Goodlett DR, Aebersold R, Hood L: Integrated genomic
+                                                                                 proteomic analyses systematically perturbed meta-
+                                                                                 bolic network. Science 2001, 292:929-934.
+Authors' contributions                                                     4.    Lee  Li  Marcotte EM: Improved, Bias-Reduced Probabil-
+GDR conceived original idea, developed                           istic Functional Gene Network Baker's Yeast, Saccharo-
+                                                                                 myces cerevisiae. PLoS 2007, 2:e988.
+codes generate networks reported work,                      5.    Gerdes S, Edwards R, Kubal M, Fonstein M, Stevens R, Osterman 
+developed code calculate combined centralities                        Essential genes metabolic maps. Curr Opin Biotechnol 2006,
+reported work mainly wrote manuscript.                          17:448-56.
+                                                                           6.    Förster J, Famili  Palsson BO, Nielsen J: Large-scale evaluation DK implemented codes calculate cen-                           silico gene deletions Saccharomyces cerevisiae. OMICS
+trality measures reported work; discussed                        2003, 7:193-202.
+                                                                           7.    Wunderlich  Mirny LA: Using topology metabolic net- wrote parts manuscript. GC performed                             works predict viability mutant strains. Biophys J 2006,
+classification genes based database gen-                        91:2304-2311.
+erated supplementary Figure 1. authors read                        8.    Becker SA, Palsson BO: factors underlying incorrect                                                                                  silico predictions essential metabolic genes. BMC Syst Biol
+approved final manuscript.                                                   2008, 2:14.
+                                                                           9.    Kanehisa M, Goto S, Hattori M, Aoki-Kinoshita KF, Itoh M,
+                                                                                 Kawashima S, Katayama T, Araki M, Hirakawa M: genomics
+Additional material                                                              chemical genomics: new developments KEGG. Nucleic
+                                                                                 Acids Res 2006, 34:D354-D357.
+                                                                           10.   Duarte NC, Herrgård MJ, Palsson BØ: Reconstruction valida-
+ Additional file 1                                                               tion Saccharomyces cerevisiae iND750, fully compart-
+ Table S1. AUC values obtained local global centralities         mentalized genome-scale metabolic model. Genome Res 2004,
+ genetic metabolic network.                                                      14:1298-1309.
+                                                                           11.   Segal E, Shapira M, Regev  Pe'er D, Botstein D, Koller D, Friedman
+ Click file                                                             N: Module networks: identifying regulatory modules  [http://www.biomedcentral.com/content/supplementary/1752-                       condition-specific regulators gene expression
+ 0509-3-102-S1.HTML]                                                             data. Nat Genet 2003, 34:167-177.
+                                                                           12.   Kuh

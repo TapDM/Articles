@@ -1,0 +1,1153 @@
+Weaver et al. BMC Systems Biology 2014, 8:79
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                            Open Access
+ genome-scale metabolic flux model Escherichia coli K–12 derived EcoCyc
+database
+Daniel S Weaver1* , Ingrid M Keseler1 , Amanda Mackie2 , Ian T Paulsen2 Peter D Karp1
+
+
+  Abstract
+  Background: Constraint-based models Escherichia coli metabolic flux played key role computational
+  studies cellular metabolism genome scale. sought develop generation constraint-based E. coli
+  model achieved improved phenotypic prediction accuracy frequently updated easy use.   sought compare model predictions experimental data highlight open questions E. coli biology.
+  Results: present EcoCyc–18.0–GEM, genome-scale model E. coli K–12 MG1655 metabolic network.   model automatically generated current state EcoCyc using MetaFlux software, enabling release   multiple model updates year. EcoCyc–18.0–GEM encompasses 1445 genes, 2286 unique metabolic reactions,   1453 unique metabolites. demonstrate validation model breaks new ground breadth   accuracy:   Comparison simulated growth aerobic anaerobic glucose culture experimental results   chemostat culture simulation results E. coli modeling literature. (ii) Essentiality prediction 1445
+  genes represented model, EcoCyc–18.0–GEM achieves improved accuracy 95.2  predicting
+  growth phenotype experimental gene knockouts. (iii) Nutrient utilization predictions 431 different media
+  conditions, model achieves overall accuracy 80.7 . model’s derivation EcoCyc enables
+  query visualization EcoCyc website, facilitating model reuse validation inspection. present   extensive investigation disagreements EcoCyc–18.0–GEM predictions experimental data highlight
+  areas E. coli modelers experimentalists, including 70 incorrect predictions gene essentiality   glucose, 80 incorrect predictions gene essentiality glycerol, 83 incorrect predictions nutrient utilization.
+  Conclusion: Significant advantages derived combination model organism databases flux
+  balance modeling represented MetaFlux. Interpretation EcoCyc database flux balance model results   highly accurate metabolic model provides rigorous consistency check information stored database.
+  Keywords: Escherichia coli, Flux balance analysis, Constraint-based modeling, Metabolic network reconstruction,
+  Metabolic modeling, Genome-scale model, Gene essentiality, Systems biology, EcoCyc, Pathway Tools
+
+
+Background                                                                           Escherichia coli K–12 MG1655 metabolic network. Constraint-based modeling techniques flux bal-                               series E. coli constraint-based models pub-
+ance analysis (FBA) central systems                                   lished group B. Palsson [3-6], extending work biology [1,2], enabling wealth informative simula-                              stoichiometric constraint-based modeling E. coli dating
+tions cellular metabolism. constraint-based mod-                             years [7-10]. models consti-
+eling techniques demonstrated                                tute gold standard E. coli modeling, seen
+                                                                                     range applications [11-13] including metabolic engi-
+                                                                                     neering, model-driven discovery, cellular-phenotype pre-
+*Correspondence: weaver@ai.sri.com                                                   diction, analysis metabolic network properties, studies
+1 Bioinformatics Research Group, SRI International, 333 Ravenswood Ave.,
+                                                                                     evolutionary processes, modeling interspecies
+94025 Menlo Park, CA, USA list author information available end article               interactions.
+
+
+                                         © 2014 Weaver et al.; licensee BioMed Central  Open Access article distributed terms Creative
+                                         Commons Attribution License (http://creativecommons.org/licenses 4.0), permits unrestricted use, distribution,                                          reproduction medium, provided original work properly credited. Creative Commons Public Domain Dedication
+                                         waiver (http://creativecommons.org/publicdomain/zero/1.0/) applies data available article, unless                                          stated.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                   Page 2 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+   Motivated widespread use E. coli metabolic        Table 1 Survey recent E. coli genome-scale model
+models, aimed illustrate benefits integrat-       statistics
+ing metabolic modeling model organism databases        Statistics                  Feist et al.   Orth et al.   EcoCyc–18.0–GEM
+developing E. coli model derived directly Eco-                                   2007 [5]      2011 [6]
+Cyc bioinformatics database [14].  aimed use       # Genes                           1260          1366                    1445 extensive biochemical literature referenced EcoCyc      # Unique reactions                1721          1863                    2286 develop model improved accuracy pheno-           # Unique metabolites              1039          1136                    1453
+typic prediction, specifically predicting phenotypes   Gene knockout accuracy           91.4          91.3                    95.2  gene knock-outs, predicting growth lack          # PM growth conditions             170             –                     431
+thereof different nutrient conditions.                   PM growth condition              75.9              –                   80.7 
+   Second, sought make model easy           accuracy
+stand operate. goal high level model          # biomass metabolites                65            72                    108
+accessibility readability   tight web-based      Gene knockout prediction accuracy represents simulated growth glucose
+                                                               minimal media aerobic conditions. Reaction metabolite counts
+integration model extensive model query        represent reactions cytosol periplasm, EcoCyc–18.0–GEM
+visualization tools, (b) model representation       does cover porin-mediated diffusion metabolites periplasmic
+                                                               space.
+captures extensive information enriches model aids understanding, metabolic pathways,
+chemical structures, genetic regulatory information.
+                                                                 MetaFlux component Pathway Tools trans-
+Metabolic models just mathematical entities       lates Pathway/Genome Database (PGDB) reactions output predictions; artifacts scientists
+                                                               compounds constraint-based metabolic models. interact multiple ways. model quickly
+                                                               methodology fusing systems-biology models bioin- easily understood, scientists likely trust     formatics databases advantages predictions, model easier reuse, modify
+                                                               strong synergies approaches. Databases extend, learn  validate inspec-
+                                                               models require extensive literature-based cura-
+tion. aspects metabolic model depend strongly
+                                                               tion refinement. efficient perform model represented, software tools
+                                                               curation manner benefits database available interactively inspect model,       model, duplicate curation efforts database
+tightly integrated model software tools.
+                                                               project modeling project. Furthermore, model-
+    sought produce model frequently
+                                                               ing process identifies errors, omissions, inconsisten-
+updated integrate new knowledge E. coli metabolism.      cies description metabolic model,    Fourth, sought use EcoCyc-derived E. coli
+                                                               drives correction curation database metabolic model identify errors EcoCyc, open
+                                                               efforts coupled. 80 Eco-
+problems E. coli biology, performing depth inves-     Cyc updates result comparing model predictions
+tigations disagreements phenotypic
+                                                               experimental data literature work. predictions model experimental results.
+                                                               addition, bioinformatics database curation methods    present EcoCyc–18.0–GEM, constraint-based
+                                                               use evidence codes citations provide
+genome-scale metabolic model E. coli K–12 MG1655
+                                                               data provenance, incorporation mini-review directly derived EcoCyc model organism        summaries enzymes pathways, benefit
+database (http://EcoCyc.org) built genome
+                                                               systems-biology models, typically lack data prove-
+sequence E. coli K–12 MG1655. model imple-
+                                                               nance explanations.
+mented using MetaFlux [15] component Path-
+way Tools software [16].
+                                                               Advances model size. Compared iJO1366,
+Results discussion                                         EcoCyc–18.0–GEM represents 6  increase num- EcoCyc–18.0–GEM generated EcoCyc 18.0                 ber genes, 23  increase number unique
+encompasses 1445 genes, 2286 unique cytosolic              cytosolic periplasmic reactions, 28  increase periplasmic reactions, 1453 unique metabolites.            number unique metabolites. size EcoCyc–
+Table 1 compares statistics EcoCyc–18.0–GEM             18.0–GEM currently exceeded mathe- previous E. coli metabolic models. EcoCyc–18.0–           matically complex model O’Brien et al. [17], GEM advance previous stoichiometric models          includes simulation gene expression, transcriptional E. coli metabolism respects: size;    regulation, protein synthesis.
+accuracy; form, readability accessibility; update frequency. summarize results;         Advances model accuracy. conducted  points expanded subsequent subsections.       phase validation EcoCyc–18.0–GEM assess Weaver et al. BMC Systems Biology 2014, 8:79                                                                   Page 3 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+accuracy  Table 1). phase compared simulated       sets, detailed length Additional file 1
+EcoCyc–18.0–GEM rates nutrient uptake prod-             Additional file 2: Table S1. biomass metabolite
+uct secretion aerobic anaerobic glucose culture         set establishes requirements growth determines experimental rates derived chemostat culture;        growth rate simulation. biomass metabo- performance EcoCyc–18.0–GEM equivalent              lite set EcoCyc–18.0–GEM based iJO1366 previous models. phase II compared essential-         wild-type core biomass reaction sets published ity prediction 1445 genes involved model        Orth et al., revisions stemming differ- experimental gene essentiality datasets; error rate   ences content functionality EcoCyc predicting gene-knockout phenotypes decreased            iJO1366 model. Gene essentiality constraint-based
+46  best previous model. phase III com-         models principally determined biomass demands
+pared nutrient utilization predictions EcoCyc–18.0–         cell. Inclusion metabolite biomass
+GEM 431 experimental nutrient utilization tests;      metabolite set forces genes required manufacture
+accuracy predicting growth respiration dif-       metabolite essential simulation.
+ferent nutrient conditions increased 4.8  previous        wild-type biomass metabolite set, derived
+models number nutrient conditions expanded           measurement biomolecular composition 2.5-fold. investigated conflicts experimental       healthy, growing cells, representative min-
+results predictions EcoCyc–18.0–GEM           imal set biomass metabolites required cell sur- provide extensive discussion conflicts         vival. biomass metabolites truly required context EcoCyc literature.               cell survival generate false simulation predictions   Subjects particular include alternative cat-     essentiality biosynthetic pathways, concept alytic routes capable replacing genes thought         core biomass metabolite set developed Feist et al.
+essential; compounds unclear routes catabolism         core biomass metabolite set biomass metabolite capable supporting growth cellular         set defined aim maintaining quanti-
+respiration; regulatory environmental perturbations        tative accuracy regards cell performance stoichiometric network model; investigations     predicting observed experimental essentiality data  exactly, constitutes gene essentiality.                  accurately possible. work focuses
+                                                               testing minimum requirements cell growth, Advances model form, readability, accessibility.        frequently employed core biomass metabolite set benefit coupling systems-biology models        simulations. use term “expanded biomass set�?
+databases, corresponding advance model,        refer version wild-type biomass metabo- generating constraint-based model database       lite set described Orth et al., wish associated web-based visualization tools leads     imply simulated cells represented literate model  analogy Knuth’s notion literate     wild-type state.
+programming [18]). literate model easy read,       biomass metabolite sets described underwent
+highly accessible understandable scientists.         revisions reflecting differences scope                                                                EcoCyc–18.0–GEM iJO1366. iJO1366 Advances model update frequency.                purpose-built model developed using COBRA Tool-
+MetaFlux component Pathway Tools generates                  box input KEGG, EcoCyc, databases,
+constraint-based models directly EcoCyc               EcoCyc database schema entries
+PGDBs, database refined new cura-            programmatically transformed FBA model.
+tion, refinements automatically incorporated         specific metabolites present iJO1366 newly generated versions model. release         matched specific metabolites
+new versions EcoCyc-based model times             generated EcoCyc MetaFlux year; previous models updated years        basis. biomass metabolites represented dis-
+[4-6]. reasons limit frequency       tinct iJO1366, phosphatidylethanolamines releases order tie defined version     different chain lengths saturations, summed database throughly test accuracy new         heading single representative metabolite
+versions, believe frequent model updates          EcoCyc–18.0–GEM biomass set. Additionally, useful organism important E. coli.            processes covered EcoCyc–18.0–GEM covered
+                                                               iJO1366, reverse true. result, Validation biomass metabolites, nutrients,              biomass metabolite sets differ slightly. Additional file 2:
+secretions                                                     Table S2 contains complete side comparison Refinement EcoCyc–18.0–GEM began vali-             EcoCyc–18.0–GEM iJO1366 biomass metabolite
+dation biomass, nutrient, secretion metabolite      sets, lists differences 
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                    Page 4 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+   constructed standard nutrient sets based culture       Table 2 Flux comparison EcoCyc–18.0–GEM conditions reflecting experiments glucose glycerol        iJO1366: ATP maximization objective aerobic
+minimal media model’s capability use sub-         conditions
+strates. substrates include glucose glycerol        EcoCyc                                             iJO1366
+appropriate, O2 , NH+  4 , phosphate, sulfate, ferrous iron,    Reaction                               Flux        Reaction             Flux
+water, CO2 , minerals appropriate biomass objec-         ATP maximization objective              216        ATPM                  235
+tive function, MOPS buffer (usable sulfur source)
+                                                                Glucose uptake                           10        EX_glc(e)              10 appropriate. passive diffusion high
+                                                                O2 uptake                                60        EX_o2(e)               60
+concentration ammonium used experimental cul-
+ture, NH+  4 supplied directly cytosol (avoiding
+                                                                H2 O production                          60        EX_h2o(e)              60
+false negative essentiality predictions high-affinity   CO2 production                           60        EX_co2(e)              60
+nitrogen transporter amtB), nutrients         ATP synthase*                           176        ATPS4rpp              195 supplied periplasmic space.                          NADH-DEHYDROG RXN                     100        NADH16pp              100
+   Finally, developed large set secreted com-
+                                                                Cytochrome bo oxidase*                   60        CYTBO3_4pp            120
+pounds supplied growth condi-
+                                                                PYRNUTRANSHYDROGEN-RXN                   20        NADTRHD                20
+tions explored model. contains plausible
+products E. coli metabolism dead-end metabo-             GAPOXNPHOSPHN-RXN                        20        GAPD                   20
+lites [19] model. presence absence         ISOCITDEH-RXN                            20        ICDHyr                 20
+metabolites set construed indicate     3PGAREARR-RXN                            20        ENO                    20 presence absence E. coli culture media.             ACONITATEDEHYDR-RXN                      20        ACONTa/b               20
+   verified metabolic reachability compo-
+                                                                PHOSGLYPHOS-RXN                          20        PGK                    20
+nent EcoCyc biomass metabolite set sup-
+                                                                CITSYN-RXN                               20        CS                     20
+plying nutrients representing aerobic glucose minimal
+medium setting production individual            2OXOGLUTARATEDEH-RXN                     20        AKGDH                  20
+metabolite turn optimization goal MetaFlux,        2PGADEHYDRAT-RXN                         20        ENO                    20 repaired gaps means literature-based manual           Succinate dehydrogenase*                 20        SUCDi                  20
+curation EcoCyc expansion relevant metabo-        MALATE-DEH-RXN                           20        MDH                    20
+lite sets.
+                                                                FUMHYDR-RXN                              20        FUM                    20
+                                                                PYRUVDEH-RXN                             20        PDH                    20
+ATP maximization validation confirmed simulations aerobic growth         SUCCOASYN-RXN                            20        SUCOAS                 20
+glucose run maximization ATP production        PGLUCISOM-RXN                            10        PGI                    10
+objective appropriate use glycolytic TCA        Glucose PTS uptake*                      10        GLCptspp               10
+cycle pathways agreed previous work E. coli         TRIOSEPISOMERIZATION-RXN                 10        TPI                    10
+FBA.
+                                                                RXN0-313                                 10        F6PA                   10
+  maximization ATP production aerobic
+                                                                2.7.1.121-RXN                            10        DHAPT                  10
+conditions studied setting ATP consump-
+tion reaction ATP + H2 O → ADP + Pi + H+                 Glucose uptake set 10 mmol/gCDW/hr. nutrient secretion fluxes
+                                                                unbounded. Flux rates reported absolute values clarity. True
+objective function maximized MetaFlux.             iJO1366 fluxes EX_glc(e), EX_o2(e), PGK, PGM, SUCOAS negative
+fluxes resulting maximization ATP produc-           reaction directionality convention. EcoCyc reactions                                                                 identifed EcoCyc frame IDs. remainder marked asterisks,
+tion glucose aerobic conditions compared          frame IDs follows: ATP synthase EcoCyc frame ID: fluxes COBRA Toolbox [20] simulations              TRANS-RXN-249; cytochrome bo oxidase EcoCyc frame ID: RXN0-5268; succinate
+iJO1366 conditions             dehydrogenase EcoCyc frame ID: SUCCINATE-DEHYDROGENASE-UBIQUINONE-
+                                                                RXN; glucose PTS uptake EcoCyc frame ID: TRANS-RXN-157/RXN0-6717/RXN0- largely identical (Table 2). Differences arose vari-    6718; fructose 6-phosphate aldolase EcoCyc frame ID: RXN0-313;
+ances proton translocation stoichiometries           dihydroxyacetone kinase EcoCyc frame ID: 2.7.1.121-RXN. EcoCyc–18.0–GEM version NADH:ubiquinone
+oxidoreductase (NADH-DEHYDROG RXN) (4 H+
+translocated 2 e− , proposed Treberg et al. [21])     EcoCyc summary enzyme. consensus develops iJO1366 version NADH:ubiquinone oxi-             3 H+ 2 e− view translocation stoichiom-
+doreductase (NADH16pp) (3 H+ translocated 2 e− ,            etry, future versions EcoCyc changed reflect proposed Wikstrom Hummer [22]). exact             fact.
+number protons translocated NADH:ubiquinone             numerical differences technical
+oxidoreductase issue open discussion sci-       consideration: EcoCyc cytochrome bo oxidase reaction
+entific literature, uncertainty described    stoichiometry written terms molecules Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                      Page 5 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+oxygen, iJO1366 CYTBO3_4pp written terms                          Table 4 Comparison experimental anaerobic glucose- half-molecules (1 O2 consumed vs. 0.5 O2 ).                                limited chemostat growth data EcoCyc–18.0–GEM
+                                                                              iJO1366 constraint-based model predictions
+Comparison iJO1366 simulation chemostat data                         Anaerobic fluxes                        Experimental        EcoCyc       iJO1366 completing basic validation biomass pro-                         Specific growth rate µ (hr−1 )                      0.30        0.24          0.24
+duction energy generation, maximized rate                          Glucose uptake (mmol/gCDW /hr)                      10.0       10.00         10.00 EcoCyc–18.0–GEM biomass metabolite set production                          O2 uptake                                           0.00        0.00          0.00 minimal media conditions ensured                       NH4 uptake                                                      2.52          0.82 obtained results comparable iJO1366 results                                                                               Sulfate uptake                                                  0.06          0.06 conditions obtained using COBRA Toolbox.
+                                                                              Phosphate uptake                                                0.23          0.22
+Divergences addressed literature-based manual
+                                                                              CO2 production                                                  0.04         -0.08
+curation EcoCyc modification MetaFlux reac-
+tion sets. compared extracellular flux                         H2 O production                                                 -1.92        -1.84
+distributions resulting simulations                       H+ production                                       27.8        27.5
+experimental data obtained carbon-limited chemo-                           Acetate production                                    7.5       8.29          8.23
+stat environments aerobic anaerobic                            Formate production                                  11.3       17.37         17.25
+conditions.                                                                   Succinate production                                  1.2       0.00          0.08
+  Tables 3 4 compare extracellular metabolite flux                        Ethanol production                                    8.7       8.13          8.08
+results derived EcoCyc–18.0–GEM simulation,                              Metabolite uptake production rates units mmol/gCDW/hr. Growth
+iJO1366 simulation, experimental data [23,24]                         units hr−1 . Experimental data [24] [25]. Formate-hydrogen lyase
+                                                                              (FHLMULTI-RXN) left inactive purposes comparison. canonical cases aerobic anaerobic growth glucose-limited chemostat culture. simulations, experimental rate glucose supply fixed
+constraint; nutrients secretions left                      optimal. transition purely anaerobic
+unconstrained.                                                                aerobic domains, competing demands energy
+  behavior MetaFlux/EcoCyc–18.0–GEM simula-                            metabolism redox elimination cause characteristic
+tions similar regards behavior                        pattern mixed acid fermentation described Varma COBRA/iJO1366 simulations. Respiration fermen-                         et al., ethanol, formate, finally acetate
+tation rates scaled nutrient uptake comparable                        production eliminated cell’s oxygen supply
+rates. generally higher rates O2 uptake observed                       completely sufficient support aerobic respira-
+experimentally lend support lower practical efficiency                   tion. Figures 1 2 use Cellular Overview Omics proton translation stoichiometry vivo, aug-                     Popup visualization functionalities Pathway Tools mented respiratory inefficiencies futile cycling                   illustrate behavior EcoCyc–18.0–GEM generation reactive oxygen species. mod-                          transition anaerobicity aerobicity.
+els secrete expected 1:2:1 mix acetate, formate,                          Comparisons FBA-predicted extracellular ethanol anaerobic growth glucose                           fluxes experimental fluxes EcoCyc–18.0–
+Varma et al. [25] originally identified stoichiometrically                 GEM iJO1366 FBA predictions agree closely
+                                                                              experimental flux results,
+Table 3 Comparison experimental aerobic glucose-                           correspondence simulation limited chemostat growth data EcoCyc–18.0–GEM                            experiment quite close experimental fluxes iJO1366 constraint-based model predictions                                consideration. result expected given Aerobic fluxes                       Experimental      EcoCyc     iJO1366
+                                                                              adaptation iJO1366 biomass function use                                                                               EcoCyc–18.0–GEM, use iJO1366 preceding
+Specific growth rate (µ) (1/hr)               0.300       0.272       0.288
+                                                                              reconstructions benchmarks development Glucose uptake (mmol/gCDW /hr)                3.008       3.008       3.008
+                                                                              EcoCyc–18.0–GEM, use EcoCyc refer-
+O2 uptake                                     7.413       6.158       5.703   ence construction iJO1366 predecessors.
+NH4 uptake                                    2.367       2.899       3.021   experimental measurements generally demonstrate
+Sulfate uptake                                            0.067       0.073   higher fluxes respiratory gases O2 CO2 Phosphate uptake                                          0.260       0.267   simulated fluxes, suggesting degree respiratory
+CO2 production                                  7.38      6.850       6.288   inefficiency properly modeled FBA. Similarly,
+H2 O production                                         13.926       13.704   small quantities succinate lactate produced
+H+ production                                             2.454       2.552   experimental fermentation, indicating degree Metabolite uptake production rates units mmol/gCDW/hr. Growth   divergence metabolic optimality vivo. Broader units hr−1 . Experimental data Kayser et al. [23].              cellular constraints regulation, protein crowding,
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                           Page 6 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+ Figure 1 Pathway Tools visualization EcoCyc–18.0–GEM flux aerobic transition. Example visualization EcoCyc–18.0–GEM flux
+ transition anaerobic aerobic growth, created interactive Cellular Overview diagram Pathway Tools. upper bound
+ glucose uptake set 10 mmol/gCDW/hr, upper bound oxygen uptake increased 0 20 mmol/gCDW/hr 2.5
+ mmol/gCDW/hr steps. Omics Popups used illustrate flux acetaldehyde dehydrogenase, pyruvate-formate lyase, phosphoglucose
+ isomerase, glyceraldehyde 3-phosphate dehydrogenase, cis-aconitate hydratase, valine biosynthesis.
+
+
+
+pathway enzyme synthesis requirements, pathway-                        Gene essentiality analysis
+throughput limits underlie differences [17,26,27].                   exciting aspects genome-scale flux
+Successive generations evolution constant                         modeling ability rapidly test computational gene
+growth conditions bring experimental result                      knockouts (KOs) effects metabolic function.
+closer theory, described Ibarra et al. [28].                      Gene KO simulation useful prediction 
+
+
+
+ Figure 2 Pathway Tools visualization mixed-acid fermentation flux aerobic transition. Visualization EcoCyc–18.0–GEM flux  mixed-acid fermentation transition anaerobic aerobic growth, created EcoCyc mixed-acid fermentation pathway page
+ Pathway Tools. upper bound glucose uptake set 10 mmol/gCDW/hr, upper bound oxygen uptake increased 0  20 mmol/gCDW/hr 2.5 mmol/gCDW/hr steps. Omics Popups used illustrate changes flux mixed-acid fermentation products
+ formate, acetate, ethanol cellular energy redox balance evolves aerobic transition.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                           Page 7 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+ validation: silico FBA screens gene KOs         criteria originally defined relative terms Joyce applied variety metabolic engineering efforts     et al., slowest-growing ninth Keio collection
+[29-31], E. coli KO library collections          deletion mutants.
+characterized growth behavior provide important tool          absolute terms, approach treats essential flux model validation.                                     deletion mutants measured Baba et al.    FBA gene KO essentiality prediction depends          OD ≤ 0.091 24 hr growth glucose minimal media,
+types database associations genes chem-         indicates impaired growth shorter period.
+ical reactions: genes products catalyze reactions,       practical difference perspectives genes products reaction substrates (e.g.,        illustrated Figure 3, displays distribution
+acyl-carrier protein). Simulation gene KOs carried         OD600 data rich media-viable Keio collection identifying reactions involving gene,       mutants 24 hr growth MOPS media contain- identifying genes capable catalyzing         ing 0.4  glucose, originally published Supplementary reactions supplying substrates identi-         Table Baba et al. figure illustrates, fied. Reactions isozymes alternative sub-      broad essentiality criteria include population cells
+strate supplies removed FBA             severe growth defects contained stoichiometric network. FBA solution calcu-         narrow essentiality data. comparison narrow
+lated new model. simulated gene KO          broad essentiality criteria expanded glycerol
+caused deletion reactions required          minimal media comparing narrow glycerol essential- synthesis biomass metabolite, generation       ity criteria observed growth rich media biomass metabolite set blocked        glycerol essentiality criteria Orth et al., derived
+FBA simulation returns growth result. result       criteria Joyce et al. involving successive divi-
+represents prediction gene essentiality. com-      sion thirds.
+plete biomass metabolite set produced            order examine criteria experimental gene
+spite simulated gene knockout, FBA simulation       essentiality deeply illustrate effect returns growth result, indicating prediction gene       defining core biomass metabolite set, conducted
+non-essentiality.                                              essentiality testing using expanded core
+   experimental essentiality data used tests    biomass metabolite sets proposed Orth et al. Differ-
+sisted major datasets.  used study gene    ences essentiality predictions data
+essentiality rich glucose minimal media, deletion study Baba et al. [32] updated Yamamoto
+et al. [33], tested Keio collection library 4288 E. coli gene deletion strains growth LB rich
+media MOPS minimal media 0.4  glucose. conducted glycerol minimal media tests using gene knockout essentiality data Joyce et al. [34], expansion study Keio collection essential-
+ity include growth M9 minimal medium 1 
+glycerol.
+   E. coli gene deletions strongly affect growth various types minimal media, nonessen-
+tial growth rich media. FBA simulation
+result treated binary test (growth growth),
+gene deletions strongly affect growth minimal
+media producing completely lethal phenotype defined experimentally essential experimentally nonessential.
+   representative perspectives definition narrow essentiality criteria observable growth minimal media broad essentiality criteria used Orth et al. narrow glucose essentiality criteria treat      Figure 3 Essentiality criteria basis high-throughput KO data. essential Baba et al. Yamamoto et al. gene         Histogram OD600 measurements rich media-viable Baba
+deletion mutants OD600 ≤ 0.005 24 48 hr          et al. deletion mutants 24 hr growth MOPS media
+                                                                containing 0.4  glucose. Data Supplementary Table growth glucose minimal media. requires 
+                                                                Baba et al.
+ceptible growth long period. broad essentiality
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                        Page 8 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+sets illustrated differences standard cell                              Table 6 Comparison experimental gene essentiality
+composition nominal conditions minimal                                results computational EcoCyc–18.0–GEM results composition required cell growth.                                               aerobic growth MOPS medium 1  glycerol
+   simulated single gene KOs glucose glycerol                             KO growth glycerol (sim/exp)                BC             NC      NE
+minimal media 1445 genes EcoCyc–18.0–GEM                                 True positive (growth/growth)                1165     1124      1195   1154 test resulting EcoCyc–18.0–GEM gene                                  False positive (growth growth)              58          63     28     35
+deletion mutants capable generating core                                                                                     False negative  growth/growth)              22          63    102    143
+expanded biomass metabolite sets sets nutrients
+based experimental culture media Baba et al.                              True negative  growth growth)           200         195    120    113 Joyce et al. Gene KO simulations capable generat-                            Table 5 caption description column headings.
+ing growth scored nonessential, gene KOs blocking generation biomass metabolite                              situations considerable development
+set scored essential.                                                       EcoCyc reference, examined greater
+   compared results simulated essentiality                           case growth glucose, reference screen experimental gene essentiality results based                            E. coli literature. examination covered types narrow broad gene essentiality criteria. Incor-                         incorrect gene deletion growth predictions. rect essentiality predictions addressed literature-                         type false positive growth prediction. genes,
+based manual curation EcoCyc modification                                 experimentally essential conditions
+MetaFlux metabolite sets. Final essentiality prediction                             tested Baba et al., predicted nonessential results curation summarized Tables 5 glu-                          EcoCyc–18.0–GEM. second type false negative
+cose 6 glycerol. overall accuracy prediction                         growth prediction. genes, experi- growth glucose core biomass metabo-                                 mentally essential conditions tested Baba
+lite set broad essentiality criteria 1375/1445                              et al., predicted essential EcoCyc–18.0–
+(95.2  accuracy, 99.0  sensitivity, 77.5  specificity).                         GEM.
+prediction growth glycerol simu-                                  Tables 7, 8, 9, 10, 11 12 present broad categories
+lation conditions, overall accuracy prediction                           incorrect gene deletion predictions EcoCyc–18.0–
+1365/1445 (94.5  accuracy, 98.1  sensitivity, 77.5  speci-                          GEM. Table 7 cover false predictions involving open ques-
+ficity). Sensitivity refers percentage gene                          tions E. coli biology, false predictions resulting deletions resulting growth correctly identified                         interesting facets experimental simulation meth- simulation, specificity refers percentage                        ods, situations special relevance. Table 8
+gene deletions resulting growth correctly                            covers false predictions core glycolytic, pentose phos-
+identified simulation.                                                           phate, Entner-Doudoroff, TCA cycle metabolism.
+   Tables 5 6 illustrate gene essentiality pre-                        highly interconnected region E. coli metabolism
+dictions EcoCyc–18.0–GEM differed number                                 contains isozymes opportunities reversibil-
+cases gene essentiality conclusions generated                              ity, presents challenge FBA essentiality pre- high-throughput gene KO screening.                                 dictions absence complete regulatory model-
+                                                                                    ing. Table 9 cover false predictions result
+                                                                                    unmodeled regulation gene expression enzyme
+Table 5 Comparison experimental gene essentiality                                activity. Genes repressed Baba et al. experimen-
+results computational EcoCyc–18.0–GEM results                              tal growth conditions, insufficiently expressed isozymes,
+aerobic growth MOPS medium 0.4  glucose
+                                                                                    cases enzyme inhibition fall category.
+KO growth glucose (sim/exp)                  BC               NC        NE    Table 10 covers situations essentiality conclu-
+True positive (growth/growth)                 1175      1136      1204      1164    sions high-throughput essentiality screen differed
+False positive (growth growth)                58        64        29        36   significantly essentiality conclusions False negative  growth/growth)                12        51        78      118    E. coli K–12 literature. Table 11 covers false gene essen-
+                                                                                    tiality predictions relating systems scope True negative  growth growth)            200       194       134       127
+                                                                                    EcoCyc–18.0–GEM’s biomass objective function. Finally, comparisons provided — gene essentiality evaluated regard (B)road (N)arrow experimental essentiality criteria, regard                                                                                     Table 12 covers false gene essentiality predictions (C)ore biomass metabolite set maximizes accuracy essentiality           result MetaFlux EcoCyc technical problems
+predictions (E)xpanded biomass metabolite set reflecting              discovered course study.
+experimental measurements healthy cells. results comparisons arranged based correspondence simulation experiment:                false gene essentiality predictions
+(1) true positive (simulation predicts growth, experiment shows growth),            described tables discussed work
+(2) false positive (simulation predicts growth, experiment shows respiration),
+(3) false negative  simulated growth, experiment shows respiration),                                                                                     Kim Copley, examined essentiality 
+(4) true negative  simulated growth, experiment shows respiration).           clusions Baba et al. E. coli core metabolism Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                              Page 9 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 7 False gene essentiality predictions resulting open questions E. coli biology gene essentiality
+Gene       HT      Sim      Conv       Citations           Comments
+argD       +        –         +        [35,36]             EcoCyc lists argD enzyme capable carrying N-succinyldiaminopimelate
+                                                           aminotransferase reaction lysine biosynthesis. Cox Wang [35] demonstrate second,
+                                                           far unidentified enzyme ArgD catalyze DapC reaction. argD discussed [36].
+cysC        –       +         –        [5,32,34,37,38]     Gene essentiality sulfate utilization pathway bypassed cysIJ experiments [32],
+cysH        –       +         –                            conducted MOPS buffer capable used sulfur source ssuEADCB
+cysN        –       +         +                            alkanesulfonate desulfonation sulfite. Joyce et al. [34] use MOPS-free M9 buffer                                                            consequently shows cysADQUW essentiality sulfate uptake. MOPS desulfonation
+                                                           explanation data [32] complicated fact sulfite MOPS bypass
+                                                           cysNDCH assimilatory sulfate reduction pathway. Instead, deletions fall                                                            near broad essentiality criteria [5]; cysN barely broad essentiality criteria (OD600
+                                                           0.088 24 hr) cysD just (OD600 0.104 24 hr) cysCH deep cutoff.
+                                                           propose explanation based inactivation ssu pathway transcriptional regulator
+                                                           Cbl binding adenosine 5’-phosphosulfate (APS), product CysND sulfate
+                                                           adenylyltransferase [37,38]. cysND mutants express ssu pathway able better
+                                                           support growth MOPS catabolism. cysCH mutants produce APS extracellular sulfate,
+                                                           leading Cbl inactivation APS binding, repression ssu, weaker growth.
+dapF       +        –         +        [36,39,40]          EcoCyc lists dapF enzyme capable converting LL-diaminopimelate                                                            meso-diaminopimelate lysine biosynthesis, [39] demonstrates dapF null mutants grow
+                                                           unsupplemented glucose minimal media. dapF described [36].
+dut         –       +         –        [41,42]             NudI MazG substitute Dut activity EcoCyc–18.0–GEM. NudI Km                                                            dUTP-consuming reaction shared Dut mM range. MazG activity 70  inhibited                                                            MazEF toxin-antitoxin  [42]. el-Hajj et al. [41] discuss Dut greater length.
+folB       +        –        N       [32,34,43]          folB reported nonessential [32], essential [34], despite obvious reason                                                            differential essentiality glucose glycerol. Haussmann et al. [43] studied enzyme did
+                                                           construct deletion mutant test glucose minimal media; attempt                                                            unknown. folB upstream genes reported essential [32] folate biosynthesis
+                                                           pathway, including folK, folC, folA, possibly folP  .
+folP        –       –        N       [32,33,44,45]       knowledge, clear folP hemE null mutant test glucose minimal
+hemE        –       –        N                           media. folP deletion mutant grows poorly rich media according [45]. folP hemE gene
+                                                           duplications preventing observation null phenotype [32] identified [33,36]                                                            genes described uncertain essentiality [33]. Genes uncertain essentiality [33]
+                                                           partial duplication isolates considered nonessential [44],                                                            tested culture growth rich Antibiotic Medium 3 medium containing beef extract opposed                                                            LB agar [33]. broad essentiality criteria [6], genes uncertain essentiality                                                            [33] considered nonessential. EcoCyc–18.0–GEM supports conclusion essentiality                                                            folP hemE.
+ftsW        –       +         –        [46-50]             clear FtsW, MurJ, carry lipid II flippase activity E. coli. murJ        –       +         –                            listed references additional information topic.
+kdsC        –       +         +        [51-53]             kdsC upstream essential genes kdsB waaA CMP-KDO biosynthesis pathway.
+                                                           Sperandeo et al. [51] suggeststhat isozymes KdsC’s 3-deoxy-D-manno-octulosonate
+                                                           8-phosphate phosphatase activity exist. Nonspecific phosphatase activity carry
+                                                           reaction. [52,53] subject CMP-KDO requirements E. coli temperature
+                                                           sensitivity.
+pabC       +        –         –        [32,34,36,54]       Green et al. [54] report PABA, product pabC, required growth minimal media
+                                                            carbon source used media described) establishes                                                            copy gene exists E. coli. PabC upstream enzymes reported essential [32]                                                            pathway. Kim Copley [36] hypothesize nutrient carryover rich culture lack                                                            essentiality [32]. pabC nonessential M9 glycerol medium [34].
+Cases EcoCyc–18.0–GEM essentiality predictions differed experimental gene-essentiality results aerobic growth MOPS medium 0.4  glucose, posed open biological questions highlight metabolic network interactions particular EcoCyc–18.0–GEM. Certain genes deserve investigation experimental community; highlight interesting aspects essentiality testing. Kim Copley [36] discussed genes, remain open issues literature. text additional details. Column headings follows: HT: High-throughput experiment (loose essentiality criteria [6]). Sim: Simulation. Conv: Conventional experiment. Column entries follows: –: experiments, deletion mutant recovered testing, tested did grow 0.091 OD600 24 hr, isolates duplications. simulations, FBA biomass flux zero.
++: high-throughput experiments, deletion mutant tested showed growth greater 0.091 OD600 24 hr. conventional experiments,
+growth observed. simulations, FBA biomass flux positive. N  Information available deletion mutant glucose minimal media. example, argD essential data [32] according broad essentiality criteria [6], EcoCyc–18.0–GEM predicts nonessential.
+
+
+
+reference current state EcoCyc. Constraint-                            et al. examined COBRA family based model improvement gap-filling based gene                                 constraint-based models E. coli metabolism Reed
+essentiality predictions derived work Baba                                et al. [140], Kumar et al. [141], Kumar Maranas
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                            Page 10 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 8 False gene essentiality predictions glycolytic TCA cycle metabolism
+Gene       HT      Sim       Conv       Citations          Comments
+aceE        +       +          –        [32,36,55-57]      Baba et al. [32] observe aceE null mutant growth OD600 0.353 (nonessential), aceF null mutant
+aceF        –       +          –                           growth OD600 0.091  line loose essentiality), lpd null mutant growth OD600 0.061
+lpd         –       +          –                           (loose essential). Langley Guest [55] observe pyruvate dehydrogenase complex essentiality                                                            [56,57] discuss context poxAB; [36] suggest mutants overexpressing pyruvate oxidase
+                                                           allow growth glucose.
+
+eno         –       +          –        [36,58,59]         Hillman Fraenkel [58] gapA essentiality [59] describes eno/gapA/pgk
+gapA        –       +          –                           essentiality. Null mutants enzymes suffer glucose toxicity glucose
+pgk         –       +          –                           catabolite repression carbon utilization pathways. [36].
+
+icd         –       +          –        [32,36,60-67]      EcoCyc–18.0–GEM icd deletion mutants grow condensation propionyl-CoA glyoxylate
+                                                           2-hydroxyglutarate [60,61], oxidation 2-hydroxyglutarate 2-oxoglutarate LhgO [66].
+                                                           icd broadly essential minimal glucose media [32]. icd deletion mutants require glutamate
+                                                           [62,63] grow LB [64,65], [67] reports growth M9 minimal media.
+                                                           [36].
+
+fbaA        –       +          –        [36,68-71]         class fructose bisphosphate aldolase fbaB listed isozyme fbaA EcoCyc,                                                            expressed gluconeogenic conditions [68,69]. Use fsa/dhaK pathway [70,71]                                                            substitute fbaA appears blocked results [32] lowered dhaK expression E. coli
+                                                           operational phosphotransferase systems. effects fbaA deletion discussed [36].
+
+gltA        –       +          –        [36,72,73]         PrpC, 2-methylcitrate synthase propionate utilization pathway, isozyme GltA
+                                                           citrate synthase. prpC conditionally expressed presence propionate. Discussed [36,73].
+
+pfkA        –       +          –        [32,36,74,75]      pfkA pfkB listed isozymes 6-phosphofructokinase reaction, PfkB activity                                                            insufficient allow strong growth vivo absence pfkA according [74]. pfkA loosely
+                                                           essential (OD600 0.087) [32]. [36] [75], indicate pfkA pfkB                                                            deleted block growth.
+
+ppc         –       +          +        [32,76,77]         Peng et al. [76] demonstrate growth ppc deletion mutants detectable Ppc activity M9
+                                                           glucose minimal media. ppc grows rich media narrowly essential minimal glucose
+                                                           conditions high-throughput assay [32]. EcoCyc–18.0–GEM ppc deletion mutants grow                                                            activation glyoxylate shunt, agreement observations [76]. Patrick et al. [77]
+                                                           identified overexpression osmoregulatory regulator EcfM uncharacterized
+                                                           protein YccT capable rescuing ppc deletion mutants.
+
+tpiA        +       +          –        [32,36,78,79]      Kim Copley [36] tpiA essentiality based methylglyoxal formation tpiA null
+                                                           mutants, tpiA nonessentiality result [32] based methylglyoxal pathway-expressing
+                                                           mutants [78,79]. available pathway options navigating route glucose TCA cycle make superpathway glycolysis, pentose phosphate pathway Entner-Doudoroff pathway. modeling regulation, product inhibition, metabolite toxicity, multiple entry points superpathway reversible nature pentose phosphate pathway allow carbon flux route deletions weak growth. EcoCyc–18.0–GEM consequently produces false positive results pathways. set genes previously discussed length [36]. aceE tpiA genes identified essential Figure [36] judged nonessential [32] consequently [6], predicted nonessential EcoCyc–18.0–GEM, nonessentiality
+conclusions appear incorrect based conventional experiments described literature, included table. converse true ppc, considered essential high-throughput experiments, essential conventional experiment. Table 7 caption description column headings.
+
+
+
+
+[142], Barua et al. [143], Orth Palsson [73,144],                             Nutrient utilization analysis
+Tervo Reed [145]. revisions EcoCyc–18.0–                                   Observation culture growth various nutrient sources
+GEM included manual application subset Grow-                                  foundation microbiology [146]. EcoCyc 18.0 
+Match [142] gap-filling methods, specifically resolution                              tains information E. coli respiration 428 types of false positive gene essentiality predictions associated                            media, including 22 conventional types minimal growth blocked genes false negative results associated                              media 383 Biolog Phenotype Microarray (PM) wells. secretion metabolites. essentiality prediction                            383 Biolog PM media conditions represent high-
+accuracy resulting manual curation process                                throughput method evaluating metabolic phenotypes
+similar accuracy resulting applying                              culture based tetrazolium dye assay cellular res-
+GrowMatch algorithm iAF1260 model.                                             piration. Biolog 96 PM plate contains
+  Additional file 2: Table S3 provides detailed listings                              standard minimal media composition plus nutrient essentiality status model predictions, including                             source varied PM plate, element
+breakdown gene essentiality prediction status crite-                            supplied varying nutrient source dependent ria used.                                                                             type Biolog PM plate use [147-149].
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                            Page 11 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 9 False gene essentiality predictions resulting isozymes pathways operational experimental
+conditions Baba et al.
+Gene     HT    Sim     Conv     Citations      Comments
+aroE     –      +        –      [80,81]        ydiB encodes isozyme AroE shikimate dehydrogenase EcoCyc. Johansson                                                Liden [81] suggest NAD+ /NADP+ specificity YdiB high intracellular NAD+
+                                               concentrations lead operate “reversed�? shikimate dehydrogenase direction, opposed
+                                               biosynthetic direction chorismate.
+      –      +        –      [82]           cynT, carbonic anhydrase cyn cyanate degradation operon, encodes isozyme                                                carbonic anhydrase reaction EcoCyc. cynT conditionally expressed presence cyanate,
+                                               absent [32] minimal media conditions.
+
+folA     –      +        –      [83,84]        folM, 7,8-dihydromonapterin reductase tetrahydromonapterin biosynthesis pathway                                                weak 7,8-dihydrofolate reductase activity, encodes isozyme FolA dihydrofolate reductase
+                                               reaction EcoCyc. folM insufficiently expressed vivo supply E. coli growth requirements                                                tetrahydrofolate.
+
+folD     –      +        –      [85]           10-formyl-tetrahydrafolate formation folD shortcircuited EcoCyc–18.0–GEM purN’s
+                                               reversible phosphoribosylglycinamide formyltransferase activity. PurN’s kcat substantially higher
+                                               forward direction reverse direction vitro, vivo reversibility                                                enzyme uncertain.
+
+glyA     –      +        –      [77,86,87]     threonine dehydrogenase Tdh 2-amino-3-ketobutyrate CoA ligase Kbl provide serA     –      +        –                     alternate, threonine-based route glycine synthesis serine GlyA serine
+                                               hydroxymethyltransferase. tdh kbl control Lrp leucine repressor 
+                                               conditionally expressed presence leucine, absent [32] minimal media
+                                               conditions. Patrick et al. [77] determined overexpression Tdh, LtaE low-specificity
+                                               threonine aldolase, YneH glutaminase, Rsd anti-sigma factor led rescue glyA deletion
+                                               mutants, YneH capable rescuing serA null mutants.
+guaB     –      +        –      [88]           guaB essential growth glucose [32], [88] indicates guaB mutants require
+                                               guanine growth. EcoCyc, nucleotide salvage pathways allow degradation IMP                                                inosine, subsequent conversion inosine xanthine XapA/DeoD XdhA, finally
+                                               conversion xanthine XMP Gpt.
+
+ilvA     –      +        –      [77,89]        threonine dehydratase TdcB acts isozyme IlvA threonine deaminase EcoCyc.
+                                               tdcB expressed anaerobic conditions. Patrick et al. [77] identified TdcB EmrD
+                                               multidrug efflux transporter overexpression capable rescuing ilvA deletion mutants.
+
+lipB     –      +        –      [90]           lipoyl-carrier protein N6 -octanoyl-L-lysine intermediate lipoate synthesis produced
+                                               LipB LplA EcoCyc. LplA primarily involved assimilation extracellularly
+                                               sourced lipoate. [90] details.
+metC     –      +        –      [77,91-93]     MalY’s β-cystathionine lyase activity listed isozyme MetC EcoCyc. malY involved
+                                               complex regulatory interactions, expression repressed malI WT strains.                                                appropriate signaling, malY expressed. Patrick et al. [77] rescued metC deletion mutants                                                MalY, Alr alanine racemase, FimE phase-variation switch regulator overexpression.
+
+metL     –      +        –      [36,94]        E. coli’s aspartokinases, ThrA, MetL, LysC, isozymes aspartokinase reaction thrA     –      +        –                     EcoCyc. end-product inhibition enzymes prevent aspartokinase gene
+                                               KOs rescued isozymes, adequate amino acid pools pathways                                                remaining isozymes inhibit activity. Kim Copley [36] suggest metL                                                expressed glucose.
+nrdA     –      +        –      [95]           NrdDE ribonucleoside diphosphate reductase acts isozyme NrdAB ribonucleoside
+nrdB     –      +        –                     diphosphate reductase EcoCyc. nrdDE expressed anaerobic conditions.
+pdxB     –      +        –      [77,96,97]     EcoCyc–18.0–GEM overcome deletion serC pdxB using thrB/ltaE route serC     –      +        –                     glycolaldehyde (produced FolB formed spontaneously 3-hydroxypyruvate supplied
+                                               YeaB) production 4-phospho-hydroxy-threonine subsequently pyridoxal-5’-
+                                               phosphate [96,97]. Replacement serC pdxB pathways requires overexpression                                                thrB yeaB/nudL, growth overexpression reported solid media [97],                                                assays [32] conducted liquid media. Patrick et al. [77] rescued pdxB deletion mutants
+                                               Tdh threonine dehydrogenase PurF amidophosphoribosyl transferase overexpression,                                                serC deletion mutants YneH glutaminase overexpression.
+
+prs      –      +        –      [32,98-100]    PRPP biosynthesis II pathway substitute prs deletion EcoCyc–18.0–GEM. pathway
+                                               based connection ribose 5-phosphate DeoB phosphomutase PhnN
+                                               ribose 1,5 bisphosphokinase activity putative ribose 1-phosphokinase activity [98,99]. PhnN                                                phn operon, [99,101] expression repressed 2 mM phosphate glucose
+                                               minimal media conditions used [100].
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                           Page 12 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 9 False gene essentiality predictions resulting isozymes pathways operational experimental
+conditions Baba et al. (Continued)
+serB        –         +         –        [77,102]           EcoCyc–18.0–GEM overcome deletion serB synthesizing serine threonine Tdh
+                                                            reversible action GlyA. Ravnikar Somerville [102] isolated pseudorevertants containing
+                                                            elevated levels Tdh ser deletions following growth media supplemented threonine,
+                                                            leucine, arginine, lysine, methionine followed growth minimal media. Patrick et al. [77]
+                                                            additionally identified overexpression Gph, HisB, YtjC phosphatases capable rescuing
+                                                            serB deletion mutants.
+False KO predictions caused presence isozymes able catalyze reaction model, regulated media
+conditions [32] reasons unlikely substitute knocked enzyme vivo. MetaFlux does model regulation, assumes enzymes active. Table 7 caption description column headings.
+
+
+  evaluated performance EcoCyc–18.0–GEM                                      Conventional media compositions growth results predicting growth following available datasets:                           drawn literature. Aerobic Biolog PM nutri-
+(1) aerobic E. coli growth 22 common conven-                                  ent utilization assay results compiled tional minimal growth media; (2) consensus estimates                                 different datasets captured EcoCyc: (1) respiration based different experimentalists’                             experiments; (2) dataset obtained B. Bochner;
+                                                                                     recent publications (3) AbuOun et al.
+measurements aerobic Biolog 96 plates PM1–4,
+                                                                                     [150] (4) Yoon et al. [151]. Anaerobic Biolog PM
+representing 313 conflict-free growth observations;                                                                                      nutrient utilization assay results obtained B.
+(3) anaerobic Biolog PM1 plate assay surveying carbon                             Bochner. did include data Baumler et al.
+source utilization absence oxygen, representing                            analysis Biolog PM results varia-
+96 anaerobic growth observations. Biolog PM data stored                              tion culture conditions high degree conflict EcoCyc measures utilization nutrients sources                               datasets aerobic anaerobic carbon (PM1–2), nitrogen (PM3), sulfur (PM4),                                 conditions [152]. Methods section additional
+phosphorus (PM4).                                                                    details.
+
+
+Table 10 Genes EcoCyc–18.0–GEM predictions identified likely errors high-throughput essentiality
+screening, EcoCyc–18.0–GEM predictions confirmed conventional essentiality experiments
+Gene       HT       Sim       Conv       Citations              Comments
+alsK        –        +         N       [32,103,104]           circumstances leading gene’s essentiality [32] uncertain. Kim et al. 1997
+                                                                [103] Poulsen et al. 1999 [104] demonstrate alsK required growth allose,
+                                                                demonstrate growth glycerol minimal media. Poulsen et al. [104] constructed alsK
+                                                                null mutants transposon insertions, demonstrating alsK required allose
+                                                                catabolism, renamed gene yjcT. alsK/yjcT listed essential rich media (LB) [32].
+
+aroD        +        –          –        [32,36,105,106]        Baba et al. [32] suggest aroD null mutant grow glucose minimal media, [105]
+                                                                established E. coli K–12 aroD mutants require aromatic amino acids growth.
+                                                                discussion [36] reference [106].
+
+atpB        –        +          +        [73,107,108]           von Meyenburg et al. [107] demonstrate growth strains lacking intact ATP synthase atpC        –        +          +                               glucose fermentable carbon source minimal media, reduced growth rates.
+atpE        –        +          +                               Growth atp null mutants discussed [73,108].
+cydA        –        +          +        [73,109-114]           Green Gennis [109] demonstrate aerobic growth cyd mutants glucose minimal
+cydC        –        +          +                               media use cytochrome bo. references discussion redundancy                                                                 E. coli cytochromes operation cytochrome bd  Discussed [73].
+ptsH        –        +          +        [77,115-121]           Steinsiek Bettenbrock [120] Escalante et al. [121] review glucose uptake E. coli
+ptsI        –        +          +                               mutant strains glucose PTS defects. references additional details. Patrick et al.
+                                                                [77] identified overexpression FucP fucose transporter, XylE xylose transporter, GalE
+                                                                UDP-glucose 4-epimerase capable rescuing ptsI deletion mutants.
+spoT        –        +          +        [73,122-126]           spoT − mutants grow slowly glucose minimal media [122,123]. Absence SpoT ppGpp
+                                                                hydrolase activity leads high levels ppGpp, inversely correlated growth
+                                                                rate [126]. references additional details. Discussed [73].
+
+ubiA        –        +          +        [127,128]              Cox et al. [127] constructed ubiquinone-free mutants K–12 capable growth ubiD        –        +          +                               fermentable substrates including glucose. Wu et al. [128] constructed ubiA null mutants
+ubiE        –        +          +                               capable growing minimal media containing fermentable carbon sources.
+waaU        –        +          +        [129,130]              Essentiality glucose minimal media clearly determined. Klena et al. [129]
+                                                                constructed waaU null mutants demonstrated viability rich media, contradiction
+                                                                determination essentiality rich media [32]. Table 7 caption description column headings.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                        Page 13 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 11 False gene essentiality predictions genes representing systems scope EcoCyc–18.0–GEM
+biomass function
+Gene       HT         Sim     Conv        Citations        Comments
+der         –         +         –         [131-133]        Der essential maintenance 50S ribosomal subunit stability. Der’s GTPase activity regulates
+                                                           specificity interactions ribosomal subunit. Regulatory GTPase activities,                                                            Der, current scope EcoCyc–18.0–GEM.
+
+mrdA        –         +         –         [134,135]        MrdA FtsI, referred penicillin-binding proteins 2 3, essential cell division
+ftsI        –         +         –                          maintenance cell shape. Ogura et al. [135] determined mrdA essential K–12,                                                            [134] determined ftsI essential. Modeling unique roles mrdA ftsI                                                            current scope EcoCyc–18.0–GEM.
+
+suhB        –         +         –         [136]            Wang et al. [136] studied suhB null mutants, exhibit cold-sensitive phenotype, reported
+                                                           unable grow 30°C, grew 42°C. Growth studied 37°C,                                                            described. Heat cold sensitivity current scope EcoCyc–18.0–GEM.
+Examples systems include cold response cell envelope maintenance. EcoCyc GEM biomass function expanded incorporate operation systems future versions. Table 7 caption description column headings.
+
+
+
+
+Table 12 False gene essentiality predictions caused technical issues MetaFlux EcoCyc
+Gene             HT             Sim               Comments
+bioB              –               +               Lipoate biosynthesis final step biotin biosynthesis operational EcoCyc–18.0–GEM birA              –               +               reaction mass imbalances EcoCyc 18.0. leads presence dethiobiotin instead biotin lipA              –               +               objective function, prevents biotinylation biotin carboxyl carrier protein.
+
+entD              –               +               EntDEFG activity active EcoCyc–18.0–GEM EntD presence individual EntE,
+                                                  EntF, EntG activity EcoCyc addition activity describing overall EntDEFG complex,                                                   leads entD knockouts ineffective.
+
+entD              –               +               EntDEFG activity active EcoCyc–18.0–GEM EntD presence individual EntE,
+                                                  EntF, EntG activity EcoCyc addition activity describing overall EntDEFG complex,                                                   leads entD knockouts ineffective.
+
+fdx               –               +               IspG reaction EcoCyc MEP pathway incorrectly requires ferredoxin (encoded fdx) instead                                                   flavodoxin [137].
+
+iscS              –               +               IscS cysteine desulfurase lacks chemical structure EcoCyc, preventing participation thiazole
+thiL              –               +               biosynthesis iron-sulfur cluster synthesis. affects thiL essentiality blocking thiazole synthesis                                                   rendering EcoCyc–18.0–GEM unable synthesize thiamin. exogenous thiamin contamination                                                   experiments [32]  [73]; note thiL apparently mislabeled thiI  omission
+                                                  manifests itself incorrect prediction thiL nonessentiality, endogenous exogenous
+                                                  thiamin pathways substitute knockouts final thiamin monophosphate kinase
+                                                  activity ThiL.
+
+metE              –               +               MetaFlux does correctly model polymerization reactions, prevents synthesis                                                   5-methyltetrahydropteroyl tri-L-glutamate folate polyglutamylation. turn prevents MetE’s
+                                                  cob alamin-independent methionine synthase reaction operating properly.
+
+metH              +               –               MetH’s cob alamin-dependent methionine synthase activity does currently require cob alamin
+                                                  cofactor EcoCyc–18.0–GEM cofactor requirements accounted enzymatic reactions.
+                                                  MetE inoperational result lack folate polyglutamylation  , incorrectly
+                                                  operational MetH methionine synthase reaction essential. ambiguity remedied                                                   future versions MetaFlux.
+
+ndk               +               –               ndk falsely predicted essential UDP kinase dTDP kinase activities provide routes
+                                                  EcoCyc UTP dTTP, respectively. vivo, ndk null mutants rescued broad substrate specificity
+                                                  adk [36,138].
+
+pyrI              +               –               catalytic subunit PyrB aspartate transcarbamylase PyrBI active itself vitro [139]. PyrBI
+                                                  complex catalyzes physiologically regulated reaction, reaction assigned PyrBI
+                                                  complex EcoCyc. causes pyrI gene KO simulation block PyrBI aspartate transcarbamylation
+                                                  activity entirely.
+
+trxB              +               –               activity glutaredoxin pathway substitute thioredoxin pathway E. coli, vice versa.
+                                                  ability properly modeled EcoCyc–18.0–GEM result pathways’ structure EcoCyc. technical issues addressed future versions MetaFlux EcoCyc. Table 7 caption description column headings.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                   Page 14 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+   Growth given type media tested                            structures substrates reaction X, X chem-
+structing simulated MetaFlux nutrient sets corresponding                        ically balanced?�?  metabolic pathway(s) reaction contents media question comparing                          X member  adjacent reactions?�?
+EcoCyc–18.0–GEM growth predictions experimen-                               E. coli enzymes inhibited ADP?�?  tal growth results. absence enterobactin                          transcriptional regulators affect expression iron uptake modeling EcoCyc, Fe3+ medium                          enzymes reaction X?�? ability answer replaced Fe2+ . Anaerobic simulations prepared                        questions rapidly accurately strongly dependent identically performed aerobic growth,                       model representation, software tools available removal oxygen nutrient set, inclusion                      querying visualizing representation, tightness formate-hydrogen lyase reaction, removal                         tools integrated model, protoheme pyridoxal 5’-phosphate synthesis                           presence additional enriching information requirement biomass.                                                   model.
+   Literature-based EcoCyc curation appropriate mod-                           Existing E. coli models represented spreadsheet
+ifications MetaFlux metabolite sets used                             files SBML files, making tedious impossible
+address incorrect nutrient utilization predictions.                         non-programmers answer preceding questions
+final results PM array validation curation                        directly files. SBML files listed Table 13. Overall accuracy growth predic-                          imported software tools RAVEN Tool-
+tion aerobic Biolog PM assays 252/313 (80.5 ),                          box [181] rbionet [182], practice approach 70 assays evaluated experimental                        limited variations SBML encodings, flicts  Methods section). Anaerobic Biolog PM                           effort required install integrate multiple software
+assay predictions overall accuracy 74/96 (77.1 ).                     tools disparate capabilities, limited visual-
+Aerobic growth tests conventional minimal media                              ization capabilities tools. fundamentally,
+contained EcoCyc overall accuracy 22/22                            previous E. coli models capture  SBML
+(100.0 ).                                                                       capture) additional enriching information     overall accuracy nutrient utilization prediction                      required mathematical operation model, aerobic anaerobic PM conventional                            greatly enhances ability validate understand growth media 348/431 (80.7 ). Tables 14, 15, 16                          model, answer preceding questions. Examples
+17 provide detailed discussions false negatives                          enriching information present EcoCyc–18.0–
+false positives aerobic PM assays. Tables results                    GEM metabolite chemical structures, arrangements anaerobic PM assays conventional growth media                           reactions metabolic pathways, gene regulatory
+available Additional file 2: Tables S8 S9, respec-                       information. Note introducing ad-hoc definitions tively.                                                                         data (e.g., pathways) SBML “Notes�? field,                                                                                 introducing SBML links external databases, Model readability accessibility                                             considered bounds: pathways cap-
+Scientists naturally need ask questions                              tured formally SBML specification today, metabolic model,  chemical                               guarantee regarding interoperability software tools
+                                                                                ad-hoc data.
+Table 13 EcoCyc–18.0–GEM nutrient utilization prediction                           EcoCyc–18.0–GEM highly understandable results                                                                         interactively queried visualized Nutrient utilization       Aerobic PM      Anaerobic PM       Conventional
+                                                                                EcoCyc web site desktop Pathway Tools soft-
+(sim/exp)                                                                       ware, supports visualization metabolic path-
+                                                                                ways reaction diagrams; metabolite pages depict
+True positive                       137                 35                17
+(growth/growth)                                                                 metabolite structures reactions metabolite                                                                                 involved  depiction gene/reaction connections False positive                        15                14                  0
+(growth growth)                                                              genome organization genome browser; naviga-
+                                                                                tion E. coli gene regulatory network; 
+False negative                        46                  8                 0
+ growth/growth)                                                              structing structured queries  reactions
+                                                                                given metabolite; enzymes utilizing given
+True negative                       115                 39                  5
+ growth growth)                                                           cofactor; presentation text summaries cita-
+                                                                                tions explain support aspects model.
+Aerobic PM: 313 absolute consensus results Biolog Phenotype Microarray
+carbon, nitrogen, sulfur, phosphorus source tests (Biolog plates PM1–4)     general, tools metabolic model visualiza-
+conducted aerobic conditions. Anaerobic PM: 96 Biolog Phenotype           tion tend comprehensive, Microarray carbon source tests (Biolog plates PM1–4) conducted anaerobic conditions. Conventional: 22 E. coli minimal growth media described
+                                                                                closely coupled model; [183-186] recent EcoCyc.                                                                      reviews.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                           Page 15 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 14 Conflicts EcoCyc–18.0–GEM growth predictions experimental carbon source utilization data aerobic growth Biolog PM plates 37°C
+Carbon source                          HT      Sim   Comments
+Dextrins                               +        –    General dextrin uptake catabolism glg described EcoCyc,                                                      applied dextrins EcoCyc–18.0–GEM MetaFlux’s current inability model
+                                                     polymerization reactions.
+
+Lactulose                              +        –    Lactulose taken MelB melibiose transporter [153], route uptake
+                                                     present EcoCyc. Lactulose capable inhibiting LacY transport o-nitrophenyl-β-
+                                                     D-galactopyranoside [154], anaerobically fermented E. coli [155], route
+                                                     catabolism unknown.
+
+Methyl-α-D-galactopyranoside           +        –    Methyl-α-D-galactopyranoside taken MelB melibiose transporter [153],                                                      capable inhibiting LacY transport o-nitrophenyl-β-D-galactopyranoside [154]. route
+                                                     catabolism unknown.
+
+Methyl-β-D-galactoside                 +        –    Methyl-β-D-galactoside taken MglABC transporter MelB transporter,                                                      catabolic pathway unknown. capable inhibiting LacY transport o-nitrophenyl-
+                                                     β-D-galactopyranoside [154], reported substrate LacZ [156]. Inside cell,
+                                                     methyl-β-D-galactoside acetylated LacA galactoside acetyltransferase [157],                                                      fate unclear.
+
+Methyl pyruvate                        +        –    Methyl pyruvate competitive inhibitor active pyruvate transport [158].                                                      route uptake methyl pyruvate present EcoCyc, route catabolism                                                      unknown.
+
+Melibionate                            +        –    compounds’ route uptake unknown.
+1-O-methyl-β-D-glucuronate             +        –
+3-O-β-D-galactopyranosyl-D-arabinose   +        –
+Methyl D-lactate                       +        –
+Mono-methyl hydrogen succinate         +        –
+L-galactono-1,4-lactone                +        –    route uptake unknown; catabolized ring opening L-galactonate,
+                                                     D-galactono-1,4-lactone.
+
+Meso-tartrate                          +        –    PM experiments indicate meso-tartrate used carbon source E. coli,                                                      contradiction reports [159] [160]. meso-tartrate associated                                                      L/D-tartrate uptake processes EcoCyc.
+Bromosuccinate                         +        –    Bromosuccinate described literature irreversible inhibitor aspartate
+                                                     transcarbamylase [161] taken pathways aspartate. route
+                                                     uptake present EcoCyc.
+
+2-hydroxybutyrate                      +        –    route uptake unknown.
+Citrate                                –       +     strains E. coli use citrate carbon source aerobic conditions                                                      lack transporter expression [162]; citrate/succinate antiporter CitT expressed                                                      anaerobic conditions, cosubstrate required generate reducing power                                                      form succinate [163]. MetaFlux does currently model gene regulation.
+
+Putrescine                             –       +     nitrogenous compounds used carbon sources high-nitrogen
+4-aminobutyrate                        –       +     conditions Biolog PM carbon source assay, given lack Ntr-mediated expression
+Ornithine                              –       +     catabolic pathways [164]. MetaFlux does currently model gene regulation.
+L-arginine                             –       +     Arginine used carbon source E. coli K–12 absence                                                      induction transport [165,166]. MetaFlux does currently model gene regulation.
+
+Cellobiose                             –       +     Cellobiose used carbon source E. coli K–12 inability abolish
+                                                     repression ChbABC chitobiose/cellobiose PTS permease NagC [167,168].
+                                                     MetaFlux does currently model gene regulation.
+
+Glycine                                –       +     Biolog PM experiments employing glycine carbon source return consensus growth
+                                                     result, EcoCyc–18.0–GEM predicts glycine used carbon source                                                      assimilation 5,10-methyltetrahydrofolate glycine cleavage                                                       wasteful pathway, producing CO2 molecule 5,10-THF glycine molecule
+                                                     taken  information conventional growth experiments assaying ability
+                                                     E. coli K–12 use glycine carbon source.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                    Page 16 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 14 Conflicts EcoCyc–18.0–GEM growth predictions experimental carbon source utilization data aerobic growth Biolog PM plates 37°C (Continued)
+D-tartrate                    –                +               D-tartrate does support growth aerobic conditions experiments [160].                                                                uses anaerobic TtdT transporter EcoCyc–18.0–GEM; DcuB transporter                                                                correct route entry D-tartrate anaerobic conditions [159].
+
+Ethanolamine                  –                +               E. coli requires source cob alamin catabolism ethanolamine                                                                adenosylcobalamin-dependent ethanolamine ammonia-lyase [169-172]. MetaFlux does                                                                currently model enzyme cofactor requirements.
+Column headings follows: <Element> Source: Nutrient source test. HT: High-throughput experiment. Sim: Simulation. Column entries follows:
++: Nutrient support growth. –: Nutrient support growth. example, D-fructose supports growth according consensus experimental aerobic
+Biolog PM assays recorded EcoCyc, EcoCyc–18.0–GEM predicts does support growth.
+
+
+
+
+  reaction fluxes computed EcoCyc–18.0–GEM                               databases. provides comprehensive genome-scale cov- understandable previous E.                               erage E. coli metabolic network, represent-
+coli models EcoCyc–18.0–GEM fluxes                                 ing gene function unprecedented degree immediately painted EcoCyc Cellular Overview,                            accuracy. zoomable diagram complete metabolic map E.                              Integration EcoCyc–18.0–GEM EcoCyc
+coli allows immediate visual inspection flux pat-                         database gives investigators working model
+terns. software tools exist visualizing                        access Pathway Tools bioinformatics data
+flux patterns metabolic networks, e.g., RAVEN                              visualization suite. allows construction complex
+Toolbox, unlikely easily usable previ-                        database queries involving range biochemical
+ous E. coli models. example, RAVEN Toolbox requires                           entities E. coli, visualization pathways user manually construct metabolic network                            reactions model change diagram, days weeks effort.                         course construction. EcoCyc, EcoCyc–18.0–
+trast, Pathway Tools generates metabolic map diagrams                             GEM receive frequent updates remain abreast algorithmically PGDB.                                                      recent research developments.
+                                                                                    process EcoCyc–18.0–GEM construction                                                                                   validation resulted 80 updates EcoCyc.
+Conclusions                                                                       included expansion revision periplasmic
+EcoCyc–18.0–GEM demonstrates advantages                                    phosphatase activities updates sugar transport
+literate modeling based comprehensive organism                                 phosphotransferase modeling; correction 
+
+
+Table 15 Conflicts EcoCyc–18.0–GEM growth predictions experimental nitrogen source utilization data aerobic growth Biolog PM plates 37°C
+Nitrogen source          HT       Sim    Comments
+Guanine                   +        –     Guanine used nitrogen source E. coli [173,174] vivo, degradation does proceed past
+                                         allantoin. EcoCyc–18.0–GEM able use guanine source ammonia means glucose deamination                                          immediate excretion xanthine urate.
+
+5-aminopentanoate         +        –     Routes uptake catabolism unknown 5-aminopentanoate glucuronamide.
+Glucuronamide             +        –
+
+Ethanolamine              –       +      E. coli requires source cob alamin catabolism ethanolamine adenosylcobalamin-dependent
+                                         ethanolamine ammonia-lyase [169-172]. MetaFlux does currently model enzyme cofactor requirements.
+
+Allantoin                 –       +      Anaerobic conditions required E. coli use allantoin nitrogen source [175]. MetaFlux does currently
+                                         model gene regulation.
+
+Nitrate                   –       +      Nitrate nitrite pass nitrate nitrite reductase pathways, operate anaerobic
+Nitrite                   –       +      conditions function assimilatory fashion E. coli [176-178].
+
+L-tyrosine                –       +      E. coli lacks catabolic aromatic amino acid transaminase, preventing utilization L-tyrosine nitrogen
+                                         source; path utilization EcoCyc–18.0–GEM involves tyrosine lyase used thiazole biosynthesis
+                                         followed spontaneous dissociation 2-iminoacetate glyoxylate ammonium, biologically
+                                         realistic production large quantities dead-end metabolites 5’-deoxyadenosine p-cresol. Table 14 caption description column headings.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                 Page 17 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+Table 16 Conflicts EcoCyc–18.0–GEM growth predictions experimental sulfur source utilization data aerobic growth Biolog PM plates 37°C
+Phosphorus source                       HT        Sim      Comments
+dTMP                                     +         –       dTMP, GMP, thymidine 3’-monophosphate, thiophosphate substrates periplasmic
+Thiophosphate                            +         –       nonspecific phosphatases PhoA AphA, enzymatic reactions covering metabolites
+                                                           added course EcoCyc development. phosphorylated metabolites                                                            associated individual phosphatases, pathways utilization subject
+                                                           future research.
+
+3-phospho-D-glycerate                    +         –       route phosphorus uptake sources unknown. catabolic pathways
+2-phosphoglycolate                       +         –       phosphorylated metabolites exist EcoCyc, route phosphorus uptake α-D-mannose 1-phosphate                  +         –       involve nonspecific dephosphorylation.
+
+Glucosamine-6-phosphate                  +         –
+6-phospho-D-gluconate                    +         –
+O-phospho-D-tyrosine                     +         –
+O-phospho-D-serine                       +         –
+N-phospho-L-arginine                     +         –
+Trimetaphosphate                         +         –
+2-deoxy-D-glucose 6-phosphate            +         –
+Creatine-phosphate                       +         –
+Dithiophosphate                          +         – Table 14 caption description column headings.
+
+
+
+incorrect compartment assignments; fixes L-lactate                           removal incorrect reactions gene-protein
+dehydrogenase action; revisions glutathione hydrol-                           relationships; numerous fixes reaction reversibility
+ysis; new transport reactions compounds identified                           directionality; compound class reassign- nutrient sources Biolog PM testing; addition                           ments correct issues reaction instantiation; mass MOPS catabolism alkanesulfonate pathway;                              rebalancing reactions; revisions ATP
+
+
+Table 17 Conflicts EcoCyc–18.0–GEM growth predictions experimental sulfur source utilization data aerobic growth Biolog PM plates 37°C
+Sulfur source                  HT      Sim       Comments
+L-methionine                    +        –       Methionine related compounds enable respiration Biolog PM assays supplied sulfur
+D-methionine                    +        –       source. route catabolism present EcoCyc, methionine considered support sulfur
+N-acetyl-DL-methionine          +        –       requirements E. coli [179]. result suggests investigation.
+Gly-Met                         +        –
+L-cystathionine                 +        –
+L-methionine S-oxide            +        –
+
+L-cysteine                      +        –       L/D-cysteine lack clear pathways uptake EcoCyc–18.0–GEM. problem subject future
+D-cysteine                      +        –       EcoCyc development.
+
+Thiophosphate                   +        –       PhoA activity thiophosphate added future versions EcoCyc.
+
+Djenkolate                      +        –       route uptake unknown. Catabolism proceed MetC [180].
+Lanthionine                     +        –
+
+3-sulfinoalanine                +        –       route uptake unknown. SufS CsdA convert 3-sulfinoalanine alanine sulfite.
+
+Cysteamine                      +        –       Routes uptake catabolism cysteamine, dithiophosphate, hypotaurine, tetrathionate, Dithiophosphate                 +        –       thiourea unknown.
+Hypotaurine                     +        –
+Tetrathionate                   +        –
+Thiourea                        +        – Table 14 caption description column headings.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                  Page 18 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+synthase proton stoichiometry. updates          sri.com/ptools/. simulation tests constructed
+lined Additional file 2: Table S11.                        using Lisp scripting Pathway Tools Lisp API,
+   MetaFlux software improved          documented http://brg.ai.sri.com/ptools/api/. result FBA validation EcoCyc. improve-        details construction EcoCyc–18.0–GEM ments include upgrades compartmentalization han-           Additional file 1.
+dling, gene deletion code, electron transfer reac-          EcoCyc–18.0–GEM development employed tion handling. MetaFlux solution log files      MetaFlux component Pathway Tools, documented updated contain additional statistical information     Pathway Tools User’s Guide [15]. simula-
+provide detailed explanation metabolic net-     tions run solving mode 2.7 GHz i7 MacBook
+work construction process user. Numerous updates       Pro 16 GB RAM. “minimize-fluxes: yes�? option revisions MetaFlux model E. coli      used taxicab norm minimization fluxes. introduced effort. Biomass metabolite sets    additional information, Pathway Tools User’s revised reflect work Orth et al.,     Guide. MetaFlux .fba file demonstrating simulation additional updates basis val-    aerobic growth E. coli BW25113 glucose included
+idation process order create accurate final    Additional file 3.
+product possible.                                               note choice stoichiometric representa-
+   questions E. coli modelers         tion equations affect flux balance solutions experimentalists raised course EcoCyc–         minimization summed flux used objec-
+18.0–GEM development. highlighting questions         tive function; [187] details. Stoichiometric presenting context EcoCyc         coefficients EcoCyc–18.0–GEM scaled reference database, address interests general   provide minimum integer stoichiometry. Applica-
+metabolic modeling audience E. coli experimen-         tion different scaling flux network lead
+talists interested using models explore results   altered flux solutions. generate new leads research. summarize         Briefly, MetaFlux creates stoichiometric metabolic
+questions                                                flux network run time metabolites    Experimental measurements respiratory fluxes         reactions contained Pathway Tools PGDB. glucose-fed aerobic chemostat culture higher         network construction, MetaFlux removes PGDB reac- predicted simulation, small quantities suc-   tions  ambiguously instantiated  ;
+cinate lactate generated experimental anaerobic    unbalanced having undetermined balance state;
+fermentations, suggesting interesting vivo deviations      disconnected network; marked physiologi- theoretical silico optimality.                        cally irrelevant; involved polymerization; involved    small number metabolic byproducts             polymer segment protein modification; lacking sub-
+removed directly cytosol secretion set        strates  containing substrate entities lack known salvage excretion pathways.     described strings; possessed variable stoichiom- fate metabolites                  etry; 10,000 permutations    incorrect essentiality predictions associ-     checked instantiation. MetaFlux instanti-
+ated unclear cellular biomass requirements, path-        ates reactions containing compound classes, replacing ways potential alternate routes catalysis, uncer-     class reactions mass-balanced reactions containing
+tain determinations essentiality glucose minimal        instances relevant compound classes. resulting
+media, ambiguous missing gene function. Sim-           set metabolites reactions constitutes metabolic
+ilarly, nutrient utilization predictions identified    flux network operated MetaFlux. Enzymatic reac-
+number compounds lack clear pathways entry         tion gene-protein relationship data encoded metabolism capable supporting respiration     PGDB used associate reactions network growth. Resolution uncertainties        enzymes genes appropriate.
+improve understanding E. coli function varying        COBRA [20,188] simulations iJO1366 E. coli
+environments.                                                 genome-scale reconstruction employed order
+                                                              validate EcoCyc FBA simulations pro-
+Methods                                                       vide point comparison existing reference mod- data used project obtained Eco-        els. iJO1366 simulations performed using Cyc version 18.0, bioinformatics flux analysis    COBRA Toolbox 5.0.0 MATLAB R2010a procedures documented performed           cobrapy 0.2 Python 2.7.6. iJO1366 simu- Web desktop environment Pathway Tools           lations used taxicab norm minimization fluxes 18.0 software. Pathway Tools downloaded,         described documentation optimizeCbModel documentation example files, http://brg.ai.       function.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                     Page 19 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+   Biomass metabolite sets constructed using          simulation. simulations nutrient utilization
+wild-type core biomass sets Orth et al. modi-       scored according growth growth, exper-
+fied according research findings experimental       imental Biolog PM results indicating ‘normal’ ‘low’
+data gene essentiality. ATP turnover require-           respiration combined ‘positive’ result. ment growth-associated maintenance costs (GAM)             majority Biolog PM tests (313/383) displayed  set 53.95 mmol ATP/gCDW, ATP                  sensus respiration respiration turnover requirement non-growth-associated mainte-         experimental datasets used. 70 383 cases, nance costs (NGAM) set 3.15 mmol ATP/gCDW,              clear consensus reached. divergent cases Orth et al.                                                omitted nutrient-utilization assay valida-
+   coefficients biomass metabolite set represent    tion reliable conclusion reached
+millimoles (mmol) metabolite required gram         regarding results. Additional file 2: Table S10 cell dry weight (gCDW). Coefficients nutrient        list omitted PM data. metabolite sets represent specific uptake output
+fluxes, millimoles metabolite supplied gram     Additional files cell dry weight hour (mmol/gCDW/hr). overall
+biomass flux 1.0 represents specific growth rate      Additional file 1: Supplementary information text table
+μ 1.0 hr−1  new gram cell dry weight gram         descriptions. cell dry weight hour).                                   Additional file 2: Supplementary tables (11 tables).
+   Aerobic glucose chemostat data experimental com-         Additional file 3: MetaFlux .fba file demonstrating simulation parisons obtained [23]. Anaerobic glucose             aerobic growth E. coli BW25113 glucose.
+chemostat data obtained [24] [25].
+   protocols followed PM experiments            Competing interests
+                                                               DSW, IMK, PDK receive fees SRI International commercial licensing follows: PM plates 1–4 containing 190 sole carbon           Pathway Tools.
+sources, 95 sole nitrogen sources, 59 sole phosphate
+sources 35 sole sulfur sources used anal-     Authors’ contributions
+                                                               PDK DSW conceived designed experiments. DSW constructed ysis. E. coli MG1655 obtained Yale Coli           model conducted simulations. DSW analyzed data. IMK,  Genetic Stock Center, pre-grown nutrient agar           DSW curated database. DSW PDK wrote manuscript. ITP
+used inoculate plates following Biolog instruc-         performed phenotype microarray experiments. authors read approved
+                                                               final manuscript.
+tions. data collected analyzed using OmniLogH PM  records color change             Acknowledgements 15 min 96 assay plates.    authors like thank Mario Latendresse Markus Krummenacker
+                                                               MetaFlux development support, Larry Reitzer calling incubations performed 37°C 48 hr.         attention problem dapC essentiality. work supported complete details PM assay conditions, refer   award number U24GM077678 National Institute General Medical original publications.                                     Sciences. content article solely responsibility authors
+                                                               does necessarily represent official views National Institute    PM nutrient-source assay assay respiration     General Medical Sciences National Institutes Health.
+based generation NADH carbon metabolism subsequent reduction tetrazolium redox dye        Author details
+                                                               1 Bioinformatics Research Group, SRI International, 333 Ravenswood Ave., NADH.  does directly measure          94025 Menlo Park, CA, USA. 2 Department Chemistry Biomolecular cell growth simulated FBA biomass objectives         Science, Macquarie University, Balaclava Rd, North Ryde NSW 2109, Australia. uptake noncarbon sources.  checkpoint
+                                                               Received: 22 March 2014 Accepted: 19 June 2014
+linkage carbon-source catabolism nitrogen, phos-         Published: 30 June 2014
+phorus, sulfur source catabolism enables tetra-
+zolium redox dye assay probe metabolism non-         References
+                                                               1.   Orth JD, Thiele  Palsson BØ: flux balance analysis? Nat
+carbon sources [189]. Bochner describes phenomenon              Biotechnol 2010, 28(3):245–248. checkpoint linkage starvation elemental nutri-       2.   Thiele  Palsson BØ: protocol generating high-quality
+ent source leading arrest cellular respiration,           genome-scale metabolic reconstruction. Nat Protoc 2010,
+                                                                    5(1):93–121. redox imbalance alarmone synthesis.             3.   Edwards J, Palsson BØ: Escherichia coli MG1655 silico
+fore compared PM respiration results directly FBA              metabolic genotype: definition, characteristics, capabilities.
+growth simulation.                                                  Proc Natl Acad Sci U S 2000, 97:5528–5533.
+                                                               4.   Reed JL, Vo TD, Schilling CH, Palsson BØ: expanded genome-scale
+   Biolog PM results stored EcoCyc database          model Escherichia coli K-12 (iJR904 GSM/GPR). Genome Biol 2003, accessible Pathway Tools API EcoCyc             4(9):54.
+website. Individual Biolog PM assay scores       5.   Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,
+                                                                    Broadbelt LJ, Hatzimanikatis V, Palsson BØ: genome-scale metabolic compared experimental datasets estab-                reconstruction Escherichia coli K–12 MG1655 accounts lish consensus comparison EcoCyc–18.0–GEM                1260 ORFs thermodynamic information. Mol Syst Biol 2007, 3:121.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                      Page 20 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+6.    Orth JD, Conrad TM, Na J, Lerman JA, Nam H, Feist  Palsson BØ:           29.   Milne CB, Kim PJ, Eddy JA, Price ND: Accomplishments       comprehensive genome-scale reconstruction Escherichia coli                       genome-scale silico modeling industrial medical
+      metabolism — 2011. Mol Syst Biol 2011, 7:535.                                       biotechnology. Biotechnol J 2009, 4(12):1653–16570.
+7.    Majewski RA, Domach MM: Simple constrained-optimization view               30.   Gianchandani EP, Chavali AK, Papin JA: application flux
+      acetate overflow E. coli. Biotechnol Bioeng 1990, 35(7):732–738.                 balance analysis systems biology. WIREs Syst Biol Med 2010,
+8.    Varma  Boesch BW, Palsson BØ: Biochemical production capabilities                 2(3):372–382.
+      Escherichia coli. Biotechnol Bioeng 1993, 42(1):59–73.                     31.   Lee JW, Na D, Park JM, Lee J, Choi S, Lee SY: Systems metabolic
+9.    Varma  Palsson BØ: Metabolic capabilities Escherichia coli:                  engineering microorganisms natural non-natural
+      synthesis biosynthetic precursors cofactors. J Theor Biol 1993,              chemicals. Nat Chem Biol 2012, 8:536–546.
+      165(4):477–502.                                                               32.   Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, Datsenko KA,
+10.   Pramanik J, Keasling JD: Stoichiometric model Escherichia coli                   Tomita M, Wanner BL, Mori H: Construction Escherichia coli K–12
+      metabolism: incorporation growth-rate dependent biomass                          frame, single-gene knockout mutants: Keio collection. Mol
+      composition mechanistic energy requirements. Biotechnol                         Syst Biol 2006, 2(2006):0008.
+      Bioeng 1997, 56(4):398–421.                                                   33.   Yamamoto N, Nakahigashi K, Nakamichi T, Yoshino M, Takai Y, Touda Y,
+11.   Oberhardt MA, Palsson BØ, Papin JA: Applications genome-scale                    Furubayashi  Kinjyo S, Dose H, Hasegawa M, Datsenko KA, Nakayashiki
+      metabolic reconstructions. Mol Syst Biol 2009, 5:320.                               T, Tomita M, Wanner BL, Mori H: Update collection 12.   Lewis NE, Nagarajan H, Palsson BØ: Constraining metabolic                       Escherichia coli single-gene deletion mutants. Mol Syst Biol 2009,
+      genotype-phenotype relationship using phylogeny silico                      5:335.
+      methods. Nat Rev Microbiol 2012, 10(4):291–305.                               34.   Joyce AR, Reed JL, White  Edwards R, Osterman  Baba T, Mori H,
+13.   McCloskey D, Palsson BØ, Feist  Basic applied uses                        Lesely SA, Palsson BØ, Agarwalla S: Experimental computational
+      genome-scale metabolic network reconstructions Escherichia                       assessment conditionally essential genes Escherichia coli.
+      coli. Mol Syst Biol 2013, 9:661.                                                    J Bacteriol 2006, 188(23):8259–8271.
+14.   Keseler IM, Mackie  Peralta-Gil M, Santos-Zavaleta  Gama-Castro S,        35.   Cox RJ, Wang PSH: N-acetylornithine aminotransferase real
+      Bonavides-Martinez C, Fulcher C, Huerta  Kothari  Krummenacker                 N-succinyl-LL-diaminopimelate aminotransferase Escherichia
+      M, Latendresse M, Muniz-Rascado L, Ong Q, Paley S, Schroder  Shearer              coli Mycobacterium smegmatis? J Chem Soc, Perkin Trans 2001,
+      AG, Subhraveti P, Travers M, Weerasinghe D, Weiss V, Collado-Vides J,               1:2006–2008.
+      Gunsalus RP, Paulsen  Karp PD: EcoCyc: fusing model organism                36.   Kim J, Copley S: metabolic enzymes essential       databases systems biology. Nucleic Acids Res 2013,                             nonessential growth Escherichia coli K–12 glucose.
+      41(Database issue):605–612.                                                         Biochemistry 2007, 46(44):12501–12511.
+15.   Latendresse M, Krummenacker M, Trupp M, Karp PD: Construction             37.   van der Ploeg JR, Eichhorn E, Leisinger T: Sulfonate-sulfur metabolism
+      completion flux balance models pathway databases.                           regulation Escherichia coli. Arch Microbiol 2001, 176:1–8.
+      Bioinformatics 2012, 28:388–396.                                              38.   Bykowski T, van der Ploeg JR, Iwanicka-Nowicka R, Hryniewicz MM: 16.   Karp PD, Paley SM, Krummenacker M, Latendresse M, Dale JM, Lee T,                   switch inorganic organic sulphur assimilation Escherichia
+      Kaipa P, Gilham F, Spaulding  Popescu L, Altman T, Paulsen  Keseler             coli: adenosine 5’-phosphosulphate (APS) signalling molecule
+      IM, Caspi R: Pathway Tools version 13.0: integrated software                    sulphate excess. Mol Microbiol 2002, 43(5):1347–1358.
+      pathway/genome informatics systems biology. Brief Bioinform               39.   Richaud C, Higgins W, Mengin-Lecruelx D, Stragier P: Molecular
+      2010, 11:40–79 doi:10.1093/bib/bbp043.                                              cloning, characterization, chromosomal localization dapF,
+17.   O’Brien EJ, Lerman JA, Chang RL, Hyduke DR, Palsson BØ: Genome-scale                Escherichia coli gene diaminopimelate epimerase. J Bacteriol
+      models metabolism gene expression extend refine                          1987, 169(4):1454–1459.
+      growth phenotype prediction. Mol Syst Biol 2013, 9:693.                       40.   Mengin-Lecruelx D, Michaud C, Richaud C, Blanot D, van Heijenoort J:
+18.   Knuth  Literate programming. Comput J 1984, 27(2):97–111.                        Incorporation LL-diaminopimelic acid peptidoglycan 19.   Mackie  Keseler IM, Nolan L, Karp PD, Paulsen  Dead end                        Escherichia coli mutants lacking diaminopimelate epimerase
+      metabolites — defining known unknowns E. coli                            encoded dapF. J Bacteriol 1988, 170(5):2031–2039.
+      metabolic network. PLoS 2013, 8(9):75210.                                 41.   el-Hajj HH, Zhang H, Weiss B: Lethality dut (deoxyuridine
+20.   Schellenberger J, Que R, Fleming RM, Thiele  Orth JD, Feist  Zielinski         triphosphatase) mutation Escherichia coli. J Bacteriol 1988,
+      DC, Bordbar  Lewis NE, Rahmanian S, Kang J, Hyduke DR, Palsson BØ:                170(3):1069–1075.
+      Quantitative prediction cellular metabolism                           42.   Gross M, Marianovsky  Glaser G: MazG - regulator programmed
+      constraint-based models: COBRA toolbox v2.0. Nat Protoc 2011,                   cell death Escherichia coli. Mol Microbiol 2006, 59(2):590–601.
+      6:1290–1307.                                                                  43.   Haussmann C, Rohdich F, Schmidt E, Bacher  Richter G: Biosynthesis
+21.   Treberg JR, Brand MD: model proton translocation                           pteridines Escherichia coli. Structural mechanistic
+      mechanism complex  JBC 2011, 286(20):17579–17584.                              similarity dihydroneopterin-triphosphate epimerase 22.   Wikstrom M, Hummer G: Stoichiometry proton translocation                      dihydroneopterin aldolase. J Biol Chem 1998, 273(28):17418–17424.
+      respiratory complex mechanistic implications. PNAS 2012,            44.   Kato J, Hashimoto M: Construction consecutive deletions       109(12):4431–4436.                                                                  Escherichia coli chromosome. Mol Syst Biol 2007, 3:132.
+23.   Kayser  Weber J, Hecht V, Rinas U: Metabolic flux analysis               45.   Fermer C, Swedberg G: Adaptation sulfonamide resistance       Escherichia coli glucose-limited continuous culture.                           Neisseria meningitidis required compensatory changes
+      growth-rate-dependent metabolic efficiency steady state.                         retain enzyme function: kinetic analysis dihydropteroate
+      Microbiology 2005, 151:693–706.                                                     synthases N. meningitidis expressed knockout mutant 24.   Belaich  Belaich JP: Microcalorimetric study anaerobic                     Escherichia coli. J Bacteriol 1997, 179(3):831–837.
+      growth Escherichia coli: growth thermograms synthetic                 46.   Inoue  Murata Y, Takahashi H, Tsuji N, Fujisaki S, Kato J: Involvement
+      medium. J Bacteriol 1976, 72:497–499.                                               essential gene, mviN, murein synthesis Escherichia coli.
+25.   Varma  Boesch BW, Palsson BØ: Stoichiometric interpretation                    J Bacteriol 2008, 190(21):7298–7301.
+      Escherichia coli glucose catabolism various oxygenation                 47.   Ruiz N: Bioinformatics identification MurJ (MviN)       rates. Appl Environ Microbiol 1993, 59(8):2465–2473.                                peptidoglycan lipid II flippase Escherichia coli. PNAS 2008,
+26.   Zhuang K, Vemuri GN, Mahadevan R: Economics membrane                             105(21):15553–15557.
+      occupancy respiro-fermentation. Mol Syst Biol 2011, 7:500.                48.   Mohammadi T, van Dam V, Sijbrandi R, Vernet T, Zapun  Bouhss 
+27.   van Hoek MJA, Merks RMH: Redox balance key explaining vs.                MD-d Bruin, Nguyen-Disteche M, Kruijff B, Breukink E: Identification
+      partial switching low-yield metabolism. BMC Syst Biol 2012, 6:22.                FtsW transporter lipid-linked cell wall precursors 28.   Ibarra RU, Edwards JS, Palsson BØ: Escherichia coli K-12 undergoes                  membrane. EMBO J 2011, 30(8):1425–1432.
+      adaptive evolution achieve silico predicted optimal growth.             49.   Jermy  Bacterial physiology: flipping lipids. Nat Rev Microbiol 2011,
+      Nature 2002, 420:186–189.                                                           9(5):314.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                    Page 21 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+50.   Butler EK, Davis RM, Bari V, Nicholson PA, Ruiz N: Structure-function       72.   Gerike U, Hough DW, Russell NJ, Dyall-Smith ML, Danson MJ: Citrate
+      analysis MurJ reveals solvent-exposed cavity containing                      synthase 2-methylcitrate synthase: structural, functional       residues essential peptidoglycan biogenesis Escherichia coli.              evolutionary relationships. Microbiology 1998, 144(4):929–935.
+      J Bacteriol 2013, 195(20):4639–4649.                                        73.   Orth JD, Palsson B: Gap-filling analysis iJO1366 Escherichia coli
+51.   Sperandeo P, Pozzi C, Deho G, Polissi  Non-essential kdo                        metabolic network reconstruction discovery metabolic
+      biosynthesis new essential cell envelope biogenesis genes                  functions. BMC Syst Biol 2012, 6:30.
+      Escherichia coli yrbG-yhbG locus. Res Microbiol 2006,                   74.   Kotlarz D, Garreau H, Buc H: Regulation       157(6):547–558.                                                                   activity phosphofructokinases pyruvate kinases 52.   Mamat U, Meredith TC, Aggarwal P, Kuhl  Kirchoff P, Lindner B,                  Escherichia coli. Biochim Biophys Acta 1975, 381(2):257–268.
+      Hanuszkiewicz  Sun J, Holst O, Woodard RW: Single amino acid              75.   Lovingshimer MR, Siegele D, Reinhart GD: Construction       substitutions YhjD MsbA confer viability                          inducible, pfkA pfkB deficient strain Escherichia coli       3-deoxy-d-manno-oct-2-ulosonic acid-depleted Escherichia coli.                    expression purification phosphofructokinase bacterial
+      Mol Microbiol 2008, 67(3):633–648.                                                sources. Protein Expr Purif 2006, 46:475–482.
+53.   Klein G, Lindner B, Brabetz W, Brade H, Raina S: Escherichia coli, K–12     76.   Peng L, Arauzo-Bravo MJ, Shimizu K: Metabolic flux analysis ppc
+      suppressor-free mutants lacking early glycosyltransferases                    mutant Escherichia coli based 13C-labelling experiments
+      late acyltransferases: minimal lipopolysaccharide structure                   enzyme activity assays intracellular metabolite
+      induction envelope stress response. J Biol Chem 2008,                          measurements. FEMS Microbiol Lett 2004, 235(1):17–23.
+      284(23):15369–151389.                                                       77.   Patrick WM, Quandt EM, Swartzlander DB, Matsumura  Multicopy
+54.   Green JM, Merkel WK, Nichols BP: Characterization sequence                 suppression underpins metabolic evolvability. Mol Biol Evol 2007,
+      Escherichia coli pabC, gene encoding aminodeoxychorismate                     24(12):2716–2722.
+      lyase, pyridoxal phosphate-containing enzyme. J Bacteriol 1992,           78.   Ferguson GP, Totemeyer S, MacLean MJ, Booth  Methylglyoxal
+      174(16):5317–5323.                                                                production bacteria: suicide survival? Arch Microbiol 1998,
+55.   Langley D, Guest JR: Biochemical genetics α-keto acid                      170(4):209–219.
+      dehydrogenase complexes Escherichia coli K–12: Isolation             79.   Fong SS, Nanchen  Palsson BØ, Sauer U: Latent pathway activation
+      biochemical properties deletion mutants. J Gen Microbiol 1977,                 increased pathway capacity enable Escherichia coli adaptation
+      99:263–276.                                                                       loss key metabolic enzymes. J Biol Chem 2006,
+56.   Chang YY, Cronan JE: Mapping nonselectable genes Escherichia                   281(12):8024–8033.
+      coli using transposon Tn10: location gene affecting
+                                                                                  80.   Michel G, Roszak AW, Sauve V, Maclean J, Matte  Coggins JR, Cygler M,
+      pyruvate oxidase. J Bacteriol 1982, 151(3):1279–1289.
+                                                                                        Lapthorn AJ: Structures shikimate dehydrogenase AroE 57.   Abdel-Hamid  Attwood MM, Guest JR: Pyruvate oxidase
+                                                                                        paralog YdiB. common structural framework different
+      contributes aerobic growth efficiency Escherichia coli.
+                                                                                        activities. J Biol Chem 2003, 278(21):19463–19472.
+      Microbiology 2001, 147:1483–1498.
+                                                                                  81.   Johansson L, Liden G: Transcriptome analysis shikimic acid
+58.   Hillman JD, Fraenkel DG: Glyceraldehyde 3-phosphate
+                                                                                        producing strain Escherichia coli W3110 grown carbon-
+      dehydrogenase mutants Escherichia coli. J Bacteriol 1975,
+                                                                                        phosphate-limited conditions. J Biotechnol 2006, 126(4):528–545.
+      122(3):1175–1179.
+59.   Irani M, Maitra PK: Properties Escherichia coli mutants deficient     82.   Guilloton MB, Lamblin AF, Kozliak EI, Gerami-Nejad M, Tu C, Silverman D,
+      enzymes glycolysis. J Bacteriol 1977, 132(2):398–410.                          Anderson PM, Fuchs JA: physiological role cyanate-induced
+60.   Reeves HC, Ajl SJ: Alpha-hydroxyglutaric acid synthetase. J Bacteriol             carbonic anhydrase Escherichia coli. J Bacteriol 1993,
+      1962, 84:186–187.                                                                 175(5):1443–1451.
+61.   Wegener WS, Reeves HC, Ajl SJ: Heterogeneity                         83.   Howell EE, Foster PG, Foster LM: Construction dihydrofolate
+      glyoxylate-condensing enzymes. J Bacteriol 1965, 90(3):594–598.                   reductase-deficient mutant Escherichia coli gene
+62.   Helling RB, Kukora JS: Nalidixic acd-resistant mutants Escherichia             replacement. J Bacteriol 1988, 170(7):3040–3045.
+      coli deficient isocitrate dehydrogenase. J Bacteriol 1971,               84.   Pribat  Blaby IK, Lara-Núñez  Gregory JF3rd, Crécy-Lagard V,
+      105(3):1224–1226.                                                                 Hanson AD: FolX FolM essential tetrahydromonapterin
+63.   Lakshmi TM, Helling RB: Selection citrate synthase deficiency              synthesis Escherichia coli Pseudomonas aeruginosa.
+      icd mutants Escherichia coli. J Bacteriol 1976, 127(1):76–83.                  J Bacteriol 2010, 192(2):475–482.
+64.   Kabir MM, Shimizu K: Metabolic regulation analysis icd-gene              85.   Shim JH, Benkovic SJ: Evaluation kinetic mechanism       knockout Escherichia coli based 2d electrophoresis                        Escherichia coli glycinamide ribonucleotide transformylase.
+      maldi-tof mass spectrometry enzyme activity measurements.                     Biochemistry 1998, 37(24):8776–8782.
+      Appl Microbiol Biotechnol 2004, 65(1):84–96.                                86.   Newman EB, Kapoor V, Potter R: Role L-threonine dehydrogenase
+65.   Lin H, Bennett GN, San KY: Genetic reconstruction aerobic                  catabolism threonine synthesis glycine       central metabolism Escherichia coli absolute aerobic                   Escherichia coli. J Bacteriol 1976, 126(3):1245–1249.
+      production succinate. Biotechnol Bioeng 2005, 89(2):148–156.             87.   Liu JQ, Dairi T, Itoh N, Kataoka M, Shimizu S, Yamada H: Gene cloning,
+66.   Kalliri E, Mulrooney SB, Hausinger RP: Identification Escherichia coli         biochemical characterization physiological role       ygaF L-2-hydroxyglutarate oxidase. J Bacteriol 2008,                        thermostable low-specificity L-threonine aldolase Escherichia
+      190(11):3793–3798.                                                                coli. Eur J Biochem 1998, 255(1):220–226.
+67.   Reinoso CA, Appanna VD, Vasquez CC: α-ketoglutarate accumulation            88.   Vales LD, Chase JW, Murphy JB: Orientation guanine operon       dependent isocitrate dehydrogenase activity                      Escherichia coli K–12 utilizing strains containing guaB-xse       tellurite detoxification Escherichia coli. Biomed Res Int 2013,                guaB-upp deletions. J Bacteriol 1979, 139(1):320–322.
+      2013:784190.                                                                89.   Umbarger  Brown B: Threonine deamination Escherichia coli. II.
+68.   Stribling D, Perham RN: Purification characterization                  Evidence L-threonine deaminases. J Bacteriol 1957,
+      fructose diphosphate aldolases Escherichia coli (Crookes’                    73(1):105–112.
+      strain). Biochem J 1973, 131(4):833–841.                                    90.   Zhao X, Miller JR, Jiang Y, Marletta MA, Cronan JE: Assembly 69.   Scamuffa MD, Caprioli RM: Comparison mechanisms                     covalent linkage lipoic acid cognate enzymes.
+      distinct aldolases Escherichia coli grown gluconeogenic                   Chem Biol 2003, 10(12):1293–1302.
+      substrates. Biochim Biophys Acta 1980, 614(2):583–590.                      91.   Reidl J, Boos W: malX malY operon Escherichia coli encodes 70.   Schurmann M, Sprenger GA: Fructose-6-phosphate aldolase                      novel enzyme II phosphotransferase recognizing
+      novel class aldolase Escherichia coli related novel            glucose maltose enzyme abolishing endogenous
+      group bacterial transaldolases. JBC 2001, 276:11055–11061.                     induction maltose  J Bacteriol 1991, 173(15):4862–4876.
+71.   Baechler C, Schneider P, Baehler P, Lustig  Erni B: Escherichia coli      92.   Zdych E, Peist R, Reidl J, Boos W: MalY Escherichia coli enzyme
+      dihydroxyacetone kinase controls gene expression binding                    activity beta C-S lyase (cystathionase). J Bacteriol 1995,
+      transcription factor dhaR. EMBO J 2005, 24(2):283–293.                            177(17):5035–5039.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                          Page 22 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+93.    Boos W, Shuman H: Maltose/maltodextrin Escherichia coli:            116. Flores N, Xiao J, Berry  Bolivar F, Valle F: Pathway engineering        transport, metabolism, regulation. Microbiol Mol Biol Rev 1998,                production aromatic compounds Escherichia coli. Nat
+       62(1):204–229.                                                                     Biotechnol 1996, 14(5):620–623.
+94.    Cohen GN, Stanier RY, Bras GL: Regulation biosynthesis              117. Chen R, Yap WM, Postma PW, Bailey JE: Comparative studies        amino acids aspartate family coliform bacteria                       Escherichia coli strains using different glucose uptake systems:
+       pseudomonads. J Bacteriol 1969, 99(3):791–801.                                     metabolism energetics. Biotechnol Bioeng 1997, 56(5):583–590.
+95.    Garriga X, Eliasson R, Torrents E, Jordan  Barbe J, Gibert  Reichard P:   118. Zeppenfeld T, Larisch C, Lengeler JW, Jahreis K: Glucose transporter
+       nrdD nrdG genes essential strict anaerobic growth                   mutants Escherichia coli K-12 changes substrate
+       Escherichia coli. Biochem Biophys Res Commun 1996, 229(1):189–192.                 recognition IICB(Glc) induction behavior ptsG gene.
+96.    Lam HM, Winkler  Metabolic relationships pyridoxine                     J Bacteriol 2000, 182(16):4443–4452.
+       (vitamin B6) serine biosynthesis Escherichia coli K–12.                119. Flores N, Flores S, Escalante  Anda R, Leal L, Malpica R, Georgellis D,
+       J Bacteriol 1990, 172(11):6518–6528.                                               Gosset G, Bolivar F: Adaptation fast growth glucose 97.    Kim J, Kershner JP, Novikov Y, Shoemaker RK, Copley SD:                      differential expression central carbon metabolism gal
+       serendipitous pathways E. coli bypass block                            regulon genes Escherichia coli strain lacking        pyridoxal-5’-phosphate synthesis. Mol Syst Biol 2010, 6:436.                       phosphoenolpyruvate:carbohydrate phosphotransferase 
+98.    Hove-Jensen B, Rosenkrantz TJ, Zechel DL, Willemoes M: Accumulation                Metab Eng 2005, 7(2):70–87.
+       intermediates carbon-phosphorus lyase pathway                   120. Steinsiek S, Bettenbrock K: Glucose transport Escherichia coli
+       phosphonate degradation phn mutants Escherichia coli.                        mutant strains defects sugar transport systems. J Bacteriol
+       J Bacteriol 2010, 192(1):370–374.                                                  2012, 194(21):5897–5908.
+99.    Zhang Q, van der Donk WA: Answers carbon-phosphorus                    121. Escalante  Cervantes  Gosset G, Bolivar F: Current knowledge        lyase conundrum. Chembiochem 2012, 13(5):627–629.                                  Escherichia coli phosphoenolpyruvate-carbohydrate
+100.   Wanner BL: Gene regulation phosphate enteric bacteria. J Cell                phosphotransferase  peculiarities regulation impact
+       Biochem 1993, 51(1):47–54.                                                         growth product formation. Appl Microbiol Biotechnol 2012,
+101.   Wanner BL, Boline JA: Mapping molecular cloning phn                     94(6):1483–1494.
+       (psiD) locus phosphonate utilization Escherichia coli.                 122. Sarubbi E, Rudd KE, Cashel M: Basal ppgpp level adjustment shown
+       J Bacteriol 1990, 172(3):1186–1196.                                                new spoT mutants affect steady state growth rates rrnA
+102.   Ravnikar PD, Somerville RL: Genetic characterization highly                   ribosomal promoter regulation Escherichia coli. Mol Gen Genet
+       efficient alternate pathway serine biosynthesis Escherichia                  1988, 213(2–3):214–222.
+       coli. J Bacteriol 1987, 169(6):2611–2617.                                     123. Sarubbi E, Rudd KE, Xiao H, Ikehara K, Kalman M, Cashel M:
+103.   Kim C, Song S, Park C: D-allose operon Escherichia coli K–12.               Characterization spoT gene Escherichia coli. J Biol Chem
+       J Bacteriol 1997, 179(24):7631–7637.                                               1989, 264(25):15074–15082.
+104.   Poulsen TS, Chang YY, Hove-Jensen B: D-allose catabolism                   124. Xiao H, Kalman M, Ikehara K, Zemel S, Glaser G, Cashel M: Residual
+       Escherichia coli: involvement alsI regulation als regulon                guanosine 3’,5’-bispyrophosphate synthetic activity relA null
+       expression allose ribose. J Bacteriol 1999, 181(22):7126–7130.              mutants eliminated spoT null mutations. J Biol Chem 1991,
+105.   Pittard J, Wallace BJ: Distribution function genes concerned                266(9):5980–5990.
+       aromatic biosynthesis Escherichia coli. J Bacteriol 1966,             125. Gentry DR, Cashel M: Mutational analysis Escherichia coli spoT
+       91(4):1494–1508.                                                                   gene identifies distinct overlapping regions involved ppgpp
+106.   Bottomley JR, Clayton CL, Chalk PA, Kleanthous C: Cloning,                         synthesis degradation. Mol Microbiol 1996, 19(6):1373–1384.
+       sequencing, expression, purification, preliminary                         126. Jin DJ, Cagliero C, Zhou YN: Growth rate regulation Escherichia
+       characterization type II dehydroquinase Helicobacter                     coli. FEMS Microbiol Rev 2012, 36(2):269–287.
+       pylori. Biochem J 1996, 319(2):559–565.                                       127. Cox GB, Gibson F, Pittard J: Mutant strains Escherichia coli K–12
+107.   von Meyenburg K, Jorgensen BB, Nielsen J, Hansen FG: Promoters                  unable form ubiquinone. J Bacteriol 1968, 95(5):1591–1598.
+       atp operon coding membrane-bound ATP synthase                  128. Wu G, Williams HD, Gibson F, Poole RK: Mutants Escherichia coli
+       Escherichia coli mapped Tn10 insertion mutations. Mol Gen Genet                 affected respiration: cloning nucleotide sequence        1982, 188(2):240–248.                                                              ubiA, encoding membrane-bound
+108.   Jensen PR, Michelsen O: Carbon energy metabolism atp                        p-hydroxybenzoate:octaprenyltransferase. J Gen Microbiol 1993,
+       mutants Escherichia coli. J Bacteriol 1992, 174(23):7635–7641.                  139(8):1795–1805.
+109.   Green GN, Gennis RB: Isolation characterization                     129. Klena JD, Ashford RS, Schnaitman CA: Role Escherichia coli K-12 rfa
+       Escherichia coli mutant lacking cytochrome d terminal oxidase.                     genes rfp gene Shigella dysenteriae 1 generation        J Bacteriol 1983, 154(3):1269–1275.                                                lipopolysaccharide core heterogeneity attachment o
+110.   Georgiou CD, Fang H, Gennis RB: Identification cydC locus                   antigen. J Bacteriol 1992, 174(22):7297–7307.
+       required expression functional form cytochrome d            130. Roncero C, Casadaban MJ: Genetic analysis genes involved        terminal oxidase complex Escherichia coli. J Bacteriol 1987,                    synthesis lipopolysaccharide core Escherichia coli K–12:
+       169(5):2107–2112.                                                                  operons rfa locus. J Bacteriol 1992, 174(10):3250–3260.
+111.   Puustinen  Finel M, Haltia T, Gennis RB, Wikstrom M: Properties      131. Hwang J, Inouye M: tandem GTPase, der, essential        terminal oxidases Escherichia coli. Biochemistry 1991,                      biogenesis 50S ribosomal subunits Escherichia coli. Mol
+       30(16):3936–3942.                                                                  Microbiol 2006, 61(6):1660–1672.
+112.   Pittman MS, Robinson HC, Poole RK: bacterial glutathione                    132. Bharat  Jiang M, Sullivan SM, Maddock JR, Brown ED: Cooperative        transporter (Escherichia coli CydDC) exports reductant                      critical roles G domains GTPase activity cellular
+       periplasm. J Biol Chem 2005, 280(37):32254–32261.                                  function ribosome-associated Escherichia coli EngA. J Bacteriol
+113.   Portnoy VA, Herrgard MJ, Palsson BØ: Aerobic fermentation                       2006, 188(22):7992–7996.
+       d-glucose evolved cytochrome oxidase-deficient Escherichia              133. Tomar SK, Dhimole N, Chatterjee M, Prakash B: Distinct GDP/GTP
+       coli strain. Appl Environ Microbiol 2008, 74(24):7561–7569.                        bound states tandem G-domains EngA regulate ribosome
+114.   Borisov VB, Gennis RB, Hemp J, Verkhovsky MI: cytochrome bd                    binding. Nucleic Acids Res 2009, 37(7):2359–2370.
+       respiratory oxygen reductases. Biochim Biophys Acta 2011,                     134. Spratt BG: Distinct penicillin binding proteins involved        1807(11):1398–1413.                                                                division, elongation, shape Escherichia coli K–12. PNAS 2009,
+115.   Chou CH, Bennett GN, San KY: Effect modified glucose uptake                     72(8):2999–3003.
+       using genetic engineering techniques high-level recombinant                135. Ogura T, Bouloc P, Niki H, D’Ari R, Hiraga S, Jaffe  Penicillin-binding
+       protein production Escherichia coli dense cultures. Biotechnol                  protein 2 essential wild-type Escherichia coli lov        Bioeng 1994, 44(8):952–960.                                                        cya mutants. J Bacteriol 1989, 171(6):3025–3030.
+Weaver et al. BMC Systems Biology 2014, 8:79                                                                                                     Page 23 24
+http://www.biomedcentral.com/1752-0509/8/79
+
+
+
+
+136. Wang Y, Stieglitz KA, Bubunenko M, Court DL, Stec B, Roberts MF:         160. Lukas H, Reimann J, Kim OB, Grimpo J, Unden G: Regulation      structure R184A mutant inositol monophosphatase                     aerobic anaerobic d-malate metabolism Escherichia coli      encoded suhB implications functional interactions               LysR-type regulator DmlR (YeaT). J Bacteriol 2010,
+     Escherichia coli. J Biol Chem 2007, 282(37):26989–26996.                          192(10):2503–2511.
+137. Puan KJ, Wang H, Dairi T, Kuzuyama T, Morita CT: fldA essential        161. Lauritzen  Lipscomb WN: Modification active site lysine
+     gene required 2-C-methyl-D-erythritol 4-phosphate pathway                  residues catalytic subunit aspartate transcarbamylase      isoprenoid biosynthesis. FEBS Lett 2005, 579(17):3802–3806.                   D- L-bromosuccinate. J Biol Chem 1982, 257:1312–1319.
+138. Lu Q, Inouye M: Adenylate kinase complements nucleoside                      162. Hall BG: Chromosomal mutation citrate utilization      diphosphate kinase deficiency nucleotide metabolism. PNAS                      Escherichia coli K–12. J Bacteriol 1982, 151(1):269–273.
+     1996, 93(12):5720–5725.                                                      163. Lutgens M, Gottschalk G: substrate required 139. Gerhart JC, Schachman HK: Distinct subunits regulation                anaerobic growth Escherichia coli citrate. J Gen Microbiol 1980,
+     catalytic activity aspartate transcarbamylase. Biochemistry 1965,              119(1):63–70.
+     4(6):1054–1062.                                                              164. Schneider BL, Ruback S, Kiupakis AK, Kasbarian H, Pybus C, Reitzer L: 140. Reed JL, Patel TR, Chen KH, Joyce AR, Applebee MK, Herring CD, Bui OT,            Escherichia coli gabDTPC operon: specific gamma-aminobutyrate
+     Knight EM, Fong SS, Palsson BØ: Systems approach refining                      catabolism nonspecific induction. J Bacteriol 2002,
+     genome annotation. Proc Natl Acad Sci U S 2006,                                 184(24):6976–6986.
+     103(46):17480–17484.                                                         165. Cunin R, Glansdorff N, Pierard  Stalon V: Biosynthesis 141. Kumar VS, Dasika MS, Maranas CD: Optimization based automated                     metabolism arginine bacteria. Microbiol Rev 1986, 50(3):314–352.
+     curation metabolic reconstructions. BMC Bioinformatics 2007,              166. Schneider BL, Kiupakis AK, Reitzer LJ: Arginine catabolism      8:212.                                                                            arginine succinyltransferase pathway Escherichia coli. J Bacteriol
+142. Kumar VS, Maranas CD: GrowMatch: automated method                          1998, 180(16):4278–4286.
+     reconciling silico vivo growth predictions. PLoS Comput Biol           167. Plumbridge J, Pellegrini O: Expression chitobiose operon      2009, 5(3):1000308.                                                               Escherichia coli regulated transcription factors: NagC,
+143. Barua D, Kim J, Reed JL: automated phenotype-driven approach                   ChbR CAP. Mol Microbiol 2004, 52(2):437–449.
+     (geneforce) refining metabolic regulatory models. PLoS               168. Kachroo AH, Kancherla AK, Singh NS, Varshney U, Mahadevan S:
+     Comput Biol 2010, 6(10):1000970.                                                  Mutations alter regulation chb operon 144. Orth JD, Palsson BØ: Systematizing generation missing                      Escherichia coli allow utilization cellobiose. Mol Microbiol 2007,
+     metabolic knowledge. Biotechnol Bioeng 2010, 107(3):403–412.                      66(2):1382–1395.
+145. Tervo CJ, Reed JL: BioMog: computational framework              169. Chang GW, Chang JT: Evidence B12-dependent enzyme
+     novo generation modification essential biomass                              ethanolamine deaminase Salmonella. Nature 1975,
+     components. PLoS 2013, 8(12):81322.                                           254(5496):150–151.
+146. Monod J: growth bacterial cultures. Annu Rev Microbiol 1949,          170. Jones PW, Turner JM: Interrelationships enzymes      3:371–394.                                                                        ethanolamine metabolism Escherichia coli. J Gen Microbiol 1984,
+147. Bochner BR, Gadzinski P, Panomitros E: Phenotype microarrays                  130(2):299–308.
+     high-throughput phenotypic testing assay gene function.               171. Blackwell CM, Turner JM: Microbial metabolism amino alcohols.
+     Genome Res 2001, 11(7):1246–1255.                                                 formation coenzyme B12-dependent ethanolamine
+148. Shea  Wolcott M, Daefler S, Rozak DA: Biolog phenotype                          ammonia-lyase concerted induction Escherichia coli.
+     microarrays. Microbial Systems Biology: Methods Protocols. New             Biochem J 1978, 176(3):751–757.
+     York: Humana Press; 2012:331–73. Chap. 12.                                   172. Akita K, Hieda N, Baba N, Kawaguchi S, Sakamoto H, Nakanishi Y,
+149. Mackie  Hassan KA, Paulsen  Tetu SG: Biolog phenotype                       Yamanishi M, Mori K, Toraya T: Purification properties      microarrays phenotypic characterization microbial cells.                   wild-type N-terminal-truncated ethanolamine ammonia-lyase
+     Methods Mol Biol 1096, 2014:123–301.                                              Escherichia coli. J Biochem 2010, 147(1):83–93.
+150. Oun MA, Suthers PF, Jones GI, Carter BR, Saunders MP, Maranas CD,            173. Xi H, Schneider BL, Reitzer L: Purine catabolism Escherichia coli      Woodward MJ, Anjum MF: Genome scale reconstruction                           function xanthine dehydrogenase purine salvage. J Bacteriol
+     salmonella metabolic model: comparison similarity                          2000, 182(19):5332–5341.
+     differences commensal Escherichia coli strain. J Biol Chem            174. Reitzer L: Nitrogen assimilation global regulation Escherichia
+     2009, 284(43):29480–29488.                                                        coli. Annu Rev Microbiol 2003, 57:155–176.
+151. Yoon SH, Han MJ, Jeong H, Lee CH, Xia XX, Lee DH, Shim JH, Lee SY, Oh        175. Cusa E, Obradors N, Baldoma L, Badia J, Aguilar J: Genetic analysis      TK, Kim JF: Comparative multi-omics systems analysis Escherichia               chromosomal region containing genes required assimilation      coli strains B K–12. Genome Biol 2012, 13(5):37.                              allantoin nitrogen linked glyoxylate metabolism Escherichia
+152. Mackie  Paley S, Keseler IM, Shearer  Paulsen  Karp PD: Addition        coli. J Bacteriol 1999, 181(24):7479–7484.
+     Escherichia coli K–12 growth-observation gene essentiality               176. Harborne NR, Griffiths L, Busby SJ, Cole JA: Transcriptional control,
+     data EcoCyc database. J Bacteriol 2014, 196(5):982–988.                    translation function products open reading
+153. Wilson DM, Wilson TH: Cation specificity sugar substrates              frames Escherichia coli nir operon. Mol Microbiol 1992,
+     melibiose carrier Escherichia coli. Biochim Biophys Acta 1987,                 6(19):2805–2813.
+     904(2):191–200.                                                              177. Wang H, Tseng CP, Gunsalus RP: napF narG nitrate reductase
+154. Sandermann H Jr: β-D-galactoside transport Escherichia coli:                   operons Escherichia coli differentially expressed response
+     substrate recognition. Eur J Biochem 1977, 80(2):507–515.                         submicromolar concentrations nitrate nitrite.
+155. Sahota SS, Bramley PM, Menzies  fermentation lactulose               J Bacteriol 1999, 181(17):5303–5308.
+     colonic bacteria. Microbiology 1981, 128(2):319–325.                         178. Bertero MG, Rothery RA, Palak M, Hou C, Lim D, Blasco F, Weiner JH,
+156. Wallenfels K, Weil R: β-galactosidase. Enzymes, 3rd Ed. New York:          Strynadka NC: Insights respiratory electron transfer
+     Academic Press; 1972:617–663.                                                     pathway structure nitrate reductase  Nat Struct Biol
+157. Roderick SL: lac operon galactoside acetyltransferase. CR                     2003, 10(9):681–687.
+     Biologies 2005, 328:568–575.                                                 179. Seiflein TA, Lawrence JG: Methionine cysteine recycling 158. Lang VJ, Leystra-Lantz C, Cook RA: Characterization specific               Klebsiella aerogenes. J Bacteriol 2001, 183(1):336–346.
+     pyruvate tr

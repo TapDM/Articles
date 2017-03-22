@@ -1,0 +1,762 @@
+BMC Genomics                                                                                                                             BioMed Central
+
+
+
+Research article                                                                                                                       Open Access identification essential genes using targeted genome
+sequencing comparative analysis
+Adam M Gustafson*†1, Evan S Snitkin*†1, Stephen CJ Parker1,
+Charles DeLisi1,2 Simon Kasif1,2,3
+
+Address: 1Bioinformatics Graduate Program, Boston University, Boston, MA 02215 USA, 2Department Biomedical Engineering, Boston
+University, MA 02215 USA 3Children's Hospital Informatics Program Harvard MIT Division Health Sciences Technology, Boston,
+MA, USA
+Email: Adam M Gustafson* - gustafad@bu.edu; Evan S Snitkin* - esnitkin@bu.edu; Stephen CJ Parker - parker@bu.edu;
+Charles DeLisi - delisi@bu.edu; Simon Kasif - kasif@bu.edu
+* Corresponding authors †Equal contributors
+
+
+
+
+Published: 19 October 2006                                                     Received: 18 August 2006
+                                                                               Accepted: 19 October 2006
+BMC Genomics 2006, 7:265     doi:10.1186/1471-2164-7-265 article available  http://www.biomedcentral.com/1471-2164/7/265
+© 2006 Gustafson et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+            Abstract
+            Background: identification genes essential survival theoretical importance             understanding minimal requirements cellular life, practical importance identification
+            potential drug targets novel pathogens. great time expense required experimental
+            studies aimed constructing catalog essential genes given organism, computational approach
+            identify essential genes high accuracy great value.
+            Results: gathered numerous features generated automatically genome sequence
+            data assessed relationship essentiality, subsequently utilized machine learning construct
+            integrated classifier essential genes S. cerevisiae E. coli. looking single features,
+            phyletic retention, measure number organisms ortholog present              predictive essentiality. Furthermore, construction phyletic retention feature             time explored evolutionary relationship set organisms presence             gene predictive essentiality. E. coli S. cerevisiae optimal sets             contain host-associated organisms small genomes closely related reference. Using
+            optimally selected organisms, able improve predictive accuracy compared using             available sequenced organisms. hypothesize predictive power genomes consequence
+            process reductive evolution, parasites symbionts evolved gene content.
+            addition, essentiality measured rich media, condition resembles environments             organisms hosts nutrients provided. Finally, demonstrate integration             highly predictive features using probabilistic classifier resulted accuracies surpassing             individual feature.
+            Conclusion: Using features obtainable directly sequence data, able construct classifier
+            predict essential genes high accuracy. Furthermore, analysis set genomes             presence gene predictive essentiality suggest ways targeted
+            sequencing used identification essential genes. summary, methods presented             aid reduction time money invested essential gene identification targeting genes
+            experimentation predicted essential high probability.
+
+
+
+                                                                                                                                       Page 1 16
+                                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                      http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+
+Background                                                        essential genes [8-10]. essential genes fundamental step understanding cells function            unique evolutionary pressure, likely share comprehension minimal gene set required          characteristics gleaned sustain life. core requirements cellular life      genome sequence data. understood, necessary identify compo-
+nents set diverse organisms. date, prediction       practical theoretical importance discovery essential genes supported          identification essential genes mind, set significant experimental work. Procedures               construct effective classifier essential genes single gene knockouts [1], RNA interference [2],          exploited various genomic descriptors gen- conditional knockouts [3] used discov-           erated directly form sequence data. Previous works aimed
+ery mechanisms, techniques require            understanding properties human disease genes
+large investment time skill perform.           taken similar approach [11,12]. Interestingly,
+increase availability gene knockout data, stud-        predictive descriptors human disease genes
+ies undertaken attempt decipher            identified Kondrashov et al. [12] identified characteristics essential genes. analysis       study predictive microbial essential genes.
+essential genes numerous organisms, fundamental evo-
+lutionary mechanisms genomic fingerprints              initial step construction classifier, uncovered aid essential gene identification         explored various experimental genomic metrics organisms lacking experimental validation.                     assess relate essentiality E. coli S.
+                                                                  cerevisiae. metric shown highly studies taken advantage abundance          predictive essentiality previous studies reten-
+experimental data available model organisms order          tion genes different phyla. order extract understand properties essential genes. exam-        metric identified subsets organisms
+ple, groups suggested relation-      achieving highest accuracy prediction essential
+ship degree protein-protein interaction                genes. predictive sets contained host-associated
+networks essentiality [4,5]. implication      organisms small genomes closely related
+hubs networks increased importance          query organism. result directly suggests abundance interaction partners. studies         targeted sequencing genomes used predic- revealed relationships essentiality          tion essential genes. rapidly decreasing invest-
+number transcription factor binding sites upstream        ments money time required gene [6]. demonstrated genes          sequencing microbial genome, approach iden-
+complex regulation enriched dispensable genes.             tifying essential genes targeted sequencing High accuracy predictions essential genes            itself viable alternative identification using flux balance analysis [7]. method            essential genes. advantage generating hypotheses regarding genes likely essential wide variety       addition phyletic retention, assessed rel- hypothetical conditions. little doubt       ative performance previously reported indicators plethora experimental data generated, addi-          essentiality protein interaction degree, protein
+tional properties essential genes documented        size codon bias. S. cerevisiae, protein interaction coming years.                                                 degree highly predictive essentiality,
+                                                                  protein size codon bias predictive genome-wide experimental data abundant                organisms. Additionally, S. cerevisiae observed model organisms S. cerevisiae E. coli, informa-       high counts certain individual charged amino acids
+tion limited newly sequenced organisms,              predictive size  implying high precludes use data identification        counts amino acids distinguish proteins way
+genes essential survival. ability identify essential   completely captured size.
+genes absence experimental data added
+importance, allows rationally          Interestingly, aforementioned metrics select possible drug targets newly sequenced patho-           predictive essentiality organisms, relative
+gens. Fortunately, addition relationships               importance sets genes identified varied. essentiality various experimental measures,           striking difference relationship pro- good deal research aimed             tein size essentiality. E. coli, small proteins standing genomic features essential genes. Metrics         enriched essential genes, S. cerevisiae essential codon bias, number paralogs, phyletic              genes underrepresented smallest proteins.
+retention shown distinguishing             hypothesize indicative pressure
+
+
+                                                                                                                      Page 2 16
+                                                                                                (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                     http://www.biomedcentral.com/1471-2164/7/265
+
+
+ E. coli maintain small proteins absence          Selection organisms phyletic retention measure functional constraints, previously sug-        plummeting cost genome sequencing making
+gested [13].                                                     comparative genomics attractive technique, crea-
+                                                                 tive bioinoformatic methods advantage tar- identifying genomic features predictive        geted sequencing prevalent [14-16].
+essentiality E. coli S. cerevisiae, quantified     vein, set understand evolutionary
+predictive limits assembled genomic characteristics       properties sets organisms presence integrating using probabilistic classifier      ortholog indicative essentiality
+junction feature selection criterion novel     gene, hopes sequencing appropri-
+bioinformatic applications. Using easily obtainable         ate genomes, high accuracy predictions essential genes
+genomic features S. cerevisiae E. coli,          Retention gene long evolutionary ability predict essential genes competitive       periods form allows recognition using sequence classifiers included experimental features.       similarity based techniques suggests performing
+fact able construct classifier using    critical function [17]. previous studies, sets organ-
+descriptors generated sequence data allow broad        isms varying distantly related organisms 
+application technique organisms,           eral closely related organisms utilized gene annotation required. ability        examination relationship retention potential impact understanding essential          genes essentiality [8,9]. knowledge, sys-
+genes different organisms, search drug     tematic analysis aim understanding nature
+targets poorly understood pathogens.                          set organisms presence gene                                                                  predictive essentiality performed.
+Results Discussion
+Experimental definition essentiality                          order identify set organisms analysis relationship various          retention gene predictive essentiality, genomic features essentiality, important        selected small group organisms likely pre- results context definition essentiality.    dictive E. coli essential list, computed definition used experiments based          accuracy subsets reduced set. strategy
+growth, lack thereof, mutants rich media         employed large number sequenced
+ditions. Clearly, conditions representative     organisms prevented examining possible sub- wild type environments organ-            sets. order assemble reduced set ranked
+isms inhabited evolved gene content. Study-        organisms based conditional mutual information
+ing metabolic pathways S. cerevisiae using flux balance       maximization criteria (CMIM), described Fleuret
+analysis indicates thirds metabolic       [18] detailed Methods section. Briefly, CMIM
+enzymes essential condition,             selection iterative feature selection procedure experiments presence rich media result              features selected highest
+roughly 20  genes labeled essential [7]. Fur-        mutual information class variable, conditioned
+thermore, analysis set genes           features selected. labeled dispensable knockout experiments,            procedure implemented organism ubiquitously present different phyla,        feature, feature vector stores occurrence revealed overrepresentation biosynthetic pathways          orthologs E. coli genes. defining class variable
+[8]. likely pathways essential wild   essentiality corresponding genes, CMIM
+type conditions, suggested retention         selection returns organisms highly predictive evolution, surplus nutrients provided          essentiality set. Using method selected 20 identified dispensable. Undoubtedly,        organisms set 180 sequenced prokaryotes room debate meaningful definition essenti-        looked predictive accuracy possible subsets ality,  general, genes       various sizes. utility approach validated required rich media conditions vital         comparing distribution Receiver Operating Charac- conditions.  feel despite           teristic (ROC) scores intelligently selected subsets inconsistencies, valuable understand    random sets organisms (Figure 1), sets
+properties artificial set essential genes,    organisms selected using maximal mutual information comprehensiveness set ques-           (data shown). compared performance tioned, accuracy limited experimen-        optimal subset organisms larger sets, tal bias.                                                        seen Figure 2 Table 1, little lost despite
+                                                                 small number organisms used.  using                                                                  optimally selected organisms able achieve
+
+
+                                                                                                                     Page 3 16
+                                                                                               (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                     http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+
+45
+
+
+40               Subsets 5 CMIM 20
+
+                 Random Subsets 5 Set 180
+35
+
+
+30
+
+
+25
+
+
+20
+
+
+15
+
+
+10
+
+
+ 5
+
+
+ 0
+ 0.5                    0.55                     0.6           0.65                             0.7                         0.75
+                                                  Area Curve
+Figure
+Distribution
+         1 ROC areas curves E. coli essential gene prediction using CMIM selected subsets
+Distribution ROC areas curves E. coli essential gene prediction using CMIM selected subsets. Prob-
+ability density functions areas curves ROC analysis 100,000 randomly selected subsets organisms
+selected total 180 sequenced prokaryotes (blue) subsets 5 organisms selected set 20 turn selected based conditional mutual information selection procedure described text (red). Sensitivity specificity computed based numbers true positives (essential genes) false positives (non-essential genes)
+identified number organisms ortholog given E. coli gene present decreases.
+
+
+better performance using 180 sequenced            1 , compared subsets prokaryotes  Additional file 5 organisms used       selected reduced set 20. seen Fig- analysis].                                              ure 3A, organisms included                                                                 frequently best performing sets Buchnera evidence organism sets best        aphidicola Wigglesworthia glossinidia. possible, examined distribution organisms        organisms host-associated organisms belonging predictive sets. identified        Gamma proteobacteria, E. coli belongs. sets organisms achieved ROC score         explanation presence orthologs organ-
+
+
+                                                                                                                    Page 4 16
+                                                                                              (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                        http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+
+                1
+
+              0.9
+
+              0.8
+
+              0.7
+
+              0.6
+Sensitivity
+
+
+
+
+              0.5
+
+              0.4
+
+              0.3                                                                   CMIM5 (AUC = 0.7004 )
+
+              0.2                                                                   CMIM7 (AUC = 0.6984)
+
+                                                                                    Set 180 (AUC = 0.6481)
+              0.1
+
+                0
+                 0   0.1        0.2         0.3         0.4     0.5      0.6               0.7         0.8           0.9             1
+                                                          1 - Specificity
+Figure
+ROC curves
+         2 different sets organisms E. coli essential gene prediction
+ROC curves different sets organisms E. coli essential gene prediction. ROC curves based methodology used Figure 1. red optimal set 5 organisms selected CMIM set 20, green optimal set 7 selected CMIM set 20, blue set 180 prokaryotes used study. area curve (AUC) indicated graph.
+
+
+isms predictive essentiality E. coli       genome partly dependant sequence loss. clear considering evolutionary history life-        words, presence alternative pathways allows
+style.  organisms share relatively recent com-       viable minimal sets arise process
+mon ancestor E. coli, adjustment          reductive evolution, making intersection gene host associated lifestyle underwent massive gene            sets organisms informative [21].
+loss, minimal genetic novelty [19,20]. pres-           second property organisms accounts
+ence great selective pressure minimize genome           superiority prediction essentiality relates size, majority genes retained absolutely         working definition essentiality survival essential. reason organisms perform bet-           rich media conditions. rich media conditions
+ter gene set given reduced          argued unrepresentative wild type condi-
+
+
+                                                                                                                       Page 5 16
+                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                        http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+Table 1: Influence organism composition phyletic retention performance
+
+      Organisms Present                 Cumulative PPV             Number Genes Group        Number Essential Genes
+
+                                                      CMIM Selected Set 5
+               5                              74.8                              139                               104
+               4                              66.8                              271                               181
+               3                              55.6                              435                               242
+               2                              42.0                              690                               290
+               1                              28.9                             1302                               376
+               0                              16.8                             3636                               612
+                                                     CMIM Selected Set 7
+               7                              77.0                           122                                  94
+               6                              73.3                           206                                  151
+               5                              65.3                           311                                  203
+               4                              54.1                           455                                  246
+               3                              43.0                           633                                  272
+               2                              34.8                           952                                  331
+               1                              25.1                          1613                                  405
+               0                              16.8                          3636                                  612
+                                         Set 27 Non-parasitic Gamma Proteobacteria
+               27                             59.0                           305                                  180
+               24                             46.6                           545                                  254
+               20                             34.5                           861                                  297
+               16                             27.3                          1247                                  341
+               12                             23.9                          1697                                  405
+                8                             20.3                          2235                                  453
+                4                             18.3                          2845                                  521
+                                                     Set 179 prokaryotes
+              179                             75.0                           12                                    9
+              161                             75.3                           77                                   58
+              143                             64.8                           196                                  127
+              126                             54.4                           294                                  160
+              108                             48.4                           419                                  203
+              90                              39.7                           572                                  227
+              72                              33.0                           817                                  270
+              54                              26.8                          1172                                  314
+              37                              22.4                          1659                                  371
+              19                              19.2                          2379                                  457
+               1                              17.0                          3516                                  596
+
+
+
+
+tions organisms, conditions fairly            Performance individual features yeast
+accurate representation wild type conditions organ-         extended analysis essential genes gathering
+isms resides inside host, utilizing available          various data sets representative different aspects
+nutrients.  having organisms preferable,       yeast biology quantify abilities exact set nutrients provided host vary,         distinguish essential non-essential genes. intersection gene sets best captures generic           value ability predict essentiality studied
+host-associated lifestyle [20].                                    organisms, data sets focused features                                                                    easily obtainable;  features generated
+Performing similar analysis S. cerevisiae using set 26     need extensive laboratory work. fea-
+sequenced eukaryotes returned Schizosaccharomyces pombe,           tures fall general categories: (1) genomic fea-
+Encephalitozoon cuniculi, Eremothecium gossypii       tures, based solely sequence data, contain abundant organisms highly predictive              features open reading frame (ORF) size, upstream
+sets (Figure 3B). E. cuniculi E. gossypii lead    size, phyletic retention; (2) protein features, host-associated lifestyles, corroborating interpretation       based solely protein characteristics contain optimal organism sets E. coli. Furthermore, E. gos-      data sets like amino acid composition, codon bias, sypii smallest known eukaryotic genomes,              hydrophobicity. reference comparing  9.2 Mb nuclear genome [22].                                 formance genomic protein features, 
+
+                                                                                                                        Page 6 16
+                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                       http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+
+                                                                                                 Wigglesworthia brevipalpis
+                                                                                    Haemophilus ducreyi
+                                                                                    Neisseria gonorrhoeae
+                                                                                    Blochmannia floridanus
+                                                                                    Wolinella succinogenes
+                                                                                    Chlamydophila caviae
+                                                                                    Phytoplasma OY
+                                                                                    Bartonella henselae
+                                                                                    Mycoplasma penetrans
+                                                                                    Campylobacter jejuni
+                                                                                    Helicobacter pylori
+                                                                                    Francisella tularensis
+                                                                                    Buchnera aphidicola
+                                                                                    Tropheryma whipplei
+                                                                                    Treponema pallidum
+                                                                                    Mycoplasma mobile
+                                                                                    Methylococcus capsulatus
+                                                                                    Coxiella burnetii
+                                                                                    Zymomonas mobilis
+                                                                                    Fusobacterium nucleatum
+            160     140     120     100      80      60        40     20        0
+
+             B
+                                                                                    Homo sapiens
+                                                                                    Ashbya gossypii
+                                                                                    Encephalitozoon cuniculi
+                                                                                    Schizosaccharomyces pombe
+                                                                                    Trichomonas vaginalis
+                                                                                    Cryptosporidium parvum
+                                                                                    Entamoeba histolytica
+                                                                                    Dictyostelium discoideum
+                                                                                    Candida albicans
+                                                                                    Plasmodium falciparum
+                                                                                    Cryptosporidium hominis
+                                                                                    Arabidopsis thaliana
+                                                                                    Drosophila melanogaster
+                                                                                    Tetrahymena thermophila
+                                                                                    Giardia lamblia
+                                                                                    Trypanosoma brucei
+                                                                                    Cyanidioschyzon merolae
+                                                                                    Cryptococcus neoformans
+                                                                                    Neospora crassa
+                                                                                    Caenorhabditis elegans
+
+             150                   100                    50                    0
+Figure 3 organism occurrence performing organism sets
+Distribution
+Distribution organism occurrence performing organism sets. Histograms display frequency CMIM selected 20 organisms 1  organism sets 5   E. coli (b) S. cerevi-
+siae. Note organisms displayed histograms left right based order selection CMIM
+selection procedure. seen graphs trend organisms selected earlier present best performing sets, validates use selection method.
+
+
+
+
+                                                                                                                         Page 7 16
+                                                                                                   (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                       http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+included data sets derived lab-intensive experiments         present largest 10  proteins. protein-protein interaction cellular localiza-        individual function attained significant p-
+tion data. positive predictive value (PPV) selected        value, functions present involved cat-
+single features varying coverage displayed Figure        alytic activity interaction nucleic acids. Charged
+4A. complete list features used,          amino acids present active sites rationale including  detailed Methods          enzymes, participate catalytic mechanisms.
+Additional file 3 actual feature matrix used].                Additionally, charged amino acids make associations                                                                   charged substrates favorable electrostatic
+Genomic features                                                  interactions. Based observations, hypothesize expected, best performing genomic feature          enrichment essential genes pro-
+phyletic retention measure, construction                teins high counts charged amino acids described  clarity, term 'phyletic retention'       functional capabilities amino used presence ortholog         acids.
+organisms, place term 'conservation,' order prevent confusion measures substitution rate.           Experimental features
+second feature genomic set predictive          addition examining predictive power features essentiality total upstream size gene. Genes      genomic protein set, measured largest upstream sizes markedly enriched          prediction accuracy experimentally derived fea-
+dispensable genes. result explained              tures previously reported indicative essentiality.
+considering recent results Yu et al. showing          observed genes high degree protein
+genes complex regulation enriched dispensa-           interaction network likely essential, ble genes, conjunction possibility genes         agreement previous work [5,24,25]. complex regulation larger upstream             proteins 5  degree, 42  essential,
+regions order accommodate increased number            considerable enrichment essential genes com-
+cis elements [8]. connection previously             pared ~17  expected chance  shown valid Caenorhabditis elegans Drosophila        noted stated literature rela-
+melanogaster [23]. results suggest relationship        tionship degree essentiality partly
+exists regulatory complexity intergenic dis-          biases data [26]. Specifically, Coulumb et al.
+tance S. cerevisiae relationship accounts    state protein interaction dataset Data- association intergenic distance essential-        base Interacting Proteins (DIP), used ity. Given number transcription factor binding        analysis, biased essential genes accu-
+sites present promoter gene determined             mulation interactions small scale experiments arduous experimental procedures, beneficial         partial essential genes. authors able use upstream size proxy regulatory         state partiality accounts significant
+complexity.                                                       component relationship degree essen-
+                                                                  tiality. contention substantiated showing
+Protein features                                                  disappearance relationship essentiality
+Examining single features protein subset                 connectivity using unbiased genome
+revealed highly predictive essentiality.      yeast hybrid experiments. recently stated addition previously discussed descriptors           lack reliability completeness yeast 
+codon bias protein size, identified enrich-           hybrid data responsible absence relation-
+ment essential genes proteins abun-              ship connectivity essentiality [27].
+dance certain amino acids. Specifically, proteins highest counts aspartate, glutamate, lysine        Performance individual features E. coli
+enriched essential genes PPVs 29.6 , 31.5              Despite large evolutionary distance fundamental 30.0  respectively 10  predictions.             biological differences, characteristics essential genes trend partially explained observing large         S. cerevisiae E. coli largely similar. seen Fig-
+proteins general enriched essential genes,       ure 4B, strongest predictor essentiality E. coli
+PPV 25.8  largest 10  proteins.                   phyletic retention, CAI. Number paralogs relationship explains high amino            protein size predictive essentiality acid counts predictive essentiality, fails fully   organisms. Features E. coli genes used clarify specific amino acids predictive         study available Additional files  Additional file  order gain insight phenomenon,         4].
+looked enrichment molecular function catego-
+ries proteins high counts charged amino acids
+
+
+                                                                                                                       Page 8 16
+                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                          http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+
+                                                       S. cerevisiae
+          60
+                                                                                                              Degree
+          50                                                                                                  Glutamic Acid
+                                                                                                              Lysine
+          40                                                                                                  Glycine
+PPV ( )
+
+
+
+
+          30                                                                                                  ORF Size
+                                                                                                              Paralogs
+          20                                                                                                  CAI
+          10                                                                                                  TFBS Count
+                                                                                                              Upstream Size
+          0                                                                                                   Random
+                             1           5              10             15             20
+                                    Percentage Predictions
+
+
+          B
+                                                   E. coli
+          60
+
+          50
+
+          40
+                                                                                                              CAI
+PPV ( )
+
+
+
+
+                                                                                                              Paralogs
+          30                                                                                                  ORF Size
+                                                                                                              Serine
+          20
+                                                                                                              Random
+          10
+
+           0
+                            1           5              10             15              20
+                                     Percentage Predictions
+Comparison
+Figure 4 single feature classification accuracies essential genes
+Comparison single feature classification accuracies essential genes. Displays accuracy single features yeast   E. coli (B) classifying essential genes. Predictions shown cutoffs 1, 5, 10, 15 20  (x-axis), accuracy, measured PPV, shown y-axis. predicting essentiality, single features ordered descending order, exception ORF size Serine E. coli figure (B).
+
+
+
+
+Differences feature performance S. cerevisiae             example, features protein size E. coli                                                          codon bias predictive essentiality, accuracy features performed comparably                sets proteins identified varied organisms, noticeable differences.              organisms.
+
+
+                                                                                                                          Page 9 16
+                                                                                                    (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                       http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+Protein size predictive essentiality organ-        conserved essential genes. set, designated isms. analysis determined small pro-         SC_All, composed features require extensive
+teins E. coli enriched essential genes, small     experimentation, addition easily obtainable fea-
+proteins S. cerevisiae slightly enriched dispensa-      tures, assess impact neglecting
+ble genes. order gain insight discrepancy         experimental data prediction accuracy. benefit organisms examined distribution            using naïve Bayes feature integration clas- essentiality small large proteins organ-        sification assigned probability, making natural isms context phyletic retention. seen       rank predictions, allows direct comparison
+Figure 5, marked difference distribution     results using individual features.
+large small essential genes dissected bins
+based phyletic retention. E. coli, virtually   Feature selection accomplished ranking features largest proteins essential ubiquitously         using conditional mutual information maximization
+present 27 sequenced non-parasitic                 (CMIM), described Methods  Additional file 1 Gamma proteobacteria assembled (Figure 5B).                 actual ranking]. phyletic retention feature
+hypothesize enrichment essential genes           achieved highest mutual information essential- conserved large proteins indica-            ity, consistent results single feature
+tive pressure reduce size individual proteins.     performance. using 21 informative features Larger proteins come increased cost cell          SC_All, 11 SC_GenProt 13 SC_GenProt_No, terms raw materials energy expenditures dur-          able improve prediction accuracy inclu-
+ing protein synthesis. idea consistent findings      sion features set  Additional file 2]. Lipman et al., observed increased conser-
+vation largest proteins genomes          Overall performance seen Figure 6A, attribute pressure maintain small proteins        positive predictive value (PPV) 1, 5, 10, 15 absence functional constraints [13].        20  predictions shown reference selected single enrichment essential genes small proteins         features. Unexpectedly, SC_All outperforms levels conservation conserved large           SC_GenProt, small (~5  difference
+proteins supportive hypothesis.                  15 20  predictions, Figure 5A),                                                                   indicates losing little ignoring features
+Figure 5C yields insight lack essential genes         derived experimental data. expected, smallest S. cerevisiae ORFs. enrichment          SC_GenProt_No greatly outperformed dispensable genes amid small ORFs S. cerevisiae          feature sets. consistent results shown consequence abundance small species spe-         single feature analysis, phyletic retention
+cific genes. organisms species specific genes         measure far predictive feature.
+enriched dispensable genes, expected
+based predictive power phyletic retention            SC_GenProt_No performing significantly worse identifying essential genes.  abundance           feature sets, use identifying espe-
+small species specific genes leads apparent trend       cially interesting genes. assess ability dispensability smallest S. cerevisiae genes.         SC_GenProt_No identify essential genes noted organisms used phyletic          conserved, looked broader conservation pattern
+conservation analysis set 16 sequenced fungi            yeast genes set 16 fungi protists. Based protists, diverse set genomes         set 16 organisms, 285 essential yeast used optimal predictive set.                          genes orthologs 5 organisms                                                                    15  predictions SC_GenProt_No, 24.6  Performance integrated features yeast                       285 conserved essential genes identified. determine limits predictive abilities        contrast, 3.5  285 conserved essential
+classification essential genes integrating multiple       genes identified SC_GenProt cutoff.
+features, utilized naïve Bayes classifiers. assigned         SC_GenProt_No lowest accuracy features different overlapping sets,     integrated feature sets, useful order assess relative contributions different sub-      increased ability predict conserved essential genes.
+sets features. set, designate SC_GenProt, composed features              Performance integrated features E. coli
+obtained directly sequence data. second set,             yeast, feature sets integrated naïve Bayes clas- designated SC_GenProt_No, identical             sifier used predict essentiality E. coli. sets
+SC_GenProt, lacks phyletic retention measure.          containing easily obtainable features analyzed,
+included set order assess ability identify      EC_GenProt EC_GenProt_No. experimental fea-
+
+
+                                                                                                                      Page 10 16
+                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                          http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+
+                                                                          B
+           40                                                               45
+
+           35                                                               40
+
+                                                                            35
+           30
+                                                                            30
+# Genes
+
+
+
+
+           25
+                                                                            25
+           20
+                                                                            20
+           15
+                                                                            15
+           10
+                                                                            10
+            5                                                                 5
+
+            0                                                                 0
+                0 2 4 6 8 10 12 14 16 18 20 22 24 26                              0 2 4 6 8 10 12 14 16 18 20 22 24 26
+
+
+
+           C                                                                D
+          120                                                               45
+
+                                                                            40
+          100
+                                                                            35
+
+           80                                                               30
+# Genes
+
+
+
+
+                                                                            25
+           60
+                                                                            20
+
+           40                                                               15
+
+                                                                            10
+           20
+                                                                              5
+
+            0                                                                 0
+                0   2   4   6    8    10 12 14 16                                 0    2     4    6      8    10 12 14 16
+
+                        Phyletic Retention                                                 Phyletic Retention
+Figure
+Phyletic 5distribution smallest largest essential genes S. cerevisiae E. coli
+Phyletic distribution smallest largest essential genes S. cerevisiae E. coli. Displays number essential genes (blue) superimposed total number genes (gray), binned number organisms gene present (phyletic retention)   300 smallest proteins E. coli, (B) 300 largest proteins E. coli, (C) 300 small-
+est proteins S. cerevisiae (D) 300 largest proteins S. cerevisiae.
+
+
+
+
+                                                                                                                           Page 11 16
+                                                                                                      (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                        http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+
+                                         S. cerevisiae
+                 100
+
+                     90
+
+                     80
+
+                     70
+
+                     60                                                                        SC_All
+           PPV ( )
+
+
+
+
+                                                                                               SC_GenProt
+                     50                                                                        SC_GenProt_No
+                     40                                                                        Random
+
+                     30
+
+                     20
+
+                     10
+
+                      0
+                                1        5         10           15         20
+                                       Percentage Predictions
+
+
+
+
+                     B                         E. coli
+                 100
+
+                     90
+
+                     80
+
+                     70
+                                                                                               EC_GenProt
+                     60
+           PPV ( )
+
+
+
+
+                                                                                               EC_GenProt_No
+                     50                                                                        Random
+                     40
+
+                     30
+
+                     20
+
+                     10
+
+                     0
+                               1        5          10           15         20
+                                      Percentage Predictions
+
+Figure
+Comparison
+        6 accuracies naïve Bayes classifiers
+Comparison accuracies naïve Bayes classifiers. predictive accuracies integrating optimal feature sets using naïve Bayes classifier shown yeast   E. coli (B). Accuracy, measured PPV (y-axis) shown 1, 5,
+10, 15 20  predictions different feature sets.
+
+
+
+
+                                                                                                                      Page 12 16
+                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                      http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+ture set used lack available genome wide         process constructing integrated classifier, analyses.                                                        relationship various genomic characteristics                                                                  essentiality explored. E. coli S. cerevisiae, phyletic retention measure  yeast,        phyletic retention, protein size, codon bias iden- informative feature ranking condi-           tified single features predictive
+tional mutual information [Additional file 1].           essentiality. Furthermore, showed pre- yeast obtained best PPV using 13            dictive groups organisms used phyletic retention
+features, E. coli required  phyletic reten-    measure contain host-associated organisms tion, serine, tryptophan paralog count (9 features           closely related reference organism. Despite optimally classify EC_GenProt_No). Figure          influence artificial definition essentiality 6B shows performance integrated features E.        selection optimal genome sets, result coli, PPV shown 1, 5, 10, 15 20         useful suggesting targeted sequencing used predictions.                                                  identification essential genes organisms.
+                                                                 addition phyletic retention codon bias, Conclusion                                                       related essentiality previous studies, identification essential genes largely        identified relationship protein size essenti-
+experimental effort, achieved genome               ality, knowledge explored
+knockout techniques. organisms C.           Specifically, observed nature elegans, possible devise highly effective screens   relationship differed E. coli S. cerevisiae, small
+essential genes using siRNAs [28], cost ineffec-      protein size indicative essentiality E. coli tiveness technique organisms makes          true large proteins S. cerevisiae. 
+broad application currently infeasible. paper          largest E. coli proteins, assessed potential effectiveness methodology         conserved essential. hypothesize genes prioritized based likelihood      observations indicative pressure testing positively lethality screen      maintain small proteome E. coli.
+subsequent small scale knockout screens 
+formed predictions obtain experimentally           summary strides prediction
+validated genes.                                                 essential genes based solely sequence data                                                                  fronts.  gained insight properties investigated efficacy strategy using avail-    sets organisms presence ortholog able knockout experiments assess predictive power         predictive essentiality. Second, assessed features easily obtainable sequence data        predictive power sequence based features, integrating using machine learning meth-           achieved superior prediction accuracy inte-
+odologies. integrating genomic protein character-         gration probabilistic framework intelligent fea-
+istics varying predictive power using probabilistic         ture selection.
+classifier feature selection, able achieve overall predictive accuracy S. cerevisiae E. coli    Methods superior performance individual           Sets essential genes
+feature. use descriptors make clas-      Essential gene definitions taken Giaever et al[1]
+sifier robust using individual features          Gerdes et al[30] S. cerevisiae E. coli respec-
+predictive power likely vary great deal differ-    tively. Additionally, E. coli ORFs removed
+ent organisms. example, codon bias strong predic-       80 amino acids. S. cerevisiae tor essential genes organisms studied        ORFs removed FASTA headers contained study 80 bacterial genomes revealed 30            key words "transposable" "mitochondrial". total codon bias [29]. Furthermore, able classify        4,728 yeast genes used, 966 essential. essential genes reasonable accuracy          E. coli, 3569 genes used, 611 essential. use gene conservation measure phyletic
+retention, providing added benefit identifying            Selection Features
+essential genes organism specific. abil-        S. cerevisiae E. coli model organisms ity identify essential genes sequence data         studied years. capitalized potential great practical importance         fact assessing relationship variety
+guiding investigations researchers searching          gene properties essentiality. Following list potential drug targets newly sequenced pathogens.             predictors rational including  Note                                                                  features used just S. cerevisiae marked                                                                  star, used E. coli marked stars.
+
+
+                                                                                                                     Page 13 16
+                                                                                                (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                       http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+Experimental Characteristics                                      comparison (downloaded UCSC Genome following parameters require large exper-         Browser; conserved track).
+imental work obtain. features used classifiers integrating features, excluded       Phyletic retention measure using 'easily obtainable' features.               Genes ubiquitously present different taxa
+                                                                  likely essential [1]. detailed *Protein interaction network degree                               Results section, yeast E. coli separately, set Generated curated interactions accumulated            organisms selected optimally predicted essenti- Database Interacting Proteins (DIP) [31].              ality. count gene reference
+degree protein computed summing number             organism (yeast E. coli) represents number of unique interactions participates  Degree,          orthologs present organisms. Bi-directional related metrics network position,         best BLAST hits used define orthologous rela-
+documented literature indicative essen-        tionship (using E-value cutoff 0.1).
+tiality [5,24,25]. Protein interaction data included E. coli low coverage.                                  Number paralagous genes
+                                                                  Genes duplicates likely *Protein Localization                                             essential [1]. rational duplicates func- known proteins transcriptional regula-         tion backup capacity presence knockout
+tion annotations enriched essential genes [1]. Based       mutation original gene. Paralogs defined result tested nuclear localiza-         genes present genome
+tion, protein localization categories,       BLASTP E-value 10-20. addition
+useful predicting essentiality. Localization information       ratio larger gene smaller exceed obtained previous large-scale study [32].              1.33.
+
+*Recombination Rate                                               **Strand bias
+Clusters essential genes known regions         Essential genes likely encoded lead- genome characterized lower recombina-           ing strand circular chromosome [35].
+tion rate [33]. gene recombination rates acquired Gerton et al. [34], analyzed according          Protein Characteristics procedures used Pal Hurst [33].                         parameters fall 'easily obtainable' category                                                                   require coding sequence  labo-
+Genomic Characteristics                                           ratory experiments necessary. represent protein consider following parameters 'easily obtainable'          characteristics terms following metrics: amino automatically generated sequence         acid composition, codon bias, codon adaptation index
+data.                                                             (CAI), frequency optimal codons (FOP), isoelectric
+                                                                  point (PI), hydropathicity score, hydrophobicity
+Gene size                                                         score. yeast data downloaded Saccha- trend proteins larger         romyces Genome Database [36]. E. coli metrics
+evolution. expected gene size            generated using CodonW software package [37].
+indicative essentiality, especially E. coli, ancestral
+genes likely essential.                                       Integration features
+                                                                  Classification essential genes using *Regulatory complexity                                            Orange machine learning package's implementation Different genes S. cerevisiae exhibit wide variation        naïve Bayes. [38]. features, exception regulatory complexity. recently docu-           optimized phyletic retention measure binary
+mented relationship regulatory            localization features, discretized using Fayyad complexity essentiality [6]. measured regulatory           Irani's entropy discretization method [39], imple-
+complexity using following parameters: upstream size,         mented Orange.
+downstream size, upstream conservation 
+stream conservation. sizes measured dis-          discretization, conditional mutual information max-
+tance nearest gene. Conservation measured           imization criteria (CMIM), described Fleuret [18], number bases   1000 bp upstream            used rank features. Briefly, CMIM iterative ORF start site   300 bp downstream            method feature vectors selected designated open reading frame, overlap ele-         highest mutual information class vector ments identified conserved seven species            conditioning previously selected features vectors.
+
+
+                                                                                                                      Page 14 16
+                                                                                                 (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                                        http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+Let Y class vector, Xn feature, Y;Xn) mutual information Y Xn, Y; Xn | Xm)                            Additional File 3 conditional mutual information Y Xn                            Feature matrices S. cerevisiae. raw data feature matrix, conditioned Xm. CMIM implemented follows,                               entropy discretized feature matrix included.
+                                                                                  Click file alternate implementations described Fleuret [18].
+                                                                                  [http://www.biomedcentral.com/content/supplementary/1471- score table s initialized values Y ; Xn).                     2164-7-265-S3.xls]
+algorithm picks iteration feature Xm highest score, refreshes score s [n] taking                     Additional File 4 minimum s [n] (Y ; Xn | Xm). algorithm                           Feature matrices E. coli. raw data feature matrix, run features selected.                                     entropy discretized feature matrix included.
+                                                                                  Click file given feature set, optimal number features                        [http://www.biomedcentral.com/content/supplementary/1471-
+                                                                                  2164-7-265-S4.xls]
+include classification determined empirically. Fea-
+tures ranked CMIM, iteratively removed                            Additional File 1 time. interval classification accuracy                       CMIM feature ranking. excel file includes tables showing measured. cutoff optimal feature set iden-                        CMIM feature ranking.
+tified highest PPV 5  pre-                        Click file
+dictions, requirement PPV 1                             [http://www.biomedcentral.com/content/supplementary/1471- higher  Additional file 2].                                           2164-7-265-S1.xls]
+
+ assign probability essentiality genes,                                                                                   Additional File 2
+                                                                                  Performance naïve Bayes classifiers using subsets features. following procedure used. Half essential                           set features analyzed paper (e.g. SC_GenProt,
+half non-essential genes randomly chosen                           EC_GenProt, ..), CMIM calculated features included training set. classifier                          ranked order informative  PPV 1, 5, 10 tested remaining genes, assigns probability                        15  predictions shown naïve Bayes classifier constructed essentiality. Training/testing bootstrapped 100                            using N features.
+                                                                                  Click file
+times, gene probability essentiality                                                                                   [http://www.biomedcentral.com/content/supplementary/1471-
+taken average probabilities                            2164-7-265-S2.xls]
+assigned  Additional file 6].
+                                                                                  Additional File 6 KEGG enrichment analysis                                                   Naïve Bayes classification results. feature sets used E. GeneMerge software used calculate enrichment                           coli S. cerevisiae, probability gene essential, KEGG annotations, using background genes                              reported naïve Bayes, provided.
+                                                                                  Click file
+used given organism [40]. P-values given Bon-
+                                                                                  [http://www.biomedcentral.com/content/supplementary/1471-
+ferroni corrected.                                                                2164-7-265-S6.xls]
+
+Authors' contributions
+AMG, SCJP, ESS SK conceived project designed study. AMG ESS drafted manuscript.                      Acknowledgements
+SCJP ESS performed analysis single feature                        authors like thank Rich Roberts comments formance. AMG performed integrated classifier analysis.                      manuscript, Joseph Mellor Dustin Holloway valuable
+ESS performed analysis identifying optimal organism                       insights project. work supported NIH grants
+sets. CD SK directed research, provided feed-                    1P20GM066401, 1T32GM070409, R01 HG003367-01A1 NSF grant project. authors read                            ITR-048715
+approved final manuscript.
+                                                                             References
+                                                                             1.      Giaever G, Chu  Ni L, Connelly C, Riles L, Veronneau S, Dow S,
+Additional material                                                                  Lucau-Danila  Anderson K, Andre B, Arkin AP, Astromoff  El-
+                                                                                     Bakkoury M, Bangham R, Benito R, Brachat S, Campanaro S, Curtiss
+                                                                                     M, Davis K, Deutschbauer  Entian KD, Flaherty P, Foury F, Garfinkel
+ Additional File 5                                                                   DJ, Gerstein M, Gotte D, Guldener U, Hegemann JH, Hempel S, 
+                                                                                     man  Jaramillo DF, Kelly  Kelly SL, Kotter P, LaBonte D, Lamb
+ List organisms used calculate phyletic retention. list organ-            DC, Lan N, Liang H, Liao H, Liu L, Luo C, Lussier M, Mao R, Menard
+ isms used calculation phyletic retention shown. KEGG             P, Ooi SL, Revuelta JL, Roberts CJ, Rose M, Ross-Macdonald P, Sche-
+ letter codes used represent organisms, unless noted.           rens B, Schimmack G, Shafer B, Shoemaker DD, Sookhai-Mahadeo S,
+ Click file                                                                 Storms RK, Strathern JN, Valle G, Voet M, Volckaert G, Wang CY,
+ [http://www.biomedcentral.com/content/supplementary/1471-                           Ward TR, Wilhelmy J, Winzeler EA, Yang Y, Yen G, Youngman E, Yu
+                                                                                     K, Bussey H, Boeke JD, Snyder M, Philippsen P, Davis RW, Johnston
+ 2164-7-265-S5.xls]                                                                  M: Functional profiling Saccharomyces cerevisiae
+                                                                                     genome. Nature 2002, 418:387-391.
+
+
+                                                                                                                                            Page 15 16
+                                                                                                                      (page number citation purposes)
+ BMC Genomics 2006, 7:265                                                                        http://www.biomedcentral.com/1471-2164/7/265
+
+
+
+2.    Cullen LM, Arndt GM: Genome-wide screening gene func-                25.   Wuchty S: Evolution topology yeast protein inter-
+      tion using RNAi mammalian cells. Immunol Cell Biol 2005,                    action network. Genome Res 2004, 14:1310-1314.
+      83:217-223.                                                              26.   Coulomb S, Bauer M, Bernard D, Marsolier-Kergoat MC: Gene
+3.    Roemer T, Jiang B, Davison J, Ketela T, Veillette K, Breton  Tandia          essentiality topology protein interaction net-
+      F, Linteau  Sillaots S, Marta C, Martel N, Veronneau S, Lemieux S,           works. Proc Biol Sci 2005, 272:1721-1725.
+      Kauffman S, Becker J, Storms R, Boone C, Bussey H: Large-scale           27.   Batada NN, Hurst LD, Tyers M: Evolutionary physiological
+      essential gene identification Candida albicans applica-                 importance hub proteins. PLoS Comput Biol 2006, 2:e88.
+      tions antifungal drug discovery.              Mol Microbiol 2003,     28.   Kamath RS, Fraser AG, Dong Y, Poulin G, Durbin R, Gotta M, Kana-
+      50:167-181.                                                                    pin  Le Bot N, Moreno S, Sohrmann M, Welchman DP, Zipperlen
+4.    Maslov S, Sneppen K: Protein interaction networks arti-                 P, Ahringer J: Systematic functional analysis Caenorhab-
+      facts. FEBS Lett 2002, 530:255-256.                                            ditis elegans genome using RNAi. Nature 2003, 421:231-237.
+5.    Jeong H, Mason SP, Barabasi AL, Oltvai ZN: Lethality central-        29.   Sharp PM, Bailes E, Grocock RJ, Peden JF, Sockett  Variation       ity protein networks. Nature 2001, 411:41-42.                               strength selected codon usage bias bacteria.
+6.    Yu H, Greenbaum D, Xin Lu H, Zhu X, Gerstein M: Genomic anal-                  Nucleic Acids Res 2005, 33:1141-1153.
+      ysis essentiality protein networks. Trends Genet 2004,         30.   Gerdes SY, Scholle MD, Campbell JW, Balazsi G, Ravasz E, Daugherty
+      20:227-231.                                                                    MD, Somera AL, Kyrpides NC, Anderson  Gelfand MS, Bhattacharya
+7.    Papp B, Pal C, Hurst LD: Metabolic network analysis                      Kapatral V, D'Souza M, Baev MV, Grechkin Y, Mseeh F, Fonstein
+      causes evolution enzyme dispensability yeast.                         Overbeek R, Barabasi AL, Oltvai ZN, Osterman AL: Experi-
+      Nature 2004, 429:661-664.                                                      mental determination level analysis essential
+8.    Fang G, Rocha E, Danchin  essential nonessential                     genes Escherichia coli MG1655.                  J Bacteriol 2003,
+      genes? Mol Biol Evol 2005, 22:2147-2156.                                       185:5673-5684.
+9.    Chen Y, Xu D: Understanding protein dispensability               31.   Xenarios  Rice DW, Salwinski L, Baron MK, Marcotte EM, Eisenberg
+      machine-learning analysis high-throughput data. Bioinfor-                   D: DIP: database interacting proteins. Nucleic Acids Res
+      matics 2005, 21:575-581.                                                       2000, 28:289-291.
+10.   Gu  Steinmetz LM, Gu X, Scharfe C, Davis RW, Li WH: Role            32.   Huh WK, Falvo JV, Gerke LC, Carroll  Howson RW, Weissman
+      duplicate genes genetic robustness null mutations.                  JS, O'Shea EK: Global analysis protein localization bud-
+      Nature 2003, 421:63-66.                                                        ding yeast. Nature 2003, 425:686-691.
+11.   Smith NG, Eyre-Walker  Human disease genes: patterns               33.   Pal C, Hurst LD: Evidence evolution gene order       predictions. Gene 2003, 318:169-175.                    

@@ -1,0 +1,389 @@
+BMC Bioinformatics                                                                                                                                                                                                                                               BioMed Central
+
+
+
+Research                                                                                                                                                                                                                                                       Open Access deducing causality metabolic networks
+Chiara Bodei*1, Andrea Bracciali1 Davide Chiarugi2
+
+Address: 1Dipartimento di Informatica, Università di Pisa, 56127, Pisa, Italy 2Dipartimento di Scienze Matematiche e Informatiche,
+Università di Siena, 53100, Siena, Italy
+Email: Chiara Bodei* - chiara@di.unipi  Andrea Bracciali - braccia@di.unipi  Davide Chiarugi - chiarugi3@unisi * Corresponding author
+
+
+
+ Seventh International Workshop Network Tools Applications Biology (NETTAB 2007)
+Pisa, Italy. 12-15 June 2007
+
+Published: 25 April 2008
+BMC Bioinformatics 2008, 9(Suppl 4):S8                                                                                                                  doi:10.1186/1471-2105-9-S4-S8
+
+<supplement> <title> <p Semantic Web Bioinformatics: Goals, Tools, Systems, Applications</p> </title> <editor>Paolo Romano, Michael Schroeder, Nicola Cannata Roberto Marangoni</editor> <note>Research</note> </supplement>
+
+
+
+ article available  http://www.biomedcentral.com/1471-2105/9/S4/S8
+© 2008 Bodei et al.; licensee BioMed Central  open access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                                                                Abstract
+                                                                Background: Metabolic networks present complex interconnected structure,                                                                 understanding general non-trivial task. formal approaches developed                                                                 support investigation networks. relevant problems context                                                                 comprehension causality dependencies molecules involved metabolic process.
+                                                                Results: apply techniques formal methods computational logic develop                                                                 abstract qualitative model metabolic networks order determine possible causal
+                                                                dependencies. Keeping mind expressiveness ease use, aimed providing:                                                                  minimal notation represent causality biochemical interactions, ii) automated tool
+                                                                allowing human experts easily vary conditions silico experiments. exploit reading                                                                 chemical reactions terms logical implications: starting description metabolic
+                                                                network terms reaction rules initial conditions, chains reactions, causally depending                                                                  automatically deduced. components initial state                                                                 clauses ruling reactions easily varied new trial experiment started, according                                                                 investigation strategy. approach aims exploiting computational logic formal
+                                                                modeling framework, available, naturally close human reasoning.                                                                 directly leads executable implementations support, perspective, various reasoning
+                                                                schemata.  abstractions supported computational counterpart, based                                                                 Prolog implementation, allows representation language closely correspondent                                                                 adopted chemical abstract notation. proposed approach validated results
+                                                                regarding gene knock essentiality model metabolic network Escherichia coli
+                                                                K12, relevant coherence available wet-lab experimental data.
+                                                                Conclusions: Starting presented work, goal provide effective analysis toolkit,
+                                                                supported efficient fledged computational counterpart, aim fruitfully driving                                                                 vitro experiments effectively pruning non promising directions.
+
+
+
+
+                                                                                                                                                                                                                                                               Page 1 10
+                                                                                                                                                                                                                                         (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                   http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+
+
+Background                                                     source molecule reaction Understanding relationships elements           forth. words, abstract away quantities,
+involved biologic interaction networks,         stoichiometric proportions, kinetical thermodynamics
+functioning cellular metabolism, relevant problem      parameters involved production P. Systems Biology. words [1], “diagrams          Noticeably, abstract actual dynamics interconnections represent sort static roadmaps,      reactions. Intuitively speaking, project reactions really seek know traffic patterns,      “flat�? temporal scale availability M N patterns emerge, control ?.            spoiled production P, metab-
+Having formal description interconnections      olites caused M N. abstrac-
+methodology perform software simulation              tion quantities, “infinite copies�? M N patterns  help orientating vitro        result available. abstraction, experimentation. regard, causality play      reaction leading P actually represents possibility important role finding chains reactions connect     P generated, caused, vivo, presence M parts  e.g. determining      N.  model gives approximation causal correlations molecules appar-        set actual pathways, possibly including ently correlated. general, proposed models com-      pathways actually prevented, instance,
+plex systems code lot information determining         lack suitable quantity reactants possible correlations causal dependencies       inadequate temperature. payoff abstraction
+straightforward computationally expensive.                  adopted terms expressiveness language                                                                effectiveness computational counterpart. Abstracting focus metabolic networks, e. set       quantitative issues prevent reasoning cellular biochemical pathways involved energy man-          dynamical features (bio)chemical objects.
+agement synthesis structural components.          makes possible consideration
+Biochemical pathways typically composed chains       aspects systems (typically large biochemical
+enzymatically catalyzed chemical reactions inter-      networks) kinetical thermodynamical param-
+connected complex way. Starting composi-         eters scarcely known.
+tion local, understood behaviour, study overall emerging behaviour metabolic networks               Chains causal reactions  step step, automati-
+appears difficult.                                             cally deduced. aim, exploit analogy                                                                logical implications chemical reactions, interpret- apply techniques formal methods               ing reaction M N produces P logical
+computational logic order develop abstract qual-      clause stating M N imply P. method sup-
+itative model metabolic networks, focussing causal-      ported computational logic counterpart, based ity. Keeping mind expressiveness ease use,      Prolog implementation semantics. aimed providing:  minimal notation represent      allows compute set metabolites causality biochemical interactions, ii) auto-        produced consequences given set rules mated tool allowing human expert easily vary        starting set initially available metabolites. ditions silico experiment. introduce simple     step-wise determined repeatedly adding metabo- skeletal notation, inspired biochemical reactions,      lites immediately caused application emphasize causality aspects concerned       rules set far produced metabolites. choice relying computational logic, “pro-      relate computational construction orig-
+vides straightforward intuitive representation        inal model prove convergence properties proc-
+human reasoning�? [2], appeared particularly suitable       ess. multidisciplinary context work. hand, palatable biologists, close   Despite abstract working hypotheses adopted, biochemical intuition. hand,      framework revealed sufficient provide meaningful
+direct computational counterpart, scien-        approximations possible chains reactions tists build order devise needed analysis    experiments.  approach facilitates thinking
+tool.                                                          revising biological model itself, making easy                                                                vary components initial state notation, biochemical reactions given            clauses rule reactions.
+abstract representation: record rela-
+tions source target elements       proposed approach serve sort  ?
+single reaction, e.g. molecules M N        analysis, repeatedly exploring different scenarios, molecule P produce. turn, P           derived different set working hypotheses.
+
+
+                                                                                                                   Page 2 10
+                                                                                             (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                    http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+ tool allows rapidly evaluate impact            formalisms developed concurrency
+changes hypotheses particular observable        theory applicable Systems Biology, recall come.  obtain interactive effective analy-       relevant purposes. Petri Nets [4] offer sis, used differentiate promising       way graphically represent structure distributed
+causal relations deduced, deserve tested         systems. successfully applied mod-
+vitro, instead pruned.                   elling metabolic pathways simple genetic networks
+                                                                 e.g. [5,6] cite . model pathways validated approach studying robust-          networks terms dynamic evolutions.
+ness metabolic network E. coli K12. Selected
+genes knocked disabling rules              Process calculi interactions communications
+regarding corresponding encoded enzymes. Results            independent agents processes. underlying coherent actual biological behaviour,              idea biological seen concurrent
+observed vitro reported [3] “Geno          systems. particular, π–calculus [7] Ambient Calcu-
+Base�? (http://ecoli.aist-nara.ac.jp/), database entirely      lus [8] transferred theoretical dedicated E. coli K-12.                                      science setting biology setting, leading suitably
+                                                                extended biological versions  Bio- paper organized follows.  discuss       chemical stochastic π-calculus [9,10] BioAmbients
+related work present formal framework,             [11]. version CCS, RCCS [12] intro-
+illustrating biochemical processes represented       duced address biological issues. calculi inside  Results experiments metabolic         instead specifically defined biological modelling,
+network E. coli K-12 metabolic genotype follow.          κ-calculus [13], Brane calculi [14] Beta Bind-
+Conclusions followed section Methods,         ers [15]. Chemistry invoked explicitly report techniques used.                               process algebraic context years com-
+                                                                ing systems biology. [16], abstract machine based
+Related work comparison                                     chemical metaphor introduced: states chem- work included recent research trend           ical solutions floating molecules interact exploits established theories techniques         according reaction rules. Rules specify produce formal methods order support interpreta-         new molecules old ones.
+tion big raw biological data available. using logic, slightly diverge line    Closer approach work presented [17], research biological modelling inspired        authors apply causal semantics π-calcu- use concurrent models. Concurrency theory offers       lus order biochemical processes. proc-
+wide choice models naturally expressing causality,      ess computations obtained quite accurately essential notions.  causality   capture reflect behaviour biological systems
+natural notion logic framework. Concurrent          causality key role enhancing precision models focussed description dynamic           simulations. starting point quite similar, behaviour systems. Considering aspects           model description biological systems given computationally demanding. led        terms molecular entities reaction rules implic-
+choice abstract model, – men-          itly code causal relationships, possible
+tioned – notion time abstracted away.        pathways. causal semantics [17] based abstraction similar performed posteriori       enhanced form transition systems [18], makes concurrent model, instance resorting static      possible capture truly concurrent aspects like causality
+analysis techniques, offer static approximations       interleaving setting, like process algebraic  dynamic behaviour. Usually, static techniques extract       proposals, introduced information systematically inspecting specification      aim, instance distributed transition systems dynamic behaviour systems. approach            [19].
+instead, want infer information directly inspect-
+ing set reactions, modulo abstractions dis-       interesting observe results com-
+cussed  skipping specification            parable obtained using quite efficient
+chemical dynamics. Resorting static techniques repre-        static technique like Control Flow Analysis (CFA) [20,21],
+sents typical way drastically reduce computational     applied π-calculus. settings, reaction
+cost study possible dynamic evolu-        M N produces P abstractly mod-
+tions  price pay amounts loss        elled synchronization process M N precision, usually provide approximations       shared channel c, process P continuation. behaviour.                                               Notice case expressiveness π-cal-
+
+
+                                                                                                                    Page 3 10
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                   http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+
+culus  particular, passing         induction aim learning general rules needed. simplest form, CFA considers effective   abduced hypotheses. representation language communications occur given              ad-hoc devised. predictive accuracy increases
+shared channels, disregarding actual viability,      number training examples. methodology instance synchronization dynamics. modelling         richer representation language aims reactions way, CFA consider       addressing different class problems different
+possible consumption reactants. regard,      experimental setting. Differently, [2], [27], approach offer analogous result,          based quite general class languages, extended skeletal abstract setting. Having approxima-       deal biological context. language, tion exact behaviour  case   known action event calculi, suited static analysis framework, means     non-monotone evolution dynamical environment,
+events prediction does include hap-    specifically biological networks. Abduction pen, included, events happen, e.     used expressive means compute/deduce explana- possible.                                             tions missing information dynamical nature
+                                                               world. expressive recent proposal shares similarities     approach, proposals deal explicit approach based biochemical abstract      treatment dynamics systems, differently machine BIOCHAM [22], offers formal mod-          proposal strives simplicity order address,
+elling environment biochemical processes, oriented         approximately, causality large metabolic net- qualitative aspects. based rule-centered    works.
+language specifying biochemical systems. Differently approach, BIOCHAM semantics takes            Finally, important refer wide usage graphs
+sideration dynamics systems provides tools      representation language, traditionally close biologist
+querying temporal properties systems using         experience. huge set papers adopting
+Computation Tree Logic. Refraining dealing           graphs model bio-networks, work closer quantities, BIOCHAM offers explicit controls reactant       use arcs nodes directly represent reactions. consumption reactions  default, pos-     instance, approach quite corresponding logical
+sibilities considered. suggests develop-      view reactions – far abstraction level 
+ments approach,  currently, case     cerned – [28].  starting chosen qualita- consumption admitted. reason choice      tive interpretation biochemistry analogous  effectiveness: way, branching semantics avoided.    authors focus topology metabolic networks,
+                                                               aiming defining representative measure network close approach BIOCHAM Path-       activity, Synthetic Accessibility  number chemi-
+way logic  e.g. [23,24]), rewriting logic used    cal reactions needed transform set initial metabo- modelling biological processes. Rewrite rules     lites set output ones). notion local changes molecular patterns cause       tested predicting viability mutant strains accu-
+Rules concurrently applied corresponds      racy results comparable  differ- actual possibility biological compartments inde-     ent perspective.
+pendently evolve. offers basis silico experi-
+ments advanced forms symbolic analysis.          Results discussion
+choose alternative approach, resorting      constructive formalisation metabolic causality
+current semantics, accordance aims.    clarify interpretation metabolic causal rela-
+                                                               tions introducing notation used represent bio- computational logic tradition, largely       chemical reactions. consider assumptions influences proposal, interesting cite        idealised notatation relies, discussing 
+recent proposals based Abductive Logic Programming.         according aims, assumptions consid-
+                                                               ered viable working hypotheses. notation repre-
+Complexity bio-networks, understood lack com-         sents adopted formalisation biochemical
+plete knowledge, addressed means            reactions.  chosen hypotheses, capability making assumptions provided abduction.        formal account fact metabolite, approach applied gene networks [25],       called reactant, caused network. section motivations similar  proposal based       Methods, present computational counterpart combination Abduction Induction: abduction         formalisation relate computational
+allows inference observable effects  [26])       construction adopted model. used generate hypotheses, 
+
+                                                                                                                   Page 4 10
+                                                                                             (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                    http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+ biochemical reactions causal relations                   let imagine overall process Let consider biochemical reaction written clas-     described includes  steps  upper sical notation:                                                 glycolytic pathway.  set R contain reaction
+                                                                rules like:
+                  mM + nN → pP + qQ                      (1)
+                                                                                      glc6p → fru6p                            (4)
+M, N, P Q species involved m, n, p q corresponding stoichiometric coefficients. Expression
+                                                                               fru6p ATP → fru16p ADP                          (5)
+(1) indicates  reaction occurs, certain M N certain P Q
+according stoichiometric proportions. stoi-                         fru16p → gap dhap                           (6)
+chiometry, order exhaustively characterize chemi-
+cal reaction, account number                                 dhap → gap                              (7)
+factors related thermodynamics kinetics repre-
+sent propensity reaction occur rate reactants eventually products.                                             gap → dhap                             (8)
+ interested investigating causality relation-                    gap nad → bpg13 nadh                           (9)
+ships  omit description fac-
+tors cited   abstract                 acronyms glc6p, fru6p, fru16p, gap, dhap, nad,
+representation (1) follows:                               nadh, bpg13 stand Glucose 6-phosphate, Fructose 6-
+                                                                phosphate, Fructose1,6-bisphosphate, Glyceraldehyde 3-
+                      M N→P Q                            (2)    phosphate, Dihydroxyacetone phosphate, NAD+, NADH
+                                                                1,3 Bisphosphoglicerate, respectively. expression reaction rule. simply states presence M N represents possibil-      rules (4), (5), (6), (7) (8)  (9)
+ity P Q produced caused. applicable, e.   reaction catalyzed enzymes phos- known premises M N producible         phoglucose isomerase, 6-phosphofructo 1-chinase, fruc- network, P Q producible. Informally         tose bisphosphate aldolase, triose phosphate isomerase,
+speaking, standard dynamical reading (2)          glyceraldehyde 3-phosphate dehydrogenase, respectively.
+                                                                Note reactant appearing right                   M N→M N P Q                            (3)    operator → appear left                                                                 rule.  considering evolution network,
+reactants consumed step.                         eventually decompose rules simpler monadic
+                                                                rules, e.g. (2) written  description causal relations metabolic net-
+work defining set metabolites initially                             M N→P                                 (10)
+present set reaction rules R new metabolites produced. Initial metabolites                                M N →Q                                (11)
+represented form rules premises like →
+P.                                                              transformation causality preserving sense                                                                 following proposition.
+Example 1
+Let consider experiment pathway occurring         Proposition 1 environment providing α-D Glucose, Glycerol           Let M1 �?? … �?? Mm → P1 �?? … �?? Pn applicable rule,
+oxygen. using suitable acronyms like glc, gly o2,        e. M1, …, Mn producible, P1, …, Pn pro-
+respectively, initial conditions experiment      ducible.  simplified rules M1 �?? … �?? Mm → include:                                                 Pi, = 1, …, n, applicable order,                                                                 application makes P1, …, Pn producible, 
+                           → glc
+                                                                proposition holds causality behaves                            → gly                                monotone way, application subsequent
+                                                                rules spoil fact metabolite produci-
+                           → o2                                 ble.
+
+
+                                                                                                                   Page 5 10
+                                                                                             (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                                                              http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+ fact reactant caused network pre-                                              Note experimental evidence possible produc-
+cise means following definition relating                                                    tion metabolite vivo silico, suggest
+metabolite chain reactions                                                    need revision adopted biological model.
+exist, starting initial state according set rules R.                                                                                               set reactants “motivated�?, sense
+                                                                                                          illustrated, explanation starting ini-
+Definition 1                                                                                              tial pool given reactants specific set rules Given set rules R, initial state  reactant let                                          automatically determined. different consider following construction:                                                                   equivalent approaches used, fol-
+                                                                                                          low logic-deductive interpretation, line              ⎧                                     → ∈                                           explanatory approach adopted. details, sec-
+             ⎪
+ER   ) = ⎨ ⎣⎡ ER  ( a1 ) ,… , ER  ( )⎤⎦ a1 … → ∈ R ER  ( ai ) ≠⊥  ∈[1..n ]   tion Methods.
+             ⎪ ⊥                                                  ⎩
+  ER  ≠ ⊥ explanation R                                               Experiments
+                                                                                                          applied approach biological model construction non-deterministic  choice                                               based E. coli K-12 metabolic genotype proposed
+rule choice cases),                                               [29] [30]. group genes represents subset different ways cause metabolite.                                                        genome E. coli K-12 includes genes
+                                                                                                          encoding enzymes involved energetic biosynthetic
+False positives false negatives: problem approximation                                           metabolism. Using formalism, represented briefly discuss precision approach.                                                 metabolic network composed enzymes explained  approach intended offer                                                  encoded selected gene set metabolites approximation dynamic behaviour meta-                                                      involved catalyzed reactions. obtained bolic pathways. existence explanation gives                                                  list 600 causal rules. performed indications possibility production                                                silico  ? experiments compared obtained
+metabolite, according relaxing assumptions                                                    results correspondent vitro counterpart,
+adopted. means false positives, e.                                             excerpts reported following. exper- possible predict silico production metabo-                                                iments carried tool  [31]), briefly
+lites produced vivo. presence                                                   presented section Methods.
+expected consequence abstraction 
+approximation.  experimental results                                                          Mutually essential genes
+reported final section accuracy rates,                                            silico experimental session performed gene e. measure approximation, comparable                                                    knock mimicking homologous vitro experiment
+obtained known approaches litera-                                                    presented [3].  authors silenced target
+ture.                                                                                                     genes E. coli K-12 (sucAB sucCD) encode                                                                                                           enzymes involved Krebs cycle (α-ketoglutarate contrary, adequacy adopted bio-                                                   dehydrogenase succinyl-CoA synthase, respectively).
+logical model, expect false negatives, e. metab-                                              genes “mutually essential�? pro-
+olites produced vivo                                                           duction succinyl-CoA, e. sucAB sucCD explanation silico, stated following claim.                                                  knocked individually, simultaneously                                                                                                           order achieve Succinyl-CoA production. Succinyl-CoA
+Claim                                                                                                     critically important metabolite involved explanation production certain                                                biochemical pathways leading, e.g., energy production
+metabolite  producible vivo.                                                        peptidoglycan biosynthesis  Diaminopimelate).
+ intuition supporting claim based follow-                                                order simulate gene knock  ing reasoning: ad absurdum metabolite actually                                                removed rules corresponding reactions cata-
+producible vivo, certain set biochemi-                                              lysed α-ketoglutarate dehydrogenase succinyl-CoA
+cal reactions applied starting initial set                                            synthase. set starting experimental  metabolites. Starting reactions                                                      ditions, including initial state metabolites
+applying abstractions illustrated                                                       cell assumed uptake external envi- lead explanation looking                                                      ronment. Checking presence succinyl-CoA                                                                                                           end computation, metabolite
+                                                                                                          produced  e. correspondent fact                                                                                                           deduced) target genes  e. rules
+
+
+                                                                                                                                                              Page 6 10
+                                                                                                                                        (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                       http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+
+corresponding action encoded enzymes)                [28]. difference taken account calcu- simultaneously turned  reflects actually        lating accuracy defined 
+happens vitro.
+                                                                   Definition 4 silico gene knock                                           Let TP, TN, FP, FN number true positives, true performed silico gene knock-outs              negatives false positives, false negatives, respectively.
+compared results information contained             define accuracy “Geno Base�? (http://ecoli.aist-nara.ac.jp/), database
+entirely dedicated E. coli K-12. database genes                   = (TP + TN ) / (TP + TN + FP + FN ) classified according various criteria, essentiality, e. capability causing cell death,   . turned  silico knock experiments tried test gene essentiality verifying       experiments following results: silico knock mutants exhibit features typically 
+taining living cells. assumed characteris-                                         =
+                                                                                          ⎧    TP        102
+tics reasonably include production ATP                                      ⎪
+(essential cellular energetic metabolism), produc-                                ⎪    TN   =    13
+                                                                                          ⎨
+tion reduced coenzymes NADPH NADH                                          ⎪    FP   =    17
+production dispensable structural components,                                      ⎪⎩   FN   =    0 cell wall (murein Biosynthesis). 
+formed silico knock experiments sample           reported [28], accuracy Synthetic Accessi- 132 genes set, time removing rules cor-         bility approach presented ranges 60  responding enzyme encoded silenced gene              74 , approach metabolic networks, e. checking presence observed elements          Flux Balance Analysis [30], accuracy ranges end computation. interpret results         62  86 . 17 false positives,
+prediction viability viability knock-         resulting accuracy 87  specific mutant analysis. experimental setting             experiment. differences probably strongly influ-
+ Table 1), slightly extend notion false posi-        enced way data sets interpreted tives negatives introduced sec-       cases included data sets.  obtained
+tion say True Positive occurs knock-          results make confident approach reasonably mutant results viable silico vivo        accurate.
+counterpart, True Negative occurs silico
+knock mutant viable silico vivo,       intuitive idea experiments, just report
+False Positive occurs viable silico knock            Table 2, examples true positive, true negative
+mutant vivo counterpart  False        false positive cases (reminding false
+Negative occurs silico knock mutants         negatives). symbols + − stand presence viable, vivo counterpart results viable. Note         absence, respectively, observed elements assignment arbitrarily chosen. eval-         silico results.
+uate performance method compare similar approaches use performance measure taken              presence false positives  silico, mutant pre- [28], measures number true predictions –            dicted viable, actually, vivo,  expected positive (viability) negative (non viability) –        framework, consequence abstraction overall ones. Note definitions false posi-         approximation used model. corre-
+tives false negatives differ proposed            sponds fact influence                                                                    viability potentially producible silico, Table 1: True false positives negatives according                                                                    actually produced real life. Finally, note  definition, depending viability knock mutants     experiments carried  false negatives.
+silico vivo                                                 makes confident correctness adopted
+                                                                   biological model.
+ CASE                      SILICO           VIVO
+
+ True Positive             viable              viable
+                                                                   Conclusions
+ True Negative             viable          viable          metabolic networks, metabolites produced  False Positive            viable              viable          set initial metabolites, set chemical reac-
+ False Negative            viable          viable              tions. reactions produce intermediate metabolites
+                                                                   products reactants. intro-
+
+
+                                                                                                                          Page 7 10
+                                                                                                    (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                           http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+
+Table 2: Gene knock experimental results                       “emphasis hypothesis-driven research biology�?
+                                                                   advocated [1].
+ Gene    ATP    NADPH      NADH      cellwall   outcome
+
+ acpS    −      −          −         −          true negative      Methods
+ lpxA    +      +          +         −          true negative      illustrate methodology, computa-
+ glk     +      +          +         +          true positive      tional framework represents counterpart  aceA    +      +          +         +          true positive      formalisation metabolic causality, introduced sec-
+ prsA    +      +          +         +          false positive     tion Results Discussion. Finally, relate compu-
+ pfk     +      +          +         +          false positive     tational construction adopted formalisation.
+
+                                                                   set reactants caused – according duced simple skeletal notation net-        formalisation – explanation starting initial
+works terms molecular entities reaction rules            set reactants set rules automatically specify interactions implicitly code pos-      determined. different equivalent
+sible causal dependencies reactions. nota-            approaches choose, eventually follow tion permits  hand, chemical              logic-deductive interpretation, line reactions abstract intuitive representation           explanatory approach adopted. Technically, follows
+quantitative aspects abstracted away;             consists fragment Horn-based Logic Programming
+hand, representation straightforwardly trans-          (having finite set ground predicates) equipped
+lated input tool developed, paving          semantics   e.g. [32]).  way silico experiments tool develop-            sake accessibility, theory recast terms ment. aim, exploited analogy           rules  e., clauses) reactants  e., predicates). reaction rules logical implications, allows         following, reactants directly represented, causal
+automatically deduce chains causally related reactions          rules model, �?? c → b say, straightforwardly means logical-based tool.            translated Horn-rules, like  c → b, according consider dynamic evolution metabolic networks,              following definition. model sufficient information metabolites possibly produced                   Definition 2  hints possible flows reactions.       Let finite set reactants a1,…,  ∈    methodology makes possible reason                                        a1 ,… , → model itself, allowing vary ini-
+tial conditions rules. easy program          n ≥ 0 rule.
+modifications evaluating impact changes hypotheses quite immediate, tool quickly            Notice rules premises. reacts queries (typically answer reasona-        rules used representing elements present ble large network returns istantanelously).             initial state  approach satisfies need simulate inves-
+tigate behaviour fully known metabolic net-             set consequences given set rules (respec-
+works different working hypotheses. particular         tively, semantics logic program) defined
+allows perform perturbative experiments,               according step-wise process. applica-
+results trivial predict. fact, studied net-   tion rule set reactants causes new reactant
+work complex  results unfeasible priori          premises rule verified set.
+estimate effects produced local perturbation           Starting set initially available reactants, overall network. Finally, applied method-          set reactants caused obtained
+ology metabolic network E. coli K-12 meta-           repeatedly adding reactants immedi-
+bolic genotype. silico experiments presented reflect        ately caused application rules. vitro ones. results obtained method underperform analogous ones. Noticeably              Definition 3 ground formalism provides efficient            Let R set rules set reactants, straightforward implementations.                                   immediate consequence operator TR  : 2A → 2A defined
+                                                                   ultimate goal investigations sup-
+porting heuristic process searching causal explana-
+                                                                      TR ( )     | a1 ,…, → ∈ R a1 ,…, ∈  ∪ tions metabolic phenomena, mind 
+
+                                                                                                                         Page 8 10
+                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                       http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+
+.                                                                 recall SLD-trees semantics                                                                   Logic Programming). Considering example  TRn ( )    TR (TRn−1 ( ) TRo ( ) .           reactant c caused TR3 ({b}) applica-
+                                                                  tion rule (12), turn depends rule (13), convergence outlined process guaranteed          production does belong initial set = following result, based observation           {→ b}. Consequently, explanation  trivially, 〈2 , ⊆⎧ (finite) complete partial         c b],b] c.  important considered
+order(c.p.o.) T(_) continuous (keeping         convergence reactants explanations.
+original guarantees monotonicity).           easy observe fourth step set reactants finite – e. number reactants    explanation b b]]] cycle occurring rules R initial state –      b. amounts say – presence cycles – construction guaranteed converge finite        explanations growth indefinitely, e. convergence
+number steps  fix point indicated TRn         occurs infinity.  restricted                                                                   compute reactants produced, instead TR∞  ).                                           finite process.  following correspondence
+                                                                  computational results potentially infi-
+Proposition 2
+                                                                  nite model explanations drawn.
+Let R set rules, set reactants, m number reactants model consider-          Theorem 1
+ation.  n <m exists                                                                   Let R set rules, reactant, set reactants                                                                   n     minimum natural number                       TR (TRn ( )) = TRn ( ).
+                                                                  T (TRn  )) = TRn  ) . following holds
+Example 2
+Let consider network reactants = { → b} ini-                            ∈ TRn ( ) ⇔ ∃EI , R  ) ≠⊥
+tially available consisting following simple
+rules R:                                                          Proof
+                                                                  (Outline).
+                               b → c                     (12)
+                                                                  (⇒) induction number steps needed firstly
+                                                                  cause process  rule moti-
+                               b                         (13)
+                                                                  vated inclusion used                                                                   rule definition explanation  reac-
+                               b                         (14)   tants premises rule caused                                                                   steps,  inductive hypothesis, explanations
+                               c→d                         (15)   exist, used construct                                                                   explanation .
+Applying TR ({b})                                                                   (�?) induction structural complexity EI,R .                    TR ({b}) =         b}                         inductive hypothesis, reactants premises                   TR2 ({b}) =  {c ,  b}                         rule explanation belong TRn  ) ,
+                  TR ({b}) = {d , c , b, 
+                    3
+
+                                                                  TRn  ) TRn  ) fix point,                   TR4 ({b}) = TR3 ({b})
+                                                                  rule clearly applicable cause .
+Coherence computational metabolic causality standard, like relate computational           address problem causality metabolic net-
+                                                                  works, seen  developed software tool based
+construction provided original model, e.                                                                   implementation standard seman-
+adopted formalisation biochemical reactions, intro-
+                                                                  tics, running SICTUS Prolog Interpreter  duced section Results Discussion. Let start          [31]).
+observe keeping track rule used applying
+TR(_) allow reconstruct explanations  
+
+                                                                                                                         Page 9 10
+                                                                                                   (page number citation purposes)
+ BMC Bioinformatics 2008, 9(Suppl 4):S8                                                         http://www.biomedcentral.com/1471-2105/9/S4/S8
+
+
+
+
+Competing interests                                                              19.   Degano P, Montanari U: Concurrent Histories: Basis                                                                                        Observing Distributed Systems. Journal authors declare competing interests.                             Sciences 1987, 34(2/3):422-461.
+                                                                                 20.   Bodei C, Degano P, Nielson F, Riis-Nielson H: Static analysis Authors' contributions                                                                 π-calculus application security. Information
+                                                                                       Computation 2001, 165:68-92. authors equally contributed present work                          21.   Nielson F, Riis-Nielson H, Schuch-Da-Rosa D, Priami C: Static anal- wrote paper. precisely, CB AB taken care                              ysis systems biology. Proceedings workshop Systeomatics computational framework DC carried                                  – dynamic biological systems informatics Science Press, Trinity
+                                                                                       College Dublin; 2004:1-6. silico experiments, jointly develop                        22.   Chabrier N, Fages F, Soliman S: Biochemical abstract
+malisation metabolic causality analysis                              machine BIOCHAM. Proceedings Computational Methods                                                                                        Systems Biology (CMSB'04), Lecture Notes Science 3082 experimental results.                                                              Paris, France: Springer; 2005:172-191.
+                                                                                 23.   Eker S, Knapp M, Lincoln P, Laderoute K, Talcott C: Pathway Logic:
+Acknowledgements                                                                       Executable Models Biological Network. Proceedings                                                                                        Fourth International Workshop Rewriting Logic Applications article published BMC Bioinformatics Volume 9 Sup-            (WRLA '02), Electronic Notes Theoretical Science 71 Elsevier;
+plement 4, 2008: Semantic Web Bioinformatics: Goals, Tools, Sys-                 2002:144-161.
+tems, Applications. contents supplement available online     24.   Talcott C, Eker S, Knapp M, Lincoln P, Laderoute K: Pathway Logic http://www.biomedcentral.com/1471-2105/9?issue=S4.                                  Modeling Protein Functional Domains Signal Transduc-
+                                                                                       tion. Proceedings Pacific Symposium Biocomputing 2004,
+                                                                                       9:568-580.
+References                                                                       25.   Tamaddoni-Nezhad  Chaleil R, Kakas  Muggleton S: Application
+1.    Kitano H: Systems Biology: brief overview. Science 2002,                       abductive ILP learning metabolic network inhibition
+      295(5560):1662-1664.                                                             temporal data. Machine Learning 2006, 64(1-3):209-230.
+2.    Tran N, Baral C, Nagaraj VJ, Joshi L: Knowledge-based frame-               26.   Papatheodorou  Kakas AC, Sergot M: Inference Gene Rela-
+      work hypothesis formation biochemical networks. Bio-                      tions Microarray Data Abduction. Proceedings       informatics 2005, 21(Suppl 2):ii213-ii219.                                       Logic Programming Nonmonotonic Reasoning (LPNMR'05), Lecture
+3.    Yu B, Sung B, Lee J, Son S, Kim M, Kim S: sucAB sucCD                    Notes Science 3662 Diamante, Italy; 2005:389-393.
+      mutually essential genes Escherichia coli. FEMS Microbiology            27.   Grell S, Schaub T, Selbig J: Modelling Biological Networks       Letters 2006, 254(2):245-250.                                                    Action Languages Answer Set Programming. Proceed-
+4.    Reisig W: Petri Nets: introduction Springer-Verlag; 1985.                     ings International Conference Logic Programming (ICLP'06) Lecture
+5.    Goss P, Peccaud J: Quantitative modeling stochastic systems                   Notes Science 4079 Seattle, WA, USA: Springer;
+      molecular biology using stochastic Petri Nets. Proceed-                    2006:285-299.
+      ings National Academy Sciences USA 1998, 12:6750-6754.           28.   Wunderlich  Mirny L: Using topology metabolic net-
+6.    Peleg M, Yeh  Altman R: Modeling biological processes using                    works predict viability mutant strains. Biophysical Journal
+      Workflow Petri Nets models.                     Bioinformatics 2002,         2006, 91:2304-2311.
+      18:825-837.                                                                29.   Kayser  Weber J, Henkt V, Rinas U: Metabolic flux analysis 7.    Milner R: Communicating mobile systems: π-calculus Cambridge             Escherichia coli glucose-limited continuous culture. Trans-
+      University Press; 1999.                                                          actions Computational Biology VII 2005, 151:693-706.
+8.    Cardelli L, Gordon  Mobile Ambients. Theoretical Sci-           30.   Edwards J, Palsson B: Metabolic flux balance analysis sil-
+      ence 2000, 240:177-213.                                                          ico analisis Escherichia Coli K-12 gene deletion. BMC Bioin-
+9.    Priami C, Regev  Shapiro E, Silvermann W: Application sto-                formatics 2000, 1(1):1-10.
+      chastic passing calculus representation simula-                31.   Toolkit Supporting Formal Reasoning Causality       tion molecular processes. Theoretical Science 2004,                  Metabolic Networks.             . [http://www.di.unipi ~braccia/Tool
+      325:141-167.                                                                     Code].
+10.   Regev  Silvermann W, Shapiro E: Representation Simula-               32.   Lloyd J: Foundations Logic Programming Second edition edition.
+      tion Biochemical Processes Using pi-Calculus Process                      Springer; 1987.
+      Algebra. Proceedings Pacific Symposium Biocomputing World
+      Scient

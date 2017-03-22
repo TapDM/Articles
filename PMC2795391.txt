@@ -1,0 +1,492 @@
+                               NIH Public Access
+                               Author Manuscript
+                               Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                           Published final edited form 
+NIH-PA Author Manuscript
+
+
+
+
+                            Pac Symp Biocomput. 2009 ; : 391–402.
+
+
+
+                           HIGH THROUGHPUT INTERACTION DATA REVEALS DEGREE
+                           CONSERVATION HUB PROTEINS
+                            Fox1,*, D. Taylor1, D. K. Slonim1,2
+                           1Department Science, Tufts University, 161 College Avenue, Medford, MA 02155,
+
+                           USA
+                           2Department         Pathology, Tufts University School Medicine, 145 Harrison Ave., Boston, MA
+                           02111, USA
+
+                           Abstract
+                                   Research model organisms relies unspoken assumptions conservation protein-
+                                   protein interactions species, analyses suggest conservation limited.
+NIH-PA Author Manuscript
+
+
+
+
+                                   Fortunately, purposes crucial issue global conservation interactions,                                    preferential conservation functionally important ones. observed bias essentiality                                    highly-connected proteins implies functional importance “hubs�?. define
+                                   notion degree-conservation demonstrate hubs preferentially degree-conserved.
+                                   protein likely hub high-degree ortholog,                                    protein hub, tends remain  identify positive correlation                                    average degree protein conservation interaction partners,                                    conservation individual hub interactions surprisingly high. work important
+                                   implications prediction protein function, computational inference PPIs, interpretation
+                                   data model organisms.
+
+
+                           1 Introduction
+                                                power comparative genomic research grown steadily availability                                                 genomic sequence annotation increasing numbers organisms. variety                                                 techniques solving diverse problems motif discovery[1], gene expression
+                                                analysis[2], regulatory network inference[3] interactome discovery[4] rely NIH-PA Author Manuscript
+
+
+
+
+                                                assumption functionally important protein-DNA protein-protein interactions (PPIs)
+                                                preferentially conserved species. remains fully understand
+                                                conservation protein interaction modules functions[5]. studies                                                 ‘interologs’ (orthologous pairs proteins interactions conserved)[6] report
+                                                preferential conservation interactions highly similar orthologous protein pairs[7],
+                                                Mika Rost[8] point inference PPIs based sequence homology                                                 species continues quite inaccurate, high levels sequence identity.
+
+                                                interpretation data model organisms, low interolog conservation                                                 acceptable, provided functionally important interactions                                                 orthologs exist species conserved acceptably high rate.                                                 remains shown. Recent work[9] shows functional modules better conserved
+                                                yeast fly expected chance. Furthermore, previous work                                                 studying transcriptional regulation shows despite preferential sequence conservation
+
+
+
+                           *
+                               afox01@cs.tufts.edu.
+                            Fox et al.                                                                                              Page 2
+
+
+                                         functionally important proteins, functional regulatory modules especially                                          conserved[10].
+NIH-PA Author Manuscript
+
+
+
+
+                                          focus conservation interactions proteins,                                          highly-connected proteins, “hubs�? species’ interaction network. select hub
+                                         proteins precisely high connectivity serve indication functional
+                                         importance.  proteins interactions likely essential[11],                                           hubs connected hubs essential 12]. hub proteins
+                                         likely functionally important, roles hubs preferentially
+                                         conserved, individual interactions  investigate
+                                         property hub protein conserved organisms,                                          determine level PPI conservation hubs neighbors.                                          interactions high degree proteins preferentially conserved                                          specific interactions hubs lost gained, high degree hub protein                                          nonetheless conserved.  greater hope functional importance                                          hubs conserved 
+
+                                         point ample reason expect priori high degree hub
+                                         proteins preferentially conserved evolution[13]. based                                          argument protein evolved functional interactions proteins,
+                                         dramatic change affect partners, likely NIH-PA Author Manuscript
+
+
+
+
+                                         evolutionarily disadvantageous.  given recent work[9, 10] casts doubt                                          modular functional conservation, hypothesis requires proof.
+
+                                         reasons skeptical quality quantity available PPI data.
+                                         Estimates false-positive rates high throughput interaction data sets range                                          45  90 [14, 15], coverage estimates human yeast interactomes                                          10  50 , respectively[14, 16].
+
+                                          attempts identify high degree proteins affected noise, coverage,                                          testing bias[16]. Methods estimating true degree interactions[17] available,                                          directly applicable data sets studied  cases clear
+                                         interactions tested. Nonetheless, modest data filtering, obtain clear
+                                         evidence important trends.
+
+                                         results provide additional evidence identifying biologically relevant high-degree
+                                         proteins model organisms shed light human response. work                                          important implications protein function prediction, comparative genomics, network
+                                         inference analysis.
+NIH-PA Author Manuscript
+
+
+
+
+                              2 Background Definitions
+                              2.1 Data Sources
+                                         PPIs Homo sapiens, Drosophila melanogaster, Caenorhabditis elegans,                                          Saccharomyces cerevisiae downloaded BioGRID[18], IntAct[19]                                          MINT[20] online databases July, 2008 combined form single large data set.
+
+                                         map orthologous proteins species, used InParanoid database[21]                                          discriminates true orthologs   paralogs differentiated relevant
+                                         speciation event   paralogs arose speciation.
+
+
+
+
+                                         Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                                  Page 3
+
+
+                              2.2 Filtering PPI Noise
+                                          improve reliability data[17], built PPI graph assay method,                                           directed edges (b, p) indicating roles protein (b)ait (p)rey NIH-PA Author Manuscript
+
+
+
+
+                                          appropriate. define baitrank protein p species s assay type                                           fraction proteins species s having (non-zero) degree p’s degree                                           assay  preyrank defined analogously degree. given degree 
+                                          degree zero corresponding baitrank preyrank undefined.
+
+                                          concluded assay type inconsistent protein p p’s baitrank                                           preyrank defined |baitrank(p) − preyrank(p)| > 0.1. conditions                                           removed data assay type p. filtering, degrees estimated using
+                                          naive method[17] remaining data. Overall, approach removed 36                                            data, led stronger results. datasets descriptive statistics (Supplemental File 1)
+                                          available http://bcb.cs.tufts.edu/hubsPSB09.
+
+                               2.3 Ranking Protein Degrees
+                                          Degrees proteins different species directly compared species
+                                          different degree distribution. address issue, ranked proteins                                           species degree filtered dataset species, worked                                           ranks instead raw degree. define r, rank protein p degree d species s,
+NIH-PA Author Manuscript
+
+
+
+
+                                          fraction proteins species s having non-zero degree d.
+
+                                          Individual proteins labeled hubs using straightforward threshold rank.                                           hub threshold t defined interval [0.5,1) intuitively, makes little sense talk
+                                          protein rank 0.5 hub.
+
+                              2.4 Degree Conservation
+                                          protein considered evolutionarily conserved                                           orthologous proteins species consideration.                                           literature conservation hub proteins focused type sequence
+                                          conservation[22, 23]. end spectrum, consider specific
+                                          PPIs conserved, given pairs proteins known orthologs species.
+                                           conserved interactions frequently referred interologs[6].)
+
+                                          paper, focus middle ground - looking interaction degree                                           protein conserved. conservation occur specific interologs                                           maintained. define pair orthologous proteins degree-conserved hub threshold t
+                                          proteins hubs hub threshold t respective species. definition NIH-PA Author Manuscript
+
+
+
+
+                                          naturally extended species.
+
+                              3 Having Orthologous Hub Increases Hub Likelihood
+                              3.1 Degree Conservation Ortholog Pairs
+                                          analyzed pairs orthologous proteins species. created                                           dataset D containing proteins filtered data species                                           proteins orthologous. interested determining proteins                                           hub ortholog significantly higher probability hub protein.
+
+                                           compare observed posterior probability protein hub, given                                           ortholog species hub, prior probability protein                                           hub data set. simple way define prior probability hub just (1 − t),
+                                          t hub threshold. uninformed prior, U(t).  
+
+                                          Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                                     Page 4
+
+
+                                         considering proteins orthologs 1 3 species consideration,                                          shown proteins distant orthologs higher average degree[24],
+                                         true prior higher.  compute informed prior, t). Let hubt(p) indicate
+NIH-PA Author Manuscript
+
+
+
+
+                                         p hub threshold t let orth(x, y) indicate x y orthologs. t) =
+                                         Pr[hubt(p) = 1], represents observed fraction proteins data set                                          hubs. compute t) dividing number proteins D rank ≥ t total size
+                                         D.
+
+                                         define posterior probability P(t) = Pr[hubt(pi) = 1| ∃ pj s pecies, s.t.
+                                         orth(pi, pj) ∧ hubt (pj) = 1]. compute P(t), create set St containing proteins
+                                         ortholog species hub threshold t. P(t) = |{pi ∈ St |
+                                         hubt (pi) = 1}|/|St|. Intuitively, P(t) fraction proteins St hubs threshold t.
+                                         Figure 1a shows P(t), t) U(t).
+
+                                         compare observed distribution P informed prior using Kolmogorov-
+                                         Smirnov (KS) Test[25]. used 1-sided KS Test determine [P >                                           intervals t ∈ [x, 1) x ∈ {0.5, 0.55,…, 0.95}. Tests significant p < 10−6                                          intervals. results support hypothesis probability protein hub                                          higher ortholog hub, implying hub proteins degree-conserved                                          expected chance. way, determined significantly greater                                          U, expected reason described 
+NIH-PA Author Manuscript
+
+
+
+
+                                         determine increase hub probability given existence orthologous hub,                                          plot fold-change probabilities F(t) = P(t) t) Figure 1b. graph F(t)                                          probability given protein hub greater hub ortholog                                          magnitude effect increases higher hub threshold.  F(t) peaks                                          approximately t = γ = 0.99. t > γ expected number conserved hubs quickly
+                                         approaches zero, diminishing expectation number degree-conserved
+                                         pairs data set  numerator P(t)) t > γ. hub thresholds t ≈ 0.93                                          fold increase hub likelihood.
+
+                              3.2 Degree Conservation Species
+                                         extend pairwise ortholog analysis look ortholog groups                                          species. create 4-component rank vectors xi = [rank(yi), rank(wi), rank(fi), rank(hi)]
+                                         yi, wi, fi hi proteins form ortholog group yeast, worm, fly                                          human. Let nT total number rank vectors, n(t) number rank vectors                                          exhibit degree-conservation hub threshold t, O(t) = n(t)/nT proportion                                          ortholog groups exhibit hub conservation hub threshold t. compute                                          expected rate conservation degree conserved orthology E(t). NIH-PA Author Manuscript
+
+
+
+
+                                         E(t) = Πc∊M Pr[r > t|r ∈ c], M matrix rank 4-vectors generated                                          orthology groups c represents column ranks specific particular species. O(t)
+                                         significantly greater E(t) conclude degree fact conserved                                          orthology.
+
+                                         compare observed rate 4-species degree-conservation O(t) expected rate
+                                         E(t) using series KS tests. tested interval t ∈   b] ∈ {0.5, 0.51,…,
+                                         0.95} b ∈ {0.55, 0.56,…, 1.0} ≤ (b − 0.05). KS test results showed [O >
+                                         E] t-intervals fully subsumed interval t ∈ [0.66, 0.95] (p < 10−6)                                          conclude high degree conserved considered species.
+
+                                         lack 4-species degree-conservation t > 0.95 attributed incomplete
+                                         interaction data, low overlap interactome coverage species[26], combination
+                                         effects.
+
+
+                                         Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                                Page 5
+
+
+                                         gain understanding functional classes proteins degree-conserved,                                          performed functional enrichment analysis (DAVID[27]) yeast proteins degree-
+                                         conserved (t = 0.8) 1 3 species. Enriched functions included primary
+NIH-PA Author Manuscript
+
+
+
+
+                                         metabolism, protein synthesis, splicing, DNA repair regulation cell-cycle (FDR <
+                                         0.05). Enrichment basic cellular processes expected given hubs required
+                                         degree-conserved yeast higher eukaryotes. contrast, degree-conserved
+                                         (t = 0.8) proteins human fly enriched processes cell signalling
+                                          p53, Wnt, ErbB, Notch TGF-β pathways), cell differentiation, cellular
+                                         developmental processes, post-translational protein modification regulation                                          protein kinase activity (FDR < 0.05). details functional enrichment results
+                                         (Supplemental File 2) available online http://bcb.cs.tufts.edu/hubsPSB09.
+
+                              4 Hub, Hub
+                                         hypothesis hubs exhibit degree-conservation relies intuition                                          protein evolved connections, difficult protein lose importance
+                                         neighbors affected change.  analyses far
+                                         fail account orthologs diverged proteins evolved                                          observed “hub�? role. simple evolutionary model expects hubs remain highly
+                                         connected account larger fraction data.                                           hub, hub�? hypothesis.
+NIH-PA Author Manuscript
+
+
+
+
+                                         test hypothesis, simple phylogenetic tree (Figure 2a) relating                                          species data set. seek determine closely data matches                                          phylogenetic model. ortholog group spanning species, form rank
+                                         vector Section 3.2. create 4-bit bitstring describing hub status                                          component protein species.  given protein’s rank greater hub
+                                         threshold t, species’ component bitstring 1; 0.) ortholog
+                                         group considered consistent model  assumption parsimony) bitstring
+                                         explained evolution hub property point tree (Figure
+                                         2b).
+
+                                         consider possible ortholog groups species. Figure 3 shows                                          fraction ortholog groups consistent model grows hub threshold increases.
+                                         t > 0.73, majority data explained straightforward phylogenetic
+                                         model hub property selective pressure retained                                          evolved.
+
+                                         caveat sufficiently high t, data zero bitstring                                          consistent model.  potentially growth fraction NIH-PA Author Manuscript
+
+
+
+
+                                         consistent ortholog groups category.                                           case repeating analysis excluding zero data (Figure 3). details                                          consistency analysis (Supplemental File 3) provided http://bcb.cs.tufts.edu/
+                                         hubsPSB09.
+
+                               5 Hub Interactions Preferentially Conserved
+                                         Finally, examine retention hub property retention                                          individual PPIs, simply general importance high degree proteins. consider
+                                         models.  interologs conserved sufficiently - high degree
+                                         proteins - “module�? structure hub neighbors retained. suggests
+                                         function protein partners likely conserved                                           alternative hypothesis assumes protein evolved large number partners,                                          pressure evolve slowly[24]. protein’s interaction
+
+                                         Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                             Page 6
+
+
+                                        partners lost time, high sequence stability hubs allow new
+                                        interactions arise retained easily. Note hypothesis                                         somewhat odds growing body work suggesting interologs conserved NIH-PA Author Manuscript
+
+
+
+
+                                        moderate level[7, 26], functional modules generally conserved intact[9].
+
+                                        address question, analyzed conservation individual interactions                                         function protein interaction degree. measure conservation interactions                                         given protein p species s1, designated second species s2, rely following
+                                        definitions.  let G1 protein-protein interaction graph species s1: G1 =
+                                        〈V1,E1〉, let G2 similarly defined species s2. Furthermore, let relation orth,
+                                        defined V1 × V2, denote orthologous pairs proteins species. Let                                         potential number conserved interactions p, Poten(p) number protein
+                                        interaction partners q p s1 orthologs p q exist s2. let                                         actual number conserved interactions p, Conserv(p) number protein
+                                        interactions p s1 conserved s2. Formally, protein p ∈ V1, define
+                                        Poten(p) = |{q ∈ V1|〈p, q〉 ∈ E1 ∧ (∃p′, q′ ∈ V2|orth(p, p′) ∧ orth(q, q′))}| Conserv(p) =
+                                        |{q ∈ V1|〈p, q〉 ∈ E1 ∧ (∃p′, q′ ∈ V2|orth(p, p′) ∧orth(q, q′) ∧ 〈p′, q′ 〉 ∈ E2)}|.                                         compute conservation rate R(p) = Conserv(p)/Poten(p) proportion                                         interactions conserved interactions possibly conserved.
+
+                                        measured conservation rate R(p) protein pair species compared
+NIH-PA Author Manuscript
+
+
+
+
+                                        rank(p). Results fly proteins shown Figure 4. plot reveals                                         proportion protein’s interactions conserved increases protein rank  degree)
+                                        increases. words, hubs preferential conservation individual protein
+                                        interactions non-hubs.
+
+                                        species pairs, graphs similar shape (Supplemental File 4),                                         overall conservation highest degree proteins lower (65 –85 ).                                         especially high conservation fly human interologs reflect bias                                         protein interactions chosen test assays particular species.                                         similar species pairs,  high hub thresholds, half                                         interologs conserved. contrasts sharply general analysis Mika                                         Rost[8], shows interolog conservation hovering 25  highest levels
+                                        sequence similarity, using data overlaps significantly  conclude                                         interolog conservation hub proteins simply fact                                         highly-connected proteins higher sequence conservation, interactions                                         truly preferentially conserved.
+
+                                        note number species pairs, significant fraction  40 ) NIH-PA Author Manuscript
+
+
+
+
+                                        interactions conserved high hub thresholds. suggests degree-
+                                        conservation hubs rely solely conservation individual pairwise
+                                        interactions, functional roles hub proteins 
+
+                              6 Discussion
+                                        demonstrated important novel facts conservation protein
+                                        interactions function.  likelihood protein hub increases                                         ortholog hub. Second, protein evolves hub, tends remain 
+                                        specific interaction partners gained lost. Finally, rate interolog
+                                        conservation hub proteins higher low-degree proteins.
+
+                                        results imply  said functional conservation modules
+                                        defined various clustering methods (e.g., Wang Zhang[9]), functional modules
+                                        network hubs likely persist species. result crucial implications
+
+                                        Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                                              Page 7
+
+
+                                        unspoken assumption underlying research model organisms:                                         functional relationships key proteins conserved humans model
+                                        organisms studied. Furthermore,  hub, hub�? property implies NIH-PA Author Manuscript
+
+
+
+
+                                        possible infer identity hub proteins organisms sufficient
+                                        protein interaction data sets available. example, orthologous proteins
+                                        worm fly PPI hubs, reasonable assume evolution                                         hub property occurred ancestor worm fly;  orthologous
+                                        protein bees likely hub 
+
+                                        addition, stronger expected conservation individual interactions hub
+                                        proteins important implications computational prediction protein-protein
+                                        interactions. growth experimentally-generated protein interaction data                                         substantial, interactomes organisms likely remain largely incomplete                                         time, computational inference interactions continue play important
+                                        role. Furthermore, suggested Matthews et al.[4], computational predictions                                         used guide selection experimental assays, higher predictive accuracy reduce
+                                        cost screening, allowing generation data.
+
+                                        Despite results, issues surrounding data require caution                                         interpreting results based existing protein interaction networks. importantly,                                         data noisy extraordinarily incomplete. different subsets NIH-PA Author Manuscript
+
+
+
+
+                                        interactomes species investigated, possible bias species
+                                        coverage affect conclusions based data currently available. addition,                                         methods identifying protein interactions  coimmunoprecipitation affinity
+                                        precipitation[9]) identify protein complexes pairwise interactions. pairwise
+                                        interactions inferred participants complexes[28], potentially
+                                        creating high-degree nodes erroneously.  informative revisit                                         conclusions quality quantity interactome data grow.
+
+                              Supplementary Material
+                                        Refer Web version PubMed Central supplementary material.
+
+
+                              Acknowledgments
+                                        research supported award number R21LM009411 National Library Medicine. content
+                                        solely responsibility authors does necessarily represent official views National
+                                        Library Medicine National Institutes Health. thank members Tufts BCB research group
+                                        helpful discussions comments.
+NIH-PA Author Manuscript
+
+
+
+
+                              References
+                                        1. Blanchette M, Tompa M. Genome Res. 2002; 12(5):739. [PubMed: 11997340]
+                                        2. Eisen M, Spellman P, Brown P, Botstein D. PNAS. 1998; 95:14863. [PubMed: 9843981]
+                                        3. Yu J, Smith V, Wang P, Hartemink  Jarvis E. Bioinformatics. 2001; 20:3594. [PubMed:
+                                           15284094]
+                                        4. Matthews L, Vaglio P, Reboul J, Ge H, Davis B, Garrels J, Vincent S, Vidal M. Genome Res. 2001;
+                                           11:2120. [PubMed: 11731503]
+                                        5. Han J, Bertin N, Hao T, Goldberg D, Berriz G, Dupuy D, Walhout  Cusick M, Roth F, Vidal M.
+                                           Nature. 2004; 88:6995.
+                                        6. Walhout  Sordella R, Lu X, Hartley J, Temple G, Brasch M, Thierry-Mieg N, Vidal M. Science.
+                                           2000; 287:116. [PubMed: 10615043]
+                                        7. Yu H, Luscombe N, Lu H, Zhu X, Xia Y, Han J. Genome Res. 2004; 14
+                                        8. Mika S, Rost B. PLoS Comput. Biol. 2006; 2:e79. [PubMed: 16854211]
+
+
+                                        Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                                Page 8
+
+
+                                        9. Wang  Zhang J. PLoS Comp Biol. 2007; 3
+                                        10. Babu M, Luscombe N, Aravind L, Gerstein M. Curr Opin Cell Biol. 2004; 14:283.
+                                        11. Jeong H, Mason S, Barabasi  Oltvai  Nature. 2001; 411:41. [PubMed: 11333967]
+NIH-PA Author Manuscript
+
+
+
+
+                                        12. Batada N, Reguly T, Breitkreutz  Boucher L, Breitkreutz B, Hurst L, Tyers M. PLoS Biol. 2006;
+                                            4:e317. [PubMed: 16984220]
+                                        13. Wuchty S, Barabasi  Ferdig M. BMC Evol Biol. 2006; 6:1471.
+                                        14. Hart G, Ramani  Marcotte E. Genome Biol. 2006; 7:120. [PubMed: 17147767]
+                                        15. D’haeseleer P, Church G. Proc IEEE Comp Syst Bioinformatics. 2004 Aug.216
+                                        16. Chiang T, Scholtens D, Sarkar D, et al. Genome Biol. 2007; 8:186.
+                                        17. Scholtens D, Chiang T, Huber W, Gentleman R. Bioinformatics. 2008; 24:218. [PubMed:
+                                            18025006]
+                                        18. Stark C, Breitkreutz B, Reguly T, Boucher L, Breitkreutz  Tyers M. Nucleic Acids Res. 2006
+                                            Jan.34:D535. [PubMed: 16381927]
+                                        19. Hermjakob H, Montecci-Palazzi L, Lewington C, Mudali S, Kerrien S, et al. Nucleic Acids Res.
+                                            2004; 32:D452. [PubMed: 14681455]
+                                        20. Zanzoni  Montecci-Palazzi L, Quondam M, Ausiello G, Helmer-Citterich M, et al. FEBS
+                                            Letters. 2002; 513:135. [PubMed: 11911893]
+                                        21. Remm M, Storm C, Sonnhammer E. JMB. 2001; 314:1041.
+                                        22. Fraser H, Hirsh  Steinmetz L, Scharfe C, Felman M. Science. 2002; 296:750. [PubMed:
+                                            11976460]
+NIH-PA Author Manuscript
+
+
+
+
+                                        23. Jordan  Wolf  Koonin E. BMC Evol Biol. 2003; 3:1. [PubMed: 12515583]
+                                        24. Brown K, Jurisica  Genome Biol. 2007; 8
+                                        25. Press, W.; Teukolsky, S.; Vetterling, W.; Flannery, B. Numerical Recipes C, Art                                             Scientific Computing. Cambridge Univeristy Press; 1992.
+                                        26. Gandhi T, Zhong J, Mathivanan S, et al. Nature Gen. 2006:38.
+                                        27. D G Jr, Sherman B, Hosack D, et al. Genome Biol. 2003; 4:3.
+                                        28. Bader G, Hogue C. Nature Biotechnol. 2002; 20:991. [PubMed: 12355115]
+NIH-PA Author Manuscript
+
+
+
+
+                                        Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                            Page 9
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                        Figure 1.
+                                        Hub likelihood plots.  Conditional probability hub given ortholog                                         hub, compared prior probability hub. solid line represents P(t),                                         posterior (conditional) hub probability; dot-dash line U(t) uninformed prior
+                                        probability, dashed line t) informed prior based observed data. b) Fold
+                                        Increase F hub likelihood, given orthologous hub protein, function hub
+                                        threshold t.
+NIH-PA Author Manuscript
+
+
+
+
+                                        Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                         Page 10
+NIH-PA Author Manuscript
+
+
+
+
+                                        Figure 2.
+                                         Simple phylogenetic model species data set, based data                                         Tree Life database (www.tol.org). b) Consistency hub-status bitstrings
+                                        (yeast,worm,fly,human)  hub, hub’ hypothesis.
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                        Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                         Page 11
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                        Figure 3.
+                                        Consistency  hub, hub�? hypothesis, function hub threshold.
+                                        y-axis shows percentage ortholog groups consistent hypothesis,
+                                        given phylogenetic model Figure 2. solid line represents consistent ortholog
+                                        groups; dashed line excludes zero vectors (proteins hubs                                         species) computation.
+
+
+
+
+                                        Pac Symp Biocomput. Author manuscript; available PMC 2009 December 17.
+                            Fox et al.                                                                                          Page 12
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                        Figure 4.
+NIH-PA Author Manuscript
+
+
+
+
+                                        Interolog conservation function protein interaction degree rank. data shown                                         fly proteins orthologs species. Similar-rank
+                                        proteins binned conservation rates averaged trend seen clearly.
+                                        Conservation interologs low low-degree proteins, increases function             

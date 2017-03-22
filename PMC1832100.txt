@@ -1,0 +1,392 @@
+Resource
+
+Inferring genome-wide functional linkages E. coli combining improved genome context methods:
+Comparison high-throughput experimental data
+Sailu Yellaboina,1 Kshama Goyal,1 Shekhar C. Mande2
+Centre DNA Fingerprinting Diagnostics, Hyderabad 500076, India
+
+        Cellular functions determined interactions proteins cells. Recognition interactions forms
+        important step understanding biology systems level.  report interaction network Escherichia
+        coli, obtained training Support Vector Machine high quality interactions EcoCyc database,         assumption periplasmic cytoplasmic proteins interact  data
+        features included correlation coefficient bit score phylogenetic profiles, frequency occurrence         predicted operons, new measure distance translational start sites genes. combined
+        genome context methods high accuracy prediction test data predict total 78,122 binary
+        interactions. majority interactions identified high-throughput experimental methods correspond         indirect interaction (interactions neighbors) predicted network. Correlation predicted network
+        gene essentiality data shows essential genes E. coli exhibit high linking number,         nonessential genes exhibit low linking number. Furthermore, predicted protein–protein interaction network
+        shows proteins involved replication, DNA repair, transcription, translation, cell wall synthesis         highly connected. believe predicted network serve useful resource understanding
+        prokaryotic biology.
+        [Supplemental material available online www.genome.org.]
+
+Living systems molecular entities, interactions                      tation, tandem affinity purification coupled mass spectrom- rise complex properties life                    etry. techniques amenable high-throughput ex- apparent individual molecules. complex proper-                       perimentation.
+ties life addressed systems level                        Experimental detection genome-wide protein–protein  availability complete genome sequences organ-                     teractions costly, time-consuming, difficult implement
+isms. Proteins dominant molecules life, focus                     modestly equipped laboratory.  little  understanding protein–protein interactions                       lap results obtained different experimental
+recent past (Barabasi Oltvai 2004). wide range experi-                     methods (von Mering et al. 2002; Arifuzzaman et al. 2006; Kro-
+ments carried order map genome-wide pro-                         gan et al. 2006). exists substantial scope compu-
+tein–protein interactions different organisms (Rain et al. 2001;                 tational analysis areas evaluation quality ex-
+Li et al. 2004; Suthram et al. 2005; Krogan et al. 2006; Stelzl et al.              perimental data, importantly predicting genome-
+2006). high-throughput experiments typically limit ob-                      wide protein–protein interactions.
+servations fraction possible interactions                     Algorithms identify genome-wide interactions experiments carried unique conditions.                       proteins mainly focus coregulation interacting proteins.
+led development algorithms predict genome-                        methods assume genes coregulated wide protein–protein interactions (Bork et al. 2004).                      occur close genomes conserved
+standing network complex interactions, hoped                     gene order. genes, operon, understanding living systems enhanced                       functionally linked (Dandekar et al. 1998; Overbeek et al. 1999).
+considerably.                                                                       methods,  fail identify functional links 
+      interactions proteins classified                  tween proteins distantly located genome. major categories: physical functional. refer                      modified method used infer functional links physical association proteins,                    genes distantly located genome 
+fer proteins biochemical signaling pathway.                     thologs operon genome (Janga et
+ferences functional interactions obtained meth-                      al. 2005).
+ods coexpression data microarray analysis. Physical                         coevolution method attempts calculate evolutionary
+interactions, hand, detected direct experi-                  rates substitutions different proteins assumes mental techniques pull assays, coimmunoprecipi-                        proteins evolve similar rates parts interacting
+                                                                                    pair (Fraser et al. 2002). Alternatively, phylogenetics profile
+1
+  authors contributed equally work.                                   method detects protein interactions identifying correlations
+2
+  Corresponding author.                                                             presence absence genes ge-
+E-mail shekhar@cdfd.org  fax 91-40-27155610.                                     nomes (Pellegrini et al. 1999).
+Article published online print. Article publication date online http://www.genome.org/cgi/doi/10.1101/gr.5900607. Freely available                    study, propose computational method line Genome Research Open Access option.                                identifies protein–protein interactions basis distance
+
+
+17:527–535 ©2007 Cold Spring Harbor Laboratory Press; ISSN 1088-9051/07; www.genome.org                              Genome Research           527
+                                                                                                                           www.genome.org
+ Yellaboina et al.
+
+ translational start sites genes frequency         Frequency occurrence predicted operons occurrence genes predicted operons.                                                                          different prediction methods exist literature features combined phylogenetics profiles using Sup-
+                                                                         identification operons. based features port Vector Machine infer genome-wide functional link-
+                                                                         intergenic distance, functional correlation, conserved gene
+ages Escherichia coli. Support Vector Machine                                                                          neighborhood (Salgado et al. 2000; Ermolaeva et al. 2001; Zheng
+trained high-quality experimental data performs blind
+                                                                         et al. 2002). used Support Vector Machine identify op-
+tests, accuracies prediction exceeding 85 .                                                                          erons prokaryotic genomes using intergenic distance
+network interactions constructed using predictions exhib-
+                                                                         transcription start sites genes data fea- characteristic scale-free topology excellent correlation
+                                                                         ture. experimental gene essentiality data. 
+                                                                               average accuracy fivefold cross-validation operon
+lieve network interactions predicted method
+                                                                         prediction 82 . model highest accuracy useful tool understanding biology E. coli.
+                                                                         used predict operons 124 prokaryotic genomes. led
+                                                                         prediction total 786 polycistronic transcription
+                                                                         units E. coli K12.
+Results Discussion
+Data prediction protein–protein interactions                      Phylogenetic profile method
+Interactions pairs proteins derived using Sup-         phylogenetic profile gene represented port Vector Machine (SVM) trained interactions reported           different ways: binary profile (Pellegrini et al. 1999)  EcoCyc database (Keseler et al. 2005). linkages rep-        malized bit score profile (Enault et al. 2003).  resent hand-curated data obtained essentially low-               presence absence homolog represented 1 0, respec-
+throughput experimental approaches.  interac-             tively,  represented 
+tions deduced multiple experiments            malized bit score obtained BLAST. genes displaying likely free false positives bias associ-   similar phylogenetic profile, assessed Pearson correlation
+ated high-throughput experiments. Supplemental Tables             coefficient, assumed functionally linked. II list data sets used supervised learning. learning     constructed phylogenetic profiles genes E. coli
+set contained 1082 proteins pairs, divided            based methods. operonic (654) (Supplemental Table  non-operonic
+data sets (428) (Supplemental Table II) defined EcoCyc
+                                                                         Effect gene conservation prediction accuracy
+database.
+      Defining reliable negative data set predicting func-         Assessment functional linkage genes tional linkages using machine-learning techniques ac-           possible inspection phylogenetic profiles,
+knowledged difficult problem (Jansen et al. 2003; Ben-Hur        especially genes present closely Noble 2006). negative data predicting functional             related organisms.  phylogenetic profiles linkages eukaryotes assumed proteins        genes specific lineage likely high colocalized subcellular compartment (Jansen et           correlation coefficient  absent al. 2003). Similarly, prokaryotes reasonable       large number genomes, present closely  proteins required physiological functions extracel-       lated species. result reporting false-positive inter-
+lular periplasmic milieu physically interact       actions genes.  choice training SVM proteins cytoplasmic space. formulated         using data critically affect results prediction. negative data set, protein pair comprises se-          especially true negative training data. creted protein localized cytoplasm.            assessed effect training data accuracy predictions
+proteins known secretory signal identified,        taking consideration conservation genes considered separately proteins signal          phylogenetic profiles.
+peptide. scoring 40 proteins predicted signal                 conservation score gene defined total
+sequence N terminus considered periplasmic,            number genomes possess homologs gene 346 proteins possess known signal           consideration (Sun et al. 2005). conservation score pair
+sequences entire length polypeptide            genes  turn, defined minimum conservation
+sidered cytoplasmic (Supplemental Table III). Combining            score genes pair. understand effect periplasmic cytoplasmic protein generated          conservation score gene pair prediction accuracy 13,840 pairs. pairs negative data set did belong       phylogenetic profile method using bit score, used thirds known complex, metabolic pathway,              randomly picked data positive negative data
+assumed lack functional linkages.                                     sets training remaining testing pre-
+      Having defined positive negative data sets         diction accuracy. process repeated 50 times, time
+supervised machine learning, predictions carried            incrementing cutoff conservation score 1 nega-
+assessing functional linkages possible protein           tive data set retaining positive data. Figure 1A
+pairs E. coli K12 genome. different data features,          shows prediction accuracy protein–protein interac-  frequency occurrence predicted operons, phy-            tions gradually increases conservation score 20 
+logenetic profile correlation score, minimum distance             cause increase sensitivity, decreases tween genes 266 genomes, used             decrease specificity. accuracy remains constant predictions described Methods.                               conservation score 12, considered phy-
+
+
+528     Genome Research
+          www.genome.org
+                                                                                         Prediction genome-wide functional linkages
+
+
+                                                                               suggests functionally related genes tend occur close                                                                                genome.
+                                                                                     Intergenic distance analyzed hypothesized
+                                                                               noninteracting gene pairs negative data set (Fig. 2B). 
+                                                                               terestingly, normalized distance translational
+                                                                               start sites pairs proteins evenly distributed                                                                                0 (minimum possible normalized distance) 50 (maximum
+                                                                               possible normalized distance) E. coli. distribution                                                                                skewed lower values minimum normalized dis-
+                                                                               tance pairs genomes calcu-
+                                                                               lated. Comparison normalized intergenic distances                                                                                genomes showed 80  interacting proteins                                                                                spaced closely (normalized gene distance <1) ge-
+                                                                               nome, 10  hypothesized noninteracting
+                                                                               pairs possess normalized gene distance <1.
+
+                                                                               Cross-validation accuracy prediction
+                                                                               protein–protein interactions
+                                                                               compare accuracy prediction different methods                                                                                protein–protein interactions, calculated average sensitiv-
+                                                                               ity specificity prediction fivefold cross-validation.
+                                                                               Table 1 shows comparison fivefold cross-validation                                                                                different data features combinations. combi-
+                                                                               nation data features appears best choice
+
+
+
+
+Figure 1. Effect gene conservation score accuracy protein–
+protein interaction predictions using phylogenetic profiles.   Profiles genes pair compared using normalized bit scores. (B)
+Profiles genes pair compared using presence (1) absence (0) genes. Accuracy defined average sensitivity specificity described Methods. clearly seen predic-
+tion accuracy poorer low high conservation scores. text details.
+
+
+
+logenetic profiles genes conserved 12
+genomes.
+     Similar analysis performed binary phyloge-
+netic profile, outcome analysis similar. results, shown Figure 1B, lead major conclu-
+sions: (1) prediction accuracy methods increases increasing cutoff value conservation score genes negative data set, (2) sensitivity pre-
+dictions low low conservation scores, specificity low high conservation scores. Specificity rapidly decreases methods high conservation scores.  binary phylogenetic profiles, specificity drops zero high
+conservation scores.
+
+Gene distance method                                                           Figure 2. Normalized gene distance distributions data sets
+Genes closer usually stronger func-                used prediction protein–protein interactions. normalized gene
+                                                                               pair distance defined number base pairs separate tional linkages possibility coregulation operon               translation start sites genes pair, divided total genome transcriptional coupling (Korbel et al. 2004). Analysis              length scaled 100.   (Gray) Normalized distances 1082 gene pairs code components protein complexes                  known interacting protein pairs E. coli; (black) minimum 
+showed large number (428) oper-                 malized distance proteins ge-
+                                                                               nomes. (B) Normalized distances protein pairs, ons. gene pairs distantly located E. coli K12
+                                                                               hypothesized noninteracting. (Gray line) normalized distance
+genome, interestingly orthologs closer                  distribution E. coli; (black line) minimum genome shown Figure 2A.                 pair proteins genome.
+
+
+                                                                                                                        Genome Research             529
+                                                                                                                           www.genome.org
+ Yellaboina et al.
+
+
+Table 1. Prediction accuracy protein–protein interactions using different data                proteins. Taking consid-
+features: minimum distance pair genes prokaryotic genomes,                eration, overlap 
+phylogenetic profile using bit-score values, frequency occurrence operons
+                                                                                                       tween predicted set ex-
+                                                          Sensitivity   Specificity     Accuracy ( )   perimental data sets quite high
+                                                                                                       (∼80 ).
+Minimum distance                                            0.74            0.99            86.5             large number new interactions
+Frequency occurrence operons                       0.68            1.0             84.0
+                                                                                                       predicted method. 
+Phylogenetic profile                                        0.73            0.95            84.0
+Combination methods                                                                       teractions physical,   Minimum distance frequency occurrence                                                      represent functional linkages neces-
+     operons                                             0.68            1.0             84.0       sarily physical character. example,
+  Minimum Distance & Phylogenetic Profile                   0.79            1.0             89.5
+                                                                                                       known LacI regulates expres-
+  Frequency occurrence operons      phylogenetic profile                                   0.76            1.0             88.0       sion lac operon.  LacI
+Combined minimum distance, phylogenetic profile,                                                       does interact physically   frequency occurrence operons                 0.79            1.0             89.5       structural genes lac op-
+                                                                                                       eron. interactions LacI accuracy prediction defined average sensitivity specificity. values    genes lac operon reported averages respective values obtained fivefold cross-validation.
+                                                                                                       identified using pull methods.
+                                                                                                       Similarly, predictions identified  prediction protein–protein interactions. average accu-             teractions RpoA Sec  B, D. interactions
+racy predictions reaches high 89.5  best predic-              represent functional linkages proteins.
+tion. network predicted using features,  mini-                 known, transcription translation prokaryotes mum distance phylogenetic profile, showed similar sensitiv-               coupled processes, Sec-dependent pathway ity specificity values predicted using data            coupled translation process.  proteins tran-
+features. Nonetheless, number false positives predicted                scription machinery functionally linked Sec  B, cross-validation using features higher               D proteins. examples suggest present method using features.  used data fea-             predicts physical interactions provides insights
+tures predict genome-wide functional linkages.                             regulatory functional linkages.
+
+Genome-wide prediction protein interactions E. coli
+                                                                           Analysis predicted protein–protein interaction network prediction genome-wide interactions E. coli resulted total 78,122 binary interactions (Table 1). high specific-        real world networks known possess scale-free
+ity values clearly suggest number false-positive inter-        topology (Barabasi Albert 1999). important char-
+actions predicted network minimal.            acteristic scale-free networks degree distribution
+hand, sensitivity determined total number iden-            (distribution number links) follows power law, 
+tified interactions theoretically possible interac-          p(k) ∼ akⳮ�?�, �?� < 3. scale-free networks possess small
+tions, lower sensitivity values suggest total number           number nodes large number links, large
+interactions reported represent lower estimate.              number nodes possess links (Barabasi Bonabeau  believe number pairwise protein–protein           2003). analyzed scale-free behavior predicted inter-
+interactions E. coli excess 78,122.                       action network, described following discussion.
+                                                                                 degree distribution predicted network 3798
+                                                                           nodes 78,122 edges follows power law average
+Comparison predicted network
+                                                                           number links 41 degree exponent 1.26 (Fig. high-throughput experimental data
+                                                                           3A). indicates network possesses high diversity predicted protein–protein interactions compared results high-throughput experimental data sets  
+land et al. 2005; Arifuzzaman et al. 2006). observed                                                                            Table 2. Comparison predicted interactions 5418 interactions identified pull assays             high-throughput experimental data TAP-tagged bait protein method, method predicted
+635 direct interactions 4513 indirect (binary, ternary, qua-                                    TAP-tagged      tagged
+                                                                           Method            EcoCyc       bait             bait        Prediction
+ternary) interactions (Butland et al. 2005). Interestingly, 254 pro-
+tein pairs 635 direct interactions reportedly             EcoCyc              1082          54              40         875 (954)
+high confidence (Butland et al. 2005). hand,              TAP-tagged bait                 5418             174         635 (4513)
+method identified 446 direct 8024 indirect interactions            tagged bait                               10,986         446 (8024) total 10,986 unique interactions determined pull            Prediction                                                78,122
+assays using tagged bait method (Arifuzzaman et al. 2006;
+                                                                           high-throughput experimental data sets available Table 2).                                                                  literature,  derived tagged bait analysis (Arifuzza-
+     overlap predictions experimental              man et al. 2006) TAP-tagged bait analysis (Butland et al.
+studies higher consider indirect interactions.             2005). interactions reported data sets identify proteins interact              EcoCyc database (Keseler et al. 2005) compared predic-
+                                                                           tions. values quoted table interactions com-
+bait directly, indirectly using pull assays.           mon methods. values parentheses correspond likely experimental techniques iden-           indirect interactions,  mediated neighbors, pre-
+tify direct physical interactions, complexes involving            dicted network.
+
+
+530     Genome Research
+          www.genome.org
+                                                                                           Prediction genome-wide functional linkages
+
+
+
+
+Figure 3. Topological features predicted protein–protein interaction network E. coli K12.   degree distribution clearly shows network follows scale-free properties. (B) distribution clustering coefficient shows network hierarchical. axes represent respective logarithmic values. (C) Distribution shortest path pairs proteins predicted network. (D) null network possesses Gaussian degree distribution observed log–log plot.
+
+
+node degree.  node degree similar ob-                          Degree distribution essential genes showed cer-
+tained experimental methods: TAP-tagged bait-                         tain essential genes possess degrees low 2–3. suggested associated proteins (1.24), tagged bait-associated pro-                  Pržulj et al. (2004), lethal nodes highly 
+teins (1.41). degree <2 implies total number links                 nected nodes network. Certain nodes lethal grows faster total number nodes (Seyed-Allaei et al.                 deletion disconnects network subgraphs 2005). analysis clustering coefficient, C(k),                  disrupts network structure. nodes vealed distribution clustering coefficient follows              referred “articulation points.�? Analysis low- power law [C(k) ∼ k ⳮ �?� ], modularity exponent                          degree essential genes, dicA, supported argument. DicA �?� = ⳮ1.94, suggesting low-degree nodes cohe-                   prophage-based transcriptional regulator regulates ex-
+sive high-degree nodes (Fig. 3B).  turn, illustrates            pression cell division inhibitor DicB. DicA predicted disassortive nature E. coli interaction network, indicat-             interact prophage integrase IntD DNA-binding
+ing high-degree nodes general linked                  transcriptional activator, SdiA (Fig. 4). predicted network, high-degree nodes.                                                         SdiA interacts 35 proteins, IntD interacts Aas
+      number links (path length) required connect                 (2-acyl-glycerophospho-ethanolamine acyltransferase). Aas, node node predicted network deter-                     turn, interacts 13 proteins. topology sub-
+mined, referred “small world property�?                   network clearly shows DicA possesses low degree,
+(Fig. 3C). diameter predicted network,                    elimination disrupt connection SdiA longest graph distance nodes,                    Aas subgraphs. Intriguingly, topology subnetwork sug-
+11. implies nodes densely linked pos-                 gests IntD behave similarly DicA, IntD sess small world properties. words, small metabolic                 known essential. nonessentiality IntD turbations affect overall functioning                       attributed occurrence prophage integrase genes
+organism.                                                                        E. coli genome, function analogously.
+      Hubs protein interaction networks postulated                        important correlation predicted network represent essential genes genome (Jeong et al. 2001; Albert              available experimental data relates list nones-
+2005).  observed proteins like DNA polymer-                   sential genes. Analysis degree distribution 741 genes
+ase subunits (HolA HolC) RNA polymerase subunits                     identified nonessential Posfai et al. (2006) interestingly
+(RpoA, RpoB, RpoC, RpoZ) essential survival                     showed average number interactions (〈k〉) set
+possess degree >100. analysis revealed >80                 genes 18 (Supplemental Fig. 1b). 〈k〉 nonessen-
+known essential genes possess degree >41 (Baba et al. 2006).                   tial genes low compared complete accordance earlier observation essential                network (〈k〉 = 41) essential genes (〈k〉 = 115). ob-
+genes densely connected (Yu et al. 2004). average number                 servation supports good agreement pre- interactions essential genes predicted network                 dicted interaction network independently obtained experi-
+115 (Supplemental Fig. 1a).                                                      mental data.
+
+
+                                                                                                                          Genome Research              531
+                                                                                                                             www.genome.org
+ Yellaboina et al.
+
+
+                                                                                                         degrees. appears suggest 
+                                                                                                         turbations transcription translation
+                                                                                                         likely affect physiology
+                                                                                                         cells perturbations                                                                                                          metabolic pathways. Interestingly,
+                                                                                                         Pržulj et al. (2004) earlier observed
+                                                                                                         yeast protein–protein inter-
+                                                                                                         action network, stress defense                                                                                                          transport pathways connected
+                                                                                                         transcription translation.                                                                                                          observed proteins involved
+                                                                                                         cellular organization possess low 
+                                                                                                         gree consist highest articula-
+                                                                                                         tion points. Encouragingly, high aver-
+                                                                                                         age degree observed cell wall
+                                                                                                         synthesis pathway predicted net-
+                                                                                                         work.  overall physiology                                                                                                          prokaryotic cell determined                                                                                                          processes involved mainte-
+                                                                                                         nance expression genetic infor-
+                                                                                                         mation cell wall biosynthe-
+                                                                                                         sis, metabolic
+                                                                                                         processes.
+                                                                                                               interesting analysis pre-
+                                                                                                         dicted protein–protein interaction net-
+Figure 4. DicA subnetwork. dicA known essential gene E. coli. Intriguingly, observed   work pertains known thiore- DicA degree 2.  clear subgraph, deletion DicA leads      doxin  thioredoxin disconnected islands subnetworks, offering explanation essentiality.            plays important role maintaining
+                                                                                                         cellular environment reduced
+      enhance confidence predicted network,                conditions enabling proper functioning null network constructed randomizing edges                   enzymes. Thioredoxin, overexpressed oxidative
+network generate 78,122 interactions using number                  stress, essential proper functioning large number of nodes. degree distribution analyzed network.               proteins involved light-activated Calvin cycle tran- random network possessed Gaussian degree distribution                    scription regulation (Arner Holmgren 2000). E. coli K12 pos-
+unlike scale-free predicted network (Fig. 3D).                 sesses thioredoxins, TrxA TrxC, reduced random network, average number interactions (〈k〉)               thioredoxin reductase, TrxB. predicted network, TrxA essential genes 40.8, nonessential genes              observed interact 33 proteins, TrxB 47 proteins, 30.8. suggests predicted network biologically             TrxC 12 proteins (Supplemental Fig. 2). Interestingly, relevant provides useful information.                                      total 85 proteins, 80 possess cysteine residue.
+      observed ∼2120 proteins interact directly             principal mechanism thioredoxin-mediated 
+indirectly essential genes. shortest path-length dis-             dox reaction dithiol exchange, appears 80 pro-
+tribution essential gene network showed large num-               teins natural substrates thioredoxins. Oc-
+ber nodes connected essential genes path length             currence known physiological partners thioredox- 3 (Supplemental Fig. 1c). Similarly, path-length distribu-              ins ribonucleotide reductase (Rnr), alkyl hydroperoxide
+tion nonessential gene network showed proteins                reductase (AhpC), chaperone protein (DnaK) suggest interact nonessential genes nodes               predicted network thioredoxins high confi-
+(Supplemental Fig. 1d). diameter essential gene net-               dence (Kumar et al. 2004). Apart known partners, work 8, nonessential gene net-                 proteins predicted thioredoxin-domain-
+work 14.  degree distribution                containing protein YbbN, predicted transferase NAD(P)- small world properties able distinguish                 binding domain YbhK, predicted oxidoreductase YjjX experimentally characterized essential nonessential genes.                 interact thioredoxins.  predicted thioredoxin
+                                                                               subnetwork substantiates known interactions                                                                                enables identification possible additional pathways regu-
+Functional analysis predicted network                                       lated thioredoxin  great analyze protein–protein interactions                  observation predictions pertains context functional categories. KEGG classifies             toxin–antitoxin helps bacteria maintain segrega- E. coli proteins 19 different functional categories. ob-             tional stability fight stress conditions. toxin–
+served important cellular pathways—transcription                  antitoxin pairs identified E. coli (Hayes 1998). translation—possess highest average degree interaction               predicted network, toxin–antitoxin pairs (TA) networks (Fig. 5). predicted network showed                 predicted interacting partners. RelBE, 
+high average degree replication repair pathways. Inter-                characterized TA pairs, known alter gene expression levels
+estingly, metabolic pathways possessed smaller average                 amino acid carbon source starvation. observe 
+
+532     Genome Research
+          www.genome.org
+                                                                                      Prediction genome-wide functional linkages
+
+
+                                                                                                      predicted E. coli interactome                                                                                                       help deciphering unknown functions
+                                                                                                      pathways.
+
+
+                                                                                                      Methods
+                                                                                                        Completely sequenced genomes 295
+                                                                                                        bacteria downloaded                                                                                                         NCBI ftp site (ftp://ftp.ncbi.nih.gov/
+                                                                                                        genomes/Bacteria/). Bacteria linear
+                                                                                                        genomes considered                                                                                                         analysis. total 266 bacteria genomes
+                                                                                                        remained excluding bacteria
+                                                                                                        linear genomes (Supplemental
+                                                                                                        Table VII). homologous sequences
+                                                                                                        known open reading frames
+                                                                                                        (ORFs) E. coli K-12 searched 
+Figure 5. Comparative analysis average degree interactions proteins belonging          ing BLASTp 266 genomes
+different functional pathways experimental predicted interactomes. clear  eⳮ04 cutoff value. Orthologs
+distributions transcription translation processes exhibit largest average degree.
+                                                                                                        E. coli genes identified bi-
+                                                                                                        directional best BLAST hit (Hirsh identification glutamine transporter (GlnQ) ri-                  Fraser 2001). genome sequences different bacterial
+bose-5-phosphate isomerase (RpiB) RelE-interacting partners               strains species available, selected surprising (Supplemental Fig. 3a). Interestingly Nickel                 shares maximum number orthologs E. coli K12 transporter subunit NikE transcription regulator Man-                reduce bias phylogenetic profiles.  124 genome
+ganese transport protein MntH, MntR, predicted                     sequences belonging different bacterial species used interact RelE. suggests addition nutrient                  generating phylogenetic profiles determining fre-
+stress, RelBE play role overcoming heavy metal stress.               quency occurrence gene pair (Supplemental Table VIII).
+Furthermore, hypothetical proteins YnjB YnjC, predicted act membrane transporters,             Phylogenetic profiles
+occur RelBE subnetwork. words, RelBE             Bit scores open reading frames E. coli obtained enable cells recover variety different stresses.         BLAST 124 genomes, used accordance fact RelBE locus tends           generate profile 124 genomes, doubly 
+protect cells detrimental effects stress,           malized: (1) bit score profile divided maxi- suicidal (Pedersen et al. 2002).                                      mum value bit score genes; (2) minimum
+      E. coli possesses paralogs RelBE  RelBEK12          bit score E. coli ORFs homologs RelBESOS. RelBESOS, known YafQ/DinJ, possesses                genomes considered. order assess pair genes LexA-binding site promoter region gets acti-           coevolving, Pearson correlation coefficient respective
+                                                                            phylogenetic profiles calculated. E. coli genome encodes
+vated SOS response elicited DNA damage (Lewis et
+                                                                            4237 proteins. 4237 ⳯ 4237 symmetric matrix 
+al. 1994). physiological role YafQ/DinJ charac-
+                                                                            structed, matrix elements represented terized.  basis predicted interacting partners,
+                                                                            correlation coefficient calculated. able propose YafQ/DinJ inhibit HsdR, endonuclease, allowing perpetuation modified
+DNA (Supplemental Fig. 3b). addition allowing DNA modi-               Frequency occurrence predicted operons
+fication combat SOS response, YafQ predicted              total 1113 operon sequences downloaded interact enzymes tryptophan glutamine biosyn-               EcoCyc database (Keseler et al. 2005). Partially identified operons
+thesis. functional implications observation            alternative transcription termination clear, propose YafQ involved repression            excluded. remaining 699 operons, 119
+amino acid biosynthesis. implies YafQ/DinJ protect            operons gene present cell DNA damage allowing DNA modification                    gene coordinate file (NC_000913.ptt) E. coli K12. hibiting protein synthesis.                                                 mapping remaining 580 operons E. coli K12 gene 
+                                                                            ordinate file, 497 gene pairs genes pair
+      excellent correlation predicted protein 
+                                                                            belong operon adjacent teraction network E. coli K12 wide variety experimen-
+                                                                             Furthermore, 616 gene pairs genes
+tal data suggests interaction network useful
+                                                                            pair codirectionally transcribed,  adjacent
+resource understand biology E. coli. network                                                                             belong different transcription units. Inter-
+used, example, identify functions genes             genic distances genes gene pairs annotated hypothetical, function unknown.                  taken positive data set (Supplemental Table IV), suggest cliques network, include genes           taken negative data set (Supple-
+characterized functions genes unknown function,              mental Table V). data sets used train Support able assign pathway genes reside.              Vector Machine prediction operons 124 genomes. interesting feature addressed using                   frequency occurrence pairs proteins
+teraction network identify large multiprotein complexes            (4237 ⳯ 4237) predicted operons genomes identification cliques. Analysis modular nature            assigned score protein pairs.  
+
+                                                                                                                  Genome Research             533
+                                                                                                                     www.genome.org
+ Yellaboina et al.
+
+
+element symmetric matrix represents frequency            cross-validation, sets used training, remain- occurrence genes j, predicted operons           ing set used testing. RBF function used train- genomes.                                                ing, best cost �?� selected using grid search
+                                                                       algorithm grid.py LibSvm software package. step Gene distance method                                                   testing, sensitivity specificity values calculated. ac- 4237 genes E. coli genome, distance        curacy prediction taken average sensitivity
+transcriptional start sites gene rest       specificity, defined follows:
+genes (4236) calculated dividing absolute value        Sensitivity = True Positives/(True Positives + False Negatives)
+distance  nucleotide bases) total genome length. genomes consideration circular, calculated           Specificity = True Negatives/(True Negatives + False Positives)
+absolute value distance clockwise counterclock-
+wise directions, considered minimum            models generated, model values. values scaled 100.                          highest accuracy retained best model used      Similarly, calculated distances orthologs       predictions genome-wide scale. genes 266 genomes. interaction score genes taken minimum distances 
+                                                                       Analysis network attributes
+tween genes orthologs 266 genomes.        variety graph-theoretic statistics, degree distri- final matrix 4237 ⳯ 4237 symmetric,         bution, clustering coefficient, characteristic path length element matrix minimum distances          diameter analyzed. Locally written Perl scripts used genes j 266 genomes.                           analyze degree distribution clustering coefficient. Path
+                                                                       length analyzed using Cytoscape2.2 (Shannon et al. 2003).
+Prediction protein–protein interactions using Support           subnetwork graphs illustrations generated using
+Vector Machine                                                         VISANT (Hu et al. 2005). 4237 ⳯ 4237 symmetric matrix generated methods considered represent possible pair-       Acknowledgments
+wise interactions proteins. element ma-
+trix represented score interaction. interaction       thank Bioinformatics center CDFD SUN Cen-
+scores used different data features training    tre Excellence Medical Bioinformatics access Support Vector Machine positive data negative data        computational facilities. thank M. Vidyasagar discus- described                                                     sions SVMs graph theory, Biju Issac stimu-
+                                                                       lating discussions. Financial support Department Bio-
+Preparation positive negative data set                      technology gratefully acknowledged. K.G. CSIR Senior 
+                                                                       search Fellow, S.C.M. Wellcome Trust International data E. coli protein complexes pathways           Senior Research Fellow supported grant WT070006.
+loaded EcoCyc database (Keseler et al. 2005). proteins complex considered functionally interacting. self-interactions ho-            References
+modimers complexes excluded.
+     negative reference data set comprised pairs pro-     Albert, R. 2005. Scale-free networks cell biology. J. Cell Sci.
+teins colocalized compartment E. coli.         118: 4947–4957.
+                                                                       Arifuzzaman, M., Maeda, M., Itoh, , Nishikata, K., Takita, C., Saito, R.,  periplasmic location proteins predicted           Ara, T., Nakahigashi, K., Huang, H.C., Hirai, , et al. 2006.
+using SIGCLEAVE EMBOSS (Sarachu Colet 2005). pro-               Large-scale identification protein–protein interactions tein considered periplasmic contained            Escherichia coli K-12. Genome Res. 16: 686–691.
+predicted signal sequence 50 residues N ter-       Arner, E.S. Holmgren,  2000. Physiological functions                                                                            thioredoxin thioredoxin reductase. Eur. J. Biochem.
+minus. scoring 40 proteins considered                   267: 6102–6109.
+periplasmic.  346 proteins did possess signal se-       Baba, T., Ara, T., Hasegawa, M., Takai, Y., Okumura, Y., Baba, M.,
+quence entire polypeptide stretch,            Datsenko, K , Tomita, M., Wanner, B.L., Mori, H. 2006. considered cytoplasmic. accuracy identifying             Construction Escherichia coli K-12 frame, single-gene knockout
+                                                                           mutants: Keio collection. Mol. Syst. Biol. 2: E1–E11. signal sequence SIGCLEAVE reported 75 –          Barabasi, L. Albert, R. 1999. Emergence scaling random
+80 , sets proteins chosen periplasmic           networks. Science 286: 509–512. cytoplasmic likely correct subcellular localization   Barabasi, L. Bonabeau, E. 2003. Scale-free networks. Sci. 
+(http://bioweb.pasteur.fr/docs/EMBOSS/sigcleave.html).                288: 60–69.
+                                                                       Barabasi, L. Oltvai, N. 2004. Network biology: Understanding
+pair unique data sets.                                      cell’s functional organization. Nat. Rev. Genet. 5: 101–113.
+                                                                       Ben-Hur,  Noble, W.S. 2006. Choosing negative examples Cross-validation model selection prediction accuracy               prediction protein–protein interactions. BMC Bioinformatics
+                                                                           7: 1–6. used LibSvm predict protein–protein interactions             Bork, P., Jensen, L.J., von Mering, C., Ramani, K., Lee, , (Chih-Chung Chih-Jen 2001). software enables users              Marcotte, E.M. 2004. Protein interaction networks yeast define parameters allows choice inbuilt kernel            human. Curr. Opin. Struct. Biol. 14: 292–299.
+                                                                       Butland, G., Peregrin-Alvarez, J.M., Li, J., Yang, W., Yang, X., Canadien,
+function including linear, Radial Basis Function (RBF), polyno-
+                                                                           V., Starostine, , Richards, D., Beattie, B., Krogan, N., et al. 2005.
+mial, sigmoid.                                                         Interaction network containing conserved essential protein
+      fivefold cross-validation, data set consisting posi-       complexes Escherichia coli. Nature 433: 531–537.
+tives negatives randomly divided equal size          Chih-Chung, C. Chih-Jen, L. 2001. LIBSVM: library support
+                                                                           vector machines. http://www.csie.ntu.edu.tw/∼cjlin/libsvm.
+sets. Training testing carried times, using                                                                        Dandekar, T., Snel, B., Huynen, M., Bork, P. 1998. Conservation “svm-train�? “svm-predict�? utility LibSvm software               gene order: fingerprint proteins physically interact. Trends
+package (Chih-Chung Chih-Jen 2001). round                   Biochem. Sci. 23: 324–328.
+
+
+
+534     Genome Research
+          www.genome.org
+                                                                                             Prediction genome-wide functional linkages
+
+
+Enault, F., Suhre, K., Abergel, C., Poirot, O., Claverie, J.M. 2003.              reversal bacteriostatic condition controlled expression     Annotation bacterial genomes using improved phylogenomic                       toxins antitoxins. Mol. Microbiol. 45: 501–510.
+    profiles. Bioinformatics 19: i105–i107.                                       Pellegrini, M., Marcotte, E.M., Thompson, M.J., Eisenberg, D., Ermolaeva, M.D., White, O., Salzberg, S.L. 2001. Prediction                    Yeates, T.O. 1999. Assigning protein functions comparative
+    operons microbial genomes. Nucleic Acids Res. 29: 1216–1221.                   genome analysis: Protein phylogenetic profiles. Proc. Natl. Acad. Sci.
+Fraser, H.B., Hirsh, E., Steinmetz, L.M., Scharfe, C., Feldman,                 96: 4285–4288.
+    M.W. 2002. Evolutionary rate protein interaction network.              Posfai, G., Plunkett III, G., Feher, T., Frisch, D., Keil, G.M., Umenhoffer,
+    Science 296: 750–752.                                                             K., Kolisnychenko, V., Stahl, B., Sharma, S.S., Arruda, M., et al.
+Hayes, F. 1998. family stability determinants pathogenic                      2006. Emergent properties reduced genome Escherichia coli. Science
+    bacteria. J. Bacteriol. 180: 6415–6418.                                           312: 1044–1046.
+Hirsh, E. Fraser, H.B. 2001. Protein dispensability rate             Pržulj, N., Wigle, D , Jurisica,  2004. Functional topology     evolution. Nature 411: 1046–1049.                                                 network protein interactions. Bioinformatics 20: 340–348.
+Hu, , Mellor, J., Wu, J., DeLisi, C. 2005. VisANT: Data-integrating         Rain, J.C., Selig, L., Reuse, H., Battaglia, V., Reverdy, C., Simon, S.,
+    visual framework biological networks modules. Nucleic Acids               Lenzen, G., Petel, F., Wojcik, J., Schachter, V., et al. 2001.     Res. 33: W352–W357.                                                               protein–protein interaction map Helicoba

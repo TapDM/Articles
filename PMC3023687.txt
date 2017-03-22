@@ -1,0 +1,556 @@
+Zomorrodi Maranas BMC Systems Biology 2010, 4:178
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                             Open Access
+
+Improving iMM904 S. cerevisiae metabolic
+model using essentiality synthetic
+lethality data
+Ali R Zomorrodi, Costas D Maranas*
+
+
+  Abstract
+  Background: Saccharomyces cerevisiae eukaryotic organism multi-compartment genome-
+  scale metabolic model constructed. sequence improved metabolic reconstructions yeast
+  introduced. metabolic models extensively used elucidate organizational
+  principles yeast metabolism drive yeast strain engineering strategies targeted overproductions.   served starting point benchmark reconstruction genome-scale metabolic models   eukaryotic organisms. spite successive improvements details described metabolic
+  processes, recent yeast model  e., iMM904) remains significantly predictive latest E. coli
+  model  e., iAF1260). manifested significantly lower specificity predicting outcome grow   grow experiments comparison E. coli model.
+  Results: paper make use automated GrowMatch procedure restoring consistency single
+  gene deletion experiments yeast extend procedure make use synthetic lethality data using   genome-scale model iMM904 basis. identified vetted using literature sources 120 distinct model
+  modifications including various regulatory constraints minimal YP media. incorporation   suggested modifications led substantial increase fraction correctly predicted lethal knockouts  e.,
+  specificity) 38.84  (87 224) 53.57  (120 224) minimal medium 24.73  (45
+  182) 40.11  (73 182) YP medium. Synthetic lethality predictions improved 12.03  (16
+  133) 23.31  (31 133) minimal medium 6.96  (8 115) 13.04  (15   115) YP medium.
+  Conclusions: Overall, study provides roadmap computationally driven correction multi-
+  compartment genome-scale metabolic models demonstrates value synthetic lethals curation agents.
+
+
+Background                                                                          compartments environment Saccharomyces cerevisiae eukaryote                               cytosol included model. Soon  genome fully sequenced annotated [1].                                iND750 model introduced, included focus genome-scale recon-                               additional compartments  e., peroxisome, nucleus, golgi
+struction efforts. Forster et al [2] reconstructed                        apparatus, vacuole endoplasmic reticulum) 
+multi-compartment genome-scale metabolic model                                  assessing localization gene products [3]. par-
+yeast  e., iFF708). model accounted 708 open                              allel study [4], predictive capability iFF708 reading frames (ORFs) (~10.5  ORFs) 1,175                                improved number modifications bio-
+metabolic reactions. metabolic reactions                               mass equation removal blocked reactions
+model compartmentalized cytosol                                    (iLL672 model). Subsequently, version mitochondria. Transport mechanisms                                yeast metabolic model improved description                                                                                     lipid metabolism containing 800 genes 1,446
+* Correspondence: costas@psu.edu                                                    reactions  e., iIN800) introduced Nookaew et al
+Department Chemical Engineering, Pennsylvania State University,
+University Park, PA 16802, USA
+                                                                                    [5]. improvements yeast model culminated
+
+                                      © 2010 Zomorrodi Maranas; licensee BioMed Central  Open Access article distributed terms Creative
+                                      Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution,                                       reproduction medium, provided original work properly cited.
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                                                 Page 2 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+ iMM904 model [6] increased size                               model experimental data imply growth
+iND750 904 genes 1,412 reactions.                                 (G) growth (NG) mutant strain, NGG
+metabolic reconstruction efforts carried largely                          model predicts gene deletion lethal
+independently using different data                                  experiment shows viable, finally
+sources cases different interpretations                          GNG model predicts mutant strain literature evidence. lack consistency moti-                           viable vivo observations lethal
+vated yeast systems biology community consoli-                              effect. Reed et al [19] proposed systems analysis
+date available metabolic models single                                  approach restore growth NGGs variety consensus reconstruction annotation model [7].                                 growth media addition appropriate meta- model updated regularly pub-                            bolic transport functions model. lished latest version  e., Yeast 4.0) contains,                       study, Satish Kumar et al [20] introduced GapFind decompartmentalized form, 1102 reactions 924 pro-                              GapFill, identify metabolites pro-
+teins [8].                                                                         duced consumed model uptake 
+   Despite efforts exists gap                       ditions bridge gaps adding missing
+quality available metabolic reconstructions                            functionalities model. Subsequently, pro- yeast corresponding models microbial meta-                             cedure termed GrowMatch [18] proposed recon-
+bolism. Table 1 summarizes quality metrics                             cile NGG GNG growth prediction
+E. coli [9], M. genitalium [10], B. subtilis [11], P. putida                       inconsistencies different substrates  Orth [12], H. pylori [13] Salmonella Typhimurium [14]                               Palsson [21] review). Notably, GrowMatch
+latest genome-scale models growth predictions                             procedure [18], GNG mismatches corrected contrasted experimental data single gene                               modifying metabolic model convert deletions. shown table, accuracy  e.,                         NGNGs. Alternatively, Motter et al [22,23] suggested fraction correctly predicted lethal knockouts)                           reconcile GNGs identifying candidate gene knockouts
+iMM904 metabolic model yeast significantly                               restore growth mutants worse corresponding microbial models.                              initially non-viable vivo. partly caused uncertainty enzyme localiza-                             Recent studies suggested making use tion inter-compartment metabolite transport                                 single gene deletion information synthetic
+yeast [15]. implies draft model reconstruc-                            lethal pairs (higher orders) provide additional
+tion followed detailed manual curation                               layer curation validation metabolic models. sufficient strategy bring eukaryotic gen-                            Harrison et al [24] showed investigation fal-
+ome-scale model quality level microbial                           sely predicted synthetic lethals S. cerevisiae help  explore extent model correction                                improve functional annotation. Furthermore, recent brought systematically comparing                              research group [25] demonstrated mis- model predictions single multiple gene dele-                           matches growth auxotrophy pheno-
+tions available experimental data.                                            types synthetic lethal predictions vivo
+   established standard [15] testing accuracy                          observations used provide 19 model correction genome-scale metabolic models contrast                                hypotheses iAF1260 model E. coli. predicted growth phenotype single mutant strains                                paper, modify deploy automated approaches available experimental data various                                 [18,20] resolving falsely predicted single multiple
+growth conditions [6,9,16,17]. comparisons result                            gene deletions aerobic minimal complex different outcomes [18]: GG NGNG                                   (YP) medium, generation appropriate
+
+
+Table 1 Accuracy microbial metabolic models vs iMM904 model.
+           Microorganism                          metabolic model                         Specificity ( )                      Reference
+       Saccharomyces cerevisiae                                 iMM904                                      38.8                        [6] study
+            Escherichiae coli                                   iAF1260                                     73.4                                [9]
+        Mycoplasma genitalium                                    iPS189                                     79.0                               [10]
+           Bacillus subtilis                                   iBSU1103                                     89.3                               [11]
+         Pseudomonas putida                                         -                                       74.5                               [12]
+           Helicobacter pylori                             iIT341 GSM/GPR                                   73.0                               [13]
+       Salmonella Typhimurium                                   iMA945                                      66.7                               [14]
+Comparison fraction correctly predicted lethal knockouts  e., specificities) microbial genome-scale metabolic models yeast iMM904
+model single gene mutation experiments.
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                         Page 3 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+model-correction hypotheses iMM904 model           carrying function absent yeast. chose iMM904 study          model specific gene-protein-reaction (GPR) associa-
+contains biomass composition reaction reversibility       tions [18]. bidirectional protein-protein BLAST  e.,
+information making suitable performing FBA com-        BLASTp) search S. cerevisiae genome
+putations. Following workflow presented           revealed seven genes involved NGGs
+paper pinpointed 90 model corrections identified       minimal medium YP
+30 missing regulatory constraints supporting litera-     medium share significant sequence similarity ture evidence doubled prediction accu-        entire length protein  e., forward backward
+racy growth phenotype single double gene        BLASTp expectation value 10-13) deletions aerobic minimal YP media          ORFs yeast.  rejected resolu-
+iMM904 model. Examples literature evidence include         tion strategies minimal medium interaction proteins support modification      YP medium contradicting experimental evidence
+GPR associations, presence specific compound           Additional file 2 details). Alternative correction cell wall corroborate inclusion biomass     strategies resolved NGGs explored.
+equation, gene expression data confirm suppres-         NGG inconsistencies minimal medium
+sion gene given condition. majority       YP medium resolved relax-
+modifications proposed  e., 86   remain        ing irreversibility reactions. exam-
+relevant latest update community          ple, deletion gene ADK1 (YDR226W), yeast model (Yeast 4.0) [8].                                  involved nucleoside salvage pathway, non-
+                                                              lethal treating reactions ADPT (Adenine
+Results discussion                                        phosphoribosyltransferase), HXPRT (Hypoxanthine
+Single gene perturbations                                     phosphoribosyltransferase (Hypoxanthine)), UPPRT
+Analysis impact single gene reaction dele-       (Uracil phosphoribosyltransferase) GUAPRT (Gua-
+tions growth phenotype  iMM904 model)          phosphoribosyltransferase) reversible. rever-
+revealed 106 essential genes 163 essential reactions      sibility reactions supported based growth using minimal medium 57 essen-        value free Gibbs energy change, ΔG, pre-
+tial genes 92 essential reactions YP medium.      vious reports literature [27-30]  Additional contrasted predicted essential genes           file 2). Notably, relaxing irreversibility constraint media experimental single gene deletion data           reactions enables production prpp
+reported Kuepfer et al [4] pinpoint model           (5-phospho-alpha-D-ribose 1-diphosphate), serves
+inconsistencies. summary model/experiment            precursor biomass components.
+(mis)matches given Figure 1A 1B  Addi-             incorporation global modifications
+tional file 1 details). note metrics      model, pursued resolution additional
+specificity sensitivity figure represent      NGGs adding transport reactions reactions fraction correctly predicted lethal viable mutants,    KEGG database [31]  Methods). able respectively. Comparing accuracy iMM904            reconcile growth inconsistencies NGGs model iFF708 (specificity = 68.2 ) [2,26]            minimal medium method. example, ADE8
+growth using YP medium, signifi-      (YDR408C), codes reaction GARFTi (phos- reduction specificity. reduction primarily    phoribosylglycinamide formyltransferas) fixed uncertainties associated assignment        adding reaction R06974 (glycinamide ribonucleotide
+functionalities compartments expansion      transformylase) model. GARFTi serves model studied reactions, pointed      step novo purine nucleotide biosynthetic path-
+earlier [15]. applied computational procedures         ways reaction model responsible described Methods section reconcile false     producing essential metabolite fgam (N2-Formyl-N1-
+predictions experimental growth. note        (5-phospho-D-ribosyl)glycinamide). Addition reaction reaction metabolite abbreviations          R06974 model provides alternative way pro- manuscript based iMM904 model.                ducing fgam compensate absence Resolution NGG inconsistencies                             GARFTi. performing BLAST bi-directional test denoted Figure 1A 1B, identified 19 NGGs         identified ORF yeast genome  e., ADE2) minimal 14 YP medium. summary           high sequence similarity (forward E-value = 3 × pathways NGGs growth             10-24 backward E-value = 3 × 10-24) enzyme
+media involved given Additional file 1.   phosphoribosylglycinamide formyltransferase 2 (EC
+step resolution NGGs GrowMatch              2.1.2.-) catalyzing R06974 Methanococcus jannaschii,
+procedure look alternate genes yeast capable     supports presence reaction yeast.
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                           Page 4 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+ Figure 1 Accuracy iMM904 model modifications using single gene perturbations. number false  correct predictions iMM904 model  B) (C D) applying modifications single gene mutations  minimal YP media, respectively. Note specificity = #NGNG/(#NGNG + #GNG), sensitivity true viable rate (TVR) = #GG/(#GG + #NGG)
+ false viable rate (FVR) = #GNG/(#GNG + #NGNG).
+
+
+  cases  e., RIB1 RIB4),                 silico YP medium. renders deletion NGGs identified YP medium present                      RIB1 RIB4 non-lethal. Notably, importance corrected considering mini-                      correctly describing medium composition mal medium. RIB1 (YBL033C) RIB4                                growth phenotype predictions raised pre-
+(YOL143C) fixed modifying iMM904                         vious studies [26]. Overall, using GrowMatch
+model adding missing compounds                            procedure literature searches able silico YP medium description. genes                    fix thirteen NGGs minimal medium involved riboflavin (vitamin B 2 ) biosynthesis,                 YP medium  Figure 1). biomass precursor. yeast extract                  details analysis evidence(s)
+reported major source vitamin B 2 [32],                   support modification provided decided add riboflavin list components                  Additional file 2.
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                         Page 5 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+Resolution GNG inconsistencies                             GNGs code reactions blocked shown Figure 1A 1B, total 137 GNG              model mainly presence consumption
+inconsistencies minimal YP media iden-        metabolite. resolve inconsistency tified 128 jointly present. distribution     exploring consumption metabolite genes different functional classes         component biomass equation. Interestingly, metabolism revealed involved         21 GNGs code tRNA char-
+tRNA charging, oxidative phosphorylation extracel-        ging reactions converted NGNG consis-
+lular transport  Additional file 1). Resolution        tencies including charged uncharged tRNA GNGs GrowMatch generally involves suppres-           molecules place corresponding amino acids sion incorrectly present alternative production routes     biomass equation. strategy previously biomass components model. identified            used reconstruction Salmonella metabolic
+GNGs divided major categories based         model [14]. example, GNG prediction WRS1 affect flux distribution network [18].    (YOL097C), codes blocked reaction category comprised genes coding iso-      TRPTRS (Tryptophanyl tRNA synthetase), corrected
+zymes alluding deletion genes        including charged tRNA (trptrna) uncharged affect reaction flux. straightforward resolution    tRNA (trantrp) reactant product biomass
+strategy case suppress gene(s)        reaction, respectively. modification simultaneously product serves isozyme coded reaction.       unblocks reaction TRPTRS renders essential. alternative hypothesis modify corresponding         cases, including consumption metabo-
+GPR relationship recast deletion         lite blocked reaction encoded GNG gene lethal. resolution strategies          biomass equation viable option 
+viable coded reaction(s) essential form    verted GG consistencies NGG mismatches  e.,
+synthetic lethal(s) according model. example,      conditional modification). Using GapFind proce-
+gene ACO1 (YLR304C), identified GNG                dure [20] problem metabolites minimal medium, isozyme  ACO2) mito-           upstream consumption, implying chondrial aconitase (ACONTm) independently           fixed corresponding root  
+catalyzes cytosolic aconitaase (ACONT) according           stream) consumption metabolite(s) resolved. iMM904 model. Notably, reactions, ACONT                tested GNGs fixed
+ACONTm form synthetic lethal pair mini-           globally, root downstream 
+mal medium according iMM904 model. did              sumption metabolites included component evidence indicating ACO2 sup-            biomass equation. additional seven GNGs corre-
+pressed aerobic glucose condition. Instead,          sponding blocked reactions fixed method protein coded ACO2 (Aco2p)         added list proposed model modi-
+putative mitochondrial aconitase isozyme, func-         fications lack experimental validation  tion assigned based sequence simi-       Additional file 2 uncorroborated model changes).
+larity Aco1p [33,34].  decided           note incomplete description biomass
+remove ACO2 GPR ACONTm ren-                 equation implicated important source dering deletion ACO1 lethal. modification      false model predictions earlier studies [3,4,26].  consistent latest update community         fore, exercised great caution modifying model [8]. Notably, possibility ACO2       biomass equation fix inconsistency. Corrections
+correctly assigned ACONTm, ACO1 involved            accepted solid corroborating literature evi- unaccounted model essential functions         dence 
+(e.g., mitochondrial DNA maintenance [35]) addition           GNGs identified correspond aconitase activity. manage fix GNGs         reaction blocked minimal conditions: minimal medium YP               Genes MPH2 (YDL247W) MPH3 (YJR160C) encode
+medium using procedure.                               isozymes catalyzing transport maltose    second category GNGs contains genes            extra-cellular environment cytosol (reaction MALTt2
+code blocked reactions, e., reactions   iMM904). reaction blocked maltose
+carry flux. implies dele-       present minimal medium.  tion genes affect flux distribution     explored genes involved silico, knockout lethal vivo. Resolution    transport D-glucose (reaction GLCt1). BLAST inconsistencies involves unblocking coded     bi-directional analysis revealed genes
+reactions rendering deletion lethal        high sequence similarity glucose trans- examined conditions. Notably, 52            port genes. Interestingly, previous studies
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                       Page 6 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+ reported involvement MPH2 MPH3 mediating residual glucose uptake [36].
+   category GNGs contains genes deletion affects flux distribution network. rectify mismatches employed original
+GrowMatch procedure introduced [18] modi-
+fied version proposed study  Methods) identify minimal number genes/reactions suppression lower biomass formation pre-
+specified viability threshold. performed analysis allowing simultaneous gene/reaction
+suppressions GNG leading correction 18 inconsistencies minimal 19 YP medium. fixed GNGs minimal
+medium fourteen YP excluded list corrected mismatches did sup-
+porting evidence literature. Overall, fixed 33
+GNGs minimal 28 YP medium glo-
+bal modifications conflict correctly
+predicted growth phenotype single gene mutants.              Figure 2 Different types mismatches silico note 27 GNGs appeared media                 predictions vivo observations double gene corrected mechanisms  Addi-             perturbations. abbreviations G, ES SL figure refer tional file 2 exhaustive list corrections).           Growth, Essential Synthetic Lethal, respectively.   Growth’
+                                                                 essentiality synthetic lethality single    incorporating model correc-            double gene deletions.
+tions NGGs GNGs litera-
+ture evidence, accuracy iMM904 model substantially improved. number correctly pre-            Synthetic Lethal). Similarly, ESG ESSL represent
+dicted lethal knockouts  e., specificity) total   mismatches single deletion 224 increased 87 120 minimal med-           genes silico lethal  e., ESsential),  ium 45 73  total 182) YP        simultaneous deletion vivo results viable
+medium. corresponding false viability rate (FVR)            strain  e., Growth) lethal phenotype  e., Synthetic decreased 61.16  46.43  minimal             Lethal), respectively. Finally, SLG SLES denote
+medium 75.27  59.89  YP medium.             inconsistencies model implies results summarized Figure 1C 1D.               double gene mutation lethal  e., Synthetic Lethal)                                                                 experimental observations support growth (G) Double gene perturbations                                       lethality single gene deletions  e., employed SL-Finder procedure [25] identify            ESsential), respectively. set synthetic lethal (SL) gene pairs        following restoration minimal YP media based iMM9904 model              type inconsistencies used yeast. analysis led identification 97 SL pairs    improve predictive capability iMM904 model. minimal medium 42 YP medium. Model               analogy definition specificity single gene
+SL prediction inconsistencies identified            mutations, define specificity double gene 
+trasting available experimentally identified        turbations fraction correctly predicted syn-
+SLs  Additional file 1 complete list predicted     thetic lethals (SLSL), e., Specificity = #SLSL/(#SLSL + experimentally identified synthetic lethal interac-         #ESSL +# GSL). comment resolution
+tions). shown Figure 2, comparison reveals         GES ESG mismatches, completely
+number additional ways model experiment             equivalent GNG NGG inconsistencies. addi- differ predictions. Notably,  growth�?       tion, note model corrections based
+phenotype case essentiality      currently available incomplete list experimen-
+(ES) synthetic lethality (SL) gene deletions.     tally identified SLs.
+example, GES GSL inconsistencies refer cases             Resolution GSL inconsistencies silico deletion gene pair lethal       GSL inconsistencies denote cases model
+ e., Growth) vivo lethal gene          implies growth simultaneous deletion essentiality synthetic lethality  e., ESsential         genes experimental results lethal effect.  Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                           Page 7 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+total 104 GSLs minimal medium 98          GapFill procedure applied correct root
+YP medium identified. note GSLs dou-          consumption metabolites adding consumption
+ble perturbations treated similarly GNG          export pathway model, unblocking mismatches single perturbations differ-      coded reactions. modification, GSLs ence  growth�? GNGs essentiality       treated deletion single single genes GSLs result syn-       gene change flux distribution silico. thetic lethality.                                              fix GSL inconsistency modifying   strategy fixing GSLs involved coding          biomass equation: KRE6 (YPR159W) SKN1
+isozymes repress genes coding         (YGR143W) provide isozymes blocked reac-
+isozyme examined condition modify             tion 16GS (1,6 b-glucan synthase) fixed includ-
+GPR associations. genes code isozymes            ing 16BDglcn (1,6 b-D-glucan) root consumption reaction resolution strategy viable       metabolite biomass equation reactant. reaction essential silico. Alternatively,   modification corroborated previous reports genes associated   dif-          showing 1,6 b-D-glucan key component ferent reactions form synthetic lethal.         yeast cell wall [40-42].
+note gene repressions group GSLs            Reconciling GSLs disruption single gene inferred manually inspection           affects silico flux distribution, involves identifying
+GPR associations inconsistency  did         missing regulatory constraints genes/reactions GNGs), automatically, using modified version         using GrowMatch procedure modified ver- GrowMatch  Methods). example,             sion. followed analysis allowing modified GrowMatch procedure suggests GSL             simultaneous gene/reaction suppressions (ASN1,ASN2) fixed suppressing gene                   GSL considered global modifications. YML096W. reviewing GPR relationships                 example, genes ZWF1 (YNL241C) RPE1 (YJL121C) genes ASN1 (YPR145W) ASN2                       involved pentose-phosphate pathway (YGR124W) YML096W provide isozymes               form GSL  minimal medium). deletion catalyzing essential reaction ASNS1 (asparagine        ZWF1 RPE1 change flux distribution
+synthase (glutamine-hydrolysing)).  suppres-         silico. Application GrowMatch fix sing gene YML096W render simultaneous dele-           inconsistency suggests suppressing reaction G6PDH2er
+tion ASN1 ASN2 lethal. Note,            (glucose-6-phosphate dehydrogenase [endoplasmic reti-
+did evidence support YML096W sup-           culum]) identical reaction catalyzed pression aerobic minimal conditions,              Zwf1p cytosol  e., G6PDH2). suggests gene coding putative protein       glucose-6-phosphate dehydrogenase activity endo-
+unknown function assigned ASN1            plasmic reticulum sufficient compensate based sequence similarity [37-39] prompting          deficiency cytosol RPE1 mutant background. remove YML096W GPR association                  Interestingly, shown [43] mammalian
+ASN1. example demonstrates identified            cells sets enzymes catalyzing reactions
+gene suppressions GrowMatch allude incor-            pentose phosphate pathway (including glucose-6-
+rect assignment genes reactions.                         phosphate dehydrogenase) active set   Resolution GSL inconsistencies coding             cytoplasm active endoplasmic
+blocked reactions complicated GNGs.           reticulum. holds true yeast Different cases need examined: (1) genes         resolve inconsistency. alternative hypothesis appear GPR relationship blocked            fixing inconsistency ZWF1 independently
+reaction revert method discussed fix-       codes glucose-6-phosphate dehydrogenase activity ing GNGs. (2) genes coding           endoplasmic reticulum  e., reaction G6PDH2er)  different reactions blocked      cytosol  e., reaction G6PDH2). root consumption metabolite explor-           example, FUR1 (YHR128W) URA3 (YEL021W)
+ing addition (common) downstream,            form GSL. catalyze reactions serve corresponding root problem metabolite, biomass          alternative production routes ump (uridine mono-
+equation reactant fix inconsistency. (3)       phosphate) biomass precursor. Application genes coding reactions blocked        GrowMatch procedure fix GSL suggests repres- different root consumption metabolites        sing reaction PYNP2r (pyrimidine-nucleoside phosphor- genes codes non-blocked reaction         ylase (uracil)). According iMM904 model, reconcile growth inconsistency simply         reaction PYNP2r provides source uri (uridine),
+modifying biomass reaction. resolve GSLs,          subsequently converted ump. Suppression
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                            Page 8 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+ PYNP2r render simultaneous deletion                  PRS5)) contain genes  e.,
+FUR1 URA3 lethal blocking production routes                   (PRS1,PRS2,PRS4) (PRS3,PRS2,PRS4)). biomass precursor ump  Figure 3). Note                  genes provide isozymes essential reaction PRPPS PYNP2r does gene association                   (phosphoribosylpyrophosphate synthetase) according model, suppression fix GSL inconsistency                 iMM904 model. inconsistency model
+raises possibility reaction erroneously                 predictions experimental observations included model removed.                        resolved changing GPR relationship (PRS1
+   surprisingly identified suppressions cor-             PRS2 PRS3 PRS4 PRS5) (PRS1 recting GSLs minimal medium valid                      PRS3) [(PRS2 PRS4) PRS5)] render YP medium. identified case                      simultaneous deletion aforementioned
+gene suppression resolve GSL, valid                   gene pairs/triple combinations lethal  Figure 4). YP medium. Genes MET12 (YPL023C)                            Interestingly, previous study strong interaction
+MET13 (YGL125W), identified GSL mini-                       PRS1 PRS3 PRS5 mal YP media provide isozymes reaction                           PRS2 PRS4 described [45]. total,
+MTHFR3 (5,10-methylenetetrahydrofolatereductase                          fixed GSLs minimal medium (NADPH)), involved folate metabolism.                        YP medium converting SLSL consis-
+Application modified GrowMatch resolve                    tencies relying literature vetted global modifica-
+inconsistency suggests suppression CYS3 (YAL012W)                     tions  Additional file 2 details). minimal YP media.  suppressing                       Resolution ESSL inconsistencies
+CYS3 minimal medium change                           ESSL inconsistencies refer cases model
+GGs NGGs  e., conditional modification)                     predicts genes essential  global suppression YP medium.                    experimental results form Interestingly, support CYS3 suppression YP                  SL. Based available data literature, identi-
+medium, reported gene cystein,                fied 13 ESSLs containing seven silico essential genes
+methionine glutathione suppressed [44].                              minimal medium ESSLs containing    Finally, cases GSL mismatches allude                       silico essential genes YP medium  Addi-
+incorrect GPR relationships model. example,                   tional file 1). surprisingly, silico essential GSLs  minimal medium) involved                       genes previously identified NGG mis- GPR implicates genes PRS1 5.                       matches single gene mutations. Consequently, include genes  e., (PRS1,PRS5) (PRS3,                direct resolution strategy fix ESSLs resolving
+
+
+
+
+ Figure 3 Resolution GSL reaction suppressions.   FUR1 URA3 form GSL based iMM904 model exists
+ alternative pathways producing biomass precursor ump absence genes. (B) suppressing  removing) reaction
+ PYNP2r, production routes biomass precursor ump blocked, rendering simultaneous deletion FUR1 URA3 lethal.
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                     Page 9 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+                                                                         studies demonstrated OPI3 par-
+                                                                         tially contribute isozyme catalyzing reaction
+                                                                         PETOHM_SC [46] implying GPR reac-
+                                                                         tion changed (CHO2 OPI3).                                                                          reports implicating CHO2 isozyme                                                                          catalyzing reactions MFAPS_SC PMETM_SC. 
+                                                                          previous studies reported S. cerevisiae                                                                          flexible respect phospholipid composition                                                                          substitute pe_SC, ptdmeeta_SC (phosphatidyl-
+                                                                         monomethylethanolamine) ptd2meeta_SC (phosphati-
+                                                                         dyl-dimethylethanolamine) pc_SC substantial
+                                                                         extent [46-49]. order capture lack specificity
+                                                                         removed pc_SC biomass reaction                                                                          instead added proxy phospholipid compound                                                                          stoichiometric coefficient pc_SC. Subse-
+                                                                         quently, added hypothetical reactions                                                                          model produce phospholipid                                                                          pc_SC, pe_SC, ptdmeeta_SC ptd2meeta_SC. Note
+                                                                         modifications model global
+                                                                         fixed inconsistencies OPI3 NGG                                                                          (CHO2, OPI3) ESSL mismatch.
+                                                                         Resolution SLG inconsistencies
+                                                                         SLG inconsistencies represent mismatch                                                                          genes form silico SL,  simul-
+ Figure 4 Change GPR reaction PRPPS. GSL                      taneous deletion results viable strain. SLG mis-
+ inconsistencies (PRS1,PRS5), (PRS3,PRS5), (PRS1,PRS2,PRS4) (PRS3,
+                                                                         matches double gene perturbations viewed  PRS2,PRS4) imply GPR reaction PRPPS  changed (PRS1 PRS2 PRS3 PRS4 PRS5) (PRS1            NGG mismatches single gene perturbations  PRS3) [(PRS2 PRS4) PRS5)].                                sense imply certain functionalities
+                                                                         missing model. difference                                                                          NGGs SLGs  growth�? NGGs NGGs single gene perturbations. Following                    essentiality single genes SLGs route, ESSLs minimal                     result synthetic lethality gene pairs. 
+medium YP medium automatically                       fore, simply adapt procedure used
+rectified converted SLSLs resolution                  fixing NGGs resolve SLG inconsistencies. NGGs  Additional file 2 details).                    resolved case inconsistency
+rest resolved, instead                    minimal YP media. SLG pertains genes
+verted new GSL mismatches. case,                     PGM1 (YKL127W) PGM2 (YMR105C) code application methods discussed previous                     isozymes reaction PGMT (phosphoglucomutase)
+section resolving GSL mismatches did identify                    involved glycolysis/gluconeogenesis. simultaneous global literature supported correction strategies.                deletion PGM1 PGM2 lethal based   interesting example ESSL mismatches                       iMM904 model glygogen, biomass precursor, 
+gene pair CHO2 (YGR157W) OPI3 (YJR073C)                              produced absence genes. Appli- gene essential vivo [4]. CHO2 catalyzes                 cation GrowMatch procedure fix SLG, did step conversion pe_SC (phosphatidyletha-                 lead literature-supported correction strategy. nolamine) pc_SC (phosphatidylcholine) phospholi-                   mined literature possible isozyme pid biosynthesis pathway (reaction PETOHM_SC                      reaction identified gene PGM3 (YMR278W) iMM904 model),  OPI3 catalyzes                      known catalyze interconversion glucose-1-pho-
+steps (reactions MFAPS_SC PMETM_SC).                         phate glucose-6-phosphate [50],  missing able fix CHO2 OPI3 separate                        iMM904 model. addition PGM3 GPR NGGs methods discussed previously.                         reaction PGMT  e., PGM1 PGM2 PGM3) renders  fact genes form SL                      simultaneous deletion PGM1 PGM2 non-lethal.
+vivo suggests act isozymes reactions                Resolution SLES inconsistencies
+PETOHM_SC, MFAPS_SC PMETM_SC.                                SLES mismatches denote cases model
+ingly, mining literature previous                   predicts simultaneous deletion  Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                       Page 10 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+genes lethal genes          Auxotrophy inconsistencies
+essential vivo. implies deletion      mismatches refer cases essentiality genes compensated             single gene deletions synthetic lethality double gene experimental conditions.          gene knockouts agreements vivo observa-
+fore, SLES inconsistencies rectified suppressing      tions,  model predictions supplementa- model gene essential vivo.         tion rescue  e., auxotrophy) scenarios inconsistent
+Essential genes participating silico SLs yield GNG     experimental data. seven inconsistencies.  resolution          inconsistencies minimal YP med-
+GNGs fixes SLES mismatches double           ium, respectively, correctly predicted essential genes,
+gene mutations. identified 59 SLES mismatches         minimal YP media minimal medium 42 YP medium. Fifty           SLSL predictions  Additional file 1 complete SLESs minimal YP          list). Notably, mismatches, experi-
+medium fixed using global modifications          mental results single double gene GNGs. example, gene IPP1 (YBR011C)             mutant strains restore growth additional com- codes PPA (inorganic diphosphatase                 pounds added growth medium, involved oxidative phosphorylation) forms SL pair       model predictions imply genes remain essen- minimal YP medium gene IPP2              tial synthetic lethal presence (YMR267W) codes reaction mito-          compounds. inconsistencies treated chondria (reaction PPAm).  IPP1             exactly way NGG SLG mismatches essential vivo [4].  resolve     treated, refer functionalities inconsistency, conditionally suppress gene IPP2      missing model present experimen- aerobic conditions. Interestingly, investigating    tal conditions. available expression data genes          example, reported strain  expression level IPP1 aerobic condi-       taining FOL1 (YNL256W) deletion grow tions glucose carbon source 37         medium supplemented folic acid [54]. Nonethe-
+times higher IPP2 [51],               folic acid included list metabolites
+explain IPP2 able compensate           iMM904 model. adding folic acid deletion IPP1.                                            exchange transport reactions  cytosol   example, gene PGK1 (YCR012W),          extracellular environment) iMM904 model FOL1
+associated reaction PGK (phosphoglycerate kinase)       remains essential folic acid allowed involved glycolysis/gluconeogenesis, participates   taken  GrowMatch suggested addition 39 silico SLs minimal medium.           reactions R00937 (5,6,7,8-tetrahydrofolate:NAD+  essential vivo [4].    oxidoreductase) R02236 (dihydrofolate:NADP+ oxi-
+implies suppressing 39 genes        doreductase) KEGG database model forming synthetic lethal PGK1 resolve       connect folic acid rest network.  SLESs.  did evidence          ingly, searching KEGG database confirming resolution hypothesis       enzyme catalyzing reactions present genes PCK1 (YKR097W), known           yeast gene coding enzyme (DFR1: suppressed presence glucose [52,53]: gene      YOR236W) present iMM904 model. involved gluconeogenesis, process allowing yeast        gene pair HMG1 (YML075C) HMG2 synthesize glucose non-carbohydrate precursors       (YLR450W), forms SLSL minimal ethanol glycerol. Notably, suppression         YP media. example auxotrophy mismatches
+PCK1 iMM904 model block production            double gene perturbations: vivo observa- biomass precursors, e., phe-L (L-Phenylalanine),     tions mutant strain lacking genes
+trp-L (L-Tryptophan) tyr-L (L-Tyrosine)           rescued addition mev-R (mevalonate)
+absence PGK1.                                             growth medium [55], silico predictions imply
+  Overall, resolution model inconsistencies       double deletion lethal pre-
+double gene deletions improved specificity            sence mev-R. addition exchange trans-
+iMM904 model 12.03  23.31   total        port reaction cytosol extracellular
+133) minimal medium 6.96  13.04          environment mev-R model resolves auxo-
+ total 115) YP medium. worth       trophic inconsistency. Notably, addition noting corrections based          import pathway mev-R model fixed
+incomplete list SL data available literature.          auxotrophy inconsistency essential gene
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                    Page 11 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+                                                                        cases fixing mismatch double gene deletions
+                                                                        automatically fixes mismatch(s) single
+                                                                        gene perturbations. illustrated NGG,
+                                                                        CHO2 mechanisms proposed                                                                         resolve NGGs successful. Approxi-
+                                                                        mately, 20  total suggested corrections                                                                         iMM904 model use information single                                                                         double gene perturbations 17                                                                          exclusively discerned double gene perturbations.                                                                         far larger contribution synthetic lethals providing
+                                                                        model refinement strategies expected                                                                         synthetic lethality data available.
+                                                                          high number GNG GSL inconsistencies
+                                                                        identified study runs contrary general 
+                                                                        ception predictive inaccuracy genome-scale
+                                                                        metabolic models primarily missing metabolic
+                                                                        capabilities. appears presence properly
+                                                                        restricted specific conditions functionalities                                                                         model largest contributor inconsistent predic-
+ Figure 5 summary modifications iMM904 model
+ using single double gene perturbations.   Venn
+                                                                        tions. Application GrowMatch eliminate  diagrams minimal YP media representing number           properly regulate functionalities led identifi-
+ modifications involved fixing inconsistencies associated   cation 30 growth medium-specific regulatory 
+ single double gene deletions  (B) Bar chart               straints. growth prediction inconsistency-based
+ demonstrating number type modifications         constraints complement existing regulatory constraints
+ iMM904 model.
+                                                                        based gene expression data [44,56,57].
+                                                                          study considered essentiality                                                                         synthetic lethality predictions disagreements ERG10 (YPL028W), involved mevalonate                        auxotrophy complementation. demonstrated biosynthesis.                                                           identified growth-phenotype discrepancies 
+  Overall, including global modifications                 times incorrect incomplete silico descrip- supporting evidence  fix                 tion complex growth medium inaccuracy auxotrophy inconsistencies essential genes                 metabolic model. Overall, significantly improved SLs minimal YP media                     predictive capability  e., specificity, sensitivity  Additional file 2 details). summary               false viability rate) iMM904 model essentials
+suggested modifications iMM904 model using                   synthetic lethals incorporating minimum 112 types inconsistencies single double gene                  120) suggested corrections. modifica-
+perturbations given Figure 5. revised iMM904                  tions global invalidate correct
+model available Systems Biology Markup                   model predictions. proposed corrections span wide
+Language (SBML) Additional file 3.                                   array changes model including relaxation                                                                         irreversibility constraints existing reactions Conclusions                                                             model, adding new reactions, compounds genes identified 120 corrections supporting evidence                  model, modifying biomass equation, changing iMM904 metabolic model yeast using                         GPR associations medium-specific regulatory 
+essentiality synthetic lethality data. Previous studies             straints. independent corroborating evidence
+geared improving predictive ability meta-                proposed corrections, vast majority  e., 103) bolic models used growth phenotype inconsisten-                    remain relevant latest update cies single gene mutation experiments microbial                  community yeast model (Yeast 4.0) [8]. includes 73
+systems E. coli [18,19].  step                     model refinement strategies 30 identified med- demonstrating utility synthetic lethality             ium-specific regulatory constraints. remaining
+data improving accuracy multi-compartment                  modifications iMM904 model, metabolic model eukaryotic organism.                         independently incorporated Yeast 4.0 revealed missing erroneously present metabolic func-                 different ones adopted Yeast 4.0. compari-
+tions model captured                   son suggested corrections Yeast 4.0 given single gene perturbations. addition,                Additional file 2.
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                            Page 12 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+  addition model refinement strategies sup-       [6]. uptake rate source metabolites porting evidence, identified 60 glo-      set 1000 mmol gDW -1 h -1 . flux non-
+bal modifications conflicting    growth associated ATP maintenance fixed 1 supporting evidence  Additional file 2         mmol gDW-1h-1 [6]. employed GrowMatch pro-
+complete list). modifications treated        cedure [18] reconcile growth phenotype discre-
+testable hypotheses experiments             pancies NGGs, modified fix GNGs  designed prove/disprove validity. Overall,      addition using original form). algorithms
+study demonstrates value bringing bear multi-      adapted resolving inconsistencies associated
+gene deletion data improve predictive         double gene perturbations. following capability genome-scale metabolic models. avail-      provide brief overview GrowMatch ability high-throughput experimental techniques           modified version.
+[58-61] efficient computational tools
+[25,62,63] elucidate synthetic lethal interactions        Modified GrowMatch procedure
+opens door rapidly reveal additional model defi-      GrowMatch procedure relies separate pro-
+ciencies. model refinement approaches presented       cedures resolve NGG GNG growth prediction study versatile employed         inconsistencies. NGGs fixed one wider range experimental conditions (e.g.,          minimally perturbing original metabolic model using
+growth media) synthetic lethal interactions increas-   mechanisms including   relaxation irrever-
+ing size (e.g., triples, quadruples, .                   sibility constraints reactions model, (ii) addi-
+                                                             tion new reactions external databases Methods                                                      KEGG [31] model (iii) allowing direct applied SL Finder procedure developed              import/export metabolites cell, Suthers et al [25] iMM904 model S. cerevisiae      multi-compartment models [18], addition trans-
+[6] comprised 904 genes 1,412 reactions deter-     port reactions compartments cytosol. set essential genes/reactions dif-    Alternatively, GNG mismatches corrected ferent orders synthetic lethals. simulations     identifying minimal set suppression constraints
+performed aerobic growth different media          reactions transport mechanisms lower glucose sole carbon source: minimal medium       maximum biomass yield network pre- complex (yeast-extract peptone YP) medium.          specified viability threshold. suggested modifications silico minimal medium contains ammonium, sul-         GrowMatch referred global fate phosphate nitrogen, sulfur phosphor          conflict correct model predictions, sources, respectively, necessary salts    called conditional 
+Na K). addition components           modified GrowMatch procedure iden-
+silico YP medium contains 20 amino acids         tify minimal number suppressed genes, nucleotides [3]. simulations performed     reactions, negate biomass formation strain auxotrophic methionine, leucine, histidine      viability threshold. defining uracil closely mimic conditions used           sets binary variables genes reac-
+experimental studies [4]. auxotrophy simulated      tions relating binary variables deleting genes (his3Δ leu2Δ met15Δ ura3Δ) sup-        way reflects specific GPR associations
+plementation growth medium missing           [25]. reactions gene associations ficti-
+nutrients non-limiting low levels [6]. addition,   tious gene coding reaction assumed. trace amounts essential compounds          alternative way avoid introducing new set binary
+present experimental growth medium including          variables, result reduce computational bur-
+4-aminobenzoate, biotin, inositol, nicotinate, panthothe-    den  directly correlate binary variables
+nate thiamin added silico media [6].      genes reaction fluxes. end, 
+Consistent Suthers et al [25] chose 1         define following sets:
+maximum theoretical biomass yield viability
+threshold computational identification lethal            =  | = 1, 2,..., N} = set metabolites
+knockouts. upperbound reactions set          J = { j | j = 1, 2,..., M} = set reactions
+1000,  lowerbound set 0 irreversi-       K = {k | k = 1, 2,..., G} = set genes
+ble reactions -1000 reversible reactions. maximum rate glucose uptake set 10                N, M G denote total number meta-
+mmol gDW-1h-1 aerobic condition modeled          bolites, reactions genes network, respectively. limiting oxygen uptake rate 2 mmol gDW-1h-1        simulate gene knockouts, binary variable wk,
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                             Page 13 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+representing gene k deleted defined         cases mathematically enforced following:                                                       appropriate combination equations (3) (4).                                                                  example, genes k1, k2 k 3 correlated          ⎧ 0, gene k deleted                               (k1 k2 ) (k1 k3 ) code enzyme
+    wk = ⎨                                      ∀ k∈K      (1)
+         ⎩ 1, gene k active                                catalyzing reaction j, constraints simulating
+                                                                 relationship written following:
+  impact gene knockouts reactions GPR relationships mathematically described               ⎧⎪ w k1 .LB j ≤ v j ≤ w k1 .UB j using appropriate constraints relating wk reac-            ⎨                                                                     (5)
+tion fluxes, v j . Let LB j UB j represent lower-            ⎪⎩ (w k 2 + w k3 ).LB j ≤ v j ≤ (w k 2 + w k3 ).UB j
+bound upperbound reaction j, respectively.
+                                                                  modified GrowMatch formulation resolve Different cases GPR relationships                                                                  GNGs  GSLs) formulated following:
+considered:
+    single gene k codes enzyme catalyzing             Minimi ze            v biomass
+reaction j. easily incorporated                        Wj
+mathematical framework using following                   s.t .
+straint:
+                                                                            ⎡ Maximize v biomass                         ⎤
+                                                                            ⎢       vj                                   ⎥
+    w k .LB j ≤ v j ≤ w k .UB j                            (2)              ⎢ s.t .                                      ⎥
+                                                                            ⎢                                            ⎥
+  (ii) genes k1 k2 form single multi-protein
+enzyme enable reaction j. case, recast
+                                                                            ⎢
+                                                                            ⎢    ∑       s ij v j = 0             I ⎥
+                                                                                                                         ⎥
+                                                                            ⎢       j                                    ⎥ logic relationship genes k1                        ⎢ Appropriate GRP eqns ∀ j ∈ J ⎥
+k2, enforced following set constraints:                    ⎢                                            ⎥
+                                                                            ⎢ v glu cos e ≤ v glu   uptake limit
+                                                                                                       cos e             ⎥
+                                                                            ⎢                                            ⎥
+    ⎪⎧ w k1 .LB j ≤ v j ≤ w k1 .UB j                                        ⎢ v oxygen ≤ v oxygen  uptake limit          ⎥
+     ⎨                                                     (3)              ⎢                                            ⎥
+     ⎪⎩ w k 2 .LB j ≤ v j ≤ w k 2 .UB j                                     ⎢ v ATPM = v ATPM
+                                                                                                   maintenance
+                                                                                                                         ⎥
+                                                                            ⎢ LB ≤ v ≤ .UB                       ∀ j ∈ J ⎥
+  Note based equations,                    ⎣          j         j       j               ⎦
+w k1 w k 2 zero, flux reaction j                  ∑(1 − w
+                                                                             j
+                                                                                         k   )≤n
+forced zero. set constraints easily gen-
+eralized multi-protein enzymes                       w k ∈ { 0, 1}                          ∀ k∈K
+genes involved.
+  (iii) genes k1 k2 provide isozymes catalyzing           sij, represents stoichiometric coefficient reaction j. case, indicates logic relationship         metabolite  reaction j, vbiomass denotes bio- genes k1 k2 enable reaction j,            mass        flux              v uptake   limit
+                                                                                                                      ,     uptake limit
+                                                                                                                          v oxygen                                                                                                                glu cos e mathematically expressed following
+constraints:                                                      v maintenance
+                                                                    ATPM        denote minimum required glucose                                                                  oxygen uptake rates non-growth associated ATP
+    ⎧⎪ (w k1 + w k 2 ).LB j ≤ v j ≤ (w k1 + w k 2 ).UB j         maintenance, respectively. parameter n, repre-
+     ⎨                                                     (4)
+     ⎩⎪ LB j ≤ v j ≤ .UB j
+                                                                 sents allowable number knock-outs. bilevel
+                                                                 optimization problem solved similarly Grow-
+  Note according equations, vj forced        Match SL Finder [18,25] writing dual
+zero genes knocked  e., w k1 =            inner problem.
+ w k 2 = 0. case, genes present
+( w k1 = w k 2 = 1), second constraint bind-         Test suggested hypotheses
+ing restrict vj fall defined lower        model correction strategies provided Grow- upperbound. approach readily general-            Match serve hypotheses need tested ized GPRs containing genes related             confirm applicability. Different methods used                                                          test validity type modification. Similarly
+  (iv) genes combination             [18], relaxation irreversibility constraints relationships required enable reaction j.        existing reactions model checked using
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                                            Page 14 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+ independent methods. step check                          2.    Forster J, Famili  Fu P, Palsson BO, Nielsen J: Genome-scale reconstruction
+                                                                                     Saccharomyces cerevisiae metabolic network. Genome Res 2003, reversibility reaction iAF1260 model E.                            13(2):244-253.
+coli [9] metabolic models organisms.                            3.    Duarte NC, Herrgard MJ, Palsson BO: Reconstruction validation query databases MetaCyc [64]                                Saccharomyces cerevisiae iND750, fully compartmentalized genome-
+                                                                                     scale metabolic model. Genome Res 2004, 14(7):1298-1309. reversibility desired reaction                 4.    Kuepfer L, Sauer U, Blank LM: Metabolic functions duplicate genes reversible organisms. Finally, examine                               Saccharomyces cerevisiae. Genome Res 2005, 15(10):1421-1430.
+reversibility reactions computing value free                      5.    Nookaew  Jewett MC, Meechai  Thammarongtham C, Laoteng K,
+                                                                                     Cheevadhanarak S, Nielsen J, Bhumiratana S: genome-scale metabolic
+Gibbs energy change, ΔG [65].                                                        model iIN800 Saccharomyces cerevisiae validation: scaffold
+   validity added transport reactions                              query lipid metabolism. BMC Syst Biol 2008, 2:71.
+model examined searching literature                         6.    Mo ML, Palsson BO, Herrgard MJ: Connecting extracellular metabolomic
+                                                                                     measurements intracellular flux states yeast. BMC Syst Biol 2009,
+potential clues presence suggested                                  3:37.
+transport mechanisms querying databases                              7.    Herrgard MJ, Swainston N, Dobson P, Dunn WB, Arga KY, Arvas M, MetaCyc possibility presence                                 Bluthgen N, Borger S, Costenoble R, Heinemann M, et al: consensus
+                                                                                     yeast metabolic network reconstruction obtained community
+mechanisms multi-cellular organisms.                                    approach systems biology. Nat Biotechnol 2008, 26(10):1155-1160.
+hypotheses adding new reactions external data-                        8.    Dobson PD, Smallbone K, Jameson D, Simeonidis E, Lanthaler K, Pir P, Lu C,
+bases KEGG model tested                                    Swainston N, Dunn WB, Fisher P, et al: developments                                                                                      genome-scale metabolic model yeast. BMC Syst Biol 2010, 4:145.
+forming bi-directional BLAST enzymes                           9.    Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,
+catalyzing reactions yeast genome. Consis-                             Broadbelt LJ, Hatzimanikatis V, Palsson BO: genome-scale metabolic
+tent [18,20] assumed BLAST expectation                                     reconstruction Escherichia coli K-12 MG1655 accounts 1260
+                                                                                     ORFs thermodynamic information. Mol Syst Biol 2007, 3:121.
+value cutoff 10-13 basis define high sequence                     10.   Suthers PF, Dasika MS, Kumar VS, Denisov G, Glass JI, Maranas CD: similarity. Finally, gene suppressions validated                          genome-scale metabolic reconstruction Mycoplasma genitalium,
+analysis gene expression data searching                            iPS189. PLoS Comput Biol 2009, 5(2):e1000285.
+                                                                               11.   Henry CS, Zinner JF, Cohoon MP, Stevens RL: iBsu1103: new genome- literature available evidence. global modi-                          scale metabolic model Bacillus subtilis based SEED annotations.
+fications did supporting evi-                              Genome Biol 2009, 10(6):R69.
+dence using methods mentioned                               12.   Puchalka J, Oberhardt MA, Godinho M, Bielecka  Regenhardt D,
+                                                                                     Timmis KN, Papin JA, Martins dos Santos VA: Genome-scale reconstruction
+incorporated model just added                               analysis Pseudomonas putida KT2440 metabolic network
+list modifications corroborating evidence.                                facilitates applications biotechnology. PLoS Comput Biol 2008, 4(10):
+                                                                                     e1000210.
+                                                                               13.   Thiele  Vo TD, Price ND, Palsson BO: Expanded metabolic reconstruction
+Additional material                                                                  Helicobacter pylori (iIT341 GSM/GPR): silico genome-scale
+                                                                                     characterization single- double-deletion mutants. J Bacteriol 2005,
+ Additional file 1: list model inconsistencies. complete list             187(16):5818-5830.
+ different types model inconsistencies single double gene        14.   AbuOun M, Suthers PF, Jones GI, Carter BR, Saunders MP, Maranas CD,
+ perturbations literature citations.                                      Woodward MJ, Anjum MF: Genome scale reconstruction Salmonella
+                                                                                     metabolic model: comparison similarity differences  Additional file 2: list corrections model. complete
+                                                                                     commensal Escherichia coli strain. J Biol Chem 2009, 284(43):29480-29488.
+ list suggested corrections mismatches associated single                                                                                15.   Thiele  Palsson BO: protocol generating high-quality genome-
+ double gene perturbations supporting evidence. file                                                                                      scale metabolic reconstruction. Nat Protoc 2009, 5(1):93-121.
+ contains details BLAST analysis different cases                                                                                16.   Ibarra RU, Edwards JS, Palsson BO: Escherichia coli K-12 undergoes
+ computations.
+                                                                                     adaptive evolution achieve silico predicted optimal growth. Nature
+ Additional file 3: revised yeast model SBML format.                          2002, 420(6912):186-189.
+                                                                               17.   Joyce AR, Reed JL, White  Edwards R, Osterman  Baba T, Mori H,
+                                                                                     Lesely SA, Palsson BO, Agarwalla S: Experimental computational
+                                                                                     assessment conditionally essential genes Escherichia coli. J Bacteriol
+Acknowledgements                                                                     2006, 188(23):8259-8271. work funded DOE grant FG02-05ER25684         18.   Kumar VS, Maranas CD: GrowMatch: automated method Network Science Initiative Pennsylvania State University. authors         reconciling silico vivo growth predictions. PLoS Comput Biol 2009, like thank Dr. Anthony P. Burgard critical reading               5(3):e1000308.
+manuscript insightful suggestions, Dr. Patrick F. Suthers useful   19.   Reed JL, Patel TR, Chen KH, Joyce AR, Applebee MK, Herring CD, Bui OT,
+discussions.                                                                         Knight EM, Fong SS, Palsson BO: Systems approach refining genome
+                                                                                     annotation. Proc Natl Acad Sci USA 2006, 103(46):17480-17484.
+Authors’ contributions                                                         20.   Satish Kumar V, Dasika MS, Maranas CD: Optimization based automated
+CDM conceived coordinated study, participated design              curation metabolic reconstructions. BMC Bioinformatics 2007, 8:212.
+helped draft manuscript. ARZ performed simulations data         21.   Orth JD, Palsson BO: Systematizing generation missing metabolic
+analysis drafted manuscript. authors read approved              knowledge. Biotechnol Bioeng 2010, 107(3):403-412.
+final manuscript.                                                              22.   Motter AE, Gulbahce N, Almaas E, Barabasi AL: Predicting synthetic rescues
+                                                                                     metabolic networks. Mol Syst Biol 2008, 4:168.
+Received: 16 September 2010 Accepted: 29 December 2010                         23.   Nishikawa T, Gulbahce N, Motter AE: Spontaneous reaction silencing Published: 29 December 2010                                                          metabolic optimization. PLoS Comput Biol 2008, 4(12):e1000236.
+                                                                               24.   Harrison R, Papp B, Pal C, Oliver SG, Delneri D: Plasticity genetic
+                                                                                     interactions metabolic networks yeast. Proc Natl Acad Sci USA 2007,
+References                                                                           104(7):2307-2312.
+1. Goffeau  yeast genome directory. Nature 1997, 387:5-6.
+ Zomorrodi Maranas BMC Systems Biology 2010, 4:178                                                                                                 Page 15 15
+http://www.biomedcentral.com/1752-0509/4/178
+
+
+
+
+25. Suthers PF, Zomorrodi  Maranas CD: Genome-scale gene/reaction                   47. Kodaki T, Yamashita S: Yeast phosphatidylethanolamine methylation
+    essentiality synthetic lethality analysis. Mol Syst Biol 2009, 5:301.             pathway. Cloning characterization distinct methyltransferase
+26. Forster J, Famili  Palsson BO, Nielsen J: Large-scale evaluation silico       genes. J Biol Chem 1987, 262(32):15428-15435.
+    gene deletions Saccharomyces cerevisiae. OMICS 2003, 7(2):193-202.             48. Kodaki T, Yamashita S: Characterization methyltransferases 27. Flaks JG, Erwin MJ, Buchanan JM: Biosynthesis purines. XVI.                yeast phosphatidylethanolamine methylation pathway selective gene
+    synthesis adenosine 5’-phosphate 5-amino-4-                                    disruption. Eur J Biochem 1989, 185(2):243-251.
+    imidazolecarboxamide ribotide nucleotide pyrophosphorylase. J Biol           49. Kanipes MI, Henry SA: phospholipid methyltransferases yeast.
+    Chem 1957, 228(1):201-213.                                                            Biochim Biophys Acta 1997, 1348(1-2):134-141.
+28. Shi W, Sarver AE, Wang CC, Tanaka KS, Almo SC, Schramm VL: Closed site            50. Tiwari  Bhat JP: Molecular characterization reveals YMR278w
+    complexes adenine phosphoribosyltransferase Giardia lamblia                   encoded protein environmental stress response homologue     reveal mechanism ribosyl migration. J Biol Chem 2002,                            Saccharomyces cerevisiae PGM2. Biochem Biophys Res Commun 2008,
+    277(42):39981-39988.                                                                  366(2):340-345.
+29. Smithers GW, O’Sullivan WJ: Hypoxanthine phosphoribosyltransferase:               51. Holstege FC, Jennings  Wyrick JJ, Lee TI, Hengartner CJ, Green MR,
+    radiochemical assay procedures forward reverse reactions.                 Golub TR, Lander ES, Young RA: Dissecting regulatory circuitry     Anal Biochem 1985, 145(1):14-20.                                                      eukaryotic genome. Cell 1998, 95(5):717-728.
+30. Caskey CT, Kruh GD: HPRT locus. Cell 1979, 16(1):1-9.                         52. Haarasilta S, Oura E: activity regulation anaplerotic 31. Kanehisa M, Araki M, Goto S, Hattori M, Hirakawa M, Itoh M, Katayama T,               gluconeogenetic enzymes growth process baker’s yeast.
+    Kawashima S, Okuda S, Tokimatsu T, et al: KEGG linking genomes                 biphasic growth. Eur J Biochem 1975, 52(1):1-7.
+    life environment. Nucleic Acids Res 2008, 36(Database):D480-484.          53. Yin  Smith RJ, Brown AJ: Multiple signalling pathways trigger 32. Guha BC: Investigations vitamin B(2): sources vitamin B(2). II.             exquisite sensitivity yeast gluconeogenic mRNAs glucose. Mol
+    stability vitamin B(2). III. chemistry vitamin B(2). Biochem J          Microbiol 1996, 20(4):751-764.
+    1931, 25(3):945-959.                                                              54. Iliades P, Meshnick SR, Macreadie IG: Dihydropteroate synthase mutations
+33. Przybyla-Zawislak B, Gadde DM, Ducharme K, McCammon MT: Genetic                   Pneumocystis jiroveci affect sulfamethoxazole resistance     biochemical interactions involving tricarboxylic acid cycle (TCA) function            Saccharomyces cerevisiae model. Antimicrob Agents Chemother 2004,
+    using collection mutants defective TCA cycle genes. Genetics              48(7):2617-2623.
+    1999, 152(1):153-166.                                                             55. Basson  Moore RL, O’Rear J, Rine J: Identifying mutations duplicated
+34. Sickmann  Reinders J, Wagner Y, Joppich C, Zahedi R, Meyer                       functions Saccharomyces cerevisiae: recessive mutations HMG-CoA
+    Schonfisch B, Perschil  Chacinska  Guiard B, et al: proteome               reductase genes. Genetics 1987, 117(4):645-655.
+    Saccharomyces cerevisiae mitochondria. Proc Natl Acad Sci USA 2003,               56. Covert MW, Schilling CH, Palsson B: Regulation gene expression flux
+    100(23):13207-13212.                                                                  balance models metabolism. J Theor Biol 2001, 213(1):73-88.
+35. Chen XJ, Wang X, Kaufman BA, Butow RA: Aconitase couples metabolic                57. Kim J, Reed JL: OptORF: Optimal metabolic regulatory perturbations
+    regulation mitochondrial DNA maintenance. Science 2005,                            metabolic engineering microbial strains. BMC Syst Biol 2010, 4:53.
+    307(5710):714-717.                                                                58. Typas  Nichols RJ, Siegele DA, Shales M, Collins SR, Lim B, Braberg H,
+36. Wieczorke R, Krampe S, Weierstall T, Freidel K, Hollenberg CP, Boles E:               Yamamoto N, Takeuchi R, Wanner BL, et al: High-throughput, quantitative
+    Concurrent knock 20 transporter genes required                  analyses genetic interactions E. coli. Nat Methods 2008, 5(9):781-787.
+    block uptake hexoses Saccharomyces cerevisiae. FEBS Lett 1999,              59. Tong AH, Evangelista M, Parsons AB, Xu H, Bader GD, Page N, Robinson M,
+    464(3):123-128.                                                                       Raghibizadeh S, Hogue CW, Bussey H, et al: Systematic genetic analysis
+37. Balakrishnan R, Christie KR, Costanzo MC, Dolinski K, Dwight SS, Engel SR,            ordered arrays yeast deletion mutants. Science 2001,
+    Fisk DG, Hirschman JE, Hong EL, Nash R, et al: Fungal BLAST Model                 294(5550):2364-2368.
+    Organism BLASTP Best Hits: new comparison resources                        60. Ooi SL, Shoemaker DD, Boeke JD: DNA helicase gene interaction network
+    Saccharomyces Genome Database (SGD). Nucleic Acids Res 2005,                          defined using synthetic lethality analyzed microarray. Nat Genet 2003,
+    33(Database):D374-377.                                                                35(3):277-286.
+38. Giaever G, Chu  Ni L, Connelly C, Riles L, Veronneau S, Dow S, Lucau-          61. Pan X, Yuan DS, Xiang D, Wang X, Sookhai-Mahadeo S, Bader JS, Hieter P,
+    Danila  Anderson K, Andre B, et al: Functional profiling                     Spencer F, Boeke JD: robust toolkit functional profiling yeast
+    Saccharomyces cerevisiae genome. Nature 2002, 418(6896):387-391.                      genome. Mol Cell 2004, 16(3):487-496.
+39. Huh WK, Falvo JV, Gerke LC, Carroll  Howson RW, Weissman JS,                   62. Behre J, Wilhelm T, von Kamp  Ruppin E, Schuster S: Structural
+    O’Shea EK: Global analysis protein localization budding yeast.                  robustness metabolic networks respect multiple knockouts. J
+    Nature 2003, 425(6959):686-691.                                                       Theor Biol 2008, 252(3):433-441.
+40. Dallies N, Francois J, Paquet V: new method quantitative                    63. Deutscher D, Meilijson  Schuster S, Ruppin E: single knockouts
+    determination 

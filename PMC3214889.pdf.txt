@@ -1,0 +1,329 @@
+ silico approach combined vivo
+experiments enables identification new
+protein overexpression compensate specific respiratory defects Saccharomyces
+cerevisiae
+
+  Abstract
+  Background: mitochondrial inner membrane contains large complexes essential oxidative
+  phosphorylation. structure catalytic mechanisms respiratory complexes   progressively established, biogenesis far fully understood. complex III assembly factors
+  identified far. probable factors needed assembly functional complex,
+  genetic approaches used date able identify  developed systems
+  biology approach identify new factors controlling complex III biogenesis.
+  Results: collected physical protein-protein interactions (PPI) involving core subunits,   supernumerary subunits assembly factors complex III used Cytoscape 2.6.3 plugins   construct network. divided overlapping highly interconnected sub-graphs clusterONE.
+  sub-graph contained core supernumerary subunits complex III, contained subunits
+  complex IV proteins participating assembly complex IV. sub-graph split   algorithm sub-graphs. subtraction sub-graphs previous sub-graph allowed   identify protein unknown function Usb1p/Ylr132p interacts complex III subunits Qcr2p   Cor1p. used genetic cell biology approaches investigate function Usb1p. Preliminary results
+  indicated Usb1p essential protein dual localization nucleus mitochondria,   expression protein compensate defects biogenesis respiratory complexes.
+  Conclusions: systems biology approach highlighted multiple associations subunits   assembly factors complexes III IV biogenesis. addition, approach allowed   identification new factor, Usb1p, involved biogenesis respiratory complexes,   using classical genetic screens looking respiratory deficient mutants.  systems biology
+  approach appears fruitful new way study biogenesis mitochondrial multi-subunit complexes.
+
+
+Background                                                     enable systematic pair wise PPI identification oxidative phosphorylation (OXPHOS)               affinity-purification followed mass spectrometry (AP/
+located inner membrane mitochondria           MS)  examples [25-27]). integration responsible production ATP, energy cur-         data generates network represented graph
+rency cell. composed large complexes,     node corresponds protein complexes respiratory chain (complexes IV)     edge interaction. large network complex ATP synthase, complex V. model organism         used directly, specific tools needed order
+Saccharomyces cerevisiae lacks complex  instead      extract relevant information network. single subunit NADH dehydrogenases.            algorithms methods protein network analy-
+OXPHOS complexes II-V similar mammalian             sis (clustering assessment data quality) complexes. Complex II composed subunits          developed tested various datasets available nuclear origin complexes III, IV V com-      yeast S. cerevisiae.
+posed subunits dual genetic origin (10, 11 19           Brohée Van Helden [28] tested different algo-
+subunits respectively S. cerevisiae). core subunits   rithms clustering PPI networks. Starting encoded mitochondrial genome, translated         PPI data S. cerevisiae showed  mitochondrial ribosomes immediately inserted          220 protein complexes presently documen- membrane, subunits encoded               ted MIPS database [29]. algo-
+nuclear genes, translated cytoplasm imported        rithms, enable extraction independent mitochondria TOM/TIM machineries            classes  protein single module), review [1]). assembly subunits appears       enable extraction overlapping classes  coordinated  examples [2-5]) site-specific       protein modules). translation mechanisms, periphery       algorithms identifies sub-networks having specific mitochondria numerous assembly factors         topology: weakly interconnected clusters [30] strongly extrinsic complexes identified.        interconnected clusters [31]. group,
+addition, supra-complex associations, dif-      MCODE [32] ClusterONE [33] identify large-sized
+ferent mitochondrial complexes, TIM import         clusters. particularly interesting purpose,
+machinery reported [6-10].               biochemical analyses suggest assembly complexes, especially complex III,      assembly modules complex III mod- interactions complexes            ules contain numerous strongly interconnected proteins.
+assembly poorly understood.                                    report, used systems biology approach    Complex III occupies central position respira-     consists integration data different types tory chain, entry points electrons          experiments, mainly large-scale studies. Using
+(NADH dehydrogenases complex II) exit,           APID [34] BioGRID databases [20], collected
+complex IV. crystallographic structure enzyme       physical interactions concerning core subunits, sources determined [11-14],        supernumerary subunits assembly factors modular assembly scheme proposed ([15]            complex III. repeated partitioning initial
+references .  assembly factors       network sub-graphs identified group pro-
+specific complex III reported: Cyt2p, Bcs1p,     teins having interactions main complex III
+Cbp3p, Cbp4p, Mzm1p  Aim8p) Bca1p [16-19],              sub-graph. Cell biology genetic methods 25 identified complex        used investigate function proteins
+IV  review [5]), enzyme similar complexity,      identified silico approach.
+suggesting factors involved complex
+III biogenesis remain discovered.                        Results Discussion
+   order identify proteins strongly connected       Network modelling
+complex III look proteins participating      order new proteins involved complex III
+assembly process, systems biology approach          biogenesis, used Cytoscape facilities [35] com-
+used. high-throughput datasets coming                bine physical interactions concerning complex III
+genetic proteomic studies concerning yeast S.          (core proteins, supernumerary proteins assembly
+cerevisiae accessible public databases [20].       factors, Table 1) APID [34] BioGRID
+interactome represents physical interactions           databases [20]. proteins cell. main techniques           computational approach leading complete used produce high quality complementary            PPI network  section methods) gave following
+data: yeast hybrid studies  examples [21-24]),     results:
+ Glatigny et al. BMC Systems Biology 2011, 5:173                                                                                                     Page 3 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+Table 1 List proteins complex III (input list)
+Complex III                                                 Ordered Locus                            UniProt ID                        SGD Catalytic core                                                     YEL024W                                  P08067                              RIP1
+                                                                   YOR065W                                  P07143                              CYT1
+                                                                     Q0105                                  P00163                              COB
+Supernumerary subunits                                              YBL045C                                 P07256                             COR1
+                                                                   YPR191W                                  P07257                             QCR2
+                                                                    YFR033C                                 P00127                             QCR6
+                                                                   YDR529C                                  P00128                             QCR7
+                                                                   YJL166W                                  P08525                             QCR8
+                                                                   YGR183C                                  P22289                             QCR9
+                                                                  YHR001W                                 P37299                             QCR10
+Assembly factors                                                    YKL087C                                 Q00873                              CYT2
+                                                                   YDR375C                                  P32839                              BCS1
+                                                                   YPL215W                                  P21560                              CBP3
+                                                                   YGR174C                                  P37267                              CBP4
+                                                                   YLR077W                                  Q08023                             BCA1
+                                                                   YDR493W                                  Q03429                             MZM1
+Complex III defined groups proteins: catalytic core supernumerary subunits structure, proteins involved assembly complex. UniProt ID used retrieve data APID database BioGRID  SGD) SGD 
+
+
+  1) APID database, obtained list 521                             way network sub-divided 26 sub-graphs
+unique PPI involving 125 proteins (list 1 Figure 1).                            (clusters 1 26), p-values 0.05
+  2) BioGRID database, 123 unique PPI involving                           good quality scores (Table 2). Note clustering
+91 different proteins collected (list 2 Figure 1).                         method robust, sub-graphs interactions new allowed                               starting analysis core super-
+enrich obtained APID.                                                   numerary proteins.
+  3) new interactions, concern ele-                                  Cluster 1 composed 175 PPI involving 37 proteins;
+ven new proteins numerous direct                                cluster 2 composed 157 PPI involving 34 proteins
+PPI. example, 2645 physical interactions                             cluster 4 144 PPI involving 33 proteins (Additional Nab2p 1444 Ubi4p, proteins                                  file 1 Figure S1). built non-mitochondrial
+independent complex III. discuss later                              proteins having interactions independent com-
+consequences PPI network.                                          plex III. example Nab2p nuclear polyAdenylated
+  4) final list, obtained merging PPI lists                       RNA-binding protein, Ubi4p ubiquitin, Ssa2p eliminating redundancy, composed 719 unique                             stress-seventy subfamily protein, Rpn10p non-
+PPI involving 136 proteins. 80 proteins common                              ATPase subunit regulatory particle 26S pro- databases, 45 APID 11 BioGRID.                              teasome, Tef1p translational elongation factor Eliminating redundancy facilitates identification                           Ssb1p ribosome-associated molecular chaperone.
+links proteins studied proteins                              Clusters 1, 2 4 contain PPI specific
+known involved complexes.                                                 complex III.
+  5) resulting network large yield                                 Cluster 5 composed 101 PPI involving 23 proteins
+interesting information. necessary divide                        cluster 6 composed 63 PPI involving 16 proteins
+highly connected sub-graphs represent functional                              (Additional file 2 Figure S2). majority pro-
+modules, protein sub-complexes                                teins translocases involved import proteins
+sider assembly intermediates.                                                   mitochondria, proteins
+                                                                                   involved complex III: Bcs1p, Cobp Cbp2p, pro-
+Network clustering                                                                 tein complex IV: Cox7p, Atp1p Atp2p, identify new proteins associated assembly                              proteins F1 complex V. clusters intermediates complex III, looked sub-groups                          clearly specific complex III include strongly interconnected proteins. looked                         proteins input list.
+lapping sub-graphs account fact                             Cluster 3 (Figure 2) composed 193 PPI involving
+protein associated sub-complexes.                              36 proteins, including complex III subunits.  Glatigny et al. BMC Systems Biology 2011, 5:173                                                                     Page 4 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+          List proteins involved complex III S. cerevisiae
+
+                            APID database                                 BioGRID database
+
+              list 1       (521 PPI, 125 Proteins)                            list 2 (123 PPI,        91 Proteins)
+
+
+
+                                   ID unification (SGD Standard 
+
+ Comparison list 1 2                                        11 Proteins list 2 list 1 (N)
+
+
+        BioGRID: proteins functional enrivonment N                                               PPI list 3
+                                                                                         (359 PPI, 104 Proteins)
+
+       Merging lists 1, 2 3 elimination redundancy
+                           (719 PPI, 136 Proteins)
+  (80 proteins common APID BioGRID, 45 APID, 11 BioGRID)
+
+                 Network modeling clustering Cytoscape
+                                             (ClusterONE MCODE)
+
+
+                     Clusters strongly interconnected proteins
+
+                           Identification new proteins involved
+                                  complex III biogenesis
+ Figure 1 Computational workflow. overview network modelling clustering.
+
+ split overlapping sub-graphs,              (CoA1p, Mss51p, Shy1p, Rrg10p/CoA3p). fact sub-graph (cluster 3.1) extracted, 185 PPI invol-            network contains proteins complexes III ving 30 proteins. quality equal 0.97. pro-          IV, input list exclusively composed teins sub-graph members complex III (core              proteins complex III probably related exis- supernumerary subunits) complex IV (Cox1p,                    tence III-IV super-complexes, clearly
+Cox2p, Cox3p, Cox4p, Cox5Ap, Cox6p, Cox14p,                           identified blue native gels mitochondrial extracts
+Cox15p) participate assembly complex IV                  [6,7]. results associations link  Glatigny et al. BMC Systems Biology 2011, 5:173                                                                         Page 5 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+Table 2 Characteristics complex III PPI sub-                     result obtained silico led study function networks obtained ClusterONE                                       Usb1p using genetic cell biology methods.
+ cluster    nodes      edges      density     quality     p-value
+    1         37        175         0.25          0.476   2.25 10-7     Usb1p located nucleus     2         34        157         0.25          0.444   1.01 10  -5   mitochondria
+    3         36        193         0.29          0.556   1.35 10-4     silico analysis shown Usb1p belongs                                                                         cluster 3.1 contains complex III subunits,
+    4         33        144         0.25          0.414   1.00 10-3
+                                                                        11 subunits complex IV,     5         23        101         0.36          0.419   2.00 10-3
+                                                                        assembly factors complex IV. order determine     6         16         63        0.450          0.432    0.011
+                                                                        Usb1p involved biogenesis mito-
+   3.1        30        185        0.409          0.967    0.000        chondrial respiratory complexes III IV,                                                                         analyzed sub-cellular localization.
+                                                                           Large-scale analysis localization GFP-tagged
+complexes. Furthermore, assembly factors                     S. cerevisiae proteins suggested Usb1p exhibits complex IV identified interact subunits               multiple location nucleus, cytoplasm complex III: Cor1p, Qcr2p, Cyt1p, suggesting                    mitochondria [36]. verify localization, Usb1p factors play role assembly                    tagged C-terminus GFP. genetic 
+complexes III IV.                                                   struction integrated USB1 chromosomal
+   longer possible split cluster 3.1,               locus strain carrying CFP-tagged Nic96 protein large, overlapping sub-graphs                revealed pores nuclear membrane [37].
+divided independent clusters: cluster 3.1.1 com-                USB1-GFP gene expressed posed 81 PPI involving 13 proteins belonging com-                 control promoter sequence order avoid
+plex IV, proteins complex III (Cor1p, Qcr2p                mislocalization overexpression 
+Cyt1p) Aac1p, minor isoform ADP/ATP                        struction carried plasmid. Cells expressing mitochondrial transporter (Figure 2). Cluster 3.1.2                  Nic96-CFP Usb1-GFP fusion proteins composed 27 PPI involving 8 proteins;                   examined fluorescence microscopy using appro- members complex III (Cobp, Qcr6p, Qcr7p,                         priate filters. Mitotracker used stain mito-
+Qcr8p, Qcr9p, Qcr10p, Rip1p) protein Pet9p/                     chondrial network. shown Figure 3 andAdditional
+Aac2, major isoform ADP/ATP transporter                      file 4 (Figure S3), Usb1-GFP located (Figure 2). cluster 3.1 separated              nucleus (3A) membrane stained parts corresponding broadly complexes III  cluster               Nic96-CFP (3C) fluorescent tubules 3.1.2) IV  cluster 3.1.1).  proteins              stained Mitotracker probe (3B). linked proteins complex                Usb1-GFP protein dual localization nucleus proteins complex. exam-                  mitochondria.
+ple, Cor1p Qcr2p sub-graph complex
+IV sub-graph complex III                       Overexpression USB1 compensates specific respiratory interactions proteins complex IV                 defects Aac1p subunits complex III.                  Systematic deletion analysis suggested gene strengthens hypothesis existence com-                essential [26].  able obtain mon factors involved assembly process                    viable haploid cell carrying deleted allele USB1
+complexes.                                                              gene heterozygous diploid strain  Methods).    subtract sub-clusters (3.1.1 3.1.2)                investigate role, mitochondria, cluster 3.1, proteins left,                 analyzed effect overexpression USB1 gene
+(Usb1p, Smk1p, Yju2p, Pcl9p, Rbs1p) connected                    set respiratory deficient mutants. cloned
+Cor1p Qcr2p. form sub-graph,                    USB1 multicopy plasmid transformed interconnected detected MCODE.                          wild type strain collection respiratory deficient
+   proteins Usb1p                     mutants carry mutations various factors essential
+function unknown. association pro-                biogenesis respiratory complexes. Table 3
+teins (Cor1p, Qcr2p Usb1p) corresponds complex                 Figure 4A overexpression USB1 com-
+isolated tandem affinity purification Gavin et al. [25].          pensates respiratory deficiency oxa1-E65G- Usb1p connected complex III, par-                 F229S mutant deletion MFT2, bcs1
+ticularly Cor1p [25,26] Qcr2p sub-units [25,27]              mutant, deletions OXA1, BCS1 RMD9.  Additional file 3 Table S1: list pro-          level compensation observed oxa1
+teins interacting Usb1p present network).              mtf2 mutants. previously shown  Glatigny et al. BMC Systems Biology 2011, 5:173                                                                                      Page 6 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+
+
+ Figure 2 Complex III sub-graph 3 sub-graphs. Images taken Cytoscape. Cluster 3 comes partition PPI
+ network complex III ClusterONE. Cluster 3.1 comes partition cluster 3 ClusterONE. Cluster 3.1.1 3.2.2 come  partition cluster 3.1 MCODE. Complex III proteins represented grey circles; complex IV proteins grey rounded squares; complex
+ IV assembly factors grey octagons; Usb1p white lozenge proteins white circles.
+ Glatigny et al. BMC Systems Biology 2011, 5:173                                                                                                    Page 7 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+                       Usb1-GFP                                     Mitochondria                                       Nucleus
+                                                                    (mitotracker)                                    (Nic96-CFP)
+
+
+
+
+  Figure 3 Dual localization Usb1p. Cells expressing Usb1-GFP Nic96-CFP fusion proteins grown complete glucose medium
+  times excess adenine 28°C, washed incubated Mitotracker red CMX ROS (MT, Molecular Probes) 10 min.   additional washes, cells observed fluorescence microscopy appropriate filters visualize GFP, CFP Mitotracker.
+
+
+respiratory deficiency oxa1-E65G-F229S mutant                            choose gene/protein best candidate correlated strong decrease cytochrome b com-                            analysis complicated like OXPHOS,
+plex III cytochromes aa3 complex IV [38]. Cyto-                             composed complexes.  inte-
+chrome spectra cells grown respiratory medium                                grative method help orient subsequent research overexpression USB1 oxa1 mutant                            highlight specific interactions restored assembly cytochromes b aa3 (Figure                             complexes.
+4B). overexpression USB1 specifically com-                               approach revealed multiple associations pensates respiratory deficiencies.                                        subunits complexes III IV interactions                                                                                    ADP/ATP transporters. Cluster 3.1 identifies connec-
+Conclusions                                                                        tions complex III subunits, complex IV subunits computational approaches combined                                 assembly factors, suggesting interaction experimental methods  examples [39,40])                              assembly process complexes  [41]
+recently established comprehensive network                               references review complex IV assem-
+mitochondrial proteome, analysis systems                          bly factors). example, results biology study strictly devoted OXPHOS complexes                             assembly factor Shy1p connected proteins yeast. huge amounts interaction data                            cluster 3.1.1, e. complex III subunits, different sources (genetic, proteomics) easy                        Cor1p, Qcr2p, Cyt1p subunits assembly
+
+
+Table 3 Overexpression Ylr132 compensates specific respiratory deficiencies
+   Genotype            Transformation vector                  Transformation wt gene                 Transformation YLR132
+      oxa1                                   -                                                 ++                                            +
+      Δoxa1                                  -                                                 ++                                            -
+      bcs1                                   -                                                 ++                                            -
+      Δbcs1                                  -                                                 ++                                            -
+      Δmtf2                                  -                                                 ++                                            +
+     Δrmd9                                   -                                                 ++                                            -
+Respiratory-deficient mutants affecting various steps biogenesis respiratory complexes transformed different high-copy plasmids: (1) control vector, (2) plasmid carrying corresponding wild type gene (OXA1 lines 1 2; BCS1 lines 2 3; MTF2 line 5 RMD9 line 6), (3) plasmid carrying wild type USB1 gene. transformants selected minimal glucose medium lacking uracil select plasmids growth tested non fermentable medium containing 2  glycerol 2  ethanol 28 36°C. +: respiratory growth; - growth. Figure 4A. oxa1 mutant carries double amino-acid substitution E65G-F229S Oxa1 protein [38]. bcs1 mutant carries single amino-acid
+substitution F342C Bcs1p [53]. mutants carry gene deletions indicated [38,44,53].
+ Glatigny et al. BMC Systems Biology 2011, 5:173                                                                                     Page 8 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+                     Transformation                   B             Cytochrome spectra
+                                oxa1 mutant                                             b
+                                                                                                                                                    c c1
+                          OXA1 vector USB1
+
+
+                                                                                                          aa3
+                          Fermentable medium                                                                  OXA1
+
+                                                               0.1                                                USB1
+
+                                                                                  550        600   Onm
+                           Respiratory medium                         Growth respiratory medium
+ Figure 4 Overexpression USB1 compensates respiratory deficiency. Panel  thermosensitive mutant oxa1-E65GF229S [38]  transformed high-copy plasmids carrying wild type OXA1 gene USB1 gene, control vector (vector).  transformants spotted fermentable (glucose) respiratory (glycerol/ethanol) medium. plates incubated days 36°
+ C. Panel B: Cytochrome absorption spectra oxa1 cells transformed high copy plasmids carrying OXA1 YLR132, grown  respiratory medium 2 5 days 36°C. Cytochrome c1 b respiratory complex III cytochromes aa3  complex IV.
+
+
+factors complex IV. minor ADP/ATP transporter,                     translation [38-43]. overexpression USB1 Aac1p cluster. Cluster 3.1.2                  compensate absence Rmd9p restore
+composed core (Rip1p, Cobp) supernumerary pro-                     respiratory growth deletion MTF2 (NAM1) teins  Cor1p, Qcr2p), Pet9p/Aac2p,                  affects processing/stability mitochondrial
+major ADP/ATP transporter.                                                mRNAs, encoding subunits complex V [44]. Mtf2p
+   subunits complex II (Sdh3p                    shown interact mitochondrial RNA
+Sdh4p) present PPI network did retrieve                 polymerase [45]. Finally, Usb1p detected systema- clusters, suggesting interactions                    tic screen RNA-binding proteins yeast [46]. complex III complex II weak. Cyc1p                     dual location Usb1p, nucleus mito- present PPI network strong                chondria, tempting suggest Usb1p 
+nection cytochrome c.  cytochrome c                     trol processing stability nuclear mobile carrier, shuttling electrons complexes III                 mitochondrial RNAs. mitochondrial respiratory IV interactions probably dynamic                   function required yeast viability, essential detected analysis detects strongly                    function Usb1p eventual role sta-
+interconnected proteins. connections                   bility/processing nuclear RNA(s). complex III NADH dehydrogenases sug-                          sub-graph analysis developed gesting tight contact                       highlighted strong connections subunits    Finally, approach identified protein Usb1p              assembly factors complexes III IV led
+probably escaped previous genetic screens                   identification new factor acting biogen-
+essential cell survival. protein dual localiza-            esis respiratory complexes yeast.
+tion, nucleus mitochondria. Overexpression USB1 compensates respiratory deficiency                     Methods
+oxa1 mutant. Oxa1p mediates translational inser-                   Databases
+tion mitochondrially-encoded subunits respiratory               construct network collected data different
+complexes inner membrane  review                       sources. Information protein-protein interactions
+[42]). previously shown increase                   (PPI) APID (Agile Protein Interaction DataAna-
+steady state level mitochondrial mRNAs encoding                        lyzer) integrates unifies PPI different pub-
+respiratory complex subunits compensate                  lic repositories [34]. database includes data high
+respiratory deficiency oxa1 mutant overex-                throughput proteomic techniques small-scale
+pression RMD9. Rmd9p controls processing/stability                 experimental data; data quality critical indicates mitochondrial mRNAs encoding respiratory sub-                  reliability given interaction. S. cerevisiae, 5902
+units control initiation mitochondrial              proteins  total 6510) 105728 separate
+ Glatigny et al. BMC Systems Biology 2011, 5:173                                                                     Page 9 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+interactions listed release (February 2009).      3) consistent APID results APID appropriate purpose qualifies        look functional environment new proteins functional environment given protein. Looking       present BioGRID (list 2) absent APID neighbours protein expands resulting net-        (list 1). compared output lists, list 1 APID work gives reliable map allowing          list 2 BioGRID, proteins absent proteins involved biological     APID list. added physical interactions process. Unfortunately, APID database updated.       “new” proteins proteins list 1 absent collect data recent experiments used        input list. way obtained list 3.
+BioGRID database  Biological General Repository             4) merged lists 1, 2 3, PPI Interaction Datasets), release 3.1.72 (December 25 th ,         identified different experiments 2010), updated monthly archives genetic        taken account list unique PPI.
+protein interaction data model organisms                  5) final list imported Cytoscape 2.6.3 [35].
+humans including S. cerevisiae. budding yeast       resulting network weighted, PPI complete coverage literature maintained Bio-      kept  large yield interesting
+GRID provides interactions Saccharomyces Gen-            information necessary divide connected sub-
+ome Database (SGD). data retrieved,               networks represent functional modules pro-
+163188 non-redundant physical genetic interactions          tein sub-complexes. listed base, corresponding 6049 unique pro-         network weighted, e. score assigned teins [20]. eliminated genetic interactions      edges. protein studied, lots genes complex III proteins submitted        experiments partners interaction high throughput experiments like Synthetic           identified times. number occur-
+Genetic Array analysis [47], inclusion          rences interaction criterion reliability, genetic interactions lead lack balance     advantageous attribute higher weight edges
+network. example interactions COR1         frequent.  weighting Synthetic Genetic Array analysis           introduce important bias, favour included, interactions       studied proteins.
+QCR2.
+   Complementary information SGD [48].             Network clustering
+                                                                new proteins associated assembly intermedi-
+Network modelling Cytoscape                                  ates complex III requires identification sub-
+Figure 1 shows computational workflow              complexes assembly modules. PPI network, sub-
+structural assembly proteins complex III          graphs highly interconnected proteins consid-
+identification new proteins implicated complex III        ered protein complexes functional modules. biogenesis. input list proteins known        protein interact sub-complexes involved complex III given Table 1 (core          case assembly factors chaperons)
+subunits, supernumerary subunits assembly factors).         possibility overlapping. step approach necessary build com-               partition resulting PPI network overlap-
+plete PPI network:                                              ping sub-graphs highly interconnected nodes 
+   1) using APID2NET plugin Cytoscape [49]            formed plugin ClusterONE (Clustering UniProtID proteins listed Table 1             Overlapping Neighbourhood Expansion) [33] Cytos-
+(input list), collected PPI list: list 1. corre-      cape. algorithm works “growing” dense regions
+sponds direct PPI interactions            small seeds guided quality function. qual- proteins having direct interaction pro-          ity group evaluated number internal edges
+tein input list.  collected physical     divided number edges involving nodes interactions involving proteins input list          group. Starting single seed  case: BioGRID database. obtained output list,          node) algorithm extends group step step list 2, composed PPI involving proteins named             new edges increase quality group. edge standard SGD                                         removed removal increases quality    2) use interactions APID Bio-         group. process stops possible GRID, need fuse lists merging         increase quality groups adding removing necessary unify names. APID BioGRID         edge. Finally, sub-graphs smaller 3 having use identifiers (UniProt names SGD             density (number edges cluster divided names respectively). used SGD names,         number theoretically possible edges), 0.25 standard names used yeast community.                 p-value 0.05, discarded  Glatigny et al. BMC Systems Biology 2011, 5:173                                                                               Page 10 12
+http://www.biomedcentral.com/1752-0509/5/173
+
+
+
+
+overlapping significantly (overlap threshold equal 0.8)   homozygous USB1-GFP heterozygous nic96-
+merged form larger sub-graph; chose density      CFP/NIC96. Fluorescence microscopy performed
+0.25 overlapping sub-graphs having good        using Zeiss Axioplan 2 microscope linked Cool
+quality.  suppose assembly inter-      Snap camera (Princeton Instruments).
+mediates having proteins common required            Cytochrome absorption spectra
+make complex III. p-value cluster computed      Cytochrome absorption spectra cells posteriori sided Mann-Whitney U test       recorded liquid nitrogen temperature reduction formed number intra edges external bound-       dithionite using Cary 400 spectrophotometer (Varian,
+ary edges. intra edge cluster node      San Fernando, CA). Absorption maxima bands node cluster. external boundary edge         cytochrome c, c1, b aa3 expected 546, 552, cluster node node outside cluster.        558 602 nm, respectively.
+  large cluster split 
+lapping sub-graphs highly interconnected nodes,     Additional material split independent sub-graphs highly intercon-
+nected nodes. partition independent sub-graphs           Additional file 1: Figure S1 - Sub-networks 1, 2 4 obtained plugin MCODE (Molecular Complex                 partition complex III PPI network ClusterONE.
+                                                                  Image taken Cytoscape.
+Detection) [32] Cytoscape. algorithm detects den-
+                                                                  Additional file 2: Figure S2 - Sub-networks 5, 6 obtained sely connected regions. assigns weight         partition complex III PPI network ClusterONE.
+node, corresponding local neighbourhood density.           Image taken Cytoscape.  recursively moves outward, including clus-        Additional file 3: Table S1 - List Usb1p interactors present ter nodes weight given threshold.            network [54]. used MCODE plugin default parameters.                 Additional file 4: Figure S3 - Localization Usb1p. Cells expressing
+                                                                  Usb1-GFP grown complete medium stained                                                                   Mitotracker red CMX ROS. figure shows Usb1-GFP Yeast genetics biochemical analysis                           Mitotracker fluorescent images colored green red respectively, Strains, media, genetic methods, plasmids                         merged image showing localization Mitotracker                                                                   Usb1-GFP signal.
+CW252 (mat alpha, ade2, ura3, his3, trp1, leu2) wild type yeast strain. Fermentable media contain 2  glu-
+cose respiratory medium contains 2  glycerol 2  ethanol. Yeast cells transformed step   
+procedure [50]. high copy vector pFL44 carries       
+replication origin yeast 2 micron plasmid     
+URA3 marker. YepNB6 contains wild type OXA1
+                                                          
+gene YepML3 wild type USB1 gene;        
+                                                            
+cloned pFL44 vector.                            
+USB1 disruption epitope tagging Usb1p                   USB1 gene inactivated diploid strain       
+W303, using PCR method described Wach et al.         
+(1994) [51]: entire ORF replaced KanR   
+marker gene confers resistance drug G418.         heterozygous USB1/Δusb1::KanR diploids             
+sporulated micro-dissected. G418 sensitive
+                                                           
+spores germinated confirming USB1 gene           
+essential. C-terminal epitope tagged proteins 
+structed described: Usb1-GFP using plasmid             
+pFA6-5GA super bright uses G418 resistance mar-     
+ker [52] Nic96-CFP using pBS4, carries           
+hygromycin B resistance marker  Yeast Resource             
+Center, University Washington). strain expressing      
+Usb1-GFP shows growth indistinguishable wild         
+type fermentable respiratory medium,           
+ing tagged protein fully functional. Nic96-    
+CFP strain shows weak growth defect;            microscopic observations strain       

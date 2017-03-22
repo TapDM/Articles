@@ -1,0 +1,426 @@
+Copyright Ó 2007 Genetics Society America
+DOI: 10.1534/genetics.106.064329
+
+
+
+        Functional Analysis Gene Duplications Saccharomyces cerevisiae
+
+                    Yuanfang Guan,*,† Maitreya J. Dunham* Olga G. Troyanskaya*,‡,1
+                *Lewis-Sigler Institute Integrative Genomics, Carl Icahn Laboratory, †Department Molecular Biology                              ‡
+                               Department Science, Princeton University, Princeton, New Jersey 08544
+                                                     Manuscript received August 2, 2006
+                                                  Accepted publication November 7, 2006
+
+
+                                                             ABSTRACT
+                Gene duplication occur scales: genome duplications (WGD) smaller-scale dupli-
+             cations (SSD) involving individual genes genomic segments. Duplication result functionally 
+             dundant genes diverge function neofunctionalization subfunctionalization. effect              duplication scale functional evolution explored, probably lack global
+             knowledge protein function different times duplication events. address question, used
+             integrated Bayesian analysis diverse functional genomic data accurately evaluate extent              functional similarity divergence paralogs global scale. paralogs resulting
+             genome duplication likely share interaction partners biological functions
+             smaller-scale duplicates, independent sequence similarity. addition, WGD paralogs lower
+             frequency essential genes higher synthetic lethality rate, instead diverge expression
+             pattern upstream regulatory region.  analysis demonstrates WGD paralogs generally              similar compensatory functions diverging expression patterns, suggesting potential distinct
+             evolutionary scenarios paralogs arose different duplication mechanisms. Furthermore,              identifying functional disparities types duplicates, reconcile previous disputes
+             relationship sequence divergence expression divergence essentiality.
+
+
+
+
+G     ENE duplication major source new genes
+       central factor influencing genome
+evolution (Ohno 1970; Wolfe Li 2003). dup-
+                                                                         insights respect different attributes duplicate
+                                                                         genes. example, basis 41 WGD pairs,
+                                                                         Baudot et al. (2004) examined function dupli-
+lication occur scales: duplication                 cate pairs interaction-network analysis, genome (WGD) smaller-scale duplications                        simple relationship sequence
+(SSD), occur continuously involve individual                   identity functional similarity. earlier study
+genes genomic segments  review Sankoff                         (Brun et al. 2003) reached similar result basis
+2001). Duplicated genes retained dif-                      limited combination WGD SSD pairs. 
+ferent selection mechanisms undergo                         basis WGD paralogs, Seoighe Wolfe
+different evolutionary fates. Paralogs selected                   (1999) increased levels gene expression increased dosage repository gene                     significant factor determining genes
+version deleterious changes copy                   retained duplicates.  selection
+result functional redundancy (Nadeau Sankoff                      stages duplicates pass 
+1997; Nowak et al. 1997; Gu 2003; Gu et al. 2003). Alter-                come persistent genome somewhat
+natively, paralogs diverge generation                 different WGD SSD sets (Davis Petrov new gene functions (neofunctionalization) (Taylor                     2005), modes duplication generate genes Raes 2004) subdividing multiple functions                     different molecular attributes. results based
+(subfunctionalization) complementary degen-                      combined analysis types duplicates ignore
+eration (Force et al. 1999; Stoltzfus 1999; Lynch                    properties unique particular set. Furthermore, 
+Force 2000).  relative importance                   dividual analysis group does necessarily
+mechanisms preserving WGD vs. SSD duplicates,                         generalize  fact, differences
+indicated resultant functional conservation/                      data sets, previous studies (Wagner 2000a; Gu
+divergence paralogs, investigated.                  et al. 2003) drew inconsistent conclusions 
+   Functional studies focusing WGD SSD                   lationship sequence divergence dupli- combination sets established                    cate genes fitness effect null mutation.                                                                          addition, ways relationship gene
+  1
+                                                                         duplication evolution transcriptional regulation
+   Corresponding author: Department Science, Princeton
+University, 35 Olden St., Princeton, NJ 08544.                           controversial  review Li et al. 2005):
+E-mail: ogt@cs.princeton.edu                                             Wagner (2000b) suggested regulatory sequences
+
+Genetics 175: 933–943 (February 2007)
+ 934                                     Y. Guan, M. J. Dunham O. G. Troyanskaya
+ mRNA expression patterns duplicate gene pairs            enabled demonstrate WGD paralogs, 
+evolve independently coding sequence,            dependent sequence divergence level, general highly significant relationship        likely share physical protein–protein interac-
+sequence divergence age (Gu et al. 2002, 2005;               tion partners functional relationships. addition,
+Zhang et al. 2004).                                             WGD paralogs lower essentiality higher
+   studies based WGD              synthetic lethality frequency.  functional
+duplicates combination duplication groups.         compensation paralogs followed open question WGD SSD duplicates              complete redundancy, diverse expression
+undergo different evolutionary scenarios, explain-         patterns upstream regulatory regions ing disparities studies. Despite            WGD paralogs suggest role modulating expres-
+unambiguous identification WGD blocks Saccharo-           sion level.  propensity similar,
+myces cerevisiae (Dietrich et al. 2004; Kellis et al. 2004a),   compensatory functions diverge expression previous studies focused global differ-         patterns unique WGD paralogs, comparison ences WGD SSD duplicates.                SSD paralogs, suggests potential distinct
+knowledge, study consider global dif-           evolutionary scenarios paralogs arose ferences sets Davis Petrov              different duplication mechanisms
+(2005), showed sets differ signifi-
+cantly overall molecular functional enrichment, similar respect codon bias evolutionary                                     METHODS
+rate. study focused differences WGD SSD gene sets respect evolutionary fates           Identifying WGD SSD paralogs: define set consequent functional conservation/divergence            paralogous pairs yeast genome, 
+tween paralogs.                                                 structed set alignments S. cerevisiae proteins.
+   address problem, important             Protein sequences ORFs S. cerevisiae  unresolved question discriminate functions         dubious ORFs pseudogenes) downloaded paralogs evaluate subtle differences.         Saccharomyces Genome Database (SGD)
+divergence paralogs intensively stud-          (Cherry et al. 1998). ORFs, ied sequence level S. cerevisiae (e.g., Lynch     used protein BLAST (Altschul et al. 1990) E ¼
+Conery 2000; Kondrashov et al. 2002),            0.01 protein hits S. cerevisiae
+examining number synonymous (dS) vs. non-                genome. used alignments identify
+synonymous (dN) substitutions. Unfortunately, attempt        suboptimal matches  best match self-alignment) calculate nonsynonymous vs. synonymous sub-              basis Kellis et al. (2004b) method. stitution WGD paralogs shows dS’s          approach takes account fact similarity saturated (supplemental Figure S1 http://www.            query protein x target protein y split
+genetics.org/supplemental/). hinders overall            multiple BLAST hits. Intuitively, BLAST hits
+perspective functional divergence            x y weighted amino acid 
+WGD paralogs vs. SSD paralogs. evolutionary rate            centage identity length aligned relative orthologs shown similarly        grouped single match. Compared global align-
+biased (Davis Petrov 2005).  rates              ment, method includes duplicate pairs calculated referring orthologs represent           internal inversion members. detailed divergence paralogs, affected          procedure follows. gene conversion. alternative compare              weight hit assigned function paralogs gene ontology                                   wk ¼ lk 3 Ik ; k 2 ð1; nÞ;
+(Ashburner et al. 2000) annotations. Unfortunately,
+subtle differences paralogs prevented               lk length Ik overall amino acid
+successful function discrimination based anno-            identity hit k, n total number hits tations (Baudot et al. 2004),              protein x target protein y. ‘‘inferred sequence structural simi-             group BLAST hits single match, larity’’ (ISS).                                                 nonoverlapping portions hits added    took advantage diverse functional geno-           obtain maximized identity number x y.
+mic high-throughput data carried genome-            paralogous pair (x, y), wk ranked wide analyses divergence biological function          correspondent start ending sitesðaxk ; bxk Þ; ðayk ; byk Þ genome paralogs (506 pairs) smaller-          ðaxk , bxk ayk , byk Þwere recorded. ranked wk
+scale duplicates (1193 pairs including 1862 genes).             added total weight W(x,y) wj
+Using Bayesian methodology integrate diverse func-         corresponding start ending sites satisfying
+tional genomic data .6500 publications, ac-             ½ðaxj . bxk Þ ðaxk . bxj Þ ½ðayj . byk Þ ðayk . byj Þ 
+curately predicted specific function gene.        tained. process repeated hits
+                                           Functional Analysis Gene Duplications                                          935
+ added W(x,y). Hits overlapped  hit higher weight discarded 
+eration. summed W(x,y) gives maximized identity
+number protein x y. Percentage iden-
+tity calculated                                                   !
+                      Wðx;yÞ         Wðx;yÞ
+       piðx;yÞ ¼ Max         3 100 ;        3 100  :
+                      Wðx;xÞ         Wðy;yÞ
+
+   Suboptimal matches [pi(x,y), x 6¼ y], used 
+struct paralogous pairs. WGD duplicates (528 pairs) classified depending inclusion WGD
+duplicate blocks characterized genomewide com-                  Figure 1. number duplicate pairs se-
+parisons S. cerevisiae Kluyveromyces waltii (Kellis       quence divergence level. duplicates grouped et al. 2004a; Byrne Wolfe 2005), diverged             23 bins sliding window 400 pairs size 100 pairs
+just prior polyploidization event. SSD duplicate         window slide. grouping used following anal-
+pairs defined paralogous pairs included           ysis included percentage identity. adjacent bins
+                                                                include pairs smooth pattern WGD list. different methods used             identify general trends different attributes identifying paralogous pairs WGD  synteny          WGD SSD sets.
+sequence similarity) SSD (sequence similarity ,
+measurements SSD pairs contain fluctua-
+tions, necessitating statistical analyses       related proteins using Bayesian data integration performed study.                                method described Myers et al. (2005) 
+   way identified 2604 pairs (including 528          corporate diverse genomic data sources. method
+WGDs 2076 potential SSDs) according                integrated different types data  example, gene
+percentage identity. reduce data fluctuation,          expression, interaction data, high-throughput data, constructed 23 groups sliding window 400 pairs        single experiments), using Bayesian network trained size  sum WGD SSD duplicates) 100            using expectation-maximization learning algorithm
+pairs window slide. Using nonoverlapping bins               (Dempster et al. 1977) known functionally relevant
+demonstrates trends attributes          biological process annotations (Myers et al. 2006) studied (supplemental Figure S10 http://www.              gold standard. Intuitively, gene gene j
+genetics.org/supplemental/).  overlap-            pair, network asked following question: ping bins unified grouping sets             probability, basis experimental evi-
+paralogs ensured WGD SSD pairs             dence presented, products gene gene j included bin statistical analysis enabled       functional relationship  e., involved compare WGD SSD paralogs similar se-               biological process)? trained network integrated
+quence identity (Figure 1). percentage identity          data sets weighing relative accuracy coverage assigned group figures median value       experimental method; data sets group. WGD pa-              accurate predicting known annotations
+ralogous pairs falling bins (Figure       given higher weight predicting interaction 
+1), pairs low-alignment bins likely     ners functional relationships. weighted data true paralogs, bins (,20 , ,25         sets used predict confidence rela-
+WGD pairs) excluded analysis.            tionship proteins. Bayesian data inte-
+506 WGD pairs 1193 unique SSD pairs used.              gration step reduced heterogeneous input
+   examined effect large number           data protein pairs score indicating like-
+ribosomal WGD paralogs results. identified            lihood functionally  physically) interact,
+ribosomal genes annotated protein             allowing different types data combined biosynthesis term gene ontology  supplemen-          
+tal files list genes http://www.genetics.org/       considered types relationships: general
+supplemental/). analysis, gene pair       functional relationships, indicate proteins  paralogs ribosomal genes excluded          volved biological process, physical inter- analysis. Furthermore, control results          actions. evidence protein–protein interaction biased duplicates large gene families,         predictions included yeast hybrid, copurification,
+repeated analyses using reciprocal best hits.           affinity-precipitation data,   list evi-
+   Prediction shared protein–protein interaction             dence, supplemental information http://
+partners functional relationships: predicted             www.genetics.org/supplemental/). Experimental evi-
+protein–protein interaction partners functionally           dence general functional relationship includes
+ 936                                      Y. Guan, M. J. Dunham O. G. Troyanskaya
+ data supportive involvement bio-          1998). enrichment term  percent-
+logical process (Myers et al. 2005), including physical          age) WGD SSD sets using genetic interactions, synthetic data, shared se-             hypergeometric distribution identify 
+quence motifs, curated literature. considered             riched terms lowest Bonferonnni-corrected
+predictions Bayesian confidence cutoffs ranging             P-value  supplemental information http://www. 0.2 0.95 experiments  predictions         genetics.org/supplemental/ results physical interaction functional relationship             analysis). summarize information Figure 2
+available supplemental information). percent-             supplemental Figure S2 (http://www.genetics.org/
+age shared interaction partners  shared functional         supplemental/), performed similar analysis relationships) paralogs total number            slim terms assessed enrichment terms interaction partners  functional relationships)         cumulative distribution function. pair calculated                                                                                         RESULTS
+                              2 3 nðx;yÞ
+             psharedðx;yÞ ¼              3 100 ;
+                               nx 1 ny                              WGD paralogs exhibit higher propensity SSD
+                                                                 paralogs share protein–protein interaction partners nx ny represent number interactions/            functional relationships: addressed functional relationships x y proteins, respec-           question WGD SSD duplicates
+tively, n(x,y) represents number common               participate different biological processes examin-
+interactions/functional relationships x y.           ing biases annotations (Ashburner et al. cutoffs difference WGD              2000). significant differences enrichment
+SSD groups sensitive used func-             WGD SSD sets respect bio-
+tional analyses parsed percentage identity,            logical process (Figure 2) cellular component 
+results robust different cutoffs         notations (supplemental Figure S2A http://www.
+cutoff range.                                                    genetics.org/supplemental/). confirmed    Essentiality, synthetic lethality, upstream regulatory        enrichment differences terms molecular function
+region, expression data retrieval analysis:           annotation (Davis Petrov 2005, supplemental
+assess essentiality, results systematic deletion experi-      Figure S2B http://www.genetics.org/supplemental/).
+ments S. cerevisiae retrieved Saccharo-         respect biological process, example,
+myces genome deletion project 11/25/05 (http://               sets enriched genes involved cell
+www-sequence.stanford.edu/group/yeast_deletion_                  homeostatis, morphogenesis, protein modification, 
+project/). used synthetic lethality data retrieved            sponse stress, transport, vesicle-mediated trans- GRID (Breitkreutz et al. 2003) MIPS (Tong               port (P , 0.05), WGD genes uniquely enriched (P ,
+et al. 2001; Mewes et al. 2004).                                 0.05 cumulative distribution function SSD
+   analysis upstream regulatory regions,               set ,0.5) conjugation protein biosynthesis
+aligned upstream 1000 bp paralogous pair            (Figure 2). hand, SSD genes uniquely
+using method identifying duplicates,         enriched (P , 0.05 cumulative distribution func-
+E ¼ 1, expected faster divergence noncod-           tion WGD set ,0.5) DNA metabolism ing sequences. average percentage identity                protein catabolism (Figure 2). differences upstream sequences paralogous pairs               enrichment sets duplicates 
+calculated.                                                      selves statistically significant  supplemental infor-
+   analysis transcription factor-binding sites,        mation http://www.genetics.org/supplemental/ used Lee et al.’s (2002) data report confidence values      complete enrichment statistics).
+(P-values) binding site–gene combination.               addition general gene ontology enrichment
+calculated frequency shared transcription factor-         sets, focused addressing functional
+binding sites paralogs different confi-           divergence paralogs, informative dence values cutoffs.                                         evolutionary fate duplicates. assess subtle func-
+   coexpression analysis, used microarray             tional differences paralogs genome
+data Brem Kruglyak (2005). data                scale, used heterogeneous high-throughput func-
+filtered  genes missing .50  measurements)             tional genomic data integrated using Bayesian net- imputed using KNNimpute (Troyanskaya et al.                  work  methods).  predicted physical
+2001) missing values, gene replicates         interaction partners paralog. proteins averaged                                           similar functions share interaction partners ( Jacq
+   Functional clustering: perform global compari-           2001; Brun et al. 2003), analysis allowed assess
+son WGD SSD sets respect           degree functional similarity paralogous pairs.
+gene ontology annotation, obtained annotations             Second, predicted functionally related proteins (Ashburner et al. 2000) SGD (Cherry et al.              paralog basis Bayesian network.                                           Functional Analysis Gene Duplications                                      937
+
+
+
+
+                                                                                       Figure 2.—Distribution slim
+                                                                                    biological process annotations. Differ-
+                                                                                    ential enrichment slim biological
+                                                                                    process categories WGD SSD
+                                                                                    genes shown. graph represents
+                                                                                    enrichment  cumulative distribu-
+                                                                                    tion function) set genes                                                                                     term, comparison ge-
+                                                                                    nome average, darker shading rep-
+                                                                                    resenting higher enrichment.
+
+
+
+
+functional relationship represents likelihood         tion prospect duplicate pairs undergo proteins involved biological pro-          decelerated evolution initial acceleration ( Jordan
+cesses. frequency shared interaction partners           et al. 2004). shared functional relationships significantly             results WGD paralogs higher WGD paralogs compared SSD                similar protein–protein interactions
+paralogs result robust different       functional relationships different levels fidence levels used cutoff Bayesian predic-      sequence similarity (Figure 4A, P , 0.05 percent-
+tions (Figure 3A, P , 0.01 cutoffs Figure 3B,     age identity .25  Figure 4B, P , 0.05 P , 0.002 cutoffs).                                   percentage identity .17 ). robustness    Propensity share protein-interaction partners        result sequence divergence level indicates
+functional relationships intrinsic WGD paralogs          tendencies possibly differences independent sequence divergence level:               selection pressure duplication (Davis terpretation result complicated         Petrov 2005). addition, relationship different times duplication events: WGD         functional relationships sequence similarity ap-
+duplicates arose specific time point SSD      pears linear SSD set, WGD set,
+paralogs heterogeneous time divergence.        45  identity, obvious decrease saturation dS prevented grouping           paralogous sequences diverge (Figure 4B). paralogs according number synonymous sub-            trends necessarily indicate biological rela-
+stitutions.  grouped paralogous pairs according        tionship, result does suggest using divergence level ORF amino acid sequence         mixture sets  example, Brun et al.
+ methods). sequence divergence does               2003 study did identify relationship) directly represent time duplication,          establish biased result miss characteristics specific
+shown varying divergences WGD set,          WGD SSD paralogs  discussion).
+stratification allowed identify trends            previous study suggested compared robust scenarios covering wide range diver-        orthologous nonduplicated genes, evolutionary rate
+gence levels. analysis avoids major complica-      difference WGD SSD duplicates results
+ 938                                        Y. Guan, M. J. Dunham O. G. Troyanskaya
+
+
+
+
+   Figure 3.—Frequency shared interaction partners functional relationships predicted Bayesian network             Figure 4.—Propensity sharing interaction partners various confidence levels. predicted interaction partners         functional relationships paralogs sequence di- functionally related proteins paralog            vergence levels.   Sharing interaction partners basis Bayesian analysis diverse genomic data.           paralogs predicted Bayesian network basis calculated percentage shared interaction partners/         evidence protein–protein interactions. (B) Sharing func-
+functional relationships paralogs total num-        tional relationships paralogs predicted ber interaction partners/functional relationships          Bayesian network predicting functional relationships. pair.   Bayesian network integrating evidence physical       level sequence divergence, WGD paralogs
+interactions used predict interaction partners. (B)         likely share protein–protein interaction partners
+Bayesian network integrating diverse genomic data used           functional relationships. linear relationship predict broad functional relationships. WGD group             sequence divergence shared functional relationships shows substantially higher percentage shared interaction        evident SSD duplicates (R 2 ¼ 0.8688). WGD set,
+partners functional relationships Bayesian    45  sequence identity linear relationship fidence levels. Fluctuations WGD graph likely        observable. variations availability different experimental data
+sets served input Bayesian analysis.
+
+                                                                     reciprocal best hits (supplemental Figure S3, C D, mainly overenrichment ribosomal genes                 http://www.genetics.org/supplemental/). results WGD set (Davis Petrov 2005). assess                  remain robust, suggesting differences
+hypothesis, removed pairs ribosomal genes                 WGD SSD sets caused potential sets repeated analysis functional                    biases larger gene families SSD set.
+divergence. observed similar pattern, sug-                   concern analysis difference
+gests trend functionally similar              observed artifact caused differ-
+WGD paralogs general effect                  ences numbers interaction partners WGD
+richment ribosomal genes  supplemental Figure                 SSD genes.  likely, S3, B, http://www.genetics.org/supplemental/).              frequency shared interaction partners does ap- control differences functional                 pear depend total number interaction 
+enrichment sets paralogs, ran-                 ners (supplemental Figure S5 http://www.genetics.
+domly selected subsets SSD pairs                 org/supplemental/). addition, SSD set, lower
+slim molecular function annotation distribution               sequence similarity paralogs correlates WGD set repeated analysis. dif-                    higher number interactions, indicating func-
+ferences remain normalization func-               tional divergence caused generation new interac-
+tional coverage groups paralogs                   tion partners.
+(supplemental Figure S4 http://www.genetics.org/                     Compensation WGD paralogs: supplemental/). repeated analysis                  WGD paralogs tend similar function suggested
+                                          Functional Analysis Gene Duplications                                          939
+ shared interactions functional relationships, reasoned high frequency compensation. predict   WGD pa-
+ralogs dispensable partner functions. Second, high frequency compensation result higher rate syn-
+thetic lethality WGD paralogs.
+   overall proportion essential genes (p , 10300) WGD set (4.15 ) SSD set
+(18.2 )  genome average 18.9 ), SSD
+paralogs lower sequence similarity likely essential genes (Figure 5A). Interestingly, relationship sequence similarity frequency essential genes evident WGD set. similar results removal ribosomal
+gene pairs (supplemental Figure S6A http://www.
+genetics.org/supplemental/). relationship sequence similarity fitness effect different 
+tween duplicate sets, indicates 
+tradictory conclusions drawn examining mixture sets  discussion).
+   Second, predict frequency synthetic
+lethality paralogs higher WGD
+set SSD set, deletion paralogs expected abolish common function.  average synthetic lethality frequency WGD set 14  compared 3.7  SSD set (p ,
+10300). Synthetic lethality low varying sequence       Figure 5.—Patterns essentiality synthetic lethality divergence levels SSD set, generally       duplicates sequence divergence levels.   
+                                                               centage essential genes WGD SSD sets. Fre-
+high moderate high sequence similarity                                                                quency essentiality SSD duplicate genes increases
+WGD duplicates (Figure 5B). Interestingly, decreas-        paralogous sequences diverge. contrast, essenti-
+ing frequency compensation duplicate                ality rate stays low relatively constant level WGD
+genes sequences diverge observable WGD            genes. SSD duplicates generally higher propor-
+set SSD set. control potential           tion essential genes high sequence similarity
+                                                               (.60 ) bins, include 11  SSD set  (B)
+functional bias synthetic lethality results WGD
+                                                               percentage synthetic lethal pairs WGD SSD sets. SSD pairs, randomly selected SSD pairs         synthetic lethality rate generally higher WGD paral- slim biological process distribution            ogs, suggests compensation functional conserva-
+WGD genes repeated analysis. shown               tion paralogs. synthetic lethality proportion
+supplemental Figure S6C (http://www.genetics.org/              decreases paralogous sequences diverge WGD
+                                                               set, trend observable SSD set.
+supplemental/), results robust functional
+composition differences sets. addition, control potential complicating factor differences caused larger number            sequence perspective, 
+multigene families SSD set, repeated             stream regulatory regions diverged analysis reciprocal best hits. result (supple-        WGD paralogs level ORF sequence
+mental Figure S6, D E) robust              divergence (Figure 6A, P ¼ 0.01). result 
+modification.                                                  sistent removal ribosomal genes (Figure 6B,
+   Expression pattern diverged             P , 0.005). Second, used Lee et al. (2002) data
+WGD paralogs: Population genetics predicts              measuring transcription factor binding ChIP–chip
+duplicate copy entirely redundant            different ORF sequence divergence
+maintained genome long time,            levels, transcription factor-binding sites
+cases concerted evolution larger         common WGD paralogs (Figure 6C), gene product beneficial (Zhang 2003). WGD             similar result removal ribosomal genes
+genes similar function compared SSD         (Figure 6D). result robust different cutoff
+set, suspect partition function            levels (supplemental Figure S7 http://www.genetics.
+achieved expression level. approached           org/supplemental/, P , 1.030 cutoffs) used possibility examining lines evidence.        identifying transcription factor-binding sites  940                                  Y. Guan, M. J. Dunham O. G. Troyanskaya
+
+ChIP–chip data. suggest      2005). experiment uniquely designed level sequence similarity, regulatory sequences    genetically segregating determinants gene expres-
+WGD paralogs diverge SSD              sion level physiological ones. High correla-
+paralogs.                                                    tion gene expression indicate shared
+    analyzed similarity gene expression      regulators gene expression lower correlation
+using microarray data set transcripts        imply different regulators utilized. treated quantitative traits (Brem Kruglyak            expression correlation result congruence                                                              sharing transcription factors (Figure 7A, P , 0.02                                                              bins .25  sequence similarity). lower correla-
+                                                             tion WGD paralogs pronounced
+                                                             removal ribosomal genes (Figure 7B, P ¼
+                                                             0.024). result suggests coding sequence diver-
+                                                             gence expression divergence duplicate
+                                                             genes correlated SSD set WGD
+                                                             set, reconciles previous disputes (Wagner 2000b;
+                                                             Gu et al. 2002, 2005; Zhang et al. 2004) relation-
+                                                             ship  discussion).
+
+
+
+                                                                                    DISCUSSION
+                                                                genome-scale analysis provided systematic discri-
+                                                             mination WGD SSD sets respect                                                              tendency functional conservation/divergence
+                                                             paralogs. Independent sequence diver-
+                                                             gence, WGD paralogs general likely                                                              share physical protein-interaction partners func-
+                                                             tional relationships basis integrated functional
+                                                             genomic evidence. major tendency similar
+                                                             function supported higher rate synthetic
+                                                             lethality WGD paralogous pairs.  simi-
+                                                             larity compensation function does lead                                                              complete redundancy, compared SSD paral-
+                                                             ogs, WGD paralogs diverged expression pat-
+                                                             terns upstream regulatory regions, implying                                                              role fine tuning expression level. discussed later,
+                                                             results global study reconcile pre-
+                                                             viously inconsistent observations selec-
+                                                             tion varying sets duplicates suggest different
+                                                             tendencies evolutionary fate consequences 
+                                                             tween genome smaller-scale duplicates.
+
+
+
+
+                                                                Figure 6.—Divergence upstream regulatory region
+                                                             transcription factor-binding sites paralogs                                                              sequence divergence.   Alignment upstream 1000 kb
+                                                             pairs. nonoverlapping percentage identity                                                              upstream 1000 kb (E ¼ 1) calculated average
+                                                             taken. upstream regions background
+                                                             duplicate pair generally align better, especially high 
+                                                             centage identity groups. result accordance                                                              expression pattern WGD pairs diverge  (B)
+                                                             Alignment upstream 1000 kb pairs 
+                                                             moval ribosomal genes. (C) Frequency shared transcrip-
+                                                             tion factor-binding sites. WGD paralogs significantly
+                                                             weaker sharing transcription factor-binding sites. (D) Fre-
+                                                             quency shared transcription factor-binding sites                                                              paralogs removal ribosomal genes.
+                                            Functional Analysis Gene Duplications                                      941
+
+                                                                 supplemental/). emphasized                                                                  observed patterns subject alternative expla-
+                                                                 nations. possible retaining functionally
+                                                                 similar genes caused dosage effect (Zhang
+                                                                 2003; Kondrashov Kondrashov 2006).
+                                                                    reason keeping similar genes                                                                  genome suggested lower level coexpression
+                                                                 sharing upstream regulatory regions                                                                  WGD paralogs. suggests WGD pairs,                                                                  showing lower frequency essentiality,                                                                  beneficial environmental experimen-
+                                                                 tal conditions. example, Ser/Thr kinases DBF2                                                                  DBF20 77  identical sequence, highly function-
+                                                                 ally related (0.99 confidence functional relationship
+                                                                 predicted Bayesian network), synthetically
+                                                                 lethal.  expression correlation coefficient
+                                                                 negative basis data set Brem                                                                  Kruglyak (2005). Functionally related WGD paralo-
+                                                                 gous pairs negative expression correlations                                                                  uncommon: 74  paralogs negative correlation
+                                                                 predicted functionally related Bayesian
+                                                                 method  confidence level higher baseline
+                                                                 prior), compared genome average 1.6 .    Figure 7.—Divergence expression pattern pa-        suggests possible role WGD duplicates ex-
+ralogs sequence divergence.   correlation ex-    pression modulation. example phenom-
+pression patterns paralogs. Expression patterns          enon WGD sulfate permease paralogs SUL1 WGD paralogs highly diverged especially af-      SUL2, share 65  identity, functionally related
+ter removal ribosomal genes, indicating role     basis integrated genomic data, finely modulating expression levels. expression correla-
+tion coefficient random genes data set        phenotypic enhancement (Cherest et al. 1997).  average 0.003. (B) correlation expression pat-       Pearson correlation coefficient 0.163,
+terns paralogs removal ribosomal genes.         compared 0.288 SSD group se-
+                                                                 quence divergence level. Additionally, expression                                                                  SUL2, SUL1, control SUL3
+                                                                 (Cherest et al. 1997). result suggests diver-
+   explore biological reasons       gence expression level significant functional differences genome              WGD duplicates SSD set. smaller-scale duplicates. higher propen-               role sequence divergence sity WGD paralogs synthetically lethal suggests         functional attributes duplicate genes differ- retention copies genome              ent WGD SSD sets. difference cause
+duplication offers robustness genome.              studies based different subsets WGD SSD data
+result readily agreement global functional        arrive different conclusions. fact, global ana-
+analysis. synthetic lethality, genetic robustness        lyses reconciled previous disputes essentiality supported paralogs compen-             expression divergence paralogs relation sate expression. WGD paralogs              sequence divergence.  investigated relation-
+NHP6A NHP6B, share 89  sequence iden-                  ship sequence similarity duplicate genes tity, example phenomenon. Deletion             fitness effect null mutation. conclusion NHP6A leads threefold increase NHP6B synthesis           relationship established (Wagner 2000a) extra copy NHP6A reduces NHP6B expres-               based 45 duplicate genes having paralog sion twofold (Kolodrubetz et al. 2001). Changes           syntenic block yeast chromosome, 
+NHP6B gene copy number cause similar mod-               duplicates WGD. opposite conclusion erate changes NHP6A expression (Kolodrubetz                   high correlation established (Gu et al. 2003) et al. 2001).  enhanced expression               based genomewide group 1147 duplicated pairs, gene response deletion paralog          corresponding combination WGD SSD general pattern WGD SSD                sets used study. result (Figure 5A) confirms,
+sets basis analysis genomewide ex-              qualifies, conclusions showing cor-
+pression data deletion strains (Hughes et al. 2000)           relation sequence similarity essentiality,
+(supplemental Figure S8 http://www.genetics.org/              absent WGD set suggested Wagner
+ 942                                    Y. Guan, M. J. Dunham O. G. Troyanskaya
+
+(2000a), observed SSD set Gu et al.        ilarity (Figure 1) follow general trends pro-
+(2003). Second, reconcile previous dispute             posed analysis.  high sequence coding sequence divergence expression              divergence, WGD paralogs diverge function
+divergence duplicate genes coupled.              quickly, indicated shared interaction partners
+previous study based 376 WGD paralogous pairs               functional relationships (Figure 4, B).  removal ribosomal genes) signifi-           frequency synthetic lethal pairs drops substan- correlation protein-sequence divergence           tially (Figure 5B), indicating paralogous pairs lose regulatory region/expression divergence (Wagner            functional compensation sequences diverge.
+2000b), agreement result based            interesting subset duplicates identified WGD set (Figure 6, B). hand,         Kellis et al. (2004a), suggested group ‘‘fast’’ positive correlation expression divergence           WGD pairs showing accelerated protein evolution. nonsynonymous divergence (Gu et al. 2002, 2005)            relatively small number fast WGD pairs prevented age duplicates (Zhang et al. 2004) estab-        thorough analysis partitioning according lished basis paralogs identified genome-         sequence divergence.  wide, corresponding combination WGD                general enrichment biological processes different
+SSD duplicates study. global comparative            fast set rest WGD paralogs
+result WGD SSD sets reconciles different          (supplemental Figure S9 http://www.genetics.org/
+results (Figure 6, B, Figure 7) suggests        supplemental/).  study provides global correlation expression upstream reg-            comparison functional divergence duplicates ulatory region divergence coding sequence diver-           arose genome duplication small-scale
+gence evident SSD set, relatively weak    duplications, specific subgroups duplicates ex-
+WGD set.                                                       hibit different behaviors.
+   Similarly, caution taken drawing                envision directions ad-
+conclusions relationship physical            dress differences genome small-
+interaction, functional relationship, synthetic lethal-     scale duplications.  present study focuses ity sequence divergence. example,            behavior duplicated genes sequences conclusion simple relationship estab-         paralogs diverge. recent studies identified
+lished sequence identity functional simi-          asymmetric evolution based WGD duplicates com-
+larity (Baudot et al. 2004) reasonable set       pared nonduplicated orthologs (Kellis et al. 2004a,b;
+WGD paralogs, linear relationship           Fares et al. 2006; Kim Yi 2006, ). relative SSD set (Figure 4B). Using mixture         strength asymmetric evolution WGD vs. SSD
+sets  example, Brun et al. 2003 used 10 WGD 10         duplicates interesting investigate. Second,
+SSD duplicates) fails establish relation-      results suggest functional divergence low align-
+ship, probably interference WGD                ment.  discriminate neo-
+duplicates. decoupling sequence divergence              functionalization subfunctionalization. Studies functional divergence WGD set especially         individual pairs using interaction data moving-
+worth considering. recent study (Fares et al. 2006)          window analysis informative. addition, suggests positive selection detected        recent study reports network partition WGD WGD paralogs compared               genes (Conant Wolfe 2006). Investigation nonduplicated orthologous sequences.                presence partition network SSD positive selection sequence level       set provide insight genome connected divergence paralogs             duplication likely result duplication functional level. positively selected       entire pathway expression network. Finally, pre-
+paralogs Fares et al. identified, despite large     sent study compares WGD set SSD set sequence divergence, highly functionally related           stratifying according sequence similarity. Estimating  cases, synthetically lethal. example,      age duplicates clarify di- SUMO ligases SIZ1 SIZ2I positively         vergence variation caused age specific duplicate
+selected (Fares et al. 2006) paralog diver-         set. growing amounts large-scale genomic data
+gence large (32  identity).           enable comprehensive comparison 
+predicted share function relationship (0.99 confi-        genome duplication small-scale duplication dence predicted Bayesian network)               variety organisms.
+synthetically lethal  supplemental information             thank Chad Myers Matthew Hibbs insightful discussions,
+http://www.genetics.org/supplemental/).                        helping data, processing expression data,    emphasized results              correction manuscript. appreciate constructive sugges-
+                                                               tions anonymous reviewers. research partially
+represent behavior majority WGD dupli-           supported National Institutes Health grant R01 GM071966 cates comparison SSD duplicates.         National Science Foundation grant IIS-0513552 O.G.T. O.G.T. WGD duplicates moderate high sequence sim-             Alfred P. Sloan Research Fellow.
+                                                   Functional Analysis Gene Duplications                                                    943
+
+                      LITERATURE CITED                                     Kellis, M., N. Patterson, B. Birren, B. Berger E. S. Lander,
+                                                                                2004b Methods comparative genomics: genome correspon-
+Altschul, S. F., W. Gish, W. Miller, E. W. Myers D. J. Lipman,              dence, gene identification regulatory motif discovery.
+    1990 Basic local alignment search tool. J. Mol. Biol. 215: 403–             J. Comput. Biol. 11: 319–355.
+    410.                                                                   Kim, S. H., S. V. Yi, 2006 Correlated asymmetry sequence Ashburner, M., X.  Ball, J.  Blake, D. Botstein, H. Butler                  functional divergence duplicate proteins Saccharomy-
+    et al., 2000 Gene ontology: tool unification biology.            ces cerevisiae. Mol. Biol. Evol. 23(5): 1068–1075.
+    Gene Ontology Consortium. Nat. Genet. 25: 25–29.                   Kolodrubetz, D., M. Kruppa  Burgum, 2001 Gene dosage
+Baudot, , B. Jacq C. Brun, 2004 scale functional diver-              affects expression duplicated NHP6 genes Saccharo-
+    gence yeast duplicated genes revealed analysis              myces cerevisiae. Gene 272: 93–101.
+    protein-protein interaction network. Genome Biol. 5: R76.              Kondrashov, F. ,  S. Kondrashov, 2006 Role selec-
+Breitkreutz, B. J., C. Stark M. Tyers, 2003 GRID: Gen-              tion fixation gene duplications. J. Theor. Biol. 239: 141–
+    eral Repository Interaction Datasets. Genome Biol. 4(3): R23.           151.
+Brem, R. B., L. Kruglyak, 2005 landscape genetic com-           Kondrashov, F. ,  B. Rogozin, Y.  Wolf E. V. Koonin,
+    plexity 5,700 gene expression traits yeast. Proc. Natl.           2002 Selection evolution gene duplications. Genome
+    Acad. Sci. USA 102(5): 1572–1577.                                           Biol. 3(2): RESEARCH0008.
+Brun, C.,  Gue´noche B. Jacq, 2003 Approach func-             Lee, T. , N. J. Rinaldi, F. Robert, D. T. Odom,  Bar-Joseph et al.,
+    tional evolution duplicated genes Saccharomyces cerevisiae            2002 Transcriptional regulatory networks Saccharomyces cerevi-
+    using new classification method based protein-protein inter-           siae. Science 298: 799–804.
+    action data. J. Struct. Funct. Genomics 3: 213–224.                    Li, W. H., J. Yang X. Gu, 2005 Expression divergence Byrne, K. P., K. H. Wolfe, 2005 Yeast Gene Order Browser:               duplicate genes. Trends Genet. 21(11): 602–607.
+    combining curated homology syntenic context reveals gene           Lynch, M., J. S. Conery, 2000 evolutionary fate 
+    fate polyploidy species. Genome Res. 15(10): 1456–1461.                  sequences duplicate genes. Science 290: 1151–1155.
+Cherest, H., J. C. Davidian, D. Thomas, V. Benes, W. Ansorge et al.,       Lynch, M.,  Force, 2000 probability duplicate gene
+    1997 Molecular characterization high affinity sulfate                preservation subfunctionalization. Genetics 154: 459–473.
+    transporters Saccharomyces cerevisiae. Genetics 145: 627–635.       Mewes, H. W., C. Amid, R. Arnold, D. Frishman, U. Guldener et al.,
+Cherry, J. M., C. Adler, C. Ball, S.  Chervitz, S. S. Dwight et al.,          2004 MIPS: analysis annotation proteins     1998 SGD: Saccharomyces genome database. Nucleic Acids Res.                 genomes. Nucleic Acids Res. 32: D41–D44.
+    26(1): 73–79.                                                          Myers, C. L., D. Robson,  Wible, M.  Hibbs, C. Chiriac et al.,
+Conant, G. C., K. H. Wolfe, 2006 Functional partitioning                    2005 Discovery biological networks diverse functional
+    yeast expression networks genome duplication. PLoS              genomic data. Genome Biol. 6(13): R114.
+    Biol. 4(4): e109.                                                      Myers, C. L., D. R. Barrett, M.  Hibbs, C. Huttenhower Davis, J. C., D.  Petrov, 2005 disparate mechanisms                 O. G. Troyanskaya, 2006 Finding function: evaluation meth-
+    duplication add similar genes genome? Trends Genet.                  ods functional genomic data. BMC Genomics 7(1): 187.
+    21: 548–551.                                                           Nadeau, J. H., D. Sankoff, 1997 Comparable rates gene
+Dempster,  P., N. M. Laird D. B. Rubin, 1977 Maximum like-                loss functional divergence genome duplications early
+    lihood incomplete data EM algorithm. J. R. Stat. Soc.              vertebrate evolution. Genetics 147: 1259–1266.
+    Methodol. 39: 1–38.                                                    Nowak, M. , M. C. Boerlijst, J. Cooke J. M. Smith,
+Dietrich, F. S., S. Voegeli, S. Brachat,  Lerch, K. Gates et al.,             1997 Evolution genetic redundancy. Nature 388: 167–171.
+    2004 Ashbya gossypii genome tool mapping              Ohno, S., 1970 Evolution Gene Duplication. Springer-Verlag, New York.
+    ancient Saccharomyces cerevisiae genome. Science 304(5668): 304–       Sankoff, D., 2001 Gene genome duplication. Curr. Opin. Genet.
+    307.                                                                        Dev. 11: 681–684.
+Fares, M. , K. P. Byrne K. H. Wolfe, 2006 Rate asymmetry             Seoighe, C., K. H. Wolfe, 1999 Yeast genome evolution     genome duplication causes substantial long-branch attrac-             post-genome era. Curr. Opin. Microbiol. 2: 548–554.
+    tion artifacts phylogeny Saccharomyces species. Mol. Biol.   Stoltzfus, , 1999 possibility constructive neutral evolu-
+    Evol. 23(2): 245–253.                                                       tion. J. Mol. Evol. 49: 169–181.
+Force, , M. Lynch, F. B. Pickett,  Amores, Y. L. Yan                   Taylor, J. S., J. Raes, 2004 Duplication divergence: evo-
+    et al., 1999 Preservation duplicate genes complementary,              lution new genes old ideas. Annu. Rev. Genet. 38: 615–
+    degenerative mutations. Genetics 151: 1531–1545.                            643.
+Gu, X., 2003 Evolution duplicate genes versus genetic robustness        Tong,  H. Y., M. Evangelista,  B. Parsons, H. Xu, G. D. Bader
+    null mutations. Trends Genet. 19: 354–356.                          et al., 2001 Systematic genetic analysis ordered arrays Gu, X.,  Zhang W. Huang, 2005 Rapid evolution ex-   

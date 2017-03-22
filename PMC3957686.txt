@@ -1,0 +1,266 @@
+Addition Escherichia coli K-12 Growth Observation Gene
+Essentiality Data EcoCyc Database
+Amanda Mackie Suzanne Paley,b Ingrid M. Keseler,b Alexander Shearer,b Ian T. Paulsen Peter D. Karpb
+Department Chemistry Biomolecular Science, Macquarie University, Sydney, Australiaa; Bioinformatics Research Group, SRI International, Menlo Park, California,
+USAb
+ sets compounds support growth organism defined presence transporters metabolic path-
+ways convert nutrient sources cellular components energy growth. collection known nutrient sources serve impetus investigating new metabolic pathways transporters reference computa-
+tional modeling known metabolic pathways. establish collection Escherichia coli K-12, integrated data growth nongrowth E. coli K-12 obtained published observations using variety individual media high-throughput phenotype microarrays EcoCyc database. assembled collection revealed substantial number discrepancies high-throughput data sets, investigated possible using low-throughput growth assays soft agar liquid culture. integrated data sets describing 16,119 observations growth single-gene
+knockout mutants E. coli K-12 EcoCyc, relevant antimicrobial drug design, provide clues regarding roles genes unknown function, useful validating metabolic models. make information easily accessible EcoCyc users, developed software capturing, querying, visualizing cellular growth assays gene essentiality data.
+
+
+
+T    diversity chemical environments support organ-
+     ismal growth fundamental corpus scientific knowledge.  despite decades research large amounts accu-
+                                                                                      throughput phenotype microarray (PM) data (2); (iv) PM
+                                                                                      data generated group. PMs measure cellular respiration                                                                                       proxy growth (henceforth, refer growth simplicity)
+mulated knowledge, compendium set nutrients Esch-                        sets 96 plates, containing erichia coli K-12 able utilize exists. compendium                 different combination nutrients. integrated basic serve reference com-                   EcoCyc data sets growth single-gene
+putational metabolic modeling, requires comprehensive                         knockout mutants E. coli K-12 published set reference growth data sets evaluating accuracy                      recent years.
+growth predictions.                                                                       developed software tools capturing, querying, vi-
+    validating computational metabolic models                    sualizing cellular growth assays, corresponding nutrients experimental data describing essentiality organismâ€™s                    growth conditions, gene essentiality data. tools genes, metabolic models predict phenotypes                         integrated Pathway Tools software (3), 
+gene knockouts. essential gene gene indispensable                  abling use conjunction 2,000
+support life specific set growth conditions.                       genomes contained BioCyc database collection (BioCyc
+gene essentiality data useful predicting antibiotic targets               .org) organism databases created Pathway Tools
+pathogenic bacteria, guiding design minimal genomes,                       users. providing clues regarding roles genes unknown
+function.                                                                             MATERIALS METHODS
+    large number high-throughput data sets gene ex-                         Bacterial strains. E. coli K-12 MG1655 obtained Yale
+pression metabolomics phenotypic measurements                            Coli Genetic Stock Center (CGSC; strain 7740) American
+coming available variety organisms. maximize                        Type Culture Collection (ATCC; strain 700926).
+                                                                                          Laboratory evaluation individual growth media. evaluate
+value, data sets captured integrated                                                                                       growth soft agar, following protocol used based modifica-
+database published website, tools querying                    tion earlier Salmonella nutrient evaluation method (4). Bacterial analysis ensure data maximally available                   cells grown overnight LB medium 37Â°C. overnight culture
+scientific community.  integration requires                         washed times phosphate-buffered saline (PBS), resus-
+simply collecting multiple data sets common repos-                      pended PBS, diluted 10:1 cooling liquefied 0.6  agar solution
+itory. data types, integration include identifying resolving conflicts data sets possible order extract knowledge possible noisy data.                          Received 10 October 2013 Accepted 15 December 2013
+    integrated following growth data single collec-                        Published ahead print 20 December 2013
+tion available EcoCyc database (1) supplemental                        Address correspondence Peter D. Karp, pkarp@ai.sri.com.
+files:   collection observations growth nongrowth                    Supplemental material article http://dx.doi.org/10.1128
+laboratory strains E. coli K-12 variety media                        /JB.01209-13. obtained low-throughput methods                                Copyright Â© 2014, American Society Microbiology. Rights Reserved.
+previously published literature; (ii) low-throughput growth                       doi:10.1128/JB.01209-13
+data generated group; (iii) previously published high-
+
+
+982   jb.asm.org                                       Journal Bacteriology   p. 982â€“988                                          March 2014 Volume 196 Number 5
+                                                                                                           Addition Growth Essentiality Data EcoCyc
+
+
+ plated appropriate base plate. Fully cooled        analyzed using Omnilog PM software response calls growth
+plates used subsequent nutrient testing. Base plates        (G), growth (NG), low growth (LG) based param- minimal salts medium (1.9 mM potassium sulfate, 25.8 mM              eters maximum height  10th percentile highest value dipotassium phosphate, 11.8 mM monopotassium phosphate, 0.13 mM                values time points) area  sum Omnilog values magnesium sulfate heptahydrate) supplemented 1.5  agar ei-            time points). calls 13 nitrogen source wells, 10
+ther 0.5  succinate  nitrogen source testing) 2.5 mM NH4Cl          sulfur source wells, phosphate sources, carbon source testing). nutrient tested plates (containing     showed ambiguous responses compared negative-control  succinate NH4Cl) placing 2 20 mg nutrient        Data set S6 supplemental material includes raw data PM
+center plate. plates incubated 37Â°C, growth        experiments conducted course work. â€œMackie12â€? refers
+evaluated visually 24, 48, 72 h. plate scored positive     experiments conducted 2012, data currently avail-
+growth bacterial lawn â±–1 cm2 present           able EcoCyc website. results later experiments (dated 2013
+scoring checks. growth conditions tested duplicate.                File S6 supplemental material) conducted compare Biolog PM
+    evaluate growth liquid culture, strains grown overnight      responses different stock cultures E. coli K-12 MG1655 
+M9 minimal media 0.2  (vol/vol) glycerol. overnight culture           cluded future EcoCyc release. washed times modified M9 minimal media containing                 PM data sets added EcoCyc, reviewed carbon nitrogen [48 mM sodium phosphate dibasic, 22 mM monopo-              growth observations difference observations tassium phosphate, 8.5 mM sodium chloride, 2 mM magnesium sulfate,             PM data sets existed, resolved conflict significant
+0.1 mM calcium chloride, 0.01 mM Fe(II) sulfate] transfer new      evidence regarding actual growth outcome  factors
+M9 minimal medium starting optical density 600 nm 0.05.           considered included number available observations growth ver-
+Carbon sources tested M9 minimal medium final concentra-          sus growth, low-throughput observations tion 0.2  (wt/vol), nitrogen sources tested modified M9       literature given growth condition  cases , minimal medium final concentration 0.2  (wt/vol). carbon           minority data set(s) generally judged reliable
+source assays 0.2  sodium succinate. Cultures         based total pairwise conflicts data sets. incubated 37Â°C 48 h, growth rates reported means â«¾       did resolve conflict, comment usually created EcoCyc standard deviations replicates. appropriate positive neg-    summarize rationale, literature citations recorded appro-
+ative controls included experiments. nitrogen source        priate. example, aerobic cell PM1:F2, tests growth says, positive control ammonium chloride; carbon source            citric acid sole carbon source, resolved favor growth
+assays, positive control sodium succinate.                             (5), aerobic cell PM1:G7, tests growth acetoacetic
+    Biolog PMs. Biolog phenotype microarrays (PMs) commercially          acid sole carbon source, resolved favor growth (6) (mouse
+available (Biolog, , Hayward, CA) high-throughput           cells online EcoCyc version Fig. 1 http://ecocyc.org
+                                                                               /ECOLI/NEW-IMAGE?objectâ«½Growth-Media explanation global analysis microbial respiration phenotypes (2). PMs use color-
+                                                                               resolution).
+imetric reaction (reduction tetrazolium dye NADH) sensitive
+indicator microbial respiration response presence individ-     RESULTS
+ual nutrients chemicals. PM plates 1 4, contained 190 sole
+carbon sources, 95 sole nitrogen sources, 59 sole phosphate sources,       Table 1 summarizes sources nutrient utilization data pres-
+35 sole sulfur sources, used analysis. E. coli K-12 MG1655    ent EcoCyc version 17.5 released October/Novem-
+pregrown nutrient agar used inoculate plates according      ber 2013. results low-throughput growth experiments Biolog instructions. data collected analyzed using         reported appear future EcoCyc release.
+OmniLogH PM  records color change 15 min                Table 1 includes total 1,860 growth observations 552 96 assay plates. incubations performed       growth conditions. 552 growth conditions include 456 aero-
+37Â°C 48 h.                                                                bic conditions 96 anaerobic conditions include 384 PM
+    assess effect pregrowth conditions carbon-source utiliza-     media (including 5 negative controls) 72 media. tion, bacterial strain pregrown types nutrient agar        example, growth assessed set nutrients, platesâ€”LB agar, R2A agar, BUG-S (Biolog universal growth agar         aerobic anaerobic conditions, count situation 5  sheep blood)â€” inoculation PM plates 1 2.                                                                                growth conditions.
+nitrogen, phosphate, sulfur utilization plates (PM3 PM4), bacte-
+ria pregrown LB agar  instance, inoculated accord-
+                                                                                   growth data integrated literature 
+ing manufacturerâ€™s instructions. user-supplied carbon source        cluded following commonly used media: AB, LB medium  assays 20 mM sodium succinate 2 â?®M ferric citrate.            riched, LB Lennox, 3-(N-morpholino)propanesulfonic acid conditions, positive response recorded negative-      (MOPS), M9, M56, M63. media listed control nitrogen assays sulfur assays.    table EcoCyc.org Growth Media site (http: bacterial pregrowth assays nutrient-limited      //biocyc.org/ECOLI/NEW-IMAGE?objectâ«½Growth-Media).
+R2A agar  discussion manufacturer, concentration            Integration PM data sets. integrated aerobic cell inoculum decreased factor 10. use R2A agar      phenotype microarray (PM) data sets produced bacterial pregrowth preferred method minimizing          independently different laboratories refer sponse seen negative-control nitrogen sulfur assays    Bochner12 (B. Bochner, unpublished data), AbuOun09 (7), reported previously (2).                                                  Baumler11 (8), Yoon12 (9), Mackie12. data sets 
+    Data integration arbitration. Respiration data obtained                                                                                sisted measurements PM plates designated PM1 (95
+PMs used proxy growth. Growth observations 
+corded Pathway Tools growth, growth, low (borderline)
+                                                                               carbon sources), PM2 (95 carbon sources), PM3 (95 nitrogen
+growth. attempt unify criteria used distinguish          sources), PM4 (59 phosphorus plus 35 sulfur sources), states imported PM data original            Baumler11, covers PM1 
+growth/respiration curve data available data             data set, compared result sets;  used determinations specified providers      result data sets turn. data set. PM experiments (Mackie12), kinetic data        Table 2 summarizes degree pairwise agreement dis-
+
+
+March 2014 Volume 196 Number 5                                                                                                               jb.asm.org 983
+Mackie et al.
+
+
+
+
+FIG 1 Table showing current display integrated growth observations EcoCyc PM1 carbon sources aerobic conditions. Colors indicate
+consensus conflicts  color legend . colored bar cell depicts individual observations, e.g., cell H5 (D-psicose) shows observations growth, observations growth, observation low growth. Mousing bar BioCyc.org version diagram
+provides literature reference growth observations.
+
+
+
+agreement data sets. percent pairwise agreement                    sets shows significantly pairwise conflicts number matches expressed percentage total                    data sets does data set.  15 16
+number comparisons  example, 86  pairwise com-                       cases data sets recorded growth observa-
+parisons AbuOun09 data sets carbon                   tion (meaning Y [growth] N  growth], ignoring low growth)
+source PM plates agreement). Data set S1 supple-                    data set recorded opposite observation, outlier
+mental material lists pairwise comparisons individ-                  Baumler11. remove Baumler11 data set com-
+ual data sets. Table 2 combines pairwise comparison results                    puting  combinedâ€? agreement score Table 2, percent single number reflects percentage agreement                     agreement carbon sources increases 82 87 ; similarly, data set data sets. pairwise                Y/N conflict percentage carbon sources Table 2 drops
+agreement data sets individual growth observa-                     6 2 .
+tions ranged 72 87 . conflicts exist, distinguish                      Note PM3 (nitrogen source) plate shows significantly cases data set records growth                     disagreement plates. different data shows growth  â€œY/Nâ€? conflicts)                      sets similar degrees disagreement. systematic 
+cases data set records low borderline growth                   vestigation differences data sets consid- shows growth growth. 379 growth                     eration low-throughput E. coli growth data literature,
+conditions surveyed PM data sets, conflict existed                     resolve 73 differences (24 Y/N). result,
+tween pair data sets 119 wells, 57             consensus growth calls exist 333 379 conditions
+wells Y/N conflicts.
+                                                                                   surveyed. Unresolved differences prevent growth calls 
+    Baumler11 data set outlier PM data
+                                                                                   maining 45  34 represent Y/N differences). Table 3 sum-
+                                                                                   marizes number conflicts resolved                                                                                    nutrient types aerobic conditions, number TABLE 1 Numbers aerobic anaerobic growth observations
+described  grouped data source                                             conflicts remaining case. Table 4 lists compounds                                                                                    involved remaining conflicts.
+                                                         growth
+                                                        observations
+                                                                                       Baumler11 Bochner12 include measurements                                                                                    anaerobic observations, PM1  data sets agreed Type data                                            Aerobic     Anaerobic      45  wells, Y/N conflict rate 49 . did Low-throughput data literature                 23          0              attempt resolve conflicts.
+Low-throughput data generated group              49          0                  Low-throughput growth experiments. integration High-throughput PM data literature             1,244       191            PM results EcoCyc, ability 33 compounds sup-
+High-throughput PM data generated group          353         0
+                                                                                   port growth E. coli K-12 sole carbon nitrogen source
+
+
+984   jb.asm.org                                                                                                                            Journal Bacteriology
+                                                                                                                                  Addition Growth Essentiality Data EcoCyc
+
+
+
+TABLE 2 Concordance aerobic datasetsa
+                          Agreement                                                                            Y/N conflicts
+Data set                Carbon           Nitrogen           Phosphorus            Sulfur                 Carbon           Nitrogen           Phosphorus            Sulfur          AbuOun09                86               75                 89                    84             84          5                11                 5                     1               4
+Baumler11               72               NA                 NA                    NA             72          21               NA                 NA                    NA              21
+Bochner12               80               75                 91                    81             81          5                13                 3                     1               6
+Mackie12                87               80                 93                    91             87          4                8                  4                     0               5
+Yoon12                  86               75                 92                    75             84          4                3                  2                     1               3
+ combined            83               76                 91                    82             83          6                9                  3                     1               6   left half table shows percent pairwise agreement different datasets sources carbon, nitrogen, phosphorus, sulfur, respectively. right half table shows percent pairwise Y/N (growth growth) conflicts data. NA, applicable.
+
+
+
+remained unresolved (Table 4). tested 19 compounds                                     Baba06 (11) knockouts using lambda Red minimal salts soft agar M9 minimal medium                                    recombinase  replacing target genes frame kana-
+termine support aerobic growth sole ni-                                mycin resistance genes. later subset trogen source (Table 5), tested compounds deter-                                 mutants contained partial duplications support aerobic growth sole carbon                                cross-contaminated (12). combined data pub-
+source (Table 6). information included conflict                                lications EcoCyc. total 324 genes unable dis-
+resolutions future release EcoCyc.                                                     rupted predicted essential growth rich media
+    Integration gene essentiality data. Table 7 lists gene                              37Â°C. 3,844 strains containing knockouts genes essentiality data sets present version 17.5 EcoCyc.                             nonessential rich media (henceforth referred data sets include total 16,119 growth observations                              Keio collection) tested growth glucose
+knockout strains E. coli. Note numbers listed                                minimal medium (11).
+reflect number observations incorporated EcoCyc                                    Joyce et al. (13) profiled Keio collection growth necessarily numbers reported original studies. Dis-                             minimal medium glycerol sole source carbon crepancies numbers caused subsequent                                   energy. total 113 genes nonessential rich 
+corrections data  reflected numbers                              dium identified essential growth glycerol. Joyce et al. , gene merges, deletions,                                                            combined observations Baba et al.
+    Gerdes03 (10) study used genetic footprinting technique                              regarding conditional essentiality mutants grown Tn5-based transposon reported assessment                                  glucose-supplemented minimal media able identify ca. 87  E. coli open reading frames essentiality.                              conserved conditionally essential core 94 genes required study identified 620 genes essential aerobic growth                             E. coli K-12 grow minimal nutritional supplementa-
+rich media, actual experimental result transposon                               tion essential growth rich conditions.
+insertions identified genes. did consider                                    Feist et al. (14) used experimental data regarding condi- sufficient evidence essentiality incorporated                           tional gene essentiality earlier studies (11, 13) compared EcoCyc observations 3,082 genes trans-
+poson insertions identified. transposon 
+sertion result null mutation, genes identified non-                            TABLE 4 Nutrients generate conflicting responses phenotype
+essential data set fact required growth.                                 microarrays
+                                                                                               Source                     Nutrients
+                                                                                               Carbon                     L-Glutamic acid, Tween 20, D-psicose,
+TABLE 3 Summary PM data integration conflict
+resolutiona                                                                                                                 glucuronamide, â?£-methyl-D-glucoside, pectin,
+                                                                                                                            â?£-keto-valeric acid, L-alaninamide
+                               wells                                                     Nitrogen                   L-Cysteine, L-glutamic acid, L-lysine, L-methionine,
+
+Parameter status           Carbon          Nitrogen        Phosphorus           Sulfur                                   L-phenylalanine, L-threonine, D-asparagine,
+                                                                                                                            D-lysine, D-valine, L-homoserine, putrescine,  wells                  190             95              59                   35
+                                                                                                                            agmatine, D-mannosamine, N-acetyl- growth                     99              38              5                    4
+                                                                                                                            D-mannosamine, adenine, guanosine, uracil,
+Low growth                    2               0               0                    0
+                                                                                                                            uridine, xanthine, xanthosine, uric acid, alloxan,
+Growth                        80              32              50                   23
+                                                                                                                            DL-â?£-amino-N-butyric acid â?¥-amino-N-butyric
+Remaining conflicts           8 (9)b          25              4                    8
+                                                                                                                            acid, DL-â?£-amino-caprylic acid
+Resolved conflicts            52              10              6                    5
+                                                                                               Phosphorus                 Cytidine 3=,5=-cyclic mono-P, phosphono acetic acid,   Row 1 indicates total numbers wells nutrient type. Rows 2 4 indicate                                   2-aminoethyl phosphonic acid, methylene numbers wells nutrient type showing different growth levels                                       diphosphonic acid
+growth assessed. Row 5 indicates number wells growth state
+                                                                                               Sulfur                     L-Cysteic acid, cysteamine, S-methyl-L-cysteine, assessed conflicting observations arbitrated. Row 6
+                                                                                                                            DL-ethionine, thiourea, 1-thio-6-D-glucose,
+gives number wells originally contained conflicts resolved                                                                                                                             DL-lipoamide, taurocholic acid
+arbitration procedure. sum rows 2 5 equals row 1.
+b                                                                                                conflicting PM result recorded dulcitol (galactitol) genetic variation       Nutrients boldface growth growth  opposed growth/low-growth stock cultures E. coli K-12 MG1655.                                                 low-growth growth) conflicts.
+
+
+
+March 2014 Volume 196 Number 5                                                                                                                                           jb.asm.org 985
+Mackie et al.
+
+
+
+TABLE 5 Growth E. coli K-12 MG1655 minimal salts agar M9                 TABLE 7 Gene essentiality datasets present EcoCyca
+minimal medium sole nitrogen sourcesa                                                                                          knockouts
+                                             Growth 
+                                                                                                                                                        Data
+                                             Minimal                 M9 minimal   Data set      Medium                             growth     Growth       unavailable
+Nitrogen source                              salts agar              medium       Gerdes03      LB medium enriched,                           3,082        1,419
+L-Cysteine                                   Y                       Y                            aerobic
+L-Glutamic      acid                         Y                       Y            Baba06        LB Lennox, medium,                 324        3,844        333
+L-Lysine                                     Y                       Y                            aerobic
+Putrescine                                   Y                       Y            Baba06        MOPS â«¹ 0.4  glucose,               15         3,828        658
+N-Acetyl-D-mannosamine                       Y                       Y                            aerobic
+Adenine                                      Y                       Y            Feist07       MOPS â«¹ 0.4  glucose,               107        996          3,398
+Guanosine                                    Y                       NT                           aerobic
+Uric acid                                    Y                       N            Patrick07     M9 â«¹ 0.4  glucose, aerobic         106                     4,395
+DL-â?£-Amino-N-butyric acid                    Y                       N            Joyce06       M9 â«¹ 1  glycerol, aerobic          113        3,704        684
+L-Threonine                                  Y                       Y                                                                                                data set, list growth conditions gene
+L-Methionine                                 N                       Y            essentiality determined, number knockouts exhibiting growth,
+L-Phenylalanine                              N                       Y            growth, indeterminate level growth indicated. MOPS,
+D-Valine                                     N                       N            morpholinepropanesulfonic acid.
+Agmatine                                     N                       Y
+Uracil                                       N                       Y
+Uridine                                      N                       Y
+Xanthine                                     N                       N            chemical compounds comprise single growth medium. â?¥-Amino-N-butyric acid                       N                       Y            new schema class â€œGrowth-Observationsâ€? defines Alloxan                                      N                       N            measurements growth nongrowth specified   Growth curves M9 minimal medium provided Fig. S4 S5        growth media. class specifies experimental condi-
+supplemental material. Y, yes; N,  NT, tested.                             tions temperature, aerobicity, gene knockouts
+                                                                                  strain studied.
+                                                                                      Growth media growth observations entered computationally predicted essential genes                    using interactive editing windows Pathway Tools. addi-
+genome-scale metabolic reconstruction E. coli K-12. data                  tion, growth observations imported data files, set  includes genes used model) included               importing PM data. data sets imported, EcoCyc facilitate benchmarking computational predic-                     user inspect compare growth data ways tions essentiality EcoCyc model predictions                 Pathway Tools-based web site EcoCyc.org. web site model Feist et al.(14). Based ability Keio col-              command â€œSearch Â¡ Growth Mediaâ€? enables searching lection single-gene knockout mutants grow rich versus                    growth media according chemical composition growth
+fined media, Baba et al. Joyce et al. (11, 13) identified set            outcome. addition, user growth medium conditionally essential genes. Patrick et al. (15) tested subset             navigating page listing growth observations recorded Keio mutants ability form colonies M9-glucose                  organism (http://biocyc.org/ECOLI/NEW-IMAGE?object
+agar.                                                                             â«½Growth-Media), contains series diagrams, including
+    Growth essentiality data Pathway Tools soft-                   shown Fig. 1. Clicking PM image page
+ware. extended Pathway Tools software (3) handle                   user page describing composition aspects growth observation data gene essentiality                  corresponding growth medium  Fig. S1 supplemental
+data. pathway/genome database (PGDB) EcoCyc                         material). PGDB pages chemical compounds include links capture growth observations wild-type mutant strains                    growth media contain compound. capture descriptions media growth                         growth-medium page  Fig. S1 supplemental ma-
+assayed. new schema class â€œGrowth-Mediaâ€? lists set                     terial) lists composition growth medium forms:                                                                                   recipe substances used create medium (e.g.,
+                                                                                  ions listed salts) listing constituents TABLE 6 Growth E. coli K-12 MG1655 minimal salts agar M9                 medium (e.g., ion listed  concentration
+minimal medium sole carbon sourcesa                                          summed multiple constituents necessary). growth
+                                         Growth                                data available, growth medium page lists wild-
+                                         Minimal                     M9 minimal
+                                                                                  type E. coli grows medium, growth status Carbon source                            salts agar                  medium       single-gene knockouts listed available.
+                                                                                      EcoCyc gene pages include table listing growth status L-Glutamate                              N                           N
+â?£-Keto-valeric acid                      N                           N
+                                                                                  knockouts gene growth media data Tween 20                                 Y/N                         N            available  Fig. S2 supplemental material). page
+Pectin                                   N                           N            listing growth media, possible generate heatmap com-
+â?£-Methyl-D-glucoside                     N                           N            paring gene essentiality growth different nutrient sources.
+L-Alaninamide                            N                           N            Currently, EcoCyc, gene essentiality data available   Growth curves M9 minimal medium provided Fig. S4 S5        growth glucose, glycerol, small number sub-
+supplemental material. N,  Y/N, ambiguous.                                     strates. PM data gene knockouts available, 
+
+986   jb.asm.org                                                                                                                                Journal Bacteriology
+                                                                                                        Addition Growth Essentiality Data EcoCyc
+
+
+
+power tool apparent. Figure S3           preclude possibility genetic variation stock
+supplemental material shows example heatmap data               cultures contribute variation PM data.
+currently available EcoCyc.                                                 tested different pregrowth agars used                                                                            experimenters (LB, R2A, BUG-S) compared response
+DISCUSSION                                                                 PM plates 1 2  Fig. S5 supplemental material).
+Differences PM data sets. addition high-                 Despite difference colony appearance agar plates,
+throughput Biolog PM data sets EcoCyc highlighted number              difference seen kinetic curves, apparent conflicts data regarding E. coli K-12 MG1655â€™s          conclude variation PM response carbon sources
+ability use various compounds sole source carbon,             data sets collated present study nitrogen, phosphate, sulfur. integration exercise suc-         differences pregrowth conditions. potential contribu-
+cessful identifying conflicting information resolv-         tor disagreement PM data sets different labora-
+ing conflicts based low-throughput growth data            tories use different criteria distinguish growth, literature experimental results.           growth, low growth. unable investigate factor
+interesting briefly discuss possible reasons disparity       original growth curve data available growth observation PM data highlights consider-             data sets. existence international repository PM
+ations arise attempting unify data various               data included growth curves facilitate data reanal-
+sources.                                                                   ysis.
+     clear difficulty integrating data sets             Growth tests minimal salts agar M9 minimal medium
+founding effect result slight variations experi-          identified 15 compounds support growth sup-
+mental method used laboratory. Potential reasons dis-          plied sole nitrogen source despite generating conflicting 
+agreement PM data sets added EcoCyc include                 sults PM data sets (Table 5). Varying incubation
+genetic differences E. coli K-12 MG1655 stock cultures, (ii)        time likely confounding factor nitrogen source PM assays.
+variation pregrowth conditions bacteria (LB, R2A,         Long lag times particularly noticeable response nitrogen
+BUG-S agar), (iii) variation length incubation times used        compounds  Fig. S4 supplemental material, PM3) assay (26 48 h), (iv) variability choice cutoff   contribute higher conflict rate observed nitro-
+values assigning positive/negative results respiration      gen source plate. example, nitrogen source PM assays, 6
+PM assays.                                                                 compounds lag time â¬Ž20 h, 10 additional com-
+     Genetic variation stock cultures E. coli K-12              pounds lag time â¬Ž24 h  Data set S6 supplemen-
+MG1655 documented literature (16, 17) likely           tal material). suggests important incubate Biolog implications physiological experiments. predicted,          nitrogen source plates 48 h recommended example, frameshift gatC present stock       manufacturer. nitrogen compounds tested, cultures E. coli K-12 MG1655 result nonfunctional             variation detecting growth minimal
+product inability transport D-galactitol (dulcitol),      salts agar compared M9 minimal medium. example, likely differences PM data compound         growth E. coli K-12 using â?£-amino-N-butyrate uric acid genetic variation stock cultures. able identify        sole nitrogen source detected soft agar different stock cultures E. coli K-12 MG1655 used          liquid culture, growth L-methionine, L-phenylalanine,
+generate data sets added EcoCyc: came central              agmatine, uracil, uridine, amino-N-butyrate sole nitrogen
+repositories (ATCC CGSC), laboratory-held                sources detected liquid minimal media soft
+strain. tested stock cultures (ATCC 700926             agar. agar used plate media contain impurities, CGSC7740) PM plates 1 4 compared responses                 contact solid surface neighboring cells result  Fig. S6 supplemental material). Overall, little      differential regulation enzymes.
+variation response majo

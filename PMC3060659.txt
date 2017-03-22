@@ -1,0 +1,940 @@
+                               NIH Public Access
+                               Author Manuscript
+                               Cell. Author manuscript; available PMC 2012 January 7.
+                           Published final edited form 
+NIH-PA Author Manuscript
+
+
+
+
+                            Cell. 2011 January 7; 144(1): 143–156. doi:10.1016/j.cell.2010.11.052.
+
+
+
+                           Phenotypic Landscape Bacterial Cell
+
+                           Robert J. Nichols1,2, Saunak Sen3, Yoe Jin Choo2, Pedro Beltrao4, Matylda Zietek2,
+                           Rachna Chaba2, Sueyoung Lee2, Krystyna M. Kazmierczak5, Karis J. Lee2,¶, Angela
+                           Wong2,§, Michael Shales4, Susan Lovett6, Malcolm E. Winkler5, Nevan J. Krogan4,
+                           Athanasios Typas2,*, Carol  Gross2,7,*
+                           1 Oral Craniofacial Sciences Graduate Program, University California San Francisco,
+
+                           513 Parnassus Ave, CA-94143
+                           2Department Microbiology Immunology, University California San Francisco, San
+                           Francisco, 600 16th Street, CA-94158
+                           3Department Epidemiology Biostatistics, University California, San Francisco,
+                           CA-94107
+NIH-PA Author Manuscript
+
+
+
+
+                           4Department Cellular Molecular Pharmacology & California Institute Quantitative
+                           Biomedical Research, University California San Francisco, San Francisco, 1700 4th Street,
+                           CA-94158
+                           5   Department Biology, Indiana University, Bloomington, Indiana 47405
+                           6Department Biology Rosenstiel Basic Medical Sciences Research Center, Brandeis
+                           University, Waltham, Massachusetts 02454-9110
+                           7Department Cell Tissue Biology, University California San Francisco, San
+                           Francisco, California 94158
+
+                           Summary
+                                 explosion sequence information bacteria makes developing high-throughput, cost-
+                                 effective approaches matching genes phenotypes imperative. Using E. coli proof                                  principle, combining large-scale chemical genomics quantitative fitness
+                                 measurements provides high-quality data set rich discovery. Probing growth profiles                                  mutant library hundreds conditions parallel yielded > 10,000 phenotypes allowed                                  study gene essentiality, discover leads gene function drug action, understand higher-
+NIH-PA Author Manuscript
+
+
+
+
+                                 order organization bacterial chromosome. highlight new information derived                                  study, including insights gene involved multiple antibiotic resistance synergy
+                                 broadly used combinatory antibiotic therapy, trimethoprim sulfonamides. data
+
+
+                           © 2010 Elsevier  rights reserved.
+                           *
+                             Corresponding authors: Athanasios Typas: Phone: 415-476-1493; Fax: 415-514-4080; athanasios.typas@ucsf.edu Carol  Gross:
+                           Phone: 415-476-1461; Fax: 415-514-4080; cgrossucsf@gmail.com .
+                           ¶new address: UCLA School Dentistry, 10833 Le Conte Avenue, Los Angeles, CA 90095-1762
+                           §new address: Massachusetts General Hospital, 50 Staniford Street, Boston, MA 02114
+                           Contributions  RJN, NJK CAG conceived study; RJN designed research;  RJN, YJC, SL, JL AW
+                           performed screen; RJN did data processing; RJN, SS, PB analyzed data;  RJN, CAG SL interpreted                            data; RJN, MZ performed follow work anti-folate drug story, work Streptococcus pneumoniae
+                           conducted KMK; RJN, RC, MZ performed follow work mar story; RJN, CAG wrote                            manuscript; RJN MS prepared figures; PB, RC, MEW, KMK, SL, SS NJK edited manuscript; CAG
+                           supervised aspects project.
+                           Publisher's Disclaimer: PDF file unedited manuscript accepted publication. service                            customers providing early version manuscript. manuscript undergo copyediting, typesetting, review                            resulting proof published final citable form. note production process errors                            discovered affect content, legal disclaimers apply journal pertain.
+                            Nichols et al.                                                                                               Page 2
+
+
+                                    set, publicly available http://ecoliwiki.net/tools/chemgen/, valuable resource                                     microbiological bioinformatic communities, provides high-confidence associations
+                                    hundreds annotated uncharacterized genes inferences mode NIH-PA Author Manuscript
+
+
+
+
+                                    action poorly understood drugs.
+
+
+                              Introduction
+                                              physical basis genes understood, associating phenotypes heritable
+                                              unit laid foundation modern genetics. Following discovery genetic code, linking
+                                              phenotype responsible gene remained expeditious way unravel gene
+                                              function. explosion sequence information, balance shifted.                                               genes unknown function. capitalize burgeoning sequence bank,                                               imperative develop high-throughput technologies link genes phenotypes                                               expedite discovery gene function. particularly true prokaryotes,                                               represent major fraction sequenced genomes forefront                                               metagenomic efforts (Qin et al., 2010).
+
+                                              Chemical environmental perturbations traditionally linked phenotypes                                               genotypes forward genetic screens, reverse genetic approaches                                               increasingly utilized (Barker et al., 2010). Phenotype microarrays utilize high-resolution
+                                              readout cellular respiration evaluate fitness strain hundreds conditions
+NIH-PA Author Manuscript
+
+
+
+
+                                              (Bochner, 2009). approach appropriate studying strains, difficult                                               expand genome-scale screens. pooled growth competitions, thousands strains                                               assayed single culture environment. Fitness values derived measuring strain
+                                              abundance test relative control condition (Giaever et al., 2004; Girgis et al., 2009;
+                                              Hillenmeyer et al., 2008; Hoon et al., 2008; Lee et al., 2005; Pan et al., 2004; Parsons et al.,
+                                              2006; Warner et al., 2010; Xu et al., 2007). approaches efficient,                                               competition strains condition makes difficult determine relative strain
+                                              growth conditions (Girgis et al., 2009), especially strains grow slowly                                               absence perturbation (Lee et al., 2005). Arraying mutant strains solid media allows
+                                              independent evaluation strain fitness, used low-resolution
+                                              measurements entire libraries (Liu et al., 2010; Tamae et al., 2008) essential genes
+                                              (Pathania et al., 2009). High-throughput genetic interaction studies, pioneered yeast
+                                              (Schuldiner et al., 2005; Tong et al., 2001), complementary chemical genomics
+                                              approaches. analyses quantitatively measure colony growth double mutants high-
+                                              density format agar surfaces, led numerous successes identifying gene
+                                              function network organization (Beltrao et al., 2010). Similar methodology                                               developed E. coli (Butland et al., 2008; Typas et al., 2008).
+NIH-PA Author Manuscript
+
+
+
+
+                                              use E. coli illustrate power applying high-resolution quantitative fitness
+                                              measurements genetic interaction analysis high-throughput phenotypic analysis                                               culturable microbes. “Phenomic profiling�? provides quantitative description                                               response single gene deletions physiologically relevant stresses drug challenges.
+                                              profiling ~4000 genes >300 perturbations, identified thousands phenotypes                                               diverse suite conditionally essential genes. approach provides new insights                                               chromosome organization, functional landscape evolutionary trajectory E. coli.                                               facilitates high confidence association genes unknown function known
+                                              function, highlighted discovery role gene involved multiple antibiotic
+                                              resistance manuscript identification novel lipoproteins essential                                               peptidoglycan synthesis (Typas et al. Cell, 2010). Finally, degree various gene
+                                              deletions alter toxic drug effects lead powerful insights regarding drug mode 
+
+
+
+
+                                                       Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                            Page 3
+
+
+                                            action (Kohanski et al., 2008) demonstrate analysis generates numerous
+                                            leads concerning drug function.
+NIH-PA Author Manuscript
+
+
+
+
+                              Results Discussion
+                              Phenomic Profiling E. coli K12 yields robust, high-quality dataset
+                                            determined quantitative growth scores Keio single-gene deletion library (Baba et
+                                            al., 2006); essential gene hypomorphs [C-terminally tandem-affinity tagged (Butland et al.,
+                                            2005) specific alleles]; small RNA/small protein knockout library (Hobbs et al.,
+                                            2010) conditions representing range stresses E. coli encounters. Mutant strains
+                                            arrayed high-density agar plates (1536 colonies/plate) grown 324 conditions
+                                            covering 114 unique stresses (Figs. 1A & S1A, Table S1). Colony sizes analyzed                                             converted drug-gene score using approach developed quantifying genetic
+                                            interactions  Experimental Procedures). half conditions antibiotic/
+                                            antimicrobial treatments (Fig. 1A). using sub-inhibitory concentration series                                             maximally inhibited growth wildtype (wt) strain ≤50 , able search                                             specific drug-gene interactions (Fig. S1A), reduce ability spontaneous suppressor
+                                            mutations overtake colony. independently derived clones mutant strain
+                                            analyzed  sRNA mutants, single isolate arrayed twice) screens                                             performed twice, enabling scores based 4-6 independent measurements.
+                                            Correlation replicate colony size measurements high (r=0.77, Fig. 1B).
+NIH-PA Author Manuscript
+
+
+
+
+                                            final dataset (Table S2) comprised scores 3979 mutant strains passing
+                                            quality control (e.g. proper normalized colony size distribution replicate reproducibility;
+                                            Experimental Procedures). entire dataset available interactive, searchable
+                                            format flat file E. coli wiki website  http://ecoliwiki.net/tools/chemgen/).
+
+                                            entire matrix (3979 mutants × 324 conditions) subjected 2-D hierarchical
+                                            clustering (Fig. 1C). Drugs similar effects cluster X-axis; mutants behaved
+                                            similarly cluster Y-axis. Notably, concentrations drug, drugs                                             family similar conditions clustered did mutants genes known                                             operon, biological pathway protein complex. Zoomed insets                                             clustergram illustrate examples. Genes rfa operon (rfaG, rfaP, rfaQ, rfaB rfaI),
+                                            encodes enzymes synthesize inner outer lipopolysaccharide (LPS) core
+                                            strongly cluster 3/4 genes responsible synthesis sugar
+                                            building blocks, ADP-L glycero-β-D-manno heptose (rfaD, rfaE, lpcA). Importantly,
+                                            clustering reflects shared sensitivities concentration series compounds known                                             perturb envelope integrity cell, consistent role LPS. dsbA dsbB,
+                                            encoded different operons, cluster. DsbA/DsbB complex generates disulfide
+                                            bridges periplasm.
+NIH-PA Author Manuscript
+
+
+
+
+                                            response mutant strain conditions denoted “phenotypic
+                                            signature�?. High correlation phenotypic signatures highly predictive                                             known indicators functional connection genes. Gene pairs correlation
+                                            coefficients (r) 0.6 0.8 (p-value <10−34) 100-fold enriched                                             genes sharing common operon membership, 150-fold enriched genes known
+                                            protein interactions determined low-throughput experiments (www.ecocyc.org, Fig.
+                                            1D). benchmarking analysis indicates phenomics dataset biologically
+                                            meaningful. Correlated phenotypic signatures reproduce connections curated
+                                            biological pathways (Fig. S1B). example, electron transfer components cluster tightly
+                                            (e.g. nuo genes encoding NADH dehydrogenase complex; Fig. 1C). clustering
+                                            reflects high sensitivity membrane-perturbing stresses including detergents, dyes                                             metals, increased resistance aminoglycosides, agreement early studies                                             illustrate decreased aminoglycoside uptake absence fully functional electron
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                             Page 4
+
+
+                                            transport chain (Girgis et al., 2009;Taber et al., 1987). examples described Fig.
+                                            1C consistent expectation highly correlated phenotypic signatures                                             biologically meaningful (r≥ 0.6 -0.8).
+NIH-PA Author Manuscript
+
+
+
+
+                              Phenomic profiling defines Responsive Conditionally-Essential Genes
+                                            central goal study systematically evaluate impact gene deletion
+                                            E. coli fitness diverse environments, gene deletions E. coli robust
+                                            reported growth phenotypes 8  genes essential rich media (Baba et
+                                            al., 2006; Yamamoto et al., 2009). used statistical method define reliable
+                                            phenotype. Briefly, standardized interquartile range distribution scores                                             screen determined probability condition-gene interaction
+                                            represented true phenotype using normal cumulative distribution function                                              Experimental Procedures). Using 5  probability phenotypes arose chance                                             cut (false discovery rate (FDR) ≤5 ), 49  strains tested (1957/3979 strains; Fig.
+                                            2A) phenotypes. refer genes “responsive genome�?.                                             “responsive genome�? work progress, limited genes removal causes
+                                            growth phenotypes response stresses tested. Expanding stresses tested                                             readout (e.g. motility) certainly increase number (Girgis et al., 2007).                                             cumulative plot number individual phenotypes strain shows genes
+                                            phenotypes. Multi-Stress Responsive (MSR) strains (≥30 phenotypes; Table S3)
+                                            participate cellular processes, suggesting stresses encompassed diverse
+NIH-PA Author Manuscript
+
+
+
+
+                                            cellular challenges (Fig. 2B). stringent cut 5  FDR, maximum number                                             phenotypes single screen 173 (~4  strains; Fig. S2A), total number                                             phenotypes (13497) represent ~1  condition-gene pairs tested. Overall, 80                                              phenotypes negative (gene deletion sensitive) 20  positive (gene deletion
+                                            resistant), consistent recent genetic interaction analyses S. cerevisiae (Fiedler
+                                            et al., 2009) S. pombe (Roguev et al., 2008). suggests removal gene
+                                            product likely decrease enhance resistance stress (Fig. S2B). summary,
+                                            analysis captured numerous highly specific condition-gene responses. Clearly,                                             dataset used assign phenotypes lower confidence level.  recent
+                                            chemical genomics dataset S. cerevisiae reported phenotypes 95  gene
+                                            deletions tested, stemming handful severe stresses (Hillenmeyer et al.,
+                                            2008).
+
+                                            Conditionally essential (CE) genes essential growth particular condition.
+                                            Deletions genes small colony sizes high confidence negative scores
+                                            particular conditions  Experimental Procedures). identified 197 CE genes,
+                                            comprised auxotrophs, exhibit growth minimal media, rich-media CE
+                                            genes, exhibit growth rich media-based stress (Table S4).
+NIH-PA Author Manuscript
+
+
+
+
+                                            Importantly, dataset 70  overlap previous study Keio Collection
+                                            auxotrophs (Fig 2C, (Joyce et al., 2006) despite significant experimental differences (e.g.
+                                            growth liquid vs. solid media). remaining 30  extremely sick,                                             stringent threshold used define growth. identified 23 additional
+                                            auxotrophs specific alternative carbon/nitrogen sources tested Joyce et al. study.
+
+                                            Genes essential survival natural environments likely extend                                             required laboratory growth, targets new antimicrobials (D’Elia et al.,
+                                            2009). 116 rich-media CE genes identified (Fig. 2C) result physiologically
+                                            relevant stresses, increase current number essential genes roughly 30 .
+                                            Interestingly, gene products located outer cell envelope (Fig 2D),                                             selective permeability barrier gram-negative bacteria severely underrepresented
+                                            known essential genes (Fig. 2D). stresses generating CE phenotypes                                             natural environment E. coli, e.g. bile salts (Table S5), indicating genes
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                            Page 5
+
+
+                                            likely indispensable E. coli survive vivo. Similarly, using largest
+                                            metagenomic dataset date, Qin et al. reported envelope-specific functions,                                             adhesion, commonly required life gut (Qin et al., 2010).
+NIH-PA Author Manuscript
+
+
+
+
+                              Phenomic profiling helps assign function uncharacterized genes
+                                            key motivation study provide phenotypes mutants genes                                             functional annotation. Using recently assembled compendium “orphan genes�?                                             E. coli (Hu et al., 2009), fraction mutant orphan genes phenotypes                                             close annotated genes (Fig. 3A), tend fewer phenotypes,
+                                            indicating power phenomic analysis identifying phenotypes. Importantly,                                             phenotypic profiles >25  orphan genes correlate strongly annotated
+                                            genes (r ≥ 0.5; Fig. 3B & Table S6), providing high confidence leads (p-value <10−22)                                             discovery function. orphans tied wide variety cellular processes
+                                            (Fig. 3C), dataset broad utility.
+
+                                            small fraction orphan gene knockouts phenotypes. annotated genes
+                                            responsible phenotypes broadly distributed bacteria,                                             responsive orphans tend narrowly distributed (Fig. 3D). result suggests                                             evolutionary conservation reliable indicator importance orphan gene                                             organism, annotating solely homology limitations. orphans
+                                            evolved fulfill important specialized function required niche NIH-PA Author Manuscript
+
+
+
+
+                                            organism. support idea, multi-responsive orphan identified study
+                                            (lpoB) restricted enterobacteria regulates peptidoglycan synthesis, conserved
+                                            process ubiquitous bacteria (Typas et al.; Cell, 2010).
+
+                              Using phenotypic signatures identify gene function
+                                            correlated phenotypic signatures (Fig. 1C&D; Typas et al.; Cell, 2010)                                             anticorrelated phenotypic signatures functional significance. example,                                             phenotypic signatures deletions transcriptional repressor important target genes
+                                            likely anticorrelated. marR− marB− highly anticorrelated
+                                            acrB−, marR− marB− highly correlated (Fig. 4A). marB gene                                             unknown function multiple antibiotic resistance operon (marRAB),                                             includes operon repressor, marR, activator, marA. MarA activates genes
+                                            involved antibiotic resistance, importantly acrAB, encoding major antibiotic
+                                            efflux pump E. coli (Fig. 4B; (Martin Rosner, 2002). explored MarB,
+                                            like MarR, repressed MarA. inherent problems high-throughput
+                                            collections (suppressors, gene duplications, cross-contamination), apply stringent
+                                            quality control procedures follow investigations including PCR-validation Keio
+NIH-PA Author Manuscript
+
+
+
+
+                                            isolates, verification retransduced strains maintain phenotype. mar                                             hotspot adaptive mutations, sequenced entire operon promoter region                                             single deletions double mutants constructed.
+
+                                            Deletion marB marR resulted higher MarA levels, double marRB
+                                            mutant showed additive effects MarA transcript level (Fig. 4C) protein level (data
+                                            shown). effects observed Kan-marked clean deletions (Kan
+                                            cassette excised, leaving 82nt scar). ΔmarR strain exhibits ~2X increase                                             MarA transcript levels marR::kan (data shown), arguing small polar effect                                             cassette. marB::kan ΔmarB exhibit 2-fold increase MarA levels
+                                            (data shown). data suggest MarB represses MarA independently MarR.
+                                            MarB does signature DNA-binding protein, suggesting acts post-
+                                            transcriptionally. MarA level controlled Lon protease (Griffith et al., 2004),                                             lon− marB− effects additive, indicating MarB does function Lon
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                            Page 6
+
+
+                                            (data shown). MarA proposed scan activation sites bound RNA
+                                            polymerase; direct binding partner, MarB disrupt complex formation.
+                                            Aternatively, MarB function periplasm. MarB predicted periplasmic
+NIH-PA Author Manuscript
+
+
+
+
+                                            signal sequence, titrate activating ligand mar (e.g. salicylate).
+
+                                            mar highly studied (~200 primary publications; Pubmed), screen provided
+                                            lead MarB function. MarA targets approximately 40 genes,                                             regulated SoxS Rob activators, similar DNA-binding motifs                                             MarA (Martin et al., 2008; Martin Rosner, 2002). rules engagement poorly
+                                            understood, activator responds different environmental cues overexpression
+                                            leads distinct phenotypes (Warner Levy, 2010). likely tight control
+                                            activator impacts final gene expression output, crucial cellular
+                                            proliferation. MarB important player fine-tuning expression MarA,
+                                            especially conserved member mar operon, recently
+                                            emerged selected enterobacteria. Strong evidence importance mar operon
+                                            regulation organisms mar hotspot mutations conferring higher drug
+                                            resistance E. coli (Nicoloff et al., 2007; Nicoloff et al., 2006).
+
+                              Phenomic profiling reveals metabolic network behaviors anti-folate drug stress
+                                            Tetrahydrofolate (THF) methyl/formylated derivatives key molecules                                             kingdoms life carbon metabolism. THF used synthesize glycine, methionine,
+NIH-PA Author Manuscript
+
+
+
+
+                                            purines dTTP, process leads recycling THF species THF                                             dihydrofolate (DHF) (Fig. 5A). bacterial THF biosynthesis pathway targeted                                             drugs: Sulfonamides (Sulfa) target FolP, Trimethoprim (TMP) targets FolA (Fig. 5A).
+                                            Dual inhibition Sulfa TMP strongly synergistic, drugs                                             exclusively administered combination treatment ear, urinary tract                                             bronchial infections. Despite extensive clinical use years laboratory investigation,                                             lack complete mechanistic understanding drugs strongly synergistic.                                             network feature identified phenomic profiling contribute synergy.
+
+                                            drug classes major phenotypic differences. Sulfa TMP
+                                            treatments highly correlated class (r=0.57 Sulfa; 0.67 TMP),                                             poorly correlated (r=0.15 +/− 0.04), just slightly correlation
+                                            observed screens (r=0.025 +/− 0.12).  subinhibitory TMP Sulfa
+                                            treatments fundamentally different effects cell, partially block
+                                            THF biosynthesis. Importantly, removing enzymes acting directly downstream THF
+                                            production resulted opposite drug sensitivities: serine hydroxymethyltransferase
+                                            mutant (glyA::kan) sensitive TMP; conversely, glycine cleavage (GCV) mutants
+                                            (gcvP::kan, gcvH::kan, gcvT::kan) sensitive Sulfa (Fig 5B). mutant results
+NIH-PA Author Manuscript
+
+
+
+
+                                            reproduced liquid culture (Fig. 5D), glyA− TMP sensitivity manifested                                             growth rate phenotype (left panel), gcvP− sulfamethizole (SMT) sensitivity registered
+                                            low stationary phase density (right panel).
+
+                                            GlyA GCV lie opposite sides branched pathway converts THF 5,10-
+                                            methylene THF (5,10-mTHF; Fig 5A). glyA gcv mutants exhibit synthetic lethality,
+                                            routes production essential metabolite (Fig. 5C). simple
+                                            explanation differential responses glyA− gcvP− 5,10-mTHF                                             predominantly produced different branches drug treatment. corollary                                             combination drug treatment inhibits branches, resulting synergistic limitation                                             5,10-mTHF, pools THF depleted. support idea, despite                                             increased sensitivity glyA− gcvP− single drugs, strains grew poorly
+                                            wt drug combination (Fig. 5D).  genetically eliminating branch                                             pathway reduced did eliminate synergy. downstream biosynthetic reactions
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                               Page 7
+
+
+                                            differentially affected TMP Sulfa (Fig. S3A), currently testing
+                                            partially account residual synergy. Streptococcus pneumoniae lacks                                             GCV exhibits significantly drug synergy E. coli different growth
+NIH-PA Author Manuscript
+
+
+
+
+                                            conditions (Fig. 5E & data shown). performed comparison using concentrations
+                                            TMP SMT caused relative growth defect species (Fig. 5E).
+                                            data support hypothesis simultaneous inhibition branched
+                                            pathway production 5,10-mTHF contributes observed anti-folate synergy E.
+                                            coli.
+
+                                            data indicate differential effects TMP Sulfa GlyA GCV
+                                            result differential inhibition expression activity, intrinsic properties                                             enzyme. favor idea differential metabolite accumulation subsequent feed-
+                                            forward enzymatic regulation make contribution distinct cellular responses                                             drugs. Recent metabolomic flux analyses indicate high doses TMP lead                                             accumulation depletion select metabolites, protein-level regulation                                             portions network (Kwon et al., 2010; Kwon et al., 2008). comparable
+                                            analysis performed Sulfa drugs, deletion predicted 5-formyl-THF
+                                            cycloligase, ygfA, likely degrades 5-formyl-THF (Jeanguenin et al., 2010), clusters
+                                            tightly gcv mutants, exhibits sensitivity Sulfa drugs (Fig. S3A). 5-
+                                            formyl-THF degradation critical Sulfa stress suggests differential
+                                            accumulation  requirement) THF species Sulfa TMP treatments. 5-formyl-
+NIH-PA Author Manuscript
+
+
+
+
+                                            THF known inhibitor enzymes THF network organisms (Field
+                                            et al., 2006; Stover Schirch, 1993), act effective protein-level regulator.
+                                            Similarly, strain lacking predicted alanine racemase, yggS, sensitive Sulfa; D-
+                                            alanine known inactivate GlyA (Schirch et al., 1985), yggS− glyA− form                                             synthetic lethal pair (Fig. S3B).  different cellular responses drugs                                             metabolite-based enzymatic regulation. extension synergy                                             combination therapy rest primarily complementary inhibition different 
+                                            carbon biosynthesis reactions, recycling THFs. model allow                                             synergy expected additive limitation THF production.
+
+                                            summary, results illustrate power phenomic profiling yield insights drug
+                                            action ability networks view provide new paradigms analysis drug
+                                            interaction mechanisms, facilitate hypothesis-driven research drug interactions
+                                            (Bollenbach et al., 2009). type analysis generally useful predicting drug
+                                            synergies, explaining variable drug-drug interactions species.
+
+                              Phenomic profiling gives insights genomic organization
+                                            E. coli genome encoded single, circular chromosome, single origin NIH-PA Author Manuscript
+
+
+
+
+                                            replication, oriC. Essential genes biased plus (+) strand, transcription
+                                            proceeds direction DNA replication. avert head collisions
+                                            RNA DNA polymerases result aborted transcripts, truncated,                                             frame-shifted proteins (Rocha Danchin, 2003). responsive CE
+                                            genes, important optimal growth organism, + strand bias (Fig.
+                                            6A).  weighted responsive genome (responsive genes weighted number                                             phenotypes identified) heavily biased + strand, indicating great selective pressure                                             place genes important rapid growth + strand. Conversely, non-responsive
+                                            genome biased minus (−) strand. approaches expand incorporate
+                                            additional phenotypic readouts important cells reduced division DNA
+                                            replication (e.g. biofilm formation), + strand bias responsive genes presumably                                             reduced.
+
+
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                             Page 8
+
+
+                                            chromosome massively compacted cell create nucleoid, thought
+                                            contribute significantly organization gene expression (Travers                                             Muskhelishvili, 2005; Vora et al., 2009). Chromosomal loci spatial addresses NIH-PA Author Manuscript
+
+
+
+
+                                            cell, corresponding closely chromosomal position (Toro Shapiro, 2010).
+                                            Additionally, highly expressed genes associated transcription translation                                             located near origin replication (oriC), presumably benefit “gene dosage�?
+                                            effect created rapidly growing cells initiate multiple rounds DNA replication                                             division (Couturier Rocha, 2006). Projecting spatial distribution responsive
+                                            genes circular chromosome (Fig. 6B, black trace) provides snapshot                                             E. coli genome functional perspective. projection based 100kb sliding
+                                            window captures organization operon level (Fig. S4A; Experimental
+                                            Procedures). pattern alternating peaks valleys clearly evident, indicating                                             responsive genes cluster spatially large chromosomal regions separated regions
+                                            generally devoid responsive genes. “Valleys�? comprised spatially separated
+                                            operons transcribed different strands, indicating low responsiveness                                             regional characteristic artifact large non-responsive operons.                                             finding clustering operon level accord studies showing                                             gene expression broadly correlated certain regions chromosome (Carpentier
+                                            et al., 2005; Jeong et al., 2004).
+
+                                            responsive genome enriched oriC, highest concentration
+NIH-PA Author Manuscript
+
+
+
+
+                                            responsive genes (Fig. 6B, black trace). area enriched responsive
+                                            genes (Fig. S4B), conditionally essential (CE) genes (Fig. 6B, red trace), providing
+                                            strong support idea E. coli chromosome tends store genes high
+                                            functional importance near oriC. contrast, terminus region relatively devoid                                             responsive genes (Fig 6B, black trace), paucity broadly conserved genes (Fig 6C,
+                                            red trace) corresponding enrichment genes restricted γ-proteobacteria (Fig 6C,
+                                            blue trace). postulate terminus region contains newly acquired genes                                             fully integrate cellular network, tend lack phenotypes.                                             enable cells avoid unnecessarily high expression genes consequence                                             gene-dosage effect. result prove true bacterial species, point                                             general organizing principle circular chromosomes.
+
+                              Phenomic Profiling Describes Drug Action
+                                            “Drug-centric�? analyses complex “gene-centric�? analyses. genes
+                                            participate single biological process, parameters required                                             drug action: uptake, primary/secondary targets, efflux.  pairwise relationships
+                                            drugs complex genes. example, drugs                                             cluster based drug uptake, primary targets differ. addition, drug
+NIH-PA Author Manuscript
+
+
+
+
+                                            signatures order magnitude larger gene signatures (3979 vs. 324). reduce
+                                            complexity drug signatures, calculated Drug-Gene Ontology   scores,                                             represent probability given group specifically interacts given drug  e.
+                                            number phenotypes associated genes group vs. entire dataset).
+                                            used Drug scores explore drug mode action network-based
+                                            clustering strategy  Experimental Procedures). position drugs network (Fig.
+                                            7A) based magnitude Drug-Gene Ontology   scores (gray)                                             Drug-Drug correlations (yellow). 719 significant Drug interactions (p-value ≤
+                                            10−3), include 64 drugs 218 groups, 657 negative 62                                             positive.  disrupting linked biological process likely increase drug
+                                            sensitivity (Table S7). Drug-Drug correlations increased resolution network                                             captured drug similarities escaped Drug analysis.
+
+
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                             Page 9
+
+
+                                            drugs cellular target tend cluster. example, drugs
+                                            targeting DNA (orange) fall lower right, targeting THF-biosynthesis (light
+                                            green) fall edge targeting peptidoglycan (PG; purple)
+NIH-PA Author Manuscript
+
+
+
+
+                                            predominantly cluster upper left. Interestingly, β-lactams cover center PG
+                                            cluster, drugs targeting steps PG synthesis located periphery.                                             correlation coefficients β-lactams reveal similarity phenotypic
+                                            signatures related respective primary target Penicillin Binding Proteins (Fig. S5A).
+                                            Interestingly, known synergistic double drug combinations (TMP/sulfonamides                                             mecillinam/cefsulodin) occupy spaces distinct individual drug, arguing                                             combination elicits different cellular response individual drugs.                                             interesting determine holds true antagonistic neutral interactions                                             combinations elicit responses closer drugs.
+
+                                            Importantly, specific Drug interactions suggest hypotheses mechanism action
+                                            studied drugs. Quinolones inhibit DNA gyrase trapping quinolone
+                                            adduct, mechanism resolution poorly understood (Drlica et al., 2008).                                             category, “cellular DNA catabolic process�? (xseAB) selectively specifically (p-
+                                            value=10−6) interacted negatively quinolones screened (Fig 7B & S5B),
+                                            expanding previous report xseAB mutant sensitivity fluoroquinolones (Tamae et
+                                            al., 2008). suggest XseAB (exonuclease VII) enzyme cleaves quinolone-
+                                            bound DNA gyrase DNA allow repair proceed, possibility currently
+NIH-PA Author Manuscript
+
+
+
+
+                                            exploring.
+
+                                            drug network provides clues mode action poorly described drugs, 
+                                            conversely suggests additional factors required explain action drugs.
+                                            Nitrofurantoin (NTF; Fig. 7B) reported multi-faceted impact cells (McOsker
+                                            Fitzpatrick, 1994;Tu McCalla, 1975), data suggests cytotoxic effects
+                                            reflect DNA damage, causes lesions requiring nucleotide-excision repair (NER)                                             activates SOS response. NTF DNA-targeting drug requiring NER,                                             double-strand break repair, suggesting primary toxic lesion associated                                             replication fork (Fig. S5B). Additionally, network analysis validates idea                                             indolicidin, neutrophil antimicrobial peptide, mediates effects compromising                                             inner membrane permeability E. coli manner similar proton motive force
+                                            uncoupler, CCCP (Falla et al., 1996). Finally, phleomycin bleomycin cluster                                             DNA response drugs, suggesting broader cellular impact (Hecht, 2000;Yeh et al.,
+                                            2006), inducing DNA scissions (Giloni et al., 1981). insights suggest                                             phenomic dataset rich source discovery drug function interrelationships.
+
+                              Perspectives
+NIH-PA Author Manuscript
+
+
+
+
+                                            pace exploding sequence information, cost-effective, high-throughput
+                                            phenotyping technologies developed. phenomic profiling E.
+                                            coli fulfills goal. dataset great utility identifying function orphan
+                                            genes. cases (marB, lpoA, lpoB) investigated study based                                             dataset (Typas et al., Cell, 2010), actively pursuing functional discovery                                             numerous (>20) orphan genes, annotated genes previously unsuspected roles
+                                            collaboration  >25  orphan genes highly correlated                                             annotated gene (r≥ 0.5), dataset provides rapid method function discovery.
+
+                                            important finding responsive orphan genes tend narrowly
+                                            distributed bacteria. Interestingly, results mirror initial observations human
+                                            microbiome studies. studies   roughly half functions encoded                                             minimal gut metagenome (ubiquitously present 124 individuals screened) 
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                                               Page 10
+
+
+                                            unknown limited evolutionary conservation (Qin et al., 2010); b) 4 pan-
+                                            genome species analyzed, vast majority non-common genes unknown
+                                            function (~70 ) unique family members functions core gene set
+NIH-PA Author Manuscript
+
+
+
+
+                                            (Nelson et al., 2010). probably species-specific additions conserved
+                                            biological processes pan-genome. studies argue                                             computational methods based gene conservation fail, large-scale phenomic analyses                                             second tier assigning function. make approach reality, low cost methods
+                                            developing deletion libraries developed (Goodman et al., 2009). Single-gene
+                                            deletion ordered libraries currently available handful organisms [(Cameron
+                                            et al., 2008; Berardinis et al., 2008; Gallagher et al., 2007; Goodman et al., 2009; Kim et
+                                            al., 2010; Liu et al., 2008; Noble et al., 2010) references (Barker et al., 2010)],                                             advances transposon mutagenesis make feasible create ordered mutant libraries                                             organisms. E. coli, expansion work rest ability assess additional
+                                            phenotypes deeper exploration phenotypic space. greatest potential resides                                             intersection screening diverse stresses incorporating additional cellular
+                                            readouts. Colorimetric readouts enable measurement transcriptional activity                                             biofilm formation solid agar surfaces, represent immediate potential advance                                             phenomic profiling. High-throughput microscopy provide new avenue                                             approaches (Werner et al., 2009).
+
+                                            dataset provides information substantial collection antibiotics/antimicrobial
+NIH-PA Author Manuscript
+
+
+
+
+                                            compounds cover broad spectrum drug targets, structural classes drug
+                                            generations, providing platform future studies focused natural products                                             antimicrobials unknown targets. dataset provide platform studying
+                                            mechanism drug interactions (Yeh et al., 2009), shown case                                             sulfonamides TMP. Understanding mechanism underlying known drug interactions
+                                            help predict novel interactions manipulate existing drug combinations                                             increase effectiveness clinic.
+
+                                            summary, generated valuable resource microbiologists studying wide
+                                            range biology, demonstrated numerous diverse applications dataset                                             infer information gene drug function. comprehensive prokaryotic
+                                            chemical genomic study date (3979 strains × 324 conditions), dataset serve                                             base future studies aim increase information resolution gene
+                                            drug fronts. hope usefulness resource trigger analogous studies
+                                            organisms, bringing step nearer closing gene sequence-function gap.
+
+                              Experimental procedures
+NIH-PA Author Manuscript
+
+
+
+
+                                            Experimental procedures partially elaborated text figure legends, fully
+                                            explicated supplementary material.
+
+                              Supplementary Material
+                                            Refer Web version PubMed Central supplementary material.
+
+
+                              Acknowledgments
+                                            thank R. Kishony, J. Weissman,  Hochschild RG Martin critically reading manuscript; J. Hu                                             P. Thomas hosting data E. coli Wiki; C. Raetz CHIR-090 M. Gottesman Bicyclomycin; H.
+                                            Mori Keio Collection; G. Storz sharing sRNA deletion library prior publication; J.Greenblatt                                              Emili SPA-tagged alleles; W. Margolin, R. Misra, T. Silhavy B. Palsson mutants; T. Baker R.
+                                            Sauer controllable degradation plasmids. work supported NIH R01 GM085697 & ARRA
+                                            GM085697-01S1 CAG NJK; NIH R01 GM036278 CAG, NIH K99GM092984  NIH AI060744                                             MEW, NIH GM078338 SS; NIH F31 DE020206-01 NIH T32 DE007306 (RJN support); European
+
+
+                                                      Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                                      Page 11
+
+                                            Molecular Biology Organization long-term fellowship  ; Human Frontier Science Program Long-Term
+                                            Postdoctoral Fellowship  PB).
+NIH-PA Author Manuscript
+
+
+
+
+                              References
+                                            Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, Datsenko KA, Tomita M, Wanner BL,
+                                               Mori H. Construction Escherichia coli K-12 frame, single-gene knockout mutants: Keio
+                                               collection. Mol Syst Biol. 2006; 2:0008. 2006. [PubMed: 16738554]
+                                            Barker CA, Farha MA, Brown ED. Chemical genomic approaches study model microbes. Chem
+                                               Biol. 2010; 17:624–632. [PubMed: 20609412]
+                                            Beltrao P, Cagney G, Krogan NJ. Quantitative genetic interactions reveal biological modularity. Cell.
+                                               2010; 141:739–745. [PubMed: 20510918]
+                                            Bochner BR. Global phenotypic characterization bacteria. FEMS Microbiol Rev. 2009; 33:191–205.
+                                               [PubMed: 19054113]
+                                            Bollenbach T, Quan S, Chait R, Kishony R. Nonoptimal microbial response antibiotics underlies
+                                               suppressive drug interactions. Cell. 2009; 139:707–718. [PubMed: 19914165]
+                                            Butland G, Babu M, Diaz-Mejia JJ, Bohdana F, Phanse S, Gold B, Yang W, Li J, Gagarinova AG,
+                                               Pogoutse O, et al. eSGA: E. coli synthetic genetic array analysis. Nat Methods. 2008; 5:789–795.
+                                               [PubMed: 18677321]
+                                            Butland G, Peregrin-Alvarez JM, Li J, Yang W, Yang X, Canadien V, Starostine  Richards D,
+                                               Beattie B, Krogan N, et al. Interaction network containing conserved essential protein
+                                               complexes Escherichia coli. Nature. 2005; 433:531–537. [PubMed: 15690043]
+NIH-PA Author Manuscript
+
+
+
+
+                                            Cameron  Urbach JM, Mekalanos JJ. defined transposon mutant library use identifying
+                                               motility genes Vibrio cholerae. Proc Natl Acad Sci U S  2008; 105:8736–8741. [PubMed:
+                                               18574146]
+                                            Carpentier  Torresani B, Grossmann  Henaut  Decoding nucleoid organisation Bacillus
+                                               subtilis Escherichia coli gene expression data. BMC Genomics. 2005; 6:84. [PubMed:
+                                               15938745]
+                                            Couturier E, Rocha EP. Replication-associated gene dosage effects shape genomes fast-growing
+                                                bacteria transcription translation genes. Mol Microbiol. 2006; 59:1506–1518.
+                                                [PubMed: 16468991]
+                                            D’Elia MA, Pereira MP, Brown ED. essential genes really essential? Trends Microbiol. 2009;
+                                                17:433–438. [PubMed: 19765999]
+                                            Berardinis V, Vallenet D, Castelli V, Besnard M, Pinet  Cruaud C, Samair S, Lechaplais C,
+                                                Gyapay G, Richez C, et al. complete collection single-gene deletion mutants Acinetobacter
+                                                baylyi ADP1. Mol Syst Biol. 2008; 4:174. [PubMed: 18319726]
+                                            Drlica K, Malik M, Kerns RJ, Zhao X. Quinolone-mediated bacterial death. Antimicrob Agents
+                                                Chemother. 2008; 52:385–392. [PubMed: 17724149]
+                                            Falla TJ, Karunaratne DN, Hancock  Mode action antimicrobial peptide indolicidin. J
+                                                Biol Chem. 1996; 271:19298–19303. [PubMed: 8702613]
+NIH-PA Author Manuscript
+
+
+
+
+                                            Fiedler D, Braberg H, Mehta M, Chechik G, Cagney G, Mukherjee P, Silva AC, Shales M, Collins SR,
+                                                van Wageningen S, et al. Functional organization S. cerevisiae phosphorylation network.
+                                                Cell. 2009; 136:952–963. [PubMed: 19269370]
+                                            Field MS, Szebenyi DM, Stover PJ. Regulation novo purine biosynthesis                                                 methenyltetrahydrofolate synthetase neuroblastoma. J Biol Chem. 2006; 281:4215–4221.
+                                                [PubMed: 16365037]
+                                            Gallagher LA, Ramage E, Jacobs MA, Kaul R, Brittnacher M, Manoil C. comprehensive transposon
+                                                mutant library Francisella novicida, bioweapon surrogate. Proc Natl Acad Sci U S  2007;
+                                                104:1009–1014. [PubMed: 17215359]
+                                            Giaever G, Flaherty P, Kumm J, Proctor M, Nislow C, Jaramillo DF, Chu  Jordan MI, Arkin AP,
+                                                Davis RW. Chemogenomic profiling: identifying functional interactions small molecules                                                 yeast. Proc Natl Acad Sci U S  2004; 101:793–798. [PubMed: 14718668]
+                                            Giloni L, Takeshita M, Johnson F, Iden C, Grollman AP. Bleomycin-induced strand-scission DNA.
+                                                Mechanism deoxyribose cleavage. J Biol Chem. 1981; 256:8608–8615. [PubMed: 6167580]
+
+
+
+                                                     Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                                   Page 12
+
+
+                                            Girgis HS, Hottes AK, Tavazoie S. Genetic architecture intrinsic antibiotic susceptibility. PLoS
+                                                 2009; 4:e5629. [PubMed: 19462005]
+                                            Girgis HS, Liu Y, Ryu WS, Tavazoie S. comprehensive genetic characterization bacterial
+NIH-PA Author Manuscript
+
+
+
+
+                                                motility. PLoS Genet. 2007; 3:1644–1660. [PubMed: 17941710]
+                                            Goodman AL, McNulty NP, Zhao Y, Leip D, Mitra RD, Lozupone CA, Knight R, Gordon JI.
+                                                Identifying genetic determinants needed establish human gut symbiont habitat. Cell Host
+                                                Microbe. 2009; 6:279–289. [PubMed: 19748469]
+                                            Griffith KL, Shah IM, Wolf Jr. Proteolytic degradation Escherichia coli transcription activators
+                                                SoxS MarA mechanism reversing induction superoxide (SoxRS)                                                 multiple antibiotic resistance (Mar) regulons. Mol Microbiol. 2004; 51:1801–1816. [PubMed:
+                                                15009903]
+                                            Hecht SM. Bleomycin: new perspectives mechanism action. J Nat Prod. 2000; 63:158–168.
+                                                [PubMed: 10650103]
+                                            Hillenmeyer  Fung E, Wildenhain J, Pierce SE, Hoon S, Lee W, Proctor M, St Onge RP, Tyers M,
+                                                Koller D, et al. chemical genomic portrait yeast: uncovering phenotype genes.
+                                                Science. 2008; 320:362–365. [PubMed: 18420932]
+                                            Hobbs EC, Astarita JL, Storz G. Small RNAs small proteins involved resistance cell
+                                                envelope stress acid shock Escherichia coli: analysis bar-coded mutant collection. J
+                                                Bacteriol. 2010; 192:59–67. [PubMed: 19734312]
+                                            Hoon S, Smith  Wallace IM, Suresh S, Miranda M, Fung E, Proctor M, Shokat KM, Zhang C,
+                                                Davis RW, et al. integrated platform genomic assays reveals small-molecule bioactivities.
+                                                Nat Chem Biol. 2008; 4:498–506. [PubMed: 18622389]
+NIH-PA Author Manuscript
+
+
+
+
+                                            Hu P, Janga SC, Babu M, Diaz-Mejia JJ, Butland G, Yang W, Pogoutse O, Guo X, Phanse S, Wong P,
+                                                et al. Global functional atlas Escherichia coli encompassing previously uncharacterized
+                                                proteins. PLoS Biol. 2009; 7:e96. [PubMed: 19402753]
+                                            Jeanguenin L, Lara-Nunez  Pribat  Mageroy M. Hamner, Gregory JF 3rd, Rice KC, Crecy-
+                                                Lagard V, Hanson AD. Moonlighting glutamate formiminotransferases functionally replace 5-
+                                                formyltetrahydrofolate cycloligase. J Biol Chem. 2010
+                                            Jeong KS, Ahn J, Khodursky AB. Spatial patterns transcriptional activity chromosome                                                 Escherichia coli. Genome Biol. 2004; 5:R86. [PubMed: 15535862]
+                                            Joyce AR, Reed JL, White  Edwards R, Osterman  Baba T, Mori H, Lesely SA, Palsson BO,
+                                                Agarwalla S. Experimental computational assessment conditionally essential genes                                                 Escherichia coli. J Bacteriol. 2006; 188:8259–8271. [PubMed: 17012394]
+                                            Kim DU, Hayles J, Kim D, Wood V, Park HO, Won M, Yoo HS, Duhig T, Nam M, Palmer G, et al.
+                                                Analysis genome-wide set gene deletions fission yeast Schizosaccharomyces pombe.
+                                                Nat Biotechnol. 2010; 28:617–623. [PubMed: 20473289]
+                                            Kohanski MA, Dwyer DJ, Wierzbowski J, Cottarel G, Collins JJ. Mistranslation membrane proteins
+                                                component activation trigger antibiotic-mediated cell death. Cell. 2008; 135:679–
+                                                690. [PubMed: 19013277]
+                                            Kwon YK, Higgins MB, Rabinowitz JD. Antifolate-induced depletion intracellular glycine NIH-PA Author Manuscript
+
+
+
+
+                                                purines inhibits thymineless death E. coli. ACS Chem Biol. 2010; 5:787–795. [PubMed:
+                                                20553049]
+                                            Kwon YK, Lu W, Melamud E, Khanam N, Bognar  Rabinowitz JD. domino effect antifolate
+                                                drug action Escherichia coli. Nat Chem Biol. 2008; 4:602–608. [PubMed: 18724364]
+                                            Lee W, St Onge RP, Proctor M, Flaherty P, Jordan MI, Arkin AP, Davis RW, Nislow C, Giaever G.
+                                                Genome-wide requirements resistance functionally distinct DNA-damaging agents. PLoS
+                                                Genet. 2005; 1:e24. [PubMed: 16121259]
+                                            Liu  Tran L, Becket E, Lee K, Chinn L, Park E, Tran K, Miller JH. Antibiotic sensitivity profiles
+                                                determined Escherichia coli gene knockout collection: generating antibiotic bar code.
+                                                Antimicrob Agents Chemother. 2010; 54:1393–1403. [PubMed: 20065048]
+                                            Liu OW, Chun CD, Chow ED, Chen C, Madhani HD, Noble SM. Systematic genetic analysis                                                 virulence human fungal pathogen Cryptococcus neoformans. Cell. 2008; 135:174–188.
+                                                [PubMed: 18854164]
+
+
+
+
+                                                     Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                                  Page 13
+
+
+                                            Martin RG, Bartlett ES, Rosner JL, Wall  Activation Escherichia coli marA/soxS/rob
+                                                regulon response transcriptional activator concentration. J Mol Biol. 2008; 380:278–284.
+                                                [PubMed: 18514222]
+NIH-PA Author Manuscript
+
+
+
+
+                                            Martin RG, Rosner JL. Genomics marA/soxS/rob regulon Escherichia coli: identification                                                 directly activated promoters application molecular genetics informatics microarray
+                                                data. Mol Microbiol. 2002; 44:1611–1624. [PubMed: 12067348]
+                                            McOsker CC, Fitzpatrick PM. Nitrofurantoin: mechanism action implications resistance
+                                                development common uropathogens. J Antimicrob Chemother. 1994; 33(Suppl :23–30.
+                                                [PubMed: 7928834]
+                                            Nelson KE, Weinstock GM, Highlander SK, Worley KC, Creasy HH, Wortman JR, Rusch DB,
+                                                Mitreva M, Sodergren E, Chinwalla  et al. catalog reference genomes human
+                                                microbiome. Science. 2010; 328:994–999. [PubMed: 20489017]
+                                            Nicoloff H, Perreten V, Levy SB. Increased genome instability Escherichia coli lon mutants:
+                                                relation emergence multiple-antibiotic-resistant (Mar) mutants caused insertion sequence
+                                                elements large tandem genomic amplifications. Antimicrob Agents Chemother. 2007;
+                                                51:1293–1303. [PubMed: 17220404]
+                                            Nicoloff H, Perreten V, McMurry LM, Levy SB. Role tandem duplication lon protease                                                 AcrAB-TolC- dependent multiple antibiotic resistance (Mar) Escherichia coli mutant
+                                                mutations marRAB acrRAB. J Bacteriol. 2006; 188:4413–4423. [PubMed:
+                                                16740948]
+                                            Noble SM, French S, Kohn LA, Chen V, Johnson AD. Systematic screens Candida albicans
+                                                homozygous deletion library decouple morphogenetic switching pathogenicity. Nat Genet.
+NIH-PA Author Manuscript
+
+
+
+
+                                                2010; 42:590–598. [PubMed: 20543849]
+                                            Pan X, Yuan DS, Xiang D, Wang X, Sookhai-Mahadeo S, Bader JS, Hieter P, Spencer F, Boeke JD.                                                 robust toolkit functional profiling yeast genome. Mol Cell. 2004; 16:487–496. [PubMed:
+                                                15525520]
+                                            Parsons AB, Lopez  Givoni  Williams  Gray CA, Porter J, Chua G, Sopko R, Brost RL, Ho
+                                                CH, et al. Exploring mode action bioactive compounds chemical-genetic profiling                                                 yeast. Cell. 2006; 126:611–625. [PubMed: 16901791]
+                                            Pathania R, Zlitni S, Barker C, Das R, Gerritsma DA, Lebert J, Awuah E, Melacini G, Capretta FA,
+                                                Brown ED. Chemical genomics Escherichia coli identifies inhibitor bacterial lipoprotein
+                                                targeting. Nat Chem Biol. 2009; 5:849–856. [PubMed: 19783991]
+                                            Qin J, Li R, Raes J, Arumugam M, Burgdorf KS, Manichanh C, Nielsen T, Pons N, Levenez F,
+                                                Yamada T, et al. human gut microbial gene catalogue established metagenomic sequencing.
+                                                Nature. 2010; 464:59–65. [PubMed: 20203603]
+                                            Rocha EP, Danchin  Essentiality, expressiveness, drives gene-strand bias bacteria. Nat Genet.
+                                                2003; 34:377–378. [PubMed: 12847524]
+                                            Roguev  Bandyopadhyay S, Zofall M, Zhang K, Fischer T, Collins SR, Qu H, Shales M, Park HO,
+                                                Hayles J, et al. Conservation rewiring functional modules revealed epistasis map                                                 fission yeast. Science. 2008; 322:405–410. [PubMed: 18818364]
+NIH-PA Author Manuscript
+
+
+
+
+                                            Schirch V, Hopkins S, Villar E, Angelaccio S. Serine hydroxymethyltransferase Escherichia coli:
+                                                purification properties. J Bacteriol. 1985; 163:1–7. [PubMed: 3891721]
+                                            Schuldiner M, Collins SR, Thompson NJ, Denic V, Bhamidipati  Punna T, Ihmels J, Andrews B,
+                                                Boone C, Greenblatt JF, et al. Exploration function organization yeast early
+                                                secretory pathway epistatic miniarray profile. Cell. 2005; 123:507–519. [PubMed:
+                                                16269340]
+                                            Stover P, Schirch V. metabolic role leucovorin. Trends Biochem Sci. 1993; 18:102–106.
+                                                [PubMed: 8480361]
+                                            Taber HW, Mueller JP, Miller PF, Arrow  Bacterial uptake aminoglycoside antibiotics.
+                                                Microbiol Rev. 1987; 51:439–457. [PubMed: 3325794]
+                                            Tamae C, Liu  Kim K, Sitz D, Hong J, Becket E, Bui  Solaimani P, Tran KP, Yang H, et al.
+                                                Determination antibiotic hypersensitivity 4,000 single-gene-knockout mutants                                                 Escherichia coli. J Bacteriol. 2008; 190:5981–5988. [PubMed: 18621901]
+
+
+
+
+                                                     Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                                  Page 14
+
+
+                                            Tong AH, Evangelista M, Parsons AB, Xu H, Bader GD, Page N, Robinson M, Raghibizadeh S,
+                                                Hogue CW, Bussey H, et al. Systematic genetic analysis ordered arrays yeast deletion
+                                                mutants. Science. 2001; 294:2364–2368. [PubMed: 11743205]
+NIH-PA Author Manuscript
+
+
+
+
+                                            Toro E, Shapiro L. Bacterial chromosome organization segregation. Cold Spring Harb Perspect
+                                                Biol. 2010; 2:a000349. [PubMed: 20182613]
+                                            Travers  Muskhelishvili G. DNA supercoiling - global transcriptional regulator enterobacterial
+                                                growth? Nat Rev Microbiol. 2005; 3:157–169. [PubMed: 15685225]
+                                            Tu Y, McCalla DR. Effect activated nitrofurans DNA. Biochim Biophys Acta. 1975; 402:142–
+                                                149. [PubMed: 1100114]
+                                            Typas  Banzhaf M, van den Berg van Saparoea B, Verheul J, Biboy J, Nichols RJ, Zietek M,
+                                                Beilharz K, Kannenberg K, von Rechenberg M, Breukink E, den Blaauwen T, Gross CA, Vollmer
+                                                W. Regulation peptidoglycan synthesis outer-membrane proteins. Cell. Dec 23; 2010 143(7):
+                                                1097–109. PMID: 21183073. [PubMed: 21183073]
+                                            Typas  Nichols RJ, Siegele DA, Shales M, Collins SR, Lim B, Braberg H, Yamamoto N, Takeuchi
+                                                R, Wanner BL, et al. High-throughput, quantitative analyses genetic interactions E. coli. Nat
+                                                Methods. 2008; 5:781–787. [PubMed: 19160513]
+                                            Vora T, Hottes AK, Tavazoie S. Protein occupancy landscape bacterial genome. Mol Cell. 2009;
+                                                35:247–253. [PubMed: 19647521]
+                                            Warner DM, Levy SB. Different effects transcriptional regulators MarA, SoxS Rob                                                 susceptibility Escherichia coli cationic antimicrobial peptides (CAMPs): Rob-dependent
+                                                CAMP induction marRAB operon. Microbiology. 2010; 156:570–578. [PubMed:
+                                                19926649]
+NIH-PA Author Manuscript
+
+
+
+
+                                            Warner JR, Reeder PJ, Karimpour-Fard  Woodruff LB, Gill RT. Rapid profiling microbial
+                                                genome using mixtures barcoded oligonucleotides. Nat Biotechnol. 2010; 28:856–862.
+                                                [PubMed: 20639866]
+                                            Werner JN, Chen EY, Guberman JM, Zippilli AR, Irgon JJ, Gitai  Quantitative genome-scale
+                                                analysis protein localization asymmetric bacterium. Proc Natl Acad Sci U S  2009;
+                                                106:7858–7863. [PubMed: 19416866]
+                                            Xu D, Jiang B, Ketela T, Lemieux S, Veillette K, Martel N, Davison J, Sillaots S, Trosok S,
+                                                Bachewich C, et al. Genome-wide fitness test mechanism action studies inhibitory
+                                                compounds Candida albicans. PLoS Pathog. 2007; 3:e92. [PubMed: 17604452]
+                                            Yamamoto N, Nakahigashi K, Nakamichi T, Yoshino M, Takai Y, Touda Y, Furubayashi  Kinjyo S,
+                                                Dose H, Hasegawa M, et al. Update Keio collection Escherichia coli single-gene deletion
+                                                mutants. Mol Syst Biol. 2009; 5:335. [PubMed: 20029369]
+                                            Yeh P, Tschumi AI, Kishony R. Functional classification drugs properties pairwise
+                                                interactions. Nat Genet. 2006; 38:489–494. [PubMed: 16550172]
+                                            Yeh PJ, Hegreness MJ, Aiden AP, Kishony R. Drug interactions evolution antibiotic
+                                                resistance. Nat Rev Microbiol. 2009; 7:460–466. [PubMed: 19444248]
+NIH-PA Author Manuscript
+
+
+
+
+                                                     Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                             Page 15
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                            Figure 1. Phenomic Profiling enhanced Keio Collection yields robust rich dataset
+                                              Classification 324 stresses screened (left), cellular targets antibiotic/
+                                            antimicrobial/drug classes (right). (B) Heat map representation scatter plot comparing
+                                            normalized colony sizes pixels plate replicates 1 2 entire dataset. Bins
+                                            indicate square root number replicate pairs 10 × 10 pixel window                                             depicted color scale. Note vast majority replicates highly correlated
+                                            colony sizes. (C) Clustergram fitness scores 3979 mutant strains response 324
+                                            conditions. Zoomed insets demonstrate clustering conditions (x-axis) genes (y-
+                                            axis) common pathway (rfa cluster), protein complexes encoded                                             operon (nuo) different operons (dsbA dsbB). Gray boxes indicate missing data. (D)
+                                            High correlation pair phenotypic signatures predictive shared protein
+                                            interaction operon membership.
+NIH-PA Author Manuscript
+
+
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                         Page 16
+NIH-PA Author Manuscript
+
+
+
+
+                                            Figure 2. Identification responsive conditionally-essential genes
+                                              Using 5  false discovery rate (FDR), 49  strains tested phenotype
+                                            (open circle red line). FDR relaxed, phenotypes identified (red
+NIH-PA Author Manuscript
+
+
+
+
+                                            line). 5  FDR, strains phenotypes (black) (2.3 ; 94
+                                            strains) 30 phenotypes (green, Multi-Stress Responsive (MSR) genes). (B)
+                                            MSR genes participate wide variety cellular processes, particularly related                                             metabolism cell envelope. Genes manually curated COG-based functions;
+                                            gene allowed belong single function. (C) 196 genes conditionally-
+                                            essential (CE) study.  roughly half previously described CE                                             auxotrophy. Note auxotrophic genes display growth phenotype                                             rich medium condition classified jointly auxotroph rich media CE.
+                                            (D) Rich media CE gene products enriched outer cell envelope (periplasm                                             outer membrane) relative Keio essential genes (p=0.00026), highlighting importance
+                                            compartment tolerating stress. cytoplasmic gene category displayed
+                                             enriched CE gene products.
+NIH-PA Author Manuscript
+
+
+
+
+                                                     Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                          Page 17
+NIH-PA Author Manuscript
+
+
+
+
+                                            Figure 3. Phenomic profiling identifies phenotypes orphan gene mutants
+                                              Cumulative distribution phenotypes indicating fraction gene mutants                                             class having number phenotypes shown X-axis. plot reveals                                             orphan gene mutants phenotypes, tend fewer phenotypes annotated
+                                            gene mutants. insert quantifies phenotype deficit orphan mutants. (B) Cumulative
+                                            distribution highly correlated pairs identifies orphan genes correlate highly                                             annotated gene, providing high confidence clues function orphan gene.
+                                            Values shown pair bars p-values associated pairwise correlation
+                                            strains indicated correlation coefficients. (C) High confidence correlations
+                                            orphans annotated genes (r≥ 0.5) provide leads related different
+                                            cellular functions. Procedure functional assignment described Fig. 2. Note                                             “annotated genes�? classified genes “unknown function�? “general
+                                            function prediction ? manual curation. (D) Annotated genes responsible                                             phenotypes tend broadly conserved, responsive orphan genes tend                                             restricted γ-proteobacteria.
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                          Page 18
+NIH-PA Author Manuscript
+
+
+
+
+                                            Figure 4. function marB
+                                              marR− marB− phenotypic signatures highly correlated                                              highly anticorrelated acrB−  . graph positions correlations
+                                            histogram showing pair-wise correlation coefficients 3979 mutants. (B)
+                                            Schematic E. coli multiple antibiotic resistance (mar) operon. marB gene                                             unknown function, results suggest encodes protein inhibits MarA. (C) RT-
+                                            PCR analysis shows marA transcription derepressed marB− cells. Derepression                                             independent additive marR−.
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                    Cell. Author manuscript; available PMC 2012 January 7.
+                            Nichols et al.                                                                                          Page 19
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                            Figure 5. new network feature contributing anti-folate drug synergy
+                                              Schematic E. coli tetrahydrofolate (THF) biosynthesis pathway enzymatic
+                                            steps inhibited Sulfa TMP. (B) Clustergram genes respond Sulfa, TMP,                                             combination. Zoomed image indicates gcv mutants sensitive Sulfa, glyA−                                             sensitive TMP, mutants exhibit essentially wildtype growth                                             response drug combination. (C) glyA�

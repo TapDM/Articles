@@ -1,0 +1,236 @@
+A Fully Automated Robotic Microinjection Zebrafish Embryos
+Wenhui Wang1., Xinyu Liu1., Danielle Gelinas2, Brian Ciruna2*, Yu Sun1*
+
+1 Advanced Micro Nanosystems Laboratory, University Toronto, Toronto, Canada, 2 Program Developmental Stem Cell Biology, Hospital Sick Children, Toronto, Canada
+
+ important embodiment biomanipulation, injection foreign materials (e.g., DNA, RNAi, sperm, protein, drug
+compounds) individual cells significant implications genetics, transgenics, assisted reproduction, drug
+discovery. paper presents microrobotic fully automated zebrafish embryo injection, overcomes problems inherent manual operation, human fatigue large variations success rates poor
+reproducibility. Based vision motion control, microrobotic performs injection speed 15
+zebrafish embryos (chorion unremoved) minute, survival rate 98  (n = 350 embryos), success rate 99 
+(n = 350 embryos), phenotypic rate 98.5  (n = 210 embryos). sample immobilization technique microrobotic
+control method applicable biological injection applications injection mouse oocytes/embryos Drosophila embryos enable high-throughput biological pharmaceutical research.
+Citation: Wang W, Liu X, Gelinas D, Ciruna B, Sun Y (2007) Fully Automated Robotic Microinjection Zebrafish Embryos. PLoS 2(9):
+e862. doi:10.1371/journal.pone.0000862
+
+
+
+INTRODUCTION                                                                used generate transgenic zebrafish lines, mRNA injection Molecule screening single cell level, critical           used overexpress gene-products zebrafish embryos, molecular biology drug discovery, requires target                  reverse genetic loss gene-function studies require 
+molecules introduced single cells permit cellular-               jection antisense morpholino-modified oligonucleotides (mor-
+function-targeted molecules directly regulate cell development           pholinos MOs) specifically inhibit RNA splicing functions quantified. technologies exist        translation vivo [18].
+introducing foreign materials cell, electroporation             Despite relatively large size (,600 mm ,1.2 mm
+[1], viral vectors [2], gene gun [3], ultrasonics [4], MEMS-            including chorion), zebrafish embryos delicate structure
+based injection [5–6]. Compared techniques, microinjec-            easily damaged, making automated, high-throughput
+tion single glass micropipette remains effective         injection difficult. Specific challenges include:   quickly  e., terms cell damage, cell viability, cell waste, effectiveness          seconds) immobilize large number zebrafish embryos; (ii) delivering macromolecules, specificity, freedom concerns           automatically, robustly identify cell structures vision-based phenotype alteration.  order enable fast,               position control account size differences embryos;
+precise, robust screening molecular targets, state           (iii) coordinately control microrobots maximize art manual injection replaced fully automated              operation speed. Addressing challenges, objective operation.                                                                  research develop effective massive sample
+   testing cellular responses molecular targets obtain        preparation method create capable statistically significant data, injection thousands cells         injecting large number embryos short time window. needs conducted short time window (e.g.,              paper, microrobotic zebrafish embryo injection 1.5 hr fertilization, 16-cell stage zebrafish          presented, featuring automation, high-speed sample immobi-
+embryo injection). Manual injection slow; laborious         lization, high survival, success, phenotypic rates.
+task manual injection easily causes fatigue injection
+technicians hinders performance consistency success
+rates. Efforts automating cell injection continuous,           Academic Editor: Pu Chen, University Waterloo, Canada
+resulting visually servoed [7], semi-automated [8], tele-operated systems [9–13], just              Received July 3, 2007; Accepted August 18, 2007; Published September 12, 2007 systems limited throughput reproducibility              Copyright: ß 2007 Wang et al. open-access article distributed operator input (e.g., locating features destinations) operator       terms Creative Commons Attribution License, permits
+involvement (e.g., switching cell injector           unrestricted use, distribution, reproduction medium, provided                                                                             original author source credited.
+alignment) required.
+   biological models, zebrafish emerged               Funding: work supported Natural Sciences Engineering important model organism developmental genetic studies            Research Council Canada Discovery Grant Idea Innovation
+                                                                            Grant Y. Sun Ontario Ministry Research Innovation drug discovery [14–15]. Zebrafish embryonic                  Early Researcher Award Y. Sun. B. Ciruna supported International
+velopment remarkably similar humans;                  Human Frontier Science Program Organization.
+zebrafish embryos laid fertilized externally, develop
+                                                                            Competing Interests: authors declared competing interests
+rapidly, embryos transparent (Figure 1), making              exist.
+convenient observe movement fate individual cells embryonic development [16]. Molecular genetic                    * correspondence addressed. E-mail: ciruna@sickkids.ca
+                                                                            (BC); sun@mie.utoronto.ca (YS)
+analyses zebrafish embryogenesis depend injection foreign materials early zebrafish embryos [17]. DNA injection          . authors contributed equally work.
+
+
+
+       PLoS | www.plosone.org                                       1                                            September 2007 | Issue 9 | e862
+                                                                                                                     Automated Zebrafish Injection
+
+
+
+
+Figure 1. structure zebrafish embryo. embryo relatively large, highly deformable care taken injection avoid cell damage.
+doi:10.1371/journal.pone.0000862.g001
+
+
+MATERIALS METHODS
+Materials zebrafish embryos used injection experiments collected Hospital Sick Children (Toronto, Canada) standard embryo preparation procedures [19]. Animal
+protocols approved Hospital Sick Children’s Lab
+Animal Services’ Animal Care Committee (protocol #5911). outbred zebrafish embryos, chorionized, cultured embryo media contained 10l reverse osmosis
+water, 3 g instant ocean salt mix, 10 ml methylene blue
+solution (stock = 1 gm/l).                                                  Figure 2. Automatic cell injection  Microrobot micro-
+   ease visually inspecting injection effectiveness,         robot-B, degrees freedom motorized micromanipu-
+fluorescent dyes (Rhodamine B, 100 mM) injected 350               lators travel 25 mm 0.04 mm positioning resolution
+embryos. quantify efficacy capitulating         axis, control position embryos micropipette,
+mutant embryonic phenotypes, fluorescein-tagged morpholinos                 respectively. obtains visual feedback camera
+                                                                            microscope. controlled pico-injector provides target gene tail (ntl-MO, 59-GACTTGAGGCAGG-                     positive pressure material deposition.
+CATATTTCCGAT-39, 300 nM, Gene Tools) injected                     doi:10.1371/journal.pone.0000862.g002
+additional 210 embryos. tail gene product required tail formation zebrafish [20]. Successful injection ntl-MO            used precision XY stage. Venturi vacuum pump inhibit translation ntl gene product, resulting        (UN816, KNF) provides negative pressure embryo holding
+tail phenotype.                                                        device immobilizing embryos regular patterns. pulled
+   Glass capillaries (1.2 mm outer diameter, TW120F-4, WPI)              glass capillary connected microrobot-B micropipette heated pulled using pipette puller (P-97, Sutter).           holder. controlled pico-injector (PLI-100, Harvard
+tip diameter 10 mm. pipette filled injection               Apparatus) provides positive pressure material deposition. material connected micropipette holder (MPH412, WPI).              minimize vibration, units host                                                                             pressure units placed vibration isolation table. design                                                                  Figure 3 shows screen capture control program architecture  shown Figure 2, employs                  interface. fully automated injection, level command degrees freedom microrobots (MP-285, Sutter)              buttons permit user start, pause/resume, terminate, travel 25 mm 0.04 mm positioning resolution                reset  live image display area status axis. motion control cards (NI PCI-6259) mounted               information window allow visually monitoring operation host (3.0 GHz CPU, 1GB memory) control                  status. control panels provide user option algorithms image processing algorithms operate. Visual                  tele-operated injection  e., using mouse clicks), alternative fully
+feedback obtained CMOS camera (A601f, Basler)                  automated operation. Users readily specify parameters
+mounted optical microscope (SZX12, Olympus).                    control program interface, number house developed embryo holding device attached microrobot-            embryos batch camera control parameters.
+
+
+      PLoS | www.plosone.org                                        2                                        September 2007 | Issue 9 | e862
+                                                                                                                  Automated Zebrafish Injection
+
+
+
+
+Figure 3. Control program interface array embryos immobilized embryo holding device. embryo image taken 0.76. fully automated injection, level command buttons enable user start, pause/resume, terminate, reset 
+doi:10.1371/journal.pone.0000862.g003
+
+
+
+   Cell immobilization Figure 4 shows vacuum-based                      materials deposited embryo experiments embryo holding device array immobilized zebrafish                 controlling pressure   time.
+embryos. Evenly spaced holes (diameter ,400 mm) connected vacuum source backside channel.                   Control flow automated cell injection
+dispersing embryos device, sucking pressure                 batch zebrafish embryos, immobilized regular pattern
+enables hole trap single embryo. extra non-           embryo holding device, placed microrobot trapped embryos flushed away device. practice,              microscope. Automated injection starts vision-based negative pressure 2-7 InHg proved effective immobilizing            contact detection [21] determine vertical positions zebrafish embryos damaging embryos. cell                   micropipette tip surface embryo holding device
+immobilization, conducts injection continuously            (Figure 5) accuracy 0.2 mm. embryo shortest path (arrow labeled).                                          recognized brought center field view;
+   Volume control Volume calibration important                       simultaneously, micropipette tip moved microrobot-B precisely depositing specified materials                   switching point, S serves indicator boundary
+individual cells dose effect investigated.         inside outside embryo determined
+purpose volume calibration, automated pushes                  recognition embryo structures. micropipette droplet material micropipette forms sphere       tip penetrates chorion deposits materials desired micropipette tip. Injection volume determined             location embryo. experiments presented detecting diameter sphere image processing (Hough            paper, deposition destination chosen cytoplasm
+transform). According calibrated relationship            center, cytoplasm defined combination yolk
+injected volume versus pressure pulse level length, 3 nl                cell portion zebrafish embryo. retreating 
+
+      PLoS | www.plosone.org                                        3                                    September 2007 | Issue 9 | e862
+                                                                                                                          Automated Zebrafish Injection
+
+
+
+
+Figure 4. Vacuum-based embryo holding device. Embryos immobilized individual holes negative pressure. Extra embryos flushed device.   Picture device (565 holes). (B) array immobilized embryos continuous injection path labeled.
+doi:10.1371/journal.pone.0000862.g004
+
+ embryo, micropipette tip moved home position           example, closer yolk/cell interface facilitate diffusion
+1.4 mm contact point, prevent crashing               injected molecules cell portion. recognition embryo.  embryo brought                 detailed embryo structures takes 45 ms host  field view, structures recognized, injection               Pre-processing conducted obtain noised binary images.
+process repeated embryos batch injected.               image convolved low-pass Gaussian filter    process, microrobot does produce                       noise suppression. gray-level image binarized vertical motion microrobot-B servoed axes,                black-white image using adaptive thresholding method, shown Figure 5. positioning embryo controlling              local threshold pixel set mean value motion injection micropipette, PID (proportional-                   local neighbors. binary image eroded remove small
+integral-derivative) control employed controlling                  areas represent spurious features  dilated connect
+microrobots operated parallel possible  e.,             broken segments originally belong object. example Figure 5, (B) (C), (E) (F)). Parallel operation         pre-processing shown Figure 6A. microrobots maximized increase injection                         connected objects binary image, throughput. Transformations multiple coordinate                      maximum area recognized chorion. Figure 6B, frames achieved operation                 chorion enclosed minimum enclosing circle. second
+requiring line process.                                                 largest object image cytoplasm, boundary                                                                                represented chain code contour. boundary Image processing: Recognizing embryo structures                                cytoplasm fully connected (Figure 6A);  fully purpose recognizing detailed embryo structures                   closed contour important recognition detailed
+determining deposition destinations guarantee high                     cytoplasm structures including yolk, cell portion, producibility. paper, cytoplasm center (Figure 6B)                 yolk-cell interface.  convex hull [22] contour chosen deposition destination.  recogni-                constructed used initial positions subsequent snake
+tion algorithm allows choosing different destination,                tracking [23]. Snakes, active contours, used locate
+
+
+
+
+Figure 5. Illustration automated injection flow. task bringing embryo field view  E F), control microrobots based ‘‘looking moving’’. row: 3-D view. row: microscopic (image) 2-D view.   vertical height micropipette tip determined vision approach. step required beginning batch. (B) Micropipette home position. white curve outlines recognized cytoplasm contour. white dot represents cytoplasm center. (C) Embryo brought center field view. Micropipette positioned switching point. (D) Micropipette tip penetrates embryo deposits
+materials pre-set destination specified volume. (E) Micropipette retracts embryo. (F) Micropipette returns home position, embryo brought field view. (B) (C), (E) (F), microrobots parallel increase injection
+throughput.
+doi:10.1371/journal.pone.0000862.g005
+
+
+       PLoS | www.plosone.org                                          4                                         September 2007 | Issue 9 | e862
+                                                                                                                       Automated Zebrafish Injection
+
+
+
+
+Figure 6. Recognition zebrafish embryo structures.   pre-processing. (B) Recognized chorion, cytoplasm center, switching point, yolk/
+cell interface.
+doi:10.1371/journal.pone.0000862.g006
+
+
+object boundaries track deformable objects. energy              shown Figure 7D. Figure 7E shows comparison tail
+minimizing splines influenced external constraint forces              fish 48 hr injection control (wild-type).
+image forces guide snake points features lines             quantitatively evaluate performance microrobotic edges. closed cytoplasm contour resulting snake                 injection  measures defined. (1) Survival rate: tracking shown Figure 6B.
+   centroid contour, O recognized cytoplasm
+center. switching point, S determined intersect
+point minimum enclosing circle horizontal line
+passing cytoplasm center.
+   order distinguish yolk cell portion provide flexibility choosing desired destination, cytoplasm
+contour snake tracking fitted ellipse using squares method, intercepted parts minor axis fitted ellipse. Based fact cell portion greater convex deficiency [22], cell yolk portions distinguished. recognized yolk/cell interface shown Figure 6B.
+
+RESULTS collected embryos spread surface embryo
+holding device embryo media. Applied negative
+pressure promptly immobilized individual embryos hole. extra embryos flushed device. process embryo immobilization manually conducted, taking
+approximately 6–12 s.
+   automated continuously injected total 350
+zebrafish embryos fluorescent dyes 210 embryos ntl-
+MO, demonstrating operation speed 15 embryos/minute. injection experiments arranged different mornings half year period. morning, batches zebrafish embryos injected. Normally, 25 embryos batch. exception batch ntl-MO
+injection 10 embryos injected trial.
+   injected embryos cultured 32uC. determine
+survival rate success rate (defined later), embryos injected fluorescent dyes inspected fluorescence microscope
+(IX81, Olympus). embryos excited 540 nm laser light observed TRITC filter set. Visual inspection conducted right injection, 24 hr injection, 48 hr injection. quantitate phenotypic rate (defined later), embryos injected ntl-MO inspected bright-field
+microscope (SZX12, Olympus) 24 hr injection 48 hr                  Figure 7. Development zebrafish embryos injected fluores- injection. Figure 7 shows injected embryos               cent dyes ntl-MO. C embryos injected fluorescent
+subsequent development. deposited fluorescent dyes (high-                dyes, D-E embryos injected ntl-MO. Dye injected embryos
+                                                                             shown immediately following injection  , 24 hr injection (B),
+brightness) clearly observed area cytoplasm
+                                                                             48 hr injection (C). (D) Ntl-MO injected embryos 24 hr
+center, shown Figures 7A 7B. Diffused fluorescent dyes             following injection. (E) Comparison ntl-MO injected embryo (left) observable 48 hr injection, shown Figure 7C.                 uninjected control embryo (right) 48 hr following injection.
+Bright-field images tail fishes (24 hr injection)       doi:10.1371/journal.pone.0000862.g007
+
+
+       PLoS | www.plosone.org                                        5                                        September 2007 | Issue 9 | e862
+                                                                                                                                                                                                          Automated Zebrafish Injection
+
+
+
+
+                                                                                                                            ...........................
+..................................
+                                      Table 1. Statistics fluorescent dye injection.                                                                    Table 2. Statistics ntl-MO injection.
+                                     ......................................................................                                               ......................................................................
+                                     Experiment                1    2     3    4     5    6     7    8     Overall                                        Experiment                      1       2       3      4      5      Overall
+                                     # injected embryos     25   25    50   50    50   50    50   50    350                                            # injected embryos           10      50      50     50     50     210
+                                     # survived embryos 24       25    49   48    50   50    48   49    343                                            # tail fishes             10      49      49     49     49     206
+                                     # successful injection 25   25    49   49    50   49    49   50    346                                            Phenotypic rate ( )             100     98      98     98     98     98.561
+                                     Survival rate ( )         96   100 98     96    100 100 96      98    9862
+                                                                                                                                                          doi:10.1371/journal.pone.0000862.t002
+                                     Success rate ( )          100 100 98      98    100 98     98   100 9961
+
+                                     doi:10.1371/journal.pone.0000862.t001                                                                   penetrating embryo occur embryo having drastically
+                                                                                                                                             different mechanical properties pushed away injection.
+                      measure defined ratio number injected                                                         achieved high reproducibility results recognition                       embryos capable developing larva total                                                        embryo structures precise motion control. ability                       number embryos injected, essentially representing severity                                                      precisely depositing materials desired location highly
+                      frequency cell damage injection. cell damage                                                     reproducible manner important implications. elimination
+                      caused injection, embryo likely survive                                                          length variations diffusion paths make results                       develop normally fish. Based 350 injected zebrafish                                                        molecule screening countable.
+                      embryos, microrobotic injection produced overall                                                            98.5  phenotypic rate ntl-MO zebrafish embryo
+                      survival rate 9862 . (2) Success rate: measure defined                                                   injection consistent previously reported data using manual
+                      ratio number embryos materials                                                                 injection [18]. high percentage mutant phenotypes confirms
+                      successfully deposited cytoplasm center total                                                           Ntl protein specifically reduced microrobotically
+                      number injected embryos. Essentially, measure represents                                                       injected embryos, demonstrating automated microrobotic
+                      reliability reproducibility  differs                                                 reliable tool determining new gene functions                       survival rate evaluates correctness locating                                                     generally, facilitating large-scale molecule screening.
+                      desired deposition destination. Visual inspection demonstrated
+                      overall success rate 350 injected embryos                                                          Conclusions
+                      9961 . (3) Phenotypic rate: measure defined ratio                                                       Leveraging vision microrobotic control, high-
+                      number 48 hour-old embryos demonstrating                                                           throughput automated cell injection experimentally
+                      tail phenotype number embryos fluorescein-tagged                                                       demonstrated capability injecting 15 zebrafish embryos
+                      ntl-MO deposited cytoplasm center. Essentially,                                                            minute 98  survival rate, 99  success rate,                       measure represents readiness genetic studies.                                                    98.5  phenotypic rate. vacuum-based embryo holding
+                      Based 210 ntl-MO injected embryos, overall phenotypic                                                       device capable immobilizing large number embryos                       rate 98.561 . detailed statistics measures                                                        regular patterns seconds, dramatically shortening                       given Tables 1 2, demonstrating high degree                                                            sample preparation process. recognition embryo structures
+                      reproducibility.
+                                                                                                                                             precise motion control enable automated                                                                                                                                              precisely deposit pre-specified materials desired
+                      DISCUSSION                                                                                                             destination embryo. application micro-
+                      operation speed automated (15 embryos                                                           robotic cell injection  autonomous operation,
+                      unremoved chorion minute) compares favorably                                                              fast speed, free fatigue, provides unparalleled
+                      speed manual injection (10–20 embryos/minute). embryo                                                           reproducibility, biological pharmaceutical research                       holding device permits completion immobilizing zebrafish                                                        timely injecting materials larger number cells                       embryos regular patterns seconds manually                                                            facilitate large-scale screening biomolecules drug compounds.
+                      pushing embryos agarose trenches, state art                                                      Despite size property differences different cell lines,                       zebrafish embryo injection, costs minutes.                                                                             sample preparation technique microrobotic control method
+                         achieved survival rate 98  consistent best                                                       applicable injection applications injection
+                      survival rate achieved proficient injection technicians.                                                    mouse oocytes/embryos, Drosophila embryos, types                       immune large variations survival rate                                                   suspended cells.
+                      reach low 70  manual operation, technician
+                      fatigue proficiency differences technicians. high
+                      survival rate results efforts minimizing embryo lysis, fine-                                                ACKNOWLEDGMENTS
+                                                                                                                                             Wang, Liu, Sun thank Dr. Ashley Bruce Department Zoology                       tuning parameters micropipette tip size (,10 mm),
+                                                                                                                                             University Toronto assistance initial stage project.
+                      suction pressure (2–7 InHg), injection speed (2.1 mm/s),                       retraction speed (4.1 mm/s), determined trials
+                      300 zebrafish embryos development.                                                            Author Contributions
+                         achieved success rate 99  demonstrates                                                              Conceived designed experiments: YS. Performed experiments:
+                      automated capable repeatedly depositing materials                                                      WW XL. Analyzed data: WW XL. Contributed reagents/materials/
+                      desired destination inside zebrafish embryos. Rare failures                                                       analysis tools: DG BC. Wrote paper: YS.
+
+
+                      REFERENCES
+                                     1. Rols MP (2006) Electropermeabilization, physical method delivery                                     2. Walther W, Stein U (2000) Viral vectors gene transfer: review use
+                                        therapeutic molecules cells. Biochim Biophys Acta 1758: 423–428.                                                treatment human diseases. Drugs 60: 249–271.
+
+
+
+
+                                           PLoS | www.plosone.org                                                   6                                                                             September 2007 | Issue 9 | e862
+                                                                                                                                              Automated Zebrafish Injection
+
+
+ 3. Lin MTS, Pulkkinen L, Uitto J, Yoon K (2000) gene gun: current                        13. Pillarisetti  Pekarev M, Brooks AD, Desai JP (2006) Evaluating role     applications cutaneous gene therapy. Int J Dermatol 39: 161–170.                           force feedback biomanipulation tasks. Proc Symposium Haptic Interfaces
+ 4. Sundaram J, Mellein BR, Mitragotri S (2004) experimental theoretical                   Virtual Environment Teleoperator Systems (HAPTICS’2006).
+    analysi

@@ -1,0 +1,405 @@
+B RIEFINGS FUNC TIONAL GENOMICS . VOL 12. 4. 316 ^327                                                                            doi:10.1093/bfgp/elt017
+
+
+
+
+Functional genomics Plasmodium
+falciparum using metabolic
+modelling analysis
+StepanTymoshenko, Rebecca D. Oppenheim, Dominique Soldati-Favre Vassily Hatzimanikatis
+Advance Access publication date 22 June 2013
+
+
+Abstract
+Plasmodium falciparum obligate intracellular parasite leading cause severe malaria responsible tre-
+mendous morbidity mortality particularly sub-Saharan Africa. Successful completion P. falciparum
+genome sequencing project 2002 provided comprehensive foundation functional genomic studies pathogen following decade. period, large spectrum experimental approaches deployed improve expand scope functionally annotated genes.  rapidly evolving methods systems
+biology begun contribute global understanding various aspects biology patho-
+genesis malaria. provide overview metabolic modelling, capability integrate
+information functional genomics studies P. falciparum guide future malaria research efforts identification novel candidate drug targets.
+Keywords: Plasmodium falciparum; central carbon metabolism; systems biology; flux-balance analysis; constraint-based
+modelling; silico gene essentiality
+
+
+INTRODUCTION                                                                    ‘hypothetical proteins’ ‘conserved hypothetical
+According recent ‘World Malaria Report’                               proteins’ [3]. genes, especially  World Health Organization, malaria remains                                stricted Plasmodium apicomplexan species, major healthcare issue, responsible                              particular unique nucleotide se- 200 million cases hundreds thousands                             quences provide higher selectivity new anti-
+deaths 2010 [1]. efficient cost-effect-                         parasitic drugs.  absence tools ive artemisinin-based treatment available,                           high-throughput gene knockdown RNAi [4], emergence resistance malaria parasites,                          identification validation essentiality result drug treatments, urges development                             genes parasite remains major bottleneck
+medicines new targets novel mechanisms                              [3]. Available experimental approaches establish-
+action. Despite tremendous research efforts                             ing gene essentiality P. falciparum cumbersome
+passing decade publication                                unique properties pathogen.
+Plasmodium falciparum genome sequence [2],                               possesses extremely rich genome
+half genes remain annotated coding                          unusually low frequency 
+
+Corresponding author. Stepan Tymoshenko, Institute Chemical Engineering, Laboratory Computational Systems Biotechnology,
+E´cole Polytechnique Fe rale Lausanne, CH-1015, Switzerland. Tel: þ41 (0) 21 693 98 69; Fax: þ41 (0) 21 693 98 75;
+E-mail:stepan.tymoshenko@epfl.ch
+StepanTymoshenko PhD student E´cole Polytechnique Fe rale Lausanne. involved interdisciplinary model-
+driven research project aims elucidation poorly understood aspects metabolism Plasmodium falciparum.
+Rebecca Oppenheim PhD student University Geneva working central carbon metabolism apicomplexan
+parasites Toxoplasma gondii Plasmodium berghei.
+Dominique Soldati-Favre professor faculty Medicine University Geneva head laboratory focusing motility, host cell attachment, invasion strategies allow intracellular proliferation apicomplexan parasites.
+Vassily Hatzimanikatis associate professor E´cole Polytechnique Fe rale Lausanne head Laboratory Computational Systems Biotechnology. research interests areas systems biology, bioinformatics, complexity biological systems.
+
+ß Author 2013. Published Oxford University Press. Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 3.0/), permits unrestricted reuse, distribution, reproduction medium, provided original work properly cited.
+                   Functional genomics P. falciparum using metabolic modelling analysis                       317
+
+homologous recombination, makes refrac-              studies, silico metabolic models shown
+tory genetic manipulation gene replace-            provide context, enabling researchers
+ment [3]. Second, vitro cultivation delicate          use available datasets  e. content) improve
+process [5] mainly restricted intraer-   challenge models derive additional,
+ythrocytic stages.  limitation using pri-        non-intuitive insights. particular, need mates animal model makes invivo assessment          explicit, date context driving force gene essentiality limited expensive.              progress scope generic biochemical  emerging experimental breakthroughs             knowledge organism-specific  life stage specific)
+hold promises cost-effective gene knockdown               metabolic networks, discuss 
+strategies P. falciparum essential genes high-        past decades, databases bio-
+throughput scale [6, 7]. context, need     chemical reactions metabolic pathways list genes immediate           developed provide systematic comprehensive
+validated antimalarial targets affordable ex-         overview metabolism. pertinent example perimental means available.                               Kyoto Encyclopedia Genes Genomes (KEGG)
+    Metabolic modelling modern approach sys-          Pathway Database [16], established itself tems biology  applications,          encyclopedia biochemical knowledge extensively exerted predict gene essen-           point reference numerous academic tiality various bacteria including number             industrial researches.  KEGG similar
+pathogenic species [8]. Computational  e. silico)        large databases universal organism-
+metabolic models offer cost-effective pipeline           specific, cover crucial aspects
+identify putatively indispensable metabolic functions         P. falciparum metabolism, cofactor util-  case pathogens, represent potential           ization, compartmentalization proteins involved
+targets medical intervention [9]. years             transport metabolites. web-resource publication computational              Malaria Parasite Metabolic Pathways (MPMP) es-
+model tentative metabolic network P. falcip-          sentially product extensive manual revision
+arum, evident reconstruction           KEGG maps according known recently es-
+analysis silico models valuable tool study-    tablished metabolic features P. falciparum intraer-
+ing various aspects pathogen [10–14].          ythrocytic life stage. Furthermore, integration study, aim review provide outlook             web-resources facilitates quick access add- current state contribution silico meta-         itional information related primary literature
+bolic modelling efforts functional genomics                [17]. MPMP probably comprehensive
+studies deadly malaria parasite.
+                                                              date knowledge database P. falciparum’s
+                                                              metabolism, unfortunately lack appli-
+                                                              cation-programming interface limits access PATH METABOLIC                                       broad research community high-quality data.
+MAPS ‘CONTEXT                                          Utility MPMP research purposes CONTENT’ MODELS                                               demonstrated interpretation expression pat- constantly decreasing cost high-                  terns genes involved pentose-phosphate
+throughput measurements, tendency generate             pathway using corresponding maps [18]. led large -omics datasets emerging holds         authors postulate oxidative true P. falciparum [15]. distinct      pathway predominantly active early stage
+approaches high-throughput measurements: hy-               intraerythrocytic replication cycle, pothesis-driven studies generate large datasets            non-oxidative activated later
+prove falsify hitherto existing hypothesis,        stages [18]. contrast approach, 
+hypothesis-free studies primarily rely thorough          tempts comprehend metabolic fluxes malaria
+analysis datasets presumptions aiming           parasite aimed going study particu- formulation conclusions testable hypoth-           lar pathway ultimately led reconstruction
+eses. Importantly, hypothesis-free approaches require         large-scale models hundreds metabolites appropriate context, e. framework related           interconnected reactions involved [10–14].
+prior knowledge, obtained dataset                 Graph-based models (GBMs) built com- interpreted. case functional genomic         prehend analyse metabolic capabilities  318                                              Tymoshenko et al.
+
+P. falciparum systematic manner. GBMs represent        describes uninterrupted pathway metabolism graphs nodes  denote metab-           leads transformation externally supplied
+olites) links (respective metabolic        substrates biomass precursor reactions) [19]. links represent possibility   precursors. satisfy requirement, model- interconversion particular metabolite      building process involves inclusion   (justified correspondingly annotated       phan reactions’, enzyme-coding gene
+genes), regardless properties reaction    annotated [25].
+including stoichiometry. natural advantage             conventional reconstruction workflow [25]
+GBMs require minimal input information         clearly defines list enzymes assess annotated parts given meta-        genome complete pathways
+bolic network skipping unclear ones.          meet experimentally observed metabolic beha- representation metabolic network          viour. approach, putative metabolic func-
+capturing mass-balance property suitable       tions proposed 17 genes Leishmania
+framework incorporation experimental infor-          major, previously functional annota-
+mation, making scope GBM-based meth-            tions [26]. assignments, based
+ods metabolic modelling limited. Nowadays,        moderate sequence identity, sufficient
+graph-based metabolic reconstructions topo-             proofs suggested functions, represent
+logical analysis largely obsolete         set testable hypotheses experimental valid-
+replaced comprehensive constraint-based             ation. list orphan reactions provides approaches.                                                 invaluable guidance functional genomics studies
+    past decade flux-balance analysis (FBA)        P.falciparum 2000 genes  established leading approach study-       putative functional annotation.
+ing constraint-based models (CBMs) cellular               important applications CBMs
+tabolism [20]. Constraint-based metabolic models        pathogenic species capability predict po-
+FBA based dimensional arrays,              tential vulnerabilities metabolism [9]. row represents metabolite column            metabolic networks redundant contain corresponds reaction,  rule, linked      chain reactions produce certain bio- certain enzyme gene organism [21].          mass precursors. explore redundancy, FBA intersection row column contains nu-          enables attempt simulation growth
+merical value standing stoichiometric coeffi-       reactions model removed
+cient given metabolite given reaction.       time manner. production notation enables explicit quantitative           biomass blocked certain reaction, scription metabolic network allows             classified essential. similar manner,
+imposing basic constraint—mass balance.        FBA simulate outcomes withdrawal model accounts mass balance lar-         enzymes genes attempting simulate growth
+gely undefined constraints imposed       utilization reactions associated enrich range feasible solutions biologic-       enzyme gene disabled. refer reader ally realistic ones. scope additional constraints    comprehensive publication insilico essentiality stu- constantly growing currently includes thermo-        dies CBM Saccharomyces cerevisiae [27] dynamic (tFBA), regulatory (rFBA)             details examples.
+straints inherent cellular metabolism (reviewed [22]) constraints inferred experimental data.
+    CBMs, unlike GBMs, require pre-defined             OUTLOOK SILICO
+objective utilization available sub-       METABOLIC MODELS strates optimized [23]. common object-          P. FALCIPARUM
+ive function fast-growing cells biomass          studies date focused compre-
+reaction  plausible objectives reviewed        hensive reconstruction metabolic network
+[24]). represents cellular replication reaction     P. falciparum (Table 1). Early studies produced consumes pre-defined metabolites             GBMs [11, 14, 28] considered referred precursors biomass. Existence        set metabolic activities reported time 
+solution implies stoichiometric array              taking account information                        Functional genomics P. falciparum using metabolic modelling analysis                                                     319
+
+Table 1: Comparison silico metabolic reconstructions P. falciparum
+
+Authors (year publication)         Information modela
+
+                                      Metabolites           Reactions             Genes                 Compartmentsb
+
+Yeh et al. (2004) [14]                525                   696                   ç                     ç
+Fatumo et al. (2009) [11]             554                   575                   ç                     ç
+Huthmacher et al. (2010) [12]         P: 1622 E: 566        P: 1375 E: 437        P: 579                P: c, m,  n, r, v, g; E: e, c
+Plata et al. (2010) [13]              915                   1001                  366                   P: e, c, m, Bazzani et al. (2012) [10]            P: 1622 H: 1149       P: 1394 H: 2539       P: 579    H: 704      P: c, m,  n, r, v, g; H: c, r, g, l, m, n, p, b, s
+
+ models [11,14] built using graph-based approach following constraint-based models [10,12,13].  ‘P’ denotes model parasite,‘E’ human erythrocyte,‘H’ human hepatocyte.
+b
+  Abbreviated names compartments: e, extracellular space; c, cytosol; m, mitochondrion,  apicoplast; n, nucleus; v, digestive vacuole; r, endoplas-
+mic reticulum; g, Golgi complex; l, lysosome; p, peroxisome; b, bile canaliculus; s, sinusoidal space.
+
+
+
+compartments occur differences                                metabolite exchanges host cell life-stage-specific metabolism pathogen.                            parasite, identified inconsistencies mentioned  consistency mass-                             experimental data, need investi-
+balance relationships, models suitable                         gation [12]. integration experimental data allowed                                  second CBM developed independently qualitative predictions gene essentiality.                            Plata et al. [13] took account compartmental-  reconstruction process                               ization intracellular space mass-balance
+putative functions suggested hundreds                             constraints. results gene deletions performed
+genes previously annotated coding ‘hypo-                             silico correspondence thetical protein’ [14]. modelling efforts                         reports primary literature: 100  agreement
+gave broad overview metabolic capabilities                           compared gene deletion studies P. falciparum annotated genome                                 70  case enzymatic inhibition experiments.
+compared expected ones provided                                Comparison number essential genes solid foundation building modern,                                models P. falciparum S. cerevisiae confirmed
+comprehensive reconstructions discussed                             notion parasite likely possesses signifi-
+    Using constraint-based approach, Huthmacher                             cantly lower metabolic flexibility bypass single-
+et al. [12] assembled compartmentalized,                            gene deletions compared free-living
+mass-balanced life-stage-specific model                                organisms similar genome sizes [13]. P. falciparum metabolism. insilico simulations,                       genes suggested potential drug targets authors identified enzymatic activities                          silico essentiality extremely low essential proliferation parasite. Thirty                           absent sequence identity human proteins [13]. silico essential reactions catalyzed                        essentiality genes encoding enzymes homologues human prote-                                nicotinate mononucleotide adenylyltransferase ome (E-value > 0.075). ranked targets                           verified using experimental inhibitor, particular based evidence activity                          caused arrest P. falciparum proliferation multiple stages P. falciparum life cycle                        IC50 50 mM vitro culture [13]. addition,
+studied presence SuperTarget database                           Plata et al. [13] report silico double-
+[29] candidates treatment infections                          gene deletion simulations P. falciparum leading [12]. Furthermore, natural environment                             identification 16 pairs genes pre-
+parasite simulated embedding CBM                              dicted non-essential single-gene knockout metabolic reconstruction human erythro-                              simulation resulted dramatic impairment cyte. limited substrate accessibility                        metabolism targeted simultaneously. available host cell milieu.                                 Holzhutter workers developed straints cellular interface constraints                         recent CBM P. falciparum metabolic net-
+reaction fluxes, deduced gene expression pro-                            work [10] updating previous PlasmoNet1
+files (obtained different life stages),                           model [12]. PlasmoNet2 [10] added
+allowed model retrieve known directions                             new transport reactions based metabolomics
+ 320                                               Tymoshenko et al.
+
+data [30] removed reaction according            modelling yeast metabolism, expect updated version KEGG database. inte-               emergence reconciliation efforts aim gration PlasmoNet2 CBM human                   obtaining consensus, date CBM P. falcip-
+hepatocyte [31], evaluated silico essential-      arum. Recently developed workflows manual
+ity P. falciparum genes liver stage assessed,       [35] semi-automated [36] reconciliations using ‘reduced fitness’ approach, effects targeting      existing metabolic models significantly facilitate
+enzymes homologous predicted               efforts. areas essential host pathogen [10].             foresee room upcoming improvements:     Comparison essentiality predictions            mentioned  systematic implemen- aforementioned models trivial task.           tation thermodynamic constraints models  study Plata et al. aimed pre-        P. falciparum; second deliberate revision dicting essentiality genes,          objective function  e. biomass reaction) studies assessed essentiality enzymes, pre-        make consistent actual biomass compos-
+dictions overlap gene enzyme              ition parasite life stage  relations  Second, gene               experimental verification quantifica-
+enzyme absent list ‘predicted           tion uptake fluxes present models.
+essential’ predicted          improvements likely make silico pre-
+non-essential, possibly, fact        dictions gene essentiality reliable corresponding metabolic process simply             expand number metabolic functions currently
+included model   essentiality        known essential P. falciparum.
+predictions CBMs directly dependent                 Metabolic reconstruction efforts date set metabolites included biomass reac-          summarized results decades experimental
+tion, differences assumed biomass compos-          research metabolism P. falciparum ition directly affect results silico simulations.   form silico models, reproduce overview P. falciparum genes enzymes            prior knowledge, provide novel insights.
+predicted essential existing models, refer        fact cultivation parasite
+reader Supplementary Table 1. table           fully defined medium impossible clearly
+provides reader literature references         highlights important metabolic peculiari-
+experimental assessment genes/enzymes predicted            ties remain discovered. promising direc- essential different models.                      tion utilization CBMs frameworks     important simplification common             current knowledge, challenged,
+aforementioned models ad hoc assignment             refined constrained various high-throughput
+directionality reactions, pre-set            datasets discussed following section. reversible [12] assumed reversibility metabolic models non-
+related organisms [13]. principle, directionality      HIGH-THROUGHPUT DATA reaction subject thermodynamic proper-         METABOLIC MODELS: ‘CONTENT
+ties spurious ad hoc assignments violate       CONTEXT’
+fundamental constraint. issue addressed         mentioned  CBMs hold great potential rigorously genome-scale metabolic networks              incorporate various types experimental data organisms [32–34] implementation                content context computational metabolic
+thermodynamic constraints reaction directionality          networks. section review provide extension conventional FBA methodology.              outlook currently published studies     Overall, metabolic modelling P. falciparum          integrated computational modelling experimen-
+date lags years similar efforts        tal research efforts type high-throughput model eukaryote S. cerevisiae; exist          data introduced Table 2.
+independently reconstructed models lack
+consistency differences         Genomics reconstruction workflows, sources primary          Genomics studies P. falciparum yielded far
+information, level complexity varying          complete genome sequences  3D7 degree comprehensiveness. Similarly trends          strains [55]);  functional annotation
+                     Functional genomics P. falciparum using metabolic modelling analysis                                321
+
+
+Table 2: Overview high-throughput methods applied functional genomics P. falciparum available
+options integration data CBMs
+
+Approach          Examples methods                   Maximal coverage   Integration CBMs
+
+Genomics          BLASTP [2], metaSHARK [37], DETECT [38]   ca. 50             Used input data building CBMs [25]; validation
+                                                                                 silico gene essentiality [39]
+Transcriptomics   DNA microarray [40 ^ 42], RNA-seq [43]    ca. 99             Used constrain CBMs [12, 13]; reviewed [44]
+Proteomics        2D LC-MS/MS [45], nano-LC-MS/MS [46]      ca. 45             Used constrain CBMs [47]
+Metabolomics      HPLC-MS/MS [30, 48], 1H-NMR [49]          ca. 15-20          Used constrain CBMs [32, 34], reviewed [33]
+                  13
+Fluxomics           C-NMR [50, 51], 14C-NMR [52]            1        Used constrain CBMs, reviewed [53, 54]
+
+
+
+
+remains far complete [3]. Nonetheless,                 applied comparison high-throughput partially annotated genomes gave rise nu-                datasets viable/non-viable single- double-
+merous genome-wide transcriptomics large-scale                gene knockout mutants S. cerevisiae silico
+proteomics studies possible                   gene essentiality predictions [27]. approach reconstruction parasite’s metabolic network                led corrections model (e.g. silico.                                                        inclusion additional reactions, compounds     High-throughput functional genomics P. falcip-             genes changes biomass reaction), arum nascent field malaria research            supported literature evidence largely im- limited number studies succeeded gen-                proved consistency model existing
+erating single-gene mutant parasite clones large             experimental data [27]. successful high-
+scale. largest coverage reported date                  throughput forward reverse genetic technique achieved forward genetics approach based                   established P. falciparum, GrowMatch similar transposon mutagenesis using transposable                  algorithm validate computational model,
+element piggyBac [56]. collection regroups                    improve understanding obtained results 200 mutant parasite lines cover                 produce hypotheses experimental investigation,
+modest P. falciparum genome.                    applicable malaria drug research.  24 single-gene disruptions caused severe
+growth defects vitro, lead lethal               Transcriptomics
+phenotypes vivo [56]. major drawback                 Transcriptomic profiling appears method inability reveal essential genes             common high-throughput methods applied haploid state malaria parasite              malaria research; numerous gene expression datasets life stages. specific design             available PlasmoDB database (http://www. transposon integrated inducible pro-               plasmodb.org) different lineages parasite
+moter proposed assess essential genes [6],            various conditions. scope remains proved practicable. contrast,           gene expression data growing, new increasingly vitro essentiality data genetically tractable           advanced algorithms integrate datasets parasite Trypanosoma brucei obtained                    CBMs developed [44]. date, nearly coding sequences genome                 models P. falciparum metabolism incorporated
+using RNA-interference target sequencing                      available transcriptomics data constraints [12, 13]
+approach [57].                                                    represent life-stage-specific metabolic features     value gene essentiality datasets                parasite.
+reinforced possibility silico simulation              Huthmacher et al. integrated model similar genetic perturbations. offers reciprocal             life-stage-specific gene expression profiles
+benefits experimental computational                       [40–42, 58, 59] avoid, possible, utiliza-
+research: CBMs suggest underlying                   tion reactions likely inactive based
+reason viable/non-viable phenotypes knock-                 abundance corresponding messenger strains   reveal weak points,               ribonucleic acids (mRNAs) [12]. approach model improved.                               allowed authors infer plausible metabolite
+Accordingly, algorithm GrowMatch [39]                     exchanges human erythrocyte  322                                             Tymoshenko et al.
+
+parasite, predict directionality      identification proteins involved parasite’s
+pathways easily inferred gene          response treatment conventional anti-
+expression data  predictions host–        malarial drugs. recent alternative method quan-
+parasite metabolite exchanges significantly        titative proteomics relies externally supplied,
+better agreement physiology reported           known amounts proteins  obtained
+literature fluxes allowed         using QconCAT technique [65]. QconCAT-derived
+action mRNA absent life-          proteins labelled heavy isotopes serve
+stage-specific transcriptome present          markers identification similar 
+earlier  12 preceding hours) [12]. obser-       labeled proteins scale quantification
+vation consistent earlier study   [65]. approach offers new level sensitivity
+significant time delay maximal gene expres-        holds promise comprehensive high-
+sion peak accumulation corresponding         resolution quantitative proteomics P. falciparum.
+proteins [60].                                                 Taking account complexity inter-
+    Plata et al. [13] attempted integrate gene     play mRNA protein abundances (thor-
+expression data [30, 61] model predict       oughly examined [66]), studies combine shifts extracellular (intraerythrocytic)        transcriptomic proteomic measurements
+abundance metabolites ring              particular  result inte-
+trophozoite trophozoite schizont stages.        grated approach applied P. falciparum, time-delayed
+authors assumed higher influx metabolite       correlation peaks transcription max- parasite lower abundance          imal abundance proteins observed
+substrate molecule cytosol infected          glycolytic enzymes exception
+erythrocyte, higher efflux rate metab-      enolase [60].  enzymes,
+olite parasite increase intraerythro-    accumulation mRNA did correlate cytic abundance. computational predictions             changes abundance corresponding verified existing metabolomics            enzymes complete intraerythrocytic replica-
+data [30] average accuracy 70 .              tion cycle [60]. Mair et al. [67] demonstrated     major improvements accuracy sensi-         Plasmodium species genes transcribed
+tivity thresholds achieved modern           expressed translational repressions.
+RNA-seq approaches [43], utility transcriptomic             Despite availability data necessary
+studies increase significantly experimental       computational methods, proteomics silico functional genomics.                         used systematically development analysis
+                                                           CBMs P. falciparum.  Proteomics                                                 intercellular pathogen Trypanosoma large-scale proteomics datasets pub-         cruzi: Roberts et al. integrated CBM lished 2002 [45, 46] provided relatively high         proteomics dataset constrains fluxes 
+coverage (ca. 45  23  respectively) ex-         actions corresponding enzyme pected proteome P. falciparum [62]. deliver-      detected life-stage-specific proteome. Using ing semi-quantitative results, studies          constraint authors aimed making model
+provided unique possibility verify correct      representative possible metabolic genome annotation terms assignments           state pathogen particular stage life
+open reading frames, splicing patterns confirm      cycle. Initially resulted constrained presence particular enzymes different stages     model unable simulate growth, suggesting infection.                                              enzymes reactions     approaches used generate          detected proteome likely quantitative proteomics datasets. Nirmalan et al. [63]     present. hand, constraints inferred established method fully quantitative           proteomics data corrected reaction essenti-
+proteomics using [13C6 15N1]-labelled isoleucine        ality predictions agreement ex-
+recognize novo synthesized proteins. Following     perimental data constraints [47].
+method, Prieto et al. [64] quantified 1253 proteins         complex interplay concen-
+P. falciparum trophozoites exposure    trations mRNAs enzymes fluxes parasite chloroquine artemisinin, allowing      corresponding reactions remains                   Functional genomics P. falciparum using metabolic modelling analysis                323
+
+elucidated, utilization transcriptomics prote-     potential (e.g. glycerol reported [74]). Using
+                                                          1
+omics information ensure higher            H-NMR, concentrations 50 
+fidence enzyme           tabolites measured cell extracts present life stage  instance,   P. falciparum trophozoites [49]. unbiased nature reasonable assume reaction    method enabled identification enzyme transcripts detected         unexpected metabolites (e.g. aminobutyric acid likely occur tightly constrained     buffering agent HEPES) present relatively high stage-specific CBMs.                               concentrations lysates parasite cells [49].
+                                                              important drawback current metabolo-
+Metabolomics                                              mics studies P. falciparum  metabolites recent reviews discuss methodol-    present compartment (e.g. cyto-
+ogies techniques currently used          solic mitochondrial adenosine diphosphate), metabolomics various organisms [68–70] mal-        measured concentration reflects average
+aria parasites particular [71]. largest metabo-    value, differ significantly lomics profile date obtained liquid             actual concentration compartments.
+chromatography coupled tandem mass-spec-             Metabolomics separate organelles emerging
+trometry (LC-MS/MS) analysis uninfected           field functional genomics research, exemplified P. falciparum-infected human erythrocytes [30].       algea [75], enrich verify current
+Relative changes concentrations 90        knowledge subcellular localization various
+metabolites monitored medium             metabolic processes. issue compartmentaliza- cell lysates replication cycle,        tion especially complex case malaria para- measurements 8 h [30]. attempt       sites.  obligate intracellular parasites correlate results gene expression data      develop hepatocytes erythrocytes obtained time points infection         intermediate host.  parasite harbours
+revealed despite common periodic pattern        symbiotic organelles: mitochondrion gene expression, mea-       apicoplast (relic plastid organelle acquired
+sured metabolite abundances fluctuated periodically       engulfment algae), host
+[30]. coverage P. falciparum putative meta-    metabolic pathways crucial central
+bolome achieved study 15           carbon metabolism P. falciparum.
+20  (estimated similarly [72]) compares metabolomics Leishmania donovani promasti-         Fluxomics
+gotes [72]. Currently, algorithm available       Fluxomics largely unexplored area malaria
+directly incorporate relative concentration           research, experimentally amenable species
+values CBMs.  Plata et al. used data      represents relatively established rapidly reference verify silico predictions   developing field [53, 54]. Incorporation mea-
+discussed  Furthermore, dataset [30] gives      sured values flux reactions present valuable insight actively consumed se-         CBMs significantly improve accuracy creted metabolites, aspect metabolic fate       models reducing uncertainty ranges used constraint CBMs.                 distributions metabolic fluxes. best     Quantification absolute concentration values       knowledge, fluxomics studies P. falcip-
+using MS technically possible, ham-     arum, date, assessments influx rates pered need standard solution        single substrates: glucose  infected non 
+metabolite [48, 73]. contrary, nuclear mag-        fected human erythrocytes [50, 51]), isoleucine
+netic resonance (NMR) techniques require           [76], pantothenate [52] inorganic phosphate
+external standards identification     [77]. indispensability substrates
+quantification metabolites integral      parasite, incorporation flux values
+output signal proportional concentration        represent overriding constraints CBMs. studied nuclei. Despite lower sensitivity          case model organisms, e.g. S. cerevisiae,
+compared modern MS methods [70],                 measured metabolic fluxes included 13
+   C-NMR identify metabolites          CBMs allowed silico resolution experimen-
+wise undetectable MS low ionization       tally observed metabolic features  324                                              Tymoshenko et al.
+
+inferred transcriptomics             reaction gradually reduced extent proteomics data [54]. relevant example           models. shows purely theoretical
+large increase glycolytic flux, main-       sensitivity host parasite inhibition tained yeast exposed low levels oxygen         certain enzymatic activity, approach changing expression levels involved         considered caution neglects import-
+genes [78]. led important conclusion        ant aspects, captured CBMs.
+fluxes primary metabolism likely              FBA suitable simulation 
+controlled regulation enzymatic activities       comes gene knockout experiments, tar- changes gene expression secondary           geted enzymatic activity abolished completely.
+metabolism [54].                                             realistic simulation effects     Overall, numerous methods developed          reduced enzymatic activity  e. action drug) integration experimental data CBMs,             requires careful consideration kinetic thermo- modest proportion hitherto applied         dynamics properties. Ultimately, assumes pathogenic organisms P. falciparum particu-       identical kinetic properties inhibited enzymes lar. argue com-         infected host cell parasite, sensitivity plexity experimental study pathogens,         flux catalyzed reaction fact majority silico       inhibitor different simply methods discussed initially designed         expression level enzyme free-living organisms. methods          organisms [79].
+principle, applicable intracellular pathogens,          Metabolic control analysis (MCA) considers aspects unique parasites crucial          relevant properties provide realistic
+obtaining relevant computational results. Examples          estimation extent flux aspects common absence            reaction sensitive action clearly defined set substrates products       inhibitor [80–82]. Using methodologies metabolism intracellular parasites, changes      MCA, predict inhibition composition biomass multiple stages         target enzyme selective effect life cycles sub-optimal utilization available   parasite relative host. Using kinetic modelling
+substrates,  issues aforementioned        MCA, Bakker et al. [83] demonstrated
+experimental challenges represent area            glyceraldehyde-3-phosphate dehydrogenase expect forthcoming improvements, leading            phosphoglycerate kinase represent promis-
+better understanding metabolic peculiarities             ing targets treatment sleeping sickness encoded genome P. falciparum.                     drastically different susceptibility glycolytic
+                                                            fluxes inhibition enzymes human FUTURE DIRECTIONS                                           African trypanosome.
+Obligate intracellular parasitism P. falciparum              major limiting factor application MCA represents significant challenge medical treat-       metabolic models P. falciparum need inte-
+ment, virtually impossible avoid impact      grate kinetic parameters enzymes model
+antimalarial drugs host.  high selectivity      concentration profile key metabolites [84]. essential prerequisite potential drug     date, experimental information exists didates.  genes enzymes             modest CBMs relatively small
+predicted essential P. falciparum possess    number organisms [85], limited variable level sequence identity human        applicability [86, 87]. recently developed
+counterparts [10, 12, 13], suggesting interfer-     ORACLE framework used perform
+ence affect uninfected host              MCA significant uncertainty provide cells. assess phenomenon insilico, ‘reduced     guidance quantitative ranking drug target
+fitness’ approach applied Bazzani et al. [10]        identification [84]. Kinetic modelling MCA CBM P. falciparum embedded               represent promising field research model human hepatocyte. method                fine-grained evaluation pathways contain
+estimate quantitatively production biomass           silico predicted drug targets. efforts affected host parasite’s meta-      provide valuable guidance development
+bolic networks flux targeted             functional genomics P. falciparum,                       Functional genomics P. falciparum using metabolic modelling analysis                                         325
+
+analytical technologies provide information                    7.    Augagneur Y, Wesolowski D, Tae HS, et al. Gene selective
+                                                                              mRNA cleavage inhibits development Plasmodium
+necessary building kinetic model meta-                           falciparum. Proc Natl Acad Sci USA 2012;109:6235–40.
+bolic network.                                                          8.    Kim HU, Sohn SB, Lee SY. Metabolic network modeling
+                                                                              simulation drug targeting discovery. BiotechnolJ
+                                                                              2012;7:330–42.
+SUPPLEMENTARY DATA                                                      9.    Pinney JW, Papp B, Hyland C, et al. Metabolic reconstruc-
+                                                                              tion analysis parasite genomes. Trends Parasitol 2007;
+Supplementary data available online http://                            23:548–54.
+bib.oxfordjournals.org/                                                 10.   Bazzani S, Hoppe  Holzhutter HG. Network-based
+                                                                              assessment selectivity metabolic drug targets                                                                               Plasmodium falciparum respect human liver metabol-
+                                                                              ism. BMC Syst Biol 2012;6:118.
+ Key Points                                                             11.   Fatumo S, Plaimas K, Mallm JP, et al. Estimating novel
+                                                                              potential drug targets Plasmodium falciparum analysing
+  Modelling efforts P. falciparum focused revealing indispens-         metabolic network knock strains silico. Infect
+   able metabolic functions expanded list putatively              Genet Evol 2009;9:351–8.
+   essential genes enzymes.
+  Interpretation high-throughput data context CBMs        12.   Huthmacher C, Hoppe  Bulik S, et al. Antimalarial drug
+   yields new, non-intuitive insights functions metabolic            targets Plasmodium falciparum predicted stage-specific
+   genes offers testable hypotheses experimental research.            metabolic network analysis. BMC Syst Biol 2010;4:120.
+  Kinetic modelling approaches enable integration        13.   Plata G, Hsiao TL, Olszewski KL, et al. Reconstruction    broad range data functional genomics, metabolo-            flux-balance analysis Plasmodium falciparum metabolic
+   mics, address limitations CBMs.                             network. Mol Syst Biol 2010;6:408.
+  Reliable kinetic modes metabolic networks accelerate         14.   Yeh  Hanekamp T, Tsoka S, et al. Computational analysis
+   drug target identification rational drug development.                  Plasmodium falciparum metabolism: organizing genomic
+                                                                              information facilitate drug discovery. Genome Res 2004;
+                                                                              14:917–24.
+                                                                        15.   Hayes CN, Wheelock  Normark J, et al. Enlistment Acknowledgements                                                              omics technologies fight malaria: Panacea authors like acknowledge Keng Cher Soh                       Pandora’s Box? J Pestic Sci 2006;31:263–72.
+Ljubisha Miskovic helpful discussions methods            16.   Ogata H, Goto S, Sato K, etal. KEGG: Kyoto Encyclopedia
+reviewed manuscript Alexandros Kiparissides,                      Genes Genomes. Nucleic Acids Res 1999;27:29–34.
+Aikaterini Zisaki, Stefano Andreozzi, Anirikh Chakrabarti           17.   Ginsburg H. Progress silico functional genomics: Noushin Hadadi.                                                               malaria Metabolic Pathways database. Trends Parasitol 2006;
+                                                                              22:238–40.
+                                                                        18.   Bozdech  Ginsburg H. Data mining transcriptome
+FUNDING                                                                       Plasmodium falciparum: pentose phosphate pathway
+S.T. supported iPhD grant Swiss National                    ancillary processes. MalarJ 2005;4:17.
+Science Foundation initiative SystemsX.ch; R.O.              19.   Stelling J. Mathematical models microbial systems biol- supported SystemsX.ch initiative Swiss                      ogy. Curr Opin Microbiol 2004;7:513–8.
+National Science Foundation (441 grant LipidX-2008/011).                20.   Orth JD, Thiele  Palsson BO. flux balance ana-
+                                                                              lysis? Nat Biotechnol 2010;28:245–8.
+                                                                        21.   Palsson B. Systems Biology: Properties Reconstructed Networks.
+                                                                              New York: Cambridge University Press, 2006.
+References
+                                                                        22.   Lewis NE, Nagarajan H, Palsson BO. Constraining meta-
+1.   Aregawi M. World Health Organization. Global Malaria                     bolic genotype-phenotype relationship using phylogeny      Programme. World Malaria Report 2010. Geneva: World                      silico methods. Nat Rev Microbiol 2012;10:291–305.
+     Health Organization, 2010.                                         23.   Feist  Palsson BO. biomass objective function.
+2.   Gardner MJ, Hall N, Fung E, et al. Genome sequence                Curr Opin Microbiol 2010;13:344–349.
+     human malaria parasite Plasmodium falciparum. Nature 2002;         24.   Schuetz R, Kuepfer L, Sauer U. Systematic evaluation      419:498–511.                                                             objective functions predicting intracellular fluxes 3.   Limenitakis J, Soldati-Favre D. Functional genetics                   Escherichia coli. Mol Syst Biol 2007;3:119.
+     Apicomplexa: potentials limits. FEBS Lett 2011;585:            25.   Thiele  Palsson BO. protocol generating high-
+     1579–88.                                                                 quality genome-scale metabolic reconstruction. Nature
+4.   Baum J, Papenfuss  Mair GR, et al. Molecular genetics                 Protoc 2010;5:93–121.
+     comparative genomics reveal RNAi functional          26.   Chavali AK, Whittemore JD, Eddy JA, etal. Systems analysis
+     malaria parasites. Nucleic Acids Res 2009;37:3788–98.                    metabolism pathogenic trypanosomatid Leishmania
+5.   Visvesvara GS, Garcia LS. Culture protozoan parasites.                major. Mol Syst Biol 2008;4:177.
+     Clin Microbiol Rev 2002;15:327–28.                                 27.   Zomorrodi AR, Maranas CD. Improving iMM904 S.
+6.   Balu B. Moving ‘‘forward’’ Plasmodium genetics                cerevisiae metabolic model using essentiality synthetic
+     transposon-based approach. J Trop Med 2012;2012:829210.                lethality data. BMC Syst Biol 2010;4:178.
+ 326                                                     Tymoshenko et al.
+
+28. Fatumo S, Plaimas K, Adebiyi E, etal. Comparing metabolic        46. Lasonder E, Ishihama Y, Andersen JS, et al. Analysis     network models based genomic automatically                    Plasmodium falciparum proteome high-accuracy mass
+    inferred enzyme information Plasmodium                  spectrometry. Nature 2002;419:537–42.
+    human host define drug targets silico. Infect Genet Evol   47. Roberts SB, Robichaux JL, Chavali AK, et al. Proteomic
+    2011;11:201–8.                                                       network analysis characterize stage-specific metabolism
+29. Hecker N, Ahmed J, Eichborn J, et al. SuperTarget goes               Trypanosoma cruzi. BMC Syst Biol 2009;3:52.
+    quantitative: update drug-target interactions. Nucleic        48. Duy SV, Besteiro S, Berry L, et al. quantitative
+    Acids Res 2012;40:D1113–7.                                           liquid chromatography tandem mass spectrometry
+30. Olszewski KL, Morrisey JM, Wilinski D, et al. Host-parasite          method metabolomic analysis Plasmodium
+    interactions revealed Plasmodiumfalciparum metabolomics.          falciparum lipid related metabolites. Analy Chim Acta 2012;
+    Cell Host Microbe 2009;5:191–9.                                      739:47–55.
+31. Gille C, Bolling C, Hoppe  et al. HepatoNet1:                49. Teng RW, Junankar PR, Bubb WA, et al. Metabolite pro-
+    comprehensive metabolic reconstruction human                  filing intraerythrocytic malaria parasite Plasmodium
+    hepatocyte analysis liver physiology. Mol Syst            falciparum H-1 NMR spectroscopy. NMR Biomed 2009;
+    Biol 2010;6:411.                                                     22:292–302.
+32. Henry       CS,    Broadbelt     LJ,    Hatzimanikatis     V.    50. Mehta M, Sonawat HM, Sharma S. Malaria parasite-
+    Thermodynamics-based metabolic flux analysis. Biophys J              infected erythrocytes inhibit glucose utilization unin-
+    2007;92:1792–805.                                                    fected red cells. FEBS Lett 2005;579:6151–8.
+33. Soh KC, Hatzimanikatis V. Network thermodynamics              51. Mehta M, Sonawat HM, Sharma S. Glycolysis     post-genomic era. Curr Opin Microbiol 2010;13:350–7.             Plasmodium falciparum results modulation host enzyme
+34. Soh KC, Miskovic L, Hatzimanikatis V. network                   activities. J Vector Borne Dis 2006;43:95–103.
+    models network responses: integration thermodynamic        52. Saliba KJ, Kirk K. Hþ-coupled pantothenate transport     kinetic properties yeast genome-scale metabolic               intracellular malaria parasite. J Biol Chem 2001;276:
+    networks. FemsYeast Res 2012;12:129–43.                              18115–21.
+35. Oberhardt MA, Puchalka J, dos Santos VAPM, et al.                53. Tang YJ, Martin HG, Myers S, et al. Advances analysis     Reconciliation genome-scale metabolic reconstructions             microbial metabolic fluxes C-13 isotopic labeling. Mass
+    comparative systems analysis. PLoS Computat Biol 2011;           Spectrom Rev 2009;28:362–75.
+    7:e1001116.                                                      54. Winter G, Kromer JO. Fluxomics—connecting ‘omics ana-
+36. Chindelevitch L, Stanley S, Hung D, et al. MetaMerge:                lysis phenotypes. Environ Microbiol 2012; doi: 10.1111/
+    scaling genome-scale metabolic reconstructions               1462-2920.12064 (Advance Access publication 6 December
+    application Mycobacterium tuberculosis. Genome Biol 2012;         2012).
+    13:r6.                                                           55. Aurrecoechea C, Heiges M, Wang H, et al. ApiDB: inte-
+37. Pinney JW, Shirley MW, McConkey GA, et al.                           grated resources apicomplexan bioinformatics
+    metaSHARK: software automated metabolic network                  resource center. Nucleic Acids Res 2007;35:D427–30.
+    prediction DNA sequence application          56. Balu B, Singh N, Maher SP, et al. genetic screen     genomes Plasmodium falciparum Eimeria tenella. Nucleic        attenuated growth identifies genes crucial intraerythro-
+    Acids Res 2005;33:1399–409.                                          cytic development Plasmodium falciparum. PLoS 2010;
+38. Hung SS, Wasmuth J, Sanford C, et al. DETECT                       5:e13282.
+    density estimation tool enzyme classification        57. Alsford S, Turner DJ, Obado  et al. High-throughput
+    application Plasmodium falciparum. Bioinformatics 2010;26:        phenotyping using parallel sequencing RNA interference
+    1690–8.                                                              targets African trypanosome. Genome Res 2011;21:
+39. Kumar VS, Maranas CD. GrowMatch: automated                        915–24.
+    method reconciling silico vivo growth predictions.     58. Sacci JB, Ribeiro JMC, Huang FY, et al. Transcriptional
+    PLoS Comput Biol 2009;5:e1000308.                                    analysis invivoPlasmodiumyoelii liver stage gene expression.
+40. Bozdech  Llinas M, Pulliam BL, et al. transcriptome            Mol Biochem Parasitol 2005;142:177–83.
+    intraerythrocytic developmental cycle Plasmodium       59. Tarun  Peng X, Dumpit RF, et al. combined tran-
+    falciparum. PLoS Biol 2003;1:85–100.                                 scriptome proteome survey malaria parasite liver
+41. Le Roch KG, Zhou YY, Blair PL, et al. Discovery gene              stages. Proc Natl Acad Sci USA 2008;105:305–10.
+    function expression profiling malaria parasite life    60. Le Roch KG, Johnson JR, Florens L, et al. Global analysis     cycle. Science 2003;301:1503–8.                                      transcript protein levels Plasmodium falciparum
+42. Daily JP, Scanfeld D, Pochet N, et al. Distinct physiological        life cycle. Genome Res 2004;14:2308–18.
+    states Plasmodium falciparum malaria-infected patients.    61. Llinas M, Bozdech  Wong ED, et al. Comp-
+    Nature 2007;450:1091–5.                                              arative genome transcriptome analysis 43. Otto TD, Wilinski D, Assefa S, et al. New insights          Plasmodium falciparum strains. Nucleic Acids Res 2006;34:
+    blood-stage transcriptome Plasmodium falciparum using             1166–73.
+    RNA-Seq. Mol Microbiol 2010;76:12–24.                            62. Wastling JM, Xia D, Sohal  etal. Proteomes transcrip-
+44. Blazier  Papin JA. Integration expression data              tomes Apicomplexa s message? Int J
+    genome-scale metabolic network reconstructions.                Parasitol 2009;39:135–43.
+    Physiol 2012;3:299.                                              63. Nirmalan N, Sims PFG, Hyde JE. Quantitative proteomics
+45. Florens L, Washburn MP, Raine JD, etal. proteomic view             human malaria parasite Plasmodium falciparum     Plasmodium falciparum life cycle. Nature 2002;419:            application studies development inhibition.
+    520–6.                                                               Mol Microbiol 2004;52:1187–99.
+                     Functional genomics P. falciparum using metabolic modelling analysis                                 327
+
+64. Prieto JH, Koncarevic S, Park SK, et al. Large-scale differ-    77. Saliba KJ, Martin  Broer  et al. Sodium-dependent
+    ential proteome analysis Plasmodium falciparum drug        uptake inorganic phosphate 

@@ -1,0 +1,457 @@
+Influence Protein Abundance High-Throughput
+Protein-Protein Interaction Detection
+Joseph Ivanic, Xueping Yu, Anders Wallqvist, Jaques Reifman*
+Biotechnology HPC Software Applications Institute, Telemedicine Advanced Technology Research Center, Army Medical Research Materiel Command, Ft.
+Detrick, Maryland, United States America
+
+
+
+    Abstract
+    Experimental protein-protein interaction (PPI) networks increasingly exploited diverse ways biological
+    discovery. Accordingly, vital discern underlying natures identifying classifying various types     deterministic (specific) probabilistic (nonspecific) interactions detected. end, analyzed PPI networks
+    determined using range high-throughput experimental techniques aim systematically quantifying     biases arise varying cellular abundances proteins. confirm PPI networks determined using
+    affinity purification methods yeast Eschericia coli incorporate correlation protein degree, number     interactions, cellular abundance. observed correlations small statistically significant occur     unprocessed (raw) processed (high-confidence) data sets. contrast, yeast hybrid yields networks     contain relationship. previously commented based mRNA abundance, extensive analysis based
+    protein abundance confirms systematic difference PPI networks determined technologies.     additionally demonstrate centrality-lethality rule, implies higher-degree proteins likely     essential, misleading, protein abundance measurements identify essential proteins prevalent     nonessential proteins. fact, generally degree/abundance correlation, degree distributions
+    nonessential essential proteins disparate. Conversely, degree/abundance correlation,     degree distributions nonessential essential proteins different.  essentiality manifests
+    itself biological property yeast PPI networks investigated enrichments interactions     essential proteins. findings provide valuable insights underlying natures various high-throughput
+    technologies utilized detect PPIs lead effective strategies inference analysis high-
+    quality PPI data sets.
+
+  Citation: Ivanic J, Yu X, Wallqvist  Reifman J (2009) Influence Protein Abundance High-Throughput Protein-Protein Interaction Detection. PLoS 4(6):
+  e5815. doi:10.1371/journal.pone.0005815
+  Editor: Eugene  Shakhnovich, Harvard University, United States America
+  Received February 27, 2009; Accepted 7, 2009; Published June 5, 2009
+  open-access article distributed terms Creative Commons Public Domain declaration stipulates  placed public
+  domain, work freely reproduced, distributed, transmitted, modified, built  used lawful purpose.
+  Funding: authors supported,  Military Operational Medicine research program U.S. Army Medical Research Materiel Command,
+  Ft. Detrick, Maryland. effort supported U.S. Army’s Network Science Initiative. opinions assertions contained private views
+  authors construed official reflecting views U.S. Army U.S. Department Defense. paper approved
+  public release unlimited distribution. funders role study design, data collection analysis, decision publish, preparation   manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: jaques.reifman army.mil
+
+
+
+Introduction                                                                              potential significance delineating biological
+                                                                                       organization, topologies PPI networks explored
+   accurate modeling cellular processes requires knowledge                      using variety graph-theoretical techniques [15–17];  underlying components practical descriptions                      recent investigations resemble interactions [1]. Proteins make                         probabilistic, random, frameworks [18,19]. PPI networks cellular machinery;  act individually,                         routinely exploited discovery biological traits, parts dynamic pathway, elements multi-component                          correlations topological properties biological attributes
+complexes behave individual functional entities [2].                       probed  Examples inferred relationships include elucidation protein roles enhanced discovery                         degree (number interactions) essentiality [20–23],
+interactions proteins cell. Recent advances                       connectivity evolutionary rate [24–26]. studies aim
+experimental high-throughput (HT) technologies, notably                        identify biological entities, functional modules [27–29] forms yeast hybrid (Y2H) [3] tandem-affinity-                       pathways [30,31], networks. recently, PPI
+purification (TAP) [4] platforms, enabled large-scale protein-                    network information used augment gene expression
+protein interaction (PPI) screens subsequent constructions                      measurements identify condition-specific response complexes
+corresponding PPI networks. number HT data sets,                             [32,33]. PPI networks prospective roles drug discovery experimental platforms, available yeast                    [34].
+Saccharomyces cerevisiae [5–9] small number                            clear PPI networks potential considerably
+species, including Escherichia coli [10,11], Drosophila melanogaster                   supplement areas biological research.  [12,13], Caenorhabditis elegans [14].                                              known data sets different studies small
+
+
+       PLoS | www.plosone.org                                                  1                                    June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                   Abundance Protein Networks
+
+
+numbers coincident interactions [6,35]. small overlaps              results unexpected, quantify levels led skepticism suggestions bias regarding          abundance effects persistence authenticities [36,37]. aforementioned observations                  data sets. interestingly, analysis high-confidence (HC)
+reservations primarily based analyses experimen-            interaction data sets inferred affinity purification studies
+tal studies yeast proteins, using Y2H screens [7,9]                 statistically significant correlation using HT mass spectrometric protein complex                        degree abundance. mentioned earlier, Y2H
+identification (HMS-PCI) technique [6], based                 data sets, including HC, correlation degree affinity purification procedure. recently, large indepen-           abundance.  substantiate systematic differ-
+dent yeast PPI data sets determined using nearly identical TAP               ence PPI networks determined Y2H affinity
+methodologies available [5,8]. number               purification methods.
+mutually detected TAP interactions modest, overlaps               light discovered associations degree TAP-observed interactions Y2H HMS-PCI data sets                 abundance, reinvestigated centrality-lethality rule [20–23], small. small interaction overlap exists         implies higher-degree proteins likely TAP data sets E. coli [10,11].                                        essential.  strict statistical analyses degree
+   PPI networks effectively utilized, authenticities         distributions essential nonessential proteins, raw established. Platform-dependent high-quality interaction             HC Y2H data sets correlation degree maps yeast recently deduced TAP [38] Y2H               essentiality, HMS-PCI TAP PPI networks, [39] methodologies.  major step extracting              exception, contain substantial correlations.  verifying credible interactions raw experimental data                   essential proteins generally abundant requires comprehension distinct systematic biases present             nonessential proteins   correlations various experimental platforms. Previous investigations           artificially induced. fact, generally degree/
+yeast suggested protein abundance important factor           abundance degree/essentiality correlations occur tandem detecting interactions affinity purification studies       present absent.  Y2H screens [35,40]. Von Mering et al. [35] showed PPI               centrality-lethality rule misleading. effort identify
+data sets deduced affinity purification studies (TAP [41]           nonrandom signatures interaction data sets determined, HMS-PCI [6]), proteins having interactions                comparisons strict randomized simulations, propensity
+likely larger corresponding messenger RNA (mRNA)                     essential proteins selectively interact  abundances bias detected PPI data set                 yeast PPI datasets contain significant enrichments deduced Y2H screens. Bjo¨rklund et al. [40] showed PPIs            essential-essential interactions. propensity essential
+detected recent TAP studies [5,8] enriched             proteins involved essential complex biological modules highly-abundant (.6000 molecules/cell) proteins, Y2H                 realized previously HC networks [23], demonstrate data set contained significant enrichment. study            general case essential proteins prefer interact confirmed abundance effect affinity purification experiments            yeast, did perform comprehensive studies investigating             findings provide valuable insights underlying total extent abundance influence. Simply considering
+                                                                             natures differences various HT impact highly-abundant proteins insufficient                                                                              technologies utilized detect PPIs. knowledge lead
+ascertain scope abundance effects. proteins                                                                              effective strategies inference analysis high-
+cell high abundances;  useful                                                                              quality PPI data sets.
+probe relative levels promiscuity, possibly stemming varying abundances proteins, perceivable variety affinity purification data sets, including         Materials Methods
+inferred high-quality.                                                          analyzed protein interaction networks yeast E. coli
+   influence protein abundance method                     determined Y2H [7,9], HMS-PCI [6], TAP [5,8,10,11]
+interaction detection reinvestigated  analyzed PPI data           platforms. studies provide lists experimentally
+sets encompassing different platforms incorporating                 observed interactions. unprocessed data sets referred cellular protein mRNA abundance levels measured using
+                                                                             raw. cases, raw binary interactions (non-self diverse technologies: western blot (WB) [42], flow cytometry
+                                                                             undirected) subsequent PPI networks assembled (FC) [43], gene expression (GE) [44]. yeast PPI
+                                                                             tabulation bait-prey pairs. studies additionally
+data sets examined previous study [35], investigated
+                                                                             attempt identify substantive interactions using range recent TAP data sets yeast [5,8] E. coli [10,11].
+                                                                             methodologies, including experimental reproducibility, removal Correlations protein degree, number detected
+                                                                             suspect promiscuous proteins, assignment confidence scores
+interactions, cellular protein mRNA abundances                                                                              using computational techniques. data sets referred
+determined averaging binning data. Additionally,                                                                              high confidence. investigated raw PPI networks
+gauge potential artificial correlations arising irregular
+                                                                             corresponding HC data sets concurrently
+abundance distributions computed distributions proteins                                                                              inferred.
+degree. TAP HMS-PCI PPI data sets yeast E. coli contain statistically significant correlation protein degree cellular abundance, Y2H data sets               Yeast Data relationship. findings confirm affinity                  Raw Y2H data sets investigations, labeled Ito [7] purification methods influenced probabilistic interactions            Uetz [9], downloaded IntAct database [45] (http:// differences protein concentrations. known         www.ebi.ac.uk/intact/site/index.jsf). Ito et al. [7] additionally nature affinity purification methods induce retrieval              provide core, HC, data set contains interactions nonspecific contaminants, promiscuous prey proteins,              experimentally detected times promiscuity related high abundance.             downloaded (http://itolab.cb.k.u-tokyo.ac.jp/Y2H).
+
+
+       PLoS | www.plosone.org                                        2                              June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                     Abundance Protein Networks
+
+
+   Purification data HMS-PCI study, labeled Ho [6],              nonessential proteins. Comparable P-values determined acquired original publication. Ho et al. [6] infer            test correlations protein abundance essentiality.
+HC data set removal suspect promiscuous prey proteins                  enrichment essential-essential protein interactions downloaded IntAct.                                              network evaluated computing P-value, calculation    Purification data TAP investigations [5,8]                   score assuming normal distribution, difference
+acquired original publications. raw data set                actual number average obtained Gavin et al. [5], labeled Gavin, used matrix-assisted laser                   randomly selecting proteins essential.  desorption/ionization-time flight mass spectroscopy (MALDI-                randomly selecting proteins considered essential, ensured
+TOF MS) identify purifying proteins. corresponding HC                 total number degree distribution chosen
+data set inferred study determining ‘socio-             essential proteins matched actual essential proteins.
+affinity’ scores pair proteins followed iterative           ensures artificial differences arising changes clustering procedure refined using curated set protein          degree distributions essential proteins observed whilst
+complexes [46]. raw data sets taken study                simultaneously conserving network structure. Results Krogan et al. [8].  labeled Krogan-TOF, used MALDI-                 deduced 1000 simulations.
+TOF MS identify purifying proteins, second,
+labeled Krogan-LCMS, used liquid chromatography tandem mass                   Results
+spectrometry (LCMS) protein identifications. types HC
+data sets study Krogan et al. [8] downloaded                 Influence Protein Abundance Degree Raw PPI (http://tap.med.utoronto.ca/downloads.php).                Data Sets
+HC data sets inferred removing 44 nonspecific                       Experimental PPI data sets derived techniques contaminants nearly cytoplasmic ribosomal subunits               attempt detect presence protein associations cellular raw data. HC data set, labeled Krogan-INT, contains             environment.  investigation influences remaining interactions identified detection             cellular concentration protein detected
+methods. second, labeled Krogan-CORE, derived using                   interactions based protein abundance measurements.
+machine-learning algorithms trained curated protein complex-               Recent determinations yeast cellular protein abundances es MIPS reference database [47].                                       normal growth achieved tagging open reading frames
+   Yeast cellular protein mRNA abundances normal                   (ORFs), allowing expressions natural chromo-
+aerobic growth taken investigations,               somal locations, measuring absolute levels WB [42] FC
+used different measurement methodology: WB [42], FC [43],                   [43] techniques. utilized protein abundance measurement GE analysis [44]. Essential yeast proteins obtained                  data sets studies. proteins Saccharomyces Genome Deletion Project (http://                       overwhelmingly responsible various cellular functions,
+www-sequence.stanford.edu/group/yeast_deletion_project/Essential_             expression levels precursors, mRNA molecules, provide
+ORFs.txt) Munich Information Center Protein                       considerable insights internal states cell. fact,
+Sequences (MIPS) (ftp://ftpmips.gsf yeast/catalogues/gene_                 measurement mRNA expression levels microarray experi-
+disruption). proteins annotated essential datasets            ments [51–53] far simpler widespread considered essential                                          measurement protein abundances. Accordingly,                                                                               enormous number GE studies determined
+Escherichia coli Data                                                         yeast mRNA abundances normal growth. findings
+   Raw TAP-determined PPI networks investigations,                   reported utilized GE measurements Holstege et al.
+labeled Butland [10] Arifuzzaman [11], acquired           [44];  stressed comparable results original publications. Gene expression measurements                    obtained using GE measurements recent
+normal aerobic growth taken studies [48–50].                  studies [54–56]. previously noted trend degree                                                                               abundance [35] based data Holstege et al. [44]. Computational Analyses                                                        noted  raw yeast PPI data sets investigated    Correlations protein degree abundance                     encompassing diverse HT technologies: TAP  data
+evaluated determining Pearson Spearman rank correlation                sets), HMS-PCI  data set), Y2H  data sets). coefficients log(degree) vs. log2(abundance). case           investigated raw TAP data sets E. coli used GE coefficients similar, Spearman’s correlation               measurements studies [48–50].
+coefficient generally slightly smaller magnitude. Corre-                 Table 1 shows correlations yeast protein degree
+lation analyses performed pairs individual data sets              abundance, WB, FC, GE measurements.
+(PPI network vs. abundance measurement set) averaging                 raw TAP PPI data sets contain statistically data, e., protein included separate data entity       significant correlations protein degree abundance. degree abundance known. illustrate general                Pearson correlation coefficients test linear relationship
+trends correlations, lack  generated plots                 log values, lying 0.23 0.33, similar log(degree) vs. ,log2(abundance)., quantity              large corresponding Spearman rank correlation
+determined averaging log2(abundance) values, particular              coefficients close value.  P-values abundance measurement set, proteins having degree.                0.0001, suggesting relationships significant, e.,
+   gauge possibility artificial correlations arising           represent random events. stress irregular abundance distributions proteins PPI data sets,           correlations obtained averaging data, e., computed abundance distributions proteins grouped                   protein’s degree abundance included single data entity.
+degree. illustrated color maps (Figures 1, 2, 3).               Merging Gavin Krogan-TOF data sets produces PPI
+   Correlations essentiality degree evaluated             network contains similar degree/abundance correlations
+calculating P-values sample Kolmogorov-Smirnov (KS)                   individual data sets. Figure 1A, showing data points,
+test differences degree distributions essential            illustrates degree/abundance relationship raw TAP
+
+
+       PLoS | www.plosone.org                                         3                               June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                 Abundance Protein Networks
+
+
+
+
+Figure 1. Relationship protein degree abundance raw yeast TAP Gavin PPI network [5] using western blot
+abundance measurements Ghaemmaghami et al. [42].   data points, e., protein’s degree abundance plotted; (B) averaged
+data log2(abundance) values averaged proteins having degree; (C) total normalized abundance distribution, binned integer values log2(abundance), proteins appearing PPI abundance measurement data sets; (D) normalized abundance
+distributions degree frequencies shown color: yellow signifies smallest nonzero value blue represents values
+larger 0.25. Best-fit line data   shown (D).
+doi:10.1371/journal.pone.0005815.g001
+
+Gavin PPI network using WB abundance measurements [42],                    observed correlations artificial abundance Figure 1B shows general trend log2(abundance)                 distributions proteins degree skewed. 
+values averaged proteins having degree.              notion discounted finding statistically
+Pearson correlation coefficient averaged data 0.52       significant correlations non-averaged data. Nonetheless, corresponding P-value 0.0001. Similar plots        investigate abundance distributions degree obtained raw yeast TAP PPI data sets            establish authenticity degree/abundance relationship using FC (protein) GE (mRNA) abundance measurements.                raw TAP PPI networks. proteins appearing raw results E. coli TAP data sets identical           Gavin PPI WB abundance measurement data sets, yeast TAP sets (Table 2), Pearson Spearman            total abundance distribution (binned integer values correlation coefficients lying 0.11 0.46                log2(abundance)) Figure 1C degree  color map)
+associated P-values 0.0001. Figures 2A 2B            Figure 1D. total abundance distribution seen non-averaged averaged data, respectively, Butland PPI           close normal distributions degree network using GE measurements Covert et al. clear         reasonably symmetric averages. Note Figure 1D definite propensity, slight, proteins            reflects general trend averaged data Figure 1B. increasing degree higher abundances.                                observations echoed E. coli TAP Butland PPI network
+
+
+      PLoS | www.plosone.org                                        4                              June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                   Abundance Protein Networks
+
+
+
+
+Figure 2. Relationship protein degree abundance raw E. coli TAP Butland PPI network [10] using gene
+expression measurements Covert et al. [48].  –(D), Figure 1 legend.
+doi:10.1371/journal.pone.0005815.g002
+ GE measurement data set Covert et al. (Figure 2C               express tagged ORFs native
+D), degree/abundance relationship appears                     environments, TAP studies, Ho et al. express tagged
+pronounced.  possible TAP method                 ORFs plasmids containing GAL1 promoters. unclear
+detecting interactions influenced cellular                   non-native delivery affects cellular
+concentrations proteins. finding                abundances tagged baits expect prey proteins
+surprising, TAP method expresses tagged bait potential            concentrations similar normal growth
+prey ORFs natural chromosomal locations, does                  conditions. surprisingly,  statistically
+imply raw TAP-determined PPI networks incorporate                     significant correlations degree abundance Ho
+probabilistic, random, element. higher cellular                   PPI data set. Correlation coefficients modest, lying
+abundance protein, likely detected           0.17 0.28 (Table 1), P-values purifications   interactions            0.0001, suggesting statistically significant relationship construed involved  correlation coefficients           degree abundance Ho data set.  given large, known mRNA protein                  general affinity purification methods detecting
+abundance measurements contain sources variation                 interactions somewhat mediated proteins’ cellular technical biological factors.                                         abundances.
+   HMS-PCI technique isolate identify purifying                   counter-example PPI data sets proteins [6] similar used TAP studies [5,8],       correlation degree abundance, expect uses affinity purification method isolate complexes.                findings biologically relevant, e., average,
+
+
+       PLoS | www.plosone.org                                        5                              June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                  Abundance Protein Networks
+
+
+
+
+Figure 3. Relationship protein degree abundance raw yeast Y2H Ito PPI network [7] using western blot
+abundance measurements Ghaemmaghami et al. [42].  –(D), Figure 1 legend.
+doi:10.1371/journal.pone.0005815.g003
+
+
+ number interactions protein involved related       network using WB protein abundance measurements. cellular concentration. interpretation suggest           clear plots relationship exists degree salient probabilistic element exists interactome.                  abundance.  regardless extent probabilistic behavior,               order clarify differences PPI networks established exist stable protein complexes            determined Y2H affinity purification methods [47].  raw Y2H          analyzed abundance distributions degree proteins appearing
+PPI data sets, individual Ito, Uetz, combined,           raw Ito PPI WB abundance measurement data correlation degree abundance (Table 1).                  sets. Figures 3C 3D total abundance distribution correlations coefficients small, lying 20.07           distributions degree, respectively. total abun-
+0.04, P-values, Pearson correlation coefficients,           dance distribution essentially normal notably similar greater 0.02, individual Ito Uetz data            TAP Gavin PPI data set (Figure 1C). Additionally,
+sets range 0.06 0.92. using GE WB                 Figure 3D shows distributions degree abundance measurements, correlation coefficients absolute              symmetric averages clearly illustrates lack
+values 0.05 P-values greater 0.22. P-             degree/abundance correlation.  compared
+values smallest FC abundance measurements               results raw TAP HMS-PCI data sets, reasons immediately clear. Figures 3A 3B               conclude raw Y2H PPI data sets contain degree/ non-averaged averaged data, respectively, Ito PPI           abundance relationship. Furthermore, affirm 
+
+      PLoS | www.plosone.org                                        6                              June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                           Abundance Protein Networks
+
+
+
+ Table 1. Pearson correlation coefficients (r) corresponding P-values tests linear association log(degree)  log2(abundance) raw yeast PPI data sets.
+
+
+ PPI data set           Western blot (Ghaemmaghami et al.)             Flow cytometry (Newman et al.)          Gene expression (Holstege et al.)
+
+                        NPa          r                   Pb            NPa       r                   Pb        NPa        r                   Pb
+
+ TAP
+ Gavin                  2146         0.29 (0.28)         ,             1585      0.29 (0.26)         ,         2496       0.33 (0.30)         ,
+ Krogan-TOF             2291         0.24 (0.21)         ,             1523      0.25 (0.20)         ,         2701       0.23 (0.21)         ,
+ Krogan-LCMS            3543         0.26 (0.21)         ,             2314      0.28 (0.22)         ,         4707       0.26 (0.20)         ,
+ Gavin+Krogan-TOFc      2845         0.33 (0.31)         ,             1925      0.32 (0.27)         ,         3410       0.32 (0.30)         ,
+ HMS-PCI
+ Ho                     1326         0.26 (0.23)         ,             938       0.28 (0.25)         ,         1630       0.18 (0.17)         ,
+ Y2H
+ Ito                    2107         0.01 (0.04)         0.5820        1357      20.05 (20.04)       0.0646    2910       ,0 (0.01)           0.9212
+ Uetz                   929          20.01 (0.01)        0.8470        599       20.07 (20.06)       0.0686    1221       20.04 (20.03)       0.2214
+ Ito+Uetzd              2403         20.01 (0.01)        0.6066        1560      20.06 (20.04)       0.0277    3311       20.01 (20.01)       0.5689
+
+ Spearman rank correlation coefficients provided parentheses.
+    Number proteins PPI data set having abundance measurements.
+ b
+   symbol ‘‘,’’ signifies P,0.0001 Pearson Spearman correlation coefficients.
+ c
+  Combined Gavin Krogan-TOF interaction data sets.
+ d
+   Combined Ito Uetz interaction data sets.
+ doi:10.1371/journal.pone.0005815.t001
+
+
+degree/abundance correlations observed TAP HMS-                           Influence Protein Abundance Degree HC PPI
+PCI PPI networks result skewed abundance                              Data Sets
+distributions, total individual degrees. clear                yeast PPI studies utilized work inferred Y2H methodology distinct affinity purification                       HC interaction data sets raw data. HC PPI
+methods protein expression levels influence                       data sets meant contain interactions observed interactions technique.                                      reproducible resolute. methods used infer HC
+   findings consistent considering Y2H                       interactions varied  Materials Methods). 
+screen bait prey proteins expressed similar                        discover sets contain plasmids. protein expressed plasmid likely                     relationship degree abundance. different cellular concentration expressed                  yeast HC PPI networks deduced raw affinity purification
+native chromosomal location. Additionally, different proteins                        data (TAP HMS-PCI) contain statistically significant
+expressed plasmid presumed similar                         correlations (Table 3). correlation coefficients modest,
+expression levels.  true,                  lying 0.13 0.39, similar observed
+possible Y2H screen influenced                       raw TAP HMS-PCI data sets.  P-values
+abundance factor related post-transcriptional modification.                       0.0001, suggesting nontrivial relationships
+Investigation speculation straightforward                  exist degree abundance. results possible translational efficiencies proteins                    surprising Krogan-CORE, Krogan-INT, HC Ho
+estimated.                                                                           data sets, inferring methodologies included,                                                                                      step, removal promiscuous proteins. Krogan et al.
+                                                                                     removed 44 nonspecific contaminants nearly cytoplasmic
+ Table 2. Pearson Spearman rank  parentheses)                                 ribosomal subunits raw data preliminary step,
+ correlation coefficients (r) tests linear association                        HC Ho PPI data set subset raw data  log(degree) log2(mRNA expression) raw E. coli                        nonspecifically binding proteins subtracted.  TAP PPI data sets.                                                                  spite removals, inferring procedures,
+                                                                                     HC data sets contain degree/abundance relationship,
+                                                                                     albeit weak.  influence protein cellular
+ PPI data set        Covert et al.       Kang et al.         Salmon et al.           abundance limited small proportion highly-
+                     NPa   r             NPa    r            NPa   r                 abundant promiscuous proteins.  effect                                                                                      subtly ingrained data. TAP HC data set  Butland             1277 0.46 (0.45) 1278      0.45 (0.42) 856    0.24 (0.21)       Gavin et al. inferred determining ‘socio-affinity’
+ Arifuzzaman         2918 0.21 (0.19) 2919      0.21 (0.20) 1764   0.13 (0.11)       scores pair proteins, quantified propensity
+ Butland+            3158 0.30 (0.28) 3159      0.30 (0.27) 1904   0.17 (0.13)       occur purifications.  degree/
+ Arifuzzmanb                                                                         abundance correlation coefficients lie 0.31 0.39.                                                                                      fact, HC Gavin data set larger correlation coefficients
+ P,0.0001 Pearson Spearman correlation coefficients.
+   Number proteins PPI data set having abundance measurements.
+                                                                                     corresponding values raw PPI network.  b
+  Combined Butland Arifuzzaman interaction data sets.                            findings HC TAP HMS-PCI data sets suggest
+ doi:10.1371/journal.pone.0005815.t002                                               degree/abundance relationship  discussed earlier,
+
+
+         PLoS | www.plosone.org                                              7                              June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                               Abundance Protein Networks
+
+
+
+ Table 3. Pearson correlation coefficients (r) corresponding P-values tests linear association log(degree)  log2(abundance) high-confidence yeast PPI data sets.
+
+
+                                                                                                                               Gene expression (Holstege et
+ PPI data set                        Western blot (Ghaemmaghami et al.)                  Flow cytometry (Newman et al.)        al.)
+
+                                     NPa               r                      Pb         NPa         r                   Pb    NPa      r        Pb
+
+ Gavin [TAP]                         1286              0.31 (0.30)            ,          1012        0.38 (0.37)         ,     1470     0.39     ,
+                                                                                                                                        (0.37)
+ Krogan-CORE [TAP]                   2208              0.20 (0.18)            ,          1461        0.16 (0.14)         ,     2578     0.22     ,
+                                                                                                                                        (0.21)
+ Krogan-INT [TAP]                    1081              0.15 (0.13)            ,          778         0.16 (0.15)         ,     1186     0.20     ,
+                                                                                                                                        (0.19)
+ Ho [HMS-PCI]                        1240              0.26 (0.26)            ,          874         0.26 (0.26)         ,     1535     0.21     ,
+                                                                                                                                        (0.21)
+ Ito [Y2H]                           596               20.02 (20.01)          0.6514     380         20.06 (20.06)       0.2393 727     0.02     0.6726
+                                                                                                                                        (0.03)
+
+ Spearman rank correlation coefficients provided parentheses.
+   Number proteins PPI data set having abundance measurements.
+ b
+   symbol ‘‘,’’ signifies P,0.0001 Pearson Spearman correlation coefficients.
+ doi:10.1371/journal.pone.0005815.t003
+
+
+biologically significant. Alternatively, observed correlations                     degree distributions. degree distributions HC data sets result inferring procedures                       essential proteins TAP HMS-PCI data sets completely effectual.                                                     significantly different nonessential proteins, PKS-
+   Y2H HC data set Ito et al. subset raw PPI                        values 0.0001 (Table 4). differences network includes interactions experi-                         illustrated Figures 4A 4B, degree distributions
+mentally detected times. interaction                  essential nonessential proteins raw Gavin set shows correlation degree abundance (Table 3).                       Krogan-TOF PPI data sets, respectively. surprising raw data set contains                                stark contrast, degree distributions essential
+relationship. correlation coefficients small, ranging                     nonessential proteins raw Y2H networks 20.06 0.03, P-values Pearson correlation coefficients                   significantly different, PKS-values 0.9915 0.1542 larger 0.23.                                                                  raw Ito Uetz data sets, respectively. Degree distributions    results HC PPI data sets identical                  essential nonessential proteins Ito Uetz PPI
+raw data sets. derived affinity purification experiments                    networks shown Figures 4C 4D, respectively, weak, statistically significant correlations degree                   clear data sets curves similar.  abundance, Y2H PPI data sets relationship                        conclude raw Y2H data sets correlation degree abundance. findings exemplify                         degree essentiality. fact, raw Ito data set difference interactions detected Y2H screens                        P-value near  previously reported affinity purification procedures.                                                      Ito data set weak correlation degree essentiality
+                                                                                       [20];  difference degree distributions
+Relation Essentiality Topology Raw PPI                                  essential nonessential proteins data set.
+Data Sets                                                                                  degree/essentiality relationships discussed raw
+   correlation degree essentiality, proteins                   PPI data sets curious (weak) degree/
+having interactions likely essential,                     abundance correlation, degree/essentiality relation-
+noted previously [20–23] generally accepted precept                          ship. tandem correlations observed raw
+known centrality-lethality rule. Recent analysis curated,                    interaction data sets determined affinity purification methods
+inferred, HC yeast networks essential proteins                       (TAP HMS-PCI). converse true,  likely involved essential complex biological modules                     degree/abundance relationship, degree/essentiality   degrees average higher [23].                          correlation (Table 4). tandem non-correlations observed  findings presented  PPI networks                                Y2H interaction data sets. Insights correlations
+determined using affinity purification procedures (TAP                             associated obtained looking relationship HMS-PCI) statistically significant correlations                           essentiality abundance. fact, essential proteins degree abundance Y2H PPI networks  warrants                           abundant nonessential proteins yeast look degree/essentiality property.                                      abundance measurements utilized  P-values, assuming normal
+   Table 4 gives average degrees essential nonessential                         distributions, tests difference average log2(abundance)
+proteins raw yeast PPI networks. essential                         essential nonessential proteins WB [42], FC [43], proteins higher average degrees nonessential proteins                     GE [44] measurements 10219, 1027, 10237 respectively. P- raw PPI networks.  known degree                          values sample KS tests similar, 10218, 1028, distributions PPI networks normal;  resemble                    10231 WB, FC, GE measurements, respectively. 
+power-law scaling [22,57].  order determine                        correlation degree essentiality raw TAP significance difference degrees essential                        HMS-PCI networks artificial essential proteins
+nonessential proteins use sample KS test compare                         generally abundant. explain 
+
+       PLoS | www.plosone.org                                                  8                                 June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                                 Abundance Protein Networks
+
+
+
+ Table 4. Tests difference beween degree distributions essential nonessential proteins raw high-confidence yeast
+ PPI data sets.
+
+
+                                                                                                                        Correlation degree/
+ PPI data set                            Essentiala               Nonessentialb                  PKSc                   abundance
+
+ Raw
+ Gavin [TAP]                             20.79                    11.02                          ,                      yes
+ Krogan-TOF [TAP]                        18.02                    10.63                          ,                      yes
+ Krogan-LCMS [TAP]                       28.49                    14.36                          ,                      yes
+ Ho [HMS-PCI]                            12.24                    8.18                           ,                      yes
+ Ito [Y2H]                               3.04                     2.60                           0.9915                  Uetz [Y2H]                              2.59                     1.96                           0.1542                  High-confidence
+ Gavin [TAP]                             5.88                     5.90                           0.5160                 yes
+ Krogan-CORE [TAP]                       7.82                     4.20                           ,                      yes
+ Krogan-INT [TAP]                        5.21                     2.95                           ,                      yes
+ Ho [HMS-PCI]                            6.04                     3.89                           ,                      yes
+ Ito [Y2H]                               2.13                     1.84                           0.9994                 
+    Average degree essential proteins.
+ b
+   Average degree nonessential proteins.
+ c
+  P-value sample Kolmogorov-Smirnov test difference degree distributions essential nonessential proteins. symbol ‘‘,’’ signifies
+  P,0.0001.
+ doi:10.1371/journal.pone.0005815.t004
+
+
+correlation degree essentiality Y2H data sets                 HC Ho data set (HMS-PCI). point, findings contain correlations degree abundance.                     HC data sets lend support notion identified  common notion essential proteins generally                 correlation degree essentiality PPI network higher degrees nonessential proteins misleading.                        artificially induced, essential proteins generally abundant
+   effort identify deterministic, nonrandom, signatures              nonessential. stark contrast,  HC Gavin data set, raw yeast PPI networks, quantified enrichment                         P-value 0.52, shows correlation degree essential-essential interactions data sets comparing                  essentiality does contain degree/abundance associa-
+observed numbers strict randomized simulations.                     tion. PPI networks investigated work, HC Gavin given PPI network, proteins considered essential                data set contains degree/abundance correlation
+selected random constraint degree distribution              degree/essentiality relationship. reasons selected proteins matched actual essential proteins.               immediately clear presumably related steps ensures results perturbed varying degree                   HC interaction inferring procedure.
+distributions ‘essential’ proteins whilst simultaneously                        HC yeast PPI networks enriched
+conserving network structures. Data deduced 1000                      interactions essential proteins (Table 5). P-values realizations results given Table 5. consistently             0.0001, indicating observed numbers essential- numbers actual essential-essential interactions larger              essential interactions significantly larger strict randomized simulations standard                        randomized simulations. test enrichment strict deviations relatively small. Accordingly, P-values,              freeze network structure degree distributions 0.0001, indicated significant nonrandom enrichments.                     essential (actual randomly chosen) proteins   fore, biological signatures evident raw yeast PPI data sets,            difficult form extensive topological insights.  including Y2H despite networks correlation                       tests indicate, question, raw HC yeast PPI degree essentiality.                                                    networks propensity essential proteins prefer                                                                                     interact  deduce biological signature Relation Essentiality Topology HC Data                               PPI network does appear commonly acknowledged
+Sets                                                                                form degree/essentiality correlation; manifests itself
+   Table 4 shows average degrees essential                          enhancing interactions essential proteins. nonessential proteins HC yeast PPI networks                    recent study concludes HC PPI networks essential proteins
+P-values sample KS tests. Y2H HC Ito data set,                  likely involved essential complex biological
+P-value essentially  correlation degree                   modules [23], general case essential
+essentiality. result identical raw Ito PPI            proteins prefer interact 
+network, indicating Y2H method does bias essential
+proteins interacting partners. HC Krogan data                      Discussion
+sets, like raw counterparts, significant correlations  P-
+values 0.0001) degree essentiality.                    shown raw HC TAP HMS-PCI PPI networks
+result unsurprising data sets relationship                  contain statistically significant correlations protein degree degree abundance. Similar findings obtained                     abundance. previously noted trend protein
+
+
+       PLoS | www.plosone.org                                               9                                   June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                Abundance Protein Networks
+
+
+
+
+Figure 4. Degree distributions essential (red dashed) nonessential (black) proteins raw yeast PPI networks.   Gavin (TAP)
+[5], (B) Krogan-TOF (TAP) [8], (C) Ito (Y2H) [7], (D) Uetz (Y2H) [9].
+doi:10.1371/journal.pone.0005815.g004
+
+
+degree mRNA abundance [35] confirmed using                        TAP method extracts tagged bait proteins, expressed
+protein abundances extensive analyses. results            native genome locations, determines consistent yeast  TAP HMS-PCI) E. coli           proteins, preys, purified, complexed, 
+TAP) data sets. yeast, correlations similar          HMS-PCI method similar tagged bait proteins
+diverse protein mRNA abundance measurement technologies:               expressed plasmids. techniques prey
+western blot, flow cytometry, gene expression. E. coli,        proteins expressed natural conditions results consistent using gene expression measurements             native environments.  degree/abundance relation- normal aerobic growth studies.                  ship TAP HMS-PCI PPI data sets wholly
+correlation coefficients modest, observations highly           unexpected. protein pairs similar binding
+significant. Furthermore, protein abundance gene expression            affinities, probability theory dictates number measurements known variable.  identified                 detected interactions proteins correlate roughly correlations degree abundance consistently                 concentrations, abundances. Nonrandom influences observed indicate inherent nontrivial property           forms differing expression times cellular locations data.                                                                      remove probabilistic elements. known 
+
+      PLoS | www.plosone.org                                      10                              June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                            Abundance Protein Networks
+
+
+
+ Table 5. Enrichment interactions essential                               proteins relatively high vivo abundances [58]. Taken
+ proteins raw high-confidence yeast PPI data sets.                             results imply proteins having high
+                                                                                     abundances detected Y2H approach                                                                                      interactions, interactions likely specific.
+ PPI data set                       Actual       Randoma        sb                   Conversely, proteins having low abundances                                                                                      Y2H-detected interactions, likely non-
+ Raw                                                                                 specific. vivo abundances proteins  Gavin [TAP]                        4692         4310           32.6                 tagged Y2H experiments, detected interactions
+ Krogan-TOF [TAP]                   3416         3203           30.9                 necessarily occur natural environment. 
+ Krogan-LCMS [TAP]                  6566         6235           52.7                 associations detected proteins having high vivo
+                                                                                     abundances, guaranteed relatively   Ho [HMS-PCI]                       1470         1391           20.2
+                                                                                     likely specific naturally occurring.   Ito [Y2H]                          315          248            12.4                 vivo abundances influence total number Y2H-
+ Uetz [Y2H]                         163          119            7.8                  detected interactions protein, intrinsically impact  High-confidence                                                                     numbers specific.
+ Gavin [TAP]                        892          829            14.1                    light observed (weak) correlations degree                                                                                      abundance TAP HMS-PCI PPI networks,  Krogan-CORE [TAP]                  1742         1397           24.0
+                                                                                     reinvestigated centrality-lethality rule, implies  Krogan-INT [TAP]                   906          765            13.4
+                                                                                     proteins having interactions likely essential.
+ Ho [HMS-PCI]                       716          652            14.9                 analysis diverse yeast protein mRNA
+ Ito [Y2H]                          97           68             6.2                  abundance measurement data sets essential proteins
+                                                                                     prevalent nonessential proteins. observed
+ P,0.0001.
+                                                                                   generally degree/abundance relationships occur tandem
+  Average number interactions observed essential proteins 1000
+  simulations essential proteins selected randomly            degree/essentiality correlations. Additionally,   proteins occurring network. simulation, total number           degree/abundance association, degree/
+  selected proteins degree distribution constrained             essentiality correlation.  degree/essentiality correla-
+  identical actual essential proteins.                               tions TAP HMS-PCI data sets artificial. lack
+ b
+   Standard deviation simulations described 
+ doi:10.1371/journal.pone.0005815.t005                                               degree/essentiality correlation Y2H data sets
+                                                                                     supports notion. results imply caution accepting                                                                                      generally acknowledged centrality-lethality rule. TAP method induces retrieval nonspecific contaminants,
+                                                                                        Biological, nonrandom, signatures identified promiscuous prey proteins, promiscuity                                                                                      PPI networks form enrichments interactions artificial property induced high abundances.
+                                                                                     essential proteins. propensity essential proteins interact
+Statistically significant correlations degree abun-                      deduced comparisons strict
+dance observed inferred HC TAP HMS-PCI data                          randomized simulations.  deduce essentiality
+sets. inferring procedures involved steps                       does manifest itself biological property commonly
+eliminate contaminant nonspecifically binding proteins,                      acknowledged form degree/essentiality correlation;  resulting HC interaction data sets contain degree/abun-                        actualized enhancement interactions essential
+dance relationships.  influence protein cellular                    proteins.
+abundance subtly ingrained data                               demonstrating systematic differences PPI
+limited small proportion highly abundant                                 networks determined using Y2H affinity purification
+promiscuous proteins.                                                                methodologies, discern nature probabilistic element
+   direct contrast TAP HMS-PCI data sets, raw                      approaches. findings provide insights HC yeast Y2H PPI networks correlation                            design effective strategies deduce specific
+degree abundance. results identify systematic                            invariable interactions raw TAP HMS-PCI data
+difference PPI networks determined Y2H                          sets. unbiased, untrained, procedures vital affinity purification platforms. hindsight, consistent               infer HC PPI networks organisms yeast experimental design. Y2H approach expresses pair                        exploit discern genuine biological traits features.
+bait prey proteins, tested interaction,                        avenue discovery receiving recent attention engineered plasmids.  expression levels likely                development analyses combine gene expression PPI different natural environments. say                  data sets. given conditions, environmental Y2H method influenced protein abundance                        physiological, changes mRNA levels relative reference way. generally accepted proteins expressed                  state mapped PPI networks order identify plasmid similar abundances. expressions                        response-type modules sub-networks. respect, vital similar, translational efficiencies                   comprehend underlying nature PPI data set. Highly  possible Y2H screens affected plasmid-induced                  abundant proteins likely larger fluctuations abundances.  investigation premise                            expression levels   utilizing network
+straightforward. Nonetheless, Y2H PPI data                         deduced affinity purification procedure, care sets way mediated protein cellular abundance.                      taken interpreting results.
+   lack degree/abundance correlations Y2H PPI data
+sets related findings Zhang et al. [58],                   Author Contributions interactions Y2H data Ito et al. [7] likely               Conceived designed experiments: JI AW JR. Performed biologically functional  e., independently reported                   experiments: JI XY. Analyzed data: JI XY AW JR. Contributed publications using non-Y2H techniques) participating                     reagents/materials/analysis tools: JI XY. Wrote paper: JI AW JR.
+
+
+
+       PLoS | www.plosone.org                                               11                               June 2009 | Volume 4 | Issue 6 | e5815
+                                                                                                                                              Abundance Protein Networks
+
+
+
+
+References
+ 1. Joyce AR, Palsson BO (2006) model organism  integrating                    31. Przulj N, Wigle DA, Jurisica (2004) Functional topology network protein
+    ‘omics’ data sets. Nat Rev Mol Cell Biol 7: 198–210.                                           interactions. Bioinformatics 20: 340–348.
+ 2. Aloy P, Russell RB (2006) Structural systems biology: modelling protein                    32. Chuang HY, Lee E, Liu YT, Lee D, Ideker T (2007) Network-based
+    interactions. Nat Rev Mol Cell Biol 7: 188–197.                                                classification breast cancer metastasis. Mol Syst Biol 3: 140.
+ 3. Fields S (2005) High-throughput hybrid analysis. promise peril.            33. Ulitsky  Shamir R (2007) Identification functional modules using network
+    FEBS J 272: 5391–5399.                                                                         topology high-throughput data. BMC Syst Biol 1: 8.
+ 4. Puig O, Caspary F, Rigaut G, Rutz B, Bouveret E, et al. (2001) tandem                  34. Nikolsky Y, Nikolskaya T, Bugrim (2005) Biological networks analysis     affinity purification (TAP) method: general procedure protein complex                     experimental data drug discovery. Drug Discov Today 10: 653–662.
+    purification. Methods 24: 218–229.                                                         35. von Mering C, Krause R, Snel B, Cornell M, Oliver SG, et al. (2002)
+ 5. Gavin AC, Aloy P, Grandi P, Krause R, Boesche M, et al. (2006) Proteome                        Comparative assessment large-scale data sets protein-protein interactions.
+    survey reveals modularity yeast cell machinery. Nature 440: 631–636.                    Nature 417: 399–403.
+ 6. Ho Y, Gruhler  Heilbut  Bader GD, Moore L, et al. (2002) Systematic                    36. Mrowka R, Patzak  Herzel H (2001) bias proteome research?
+    identification protein complexes Saccharomyces cerevisiae mass                        Genome Res 11: 1971–1973.
+    spectrometry. Nature 415: 180–183.                                                         37. Sprinzak E, Sattath S, Margalit H (2003) reliable experimental protein-
+ 7. Ito T, Chiba T, Ozawa R, Yoshida M, Hattori M, et al. (2001) comprehensive                   protein interaction data? J Mol Biol 327: 919–923.
+    hybrid analysis explore yeast protein interactome. Proc Natl Acad Sci           38. Collins SR, Kemmeren P, Zhao XC, Greenblatt JF, Spencer F, et al. (2007)
+    USA 98: 4569–4574.                                                                             comprehensive atlas physical interactome Saccharomyces
+ 8. Krogan NJ, Cagney G, Yu H, Zhong G, Guo X, et al. (2006) Global landscape                      cerevisiae. Mol Cell Proteomics 6: 439–450.
+    protein complexes yeast Saccharomyces cerevisiae. Nature 440:                    39. Yu H, Braun P, Yildirim MA, Lemmens  Venkatesan K, et al. (2008) High-
+    637–643.                                                                                       quality binary protein interaction map yeast interactome network. Science
+ 9. Uetz P, Giot L, Cagney G, Mansfield TA, Judson RS, et al. (2000)                             322: 104–110.
+    comprehensive analysis protein-protein interactions Saccharomyces                    40. Bjorklund AK, Light S, Hedin L, Elofsson (2008) Quantitative assessment     cerevisiae. Nature 403: 623–627.                                                               structural bias protein-protein interaction assays. Proteomics 8:
+10. Butland G, Peregrin-Alvarez JM, Li J, Yang W, Yang X, et al. (2005) Interaction                4657–4667.
+    network containing conserved essential protein complexes Escherichia                41. Gavin AC, Bosche M, Krause R, Grandi P, Marzioch M, et al. (2002)
+    coli. Nature 433: 531–537.                                                                     Functional organization yeast proteome systematic analysis protein
+11. Arifuzzaman M, Maeda M, Itoh  Nishikata K, Takita C, et al. (2006) Large-                    complexes. Nature 415: 141–147.
+    scale identification protein-protein interaction Escherichia coli K-12.              42. Ghaemmaghami S, Huh WK, Bower K, Howson RW, Belle  et al. (2003)
+    Genome Res 16: 686–691.                       

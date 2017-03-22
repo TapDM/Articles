@@ -1,0 +1,310 @@
+2304                                                                       Biophysical Journal   Volume 91   September 2006      2304–2311
+
+
+Using Topology Metabolic Networks Predict Viability Mutant Strains
+
+Zeba Wunderlich* Leonid  Mirnyy
+*Biophysics Program, Harvard University, Cambridge, Massachusetts; yHarvard-MIT Division Health Sciences Technology,
+Cambridge, Massachusetts
+
+
+ABSTRACT Understanding relationships structure (topology) function biological networks central
+question systems biology. idea topology major determinant systems function attractive highly disputed hypothesis. structural analysis interaction networks demonstrates correlation topological properties node (protein, gene) network functional essentiality, analysis metabolic networks
+fails �?nd correlations. contrast, approaches utilizing topology biochemical parameters metabolic
+networks, e.g., ﬂux balance analysis, successful predicting phenotypes knockout strains. reconcile seemingly conﬂicting results showing topology metabolic networks Escherichia coli Saccharomyces cerevisiae  fact, suf�?cient predict viability knockout strains accuracy comparable ﬂux
+balance analysis large, unbiased mutant data sets. surprising result obtained introducing novel topology-based
+measure network transport: synthetic accessibility. popular topology-based characteristics node degree, graph diameter, node usage (betweenness) fail predict viability E. coli mutant strains. success synthetic accessibility demonstrates ability capture essential properties metabolic network, branching chemical reactions directed transport material inputs outputs. results strongly support link topology function biological networks  agreement recent genetic studies, emphasize minimal
+role ﬂux rerouting providing robustness mutant strains.
+
+
+INTRODUCTION suggested debated idea topology                    single-gene knockout strains. EMA predict viability
+determines network function. structures               mutant strains comparable accuracy. biological networks available, remains hard separate            methods use network topology, stoichiometry contributions topology contributions                   metabolic chemical transport reactions, cases,
+kinetic equilibrium parameters.                 maximal rates reactions, established structures wealth related experimental             separate role topology role played data, Escherichia coli Saccharomyces cerevisiae                   parameters network function. addition, metabolic networks perfect model systems explore               complexity method results, EMA techniques
+role network topology. topology metabolic network              computationally expensive (12) provide little insight
+sufficient predict viability knockout mutants?                  certain mutations lethal,    Metabolic networks modeled extensively using                 tolerated.
+steady-state flux balance approaches (1–8). test                      untangle topology stoichiometry capabilities metabolic network models, groups                metabolic network topology sufficient
+compared predicted experimentally measured effects                 predict viability E. coli S. cerevisiae
+gene deletions cell growth. effective                   mutant strains accurately FBA large, unbiased sets
+methods flux balance analysis (FBA) (3,4,6–9),                 mutants (9,13,14). result supports claim lated minimization metabolic adjustment (MOMA) method                  topology plays central role determining network func-
+(10), elementary mode analysis (EMA) (11).                   tion malfunction (15,16). employ novel network methods shown useful understand-                 property, synthetic accessibility, intuitive trans-
+ing structure dynamics metabolic fluxes,                  parent way understanding effects metabolic muta-
+deliver different experimentally testable predictions. FBA                tion (Fig. 1). define synthetic accessibility, S, total accurately predict fluxes individual reactions             number reactions needed transform given set input wild-type mutant strains viability              metabolites set output metabolites predict                                                                           increases S result alterations topology                                                                           metabolic network adversely affect growth. term
+Submitted December 30, 2005, accepted publication 24, 2006.   ‘‘synthetic accessibility’’ borrowed field drug
+Address reprint requests Leonid Mirny, Harvard-MIT Div. Health      design, defined smallest number chem-
+Sciences & Technology, Massachusetts Institute Technology, 77          ical steps needed synthesize drug common labo-
+Massachusetts Ave., Cambridge, MA 02139. Tel.: 617-452-4862; Fax:         ratory reactants similar spirit ‘‘scope’’ 617-253-2514; E-mail: leonid@mit.edu.
+Ó 2006 Biophysical Society
+0006-3495/06/09/2304/08 $2.00                                                                                doi: 10.1529/biophysj.105.080572
+ Topology-Based Metabolic Predictions                                                                                                                         2305
+
+
+                                                                                   Construction graphic metabolism model
+                                                                                   reactions included E. coli metabolic network taken                                                                                    Edwards Palsson (4), reactions included yeast metabolic
+                                                                                   network taken Duarte et al. (8). updated
+                                                                                   version E. coli metabolic network available (6), chose use                                                                                    previous version enable comparison synthetic accessibility perfor-
+                                                                                   mance previous studies (4,9–11). reaction metabolite repre-
+                                                                                   sented node, directed edges connect reactants reactions                                                                                    reactions products, accounting reversibility reactions.
+
+
+                                                                                   Selection input output metabolite sets
+                                                                                   input metabolites E. coli minimal medium, E. coli rich medium,                                                                                    various yeast medium conditions listed Supplementary Material,
+                                                                                   Tables S1–S4. E. coli minimal medium consists energy source
+                                                                                   (glucose, acetate, glycerol, succinate), components minimal medium,
+                                                                                   sulfur source, carbon dioxide oxygen, nicotinamide mononucleotide,
+                                                                                   regulatory protein thioredoxin (Supplementary Material, Table S1).
+                                                                                   input metabolites chosen match real composition minimal
+FIGURE 1 illustration synthetic accessibility approach.          medium closely possible. Nicotinamide mononucleotide thiore-
+representation metabolic network, circular nodes represent metabo-          doxin included ensure  wild-type network, components
+lites, rectangular nodes represent reactions, directed edges indicate    output biomass accessible. chosen specifically relationships. Nodes outline (green blue) synthetically        upstream metabolites biomass synthesis pathways.
+accessible, nodes outline (red orange) accessible.      E. coli rich medium consists metabolites minimal medium algorithm begins identifying reactions neighbor input      biotin, riboflavin, pantoate, pyridoxine, thiamin, dihydrofolate,
+metabolites (nodes A–D) marking reactions                p-aminobenzoic acid, 20 amino acids, nucleotide bases
+reactants available accessible (reactions 1 2). products     included external metabolites metabolic network (external thymine reactions marked accessible (nodes F–H). algorithm              metabolic network). Rich medium difficult model
+examines neighboring reactions newly marked metabolites           accurately, using slightly different input metabolite sets step continues new metabolites marked accessible.       significant effect results (results shown). inset demonstrates happens gene produces enzyme               input metabolites yeast based descriptions Duarte catalyzes reaction 2 deleted: metabolites H K reaction 5         et al. (8) include histidine, leucine, uracil compensate accessible  define synthetic accessibility, S,         deletions 3/Leu-2/Ura-3 mutant strains. Additionally, number reactions required transform set inputs set        thioredoxin (oxidized), H1  endoplasmic reticulum), NADPH  outputs. Synthetic accessibility analogous diameter directed        endoplasmic reticulum), dolichol included inputs, graph, contrast graph diameters, synthetic accessibility takes       components biomass producible, account branching nature chemical reactions purpose              wild-type network.
+metabolic networks, produce outputs inputs.                                    E. coli output metabolites taken components E. coli
+                                                                                   biomass (Supplementary Material, Table S5) (19). yeast output metabo-
+metabolites (17,18). demonstrate network                        lites components biomass reaction reported (8).
+characteristics node degree change graph
+diameter unable predict viability E. coli mutant
+                                                                                   Synthetic accessibility algorithm
+strains better random predictions, suggesting synthetic
+accessibility appropriate characteristic networks                    determine synthetic accessibility outputs given inputs, directed transport, metabolic networks.                               use type iterative breadth search, similar previously described
+                                                                                   ‘‘forward-firing’’ (Fig. 1) (20). algorithm starts examining                                                                                    reactions require given input metabolites reactant. MATERIALS METHODS                                                              marks reactions reactants available ‘‘accessible’’
+                                                                                   marks metabolites produced reactions ‘‘accessible’’ De�?nition synthetic accessibility                                                algorithm examines reactions require newly
+                                                                                   marked metabolites starting material, determines reaction
+Consider metabolic network access certain inputs: substrates         accessible based availability reactants, consumed environment (e.g., sugars, oxygen, nitrogen),           new metabolites marked accessible. Concurrently, number aim producing certain outputs amino acids, nucleotides,         steps needed reach accessible metabolite j, synthetic accessibility components collectively called biomass. define synthetic          Sj, recorded; synthetic accessibility network S calculated accessibility Sj output j minimal number metabolic reactions       summing synthetic accessibilities outputs.
+needed produce j network inputs (Fig. 1). Sj set infinity j synthesized network inputs. Summing synthetic
+accessibility components biomass, obtain total              Comparison experimental results
+synthetic accessibility S ¼  Si biomass. propose enzyme knockout does change S, e., biomass produced               compare results approach experimental data sets, extra metabolic cost, mutant viable. S ¼ N,         create adjacency matrix, represents wild-type metabolic net-
+essential component biomass produced network                 work topology.  mutant strain, create ‘‘mutated’’ adja-
+inputs, predict lethal phenotype.                               cency matrix removing reactions catalyzed gene. 
+                                                                                                                      Biophysical Journal 91(6) 2304–2311
+ 2306                                                                                                                                       Wunderlich Mirny
+
+E. coli predictions, previous papers, delete corresponding           unrelated reactions. measure performance synthetic acces-
+genes reactions catalyzed multiple isozymes. calculate              sibility erroneous network plotting accuracy percentage
+viability mutant compare results experimental data          shuffled assignments.
+Supplementary Material). Smutant ¼ Swild-type, predict mutant viable; predict inviable. E. coli insertional mutant data set,
+phenotype data given competitive growth rates. mutant                      RESULTS
+considered negatively selected  inviable) twofold decrease growth rates 30 generations (9). Gerdes et al. data set (21),       Performance synthetic accessibility create mutated adjacency matrices genes included metabolic             E. coli metabolic network
+network model, resulting 598 mutated adjacency matrices. yeast
+experimental data, use preprocessed data set created Duarte et al.           study performance synthetic accessibility (8) simultaneously delete isozymes.                                         predicting viability knockout strains compare                                                                                        previous studies, applied method E. coli
+                                                                                       metabolic network. initially tested data sets
+Calculation topology-based predictions
+                                                                                       used previous studies: large, unbiased data set explore number topology-based measures predictors                  insertional (transposon-induced) mutants (9) smaller
+E. coli mutant viability, including node degree, diameter, node usage.
+                                                                                       data set collected FBA analysis (4), mainly degree enzyme calculated summing degrees reactions catalyzed enzyme isozymes. define network                  contained knockouts enzymes involved central metab-
+diameter sum metabolites versus metabolites’ shortest paths,         olism. mutants grown minimal medium. mutant, calculate change network diameter wild-            used data sets specifically used type. define node usage enzyme number times                  previous studies (4,9–11), compared results.
+reactions catalyzed enzyme used produce biomass wild-
+                                                                                       used union data sets refer type strain, according synthetic accessibility approach, essentially analogous betweenness (22,23). measure, degree,                combined data set. applied combined data
+diameter, usage, predict enzyme essential                set, approach performed (62  accuracy, p ¼ 6 3 corresponding mutant stain inviable), measure greater            108) FBA approach (62 , p ¼ 3 3 108)  Table given cutoff. vary cutoff entire range possible         1, Fig. 2 details). large data set 487 insertional
+values value gives optimal performance, measured                                                                                        mutants (9), synthetic accessibility approach performed accuracy significance x 2 statistic.
+                                                                                       (60  accuracy, p ¼ 3 3 105) FBA                                                                                        MOMA approaches (58  59  accuracy, p ¼ 1 3 103
+Quantitative analysis performance                                                   1 3 104, respectively), somewhat higher
+                                                                                       statistical significance. smaller data set 79 mutants assess performance synthetic accessibility methods predicting phenotype mutant stains, use measures: accuracy,             (4), FBA correctly predicted 86  cases, sensitivity, specificity, p-value x 2 statistic. define accuracy     topology-based synthetic accessibility approach 71  (TP 1 TN)/(TP 1 TN 1 FP 1 FN), TP number true                       accuracy, providing correct predictions 53/68 ¼ 78  positives, TN number true negatives, FP number false               cases predicted correctly FBA.
+positives, FN number false negatives. define positives negatives terms experimentally measured phenotypes,                                                                                           difference performance synthetic
+positives viable strains negatives inviable strains,            accessibility approach compared FBA assignment arbitrary reversed. similar fashion, define           data sets probably related way data sets
+sensitivity TP/(TP 1 FP) specificity TN/(TN 1 FN). calculate              interpreted cases included data sets. x 2 statistic, use two contingency tables sort mutant          smaller data set, mutant strains classified viable strain based silico vivo phenotypes calculate appropriate p-value.
+                                                                                       inviable, insertional data set, mutants                                                                                        labeled negatively selected  population mutant
+                                                                                       strain half wild-type population 30
+Assessment synthetic accessibility robustness                                       generations competitive growth) negatively selected. test robustness approach, introduce random mistakes              synthetic accessibility approach deems mutant E. coli network randomly reassigning certain fraction enzymes           strain inviable negatively selected based path
+
+TABLE 1 Comparison accuracy statistical signi�?cance FBA, MOMA, EMA, synthetic accessibility methods
+applied E. coli metabolic network
+                                                                                                          Method
+
+  Mutant data source               cases         Synthetic accessibility               FBA                        MOMA                         EMA
+                                                                                                   11                     
+Collected literature               79                 71 , 8 3 10 *  -5
+                                                                                      86 , 7 3 10    (4)                                     90 , 3 3 1014 (11)
+Insertional mutants                    481                 60 , 3 3 105              58 , 1 3 103 (9)          59 , 1 3 10   4
+                                                                                                                                    (10)             –
+Combined data sets                     560                 62 , 6 3 108              62 , 3 3 108                      –                           –
+Gerdes data set                        598                 74 , 1 3 105                      –                          –                           –
+*Accuracy, p-value x 2 statistic.
+
+Biophysical Journal 91(6) 2304–2311
+ Topology-Based Metabolic Predictions                                                                                                                            2307
+
+
+
+
+FIGURE 2 Performance synthetic accessibility compared FBA, MOMA, EMA, topology-based measures using E. coli metabolic
+network. graphs illustrate relative performance techniques using measures, accuracy, (TP 1 TN)/(TP 1 TN 1 FP 1 FN), negative
+log x 2 statistic’s p-value, indicates correlation silico predictions vivo observations E. coli mutant strain viability. x2 statistic calculated using contingency table like ones Fig. 3 smaller data set (79 data points, 90 data points EMA), insertional
+mutant data set (487 data points), combined data set (560 data points) (4,9,11). larger, representative insertional mutant data set combined data set used, synthetic accessibility accurate statistically significant FBA.  synthetic accessibility performs poorly smaller data set, probably data set data points covers central metabolism, small fraction metabolic network. topology-based measures, degree diameter, perform worse FBA, MOMA, EMA, synthetic accessibility, indicating poorly
+characterize functioning metabolic network. random predictions using expected values produced FBA x 2 test represent expected performance correlation silico vivo predictions. vary little expected values x 2 tests used.
+
+
+lengths inputs outputs accessibility outputs,                     2. approach correctly predicted strains classification scheme correspond closely                            longer rerouted pathways inviable, suggesting synthetic accessibility approach: longer path lengths                            rerouting metabolic fluxes plays small role rescuing correspond reduced growth rates invia-                               mutant strains. result consistent results bility.                                                                                 FBA analysis yeast mutants (24).
+   number type data points included data                           3. viable mutants untouched primary
+sets different. insertional data set larger                        synthetic pathways short rerouting (e.g., (487 vs. 79 data points) includes fairly random col-                              isozymes).
+lection insertions metabolic genes, smaller
+data set contains data enzymes used                               used previous FBA studies, central metabolism (glycolysis, pentose phosphate pathway,                           applied synthetic accessibility approach large-
+citric acid cycle, respiration processes) (4).                           scale knockout study Gerdes et al. (21), identified
+central metabolism contains number alternate pathways,                          genes essential robust growth rich medium using require fewer steps commonly                              genetic footprinting technique based transposon-based
+used pathways, surprising synthetic acces-                        mutagenesis. synthetic accessibility approach performed
+sibility approach performs poorly FBA                                 data set (74  accuracy, p ¼ 1 3 105).
+applied smaller data sets.
+   regard combined data set, synthetic accessibility greater sensitivity, indicating better FBA                      Performance synthetic accessibility MOMA predicting strains viable,                            yeast metabolic network
+lower specificity, indicating good                                                                                      ensure success synthetic accessibility
+predicting inviable strains (Figs. 3 4). success                                                                                      method limited E. coli metabolic network, synthetic accessibility combined data set demonstrates
+                                                                                     tested method metabolic network S. cerevisiae, important results, making transparent difference
+                                                                                     metabolic network reconstructed viable nonviable strains.
+                                                                                     hand (8). reconstruction extensively validated
+1. nonviable mutants simply lack pathway                                   use FBA predict phenotypes large
+   synthesize biomass components (S ¼ N),                              number single-gene knockout yeast strains grown    e., essential metabolites produced                        variety conditions (13,14). conditions include glucose
+   network inputs (Table 2).                                                     minimal medium (MMD) rich medium defined
+
+                                                                                                                         Biophysical Journal 91(6) 2304–2311
+ 2308                                                                                                                                   Wunderlich Mirny
+
+
+
+
+FIGURE 3 Results synthetic accessibility approach, divided type prediction. contingency graphs allow exploration types errors common. Results reported   combined E. coli data set, (B) Gerdes et al. (21) E. coli data set, (C) combined yeast
+data set (metabolic genes . x axis represents phenotypes predicted synthetic accessibility method, y axis represents experimental
+phenotypes. green blocks correspond cases prediction matches experiment, red, hashed blocks correspond errors. area box proportional number cases category. diagram, common type error synthetic accessibility
+approach predicts mutant viable actually inviable.
+
+
+carbon source (YPGal, galactose; YPD, glucose; YPDGE,                              essential slow sets, synthetic accessibility performs
+glucose-ethanol-glycerol, YPG, glycerol; YPE, ethanol;                         comparably FBA. conditions considered
+YPL, lactate). Sets essential slow-growth genes                        simultaneously, synthetic accessibility predicts phenotype identified experimentally genes                           83.7  accuracy, compared FBA 82.6 
+mutant strains constructed genes pro-                         accuracy.
+duced slow-growing mutant strains rich (YPD) medium.                               believe higher overall accuracy synthetic results (Table 3) gene sets                        accessibility FBA applied yeast metabolic
+                                                                                   network probably largely result way data sets
+                                                                                   used. E. coli data sets, predictions                                                                                    knockout strains involved genes                                                                                    included metabolic network model. yeast data
+                                                                                   sets, following protocol previous FBA study (8),
+                                                                                   predictions strains, gene                                                                                    included metabolic network model                                                                                     genes nonessential, predict knockouts                                                                                    genes absent metabolic network model viable,
+                                                                                   inflates accuracy. report accuracies                                                                                    predictions metabolic gene knockouts Table 3,                                                                                    accuracies higher cases.
+
+                                                                                   Performance topology-based measures
+                                                                                   E. coli metabolic network
+
+FIGURE 4 Plot sensitivity specificity synthetic accessibility           tested ability topology-based graph charac-
+(SA) prediction methods. combined E. coli data set (560          teristics, node degree, graph diameter, node
+data points), sensitivity, TP/(TP 1 FP), specificity, TN/(TN 1 FN),        usage  Materials Methods), predict viability calculated predictions using synthetic accessibility, FBA,
+degree, diameter. cutoff values degree diameter selected
+                                                                                   TABLE 2 E. coli mutants predicted inviable minimize x 2 test p-value. random values calculated using                                                                                    synthetic accessibility approach combined data set,
+expected values calculated x2 test FBA essentially                                                                                    divided reason predicting inviability values synthetic accessibility used instead. degree diameter good sensitivity, specificity quite low.    Reason predicting inviability    Correct (percent)    Incorrect (percent)
+synthetic accessibility FBA moderate values sensitivity
+                                                                                    accessible outputs ,              89 (59 )              63 (41 ) specificity. cases, sensitivity greater, implying                                                                                      wild-type (S ¼ N)
+viable predictions reliable inviable predictions,                                                                                    S . wild-type                            10 (67 )               5 (33 ) seen Fig. 3.
+
+Biophysical Journal 91(6) 2304–2311
+ Topology-Based Metabolic Predictions                                                                                                           2309
+
+TABLE 3 Accuracy synthetic accessibility FBA methods predicting viability yeast deletion strains
+                                                                                      Data set
+
+                                        Essential    Slow    MMD      YPGal      YPD        YPDGE        YPG         YPE         YPL           cases                            118         83       564      564       565         565         565         565        565         4154
+FBA (8)                                  31.4       19.3      84.0     85.6      84.4        85.3        86.5        85.7       86.4         82.6 
+Synthetic accessibility                  11.9        1.20     94.0     97.2      85.3        84.4        83.7        84.1       84.1         83.7   cases  metabolic enzymes)   100         45       459      459       462         462         462         462        462         3373
+FBA                                      33.0        4.44     95.0     97.6      87.9        87.9        89.2        87.4       88.3         87.6 
+Synthetic accessibility                  14.0        2.22     94.3     96.9      88.5        88.3        89.0        88.7       88.7         87.1 
+
+
+
+E. coli mutant strains. studies suggested            topological characteristics node degree diameter
+nodes higher degrees important              predictive information-carrying networks (e.g., network, removal nodes biological networks              Internet, protein–protein interaction networks), results likely lead lethal phenotype (15,16). test          suggest characteristics synthetic accessi- hypothesis, computed degree enzyme              bility appropriate transport directed networks, number metabolites participating reactions cata-             metabolic networks.
+lyzed enzyme. strain predicted inviable degree knocked enzyme certain
+                                                                       Robustness synthetic accessibility
+cutoff. Fig. 2 shows optimized cutoff value, procedure predicts viability worse random prediction.           Metabolic networks incomplete    theoretical studies focused graph diameter          contain errors. study predictions using measure network performance, defining graph                  synthetic accessibility depend errors network,
+diameter mean shortest paths pair             performed robustness analysis using E. coli meta-
+nodes (15,25,26). test graph diameter predictor             bolic network. Errors modeled random reassignment
+viability, predicted mutant inviable increase         certain percentages enzymes different reactions. Fig.
+graph diameter exceeded cutoff. Fig. 2 shows  similar           5 shows accuracy prediction decreased node degree, graph diameter did perform better              increased fraction introduced mistakes. method random predictions.                                               tolerated assignment error rates 5–10 , accuracy
+   Similarly, tested topology-based measure,
+enzyme usage, defined number times reactions catalyzed enzyme used produce
+biomass wild-type strain according synthetic
+accessibility approach. Enzyme usage analogous node
+betweenness, number shortest paths pairs nodes node (22,23). Enzyme
+usage performed somewhat better random predictions worse synthetic accessibility, surprising basically used subset data produced synthetic accessibility approach.
+   summary, popular topology-based measures performed poorly synthetic accessibility.  node
+degree diameter accurate simply pre-
+dicting mutants viable, gives accu-
+racy 53.8 , node usage performed better                FIGURE 5 Accuracy synthetic accessibility approach node degree diameter, worse predictor           percentage enzyme-reaction assignments shuffled. assess robust-
+                                                                       ness synthetic accessibility method errors topology synthetic accessibility  Supplementary Material).
+                                                                       E. coli metabolic network, randomly shuffle given percentage    characteristics ignore essential properties              assignments enzymes reactions calculate accuracy metabolic network, directionality branching reactions,          synthetic accessibility method 10 trials. plot average accuracy directed transport material cellular substrates            percentage assignments shuffled, error bars noting (sugars, oxygen, ) products (biomass). Synthetic                minimum maximum observed accuracy. horizontal line denotes                                                                        accuracy predicting mutants viable, best expected result accessibility, contrast, takes account properties
+                                                                       random network. approach relatively robust random errors metabolic network.  synthetic accessibility             enzyme-reaction assignments, clear expected trend thought generalization concept graph          lower accuracy great variability accuracy number diameter directed transport networks. certain             shuffled assignments increases.
+
+                                                                                                         Biophysical Journal 91(6) 2304–2311
+ 2310                                                                                                              Wunderlich Mirny
+
+
+dropped level random predictions ;50                tary Material) demonstrates known complexities metab-
+enzyme-reaction assignments shuffled.                            olism: metabolic pathway used produce specific
+                                                                      product shortest                                                                        completely characterized sets input output meta-
+DISCUSSION
+                                                                      bolites. Similar rates failure flux balance techniques study, topology function          suggest importance regulation adaptation muta-
+metabolic network intimately related. introducing            tions possible role undiscovered metabolic novel topology-based measure, synthetic accessibility,             transport reactions. able correctly predict viability 443 598 mutant            explore popular network characteristics
+E. coli strains comprehensive, reliable data set (21)          graph diameter, node degree, betweenness (usage) 3477 4154 mutant yeast strains grown             predictors mutant viability. results demonstrate conditions (13,14). Synthetic accessibility, S, essentially      characteristics fail predict mutants’ viability. network diameter specifically tailored transport networks,        conclude, agreement recent similar study (28), increase S correlated inviable        node degree used predict viability metabolic
+phenotype. significant increase S mutation suggests           knockout strains.
+increased metabolic costs, leading reduction growth            lack predictive utility node degree graph
+rate death. apparent success synthetic accessibility        diameter metabolic networks easy understand. attributed contribution network                 concepts widely applied information exchange
+topology information used                networks, Internet social networks, predictions.                                                    pair nodes potentially interact. contrary,    Synthetic accessibility rapidly computed given        metabolic network transport network products network, adjustable parameters,  contrast            synthesized set initial substrates. Performance FBA, MOMA, EMA, does require knowledge                 network determined ability synthesize pro-
+stoichiometry maximal uptake rates metabolic               ducts,  paths inputs final products transport reactions. E. coli insertional data set,         central importance, contrast diameter, pair accuracy synthetic accessibility approach comparable        nodes considered. chemical reactions require FBA MOMA. performance synthetic                substrate yield product, linear path used accessibility compared FBA EMA smaller E.            information networks needs replaced tree coli data set worse, smaller data set data   required substrates. Considering aspects naturally leads mutants affecting central metabolism            concept synthetic accessibility study metabolic biased, large data set insertional mutants       similar transport networks, e.g., signaling networks, fairly unbiased representative. Synthetic accessibility           webs reactions, input chemical performs comparably FBA yeast data sets.               physical stimulus output group chemical 
+   Unlike FBA, synthetic accessibility does assume           sponses stimulus. Synthetic accessibility defined way
+optimality regard biomass production. model           generalization graph diameter directed, branching
+assumes long rerouted fluxes efficient native      chemical reactions input–output transport network.
+ones, predicting mutants longer fluxes (larger synthetic            summary, topology metabolic
+accessibility) inviable. assumption fails         network central determining viability mutant
+certain cases, similar success rates FBA ap-           strains, success widely used flux balance techniques
+proach suggest assumption holds true vast ma-           predicting viability primarily attributed jority mutant strains. conclude, agreement recent       topology. addition stoichiometric parameters
+studies (24,27), rerouting does contribute signifi-          does significantly improve accuracy predictions,
+cantly robustness knockout mutants.                             used FBA predict fluxes 
+   Similar accuracy achieved techniques based flux              dividual reactions. introduce concept synthetic
+balance synthetic accessibility points network topol-      accessibility, allows fast, accurate, easily inter-
+ogy primary determinant viability predictions          pretable analysis metabolic networks. results suggest
+FBA MOMA. results suggest network               rerouting metabolic fluxes plays minimal role topology sufficient predict strain viability use   providing viability mutant strains. Importantly, results stoichiometric coefficients flux balances does im-         strongly support central role network topology prove prediction accuracy, detailed prediction fluxes     determining phenotypes biological systems. individual reactions FBA/MOMA does require knowl-
+edge stoichiometric coefficients maximal uptake rates.
+                                                                      SUPPLEMENTARY MATERIAL
+   Importantly, flux balance synthetic accessibility
+fail predict viability significant number mutants.         online supplement article visiting
+Analysis incorrect predictions E. coli  Supplemen-          BJ Online http://www.biophysj.org.
+
+Biophysical Journal 91(6) 2304–2311
+ Topology-Based Metabolic Predictions                                                                                                                    2311
+ thank V. Spirin help processing raw data comments        13. Giaever, G.,  M. Chu, L. Ni, C. Connelly, L. Riles, S. Veronneau, manuscript, M. Kardar suggestions testing robustness,           S. Dow,  Lucau-Danila, K. Anderson, B. Andre,  P. Arkin, V. Berube M. Slutsky comments manuscript.                   Astromoff, et al. 2002. Functional profiling Saccharomyces
+thank  Trusina K. Sneppen useful discussions.                               cerevisiae genome. Nature. 418:387–391.
+                                                                                  14. Steinmetz, L. M., C. Scharfe,  M. Deutschbauer, D. Mokranjac, W. recipient Howard Hughes Medical Institute Predoctoral
+                                                                                       S. Herman, T. Jones,  M. Chu, G. Giaever, H. Prokisch,
+Fellowship. L M. Alfred P. Sloan Research Fellow.                             P. J. Oefner, R. W. Davis. 2002. Systematic screen human
+                                                                                      disease genes yeast. Nat. Genet. 31:400–404.
+                                                                                  15. Albert, R., H. Jeong,  L. Barabasi. 2000. Error attack
+                                                                                      tolerance complex networks. Nature. 406:378–382.
+REFERENCES                                                                        16. Jeong, H., S. P. Mason,  L. Barabasi,  N. Oltvai. 2001.
+                                                                                      Lethality centrality protein networks. Nature. 411:41–42.
+ 1. Varma, , B. O. Palsson. 1994. Metabolic flux balancing—basic
+    concepts, scientific practical use. Biotechnology. 12:994–998.            17. Myatt, G. J. 1994. aided estimation synthetic accessibility.
+                                                                                      PhD Thesis. University Leeds, Leeds, UK.
+ 2. Edwards, J. S., B. O. Palsson. 1999. Systems properties     Haemophilus influenzae Rd metabolic genotype. J. Biol. Chem.                  18. Handorf, T., O. Ebenhoh, R. Heinrich. 2005. Expanding metabolic
+    274:17410–17416.                                                                  networks: scopes compounds, robustness, evolution. J. Mol.
+                                                                                      Evol. 61:498–512.
+ 3. Edwards, J. S., B. O. Palsson. 2000. Metabolic flux balance
+    analysis silico analysis Escherichia coli K-12 gene             19. Neidhardt, F. C., H. E. Umbarger. 1996. Chemical composition     deletions. BMC Bioinformatics. 1:1.                                               Escherichia coli. Escherichia coli Salmonella: Cellular                                                                                       Molecular Biology. F. C. Neidhardt R. Curtis, editors. ASM Press,
+ 4. Edwards, J. S., B. O. Palsson. 2000. Escherichia coli MG1655              Washington, DC. 13–16.
+    silico metabolic genotype: definition, characteristics, capabil-
+    ities. Proc. Natl. Acad. Sci. USA. 97:5528–5533.                              20. Romero, P. R., P. Karp. 2001. Nutrient-related analysis                                                                                       pathway/genome databases. Pac. Symp. Biocomput. 471–482.
+ 5. Forster, J.,  Famili, P. Fu, B. O. Palsson, J. Nielsen. 2003.
+    Genome-scale reconstruction Saccharomyces cerevisiae meta-             21. Gerdes, S. Y., M. D. Scholle, J. W. Campbell, G. Balazsi, E. Ravasz,
+    bolic network. Genome Res. 13:244–253.                                            M. D. Daugherty,  L. Somera, N. C. Kyrpides,  Anderson, M. S.
+                                                                                      Gelfand,  Bhattacharya, V. Kapatral, et al. 2003. Experimental deter-
+ 6. Reed, J. L., T. D. Vo, C. H. Schilling, B. O. Palsson. 2003.               mination level analysis essential genes Escherichia
+    expanded genome-scale model Escherichia coli K-12 (iJR904 GSM/
+                                                                                      coli MG1655. J. Bacteriol. 185:5673–5684.
+    GPR). Genome Biol. 4:R54.
+                                                                                  22. Newman, M. E. 2001. Scientific collaboration networks.  Network
+ 7. Burgard,  P., C. D. Maranas. 2001. Probing performance
+                                                                                      construction fundamental results. Phys. Rev. E. 64:016131.
+    limits Escherichia coli metabolic network subject gene addi-
+    tions deletions. Biotechnol. Bioeng. 74:364–375.                           23. Newman, M. E. 2001. Scientific collaboration networks. II. Shortest
+                                                                                      paths, weighted networks, centrality. Phys. Rev. E. 64:016132.
+ 8. Duarte, N. C., M. J. Herrgard, B. O. Palsson. 2004. Reconstruction
+    validation Saccharomyces cerevisiae iND750, fully compart-           24. Papp, B., C. Pal, L. D. Hurst. 2004. Metabolic network analysis     mentalized genome-scale metabolic model. Genome Res. 14:1298–1309.                causes evolution enzyme dispensability yeast. Nature.
+                                                                                      429:661–664.
+ 9. Badarinarayana, V., P. W. Estep 3rd, J. Shendure, J. Edwards, S. Tavazoie,
+    F. Lam, G. M. Church. 2001. Selection analyses insertional             25. Jeong, H., B. Tombor, R. Albert,  N. Oltvai,  L. Barabasi.
+    mutants using subgenic-resolution arrays. Nat. Biotechnol. 19:1060–               2000. large-scale organization metabolic networks. Nature.
+    1065.                                                                             407:651–654.
+10. Segre, D., D. Vitkup, G. M. Church. 2002. Analysis optimality          26. Ma, H.,  P

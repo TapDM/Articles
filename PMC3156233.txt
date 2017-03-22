@@ -1,0 +1,396 @@
+OASIS: Online Application Survival Analysis Lifespan Assays Performed Aging Research
+Jae-Seong Yang1, Hyun-Jun Nam1, Mihwa Seo1, Seong Kyu Han2, Yonghwan Choi1, Hong Gil Nam1,2,
+Seung-Jae Lee1,2,3*, Sanguk Kim1,2,3*
+1 School Interdisciplinary Bioscience Bioengineering, Pohang University Science Technology, Pohang, South Korea, 2 Department Molecular Life Science,
+Pohang University Science Technology, Pohang, South Korea, 3 World Class University Information Technology Convergence Engineering, Pohang University Science Technology, Pohang, South Korea
+
+
+
+     Abstract
+     Background: Aging fundamental biological process. Characterization genetic environmental factors      influence lifespan crucial step understanding mechanisms aging organism level. capture      different effects genetic environmental factors lifespan, appropriate statistical analyses needed.
+
+     Methodology/Principal Findings: developed online application survival analysis (OASIS) helps conduct
+     various novel statistical tasks involved analyzing survival data user-friendly manner. OASIS provides standard survival
+     analysis results including Kaplan-Meier estimates mean/median survival time taking censored survival data. OASIS
+     provides various statistical tests including comparison mean survival time, overall survival curve, survival rate      specific time point. visualize survival data, OASIS generates survival log cumulative hazard plots enable
+     researchers easily interpret experimental results. Furthermore, provide statistical methods analyze
+     variances survival datasets. addition, users analyze proportional effects risk factors survival.
+
+     Conclusions/Significance: OASIS provides platform essential facilitate efficient statistical analyses survival data
+     field aging research. Web application detailed description algorithms accessible http://sbi.
+     postech.ac.kr/oasis.
+
+  Citation: Yang J-S, Nam H-J, Seo M, Han SK, Choi Y, et al. (2011) OASIS: Online Application Survival Analysis Lifespan Assays Performed Aging
+  Research. PLoS 6(8): e23525. doi:10.1371/journal.pone.0023525
+  Editor: Enrico Scalas, Universita’ del Piemonte Orientale, Italy
+  Received April 18, 2011; Accepted July 19, 2011; Published August 15, 2011
+  Copyright: ß 2011 Yang et al. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: work supported National Core Research Center Systems Bio-Dynamics (20090091509); World Class University program (R31-2010-
+  000-10100-0), POSTECH BRI Grant. funders role study design, data collection analysis, decision publish, preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: seungjaelee@postech.ac.kr (S-JL); sukim@postech.ac.kr (SK)
+
+
+
+
+Introduction                                                                           characteristics aging relatively homogeneous
+                                                                                       individuals controlled environmental conditions    decades, witnessed explosion                     display variations lifespan [10,11].  populations field aging research. identifying mechanisms aging,                      homogeneous genetic background precipitous approaches attempted discover genetic                            survival curve specific time point display
+environmental factors regulate aging various organisms                         gradual survival curve. possible explanation [1,2]. key experiment examining effects genetic                           phenomenon stochastic components epigenetic
+modulation chemical compounds aging measurement                           switch noisy gene expression, influenced lifespan, requires analysis survival time                      unknown factors, play important role variation aging processes. performing appropriate statistical analyses                     lifespan. addition, genetic components suggested survival data, extract wealth useful information (Table                   contribute variances lifespan [12]. Analyzing contribu-
+S1) [3–6]. example, log-rank (Mantel-Cox) test                               tion factors require novel statistical test introduced determine experimental treatments signif-                        quantify variances lifespan data.
+icantly affected lifespan [7,8]. addition, analysis hazard                    report open-access service survival analysis, function lifespan data gained popularity                          online application survival analysis (OASIS) provides
+shape cumulative hazard plots proposed reflect                      canonical survival analysis methods advanced rate aging [9].  accurate efficient execution                  statistical tests comparing variances survival datasets.
+statistical analyses crucial step better understanding                  OASIS user-friendly online application runs aging molecular level.                                                       browser downloading installation. features    Despite development statistical analyses lifespan data,                   OASIS help researchers field aging research need developing statistical methods explain                  analyze data depth potentially facilitate complex phenomena involved aging. interesting                            standardization survival analysis.
+
+
+        PLoS | www.plosone.org                                                 1                                August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                           Online Application Survival Analysis
+
+
+
+Results                                                                     di number deaths group 1, ei (estimated                                                                             ðdi n1i Þ=ni ) number expected deaths group 1. n1i OASIS web application                                                       size population group 1 risk ith interval,    provide standardized platform biologists aging               ni total size population risk ith interval.
+research fields perform survival analyses, developed OASIS               1.2 Fisher’s exact test. Fisher’s exact test frequently used
+server accessible using majority modern web              survival analysis [6,13,18–24]. test different survival
+browsers. surveying experiments, recorded survival data           functions specific time points instead overall lifespan, imported input OASIS web server simple format                 program calculate probability observed data (Figure 1A). input format consist following items        Fisher’s exact test different time points using following
+given order: experimental identifier observed data.              formula.
+line started ‘‘ ’’ sign indicates experimental identifier.
+Observed data columns: observed time, number dead subjects, number censored (e.g.                                           !              !,                      !
+                                                                                              azb         czd                 azbzczd
+missing) subjects observation interval (Figure 1B;                         pt ~                                                     ~
+sample inputs available OASIS webpage).                                                    c                   azc
+                                                                                                                                                   ;
+columns separated tabs.                                                       (azb)!(czd)!(azc)!(bzd)!
+   OASIS composed statistical frameworks                                                                                                 (azbzczd) b!c!d!
+facilitate proper analysis survival data (Figure 1C). basic
+survival analysis, OASIS provides various statistical methods          b numbers living subjects group 1 Kaplan-Meier statistics, mean median survival time,                  group 2 respectively c d dead subjects group
+survival log cumulative hazard plots depicting                  1 group 2 respectively specific time t. P-value Fisher’s
+characteristics dataset (Figure 2). statistical compar-         exact test calculated sum probabilities equal
+isons different survival datasets, OASIS performs hypothesis             pt combinations. Generally, 90  mortality rate used testing log-rank test, Fisher’s exact test, Kolmogorov-             Fisher’s exact test.  cases, comparisons Smirnov test, Neyman’s smooth test (Figure 3). particular,           datasets 90  mortality statistically significant
+survival time F-test, partial slopes rank-sum test, normalized          difference reasons including drastic death chow test novel testing methods comparison               old age. suggests want emphasis
+shape survival hazard functions. Furthermore, OASIS                   earlier deaths later ones later deaths result
+generates hazards regression evaluate effect        causes unrelated normal aging.
+risk factors (Figure 4). using outputs produced OASIS,             1.3 Weighted log-rank test. mentioned previous
+users interpret survival data comprehensively.                          paragraph, want emphasis earlier deaths
+                                                                            later ones vice versa. generalize log-rank test Statistical testing differences length lifespan               needs, Fleming Harrington developed G(rho, gamma)-
+   comprehensive comparison survival datasets               weighted log-rank test [25,26]. weighted test statistics experimental group control group important determine            calculated following equation. effects experimental treatments survival. example, drug treatments increase average survival time, increase average maximum survival                                            2                        32
+times.  distinguish differences OASIS provides                                            X
+                                                                                                         4             wi (di {ei )5
+various statistical comparison methods (Figure 3). example,                                          ti ƒt
+                                                                                                    2
+statistics average survival time obtained using log-                                   x ~X                               ;
+rank test, specific time point obtained                                               w2i Var(di {ei )
+                                                                                                         ti ƒt
+using Fisher’s exact test [13]. OASIS provides log-rank test,
+Fisher’s exact test, tests explained                                                                             wi represents G(rho, gamma) weight defined S(t)rho(1-
+followings.
+                                                                            S(t))gamma. Generally rho .0 gamma = 0, test sensitive
+   1.1 Log-rank test. Mantel-Cox test, called log-rank test,                                                                             early differences, rho = 0 gamma .0, test kind nonparametric test frequently used comparing
+                                                                            sensitive later differences [26]. survival functions overall lifespan data [7,8,14–17]. log-rank statistics groups experimental control groups calculated follows.                                    Statistical testing differences shape hazard
+                                                                            function
+                                                                               2.1 Kolmogorov-Smirnov test. log-rank test                            2                   32                           commonly used comparing survival data samples,                                X
+                           4           (di {ei )5                           optimized special assumptions underlying distributions
+                             ti ƒt                                        hazard ratio relative risk l2(t) / l1(t) constant                       x2 ~ X                        ;                       time t. case, log-rank test generally gives optimal results.
+                                     Var(di {ei )                            need statistical tests depend                            ti ƒt
+                                                                            distribution survival data. Kolmogorov-Smirnov test                                                                             suitable purpose robustly works condition
+                                                                            hazard functions l1(t) l2(t) cross time
+                               di (ni {di )n1i (ni {n1i )                   t. Kolmogorov-Smirnov test based following
+              Var(di {ei )~                               ;
+                                      ni 2 (ni {1)                          equation.
+
+
+
+
+      PLoS | www.plosone.org                                        2                               August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                              Online Application Survival Analysis
+
+
+
+
+Figure 1. Statistical components OASIS.   Overall flowchart survival analysis (B) Input basic survival analysis statistical testing.
+Observed data columns; time observation started, number dead subjects, number censored subjects interval. (C) web application provides uniform platform comprises analysis parts: basic survival analysis, statistical testing, Cox proportional hazards regression.
+doi:10.1371/journal.pone.0023525.g001
+
+
+
+       PLoS | www.plosone.org                                           3                             August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                        Online Application Survival Analysis
+
+
+
+
+Figure 2. Results basic survival analysis.   output Kaplan-Meier estimator. (B) Mean/median survival time data. Survival time 25 , 50 , 75 , 90 , 100  mortality shown. (C) Survival log cumulative hazard plots.
+doi:10.1371/journal.pone.0023525.g002
+
+                                                                           different survival data comparing null model, S1(t) = S2(t)                                                                            various alternative models. alternative models embedded                   D½0,t~ sup jS1 (t){S2 (t)j ;                            null model Legendre polynomials based Neyman’s
+                            0ƒtƒt                                          goodness fit idea following equation.
+ sup represents supremum set gives smallest
+real number greater equal number set D represents largest absolute vertical deviation. OASIS                             S2 (t)~S1 (t) expfhT y(t)g ;
+adopted surv2.ks function implemented R packages [27] provide Kolmogorov-Smirnov test. note Kolmogorov-              h = (h1,…, hd)T parameter set bounded functions y
+Smirnov test OASIS applicable survival data              (t) = (y1(t), …, yd(t))T, models possible differences contain tied observations [e.g. multiple events (deaths failures)       S1(t) S2(t).  h = 0, null hypothesis accepted. observed time interval]. OASIS provides warning                Neyman’s smooth test selects optimal smooth model message tied observation survival data        Legendre polynomials Schwarz’s selection rule, different samples.                                                           Kolmogorov-Smirnov test respect providing idea
+   2.2 Neyman’s smooth test. statistical comparison                types difference survival data [28]. method detecting wide spectrum alternatives Neyman’s           selected dimension represents type difference S1(t)
+smooth test. developed test homogeneity               S2(t). selected dimension (d) 1, suggests S1(t) 
+
+      PLoS | www.plosone.org                                       4                             August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                       Online Application Survival Analysis
+
+
+
+
+Figure 3. Results statistical testing input format. Output statistical tests differences lifespan data samples.
+doi:10.1371/journal.pone.0023525.g003
+
+
+
+
+different S2(t) constant hazard ratio. selected d       used analysis detecting structural differences 2, relationship samples likely monotonic.            different log cumulative hazard functions using selected d 3, relationship samples likely        following equation. convex concave form. OASIS adopted surv2.neyman
+function implemented R packages [28] provide Neyman’s smooth test. Similar Kolmogorov-Smirnov test,                                     (RSSp {(RSS1 zRSS2 ))=k Neyman’s smooth test currently applicable                            F~                              ;
+                                                                                                (RSS1 zRSS2 )=(N1 zN2 {2k) tied observations survival data.
+   2.3 Chow test. Chow test, variant F-test, invented                RSSp represents sum squared residuals pooled economist Gregory Chow test coefficients                 log cumulative hazard data. RSS1 RSS2 represent sum linear regressions different data sets                 squared residuals different log cumulative hazard data
+[29]. test generally used detecting structural break              respectively. N1 N2 numbers observation unexpected shift time series data. OASIS,                 data k, 3 case, total number 
+
+       PLoS | www.plosone.org                                         5                         August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                            Online Application Survival Analysis
+
+
+
+
+Figure 4. Results Cox proportional hazard regression input format.   Input Cox proportional hazard regression. Observed
+data columns; observed time, status events (dead censored), values risk factors. (B) Output Cox proportional
+hazard regression.
+doi:10.1371/journal.pone.0023525.g004
+
+parameters linear regression model. test statistic follows             3.2 Partial slopes rank-sum test. devised F distribution (k, N1 + N2 – 2k) degrees freedom.                      statistical test method comparing differences slopes                                                                                log cumulative hazard plots. calculated partial slopes Statistical testing differences variances                        log cumulative hazard plot. null hypothesis different
+survival time                                                                  log cumulative hazard plots slopes, conducted rank-
+   3.1 Survival time F-test. provide survival time F-test,                  sum tests set partial slopes following definitions. used examine normal populations variance  censored data generally
+used survival analysis, estimate number dead
+                                                                                        ln ({ ln (S1 (ti ))){ ln ({ ln (S1 (ti{1 )))
+animals using survival function S(t) perform F-test               D1 ~f                                             ji~2:::kg;
+comparison variances different survival data. F-test                                        ti {ti{1 used condition survival times individuals
+follow normal distribution. normality check method given dataset, provide Shapiro-Wilk test OASIS                             ln ({ ln (S2 (tj ))){ ln ({ ln (S2 (tj{1 )))
+                                                                                    D2 ~f                                             jj~2:::lg;
+website. P-value generated Shapiro-Wilk test                                              tj {tj{1
+smaller 0.01, chance survival data following normal distribution 0.01. case, provide              D1 D2 sets partial slopes group. sets
+warning message results F-test applicable.              compared rank-sum test.
+
+
+       PLoS | www.plosone.org                                          6                            August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                         Online Application Survival Analysis
+
+
+   partial slopes rank-sum test based non-parametric
+statistics requires sufficient number samples  case,
+partial slopes) reliable analysis. partial slope defined changes log cumulative hazard divided corresponding change survival time neighbouring
+time points, number observed time points total sample size important non-parametric analysis. obtain statistically meaningful results, observed time
+points needed.
+   3.3 Normalized chow test. Chow test used testing coefficients linear regressions different
+datasets [29].  researchers perform
+survival analysis tend interested examining difference slope determining difference y-intersect. purpose, conducting Chow test, normalized log cumulative hazard data mean zero. case, linear regression dataset zero y-intersect.  examine differences slopes datasets pooled
+data. verified difference lifespan variations normalized Chow test, statistical test examines coefficients linear regressions different normalized data
+sets equal. Similar log-rank test, assumption survival rate constant time apply normalized Chow
+test.
+
+Application basic survival analysis experiments
+    test case, analyzed lifespan dataset roundworm
+C. elegans using OASIS. Mutations daf-2, encodes insulin/IGF-1 receptor homolog, extend lifespan C. elegans
+[30,31]. FOXO transcription factor DAF-16 required daf-2 mutants live long [32-35]. measured lifespan wild-type daf-2(e1370) mutant animals knocking daf-16 transcription factors using RNA
+interference. OASIS provided result daf-2(e1370)
+mutation significantly extended lifespan decreased mortality
+rate (Figure 5). using OASIS, generated survival log
+cumulative hazard plots illustrated differences (Figure 5). groups experiments, daf-2(e1370) mutants
+showed different survival pattern using graphs. survival curve daf-2(e1370) mutants shifted right
+compared (Figure 5A). addition, y-intercept          Figure 5. Survival analysis wild-type daf-2 mutant
+                                                                             C. elegans combination daf-16 RNA interference.  
+log cumulative hazard plot daf-2(e1370) mutants smaller               Survival plots (B) log cumulative hazard plots wild type, daf-2 (Figure 5B). statistically validate            mutant [daf-2(e1370)], daf-16(RNAi), daf-2 mutant treated daf-
+results daf-2(e1370) mutants live long, compared mean            16 RNAi [daf-16(RNAi); daf-2(e1370)] animals.
+lifespan conducted various statistical tests. mean lifespan          doi:10.1371/journal.pone.0023525.g005 daf-2(e1370) mutants larger 30 days, groups approximately 20 days (Table 1). using log-              survival variations reach conventional
+rank test Fisher’s exact test, determined statistical             analysis. different types hypothetical survival datasets, 
+significance lifespan differences. using log-rank test,       B C generated developing test (Figure 6).
+showed wild type daf-2(e1370) significantly                Datasets B mean lifespans (20 days) different mean lifespans (P,1.0610210), wild type                different lifespan variances (2 days  4 days B), daf-2(e1370) mutants treated daf-16 RNAi similar               dataset B C lifespan variances (4 days) mean lifespans (P = 0.113). addition, proportions survivors         different mean lifespans (20 days B; 30 days C). specific time points compared using Fisher’s exact tests.          characteristics dataset depicted survival statistical analyses acquired using OASIS consistent            (Figure 6A) log cumulative hazard plots (Figure 6B) previous reports [30–35]. Furthermore, examined                  differences lifespan variations evident. difficult OASIS analysis comparing publicly available datasets             distinguish lifespan variations using conventional methods confirmed validity (Table S2).                                           survival analysis. Specifically, log-rank test suitable                                                                              comparison mean lifespan, Neyman’s test effective
+Advanced statistical analyses comparison                          distinguish structural differences survival curves
+variances survival data                                                   (Figure 6C). contrast, statistical methods    examine usefulness advanced statistical methods              implemented OASIS, survival time F-test, partial slopes
+OASIS, conducted model-based test different                 rank-sum test, normalized Chow test, able statistical methods implemented OASIS work complex                     discriminate variances lifespan data (Figure 6C).
+
+
+       PLoS | www.plosone.org                                        7                            August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                                          Online Application Survival Analysis
+
+
+
+ Table 1. Statistical analysis lifespan data daf-2 mutants combination daf-16 RNAi knock 
+
+
+ Statistics
+
+                      subjects           Restricted mean                                        Age days   mortality (days)
+
+                                                    Days          Std. Err.         95  C                25          50            75             90               100 
+
+ Wild type                52                        19.35         1.07              17.24,21.45            15          18            25             30               32
+ daf-2(e1370)             223                       32.87         0.64              31.63,34.12            29          34            39             41               -
+ daf-16(RNAi)             127                       17.74         0.43              16.91,18.57            15          18            22             25               28
+ daf-16(RNAi); daf-       366                       20.84         0.46              19.94,21.73            15          21            24             29               39
+ 2(e1370)
+
+ Comparison samples
+
+ Type                                              Log-rank test                            Fisher exact test   mortality (P-value)
+                                                            2                        2
+                                                        x                Prob . x               25                50                   75                 90 
+
+ Control          Wild type
+                  daf-2(e1370)                          119.2            0.00E+00*              4.04E-11          1.09E-13             7.53E-07           9.35E-05
+                  daf-16(RNAi)                          5.03             2.50E-02               1.00E+00          2.52E-01             6.03E-02           3.69E-03
+                  daf-16(RNAi); daf-2(e1370)            2.51             1.13E-01               5.55E-02          4.15E-01             1.83E-01           2.59E-02
+ Control          daf-2(e1370)
+                  Wild type                             119.2            0.00E+00*              4.04E-11          1.09E-13             7.53E-07           9.35E-05
+                  daf-16(RNAi)                          206.8            0.00E+00*              1.16E-13          1.10E-12             8.49E-13           1.06E-10
+                  daf-16(RNAi); daf-2(e1370)            146.1            0.00E+00*              2.69E-10          9.56E-13             1.60E-12           5.06E-02
+
+ Users compare restricted mean ‘‘maximum survival time,’’ generally 90th percentile survival. C  indicates confidence interval. case daf-
+ 2(e1370) age days 100  mortality (days) determined ‘‘-’’, individual C. elegans survived censored. * log-rank test OASIS
+ provides ‘0.00E+00’ P,1.0610210.
+ doi:10.1371/journal.pone.0023525.t001
+
+
+
+
+    applied statistical methods survival experi-                            Discussion
+ments C. elegans. analyzed lifespan data daf-2(e1370)
+mutant C. elegans treated RNAi targeting daf-16/FOXO                                    Rigorous analysis survival data crucial aging research. RNAi targeting mag-1, encodes C. elegans homolog                             statistical tools survival analysis available (Table
+Drosophila mago nashi known regulate hermaphrodite germ-line                              S3), time, provide OASIS sex determination [36]. daf-16 RNAi mag-1                             comprehensive analysis survival data including generation RNAi daf-2(e1370) mutant background significantly shortened                               KAPLAN-MEIER statistics, visualization survival log
+lifespan compared control RNAi (P,1.0610210, log-rank test)                               cumulative hazard plots, statistical test hypothesis, hazards
+                                                                                             regression. OASIS based Django [38], python-based web
+(Figure 7A). daf-16 RNAi- mag-1 RNAi-treated
+                                                                                             framework, R statistical environment [27] integrate
+daf-2(e1370) mutants similar mean lifespans (P = 0.82, log-rank
+                                                                                             essential advanced statistical features user-friendly
+test).  analyses lifespan variances using OASIS
+                                                                                             graphical interface survival analysis.
+revealed mag-1 RNAi resulted significantly different
+                                                                                                Historically, comparison average survival time predom-
+variance lifespan compared daf-16 RNAi (Figure 7B,
+                                                                                             inantly used analysis survival data.  P,1.0610210, survival time F-test; P,0.05, partial slopes rank-sum
+                                                                                             cases survival data comparisons shown examples
+test; P,1.0610210, normalized Chow test). example,                             (Figure 7), survival curves obviously different shapes analyzed lifespan datasets wild-type tax-2(p671); isp-                            similar mean survival times researchers 1(qm150) double mutant C. elegans, mutations tax-2                            conclude differences survival datasets subunit cyclic-nucleotide gated calcium channel] isp-1                           statistically significant. described recently [10], iron-sulfur protein complex III respiratory chain].                         population organisms relatively homogeneous genetic
+previous report, showed mean lifespan values                            environmental factors showed gradual lifespan curves instead lifespan datasets similar (P = 0.12, log-rank test)                         sharp precipitated line. Stochastic factors including epigenetic
+lifespan curves crossed [37]. Using OASIS,                                switch noisy gene expression [10] genetic components difference variances lifespan                         [12] underlie phenomenon crucial datasets statistically significant (P,1.0610210, survival time F-                         identify characterize factors future.  test; P,0.05, partial slopes rank-sum test; P,0.05, normalized                               provide advanced statistical methods analyzing differences
+Chow test).  analyses indicate advanced                              variances survival datasets believe methods
+statistical methods useful distinguishing differences                         useful objectively quantify variances based lifespan variances.  results shown using C. elegans                        statistical significance.
+mutants RNAi suggest genetic components underlie                               proper survival analysis, OASIS users consider cases lifespan variances.                                                     underlying statistical assumptions. example, log-rank test 
+
+        PLoS | www.plosone.org                                                       8                            August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                              Online Application Survival Analysis
+
+
+
+
+Figure 6. Advanced statistical results analyzing differences survival variations using hypothetical datasets.   Survival plots (B) log cumulative hazard plots different types hypothetical survival data. (C) Concept figures statistical test illustrated. P-values statistical test shown. Significant differences indicated bold font red.
+doi:10.1371/journal.pone.0023525.g006
+
+suitable baseline survival rate changing time.           methods multiple statistical comparisons. addition, advanced statistical tests, survival time F-test,            consideration assumptions, performing lifespan experiments
+partial slopes rank-sum test normalized chow test, used               times independently reliable results identify differences lifespan variations based specific                distinguishing differences lifespan variations.
+assumptions. statistical testing, OASIS automatically generates pair-wise comparison results, increase type error [39].          Availability Requirements adjust multiple testing, OASIS provides corrected P-values                  software available public use http://sbi.postech.ac. Bonferroni method, commonly used correction                 kr/oasis.
+
+
+
+
+Figure 7. Examples lifespan variations experimental datasets.   Survival plots daf-2(e1370) mutants treated control
+RNAi, mag-1 RNAi, daf-16 RNAi. (B) Gaussian fitting curves survival time F-test analyzes variances daf-2(e1370) mutants treated control RNAi, mag-1 RNAi, daf-16 RNAi.
+doi:10.1371/journal.pone.0023525.g007
+
+
+       PLoS | www.plosone.org                                            9                             August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                                              Online Application Survival Analysis
+
+
+  researchers’ unpublished data uploaded                                                  hi (tjXi,1 ,:::,Xi,k )
+website, OASIS encrypts input data does permit access users ensure security privacy.                                                                  ~h0 (t) exp (b1 Xi,1 zb2 Xi,2 zb3 Xi,3 :::zbk Xi,k )
+                                                                                                             ~h0 (t) exp (bT Xi ) ;
+Methods
+Basic survival analysis
+                                                                                           Xi,1, …, Xi,k represent k risk factors assumed act
+   estimate survival time area survival curve,                                                                                            independently, b1, …, bk regression coefficients, h0(t) necessary characterize survival function                                                                                            baseline hazard time t, subscript observation.
+probability death specific time t.
+                                                                                           OASIS provides standard Cox proportional-hazards regression
+                                                                                           robust methods [43] (Text S1). methods provide
+                                                                                           regression coefficient risk factors statistical signif-
+                               S(t)~P(Twt);                                                icance.
+                                                                                              identify risk factors explain hazard function t specific time, T random variable time,                         proportion, input data format different P denotes probability death.                                                    survival analysis. shown Figure 4A, OASIS takes following
+   Generally, observe censored data include missing                           format input data Cox proportional hazards regression subjects. consider missing subjects, Kaplan-Meier                             given order; fields observed data. line
+estimator proposed 1958 [40,41] right censored data                             starting ‘‘ ’’ sign indicates fields. Observed data
+analysis. survival function S(t) estimated Kaplan-Meier                      columns; observed time, status events
+method following formula.                                                               (dead , values risk factors. columns                                                                                            considered values risk factors. columns                                                                                            separated tabs.
+                    _                _          dj
+                    S (ti )~ P p j ~ P (1{ );                                              Supporting Information
+                            j:tj ƒti   j:tj ƒti nj
+                                                                                           Text S1 Detailed explanations statistical methods         _ p j conditional probability survival jth                        survival analyses
+interval, dj number deaths nj size                             (PDF)
+population risk jth interval.                                                Table S1        Statistical methods used survival analyses
+    Using Kaplan-Meier estimator, OASIS gives various outputs                          (PDF) variance survival function, mean median lifespan,
+lifespan   mortality, survival plots, log-cumulative hazard                         Table S2 Comparisons OASIS results reference
+plots (Figure 2). outputs generally character-                          data
+istics survival data. example, slope log-cumulative                          (PDF)
+hazard plots indicates age-dependent increase death rate                            Table S3 Web-based statistical methods survival Y-intercept represents hazard rate beginning                         analysis observation. detailed explanations Text S1.                            (PDF)
+
+Cox proportional hazard regression                                                         Acknowledgments
+   hypothesis testing useful comparing survival                           sincerely thank Dr. Kraus comments Kolmogorov-Smirnov
+data groups, Cox proportional-hazards                                    test Neyman’s smooth test implemented R package, regression suitable analyzing proportional effects                           reviewers valuable comments improved manuscript. risk factors survival [42]. OASIS provides Cox                                  grateful members S. Kim lab S.J. Lee lab helpful
+proportional hazards regression, evaluate effect                          suggestions OASIS manuscript. risk factors sex, age, weight survival
+(Figure 4B). Mortality rate explained proportional                           Author Contributions
+sum risk factors. Cox formulated semi-parametric model                             Conceived designed experiments: J-SY H-JN S-JL SK. Performed following equation.                                                                    experiments: J-SY MS S-JL. Analyzed data: J-SY H-JN S-JL.
+                                                                                           Contributed reagents/materials/analysis tools: J-SY MS SKH YC HGN.
+                                                                                           Wrote paper: J-SY H-JN S-JL SK.
+
+References
+ 1. Guarente L, Partridge L, Wallace DC (2007) Molecular biology aging;                  6. Harrison  Strong R, Sharp ZD, Nelson JF, Astle CM, et al. (2009)
+    Guarente L, Partridge L, Wallace DC, eds. CSHL Press.                                      Rapamycin fed late life extends lifespan genetically heterogeneous mice.
+ 2. Antebi (2007) Genetics aging Caenorhabditis elegans. PLoS Genet 3:                 Nature 460: 392–395.
+    1565–1571.                                                                              7. Mantel N (1966) Evaluation survival data new rank order statistics
+ 3. Wu D, Cypser JR, Yashin AI, Johnson TE (2009) Multiple mild heat-shocks                    arising consideration. Cancer Chemother Rep 50: 163–170.
+    decrease Gompertz component mortality Caenorhabditis elegans. Exp             8. Peto R, Pike MC (1973) Conservatism approximation sigma (O-E)2-E     Gerontol.                                                                                  logrank test survival data tumor incidence data. Biometrics 29: 579–584.
+ 4. Honjoh S, Yamamoto T, Uno M, Nishida E (2009) Signalling RHEB-1                 9. Luder HU (1993) Onset human aging estimated hazard functions
+    mediates intermittent fasting-induced longevity C. elegans. Nature 457:                 associated various causes death. Mech Ageing Dev 67: 247–259.
+    726–730.                                                                               10. Kenyon CJ genetics ageing. Nature 464: 504–512.
+ 5. Valenzano DR, Terzibasi E, Genade T, Cattaneo  Domenici L, et al. (2006)             11. Herndon LA, Schmeissner PJ, Dudaronek JM, Brown PA, Listner KM, et al.
+    Resveratrol prolongs lifespan retards onset age-related markers            (2002) Stochastic genetic factors influence tissue-specific decline ageing C.
+    short-lived vertebrate. Curr Biol 16: 296–300.                                             elegans. Nature 419: 808–814.
+
+
+
+        PLoS | www.plosone.org                                                    10                                  August 2011 | Volume 6 | Issue 8 | e23525
+                                                                                                                                  Online Application Survival Analysis
+
+
+12. Promislow  Tatar M, Khazaeli AA, Curtsinger JW (1996) Age-specific                       26. Fleming TR, Harrington DP (1991) Counting Processes Survival Analysis. New
+    patterns genetic variance Drosophila melanogaster.  Mortality. Genetics 143:            York: Wiley.
+    839–848.                                                                                    27. R Development Core Team contributors worldwide, (2008).
+13. Fisher RA (1922) interpretation x2 contingency tables,               28. Kraus D (2009) Adaptive Neyman’s smooth tests homogeneity samples
+    calculation P. Journal Royal Statistical Society 85: 87–94.                           survival data. Journal Statistical Planning Inference 139: 3559–3569.
+14. Carvalho GB, Kapahi P, Benzer S (2005) Compensatory ingestion dietary                  29. Chow GC (1960) Tests Equality Sets Coefficients Linear
+    restriction Drosophila melanogaster. Nat Methods 2: 813–815.                                 Regressions. Econometrica 28.
+15. Dai C, Whitesell L, Rogers AB, Lindquist S (2007) Heat shock factor 1                  30. Kimura KD, Tissenbaum HA, Liu Y, Ruvkun G (1997) daf-2, insulin
+    powerful multifaceted modifier carcinogenesis. Cell 130: 1005–1018.                          receptor-like gene regulates longevity diapause Caenorhabditis elegans.
+16. Kapahi P, Zid BM, Harper T, Koslover D, Sapin V, et al. (2004) Regulation                    Science 277: 942–946.
+    lifespan Drosophila modulation genes TOR signaling pathway.                 31. Kenyon C, Chang J, Gensch E, Rudner  Tabtiang R (1993) C. elegans
+    Curr Biol 14: 885–890.                                                                          mutant lives twice long wild type. Nature 366: 461–464.
+17. Wilks MF, Fernando R, Ariyananda PL, Eddleston M, Berry DJ, et al. (2008)                   32. Lee RY, Hench J, Ruvkun G (2001) Regulation C. elegans DAF-16     Improvement survival paraquat ingestion following introduction                    human ortholog FKHRL1 daf-2 insulin-like signaling pathway. Curr Biol
+    new formulation Sri Lanka. PLoS Med 5: e49.                                                  11: 1950–1957.
+18. Ravi D, Wiles  Bhavani S, Ruan J, Leder P, et al. (2009) network                    33. Lin K, Dorman JB, Rodan  Kenyon C (1997) daf-16: HNF-3/forkhead
+                                                                                                    family member function double life-span Caenorhabditis elegans.
+    conserved damage survival pathways revealed genomic RNAi screen. PLoS
+                                                                                                    Science 278: 1319–1322.
+    Genet 5: e1000527.
+                                                                                                34. Ogg S, Paradis S, Gottlieb S, Patterson GI, Lee L, et al. (1997) Fork head
+19. Matheu  Maraver  Klatt P, Flores  Garcia-Cao  et al. (2007) Delayed
+                                                                                                    transcription factor DAF-16 transduces insulin-like metabolic longevity
+    ageing damage protection Arf/p53 pathway. Nature 448:
+                                                                                                    signals C. elegans. Nature 389: 994–999.
+    375–379.
+                                                                                                35. Henderson ST, Johnson TE (2001) daf-16 integrates developmental 20. Managbanag JR, Witten TM, Bonchev D, Fox LA, Tsuchiya M, et al. (2008)                          environmental inputs mediate aging nematode Caenorhabditis elegans.
+    Shortest-path network analysis useful approach identifying genetic                  Curr Biol 11: 1975–1980.
+    determinants longevity. PLoS 3: e3802.                                               36. Li W, Boswell R, Wood WB (2000) mag-1, homolog Drosophila mago nashi,
+21. Andrade MC, Gu L, Stoltz JA (2005) Novel male trait prolongs survival                        regulates hermaphrodite germ-line sex determination Caenorhabditis elegans.
+    suicidal mating. Biol Lett 1: 276–279.                                                          Dev Biol 218: 172–182.
+22. Gallagher IM, Jenner P, Glover V, Clow (2000) CuZn-superoxide dismutase                   37. Lee SJ, Kenyon C (2009) Regulation longevity response temperature     transgenic mice: effect longevity, locomotor activity 3H-mazindol                 thermosensory neurons Caenorhabditis elegans. Curr Biol 19: 715–722.
+    3H-spiperone binding 19 months. Neurosci Lett 289: 221–223.                            38

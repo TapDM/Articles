@@ -1,0 +1,640 @@
+BMC Bioinformatics                                                                                                                       BioMed Central
+
+
+
+Research article                                                                                                                       Open Access high-accuracy consensus map yeast protein complexes reveals
+modular nature gene essentiality
+G Traver Hart, Insuk Lee Edward R Marcotte*
+
+Address: Center Systems Synthetic Biology Institute Cellular Molecular Biology University Texas Austin 2500 Speedway, MBB
+3.210 Austin, Texas, 78712, USA
+Email: G Traver Hart - traver_hart@yahoo.com; Insuk Lee - insuklee2001@yahoo.com; Edward R Marcotte* - marcotte@icmb.utexas.edu
+* Corresponding author
+
+
+
+
+Published: 2 July 2007                                                         Received: 22 December 2006
+                                                                               Accepted: 2 July 2007
+BMC Bioinformatics 2007, 8:236   doi:10.1186/1471-2105-8-236 article available  http://www.biomedcentral.com/1471-2105/8/236
+© 2007 Hart et al; licensee BioMed Central  Open Access article distributed terms Creative Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+                 Abstract
+                 Background: Identifying protein complexes organism major goal systems biology.
+                 past 18 months, results genome-scale tandem affinity purification-mass
+                 spectrometry (TAP-MS) assays yeast published, corresponding complex
+                 maps. complexes, published data sets surprisingly uncorrelated.                  useful consider raw data study generate accurate complex map                  high-confidence data set integrates results earlier assays.
+                 Results: Using unsupervised probabilistic scoring scheme, assigned confidence score                  interaction matrix-model interpretation large-scale yeast mass-spectrometry
+                 data sets. scoring metric proved accurate filtering schemes used original
+                 data sets. took high-confidence subset interactions derived set                  complexes using MCL. complexes high correlation existing annotations.
+                 Hierarchical organization protein complexes evident inter-complex interactions.
+                 Conclusion: demonstrate scoring method generate integrated high-
+                 confidence subset observed matrix-model interactions, subsequently used derive
+                 accurate map yeast complexes. results indicate essentiality product                  protein complex individual protein, achieved near saturation                  yeast high-abundance, rich-media-expressed "complex-ome."
+
+
+
+
+Background                                                                     putational methods provided 50,000 putative molecular machines carry basic cellular proc-                     yeast protein-protein interactions date, sub-
+esses typically individual proteins protein                        stantial fraction spurious[1,2]. array complexes. relatively simple model organism                        analytical methods aimed generating high-quality com-
+Saccharomyces cerevisiae, machines process                       plexes data applied, including store biological information fact large protein com-                    unsupervised [3-5] trained [6,7] techniques. plexes comprised subunits.                                             genomic proteomic data sets, gene expression,
+                                                                               knockout phenotype, subcellular localization, genetic path measuring protein interactions defining                       interaction profiles, phylogenetic profiles [5,6,8-10],
+complexes studied. Experimental com-                         integrated raw interaction data 
+
+                                                                                                                                       Page 1 12
+                                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                               http://www.biomedcentral.com/1471-2105/8/236
+
+
+ effort broaden deepen ability accurately        Results
+define protein complexes.                                        large-scale interaction assay, consider pro-
+                                                                 tein's interactions random sample popu- recent genome-scale tandem affinity purification/            lation observed interactions. simple general
+mass spectrometry (TAP-MS) experiments perfomed               theoretical error model, based hypergeometric dis-
+Gavin et al. [11] Krogan et al. [12], produced       tribution, used calculate probability enormous new data, allowing complete            observing interaction random background.
+analysis universe yeast protein complexes.         model builds related models previously  complex maps published independently            applied linkage interaction types [18- groups surprising lack correlation,          21]. given dataset, probability (P-value) partially explained different analytical      interaction proteins B observed methods applied generating raw data [1,13].            random 
+
+TAP-MS data typically consist tagged "bait" protein                                                min(n,m) associated "prey" proteins purify          p(# interactions ≥ k | n, m, N) =     ∑        p | n, m, N)
+bait. Interaction data sets generated raw data                                              =k
+using spoke method, considers bait-prey         interactions, matrix method, includes prey-prey interactions given bait pull [14].
+                                                                                                 ⎛ n ⎞⎛ N − n ⎞ affinity purification process generally isolates stable                                   ⎜ ⎟⎜         ⎟
+complexes, clear-cut way differentiate                                            �? ⎠�? m − ⎠
+                                                                                p | n, m, N) = direct physical interactions indirect interac-                                            ⎛N⎞
+tions mediated members complex –                                               ⎜ ⎟
+                                                                                                      �?m⎠ matter, proteins appear simply result experimental noise.  spoke model contains          k = number times interaction direct physical interactions sampling indirect      B observed, n m total number inter-
+interactions complex, plus               actions proteins B, N total number noise, matrix model captures larger             interactions observed entire data set. applied
+number true indirect interactions price             matrix model interpretation protein interactions,
+decreased accuracy linking spurious protein        scoring scheme identify highly accurate subsets "real"  linking proteins hetero-       interactions. process illustrated Figure 1.
+geneous complexes contain bait. efforts use filtered subset          generated matrix-model interpretations Ho,
+matrix-model interactions improve accuracy [9,15,16],         Gavin, Krogan datasets. TAP-MS data
+analysis mass spectrometry interaction data typi-         set significant scale [22] subset [11] cally carried using spoke model [3,5].              omitted. applied scoring method 
+                                                                 applying interaction dataset P-value calcu- offer simple robust statistical scoring            lated observations set. eval-
+scheme assigning confidence observed interactions.        uated quality scoring calculating recall scheme based comparing observed versus                 precision versus set protein complexes manually
+expected numbers interactions matrix model          defined literature sources Munich Informa-
+protein-protein interactions, provides greatly               tion center Protein Sequences (MIPS) [23]. Recall increased recall precision standard spoke        scored TP/(TP + FN), TP, true positives, exper-
+model interpretation. advantage       imental interactions MIPS set FN, false used integrate data sets different        negatives, MIPS interactions present sources. use scoring scheme combine Gavin          experimental data. Precision defined TP/(TP + FP),
+et al. [11], Krogan et al. [12], Ho et al. [17] complex   TP FP, false positives, interac-
+data sets define high-quality subset comprised          tions observed experimentally corresponding
+1689 proteins 390 complexes.             proteins MIPS set, interaction  essential proteins strongly cluster  supporting       data sets, method displays improved recall
+complex-centric gene-centric basis essenti-      precision relative spoke model
+ality large fraction essential genes.                   interpretation dataset, group's
+                                                                 published complexes (Figure 2). complex data
+                                                                 set represents independent experimental observation,
+                                                                 probabilities combined provide higher 
+
+
+                                                                                                                      Page 2 12
+                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                  http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+
+                                               B                                            C
+ Krogan (+10)
+
+                                                                                                                           P=20.82
+      Pri1                Pri2                     Pri1                  Pri2                   Pri1                                    Pri2
+                                                                                                            (2 P=
+                                                                                                              0. 2
+                                                                                                                8 2 7.
+                                                                                                                   + 24
+
+
+
+
+                                                                                                  P=20.82
+
+
+
+
+                                                                                                                                         P=20.82
+                                                                                                                    6.
+                                                                                                                       42
+                                                                                                                          )
+                                                                                                                      .   82
+                                                                                                                   20
+                                                                                                              P=
+                                                                                                                       P=43.49
+   Pol12                  Pol1                    Pol12                  Pol1                  Pol12                (20.82 + 22.57)     Pol1
+  Krogan (+8)           Krogan (+20)
+  Gavin (+22)            Gavin (+0)
+
+Applying
+Figure 1the matrix-model scoring algorithm
+Applying matrix-model scoring algorithm. subunits DNA primase core complex detected using scoring algorithm.   Gavin et al. TAP-MS data set, Pol1 Pol12 purified bait corresponding
+bait-prey, spoke model interactions shown blue (plus number additional prey identified shown parentheses). Krogan et al. assay (shown orange), baits plus Pri1 purified. (B) matrix model, bait-prey prey-
+prey interactions considered. given dataset, total number links observed pair proteins recorded P-value calculated described text. PICO network generated multiplying P-values interaction derived different data sets, e.g. Pol1–Pol12 discovered Gavin Krogan scored accord-
+ingly. (C) PICO network integrates probability scores data sources, represented -ln(P-value). Values black final PICO scores; separate scores Gavin et al. (blue) Krogan et al. (orange) shown applicable. data Ho et al. relevant example.
+
+
+fidence repeated observations. combined           accuracy set complexes, measured scored data sets multiplying P-values        Hubert statistic, H, derived complexes versus ref- given interaction datasets, applying P-      erence set complexes [26]. Briefly, calculating H
+value 1 interaction missing dataset.         involves generating matrix M protein pairs   j) combined interaction dataset, Prob-         M  j) = 1 proteins complex 0
+abilistic Integrated complex (PICO) network,            correlation experimental accurate provides greater coverage            reference matrices measured, resulting score
+individual datasets comprises.                                 -1 1, 1 implying identical complex assign-
+                                                                  ments values near zero indicating random assign- PICO network contains large number (~160,000)            ment. measured Hubert statistic complexes
+protein-protein interactions, relative confi-         measured threshold set curated
+                                                                  MIPS complexes [23] ribosomal subunits removed
+dence measure described P-value. list                                                                   filtered set Gene Ontology   Cellular
+available download  Additional File 1]. filtered
+                                                                  Component (CC) annotations  Methods). corre- low-confidence interactions deriving com-              lations generally improve increasing stringency (Fig-
+plexes data, beginning rank-ordering              ure 3B), rate increase correlation interactions P-value, lowest highest.               component drops sharply 10-2 cutoff. applied series increasingly stringent expected (E)           improvement accuracy comes price decreasing
+                                n                                 coverage, reflected decreasing number interac-
+value thresholds, E = ∑ Pi , starting E = 1        tions threshold shown Figure 3A.                                =1                               attempt balance accuracy coverage, selected tightening order magnitude increments E = 10-6.          complexes derived E = 10-2 threshold, number interactions PICO network            called E-2 complexes, study.
+threshold shown Figure 3A.
+                                                                  Features E-2 complexes derived set complexes threshold using          E-2 complexes contain 1689 proteins grouped MCL [24], implementation Markov clustering                390 clusters sizes ranging 35 subunits. algorithm. MCL evaluated [25] used              network view complexes, generated using Cyto-
+derive complexes raw data [12]. evaluate           scape [27], shown Figure 4; Cytoscape file avail-
+
+
+                                                                                                                                     Page 3 12
+                                                                                                (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                 http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+
+Figure 2
+Performance    curves probabilistic scoring method
+Performance curves probabilistic scoring method. measured performance various datasets reference set consisting matrix-model interaction set generated MIPS curated complexes, excluding large small ribosomal subunits  account half interactions set). Single points
+represent entire dataset. Curves represent dataset scored using hypergeometric scoring algorithm, rank
+ordered, plotted symbol representing cumulative addition 500 highest scoring interactions  e.
+tail curve represents entire dataset). scoring scheme outperforms raw data filtered, published
+sets cases; integrated PICO net outperforms individual scored data sets, derived complexes slightly accurate PICO  thresholds; data shown).
+
+
+able download  Additional File 2]. measure         accurate. 132 complexes subu-
+accuracy individual complexes, tested sig-         nits, 69  (91) highly enriched spe-
+nificant enrichment component annotation.                cific component annotations; 44 complexes component annotations enriched P <0.01  Bonfer-           size larger, 84  (37) annotated. 
+roni correction multiple hypothesis testing) noted         virtually uncharacterized genes complex  Additional File 3]. Simpson             large complexes, appear relatively
+coefficient enriched annotation listed      weak connections members respective
+easily understood metric measuring completeness           clusters. suggests yeast community term describes complex  vice               achieved fairly complete description large fraction
+versa).                                                           "complex-ome," complexes containing
+                                                                  proteins. fact, complex size large fraction E-2 complexes correspond            greater consists entirely unnamed subunits existing annotations suggest data set highly          considered truly novel (complex C132, com-
+
+
+                                                                                                                       Page 4 12
+                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                               http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+                                                                 includes RNA polymerase  II, III, largely                                                                  enzymes contain Rpb5, Rpb8, Rpb10,                                                                  Rpo26 subunits. Likewise, complex C7 contains                                                                  TAFIID complex SAGA transcription factor/chro-
+                                                                 matin remodeling complex; complexes share                                                                  Taf5, 6, 9, 10, 12 proteins. clear                                                                  RNA polymerase case E-2 clusters occasionally
+                                                                 contain discrete complexes presumably phys-
+                                                                 ically interact.
+
+                                                                 clusters lack significant terms tend                                                                  subunits share similar free-text descriptions                                                                  Saccharomyces Genome Database (SGD) [28].                                                                  example, complex C44 contains proteins,                                                                  essential.  seven explicitly
+                                                                 described SGD involved 60 S ribosome bio-
+                                                                 genesis components 66 S pre-ribosomal particles,
+                                                                 eighth involved export pre-ribosomal large
+                                                                 subunits nucleus. term enrichment                                                                  CC annotation typically "nucleolus,"
+                                                                 weak term excluded analysis  Methods).
+                                                                 Likewise, unannotated complexes C20, C30, C78
+                                                                 contain 13, 10, 5 proteins, respectively (10, 9, 5
+                                                                 essential), known suspected involved
+                                                                 ribosome biogenesis. unannotated complexes
+                                                                 include C43, largely nonessential proteins                                                                  described cyclin/cyclin-dependent kinase group;
+                                                                 C51, seven nonessential proteins involved catabolite
+                                                                 inactivation FBPase; C72, proteins  essen-
+Effect
+accuracy
+Figure of3thresholds network size derived complex         tial), involved retrograde Golgi ER
+Effect thresholds network size derived                 trafficking sixth, Sec39, unknown function
+complex accuracy.   Interactions PICO network           "proposed involved protein secretion." rank ordered, E-value calculated sum P-values. number interactions E-value
+                                                                 Hierarchical structure complex network
+threshold counted; total decreases increasingly
+stringent threshold applied. (B) E-value threshold,   high-confidence subset PICO network subset interactions clustered MCL           E-2 complexes derived contains 5,352
+parameters optimized correlation filtered set   interactions;  4,411 present E-2 com- component annotations  Methods]. correlation          plex map 390 complexes. remaining 941 interac- component (filled circles) MIPS complexes            tions occur subunits different complexes.
+(hollow circles) generally improves stringency   examined structure interactions col-
+E-value cutoff. judged 10-2 cutoff provides rea-   lapsing complex single node looking sonable tradeoff increasing accuracy decreasing      interactions complexes. resulting inter-
+coverage, chose subset study.               complex network, depicted Figure 5, suggests hierar-
+                                                                 chical organization protein complexes cell.                                                                  interactions (341, 36 ) appear just
+                                                                 clusters: U4/U6 × U5 tri-snRNP complex                                                                  neighbors (191 interactions), C20/C30/C44/C78
+posed proteins YAL049C, YDL025C, YGR016W,                 ribosome biogenesis nexus (86 interactions), C17
+YHR009C).                                                        histone-associated complex (64 interactions).                                                                  cases, intercomplex interactions link complexes E-2 clusters represent amalgamations known            involved closely related physiological processes.
+complexes. MCL algorithm assigns protein             Taken  observations suggest yeast pro-
+exactly complex, protein complexes shared            teins complexes exhibit hierarchical organization, subunits combined single              complexes interacting ordered
+cluster E-2 complexes. C1 cluster, example,       fashion.
+
+
+                                                                                                                    Page 5 12
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                 http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+
+Figure  subset4of E-2 complex map subset E-2 complex map. applying E = 10-2 threshold PICO interaction set, subset 5,352
+interactions clustered MCL, using parameters maximized correlation filtered set component anno-
+tations. Interactions clusters (4,411) plotted Cytoscape using included "organic" layout algorithm. Interac-
+tions clusters (941) omitted clarity. Yellow nodes indicate essential proteins; red, nonessential. image Additional File 4.
+
+
+Essentiality protein complexes                                 tical set complexes, repeating process 10,000 times, E-2 network shows enrichment essential genes            calculating mean bin. took general: 1689 proteins network comprise             log ratio observed random frequencies
+29  yeast proteins, contain 58  essential       bin. results, plotted Figure 6, clear
+proteins (602 essentials 1033 total). descrip-         enrichment complexes essential (>70 )
+tions  glance complex map Fig-       completely nonessential (<10 ), 
+ure 4, suggests concentration essential proteins          representation intermediate values. complexes, exclusion  Addi-
+tional file 4). measure concen-        Discussion
+tration, considered distribution complexes         Modular nature essentiality
+respect fraction essential proteins         concentration essential proteins complexes
+sorted distribution uniformly spaced bins.          suggests essentiality  cases, product bootstrapped background distribution randomly             complex function individual protein function.
+assigning number essential genes iden-          phenomenon observed Barabasi
+
+
+                                                                                                                       Page 6 12
+                                                                                                 (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                                                        http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+
+                           2
+
+
+                                                                                                                                                                     4
+                                                    9
+                                                                                9
+                                       6
+                  5                                                                                                                            6
+                           2                                                        8
+                                                                  10                                              8
+                                   2                                            4
+                                                                                                          6           4
+
+                                                                                                                          9
+
+
+
+
+                                                                                                                                       4
+
+
+                                                    10
+                               6
+
+
+
+                                                                       8
+
+                                           10
+
+
+
+                                                         10
+
+
+                                                                           10
+                                                                                                     14                        4
+
+
+                                                                                                                          6        4
+
+
+
+                                                              7
+                               8
+                                                8
+
+                                                                                                                  4
+                                                                                                                          30
+
+                                           9                                                                                               6
+
+
+
+
+                      42
+                                       4
+                                                                                            6
+
+                                                                                                              4
+
+
+
+
+                                                                                                8
+
+
+                                                                                        4
+                                                                                                                                                   4
+
+
+                                                                                        8
+
+
+
+
+                                                                                                    29
+                                                                                            9
+
+                                                                                                                                                                         4
+
+
+
+
+Figure 5
+Inter-complex   interactions
+Inter-complex interactions. Interactions E-2 complex map represent 4,411 5,352 interactions PICO
+network E = 10-2 threshold. 941 remaining protein-protein interactions (PPI) collapse 248 complex-complex
+interactions. map 128 inter-complex interactions, comprising protein-protein interactions (821 PPI
+total); singletons omitted clarity. Nodes represent E-2 complexes: yellow indicates >70  essential subunits; labels indi-
+cate highest-scoring component, applicable. Edge thickness reflects number interactions complex subu-
+nits, ranging (thinnest) 24 (thickest) PPI; number interactions shown edge. Density PPI complexes similar function (e.g. 190 PPI U4/U6/U5 tri-snRNP complex neighbors; 86 PPI C20/
+C30/C44/C78 ribosome biogenesis modules; 64 PPI linking C17 histone-associated complex neighbors; shaded blue) illus-
+trates hierarchical nature yeast complex network.
+
+
+
+
+                                                                                                                                                                     Page 7 12
+                                                                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+                                                                  essentiality include C2, corresponds 26 S
+                                                   *              proteasome complex. complex 58  essential                                                                   diagram cluster reveals number                                                                   loosely connected proteins annotated pro-
+                                                                  teasomal. 24 core subunits diagram 71 
+                                                                  essential.  previously described C7 complex                                                                   comprised nonessential SAGA complex              *
+                                                        *         essential TAFIID complex (Figure 4).
+
+                                                                  Comparison Collins et al
+                                                                  submission article, study Collins et al.
+                                                                  published Gavin Krogan TAP-MS
+                           *    *
+                      *                                           data sets analyzed [29]. Using supervised algo-
+                                                                  rithm derived Bayesian methods optimized                                                                   empirically-derived parameters, study posited                                                                   9,000 high-confidence interactions labeling                                                                   previously published interactions lower confi-
+Essential
+Figure 6proteins concentrated subset complexes        dence. Comparing PICO network E = 10-2
+Essential proteins concentrated subset                threshold (E-2; 5,352 interactions) Collins results
+complexes. distribution essential proteins com-         shows overlap 4,356 interactions (Figure 7). plexes compared randomized background. frac-         interactions unique Collins data set tion essential proteins complex calculated,        highly enriched ribosomal proteins: 4,714 inter-
+sorted equal-sized bins, compared expected         actions Collins PICO, 2,964 involve
+background generated randomly assigning essential pro-         ribosomal proteins. proteins commonly 
+teins set complexes. log ratio observed
+                                                                  purified tagged baits TAP purifications  sub- expected frequency bin plotted  positive
+values indicate observed frequency random; negatives        sequently identified mass spectrometry), inter-
+indicate random. distribution illustrates       preted promiscuous interactors matrix model centration essential proteins complexes,         protein connectivity, considers bait-prey corresponding absence essentials  Bars marked        prey-prey interactions given purification. asterisk represent statistically significant deviations   high-degree interactors penalized hypergeo- random expectation (P <10-3).                                metric scoring model;  interac-
+                                                                  tions scored model, virtually exceed                                                                   stringent score threshold applied.
+
+                                                                  comparison shows hypergeometric scor-
+group [5] analysis Ho Gavin 2002[22].             ing method Collins method yielded data sets using raw data assays, prior study             nearly equal accuracy. rank-ordered sets assigns bait pull discrete complex             interactions respective scores, divided does correct sampling complex mul-          bins 500 interactions, plotted cumulative
+tiple baits.  example, purifications derived        recall precision versus MIPS complex inter-
+TAP-tagged Nsp1, Nup60, Nup82, Nup116                 actions  Additional File 5]. Collins data set
+considered discrete complexes high fraction          achieves greater coverage PICO network, essential proteins, reality factors     somewhat lower overall accuracy, performance constituents nuclear pore complex.                    calculated entire MIPS reference. differ-
+                                                                  ence entirely inclusion ribosomal current analysis provides accurate defini-          protein interactions Collins: ribosome tion complexes  owing breadth raw            removed MIPS reference set, networks pro-
+data, greater coverage yeast proteins. correspond-         vide nearly identical recall (~34 ) precision (~81 ).
+ing signal essentiality complexes             networks generated methods overlap
+strong. E2 complex set, 64 complexes        strongly, despite inclusion Ho dataset >70  essential subunits, containing 330 essential          use higher confidence threshold Krogan
+379 total proteins – accounting 32  essential          raw data, suggests networks capture highly accurate
+genes yeast. complexes, 35 largest contain        subset yeast complex interactions, sim-
+271 essential proteins  320 total), 26  essen-       ple probabilistic method offered study effec-
+tial genes (Table 1). complexes strong
+
+
+                                                                                                                     Page 8 12
+                                                                                               (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                                        http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+Table 1: Essential Complexes. Selected essential complexes E-2 complex set. Complexes listed composed 4
+subunits, >70  essential. complex, table lists E-2 complex identifier, size complex, fraction essential proteins, significant cellular component annotation complex, list proteins complex. percent essential genes yeast represented complexes
+
+ Complex ID   Size     Essential   significantly enriched CC term                Complex members
+
+
+ C1           35     74            DNA-directed RNA polymerase III complex               DST1, IWR1, RET1, RPA12, RPA135, RPA14, RPA190, RPA34, RPA43, RPA49,
+                                                                                         RPB10, RPB11, RPB2, RPB3, RPB4, RPB5, RPB7, RPB8, RPB9, RPC11, RPC17,
+                                                                                         RPC19, RPC25, RPC31, RPC34, RPC37, RPC40, RPC53, RPC82, RPO21,
+                                                                                         RPO26, RPO31, SPT4, TFG1, TFG2
+ C4           27     93            small nucleolar ribonucleoprotein complex             BMS1, DIP2, ECM16, EMG1, IMP3, MPP10, NAN1, NOC4, NOP14, POL5,
+                                                                                         PWP2, SOF1, UTP10, UTP13, UTP14, UTP15, UTP18, UTP20, UTP21, UTP30,
+                                                                                         UTP4, UTP5, UTP6, UTP7, UTP8, UTP9, YGR210C
+ C11          20     75            mRNA cleavage polyadenylation specificity         BUD14, CFT1, CFT2, FIP1, GIP3, GLC7, GLC8, MPE1, PAP1, PFS2, PTA1, PTI1,
+                                   factor complex                                        REF2, SDS22, SSU72, SWD2, SYC1, YPI1, YSH1, YTH1
+ C12          20     85            U4/U6 × U5 tri-snRNP complex                          AAR2, BRR2, DIB1, LEA1, LSM8, PRP11, PRP21, PRP3, PRP31, PRP38, PRP4,
+                                                                                         PRP6, PRP8, PRP9, RSE1, SMX2, SNU114, SNU23, SNU66, SPP381
+ C13          18     72            proteasome core complex, alpha-subunit                FLC2, GRH1, OSM1, PRE1, PRE10, PRE2, PRE3, PRE4, PRE5, PRE6, PRE7, PRE8,
+                                   complex (sensu Eukaryota)                             PRE9, PUP1, PUP2, PUP3, RED1, SCL1
+ C14          18     72            snRNP U1                                              BRR1, LUC7, MUD1, NAM8, PRP39, PRP40, PRP42, SMB1, SMD1, SMD2,
+                                                                                         SMD3, SME1, SMX3, SNP1, SNU56, SNU71, STO1, YHC1
+ C20          13     77             significant annotation)                           BRX1, CIC1, DRS1, ERB1, FPR4, HAS1, MAK5, NOC2, NOC3, PUF6, PWP1,
+                                                                                         RRP5, YTM1
+ C26          11     73            eukaryotic translation initiation factor 2B           CDC123, GCD1, GCD11, GCD2, GCD6, GCD7, GCN3, PET111, SUI2, SUI3,
+                                   complex                                               YVH1
+ C30          10     90             significant annotation)                           EBP2, MRT4, NOG1, NOP15, NOP2, NOP7, NUG1, RLP7, RPF2, TIF6
+ C38          8      88            nuclear pore                                          GLE2, NIC96, NSP1, NUP116, NUP159, NUP49, NUP57, NUP82
+ C41          8      88            DASH complex                                          ASK1, DAD1, DAD2, DAD3, DAM1, DUO1, SPC19, SPC34
+ C42          8      100           exocyst                                               EXO70, EXO84, SEC10, SEC15, SEC3, SEC5, SEC6, SEC8
+ C44          8      100            significant annotation)                           DBP10, NIP7, NSA1, RIX7, RPF1, RRP1, SPB1, SPB4
+ C46          7      86            Arp2/3 protein complex                                ARC15, ARC18, ARC19, ARC35, ARC40, ARP2, ARP3
+ C48          7      71            DNA replication factor C complex                      CTF18, ELG1, RFC1, RFC2, RFC3, RFC4, RFC5
+ C53          7      100           transcription factor TFIIH complex                    CCL1, KIN28, RAD3, SSL1, TFB1, TFB3, TFB4
+ C54          7      86            signal recognition particle (sensu Eukaryota)         LHP1, SEC65, SRP14, SRP21, SRP54, SRP68, SRP72
+ C55          7      100           nucleolar ribonuclease P complex                      POP1, POP3, POP4, POP5, POP7, POP8, RPP1
+ C65          6      100           nuclear origin replication recognition complex     ORC1, ORC2, ORC3, ORC4, ORC5, ORC6
+ C67          6      100           transcription factor TFIIIC complex                   TFC1, TFC3, TFC4, TFC6, TFC7, TFC8
+ C72          6      83             significant annotation)                           DSL1, SEC22, SEC39, TIP20, UFE1, USE1
+ C74          6      100           chaperonin-containing T-complex                       CCT2, CCT3, CCT4, CCT5, CCT6, TCP1
+ C78          5      100            significant annotation)                           IPI1, IPI3, RIX1, RSA4, SDA1
+ C79          5      100           nuclear cohesin complex                               CDC5, IRR1, MCD1, SMC1, SMC3
+ C85          5      80            GINS complex                                          CTF4, PSF1, PSF2, PSF3, SLD5
+ C86          5      100           nuclear condensin complex                             BRN1, SMC2, SMC4, YCG1, YCS4
+ C89          5      80            nucleolar preribosome, small subunit precursor        ENP1, HRR25, LTV1, RIO2, TSR1
+ C101         4      100           MIND complex                                          DSN1, MTW1, NNF1, NSL1
+ C106         4      100           alpha DNA polymerase:primase complex                  POL1, POL12, PRI1, PRI2
+ C110         4      75             significant annotation)                           CIA1, MET18, NAR1, YHR122W
+ C111         4      75             significant annotation)                           NAB3, NAB6, NRD1, SEN1
+ C115         4      100           mRNA cleavage factor complex                          CLP1, PCF11, RNA14, RNA15
+ C124         4      75            transcription factor TFIIE complex                    DBP2, PPN1, TFA1, TFA2
+ C92          4      75            outer plaque spindle pole body                     SPC72, SPC97, SPC98, TUB4
+ C93          4      100           Ndc80 complex                                         NUF2, SPC24, SPC25, TID3
+
+
+
+
+tive tool assigning relative confidence rankings                                scored false positives (provided proteins present
+observations large-scale data sets.                                                 reference set). observe cases                                                                                         example, Tub4 gamma tubulin complex composed worth noting highest-scoring interac-                              Spc97, Spc98, Tub4, defined Cellular
+tions analyses reach 100  precision ver-                             Component MIPS annotation. E2 derived com-
+sus MIPS reference.                                     plex includes Spc72, spindle pole body compo-
+incompleteness reference set. interaction                                 nent interacts Tub4p complex [30]. defined false positive corre-                             MIPS reference does include Spc72 gamma
+sponding proteins present reference set                             tubulin complex does include protein interaction   true interactions detected                          "Spindle Pole Body Components" collection proteins.
+experimentally absent reference set                               interactions Spc72 members 
+
+                                                                                                                                                  Page 9 12
+                                                                                                                           (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                               http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+                                                                 plexes essential nonessential.       PICO-E2:                                     Collins:      mixed – example, SAGA/TAFIID complex – lead       5,352                                          9,070       interesting questions essentiality specific
+                                                                 interactions [31]. anticipate complex descrip-
+                                                                 tions offered  general scoring method,
+                                           4,714                 used functional genomics systems
+                                                                 biology studies.
+                                          Incl. 2,964 PPI
+       996             4,356             involving ribo-         Methods
+                                         somal proteins
+                                                                 Data sources
+                                                                 Data Ho et al. taken Table S1 [17].
+                                                                 Interactions Gavin et al. taken Supple-
+                                                                 mentary Table 1 [11]. cases, bait-prey pairs                                                                  generated list purifications, bait
+                                                                 removed prey list applicable. Interactions                                                                  Krogan et al. [12] taken raw LCMS Figure 7
+                                                                 MALDI purification data. Bait-prey pairs LCMS puri-
+                                                                 fications confidence > = 99.6 MALDI purifica-
+                                                                 tions score > = 3.4 included. Matrix-model data
+                                                                 sets generated considering prey-prey pairs gamma tubulin complex, certainly "true"         prey purified bait. complex interactions, scored false positives calculating precision versus MIPS. experi-         Reference data sets
+mentally detected inter-complex interactions absent       MIPS filtered data: MIPS curated complex data MIPS reference set. incompleteness ref-      downloaded mpact[23]. high-throughput data,
+erence set prevents high-accuracy experimental data set        large small ribosomal subunits, achieving perfect precision.                                excluded. set interactions generated
+                                                                 complex used reference calculate
+Conclusion                                                       recall/precision curves experimental data. com- described simple robust unsupervised               plex data used calculate Hubert statistic.
+method assigning confidence levels interactions
+observed large-scale assay, combining data       filtered reference set: complete yeast Cellular independent assays integrated            Component ontology downloaded Saccha- used study. used method inte-      romyces Genome Database [28] 5 December 2006.
+grate data large-scale affinity purification-mass     Annotations sorted number genes spectrometry assays yeast generate high-confidence       applied; annotations equal larger subset interactions, derived accurate        size "small cytoplasmic ribosomal subunit" set protein complexes. recall MIPS complex          discarded. resulting set annotations com-
+interactions indicates 46  total        plexes, small number discrete cellular localiza- complex interactome yeast assayed TAP-         tions included. annotation set used calculate
+MS methods  34  high confidence E2              term enrichment Hubert statistic.
+set). Nonetheless, high proportion complexes correspond existing annotations small number          Analaytic techniques uncharacterized genes present high-confidence          MCL program downloaded [24]. E-
+data strongly suggest community largely satu-       value threshold PICO network, MCL run rated fraction complex-ome accessible      following parameter space:   1.8 3.0 0.2 incre- methods (TAP-MS) conditions (aerobic growth           ments; -C, 0.5 1.5 0.25 increments; -S, 0 7. rich media) explored far.         Hubert statistic (H) calculated MCL result likely fruitful explore conditions         filtered reference set MCL result
+growth states extend interactome.                         highest H score considered optimal result
+                                                                 E-value. -S parameter complex data support notion            effect results.
+cases, essentiality tied protein gene itself, molecular machine protein               Calculation Hubert statistic, H, performed belongs. clearly separate majority com-            described [26]. matrices equal size, 
+
+                                                                                                                   Page 10 12
+                                                                                              (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                                  http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+calculation performed potential interaction
+space defined set proteins present                          Additional File 4
+experimental reference protein sets.                                          subset E-2 complex map
+                                                                                  subset E-2 complex map. applying E = 10-2 threshold
+                                                                                  PICO interaction set, subset 5,352 interactions clustered Simpson coefficient, Cs similarity sets                         MCL, using parameters maximized correlation filtered
+proteins B,                                                              set component annotations. Interactions clusters (4,411)
+                                                                                  plotted Cytoscape using included "organic" layout algo-
+Cs = (# proteins B)/min(# proteins  # pro-                          rithm. Interactions clusters (941) omitted clarity. Yellow
+                       teins B)                                                nodes indicate essential proteins; red, nonessential.
+                                                                                  Click file
+                                                                                  [http://www.biomedcentral.com/content/supplementary/1471- list essential ORFS downloaded Sac-                           2105-8-236-S4.pdf]
+charomyces Genome Database. considered veri-
+fied uncharacterized ORFs.                                                     Additional File 5
+                                                                                  cumulative recall precision versus MIPS complex
+Authors' contributions                                                            interactions developed probabilistic scoring method. TH 
+ceived study, performed data collection                            Click file
+                                                                                  [http://www.biomedcentral.com/content/supplementary/1471-
+analysis, drafted manuscript guidance                           2105-8-236-S5.pdf] supervision EMM. authors read approved final manuscript.
+
+Additional material                                                          Acknowledgements
+                                                                             work supported grants N.S.F., N H., Welch Founda-
+                                                                             tion (F1515), Packard Fellowship (E.M.M).
+ Additional File 1
+ table gives complex interactions combined PICO network
+                                                                             References
+                                                                             1.      Hart GT, Ramani AK, Marcotte EM: complete current
+ associated scores, given -ln(p-value).                                 yeast human protein-interaction networks? Genome Biol
+ Click file                                                                 2006, 7(11):120.
+ [http://www.biomedcentral.com/content/supplementary/1471-                   2.      Reguly T, Breitkreutz  Boucher L, Breitkreutz BJ, Hon GC, Myers
+ 2105-8-236-S1.htm]                                                                  CL, Parsons  Friesen H, Oughtred R, Tong  Stark C, Ho Y, Bot-
+                                                                                     stein D, Andrews B, Boone C, Troyanskya OG, Ideker T, Dolinski K,
+                                                                                     Batada NN, Tyers M: Comprehensive curation analysis  Additional File 2                                                                   global interaction networks Saccharomyces cerevisiae. J Biol
+ Cytoscape file                                                                  2006, 5(4):11.
+                                                                             3.      Maciag K, Altschuler SJ, Slack MD, Krogan NJ, Emili  Greenblatt JF,
+ Click file                                                                 Maniatis T, Wu LF: Systems-level analyses identify extensive
+                                                                                     coupling gene expression machines. Mol Syst Biol 2006,
+ [http://www.biomedcentral.com/content/supplementary/1471-
+                                                                                     2:2006 0003.
+ 2105-8-236-S2.zip]                                                          4.      Krause R, von Mering C, Bork P: comprehensive set protein
+                                                                                     complexes yeast: mining large scale protein-protein inter-
+ Additional File 3                                                                   action screens. Bioinformatics 2003, 19(15):1901-1908.
+                                                                             5.      Dezso  Oltvai ZN, Barabasi AL: Bioinformatics analysis  E-3 Complexes                                                                       experimentally determined protein complexes yeast
+ complex shown single line containing following informa-            Saccharomyces cerevisiae. Genome Res 2003, 13(11):2450-2454.
+ tion: Complex ID, Size,  Essential, List Proteins(| - deliminated).   6.      Zhang LV, Wong SL, King OD, Roth FP: Predicting complexed
+ constituent proteins enriched Cellular Component anno-             protein pairs using genomic proteomic data integration.
+ tation  Methods) subsequent lines contain following informa-           BMC Bioinformatics 2004, 5:38.
+ tion: Enrichment score(-ln(p)), Simpson coefficient, Annotation        7.      Asthana S, King OD, Gibbons FD, Roth FP: Predicting protein
+                                                                                     complex membership using probabilistic network reliability.
+ GO_ID/(Number proteins annotation)                               Genome Res 2004, 14(6):1170-1175.
+ Click file                                                         8.      Jansen R, Greenbaum D, Gerstein M: Relating genome
+ [http://www.biomedcentral.com/content/supplementary/1471-                           expression data protein-protein interactions. Genome
+ 2105-8-236-S3.htm]                                                                  Res 2002, 12(1):37-46.
+                                                                             9.      Lichtenberg U, Jensen LJ, Brunak S, Bork P: Dynamic complex
+                                                                                     formation yeast cell cycle.                Science 2005,
+                                                                                     307(5710):724-727.
+                                                                             10.     von Mering C, Krause R, Snel B, Cornell M, Oliver SG, Fields S, Bork
+                                                                                     P: Comparative assessment large-scale data sets pro-
+                                                                                     tein-protein interactions. Nature 2002, 417(6887):399-403.
+                                                                             11.     Gavin AC, Aloy P, Grandi P, Krause R, Boesche M, Marzioch M, Rau
+                                                                                     C, Jensen LJ, Bastuck S, Dumpelfeld B, Edelmann  Heurtier MA,
+                                                                                     Hoffman V, Hoefert C, Klein K, Hudak M, Michon  Schelder M,
+                                                                                     Schirle M, Remor M, Rudi T, Hooper S, Bauer  Bouwmeester T,
+                                                                                     Casari G, Drewes G, Neubauer G, Rick JM, Kuster B, Bork P, Russell
+                                                                                     RB, Superti-Furga G: Proteome survey reveals modularity                                                                                      yeast cell machinery. Nature 2006, 440(7084):631-636.
+
+
+                                                                                                                                            Page 11 12
+                                                                                                                      (page number citation purposes)
+ BMC Bioinformatics 2007, 8:236                                                                 http://www.biomedcentral.com/1471-2105/8/236
+
+
+
+12.   Krogan NJ, Cagney G, Yu H, Zhong G, Guo X, Ignatchenko  Li J, Pu            Botstein D, Cherry JM: "Saccharomyces Genome Data-
+      S, Datta N, Tikuisis AP, Punna T, Peregrin-Alvarez JM, Shales M,              base". .
+      Zhang X, Davey M, Robinson MD, Paccanaro  Bray JE, Sheung           29.   Collins SR, Kemmeren P, Zhao XC, Greenblatt JF, Spencer F, Hol-
+      Beattie B, Richards DP, Canadien V, Lalev  Mena F, Wong P, Star-            stege FC, Weissman JS, Krogan NJ: Comprehensive
+      ostine  Canete MM, Vlasblom J, Wu S, Orsi C, Collins SR, Chandran           Atlas Physical Interactome Saccharomyces cerevi-
+      S, Haw R, Rilstone JJ, Gandi K, Thompson NJ, Musso G, St Onge P,              siae. Mol Cell Proteomics 2007, 6(3):439-450.
+      Ghanny S, Lam MH, Butland G, Altaf-Ul  Kanaya S, Shilatifard       30.   Knop M, Schiebel E: Receptors determine cellular localiza-
+      O'Shea E, Weissman JS, Ingles CJ, Hughes TR, Parkinson J, Gerstein            tion gamma-tubulin complex site       M, Wodak SJ, Emili  Greenblatt JF: Global landscape protein              microtubule formation. Embo J 1998, 17(14):3952-3967.
+      complexes yeast Saccharomyces cerevisiae. Nature 2006,           31.   X, Zhang J: hubs tend essential protein net-
+      440(7084):637-643.                                                            works? PLoS Genet 2006, 2(6):e88.
+13.   Goll J, Uetz P: elusive yeast interactome. Genome Biol 2006,
+      7(6):223.
+14.   Bader GD, Hogue CW: Analyzing yeast protein-protein inter-
+      action data obtained different sources. Nat Biotechnol
+      2002, 20(10):991-997.
+15.   D'Haeseleer P, Church GM: Estimating improving protein
+      interaction error rates. Proc IEEE Comput Syst Bioinform Conf
+      2004:216-223.
+16.   Gagneur J, Krause R, Bouwmeester T, Casari G: Modular decom-
+      position protein-protein interaction networks. Genome Biol
+      2004, 5(8):R57.
+17.   Ho Y, Gruhler  Heilbut  Bader GD, Moore L, Adams SL, Millar 
+      Taylor P, Bennett K, Boutilier K, Yang L, Wolting C, Donaldson 
+      Schandorff S, Shewnarane J, Vo M, Taggart J, Goudreault M, Muskat B,
+      Alfarano C, Dewar D, Lin  Michalickova K, Willems AR, Sassi H,
+      Nielsen PA, Rasmussen KJ, Andersen JR, Johansen LE, Hansen LH, Jes-
+      persen H, Podtelejnikov  Nielsen E, Crawford J, Poulsen V,
+      Sorensen BD, Matthiesen J, Hendrickson RC, Gleeson F, Pawson T,
+      Moran MF, Durocher D, Mann M, Hogue CW, Figeys D, Tyers M:
+      Systematic identification protein complexes Saccharo-
+      myces cerevisiae mass spectrometry.                 Nature 2002,
+      415(6868):180-183.
+18.   Marcotte CJ, Marcotte EM: Predicting functional linkages       gene fusions confidence.              Appl Bioinformatics 2002,
+      1(2):93-100.
+19.   Lee  Narayanaswamy R, Marcotte EM: Bioinformatic prediction
+      yeast gene function . Yeast Gene Analysis Edited  Stansfield
+       Elsevier Press; 2007.
+20.   Samanta MP, Liang S: Predicting protein functions redun-
+      dancies large-scale protein interaction networks. Proc Natl
+      Acad Sci U S 2003, 100(22):12579-12583.
+21.   Schlitt T, Palin K, Rung J, Dietmann S, Lappe M, Ukkonen E, Brazma
+       gene networks gene function. Genome Res 2003,
+      13(12):2568-2576.
+22.   Gavin AC, Bosche M, Krause R, Grandi P, Marzioch M, Bauer 
+      Schultz J, Rick JM, Michon  Cruciat CM, Remor M, Hofert C,
+      Schelder M, Brajenovic M, Ruffner H, Merino  Klein K, Hudak M,
+      Dickson D, Rudi T, Gnau V, Bauch  Bastuck S, Huhse B, Leutwein
+      C, Heurtier MA, Copley RR, Edelmann  Querfurth E, Rybin V,
+      Drewes G, Raida M, Bouwmeester T, Bork P, Seraphin B, Kuster B,
+      Neubauer G, Superti-Furga G: Functional organization       yeast proteome systematic analysis protein complexes.
+      Nature                    2002,                 415(6868):141-147.
+23.   Guldener U, Munsterkotter M, Oesterheld M, Pagel P, Ruepp 
+      Mewes HW, Stumpflen V: MPact: MIPS protein interaction
+      resource yeast. Nucleic Acids Res 2006, 34(Database
+      issue):D436-41.
+24.   Enright AJ, Van Dongen S, Ouzounis CA: efficient algorithm
+      large-scale detection protein families. Nucleic Acids Res
+      2002, 30(7):1575-1584.                                                            Publish Bio Med Central 25.   Brohee S, van Helden J: Evaluation

@@ -1,0 +1,474 @@
+Methods
+
+Predicting essential genes fungal genomes
+Michael Seringhaus,1,6 Alberto Paccanaro,2,6 Anthony Borneman,3 Michael Snyder,1,3 Mark Gerstein1,4,5,7
+1
+ Department Molecular Biophysics Biochemistry, Yale University, New Haven, Connecticut 06520, USA; 2Department Science, Royal Holloway University London, Egham, TW20 0EX, United Kingdom; 3Department Molecular,
+Cellular Developmental Biology, Yale University, New Haven, Connecticut 06520, USA; 4Program Computational Biology Bioinformatics, Yale University, New Haven, Connecticut 06520, USA; 5Department Science, Yale University,
+New Haven, Connecticut 06520, USA
+
+
+        Essential genes required organism’s viability, ability identify genes pathogens crucial
+        directed drug development. Predicting essential genes computational methods appealing         circumvents expensive difficult experimental screens. prediction based homology mapping         experimentally verified essential genes model organisms. present different approach, relies
+        exclusively sequence features gene estimate essentiality offers promising way identify essential
+        genes unstudied uncultured organisms. identified 14 characteristic sequence features potentially associated
+        essentiality, localization signals, codon adaptation, GC content, overall hydrophobicity. Using         characterized baker’s yeast Saccharomyces cerevisiae, employed simple Bayesian framework measure         correlation features essentiality. employed 14 features learn parameters         machine learning classifier capable predicting essential genes. trained classifier known essential genes         S. cerevisiae applied closely related relatively unstudied yeast Saccharomyces mikatae. assessed
+        predictive success ways:  compared predictions generated homology mapping
+        species. Second, verified subset predictions vivo knockouts S. mikatae,
+        present experimentally confirmed essential genes species.
+        [Supplemental material available online www.genome.org. http://www.gersteinlab.org/proj/predess/.]
+
+Essential genes  absent, confer lethal phe-                          techniques exist identify essential genes. notype organism. genes make excellent potential                         effective approach difficult large-scale
+drug targets (Cole 2002), ability rapidly identify                   experimental gene disruption. screens represent massive described  important task genomics-                          investment time resources, fea-
+based target validation�? (Chalker Lunsford 2002).                        sible. instance, traditional essentiality screens difficult experimentally screening lethal gene disruptions challeng-                    Candida albicans partial-diploid nature, mating dif-
+ing time consuming, studied species. pro-                        ferences, lack insertional mutagenesis methods  pose machine-learning approach predicting essential genes                       Backer et al. 2001). Furthermore, recent shotgun sequencing sequenced largely unstudied fungal species,                       microbial communities suggested <1  species pends homology comparison known essential genes                            amenable laboratory culture (Riesenfeld et al. 2004; Chen instead sequence features correlate essentiality                    Pachter 2005).  identify essential genes vast ma- gene level.                                                                   jority pathogens, look direct experimental
+     Essentiality defined lethal phenotype associated                    methods. deletion disablement given gene. Essential genes                          Early comparative genomics approaches involved compar-
+account small subset genome (Reich 2000).                       ing multiple genomes core conserved minimal genome
+fungal species account roughly fifth total                       labeling component genes essential (Mushegian Koo-
+genes: 17.8  Saccharomyces cerevisiae (Winzeler et al. 1999;                      nin 1996; Arigoni et al. 1998; Bruccoleri et al. 1998). Bayesian
+Giaever et al. 2002), 17.5  small subset Schizosac-                    statistical approaches used predict microbial essen-
+charomyces pombe studied date (Decottignies et al. 2003).                      tial genes tandem transposon mutagenesis (Lamichhane
+cause phenotype product genotype environ-                           et al. 2003). machine learning trained
+ment, meaningful discuss essentiality relation                 identify essential genes S. cerevisiae integrating genomic
+given environmental condition; yeast studies, condition                      experimental data (Jeong et al. 2003). approach dem- essentiality assessed typically laboratory growth                  onstrates ability predict essential genes accurately com- rich media.                                                                       putational methods does address applicability
+                                                                                     methods novel genomes. useful predictor clas-
+6
+ authors contributed equally work.                                     sify genes essentiality unknown;  7
+ Corresponding author.                                                               perform outside organism trained.
+E-mail mark.gerstein@yale.edu; fax (360) 838-7861.                                         essential genes thought evolve slowly
+Article published online print. Article publication date http://
+www.genome.org/cgi/doi/10.1101/gr.5144106. Freely available online                   non-essential counterparts (Wilson et al. 1977; Hurst Genome Research Open Access option.                                      Smith 1999), researchers tasked identifying 
+
+1126       Genome Research                                    16:1126–1135 ©2006 Cold Spring Harbor Laboratory Press; ISSN 1088-9051/06; www.genome.org
+              www.genome.org
+                                                                                          Predicting essential genes fungal genomes
+
+
+newly sequenced organisms rely homology mapping                   http://bioweb.pasteur.fr/seqanal/interfaces/codonw.html) known essential genes model organisms.                                     available virtually microbial genome.
+      homology mapping depends accessibility                       learn relationship features essentiality, closely related organism experimentally determined essen-                require comprehensive set known essential genes. bak-
+tial genes. approach particularly limited seeking             er’s yeast S. cerevisiae extremely studied; compre-
+identify drug targets inherently biased genes            hensive sustained efforts, 95  genes species
+conserved outside host organism. drug targets,                    systematically deleted (Winzeler et al. 1999; Giaever et
+broadly conserved genes naturally useful genes                  al. 2002), yielding definitive mapping essential genes unique parasite question. identify essential drug                species.
+targets pathogenic organisms,  disadvantageous                   selected related relatively unstudied species rely homology mapping.                                                  test classifier. yeast S. mikatae sequenced       propose gene essentiality predicted se-               2003 shares high level sequence homology S. cere-
+quenced unstudied species using weighted combination                 visiae (Kellis et al. 2003). phylogenetic proximity
+certain hallmark features. homology mapping relies                    high conservation rate essential genes general
+continually model organisms core reference set                (Jordan et al. 2002), expect orthologs S. cerevisiae
+known essential genes approach requires                   essential genes exist essential S. mikatae. initially identify relevant features train classifier.              homology mapping BLAST (Altschul et al. 1990)  information necessary classify gene               effective method identification essential genes drawn sequence gene itself, freeing              S. mikatae strong standard evaluate constant demand closely related, studied organisms                predictive success. predictions experimentally
+chaperone predictions.                                                    tested vivo knockout mutagenesis, yielding ex-
+      Broadly, genomic features divided groups:             perimental verification heterogenomic essentiality prediction. intrinsic gene’s sequence (e.g., GC content, length), derived sequence  localization signals codon adaptation measures), experimental functional ge-                   Results
+nomics data.
+                                                                              S. cerevisiae S. mikatae display similar essentiality profiles
+      Certain features shown correlate                                                                               BLAST comparison
+gene essentiality. example, protein–protein interaction hubs likely essential connected nodes (Dezso              data file S. cerevisiae open reading frames (ORFs) anno-
+et al. 2003; Jeong et al. 2003; Yu et al. 2004).                tated include known essential genes, determined experi-
+functional genomics data mRNA expression protein inter-                 mentally Saccharomyces Genome Deletion Consortium
+action data useful characterizing essential genes,          (Winzeler et al. 1999; Giaever et al. 2002). Dubious ORFs sensible train classifier expect input                  pseudogenes excluded list. set 5888 large-scale experiments organisms                 S. cerevisiae ORFs considered, 1030 (17.5 ) essential, 339  classifier considers sequence-derived features          (5.8 ) successfully deleted marked unknown, best suited predicting essential genes unstudied organ-              remaining 4519 (76.7 ) marked non-essential
+isms.                                                                         (Table 1).
+      14 features selected accessibility ge-                S. mikatae genome contains 7047 putative ORFs, nomic sequence data proposed link essentiality.               subset 3939 ultimately usable predictive
+hypothesize translational stalling minimized essential             technique  Methods). complete set S. mikatae ORF
+genes true, manifest preferential codon usage               sequences queried S. cerevisiae list described paucity rare amino acids coding sequence. Fur-                 E-value reporting threshold 0.0001 (1e-4). 
+ther, propose essential genes insulated non-              ing sequence homology criteria guide, S. mikatae exhibits sense mutations likely contain frame             similar essentiality profile S. cerevisiae, 17.4  ORFs
+codons sequentially similar stop codons. subcellular               homologous known essential genes S. cerevisiae. Unique S.
+localization relevant essentiality, consider localization            mikatae ORFs  BLAST hit S. cerevisiae signals predicted transmembrane helices. supplement                    E-value threshold) number 695 (9.9 ). easily accessible sequence features: GC content, gene                    subset 3939 S. mikatae ORFs ultimately ame-
+length, hydrophobicity. features listed derived                nable classification  putative essential genes sequence data (Drawid Gerstein 2000; Lu et al. 2004;                 enriched, 19.9  ORFs homologous known essential
+
+
+Table 1. Homology comparison S. mikatae S. cerevisiae
+                                                                            Essential     Non-essential    Unknown         Hit          Total
+
+Essentiality profile, S. cerevisiae known essential genesa                1030 (17.5 )    4519 (76.7 )     339 (5.8 )       N        5888 (100 ) S. mikatae ORF set, BLAST S. cerevisiae essential genesb     1226 (17.4 )    4828 (68.5 )     298 (4.2 )    695 (9.9 )    7047 (100 )
+Usable S. mikatae ORF set, BLAST S. cerevisiae essential genesc    786 (19.9 )    2886 (73.3 )     190 (4.8 )     77 (2.0 )    3939 (100 )
+  Distribution essential genes S. cerevisiae ORF set considered work.
+b
+ Results sequence homology queries S. mikatae putative ORF catalog (7047 ORFs) known essential genes S. cerevisiae.
+c
+ Results sequence homology queries subset S. mikatae putative ORFs (3939 ORFs) usable predictions known essential genes S. cerevisiae. subset, ORFs homologous essential genes S. cerevisiae enriched.
+
+
+                                                                                                                  Genome Research            1127
+                                                                                                                     www.genome.org
+ Seringhaus et al.
+
+
+genes S. cerevisiae. number unique      Table 2.   Summary 14 genomic features training matrix
+ORFs  BLAST hit S. cerevisiae 1e-4)                                                                                                 Description                             Type
+sharply reduced subset (2.0 ).
+                                                  LOC_mitochondria      predicted subcellular localization: mitochondria               binary
+Identifying features related essentiality      LOC_cytoplasm         predicted subcellular localization: cytoplasm                  binary
+                                                  LOC_er                predicted subcellular localization: endoplasmic reticulum      binary compiled list 14 features available       LOC_nucleus           predicted subcellular localization: nucleus                    binary gene sequence hypothesize         LOC_vacuole           predicted subcellular localization: vacuole                    binary related essentiality (Table 2). pre-     LOC_other             predicted subcellular localization: compartment      binary
+dicted subcellular localization motifs using      Hydro                 hydrophobicity score                                           real
+                                                  TM_HELIX              number predicted transmembrane helices (TMHMM 2.0)          integer Proteome Analyst Specialized Subcellu-        CAI                   codon adaptation index                                         real
+lar Localization Server v2.5 (Lu et al. 2004)     Nc                    effective number codons                                     real transmembrane helices ORF            GC                    GC content                                                     real
+using TMHMM v2.0 (Sonnhammer et al.               L_aa                  length putative protein amino acids                      integer
+                                                  CLOSE_STOP_RATIO      percentage codons base away stop codon     real
+1998; Krogh et al. 2001). Using               RARE_AA_RATIO         percentage rare amino acids translated ORF               real
+CodonW program (http://bioweb.pasteu-
+r.fr/seqanal/interfaces/codonw.html), Subcellular localization motifs extrapolated sequence data. Beginning 5888 ORFs, computed measures codon adapta- included records 14 features available. resulting training
+tion: effective number codons (Nc) set matrix 4648 lines (ORFs) ⳯ 15 columns (14 features + essentiality target).
+(Wright 1990; Fuglsang 2004), codon adaptation index (CAI) (Sharp Li
+1987). calculated frequency rare amino acids         classification scheme generates separate probability esti-
+number “close stop�? codons  single       mate essentiality. estimates combined base substitution removed stop codon). Finally, com-         unweighted average generate final essentiality prediction
+puted GC content, length translated protein prod-       ORF.
+uct, predicted protein hydrophobicity, CodonW.                fold cross-validation S. cerevisiae (4648-gene training
+       train classifier, 14 features compiled        set), average probability threshold set 0.5, yielded 88 true available ORF S. cerevisiae  features available  positives (TP) 875 false negatives (FN) total 963 4648 ORFs total) annotated known essentiality val-        actual essential; 39 false positives (FP) 3646 true negatives
+ues Saccharomyces Genome Database, creating           (TN) total 3685 non-essential. training data set.                                                       Positive predictive value (PPV) measures genes
+                                                                       predicted essential essential  e., precision). PPV Individual genomic features contain information                  calculated TP / [TP+FP]   PPV = 0.69 case. 
+essentiality                                                           (R) measures true essential genes clas-
+                                                                       sified correctly  e., sensitivity). Using values, R = 0.10 (given important quantify information genomic
+                                                                       TP / [TP+FN]).
+feature carries respect essentiality. end, com-
+                                                                             interested making small number high-
+puted correlation essentiality features train-
+                                                                       value predictions, readily tolerate false negatives focus
+ing matrix (Fig. 1). features (predicted localization: ER, pre-
+                                                                       instead minimizing false-positive predictions 
+dicted localization: cytoplasm, length predicted protein)
+                                                                       scoring predictions.  demand Receiver Operating Char- pairwise correlations essentiality signifi-
+                                                                       acteristic (ROC) curve steep near origin. ROC (P > 0.05) set zero figure. Pre-
+                                                                       curve learned classifier shown Figure 2.
+dicted nuclear localization showed strongest positive corre-
+lation essentiality, CAI showed weak positive cor-
+relation. presence predicted transmembrane helices,         Predicting S. mikatae essential genes
+fraction close-stop codons, fraction rare amino acids
+                                                                       predict essential genes S. mikatae, 14 features sequence exhibited strongest inverse correlation                                                                        comprising training data set compiled ORF. essentiality.
+                                                                       S. cerevisiae, subcellular localization server unable        assess relative importance individual feature
+                                                                       generate predictions subset genes; total, gathered predictor essentiality, employed Naive Bayes
+                                                                       feature set 3939 S. mikatae ORFs. classifier trained
+technique (implemented using Orange software package
+                                                                       S. cerevisiae applied data set.  results [http://www.ailab.si/orange]). results depicted nomo-
+                                                                       essentiality prediction 3939 S. mikatae ORFs considered
+gram form Figure 1B, shows relative importance                                                                        Supplemental material online.) Notice features framework.
+                                                                       learner directly exposed BLAST results                                                                        species direct information sequence homology. classifier trained tested S. cerevisiae
+                                                                       Instead, homology comparison used vivo knock- types classifiers trained tested using 14-     outs test predictions.
+feature data set S. cerevisiae order build best essenti-
+ality predictor organism. best performance ob-
+                                                                       Predicting essential genes species
+tained hybrid combined output diverse
+classification schemes including decision trees, Naive Bayes,      addition S. mikatae, applied classifier logistic regression model  Methods exact implementa-         additional yeast species, generating essential gene predictions tion details). Given ORF associated 14 input variables,     S. bayanus Schizosaccharomyces pombe. 
+
+
+1128     Genome Research
+            www.genome.org
+                                                                                                Predicting essential genes fungal genomes
+
+
+
+
+Figure 1.   Stem plot correlation coefficients feature essentiality. Negative correlations shown left vertical axis,
+positive correlations right. Correlation coefficients filtered P value: Coefficients P > 0.05 (deemed significant) set zero.
+ occurred features LOC_cytoplasm, LOC_er, L_aa.) Higher-order correlations shown. (B) nomogram Naive Bayes analysis,
+illustrating relative contributions predictive feature target class (essentiality). feature, values drawn line according influence target class: longer line, important feature final prediction. line gives log-odds ratio. Given set feature states, prediction obtained performing vertical lookup log-odds ratio feature state summing log-odds
+ratio contributions 14 features. higher sum, likely gene essential.
+
+
+able confirm predictions knockouts, report                   homologous correct “essential�? genes S. cerevisiae
+results Supplemental material available online (http://                    training set. 30 predictions, 17 (57 ) match S.
+www.gersteinlab.org/proj/predess).                                                cerevisiae “essential�? genes.  performance diminished 
+                                                                                  siderably training random subset genes.
+Examining predictive success comparison BLAST
+predictions                                                                       Predictions verified knockouts S. mikatae predictive success assessed BLAST comparison.                    pursued PCR-directed knockout strategy explore es- 100 predicted essential ORFs S. mikatae, 75                      sential gene predictions 
+(75 ) homologous known essential genes S. cerevisiae,                        total, ORFs selected study (Table 3; 30 predicted essential S. mikatae, 25 (83 )                  Supplemental Table 1). set contained Predicted Essential
+match S. cerevisiae essential genes.                                              ORFs  homology prediction machine learner agree:
+     ensure classifier learned traits actually associated             gene essential), Predicted Non-Essential ORFs  ho- essentiality  opposed quirks random subset                 mology machine learner agree: gene non-essential), genes), performed permutation test (Edgington 1995).                     Disputed Essential ORFs (machine learner predicts essential;
+“essential�? label randomly reassigned S. cerevisiae                     homology predicts non-essential). Results S. mikatae
+ORFs; new learner trained spurious “essentiality�?                 knockouts shown Figures 3 4. Table 4 reports data, applied S. mikatae. 100 highest-                       Yeast Proteome Database (YPD) ORF designation, alias, 
+scoring predicted essential ORFs S. mikatae, 45 (45 )                 scription closest S. cerevisiae homologs genes.
+
+
+                                                                                                                           Genome Research              1129
+                                                                                                                              www.genome.org
+ Seringhaus et al.
+
+
+                                                                                   standard. Conceptually, expect approach portable
+                                                                                   unstudied species, provided necessary features
+                                                                                   derived organism question.
+
+                                                                                   genomic features correlations
+                                                                                   aim predict essential genes largely unstud-
+                                                                                   ied organisms, selected sequence-derived features available                                                                                    novo freshly sequenced genomes.   useful                                                                                    train classifier experimental genomic data data
+                                                                                   exist genes actually care classify.) Analysis                                                                                    correlations genomic features essentiality
+                                                                                   suggests single feature set sufficient act                                                                                    classifier essentiality.  features                                                                                    display direct correlation essentiality prove useful.                                                                                    correlation coefficients shown Figure 1 calculated pair-
+                                                                                   wise, higher-order correlations explicitly analyzed;
+                                                                                   success training classifier demonstrates non-linear
+                                                                                   combination features having small correlation
+Figure 2. Receiver Operating Characteristic curve classifier            target variable predictive essentiality. S. cerevisiae data set. plots true positive rate versus false     nomogram (Fig. 2) illustrates relative importance positive rate different thresholds classifier probability output. (Inset)   features simple Naive Bayes classifier.  features common steep slope near origin signifies high percentage correct essentiality assignments probability scores output
+                                                                                   ORFs (close-stop ratio, GC content, hydrophobicity, gene classifier. aim predict small subset essential           length, rare amino acid ratio) tend rank higher impor-
+genes high confidence, predictions subset          tance features ORFs  e., transmem-
+relevant approach.                                                          brane helices localization signals specific subcellular com-
+                                                                                   partment).
+      Predicted Essential ORFs taken                             general trends visible features. Essential classifier assigned highest essen-                  genes likely nuclear-localized, unlikely contain close-
+tiality scores (ORF 20,026, score = 0.997 ORF 20,713,                          stop codons, predicted transmembrane helices rare amino ac-
+score = 0.986) homologous                        ids  Methods), tend preferential codon bias.
+known essential genes S. cerevisiae.  knockout strain generated ORF 18,373 sequence/contig                         classifier: Caveats
+constraints.) Classifier predictions Predicted Essential                  results relationship exists 14 ge-
+genes correct: deletions ⌬20026 ⌬20713 non-                          nomic features essentiality, relationship viable (Fig. 3A)                                                                   learned machine learning techniques.  stress
+      Putative ORFs 5507 18,487 chosen Predicted                       particular machine learning approach represent
+Non-Essential, selected pool lowest-scoring predic-                    optimal solution problem; determine best ap-
+tions overall homologous non-                        proach, applicable machine learning algorithms essential genes S. cerevisiae. Deletions ORFs                assayed.
+viable, displaying wild-type growth. (Fig. 3B)                                           learner correlates sequence features target
+      Disputed Essential genes selected small                   variable subset yeast genes—specifically, fifth subset scoring putative essential genes BLAST                     genes defined essential risk exists learning
+comparison contradicted classifier.                       features truly meaningful essentiality se, instead
+ORFs 30 predictions,                      merely designed potent identify quirks ge-
+predictions. Knockouts generated Dis-                  nomic subset exposed.  control, ran-
+puted Essential ORFs. true lethality,                     domly shuffled essential label genes retrained display growth rates significantly slower wild type (dou-                     classifier mock data. resulting classification bling time ∼76 min). Specifically, ⌬3749 (94 min), ⌬7883 (83                       considerably effective classifier trained true
+min), ⌬6448 (135 min) exhibit varying degrees growth                    essential genes. suggests learned
+arrest. growth curves S. mikatae clones agreed                   true essential subset equally large set selected observed colony sizes. fourth deletion strain (⌬644)                  random, classifier learning traits charac-
+demonstrated near wild-type growth (Fig. 4).                                       teristic essential genes.
+                                                                                         S. pombe genome predicted contain 865 essential
+Discussion                                                                         genes. recent gene-deletion pilot study assayed 80 genes drawn
+                                                                                   single 253-kb region identified 14 essential (Decot- machine learning classifier able effectively identify                    tignies et al. 2003). explore predictive success outside genes necessary growth S. mikatae, considering input                     Saccharomyces clade, compared 14 known essential sequenced-derived features; competitive                    genes predictions S. pombe. classifier designed homology-based prediction, 25 30 predictions                    generate small number high-value positive predictions, S. mikatae homologous essential genes S. cerevi-                 expense large number false-negative predictions. 
+siae. closely related species, homology sets high                     assessing performance, makes sense evaluate 
+
+1130       Genome Research
+              www.genome.org
+                                                                                           Predicting essential genes fungal genomes
+
+
+Table 3. Essential gene predictions S. mikatae
+                                                                      BLAST vs. S. cerevisiae essential genesc
+             S. mikatae       Score          Homolog Rank          ORF_IDa         (0–1)b         S. cerevisiae         1.00E-04           1.00E-20           1.00E-50                     Type
+
+    1         18373           1.000         Multiple                   1                  1                  1             Predicted Essential
+    2         20026           0.997         YOR046C                    1                  1                  1             Predicted Essential
+    3         20713           0.986         YOR341W                    1                  1                  1             Predicted Essential
+    4         10758           0.981         YIL126W                    1                  1                  1             Predicted Essential
+    5          3115           0.974         YDL031W                    1                  1                  1             Predicted Essential
+    6         12016           0.964         YJL050W                    1                  1                  1             Predicted Essential
+    7           911           0.964         YBR088C                    1                  1                  1             Predicted Essential
+    8         22659           0.962         Multiple                   1                  1                  1             Predicted Essential
+    9         17592           0.957         YMR308C                    1                  1                  1             Predicted Essential
+  10           3944           0.953         YDR190C                    1                  1                  1             Predicted Essential
+  11           3749           0.946         YDR101C                    0                  0                  0             Disputed
+  12          11901           0.944         YJL080C                    0                  0                  0             Disputed
+  13          14387           0.944         YLL004W                    1                  1                  0             Predicted Essential
+  14          19319           0.944         YOL010W                    1                  1                  1             Predicted Essential
+  15           2919           0.944         Multiple                   1                  1                  1             Predicted Essential
+  16          21382           0.943         YPL235W                    1                  1                  1             Predicted Essential
+  17           4885           0.941         YBR247C                    1                  1                  1             Predicted Essential
+  18          20238           0.936         YOR117W                    1                  1                  1             Predicted Essential
+  19          20242           0.936         YOR116C                    1                  1                  1             Predicted Essential
+  20            644           0.936         YBR158W                    0                  0                  0             Disputed
+  21            788           0.936         YBR119W                    0                  0                  0             Disputed
+  22           7883           0.936         YGL078C                    0                  0                  0             Disputed
+  23          17520           0.934         YMR290C                    1                  1                  1             Predicted Essential
+  24           8795           0.934         YGR145W                    1                  1                  1             Predicted Essential
+  25           1400           0.932         YBL023C                    1                  1                  1             Predicted Essential
+  26          19369           0.932         YOL021C                    1                  1                  1             Predicted Essential
+  27          13994           0.931         YKR081C                    1                  1                  1             Predicted Essential
+  28          21002           0.929         YOR259C                    1                  1                  1             Predicted Essential
+  29          21414           0.929         YPL228W                    1                  1                  1             Predicted Essential
+  30          21484           0.929         YPL211W                    1                  1                  1             Predicted Essential
+ ...           ...             ...               ...                  ...                ...                ...                        ...
+3726           5507           0.198         YDR525W                  0                  0                  0             Predicted Non-Essential
+ ...           ...             ...               ...                  ...                ...                ...                        ...
+3751          18487           0.193         YNL101W                    0                  0                  0             Predicted Non-Essential
+ ...           ...             ...               ...                  ...                ...                ...                        ...
+3939           2579           0.128         YDL173W                    0                  0                  0             Predicted Non-Essential
+   S. mikatae ORF ID listed SGD.
+b
+  ORF essentiality scores assigned classifier. probability averages output classifier normalized 0–1 range, 1 corre-
+sponding strongest prediction essentiality.
+c
+ Score 0 indicates ORF matches nonessential gene best hit, score 1 indicates match essential gene. shaded bold lines denote ORFs selected knockout experiments.
+
+ ∼30 predictions. Unfortunately, 30 essential gene                 vivo knockout mutagenesis; deletion strains
+predictions S. pombe contained overlap 80 genes                  proved non-viable. Conversely, low-scoring ORFs, predicted
+assayed aforementioned study, consequently                  non-essential, displayed wild-type growth deleted
+unable use data verify predictions.                           vivo.
+
+Success predictions—homology, knockouts                                Disputed Essential knockouts drug discovery terms, promising targets valu-               took particular genes 30: able hundreds questionable leads. elected focus              classifier predicted essentiality BLAST compari-
+effectively identifying handful promising essential genes                son S. cerevisiae revealed homology non-essential gene. high degree confidence, optimized learning               examined Disputed Essential ORFs knockout
+penalize false-positive predictions. classifier           mutagenesis.
+tentionally skewed producing small number reliable,                    Disputed Essential ORF deletion strains viable,
+high-value predictions.                                                       displayed varying degrees growth arrest.      approach proved successful. 10 25               sample size knockout pool insufficient draw reli- 30—S. mikatae predictions corroborated homology                able statistical conclusions, strains enriched mapping known essential genes S. cerevisiae. Despite radi-              slow-growth phenotypes. According SGD deletion data (Win-
+cally different approaches, predictions generated sys-             zeler et al. 1999; Giaever et al. 2002), exclude non-viable
+tem agree homology-based prediction overall.                        deletions, 16  genes (755 4694 total) display slow-
+     performed experimental gene deletion assays S. mi-                 growth phenotypes.  selecting viable knockouts random,
+katae interrogate predictions  representative              expect roughly (∼17 ) exhibit growth arrest. high-scoring predicted-essential genes selected assay             results (75 ) severely impaired growth.
+
+
+                                                                                                                    Genome Research             1131
+                                                                                                                       www.genome.org
+ Seringhaus et al.
+
+
+                                                                              dictor frustrated divergent nucleotide sequence                                                                               gene, capable generating educated guess based
+                                                                              secondary characteristics. hold true long                                                                               secondary features adequately determined sequence
+                                                                              cues learned features continues                                                                               make sense target organism.
+
+                                                                              Conclusions
+                                                                              ability consistently identify essential genes great
+                                                                              value drug discovery operations. Experimentally determining
+                                                                              essential genes challenging requires organism                                                                               question amenable growth culture receptive stan-
+                                                                              dard molecular biological techniques. limit essential gene dis-
+                                                                              covery species cooperative laboratory study                                                                               ideal;  strongest demand exists area micro-
+                                                                              bial drug lead identification, area rich unstudied genomes
+Figure 3. Observed colony sizes knockout strains S. mikatae,
+                                                                              novel pathogens.
+spotted duplicate. ORFs deleted PCR transformed diploids. Sporulation induced tetrads dissected recover hap-             demonstrate possible learn traits associated
+loid cells carrying deletion  column represents dif-   essential genes yeast species use features ferent deletion strain; spots represent colonies grown       predictive manner. approach shows promise deletion strains, spots wild-type colonies.     identification drug targets novel pathogenic spe-
+ORFs selected knockout mutagenesis:   high-scoring ORFs
+representing essentiality predictions; deletions predicted es-     cies. Future work involve continued study feature sets: sential ORFs non-viable; (B) low-scoring ORFs likely represent    instance, functional genomics information available non-essential genes; deletions predicted non-essential ORFs displayed      given species, does inclusion training data noticeably
+wild-type growth. (ORF) S. mikatae ORF deleted strain. (⌬) Growth     improve predictive power? Broader applications knockout strain (deletion ORF listed . (WT) Growth wild-
+type strain. (  dia) Percent mutant colony diameter compared          include bacterial classifier trained amalgam WT slow growth.                                                bacterial essential genes, retraining higher
+                                                                              eukaryotes available essentiality data Caenorhabditis suggests predictor, directly contradicted             elegans Drosophila melanogaster. inherently homology comparison, nonetheless identifying genes im-                  flexible, capable integrating available experimental se-
+portant cellular function.                                                 quence-derived data. stand approach, machine
+     Table 4 reports closest S. cerevisiae homolog           learning classifier effective tool predicting essential
+genes knocked S. mikatae.  machine                     genes.
+learner classified DEAD-box helicases essential (S. mikatae
+ORFs 20,026 7883), supported
+                                                                              Methods homology comparison. Looking Disputed Essential
+genes, interesting note words “essential�?             Preparing fungal genomes study
+quired�? occur SGD descriptions (11901, 644) al-
+                                                                              used S. cerevisiae coding ORF list (orf_coding.fasta.gz, revi- deletion strain actually inviable S. mikatae.
+                                                                              sion 12/16/2004, available ftp://genome-ftp.stanford.edu/pub/
+Anecdotally, machine learner said identify genes
+                                                                              yeast/data_download/sequence/genomic_sequence/orf_dna/). good likelihood essential, predic-
+tion disagrees experimental results extremely close
+sequence homologs S. cerevisiae, homology mapping
+trumps predictions.
+
+Portability unique genes assay performance classifier large numbers unique genes known homolog exists need apply distantly related species. dis-
+tant species considered, homology mapping classifier likely suffer: BLAST lose efficacy divergent sequences provide sequence traction identify
+essential orthologs, classifier, learned training species decay distant relatives. Nonethe-  believe predicting essentiality amalgamation secondary characteristics prove ro-
+bust portable relying strictly comparison                  Figure 4. additional ORFs selected knockout mutagen-
+nucleotide sequence.                                                          esis examine small subset cases predictions
+                                                                              generated disagreed homology comparison S.
+      Consider hypothetical novel gene, unrelated                    cerevisiae (Disputed Essential ORFs). deletions viable; known gene sequence displaying hallmark feature-               showed significant degrees growth arrest. Experimental details states associated essentiality. homology-based pre-              stated Figure 3.
+
+
+1132      Genome Research
+             www.genome.org
+                                                                                         Predicting essential genes fungal genomes
+
+ excludes 5⬘-UTR, 3⬘-UTR, intron sequences, bases               fr/seqanal/interfaces/codonw.html) used evaluate Kyte
+translated translational frameshifting. Pseudogenes              Doolittle’s grand average hydropathicity (GRAVY) (Kyte dubious ORFs excluded, yielding 5888 total ORFs.                   Doolittle 1982) “Hydro�?, protein length
+     used S. mikatae genomic ORF list (orf_genomic.fasta.            (amino acids), GC content, measures codon usage:
+gz, revision 12/15/2004, available ftp://genome-ftp.stanford.            effective Nc (Wright 1990; Fuglsang 2004) CAI (Sharp Li
+edu/pub/yeast/data_download/sequence/fungal_genomes/                        1987). (Nc calculated 4 ORFs.) Transmembrane
+S_mikatae/MIT/orf_dna/). includes protein-coding                helices predicted hidden Markov model techniques gion ORFs identified previously (Kellis et al. 2003)             TMHMM v2.0 Web server (http://www.cbs.dtu.dk/services/
+excludes UTR sequences. removed putative ORFs                   TMHMM/) (Sonnhammer et al. 1998; Krogh et al. 2001). 150 nucleotides length, ORF begin-                   calculated ratio rare amino acids sequence
+ning start codon (ATG) terminating stop codon              counting occurrence Cys, Trp,  Met codons
+(TAA/TAG/TGA). removed 2010 ORFs, yielding 7047 total                  expressed total ratio total ORF length.  ORFs.                                                                       ORF 200 codons long, translated sequence contains 3
+                                                                            Met, 2 Trp, 1  total RARE_AA_RATIO Comparative genomics                                                        (3 + 2 + 1 = 6) / 200 = 0.03.
+                                                                                 calculated CLOSE STOP RATIO, number continued working S. cerevisiae ORF list detailed               codons base mutation removed stop  convenience, FASTA headers ORF list             codon. codons: TAC TAT encoding Tyr
+annotated include essentiality values ORF, drawn            close TAA TAG; TGC TGT encoding Cys, TGG Saccharomyces Genome Deletion project (Winzeler et al.             encoding Trp base mutation away TGA.
+1999; Giaever et al. 2002). ORF list formatted           codons counted ratio calculated BLAST database. Performing homology search sequence                RARE_AA_RATIO  database yields results essentiality                Subcellular localization values predicted se-
+notated directly BLAST output; facilitates identifica-          quence data using Proteome Analyst Specialized Subcellular
+tion querying ORFs hit essential           Localization Server v2.5 (Lu et al. 2004).  server unable
+gene.                                                                       generate localization predictions 1240 ORFs; removing
+                                                                            reduced final number usable ORF records S. cerevisiae training data set                                             array 4648.) train classifier, training data set generated compris-
+ing 14 sequenced-derived features (Table 2). compiled 
+cord S. cerevisiae ORF 14 features          Compiling features S. mikatae calculated. targets learning given SGD           14 sequence-based features comprising S. cerevisiae
+experimentally determined essentiality result binary form                training data set compiled S. mikatae ORF. (0 = non-essential, 1 = essential). sought train          S. cerevisiae, Specialized Subcellular Localization Server (Lu et
+classifier ORFs essentiality clearly defined, ex-           al. 2004) unable generate localization predictions cluded 283 ORFs essentiality unknown,              subset ORF list: 3098 ORFs excluded. Nc excluded 19 questionable ORFs (qORFs) clearly labeled           calculated additional 10 ORFs. reduced ORF catalog. CodonW program (http://bioweb.pasteur.                 final count usable ORFs S. mikatae 3939.
+
+
+Table 4. Closest S. cerevisiae homologs S. mikatae knockout genes
+
+                          S. mikatae
+         Type                ORF#                                                 S. cerevisiae homologa
+
+Predicted Essential         20026           YOR046C               Cytoplasmic ATP-dependent RNA helicase DEAD-box family involved                                               DBP5, RAT8            mRNA export nucleus
+                            20713           YOR341W               RNA polymerase subunit; largest subunit RNA polymerase                                               RPA190, RRN1
+Predicted Non-Essential      5507           YDR525W             Protein unknown function, similarity Pmp3p, involved cation
+                                              SNA2                  transport; green fluorescent protein (GFP)-fusion protein localizes                                                                     cytoplasm punctate pattern
+                            18487           YNL101W               Vacuolar transporter, exports large neutral amino acids vacuole; member
+                                              AVT4                  family seven S. cerevisiae genes (AVT1–7) related vesicular
+                                                                    GABA-glycine transporters
+Disputed Essential           3749b          YDR101C               Protein associated ribosomal export complex
+                                              ARX1
+                                        b
+                            11901           YJL080C               Essential RNA-binding G protein effector mating response pathway,
+                                              SCP160                predominantly associated nuclear envelope ER, interacts                                                                     mRNA-dependent manner translating ribosomes multiple KH domains,
+                                                                    similar vertebrate vigilins
+                                  644       YBR158W               Protein required daughter cell separation, multiple mitotic checkpoints,                                               AMN1, ICS4, CST13     chromosome stability; contains 12 degenerate leucine-rich repeat motifs;
+                                                                    expression induced Mitotic Exit Network (MEN)
+                             7883b          YGL078C               Putative ATP-dependent RNA helicase DEAD-box family involved                                               DBP3                  ribosomal biogenesis
+ YPD ORF designations, alias(es), description  SGD) closest S. cerevisiae homolog.
+b deletion strain ORF displayed slow growth.
+
+
+                                                                                                                 Genome Research            1133
+                                                                                                                    www.genome.org
+ Seringhaus et al.
+
+
+Correlation features essentiality                                 PCR using primer internal KanMX cassette (KanB) (Long-
+                                                                        tine et al. 1998) addition gene specific primer designed assess relative importance individual feature                                                                         ∼200 bp upstream start codon particular ORF.
+predictor essentiality, employed distinct measures                                                                               Confirmed heterozygous deletion strains sporu- feature related target column, SGD essentiality:
+                                                                        lated according standard S. cerevisiae procedures (Winzeler
+correlation coefficient, information gain, information gain
+                                                                        et al. 1999). Sixteen individual tetrads dissected YPAD
+ratio. measures produced highly similar results,                                                                         plates growth scored photographed incubating report values correlation coefficients.                                                                         40 h 48 h 30°C. plates replica plated Naive Bayes classifier, employed visualize relative contri-
+                                                                        YPD plates containing 200 mg/mL G418 check cor-
+butions 14 features simple learner, implemented
+                                                                        rect 2:2 segregation deletion marker associate Orange software package (http://www.ailab.si/orange),
+                                                                        slow growth phenotype presence G418 resistance schema available Supplemental material avail-
+                                                                        strains showed growth homozygous wild-
+able online (http://www.gersteinlab.org/proj/predess/).
+                                                                        type deletion progeny confirm absence G418
+                                                                        resistance progeny deletion strains displayed ho-
+Classifier design
+                                                                        mozygous lethality. efforts focused obtaining make                strains showed decrease growth rate, high-value essential gene predictions. objective       quantitated measuring average (n = 8) colony
+learning reduce number false positives,         size compared wild type following initial tetrad dissec- minimizing total number misclassifications        tion incubation performing growth tests test set. achieve  assigned higher cost false       strains liquid YPAD.  strains inoculated YPAD
+positives false negatives.                                      optical density (OD600) recorded hourly. final
+      training (S. cerevisiae) testing (S. mikatae)     growth rate expressed average doubling time (n = 4) sets samples drawn distribution,        exponentially growing culture strains.
+somewhat different characteristics.  elected avoid 
+ing overly aggressive learning positives S. cerevisiae   Predictions species
+chose instead impose relatively small bias false posi-
+                                                                        14 sequence-based features compiled tives form slightly higher cost. False positives                                                                         ORF S. bayanus  features available 5447 ORFs) S.
+assigned cost 1.1, cost false negatives set
+                                                                        pombe  features available 4267 ORFs). classifier
+equal 1.
+                                                                        detailed applied data files. genome data
+      previously explained, models trained S. cere-
+                                                                        files, feature sets, predictions Supple-
+visiae data. make predictions S. mikatae, trained
+                                                                        mental material Web site (http://www.gersteinlab.org/proj/ models chose gave best results                                                                         predess/).
+testing S. cerevisiae. assess performance models S. cerevisiae data, employed 10-fold cross-validation. models implemented using WEKA software package                 Acknowledgments
+(Witten Frank 2005).                                                work supported NIH grants Mark Gerstein       model provided best performance combined             Michael Snyder. authors wish thank Tom Royce, Tara output diverse classifiers using unweighted average        Gianoulis, Joel Rozowsky helpful comments probability estimates. Seven different learners trained,       manuscript, Andrea Sboner assistance Naive output participated average. component           Bayes implementation.
+learners comprising model  (1) decision stump boosted
+using Adaboost algorithm 10 iterations (Freund Schapire 1996); (2) random forest, constituted 10 trees            References
+(Breiman 2001); (3) alternating decision tree 10 boosting
+                                                                        Altschul, S.F., Gish, W., Miller, W., Myers, E.W., Lipman, D.J. 1990.
+iterations (Freund Mason 1999); (4) multinomial logistic              Basic local alignment search tool. J. Mol. Biol. 215: 403–410.
+regression model ridge estimator (le Cessie van Hou-         Arigoni, F., Talabot, F., Peitsch, M., Edgerton, M.D., Meldrum, E., Allet,
+welingen 1992), ridge regularization parameter set            E., Fish, R., Jamotte, T., Curchod, M.L., Loferer, H. 1998. 10ⳮ8; (5) zeroR rule; (6) Naive Bayes classifier; (7)          genome-based approach identification essential bacterial
+                                                                            genes. Nat. Biotechnol. 16: 851–856.
+C4.5 decision tree (Quinlan 1993).                                      Breiman, L. 2001. Random forests. Mach. Learn. 45: 5–32.
+                                                                        Bruccoleri, R.E., Dougherty, T.J., Davison, D.B. 1998. Concordance
+S. mikatae gene disruption, sporulation, lethality scoring              analysis microbial genomes. Nucleic Acids Res. 26: 4482–4486.
+                                                                        Chalker,  Lunsford, R. 2002. Rational identification new
+Heterozygous gene deletions constructed S. mikatae strain           antibacterial drug targets essential viability using IFO1815 (courtesy M. Johnson, Washington University, St.                 genomics-based approach. Pharmacol. Ther. 95: 1.
+Louis, MO) using long-primer PCR approach developed S.            Chen, K. Pachter, L. 2005. Bioinformatics genome
+cerevisiae (Lorenz et al. 1995). Primers designed ORF          shotgun sequencing microbial communities. PLoS Comput. Biol.
+                                                                            1: 106–112. contained 60 bp immediately flanking          Cole, S.T. 2002. Comparative mycobacterial genomics tool drug
+start stop codon followed 20 bp sequence homologous              target antigen discovery. Eur. Respir. J. Suppl. 36: 78s–86s. plasmid template used deletion  Supplemental            Backer, M.D., Nelissen, B., Logghe, M., Viaene, J., Loonen, ,
+Table 1 primer sequences). plasmid pFA6a-KanMX,                 Vandoninck, S., Hoogt, R., Dewaele, S., Simons, F , Verhasselt,
+                                                                            P., et al. 2001. antisense-based functional genomics approach contains KanMX gene (G418R) selectable marker,               identification genes critical growth Candida albicans. Nat. used PCR template (Longtine et al. 1998).                        Biotechnol. 19: 235–241.
+      PCR products transformed S. mikatae using             Decottignies, , Sanchez-Perez, , Nurse, P. 2003.
+lithium acetate (LiAc) technique (Gietz Woods 2002). Trans-             Schizosaccharomyces pombe essential genes: pilot study. Genome Res.
+                                                                            13: 399–406.
+formants selected growth YPD plates containing 200           Dezso, , Oltvai, N., Barabasi, L. 2003. Bioinformatics analysis
+mg/mL G418. Strains tested correct integration               experimentally determined protein complexes yeast
+
+
+1134     Genome Research
+            www.genome.org
+                                                                                           Predicting essential genes fungal genomes
+
+
+    Saccharomyces cerevisiae. Genome Res. 13: 2450–2454.                      Longtine, M.S., McKenzie III, , Demarini, D.J., Shah, N.G., Wach, ,
+Drawid,  Gerstein, M. 2000. Bayesian integrating                   Brachat, , Philippsen, P., Pringle, J.R. 1998. Additional
+    expression data sequence patterns localizing proteins:               modules versatile economical PCR-based gene deletion     Comprehensive application yeast genome. J. Mol. Biol.                  modification Saccharomyces cerevisiae. Yeast 14: 953–961.
+    301: 1059–1075.                                                           Lorenz, M.C., Muir, R.S., Lim, E., McElver, J., Weber, S.C., Heitman,
+Edgington, E.S. 1995. Randomization tests. Marcel Dekker, New York.               J. 1995. Gene disruption PCR products Saccharomyces
+Freund, Y. Mason, L. 1999. alternating decision tree learning             cerevisiae. Gene 158: 113–117.
+    algorithm. Proceeding Sixteenth International Conference     Lu, , Szafron, D., Greiner, R., Lu, P., Wishart, D.S., Poulin, B., Anvik,
+    Machine Learning, pp. 124–133. Morgan Kaufmann, San Francisco.                J., Macdonell, C., Eisner, R. 2004. Predicting subcellular
+Freund, Y. Schapire, R.E. 1996. Experiments new boosting               localization proteins using machine-learned classifiers.
+    algorithm. Proceedings International Conference Machine          Bioinformatics 20: 547–556.
+    Learning, pp. 148–156. Morgan Kaufmann, San Francisco.                    Mushegian, R. Koonin, E.V. 1996. minimal gen

@@ -1,0 +1,1079 @@
+Srihari et al. BMC Bioinformatics 2010, 11:504
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                             Open Access
+
+MCL-CAw: refinement MCL detecting
+yeast complexes weighted PPI networks incorporating core-attachment structure
+Sriganesh Srihari1*, Kang Ning2,3*, Hon Wai Leong1*
+
+
+  Abstract
+  Background: reconstruction protein complexes physical interactome organisms serves   building block understanding higher level organization cell. past years,   independent high-throughput experiments helped catalogue enormous physical protein
+  interaction data organisms yeast.  individual datasets lack correlation   contain substantial number false positives (noise). years, affinity scoring
+  schemes devised improve qualities datasets.  challenge   detect meaningful novel complexes protein interaction (PPI) networks derived combining
+  datasets multiple sources making use affinity scoring schemes. attempt   tackling challenge, Markov Clustering algorithm (MCL) proved popular reasonably
+  successful method, mainly scalability, robustness, ability work scored (weighted) networks.
+   MCL produces noisy clusters, match known complexes additional
+  proteins reduce accuracies correctly predicted complexes.
+  Results: Inspired recent experimental observations Gavin colleagues modularity structure yeast
+  complexes distinctive properties “core�? “attachment�? proteins, develop core-attachment based
+  refinement method coupled MCL reconstruction yeast complexes scored (weighted) PPI networks.
+  combine physical interactions recent “pull-down�? experiments generate unscored PPI network.
+  score network using available affinity scoring schemes generate multiple scored PPI networks.   evaluation method (called MCL-CAw) networks shows    MCL-CAw derives larger number   yeast complexes better accuracies MCL, particularly presence natural noise; (ii) Affinity
+  scoring effectively reduce impact noise MCL-CAw improve quality (precision   recall) predicted complexes; (iii) MCL-CAw responds available scoring schemes. discuss
+  instances MCL-CAw successful deriving meaningful complexes, missed   proteins complexes affinity scoring networks. compare MCL-CAw recent
+  complex detection algorithms unscored scored networks, assess relative performance   algorithms networks.  study impact augmenting physical datasets computationally
+  inferred interactions complex detection. Finally, analyse essentiality proteins predicted
+  complexes understand possible correlation protein essentiality ability form complexes.
+  Conclusions: demonstrate core-attachment based refinement MCL-CAw improves predictions   MCL yeast PPI networks. affinity scoring improves performance MCL-CAw.
+
+
+
+* Correspondence: srigsri@comp.nus.edu.sg; albertnk@gmail.com;
+leonghw@comp.nus.edu.sg
+1
+ Department Science, National University Singapore, 117590,
+Singapore
+2
+ Department Pathology, University Michigan, Ann Arbor, MI 48109, USA list author information available end article
+
+                                      © 2010 Srihari et al; licensee BioMed Central  Open Access article distributed terms Creative Commons
+                                      Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                       medium, provided original work properly cited.
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                 Page 2 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Background                                                     iterative clustering approach derive complexes. biological processes carried proteins          complex partitioned groups pro- physically interact form stoichiometrically stable     teins called “core�?, “attachment�? “module�? (depicted complexes. relatively simple model organism        Additional files 1, Figure S1). hand, Krogan
+Saccharomyces cerevisiae (budding yeast), com-           et al. [7] used machine learning techniques (Bayesian
+plexes comprised subunits work           networks C4.5-based decision trees) define confi-
+coherent fashion. complexes interact indivi-        dence scores interactions derived direct bait-
+dual proteins complexes form functional            prey observations  spoke model). Subsequently, Kro-
+modules pathways drive cellular machinery.        gan et al. defined high-confidence ‘Core’ dataset  faithful reconstruction entire set      interactions, used Markov Clustering algorithm
+complexes physical interactions pro-          (MCL) [18,19] derive complexes. Hart et al. [12] gen-
+teins essential understand complex forma-       erated Probabilistic Integrated complex (PICO) net-
+tions, higher level organization cell.     work integrating matrix modeled relationships   physical interactions proteins            Gavin et al., Krogan et al. Ho et al. datasets using extensively catalogued yeast using high-         measure similar socio-affinity scores, used throughput methods like yeast hybrid [1,2]             MCL procedure derive complexes network.
+direct purification complexes using affinity tags fol-      Collins et al. [11] developed Purification Enrichment
+lowed mass spectrometry (MS) analyses [3]. 2002,         (PE) scoring generate ‘Consolidated net- direct purification strategy “pull-down�?      work’ matrix modeled relationships applied yeast independent studies Gavin           Gavin et al., Krogan et al. datasets. Collins et al.
+et al. [4] Ho et al. [5]. recently (2006),        used Bayes classifier generate PE scores separate groups, Gavin et al. [6] Krogan et al. [7],       Consolidated network incorporating diverse evidence
+employed tandem affinity purification (TAP) followed        hand-curated complexed protein pairs, Gene
+MS analyses produce enormous new data,            Ontology   annotations, mRNA expression patterns,
+allowing complete mapping yeast interac-         cellular localization expression profiles.
+tome. individual datasets high           new network shown high quality -
+quality, surprising lack correlation         comparable PPIs derived small-scale [8,9], bias high abundance         experiments stored Munich Information Center
+proteins [10] proteins certain cellular       Protein Sequences (MIPS). Zhang et al. [13] used
+compartments (like cell wall plasma membrane)              Dice coefficient (DC) assign affinities protein pairs,
+[11].  dataset contains substantial num-     evaluated affinity measure socio-affinity
+ber false positives (noise) compromise         PE measures. concluded DC PE
+utility datasets focused studies like        offered best representation protein affinity, complex reconstruction [11]. order reduce            subsequently used complex prediction. Pu et al.
+impact discrepancies, number data integra-        [20] used MCL combined cluster overlaps tion affinity scoring schemes devised            Consolidated network reveal interesting insights [6,7,11-17]. affinity scores encode reliabilities    complex organization. Wang et al. [21] proposed HACO,
+(confidence) physical interactions pairs         hierarchical clustering overlap algorithm, recon-
+proteins.  challenge detect            struct complexes used build ‘Complex-
+meaningful novel complexes protein             Net’, interaction network proteins complexes,
+interaction (PPI) networks derived combining multi-         order study higher-level organization com-
+ple high-throughput datasets making use              plexes. Chua et al. [14] Liu et al. [15] developed net- affinity scoring schemes.                                work topology-based scoring schemes called Functional
+  interaction data produced high          Similarity Weight (FS Weight) Iterative-Czeka- TAP/MS experiments comprise tagged “bait�? pro-          nowski-Dice (Iterative-CD), respectively, assign relia-
+teins associated “prey�? proteins purify        bility scores interactions networks. baits. Gavin et al. [6] considered direct bait-prey   Subsequently, Liu et al. [16] used maximal clique mer- indirect prey-prey relationships  combination     ging strategy (called CMC) derive complexes net- spoke matrix models), followed socio-affinity      works scored using systems. Friedel et al. [17]
+scoring encode affinities pro-       developed bootstrapped scoring score TAP/
+tein pairs. socio-affinity score quantizes log-ratio   MS interactions Gavin et al. Krogan et al., number times proteins observed               subsequently derived complexes using variant MCL. relative expected         Friedel et al. [22] developed minimum spanning
+frequency dataset. Subsequently, Gavin et al. used      tree-based method reconstruct topology  Srihari et al. BMC Bioinformatics 2010, 11:504                                                                               Page 3 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+complexes purified proteins TAP/MS assays.       Table 1 Properties PPI networks used Voevodski et al. [23] used PageRank, random walk-         evaluation MCL-CAw
+based method employed context-sensitive web search,                  PPI Network                      #           #             Avg define affinities proteins PPI net-                                             Proteins Interactions        node
+                                                                                                                                  degree
+works. Subsequently, Voevodski et al. used predict
+                                                                             Gavin                      1430          7592         10.62 complexed proteins network. Approaches
+                                                                        Krogan ‘Core’                   2708          7123          5.26
+like CORE [24] COACH [25] adopted local dense
+neighborhood search derive cores attachments                     Gavin+Krogan                    2964         13507          9.12 unscored networks. Mitrofanova et al. [26] mea-                 ICD(Gavin+Krogan)                  1628          8707         10.69
+sured connectivity proteins unweighted                FSW(Gavin+Krogan)                  1628          8688         10.67
+PPI networks edge-disjoint paths instead edges                Consolidated3.19                 1622          9704         11.96
+overcome noise, modeled paths network                    Bootstrap0.094                  2719         10290          7.56
+flow represented Gomory-Hu trees. subse-                     Inferred                     954         11892         24.93
+quently isolated groups nodes trees shared          Gavin+Krogan+Inferred                3418         25352         14.83
+edge-disjoint paths order identify complexes.         ICD(Gavin+Krogan+Inferred)             2034         12009         11.81
+recently, Ozawa et al. [27] used domain-domain interac-         FSW(Gavin+Krogan+Inferred)              1892         11705         12.37
+tions validate refine complexes predicted     Gavin+Krogan network generated combining Gavin                                                             Krogan-Core datasets, obtained BioGrid [32]. ICD(Gavin+Krogan) MCL.                                                        FSW(Gavin+Krogan) networks generated scoring Gavin+Krogan
+   study, develop algorithm derive yeast   network using Iterative-CDk FS Weightk schemes [14,15]  k = 2
+complexes weighted (affinity-scored) PPI networks.     iterations). Consolidated3.19 network refers high-confidence subset
+                                                            (PE cut-  3.19) Consolidated network derived Collins et al. [11].
+Inspired experimental findings Gavin et al. [6]   Bootstrap0.094 network refers high-confidence subset (BT cut  modularity structure yeast complexes,     0.094) Bootstrap network derived Friedel et al. [17]. Inferred
+distinctive properties “core�? “attachment�? pro-      network comprised computationally inferred interactions                                                             Predictome database [40]. Gavin+Krogan+Inferred network generated
+teins, develop novel core-attachment based refine-     augmenting Gavin+Krogan network inferred interactions.
+ment method coupled MCL reconstruction            ICD(Gavin+Krogan+Inferred) FSW(Gavin+Krogan+Inferred) networks
+                                                            generated scoring augmented network using Iterative-CD
+yeast complexes. proposed idea core-          FS Weight systems, respectively.
+attachment based refinement preliminary work [28] called MCL-CA.
+    MCL-CA worked unscored net-
+works.  devise improved algorithm (called        unscored scored PPI networks. Finally, MCL-CAw) provide natural extension work            perform depth analysis predicted complexes scored (weighted) PPI networks.              MCL-CAw. eukaryotic complexes hypothesized dis-
+play core-attachment modularity, design        Methods algorithm specific yeast complexes        MCL-CAw algorithm: Identifying complexes
+lack sufficient evidence, high-throughput datasets       embedded interaction network reference complexes organisms.            MCL-CAw algorithm broadly consists combine TAP/MS physical datasets Gavin et al.          phases. phase, partition PPI network
+[6] Krogan et al. [7] generate unscored PPI       multiple dense clusters using MCL. Following network (Table 1). score network using          second phase), post-process (refine) topology-based affinity scoring schemes, FS             clusters obtain meaningful complexes. MCL-
+Weight [14] Iterative-CD [15], generate scored       CAw algorithm consists following steps:
+PPI networks. gather additional readily-avail-
+able scored PPI networks Collins et al. [11]            1. Clustering PPI network using MCL hierarchically
+Friedel et al. [17]. evaluation MCL-CAw                2. Categorizing proteins cores clusters networks demonstrates    MCL-CAw                 3. Filtering noisy clusters
+able derive higher number yeast complexes              4. Recruiting proteins attachments clusters better accuracies MCL; (b) Affinity scoring            5. Extracting complexes clusters
+effectively reduces impact noise MCL-CAw               6. Ranking predicted complexes improves quality (precision recall) predicted complexes; (c) MCL-CAw               use following notations describing responds available affinity scoring            algorithm. PPI network represented G = (V,
+schemes PPI networks. compare MCL-CAw                E), V set proteins, E set recent complex detection algorithms         interactions proteins. e = (p, q)
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                                               Page 4 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Î E, confidence score (weight) w(p, q) encod-          protein cluster Ci = (Vi, Ei), given p Î PCore(Ci), 
+ing affinity proteins p q. affi-
+nity scores depend scoring used.                        • weighted connectivity p respect Ci
+Clustering PPI network using MCL hierarchically                   average weighted connectivity Ci, step algorithm partition (cluster)             given  din(p, Ci) ≥ davg(Ci); PPI network using MCL [18], simulates ran-                  • weighted connectivity p respect dom walks (called flow) identify relatively dense                Ci greater weighted connectivity p
+regions network. inflation coefficient para-               respect Ci, given  din(p, Ci) > dout(p, Ci).
+meter MCL used regulate granularity clusters - higher value finer gener-           weighted connectivity d (p, C ) p ated clusters  choose practice discussed        respect Ci total weight (score) interactions p “Results�? section). MCL tends produce              proteins Ci. Similarly, weighted 
+large clusters (sizes ≥ 30) amalgamate smaller clus-         connectivity dout(p, Ci) p respect Ci total
+ters [7,20]. hand, size distributions         weight interactions p proteins outside C .
+hand-curated complexes Wodak lab [29], MIPS                  given din(p, Ci) = ∑{w(p, q) : q ÎVi} dout
+[30] Aloy et al. [31] (Table 2) reveal com-         (p, Ci) = ∑ {w (p, q) : q ∉ Vi}, respectively. average
+plexes sizes 10.  perform           weighted connectivity davg(Ci) cluster Ci hierarchical clustering iteratively selecting clusters     average weighted connectivities sizes 30 clustering using MCL.                                                              d avg (C ) = 1 ⋅ ∑ d (q , C ) .
+                                                                  proteins Ci, given                                    | C | q∈V
+  iterative rounds MCL-based hierarchical clus-                                                                                                 
+tering protein network G = (V, E), obtain               use preliminary cores ‘extended
+collection k disjoint (non-overlapping) clusters {Ci :         core’ proteins. categorize protein p ∉ PCore(Ci) Ci = (Vi, Ei), 1 ≤ ≤ k}, Vi ⊆ V Ei ⊆ E.               extended core protein cluster Ci, given p Î
+Categorizing proteins cores clusters                    ECore(Ci), 
+Microarray analysis Gavin et al. [6] predicted
+complex components showed large percentage                  • weighted connectivity p respect pairs proteins cores expressed               PCore(Ci) average weighted  time cell cycle sporulation, consis-              connectivities non-cores r ∉ PCore(Ci) tent view cores represent main functional               preliminary cores, given  din(p, PCore(Ci)) ≥ davg
+units complexes. dimensional structural                  (r, PCore(Ci)); yeast hybrid analysis showed core                    • weighted connectivity p respect components likely direct physical                  PCore(Ci) greater weighted connectiv-
+contact  reflect findings             ity p respect PCore(C ), given  d (p,
+post-processing steps, expect:                                     PCore(Ci)) > dout(p, PCore(Ci)).
+
+    • complex predict comprise non-                  din(p, PCore(Ci)) total weight interac-
+    set core proteins;                               tions p preliminary cores Ci, given 
+    • proteins cores display rela-            din(p, PCore(Ci)) = ∑{w(p, q) : q Î PCore(Ci)}. Similarly,
+    tively high degree physical interactivity            d (p, PCore(C )) total weight interactions
+                                                       p non-core proteins Ci, given 
+                                                                     din(p, PCore(Ci)) = ∑{w(p, r) : r Î PCore (Ci)}. Finally,
+  identify core proteins cluster           davg(r, PCore(Ci)) average weight interactions stages: identify set preliminary cores        non-cores r preliminary cores, given 
+subsequently extend form final set cores.                                                                                                                                        ∑
+                                                                                                                 1
+                                                                     d avg ( r , PCore(C ) ) =                               ⋅                    d ( r , PCore(C ) ) .
+categorize protein p ÎV ‘preliminary core’                                             (| C | − | PCore(C ) |)
+                                                                                                                                   r∈
+                                                                                                                                    / PCore(C )
+
+
+
+
+Table 2 Properties hand-curated yeast complexes Wodak lab [29], MIPS [30] Aloy [31]
+                                                                            # Complexes size
+   Benchmark           #Complexes           # Proteins      <3             3-10                    11-25                  > 25                          Avg density
+      Wodak                408                   1627       172            204                       27                      5                                0.639
+       MIPS                313                   1225       106            138                       42                     27                                0.412
+       Aloy                101                   630        23              58                       19                      1                                0.747
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                            Page 5 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+  Combining preliminary extended core pro-                                        −�?�
+                                                                                  ⎛S ⎞
+teins, form final set core proteins cluster           p ≥ �?�  c . ⎜ c ⎟        ,                                    (2)
+Ci, given                                                                      �? 2 ⎠
+
+    Core(C ) = {PCore(C ) ∪ ECore(C )}.            (1)      Ip = p, Core(Ci)) total weight interac-
+                                                               tions p Core(Ci), given p, Core(Ci)) = ∑{w(p,
+Filtering noisy clusters                                       q): q Î Core(C )}, c = Core(C )) total
+Consistent assumption complex              weight interactions core proteins C 
+comprises set core proteins, consider clus-       given Core(C )) = 12 ⋅ ∑ {w(q, r ) : q, r ∈ Core(C )} , Sc =
+ter noisy does include core protein        |Core(Ci)|, normalized yield 1 core sets criteria. discard noisy              size  parameters g used control
+clusters.                                                      effects (Core(Ci)) |Core(Ci)|. simple
+Recruiting proteins attachments clusters               illustration, let = 0.5 g = 1, consider inter-
+Microarray analysis Gavin et al. [6] predicted     actions equal weight 1.  p attached
+complex components showed attachment proteins             core set proteins, total weight closely associated core proteins com-         interactions core proteins 3, plexes showed greater degree heterogeneity        possible p connected core proteins expression levels, supporting notion attach-        choose values g practice dis-
+ments represent non-stoichiometric components.           cussed “Results�? section). step ensures  attachment proteins seen shared             non-core proteins having sufficiently strong interactions complexes, consistent view           cores clusters recruited protein participate multiple complexes         attachments clusters.
+[20,21]. hand, application MCL          Extracting complexes clusters
+PPI networks yields clusters share proteins        cluster group constituent core
+(non-overlapping clusters). Mapping clusters        attachment proteins define unique complex. original PPI network shows proteins having         expect remaining proteins cluster similar connectivities multiple clusters assigned       weaker associations resultant complex,
+arbitrarily clusters. proteins        categorize noisy proteins. fact, assigned multiple clusters. reflect     experiments [28] shown MCL clusters tend findings algorithm, expect attach-         include noisy proteins leading reduction
+ment proteins proteins complexes            accuracies clusters.  step ensures                                                       noisy proteins discarded order extract
+                                                               accurate complexes. Additionally,     • Non-core proteins;                                       resulting complexes include attachment proteins     • Closely interacting core proteins;          potentially recruited multiple complexes,     • shared multiple complexes.                 step ensures predicted complexes adhere                                                                protein-sharing phenomenon observed real complexes
+  consider following criteria assign non-core      [6,20,21]. discard complexes size 4
+protein p belonging cluster Cj (called donor cluster)     false positives. difficult attachment acceptor cluster Ci  donor      predict small real complexes solely based interaction
+acceptor clusters ,  p Î Attach(Ci):   (topological) information  noted [16,24]).
+                                                                 cluster C , define unique complex
+    • Protein p sufficiently strong interactions      Cmplx(Ci) 
+    core proteins Core(Ci) cluster Ci;
+    • stronger interactions core pro-            Cmplx(C ) = {Core(C ) ∪ Attach(C )}.                       (3)
+    teins, stronger interactions p
+                                                                 interaction (p, q) constituent proteins
+    core proteins;
+                                                               p q complex carries weight w(p, q)
+    • large core sets, strong interactions required
+                                                               observed PPI network.
+    core proteins  alternatively,
+                                                               Ranking predicted complexes
+    weaker interactions 
+                                                               final step, output predicted complexes                                                                reasonably meaningful order biological significance.
+  Combining criteria, assign non-core p                                                                 rank predicted complexes decreasing
+attachment acceptor cluster Ci, p Î Attach
+                                                               order weighted densities. weighted density
+(Ci), 
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                        Page 6 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+WD(C ′ ) =
+           ∑       p ,q∈C ′i w(p, q)
+                                     .   predicted complex
+                                                                  catalogue [29], 313 complexes MIPS [30], 101
+                                                                  complexes curated Aloy et al. [31]. properties                 ′
+              | C | ⋅(| C′i | −1)                               reference sets shown Table 2. consid-
+                                                                  ered reference sets independently C′i given [16]:
+                                                                  evaluation MCL-CAw. did merge                                                                   comprehensive list complexes indivi-
+
+    WD(C ′ ) =
+                   ∑    p ,q∈C ′i w(p, q)
+                                          .                 (4)
+                                                                  dual complex compositions different                                                                   sources complexes double-
+                       ′
+                   | C | ⋅(| C′i | −1)
+                                                                  counted  different names used   unweighted density predicted complex                complex). alternative strategy adopted Wang
+defined similar way setting weights            et al. [21] integrating complexes constituent interactions 1. blindly favors           sources (MIPS [30], SGD [33] house
+small complexes, complexes proteins having                curated complexes) using Jaccard score: com-
+large number interactions considering              plexes overlapping Jaccard score 0.7
+reliability interactions. hand,         merged - proteins included weighted density considers reliability  means           resultant complex chosen based voting
+affinity scores) interactions. complexes           scheme. unweighted density, complex                  accurate  fair) evaluating higher weighted density ranked higher.                         method benchmark sets, considered                                                                   set derivable benchmark complexes Results                                                           PPI networks: protein present PPI
+Preparation experimental data
+                                                                  network, remove set benchmark com- gathered high-confidence Gavin Krogan-Core                 plexes. repeated removals, size benchmark
+interactions deposited BioGrid http://thebiogrid.org/          complex shrinks 3, remove complex [32] (version July 2009). assembled              benchmark set generate final set derivable combination bait-prey prey-prey relation-           benchmark complexes PPI networks.
+ships  spoke matrix models) observed Gavin               order evaluate biological coherence et al. [6], bait-prey relationships  spoke            predicted complexes, downloaded list cellular
+model) observed Krogan et al. [7]. combined                 localizations  terms “Cellular Component�?) interactions build unscored Gavin+Krogan             proteins Gene Ontology   [34]. selected
+network  edge-weights set 1).                 informative terms. term informa-
+applied Iterative-CDk [15,16] FS Weightk [14] scor-           tive 30 proteins annotated ing  k = 2 iterations, recommended [16])           term descendant terms annotated Gavin+Krogan network, selected interactions               30 proteins [35]. list essential genes non-zero scores. resulted ICD(Gavin              obtained Saccharomyces Genome Deletion
++Krogan) FSW(Gavin+Krogan) networks, respec-                  Project [36,37]: http://www-sequence.stanford.edu/
+tively. addition scored networks,              group/yeast_deletion_project/deletions3.html
+downloaded Consolidated3.19 network  PE cut-
+                                                                  Evaluation metrics matching predicted  3.19, recommended Collins et al. [11])                                                                   benchmark complexes
+http://interactome-cmp.ucsf.edu/, Bootstrap0.094
+network [17]  BT cut 0.094) http://www.             Let B = {B1,B2,...,Bm} C = {C1,C2,...,Cn} sets bio.ifi.lmu Complexes/ProCope/. Consolidated               benchmark predicted complexes, respectively. network derived matrix modeled relation-             use Jaccard coefficient J quantify overlap
+ships original Gavin Krogan datasets using             benchmark complex Bi predicted com- PE [11].  network comprised             plex Cj : additional prey-prey interactions missed                                 | Bi Ç C j | Krogan ‘Core’ dataset. Bootstrap network                  J( B , C j ) =                  .                                         (5)
+derived matrix modeled relationships using                                  | Bi È C j |
+bootstrapped scores [17]. Table 1 summarizes properties networks.                                       consider Bi covered Cj, J(Bi, Cj) ≥ 
+  benchmark (reference) set complexes built            lap threshold t. experiments, set threshold hand-curated complexes derived                                                                               | Bi | + | C j |
+                                                                  t = 0.5, requires                   | Bi Ç C j | ≥                    .   sources: 408 complexes Wodak lab CYC2008                                                                                     3
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                               Page 7 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+example, |Bi| = |Cj | = 8, overlap Bi                     parameter MCL, g core-attachment Cj 6.                                                  refinement order determine good combination   use previously reported [16] definitions recall                       parameters MCL-CAw practice. pre-
+Rc (coverage) precision Pr (sensitivity) set                    dicted complexes size ≥ 4 MCL MCL-CAw
+predicted complexes:                                                          considered setting parameters                                                                               experiments. used F1 (harmonic mean            |{Bi | Bi ∈ B ∧ ∃C j ∈ C ; J(Bi , C j ) ≥ t}|                      precision recall) measured Wodak lab
+    Rc =                                                                (6)
+                                   |B|                                        [29], MIPS [30] Aloy [31] benchmarks basis
+                                                                              choosing best values parameters.
+  |{Bi|Bi Î B Λ ∃Cj Î C; J(Bi, Cj) ≥ t}| gives                         adopted following step procedure number derived benchmarks.                                                 PPI network:
+
+           |{C j | C j ∈ C ∧ ∃Bi ∈ B; J(Bi , C j ) ≥ t}|                         1. Run MCL range values choose     Pr =                                                                (7)      offers best F1 measure;
+                                   |C |
+                                                                                 2. Set chosen value, set certain                                                                                  MCL-CAw, choose g range values     |{Cj |Cj Î C Λ ∃Bi Î B; J(Bi, Cj) ≥ t}| gives                                                                                  offers best F1 measure;
+number matched predictions.
+                                                                                 3. Set g chosen values, choose    evaluate performance method                                                                                  MCL-CAw range values offers plotting precision versus recall curves pre-
+                                                                                 best F1 measure;
+dicted complexes. curves plotted tuning                                                                                  4. Set g MCL-CAw chosen values,
+threshold number predicted complexes 
+                                                                                 reconfirm value chosen 
+sidered evaluation. predicted complexes                                                                               Setting MCL
+considered decreasing order weighted densi-
+                                                                              Inflation MCL determines granularity ties   increasing order complex ranks).
+                                                                              clustering - higher value finer clus-
+                                                                              ters produced. Typical values used clustering PPI
+Biological coherence predicted complexes
+                                                                              networks = 1.8 1.9 [16,19,38]. PPI complex formed proteins localized
+                                                                              network, ran MCL range , measured compartment cell.  use                                                                               F1 benchmark sets. normal-
+localization coherence predicted complexes                                                                               ized F1 values best F1 obtained measure quality. Let L = {L1, L2,..., Lk } set
+                                                                              benchmark, summed normalized F1 known localization groups, Li contains                                                                               values benchmarks, finally normalized set proteins similar localization annotations.                                                                               sums obtain final ranking values. localization score LS(Cj) predicted complex Cj                                                                               detailed calculations presented Additional files 1,
+defined maximal fraction constituent pro-
+                                                                              Tables S1 S2. Figure 1, sample F1 ver-
+teins localized localization
+                                                                              sus plots unscored Gavin+Krogan scored
+group proteins annotations.                                                                               ICD(Gavin+Krogan) networks range = 1.25
+given follows [16]:
+                                                                              3.0. noticed inflation = 2.5 gave best F1
+                  max{| C j Ç Li |: = 1, 2, …, k}                           unscored scored networks. F1 obtained
+    LS (C j ) =                                          .              (8)   = 1.8 1.9 marginally                   | p : p ∈ C j ∧ ∃Li ∈ L, p ∈ Li |
+                                                                              = 2.5.
+                                                                              Setting g CA refinement
+   localization score LS(C) set
+                                                                              PPI network, set chosen value, predicted complexes C just weighted average
+                                                                              fixed certain  ran MCL-CAw range g. complexes [16]:
+                                                                              adopted method choose                                                                               value g offering best F1 measure. Figure 2 shows
+
+    LS(C) =
+               ∑    C j ∈C
+                             max{| C j Ç L |: = 1, 2, … , k}
+                                                                    .   (9)
+                                                                              sample F1 versus g plots unscored Gavin+Krogan
+                                                                              scored ICD(Gavin+Krogan) networks = 2.5,                ∑     C j ∈C
+                              | p : p ∈ C j ∧ ∃L ∈ L, p ∈ L |
+                                                                              = 1.00 g = 0.15 1.50. detailed calculations
+                                                                              presented Additional files 1, Table S3. noticed
+                                                                              g = 0.75 gave best F1 unscored Setting parameters  g MCL-CAw                                 scored networks. evaluating performance MCL-CAw,                                 set g chosen values, ran procedure used setting inflation                             MCL-CAw range  Figure 3 shows sample F1
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                               Page 8 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+ Figure 1 Setting inflation parameter MCL: F1 versus          Figure 2 Setting parameter g core-attachment
+ plot.  : Plot unscored Gavin+Krogan network; (b): Plot    refinement: F1 versus g plot.  : Plot unscored Gavin
+ scored ICD(Gavin+Krogan) network. = 2.5 gave best F1      +Krogan network; (b): Plot scored ICD(Gavin+Krogan)
+ unscored scored networks.                                      network. g = 0.75 gave best F1 unscored scored
+                                                                         networks  = 2.50 = 1.00).
+
+
+versus plots unscored Gavin+Krogan scored ICD(Gavin+Krogan) networks = 2.5, = g =                    g = 0.75 scored networks final
+0.75 = 0.50 1.75. detailed calculations                combination parameters MCL-CAw.
+presented Additional files 1, Table S4. noticed = 1.50 gave best F1 unscored network,                 Evaluating performance MCL-CAw = 1.0 gave best F1 scored networks.                  Figure 5 shows workflow considered evalua-
+Reconfirming chosen values g                         tion MCL-CAw. predicted complexes Finally, PPI network, ran core-attachment                   tapped successive stages:
+refinement chosen values g range MCL. Figure 4 compares F1 versus                        1. clustering using MCL; plots plain-MCL MCL followed CA                               2. hierarchical clustering followed core-
+refinement unscored Gavin+Krogan                                attachment refinement using MCL-CAw.
+scored ICD(Gavin+Krogan) networks range =                         effect core-attachment refinement predictions
+1.25 3.0. plots reconfirmed chosen                      MCL
+values g gave best performance CA                     Compare topmost rows Table 3 MCL MCL-
+refinement = 2.5  Aloy bench-                     CAw evaluated unscored Gavin+Krogan network.
+mark, smallest benchmark                        MCL-CAw achieved significantly F1 best = 1.75 marginally                        higher recall compared MCL Gavin+Krogan - lower = 2.5). detailed calculations pre-                  average 31  higher number complexes derived sented Additional files 1, Tables S5 S6.                      MCL. fact referring Figure 4 , MCL-CAw
+settled = 2.5, = 1.50 g = 0.75                       achieved higher F1 compared MCL entire range
+unscored Gavin+Krogan network, = 2.5, = 1.0                     = 1.25 3.00. order analyse  Srihari et al. BMC Bioinformatics 2010, 11:504                                                                      Page 9 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+                                                                    significantly higher number benchmark complexes                                                                     MCL.
+                                                                    Impact noise MCL MCL-CAw role                                                                     affinity scoring reducing impact
+                                                                    Table 3 compares different evaluation metrics MCL
+                                                                    MCL-CAw unscored Gavin+Krogan                                                                     scored PPI networks. clearly, MCL                                                                     MCL-CAw showed considerable improvement preci-
+                                                                    sion recall scored networks. example,
+                                                                    MCL achieved 127  higher precision 51.3 
+                                                                    higher recall  average), MCL-CAw achieved
+                                                                    132  higher precision 26.6  higher recall                                                                      average Wodak lab benchmark) scored
+                                                                    networks unscored Gavin+Krogan network.
+                                                                    precision versus recall curves (Figure 6) Gavin
+                                                                    +Krogan dropped sharply,                                                                     scored networks - ICD(Gavin+Krogan), FSW (Gavin
+                                                                    +Krogan) Consolidated 3.19 - displayed                                                                     “graceful�? decline. curve Bootstrap0.094 displayed
+                                                                    sudden dip beginning, stabilized sub-
+                                                                    sequently achieve higher (final) precision recall
+                                                                    compared unscored Gavin+Krogan network.
+                                                                      scored PPI networks, MCL                                                                     MCL-CAw showed best precision recall 
+                                                                    solidated3.19 network, directly attributed                                                                     high quality network.  high quality
+                                                                    Consolidated3.19 came expense lower protein
+ Figure 3 Setting parameter core-attachment                coverage  Table 4; noted [20]), resulting  refinement: F1 versus plot.  : Plot unscored Gavin     reduced number derivable complexes. order coun-
+ +Krogan network; (b): Plot scored ICD(Gavin+Krogan)
+                                                                    ter  gathered larger subset Consolidated
+ network. = 1.50 gave best F1 unscored network  =
+ 2.50 g = 0.75). = 1.00 gave best F1 scored       network PE cut 0.623  average PE score),
+ networks  = 2.50 g = 0.75)..                                 accounted higher protein coverage (Table 4).
+                                                                    noticed improvement MCL-CAw                                                                     MCL significantly higher Consolidated0.623, com-
+                                                                    pared improvement seen Consolidated3.19. improvement, considered sets complexes                    noticed ICD scoring Consolidated0.623 drasti-
+derived Gavin+Krogan.   Set = MCL ∩ MCL-                   cally reduced size network, revealing CAw, consisting complexes correctly predicted             larger subset fact included significant false MCL MCL- CAw, different Jaccard                   positives (noise). experiments indicate rea-
+accuracies; (b) Set B = MCL-CAw\MCL, consisting              sonably good algorithm like MCL perform complexes correctly predicted MCL-CAw,                high quality networks.  lack protein
+MCL. complex correctly predicted MCL                coverage scarcity high quality networks, missed MCL-CAw. calculated increase              need consider larger networks complex detection
+(percentage) accuracies complexes B.              (particularly able detect novel complexes). increase noticably high, average           turn exposes algorithms higher natural
+7.53  Wodak set. increase B signifi-             noise  scored networks).  need cantly high, average 62.26  Wodak set.             develop algorithms detect larger number com- shows:   CA-refinement successful improv-             plexes presence noise. scenario, ing accuracies MCL clusters; (b) improvement            results MCL-CAw able derive considerably particularly high low quality clusters MCL          higher number complexes MCL. Taking  set B). MCL-CAw successful elevating                  introduced different levels random noise accuracies threshold t = 0.5 clusters           study impact MCL MCL-CAw. introduced difficult matched known complexes                10  75  random noise (2000 10000 random interac-
+using MCL  Consequently, MCL-CAw derived                      tions) Gavin+Krogan network. noticed  Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                  Page 10 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+ Figure 4 Reconfirming inflation MCL-Caw.  : Plot unscored Gavin+Krogan network = 1.50 g = 0.75. (b): Plot  scored ICD(Gavin+Krogan) network = 1.00 g = 0.75. = 2.5 gave best F1 chosen values g  Aloy
+ benchmark, smallest benchmark  = 1.75 gave marginally better F1).
+
+
+MCL-CAw performed better MCL intro-                       range 10  - 40  noise, covers typical levels ducing 50  random noise (Table 5).  75  ran-                  noise seen TAP/MS datasets [9]  say keeping dom noise, performance MCL-CAw marginally                         mind MCL shown robust 80 
+dropped MCL.  MCL-CAw                        random noise [38]). scored noisy networks
+reasonably robust random noise - stable                 using ICD scheme. performance 
+
+
+
+ Figure 5 Workflow evaluation MCL-Caw. predicted complexes MCL-CAw tapped stages:   Clustering using MCL;
+ (ii) Hierarchical clustering followed core-attachment refinement using MCL-CAw. predicted complexes evaluated matching
+ set benchmark complexes.
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                            Page 11 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 3   Impact core-attachment refinement MCL; (ii) Role affinity scoring reducing impact natural
+noise MCL MCL-CAw
+Benchmark Method            PPI             #Predicted              #Matched          Precision         #Derivable              #Derived              Recall
+                          Network           complexes               prediction                         benchmarks              benchmarks
+  Wodak         MCL          G+K                242                     55              0.226               182                      62               0.338
+                          ICD(G+K)              136                     68              0.500               153                      76               0.497
+                          FSW(G+K)              120                     69              0.575               153                      78               0.510
+                          Consol3.19            116                     70              0.603               145                      79               0.545
+                          Boot0.094             203                     76              0.374               172                      85               0.494
+                MCL-         G+K                310                     77              0.248               182                      77               0.423
+                CAw
+                          ICD(G+K)              129                     80              0.620               153                      80               0.523
+                          FSW(G+K)              117                     72              0.615               153                      83               0.542
+                          Consol3.19            122                     82              0.672               145                      82               0.566
+                           Boot0.094            199                     79              0.397               172                      88               0.512
+   MIPS         MCL          G+K                242                     35              0.143               177                      40               0.226
+                          ICD(G+K)              136                     47              0.346               151                      60               0.397
+                          FSW(G+K)              120                     46              0.383               151                      61               0.404
+                          Consol3.19            116                     48              0.414               157                      63               0.401
+                           Boot0.094            203                     44              0.271               168                      56               0.333
+                MCL-         G+K                310                     53              0.171               177                      53               0.300
+                CAw
+                          ICD(G+K)              129                     63              0.488               151                      63               0.417
+                          FSW(G+K)              117                     48              0.410               151                      66               0.437
+                          Consol3.19            122                     68              0.557               157                      68               0.433
+                           Boot0.094            199                     47              0.236               168                      59               0.351
+   Aloy         MCL          G+K                242                     43              0.179               76                       42               0.556
+                          ICD(G+K)              136                     58              0.426               75                       56               0.747
+                          FSW(G+K)              120                     57              0.475               75                       57               0.760
+                          Consol3.19            116                     54              0.466               76                       55               0.724
+                           Boot0.094            203                     56              0.276               76                       55               0.724
+                MCL-         G+K                310                     52              0.168               76                       52               0.684
+                CAw
+                          ICD(G+K)              129                     59              0.457               75                       59               0.787
+                          FSW(G+K)              117                     60              0.513               75                       60               0.800
+                          Consol3.19            122                     57              0.467               76                       57               0.750
+                           Boot0.094            199                     57              0.286               76                       58               0.763
+Affinity scoring PPI networks improved performance MCL MCL-CAw. Affinity scoring followed CA refinement compounded effect improving performance MCL.
+
+ MCL MCL-CAw improved considerably                                  MCL-CAw displayed higher scores compared com- scored networks. MCL-CAw performed considerably                          plexes, indicating proteins cores highly
+better MCL 50  75  random noise (Table                         localized; (c) complexes MCL MCL-
+5).  affinity scoring helped MCL-CAw main-                        CAw displayed higher scores scored net-
+tain performance gain MCL.                                            works compared Gavin+Krogan network.
+Biological coherence predicted components localization scores various predicted                           Relative ranking complex prediction algorithms components (cores complexes) MCL-CAw                              affinity-scored networks shown Table 6. table shows    pre-                       order gauge performance MCL-CAw rela-
+dicted complexes MCL-CAw showed high locali-                             tive existing techniques, selected following
+zation scores compared MCL unscored                             recent algorithms proposed complex detection: scored PPI networks. MCL included noisy
+proteins predicted clusters, reducing                             • unscored Gavin+Krogan network, com- biological coherence; (b) predicted cores                             pared MCL [18,19], preliminary work
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                       Page 12 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+                                                                         Tables 8, 9, 10, 11 12 detailed comparisons
+                                                                      complex detection algorithms unscored
+                                                                      scored networks. Figures 7 8 precision
+                                                                      versus recall curves networks, Table 13
+                                                                      shows area curve (AUC) values                                                                       curves. Considering ± 5  error AUC values, table
+                                                                      shows CORE attained highest AUC followed                                                                       MCL-CAw CMC unscored network,                                                                       MCL-CAw CMC achieved overall highest AUC
+                                                                      scored networks. addition  net-
+                                                                      work ranked algorithms based normal-
+                                                                      ized final F1 measures  respect best
+                                                                      performing algorithm network), shown                                                                       Table 14. summed normalized F1 values                                                                       algorithm networks obtain                                                                       overall ranking algorithms shown Table 15.
+                                                                      detailed calculations presented Additional
+                                                                      files 1, Table S7. unscored network CMC
+                                                                      showed best F1 value, scored networks
+                                                                      MCL-CAw showed best overall F1 value. particu-
+                                                                      lar, MCL-CAw performed best ICD(Gavin+Kro-
+                                                                      gan), FSW(Gavin+Krogan) Consolidated 3.19
+                                                                      networks, HACO performed best Boot-
+                                                                      strap0.094. agreed relative 
+                                                                      formance gathered AUC values (Table 13).
+                                                                         precision MCL-CAw (0.397) lower  Figure 6 Impact affinity scoring performance MCL        Bootstrap0.094 compared scored networks (ICD
+ MCL-Caw.  . (b): Precision versus recall curves Gavin   - 0.620, FSW - 0.615, Consolidated3.19 - 0.672). MCL-
+ +Krogan scored networks (ICD(Gavin+Krogan), FSW         CAw produced redundant complexes  (Gavin+Krogan), Consolidated3.19 Bootstrap0.094) MCL     network compared scored networks, leading  MCL-CAw, respectively, evaluated Wodak benchmark t =
+                                                                      drop precision. fact observed variance
+ 0.5. methods showed significant improvement  scored networks compared unscored Gavin+Krogan.                   CMC HACO algorithms  example,
+                                                                      CMC achieved best recall ICD network,                                                                       lowest Consolidated network.  CMC pro-
+    MCL-CA (2009) [28], CORE Leung et al. (2009)                   duced significantly fewer complexes (#77) Conso-
+    [24], COACH Wu Min et al. (2009) [25], CMC                     lidated network compared networks (ICD - 171,
+    Liu et al. (2009) [16], HACO Wang et al.                FSW - 179, Bootstrap - 203).  algorithms dis-
+    (2009) [21];                                                      played “sudden dips�? precision versus recall curves
+    • affinity-scored networks, compared                    beginning Bootstrap0.094 network
+    MCL, MCL incorporated cluster                    Figure 8). findings indicate choice
+    laps Pu et al. (2007) [20]  implementation              affinity scoring schemes affected performance      called MCLO), CMC HACO.                                 algorithms. words, algorithm use                                                                       certain characteristics PPI networks, favored
+  Table 7 summarizes properties                   scoring scheme magnified reinforced parameters used methods. consider                   characteristics. single algorithm complexes size 4 algorithms              performed relatively best scored networks.
+entire evaluation. dropped MCL-CA, CORE                        Having said  note MCL-CAw ranked COACH comparisons affinity-scored net-                 algorithms scored networks, works methods assume unweighted net-                    MCL-CAw responded reasonably works inputs.  results                  considered affinity scoring schemes.
+older methods MCODE Bader Hogue                            ranked different affinity-scored networks
+(2003) [8] RNSC King et al. (2004) [39], instead               based F1 measures offered complex detec-
+include MCL comparisons, MCL                     tion algorithms, shown Tables 16 17. significantly outperforms methods [16,38].                      table shows Consolidated3.19 network offered
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                                  Page 13 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 4 MCL-CAw performed considerably better MCL presence natural noise
+    PPI Network                #Proteins         #Interactions          Avg node deg               #Derived MCL            complexes (Recall) MCL-CAw
+      Consol3.19                 1622                   9704                 11.96                   79 (0.545)                       82 (0.566)
+     Consol0.623                 5423               102393                   37.76                   74 (0.321)                       84 (0.375)
+    ICD(Cons3.19)                1161                   8688                 14.96                   58 (0.408)                       63 (0.443)
+    ICD(Cons0.623)               1273               19996                    31.41                   52 (0.353)                       56 (0.381)
+    FSW(Cons3.19)                1123                   8694                 15.48                   59 (0.401)                       65 (0.442)
+   FSW(Cons0.623)                1341               20696                    30.87                   54 (0.360)                       57 (0.380) Consolidated3.19 Consolidated0.623 networks subsets Consolidated network [11] derived PE cut-offs 3.19 0.623, respectively. ran
+ICD FSW schemes networks. Consolidated0.623 significant false positives  81 ) discarded scoring. performance MCL-CAw marginally better MCL Consolidated3.19, MCL-CAw performed considerably better MCL “more noisy�?
+Consolidated0.623.
+
+ best F1 measures algorithms, followed                           orthologous proteins organisms like fly, mouse
+FSW(Gavin+Krogan), ICD(Gavin+Krogan) Boot-                                    human), based genetic (gene fusion,
+strap0.094 networks  detailed calculations pre-                           chromosomal proximity, gene evolution) func-
+sented Additional files 2, Table S8). agreed                         tional (traits neighbors, neighbors neighbors, ) fact Consolidated 3.19 network                              associations; downloaded Predictome database
+shown TP/FP ratio comparable small-scale                             [40]http://cagt.bu.edu/page/Predictome_about. experiments MIPS, high                             used generate Inferred network (Table 1).
+quality [11].                                                                     augmented Gavin+Krogan network                                                                                   interactions generate Gavin+Krogan
+Impact augmenting physical PPI networks                                   +Inferred network scored versions, ICD
+computationally inferred interactions                                             (Gavin+Krogan+Inferred) FSW(Gavin+Krogan set experiments, studied augment-                           +Inferred) networks (Table 1).
+ing physical PPI networks inferred interactions                             evaluated MCL, MCL-CAw, CMC HACO improved performance complex detection algo-                               augmented networks (Table 18). algo-
+rithms. gathered interactions yeast comprising                           rithms displayed low precision recall values inferred interlogs (inferred interactions                            Inferred network, indicating inferred
+
+Table 5   Impact introducing different levels artificial noise MCL MCL-CAw (ii) Role affinity scoring reducing impact noise
+ Method              PPI                   #Predicted            #Matched             Precisions          #Derivable                 #Derived            Recall
+                   Network                 complexes             predictions                             benchmarks                 benchmarks
+   MCL                G+K                     242                      55                0.226                182                        62              0.338
+               G+K+Rand2k                     265                      56                0.215                182                        64              0.352
+               G+K+Rand5k                     274                      61                0.223                182                        68              0.379
+               G+K+Rand10k                    316                      64                0.202                182                        69              0.379
+                    ICD(G+K)                  119                      73                0.613                153                        73              0.477
+             ICD(G+K+Rand2k)                  104                      59                0.567                153                        66              0.431
+             ICD(G+K+Rand5k)                  108                      60                0.546                151                        65              0.430
+                    ICD(G+K                   112                      60                0.546                150                        65              0.433
+                   +Rand10k)
+MCL-CAw           G+K                         310                      77                0.248                182                        77              0.423
+               G+K+Rand2k                     140                      59                0.421                182                        68              0.374
+               G+K+Rand5k                     116                      62                0.534                182                        70              0.384
+               G+K+Rand10k                    176                      64                0.363                182                        68              0.373
+                    ICD(G+K)                  129                      80                0.620                153                        80              0.523
+             ICD(G+K+Rand2k)                  102                      62                0.608                153                        73              0.477
+             ICD(G+K+Rand5k)                  102                      64                0.627                151                        76              0.503
+                    ICD(G+K                   106                      64                0.603                150                        76              0.506
+                   +Rand10k) Gavin+Krogan network introduced 2000 - 10000 (10  75 ) random interactions. Following  noisy networks scored using ICD
+scheme. aid scoring, MCL-CAw able perform better MCL 50  random noise.
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                                   Page 14 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 6 localization scores predicted components                                   Cytoscape visualization environment http://www. MCL MCL-CAw                                                                      cytoscape.org/[41].
+                                          localization scores                          Instances correctly predicted complexes MCL-CAw
+  PPI Network               MCL              MCL-CAw              MCL-CAw                 example attachment protein shared
+                          clusters            cores              complexes                predicted complexes MCL-CAw.   Gavin+Krogan             0.730                0.890                 0.866               subunits predicted complexes (Id# 57 22)
+    ICD(Gavin              0.830                0.936                 0.912               make Compass complex involved telomeric
+     +Krogan)
+                                                                                          silencing gene expression [42], mRNA clea-
+   FSW(Gavin               0.830                0.931                 0.912
+    +Krogan)
+                                                                                          vage polyadenylation specificity factor, complex
+ Consolidated3.19          0.790                0.923                 0.908
+                                                                                          involved RNAP II transcription termination [43].   Bootstrap0.094           0.788                0.895                 0.874
+                                                                                          shared attachment Swd2 (Ykl018w) formed high confi-
+                                                                                          dence connections subunits predicted
+Findings:   complexes produced CA-refinement showed higher
+scores MCL; (ii) complexes predicted scored                    complexes. basis, post-processing procedure
+networks showed higher scores Gavin+Krogan network; (iii)               assigned Swd2 (Ykl018w) predicted complexes,
+cores MCL-CAw showed higher scores complexes.
+                                                                                          agreement available evidence [44] Swd2
+                                                                                          (Ykl018w) belongs Compass mRNA clea-
+interactions sufficient predict mean-                                   vage complexes. example illustrates case
+ingful complexes. Interestingly, algorithms dis-                                     new protein predicted subunit played marginal dip performance Gavin                                         known complex. attachment protein Ski7 (Yor076c)
++Krogan+Inferred compared Gavin+Krogan. dip                                       included predicted complex (Id# 28) performance explained analysis                                       matched Exosome complex involved RNA proces- augmented-scored networks, ICD(Gavin+Krogan                                           sing degradation [45]. Additionally, Ski7 (Yor076c)
++Inferred) FSW(Gavin+Krogan+Inferred).                                           included prediction (Id# 105) matching
+algorithms showed higher precision recall                                    Ski complex (Additional files 1, Figure S2).  augmented-scored networks compared Gavin                                           Ski complex Wodak lab catalogue [29] did
++Krogan Gavin+Krogan+Inferred. indicates                                         include new protein. literature survey augmenting raw inferred interactions gave lit-                                  suggested Ski7 acts mediator Ski
+tle benefit presence false positives (noise),                               Exosome complexes 3’ 5’ mRNA decay scoring augmented networks helped improve                                      yeast [46].
+precision recall values algorithms.                                              RNA polymerase  II, III complexes                                                                                            called Pol  II, III, respectively) required depth analysis individual predicted complexes                                       generation RNA chains [47]. Wodak lab facilitate analysis individual predicted                                    catalogue [29], complexes share subunits:
+complexes, mapped complexes corre-                                     Yor224c, Ybr154c, Yor210w Ypr187w, Pol sponding PPI networks examined interactions                                       Pol III share Ynl113w Ypr110c. components complex,                                        extensive sharing subunits, corresponding predic- components given complex pro-                                      tions grouped large cluster teins network. performed analysis using                                    MCL. hand, MCL-CAw segregated 
+
+Table 7 Existing complex detection methods selected comparisons MCL-CAw
+                                                                                           Method
+  Property          MCL               MCL-CA                  MCLO                 CORE               COACH                   CMC                  HACO
+  Principle        Flow           Core-attach            MCL cluster       Core-attach      Core-attach          Maximal clique           Hier agglo
+                simulation     refinement              overlaps            p-values          dense                 merging               cluster                                      MCL                                                         neighborhood                                      overlaps
+  Scored            Yes                                      Yes                                                      Yes                   Yes
+ Networks
+Unassigned                            Yes                                     Yes                 Yes                    Yes                   Yes
+ Proteins
+Parameters      Inflation           Inflation       Inflation , Overlap        /                  Filter t    Merge m, Overlap t, Min       UPGMA
+ (default)        = 2.5)              = 2.5)          b (2.5, 1.0, 0.5)                        (t = 0.225)     clust size (0.5, 0.25, 4)   cutoff (0.2)
+References      Dongen               Srihari et al.          Pu et al.          Leung et al.        Wu Min et al.           Liu et al.           Wang et al.
+                2000 [18]             2009 [28]              2007 [20]           2009 [24]           2009 [25]              2009 [16]             2009 [21]
+CORE (2009), COACH (2009), MCL-CA (2009) compared MCL-CAw unscored Gavin+Krogan network, MCL (2000, 2002), MCLO
+(2007), CMC (2009) HACO (2009) evaluated scored networks.
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                                       Page 15 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 8 Comparisons different methods                                   Table 10 Comparisons different methods unscored Gavin+Krogan network                                                      FSW(Gavin+Krogan) network
+                                                 Method                                                                                Method
+                        MCL MCL- MCL- COACH CORE CMC HACO                                                          MCL     MCLO       MCL-CAw       CMC      HACO
+                             CA CAw
+                                                                                                  #Predicted       120       108         117         176       99
+          #Predicted    242        219     310    447      386        113      278
+                                                                                       Wodak      #Matched          69       61           72         76        68
+Wodak #Matched           55         49      77     62       83        60          78   (#153)
+(#182)                                                                                            Precision       0.575     0.564       0.615       0.432     0.687
+          Precision     0.226 0.224 0.248         0.139    0.215 0.531 0.281                      #Derived         78        72           83          84        77
+          #Derived       62    49    77            49       83    60     85                       Recall          0.510     0.471       0.542       0.549     0.503
+          Recall        0.338 0.269 0.423         0.269    0.456 0.330 0.467
+                                                                                         MIPS     #Matched          46       42           48         49        42
+ MIPS #Matched           35         42      53     45       59        41          45    (#151)
+(#177)                                                                                            Precision       0.383     0.388       0.410       0.278     0.424
+          Precision     0.143 0.192 0.171         0.101    0.153 0.363 0.162                      #Derived          61       55           66         65        56
+          #Derived       40         42      53     38       59        41          57              Recall          0.404     0.364       0.437       0.430     0.371
+          Recall        0.226 0.237 0.300         0.215    0.333 0.232 0.322
+                                                                                        Aloy      #Matched          57       56           60         59        53
+ Aloy     #Matched       43         41      52     54       59        43          59    (#75)
+ (#76)                                                                                            Precision       0.475     0.518       0.513       0.335     0.535
+          Precision     0.179 0.187 0.168         0.121    0.153 0.381 0.212                      #Derived          57       56           60         57        53
+          #Derived       42         41      52     37       59        43          59              Recall          0.760     0.747       0.800       0.760     0.707
+          Recall        0.556 0.539 0.684         0.487    0.776 0.566 0.776
+                                                                                       Methods considered: MCL, MCLO, MCL-CAw, CMC HACO. HACO
+Methods considered: MCL, MCL-CA, MCL-CAw, COACH, CORE, CMC HACO.                   performed best terms precision, MCL-CAw CMC performed
+CMC performed best terms precision, HACO CORE                      best terms recall. MCL-CAw close second terms precision.
+performed best terms recall. MCL-CAw stood                #Matched: #Predictions matching benchmark complex(es). #Derived:
+seven algorithms precision recall. #Matched: #Predictions                  #Benchmark complexes derived predicted complex(es).
+matching benchmark complex(es). #Derived: #Benchmark complexes                    FSW(Gavin+Krogan) network.
+derived predicted complex(es).                                                 #Proteins 1628; #Interactions 8688. unscored Gavin+Krogan network.
+#Proteins 2964; #Interactions 13507.
+
+
+
+Table 9 Comparisons different methods ICD(Gavin+Krogan) network                                                          Table 11 Comparisons different methods                                                                                        Consolidated3.19 network
+                                                 Method
+                           MCL           MCLO    MCL-CAw     CMC           HACO                                                        Method
+                                                                                                                   MCL     MCLO       MCL-CAw       CMC      HACO
+           #Predicted         136        121       129        171           104
+                                                                                                  #Predicted       116       119         122         77       101
+Wodak      #Matched           68          73        80           86          68
+(#153)                                                                                 Wodak      #Matched          70       80           82         67        57
+           Precision       0.500         0.603    0.620      0.503          0.654      (#145)
+           #Derived           76          73        80           86          76                   Precision       0.603     0.672       0.672       0.870     0.564
+           Recall          0.497         0.477    0.523      0.562          0.497                 #Derived          79       80           82         67        64
+                                                                                                  Recall          0.545     0.552       0.566       0.462     0.441
+  MIPS’    #Matched           47          56        63           65          41
+ (#151)                                                                                  MIPS     #Matched          48       65           68         56        40
+           Precision       0.346         0.463    0.488      0.380          0.394       (#157)
+           #Derived           60          56        63           65          55                   Precision       0.414     0.546       0.557       0.727     0.396
+           Recall          0.397         0.371    0.417      0.430          0.364                 #Derived          63       65           68         56        57
+                                                                                                  Recall          0.401     0.414       0.433       0.357     0.363
+ Aloy      #Matched           58          56        59           59          53
+ (#75)                                                                                  Aloy      #Matched          54       56           57         45        44
+           Precision       0.426         0.463    0.457      0.345          0.510       (#76)
+           #Derived         56            56       59          59             53                  Precision       0.466     0.471       0.467       0.584     0.436
+           Recall          0.747         0.747    0.787      0.787          0.707                 #Derived          55       56           57         45        45
+                                                                                                  Recall          0.724     0.737       0.750       0.592     0.592
+Methods considered: MCL, MCLO, MCL-CAw, CMC HACO. HACO
+performed best terms precision, CMC performed best              Methods considered: MCL, MCLO, MCL-CAw, CMC HACO. CMC performed
+terms recall. MCL-CAw close second precision recall.              best terms precision, MCL-CAw performed best recall.
+#Matched: #Predictions matching benchmark complex(es). #Derived:                  #Matched: #Predictions matching benchmark complex(es). #Derived:
+#Benchmark complexes derived predicted complex(es).                            #Benchmark complexes derived predicted complex(es). ICD(Gavin+Krogan) network.                                                         Consolidated3.19 network.
+#Proteins 1628; #Interactions 8707.                                                    #Proteins 1622; #Interactions 9704.
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                Page 16 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 12 Comparisons different methods                          Instances depicting mistakes predictions MCL-CAw Bootstrap0.094 network                                                     discuss interesting case sharing
+                                                Method                         subunits extensive web interactions
+                            MCL     MCLO       MCL-CAw       CMC      HACO     dense separating smaller subsumed
+           #Predicted       203       204         199         203      127     complexes purely basis interaction informa-
+Wodak      #Matched          76       76           79         110       80     tion harder. amalgamation (#172)                                                                         clusters matching SAGA, SAGA-like (SLIK), ADA
+           Precision       0.374     0.372       0.397       0.542     0.630   TFIID complexes. Based Wodak lab catalogue
+           #Derived         85        85          88          106        90    [29], 20 subunits making SAGA complex
+           Recall          0.494     0.494       0.512       0.616     0.523   involved transcriptional regulation [50] include   MIPS     #Matched          44       45           47          67       49     subunits (Ygr252w, Ydr176w, Ydr448w, Ypl254w)  (#168)                                                                        members ADA complex [51]  Sixteen
+           Precision       0.271     0.220       0.236       0.330     0.386   components SAGA complex including            #Derived          56       57           59          69       63     shared ADA complex, components
+           Recall          0.333     0.339       0.351       0.411     0.375   SLIK complex [52]. Additionally, subunits
+ Aloy      #Matched          56       55           57          76       59     (Ybr198c, Ygl112c, Ymr236w, Ydr167w, Ydr145w)  (#76)                                                                         SAGA complex belong TFIID complex [50].
+           Precision       0.276     0.269       0.286       0.374     0.465   extensive sharing subunits involved            #Derived          55       55           58          63       60     dense web interactions (436 interactions 31
+           Recall          0.724     0.723       0.763       0.829     0.789   constituent proteins, seen ICD(Gavin+Krogan)
+Methods considered: MCL, MCLO, MCL-CAw, CMC HACO. HACO                     network), MCL-CAw able segregate performed best terms precision, CMC performed best terms recall. MCL-CAw positioned precision recall.    distinct complexes - SAGA (0.708) SLIK (0.625). #Matched: #Predictions matching benchmark complex(es). #Derived:          clusters matching TFIID ADA remained amalga-
+#Benchmark complexes derived predicted complex(es).
+                                                                               mated  set analysis, compared Bootstrap0.094 network.
+#Proteins 2719; #Interactions 10290.
+                                                                               derived complexes Gavin+Krogan                                                                                ICD(Gavin+Krogan) networks, identified cases                                                                                MCL-CAw missed proteins com-
+large cluster independent complexes,                          plexes affinity scoring. Wodak, MIPS
+matched Pol  Pol II Pol III complexes                           Aloy reference sets, 13, 18 16 com-
+accuracies 0.714, 0.734 0.824, respectively.                            plexes, respectively, derived better accura-
+  addition cases, good fraction                       cies Gavin+Krogan network ICD
+known core-attachment structures (reported                              (Gavin+Krogan) network.  6, 2 2
+supplementary materials Gavin et al. [6])                          complexes, respectively, derived firmed, putative complexes identified (pre-                           Gavin+Krogan network, missed totally ICD
+paration compendium currently progress).                               (Gavin+Krogan) network. Table 19 shows sample examples worth quoting  predicted                            complexes Wodak reference set. complex id# 44 closely matched HOPS complex.                               complexes derived lower accuracies cores {Ylr148w, Ylr396c, Ymr231w, Ypl045w,                            (upper half Table 19), MCL-CAw missed Yal002w} attachments {Ydr080w, Ydl077c}                                proteins low scores assigned corresponding covered matched reported Gavin et                           interactions. example, predicted complex al. Biological experiments cores                        ICD(Gavin+Krogan) network matching SWI/SNF
+function vacuole protein sorting, help                         complex, proteins (Ymr033w Ypr034w) of attachments, complex perform homotypic                              missed ones absent weak 
+vacuole fusion [48]. identified ubiquitin ligase                        nections rest members; instead, pro-
+ERAD-L complex comprising Yos9(Ydr057w), Hrd3                               teins present prediction matching RSC
+(Ylr207w), Usa1 (Yml029w) Hrd1 (Yol013c)                           complex. Gavin+Krogan network, pro-
+involved degradation ER proteins [49].                          teins shared complexes matching matched Hrd1/Hrd3 purified Gavin et al.                            SWI/SNF RSC complexes, agreed subunits {Oca4, Oca5, Siw14, Oca1} predicted                              Wodak catalogue [29].
+novel complex (Id# 66) showed high similarity func-                           cases MCL-CAw completely missed
+tions (oxidant-induced cell-cycle arrest) localiza-                        complexes scored network (lower half tion (cytoplasmic) verified SGD [33].                             Table 19), interesting note MCL-CAw complex exactly matched putative complex 490                            pulled additional (noisy) proteins attachments
+Gavin et al.                                                                   predicted complexes, caused  Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                  Page 17 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+ Figure 7 Comparison complex detection algorithms unscored Gavin+Krogan network.  : Precision versus recall curves area-
+ curve (AUC) values complex detection algorithms unscored Gavin+Krogan network, evaluated Wodak reference t =
+ 0.5. AUC MCL = 0.225, COACH = 0.169, CORE = 0.361, MCL-CAw = 0.323, CMC = 0.271, MCL-CA = 0.238, HACO = 0.136. (b): Number  predicted complexes, proportion true positives (correctly matched benchmark(s)) false positives  matched benchmark)  algorithms.
+
+
+accuracies drop 0.5. case pre-               lower accuracy 0.4. core proteins dicted complex id#36 matching eIF3 complex                    similar annotations (involvement translation, loca-
+low Jaccard score 0.4. eIF3 complex Wodak                    lized cytoplasm ribosomal subunit) [34]. ana-
+lab consisted 7 proteins: Yor361c, Ylr192c, Ybr079c,                  lysing annotations 8 attachment proteins,
+Ymr309c, Ydr429c, Ymr012w Ymr146c. pre-                          noticed (Ymr146c) anno-
+dicted complex id#66 Gavin+Krogan network                       tation core proteins. eIF3
+consisted 8 proteins (Figure 9): 5 cores (Yor361c,                    complex Wodak lab [29]. remaining 7
+Ylr192c, Ybr079c, Ymr309c, Ydr429c) 3 attachments                    attachment proteins, (Ypr041w, Ynl244c, Yml063w,
+(Yor096w, Yal035w, Ydr091c).  2                     Yjl190c, Ydr091c) related annotations (transla-
+missed 3 additional proteins prediction, lead-                tion initiation, GTPase activity, cytoplasmic, ribosomal
+ing accuracy 0.5. predicted complex id#36                   subunit) core proteins. literature search revealed ICD(Gavin+Krogan) network consisted 14                       proteins belonged multi-eIF initiation
+proteins: 6 cores (Yor361c, Ylr192c, Ybr079c, Ymr309c,                   factor conglomerate (containing eIF1, eIF2, eIF3 Ydr429c, Yor096w) 8 attachments (Yal035w,                            eIF5) 40 S ribosomal subunit involved transla-
+Ydr091c, Yjl190c, Yml063w, Ymr146c, Ynl244c,                             tion [29]. remaining (Yal035w, Yor204w) Yor204w, Ypr041w).  1 missed                    involved translation activity, absent 8 additional proteins prediction, leading              Wodak lab catalogue. potentially new
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                               Page 18 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+  Figure 8 Comparison complex detection algorithms scored networks. Precision versus recall curves area curve
+  (AUC) values complex detection algorithms evaluated Wodak reference t = 0.5.   ICD(Gavin+Krogan): AUC values MCL = 0.436,
+  CMC = 0.494, MCL-CAw = 0.472, MCLO = 0.435, HACO = 0.305. (b) FSW(Gavin+Krogan): AUC values MCL = 0.431, CMC = 0.481, MCL-CAw =
+  0.487, MCLO = 0.430, HACO = 0.461. (c) Consolidated3.19: AUC values MCL = 0.469, CMC = 0.399, MCL-CAw = 0.488, MCLO = 0.463, HACO =
+  0.367. (d) Bootstrap0.094: AUC values MCL = 0.349, CMC = 0.513, MCL-CAw = 0.389, MCLO = 0.353, HACO = 0.317.
+
+
+
+proteins belonging eIF3 related complexes,                  example illustrates carefully incorporating infor-
+need investigated. analysed                  mation algorithm include filter pro-
+annotations level-1 neighbors predicted                     teins useful cases making decisions
+complex seen network, annota-                     solely based interaction information difficult.
+tions similar proteins network.                                                                           Correlation essentiality proteins                                                                           ability form complexes
+Table 13 Area curve (AUC) values precision
+                                                                          Early works Jeong et al. [53] Han et al. [54] stu-
+versus recall curves complex detection methods unscored scored PPI networks                                      died essentialities proteins based pairwise inter-
+                                                                          actions interaction network, concluded
+PPI           MCL MCLO         MCL-      CMC HACO COACH CORE
+network                        CAw                                        hub (high-degree) proteins likely G+K           0.225            0.323     0.271   0.136    0.169   0.361   essential. formed criteria “cen-
+                                                                          trality-lethality�? rule [53].  deeper insight ICD(G+K)      0.436 0.435      0.472     0.494 0.305
+                                                                          obtained studying essentialities cluster FSW(G+K)      0.431 0.430      0.487     0.481   0.461
+                                                                          group level proteins pairwise interactions.
+Consol3.19    0.469 0.463      0.488     0.399   0.367
+                                                                          Recently, Zotenko et al. [55] argued essential pro-
+Boot0.094     0.349 0.353      0.389     0.513 0.317
+                                                                          teins group densely connected sets Considering ± 5  error AUC values, CORE showed highest value unscored network, MCL-CAw CMC showed overall highest                                                                           proteins performing essential functions, scored networks.                                                      involved higher number interactions resulting  Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                              Page 19 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 14 Relative ranking complex detection algorithms unscored affinity-scored networks
+PPI network                                           Wodak                       MIPS                         Aloy
+                      Method                   F1             Norm         F1            Norm           F1            Norm          Total       Norm
+G+K                   CMC                     0.407           1.000       0.283          1.000         0.455          1.000         3.000        1.000
+                      HACO                    0.351           0.862       0.216          0.761         0.333          0.731         2.355        0.785
+                      MCL-CAw                 0.313           0.768       0.218          0.770         0.270          0.592         2.130        0.710
+                      CORE                    0.292           0.718       0.210          0.741         0.256          0.561         2.020        0.673
+                      MCL                     0.271           0.665       0.175          0.619         0.271          0.595         1.879        0.626
+                      MCL-CA                  0.244           0.601       0.212          0.749         0.278          0.610         1.960        0.653
+                      COACH                   0.183           0.450       0.137          0.486         0.194          0.426         1.361        0.454
+ICD(G+K)              MCL-CAw                 0.567           1.000       0.450          1.000         0.578          0.976         2.976        1.000
+                      HACO                    0.565           0.995       0.378          0.841         0.593          1.000         2.837        0.953
+                      MCLO                    0.533           0.939       0.412          0.916         0.572          0.965         2.820        0.947
+                      CMC                     0.531           0.936       0.403          0.897         0.480          0.810         2.642        0.888
+                      MCL                     0.498           0.879       0.370          0.822         0.543          0.916         2.616        0.879
+FSW(G+K)              MCL-CAw                 0.576           0.992       0.423          1.000         0.625          1.000         2.992        1.000
+                      HACO                    0.581           1.000       0.396          0.935         0.609          0.974         2.910        0.972
+                      MCL                     0.541           0.931       0.393          0.929         0.585          0.935         2.795        0.934
+                      MCLO                    0.513           0.884       0.376          0.888         0.612          0.979         2.750        0.919
+                      CMC                     0.484           0.833       0.338          0.798         0.465          0.744         2.375        0.794
+Cons3.19              MCL-CAw                 0.614           1.000       0.487          1.000         0.576          0.979         2.979        1.000
+                      MCLO                    0.606           0.986       0.471          0.967         0.575          0.977         2.930        0.984
+                      CMC                     0.604           0.982       0.479          0.983         0.588          1.000         2.965        0.995
+                      MCL                     0.573           0.932       0.407          0.836         0.567          0.964         2.732        0.917
+                      HACO                    0.475           0.774       0.379          0.777         0.502          0.854         2.405        0.807
+Boot0.094             HACO                    0.572           0.991       0.380          1.000         0.585          1.000         2.991        1.000
+                      CMC                     0.577           1.000       0.367          0.965         0.515          0.881         2.846        0.952
+                      MCL-CAw                 0.447           0.776       0.282          0.742         0.416          0.711         2.229        0.745
+                      MCL                     0.426           0.738       0.299          0.785         0.400          0.683         2.207        0.738
+                      MCLO                    0.424           0.736       0.267          0.701         0.392          0.670         2.108        0.705
+Ranking obtained normalized F1 values. G+K network unscored, remaining scored using affinity scoring schemes.
+
+
+
+
+Table 15 Overall relative ranking complex detection                            hubness property.  hubness just algorithms unscored affinity-scored networks                               indirect indicator protein essentiality. recently,
+Category          Method         Relative score         Normalized score          Kang et al. [56] studied essentiality proteins gener-
+Unscored            CMC               3.000                     1.000             ating reverse neighbor (RNN) topology [57]                    HACO               2.355                     0.785             protein networks. topology groups proteins
+                 MCL-CAw              2.130                     0.710             reverse neighborhood                   CORE                2.020                     0.673             given protein. Kang et al. concluded centrality                     MCL               1.879                     0.626             RNN topology better estimator essentiality
+                  MCL-CA              1.960                     0.653             hubness degree interaction network. Stu-
+                  COACH               1.361                     0.454             dies Hart et al. [12] showed essential proteins Scored           MCL-CAw              3.745                     1.000             concentrated certain complexes, resulting                    HACO               3.733                     0.997             dichotomy essential non-essential complexes.
+                   CMC                3.628                     0.969             Wang et al. [21] concluded size (largest)
+                   MCLO               3.555                     0.949             recruiting complex protein better indicator
+                    MCL               3.468                     0.926             protein essentiality hubness.
+Ranking obtained normalized F1 values.
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                    Page 20 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 16 Relative ranking affinity scoring schemes complex detection
+PPI network                                           Wodak                       MIPS                     Aloy
+                     Method                    F1             Norm         F1            Norm       F1            Norm    Total       Norm
+MCL                  Cons3.19                 0.573           1.000       0.407          1.000     0.567          0.970   2.970        1.000
+                     FSW(G+K)                 0.541           0.944       0.393          0.965     0.585          1.000   2.909        0.980
+                     ICD(G+K)                 0.498           0.871       0.370          0.908     0.543          0.928   2.706        0.911
+                     Boot0.094                0.426           0.744       0.299          0.733     0.400          0.684   2.161        0.728
+MCLO                 Cons3.19                 0.606           1.000       0.471          1.000     0.575          0.939   2.939        1.000
+                     ICD(G+K)                 0.533           0.879       0.412          0.875     0.572          0.934   2.688        0.914
+                     FSW(G+K)                 0.513           0.847       0.376          0.798     0.612          1.000   2.645        0.900
+                     Boot0.094                0.424           0.700       0.267          0.567     0.392          0.641   1.908        0.649
+MCL-CAw              Cons3.19                 0.614           1.000       0.487          1.000     0.576          0.921   2.921        1.000
+                     FSW(G+K)                 0.576           0.938       0.423          0.868     0.625          1.000   2.806        0.961
+                     ICD(G+K)                 0.567           0.923       0.450          0.923     0.578          0.925   2.771        0.949
+                     Boot0.094                0.447           0.728       0.282          0.579     0.416          0.666   1.973        0.675
+CMC                  Cons3.19                 0.604           1.000       0.479          1.000     0.588          1.000   3.000        1.000
+                     Boot0.094                0.577           0.955       0.366          0.764     0.515          0.877   2.597        0.866
+                     ICD(G+K)                 0.531           0.880       0.403          0.843     0.480          0.816   2.538        0.846
+                     FSW(G+K)                 0.484           0.801       0.338          0.705     0.465          0.791   2.297        0.766
+HACO                 FSW(G+K)                 0.581           1.000       0.396          1.000     0.609          1.000   3.000        1.000
+                     Boot0.094                0.572           0.984       0.380          0.961     0.585          0.961   2.906        0.969
+                     ICD(G+K)                 0.565           0.972       0.378          0.956     0.593          0.973   2.902        0.967
+                     Cons3.19                 0.495           0.852       0.379          0.957     0.502          0.824   2.634        0.878
+Ranking obtained normalized F1 values.
+
+
+  work, attempt understand relation-                             10(b) shows essential proteins present higher
+ship essentiality proteins ability                       proportions higher ranked complexes. form complexes. Table 20 shows high propor-                             figures hint finding: essential proteins come
+tion (77.65 , 78.03 , 81.34  76.35  ICD                              large groups perform essential functions.
+(Gavin+Krogan), FSW (Gavin+Krogan), Consolidated3.19 Bootstrap0.094 networks, respectively) essential                           Discussion
+proteins present affinity-scored networks                             spite advances computational approaches belonged correctly predicted complex.                            derive complexes, high-accuracy reconstruction com- indicated essential proteins members                          plexes remained challenging task. deriving complexes clustered groups proteins.                                  protein complexes PPI networks, key assumption
+  analyse ability essential proteins                        computational approaches com-
+form complexes groups, binned correctly pre-                            plexes form densely connected regions net-
+dicted complexes based sizes calculated                          works.  approaches attempt cluster
+proportion essential proteins complexes                        networks based measures related connectiv-
+bin (like [21]). Figure 10  shows essential pro-                        ities proteins network. approaches
+teins present higher proportions larger                            like MCL simulate random walks (called flow) iden-
+complexes. calculated proportion essen-                            tify dense regions, like CMC merge maxi-
+tial proteins K ranked complexes. Figure                           mal cliques larger dense clusters.                                                                                    performance methods varies widely depending
+                                                                                  network densities. glance Tables 8 12
+Table 17 Overall relative ranking affinity scoring                             reveals methods considered comparison
+schemes complex detection                                                     work achieve low recall MIPS set
+Scored network              Relative score             Normalized score           compared Wodak Aloy sets. Table 2 shows
+Cons3.19                         4.878                        1.000               average density complexes MIPS FSW(G+K)                         4.606                        0.944               lower Wodak Aloy sets. 52 ICD(G+K)                         4.588                        0.941               137 (37.95 ) derivable MIPS complexes size ≥ 5
+Boot0.094                        3.886                        0.797               detected Gavin+Krogan network Ranking obtained normalized F1 values.                                       methods  analysed remaining 85
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                                  Page 21 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+Table 18 Impact augmenting inferred interactions performance MCL, MCL-CAw, CMC HACO
+Method        PPI Network #Predicted complexes #Matched predictions Precision #Derivable benchmarks #Derived benchmarks Recall
+  MCL            G+K                   242                         55                   0.226               182                           62              0.338
+                                      50                          2                   0.040               31                              3             0.097
+                G+K                  249                         55                   0.221               189                           58              0.307
+              ICD(G+K                115                         53                   0.461               156                           58              0.372
+              FSW(G+K                 89                         54                   0.607               141                           61              0.433
+MCL-Caw          G+K                   310                         77                   0.248               182                           77              0.423
+                                      42                          2                   0.048               31                              3             0.097
+                G+K                  315                         78                   0.247               189                           78              0.412
+              ICD(G+K                118                         82                   0.694               156                           82              0.525
+              FSW(G+K                 95                         84                   0.884               141                           84              0.596
+  CMC            G+K                   113                         60                   0.531               182                           60              0.330
+                                      10                          3                   0.300               31                              5             0.161
+                G+K                  119                         60                   0.504               189                           63              0.333
+              ICD(G+K                184                         77                   0.418               156                           83              0.532
+              FSW(G+K                186                         74                   0.398               141                           80              0.567
+ HACO            G+K                   278                         78                   0.281               182                           85              0.467
+                                      12                          2                   0.167                31                            2              0.064
+                G+K                  309                         78                   0.252               189                           84              0.444
+              ICD(G+K                119                         66                   0.589               156                           75              0.481
+              FSW(G+K                 98                         61                   0.622               141                           70              0.496 algorithms showed marginal dip performance Gavin+Krogan+Inferred compared Gavin+Krogan.  scoring augmented network, performance better compared Gavin+Krogan. indicated inferred interactions useful complex detection provided affinity scoring employed reduce impact noise present 
+
+
+MIPS complexes                                comprising 17491 interactions 4932 proteins
+low densities (average 0.217) Gavin+Krogan                           giving low average node degree 7.092. MCL-CAw
+network. example, MIPS complex 440.30.10                                  able achieve marginal improvement (22.8 
+(involved mRNA splicing) went undetected                            higher precision 7.4  higher recall) MCL, methods 40 42 proteins present                            low average node degree DIP network. Gavin+Krogan network. 144 interac-                              experiments methods consid-
+tions 40 proteins, giving low density                            ered difficult uncover complexes 0.184 complex network. Continuing                             sparse. prompt rethink analysis, tested MCL MCL-CAw PPI                                 importance given model complexes dataset DIP http://dip.doe-mbi.ucla.edu,                                     dense regions PPI networks.
+
+
+Table 19 Complexes derived lesser accuracy missed MCL-CAw affinity scoring
+Matched benchmark complex            #Proteins complexes        #Incorrect proteins complexes ICD(G+K)           Accuracies (Jaccard scores)                   #Proteins        G+K            ICD(G+K)                  Missed                       Addnl                 G+K           ICD(G+K)
+Kornbergs SRB              25            24                23                       2                             0                 0.960           0.920
+SWI/SNF                    12            11                8                        4                             0                 0.769           0.667
+TRAPP                      10            10                9                        1                             0                 1.000           0.900
+19/22 S reg                22            20                27                       0                             5                 0.909           0.815
+TRAMP                      3              4                7                        0                             4                 0.750           0.429
+Alpha-1,6                  5              9                11                       0                             6                 0.556           0.455
+eIF3                       7              8                14                       1                             8                 0.500           0.400
+Protein phosp              3              5                9                        0                             4                 0.600           0.333
+Cdc73p/Paf1p               7              7                18                       0                             11                0.556           0.388
+Chs5p/Arf-1                6              8                10                       2                             6                 0.556           0.400 upper half shows sample complexes Wodak lab derived lower accuracies ICD(Gavin+Krogan) network compared Gavin
++Krogan network. lower half shows missed ICD(Gavin+Krogan) network. #Incorrect proteins ICD(Gavin+Krogan) network respect benchmark complexes.
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                                  Page 22 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+  Figure 9 Example complex missed MCL-CAw ICD(Gavin+Krogan) network, Gavin+Krogan
+  network. eIF3 complex Wodak lab consisted 7 proteins: Yor361c, Ylr192c, Ybr079c, Ymr309c, Ydr429c, Ymr012w Ymr146c.   predicted complex id#36 ICD(Gavin+Krogan) network consisted 14 proteins: 6 cores (Yor361c, Ylr192c, Ybr079c, Ymr309c, Ydr429c,
+  Yor096w) 8 attachments (Yal035w, Ydr091c, Yjl190c, Yml063w, Ymr146c, Ynl244c, Yor204w, Ypr041w).  1 missed 8
+  additional proteins prediction, leading low accuracy 0.4. Hexagonal (Orange): eIF3 complex Wodak lab. Circle (Orange, Yellow
+  Pink): Predicted complex id#36. Rectangle (Turquoise): Level-1 neighbors predicted complex id#36.
+
+
+  Apart limitations existing compu-                              temporal spatial variability complexes,
+tational methods, inherent difficulties                             repeated purifications using TAP/MS methods yield accumulation interactome data                               somewhat different “complex forms�? [20]. PPI net-
+make complex detection difficult. Complexes display                                works constructed purifications represent
+different lifetimes, compositions vary based                             probabilistic average picture yeast inter- cellular localizations (compartments) condi-                                actome [20].  complexes predicted tions. protein recruited different                              networks approximate actual complex
+complexes different times conditions.                                compositions.
+
+
+Table 20 Essential genes predicted complexes MCL-CAw
+                                                                    Number (Proportion) Essential genes present         PPI Network                  network                Predicted cores              Predicted complexes                 Matched predictions
+     ICD(Gavin+Krogan)                  604 (0.537)                  510 (0.454)                      552 (0.491)                        469 (0.417)
+    FSW(Gavin+Krogan)                   604 (0.537)                  510 (0.454)                      552 (0.491)                        470 (0.418)
+      Consolidated3.19                  611 (0.544)                  568 (0.506)                      576 (0.513)                        497 (0.442)
+       Bootstrap0.094                   757 (0.674)                  634 (0.564)                      676 (0.601)                        578 (0.514) figures brackets represent proportion essential genes present corresponding group 1123 total essential genes obtained Yeast Genome Deletion project [36,37].
+# Essential genes YDP: 1123
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                        Page 23 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+                                                                          attachment based refinement method coupled MCL                                                                           identify yeast complexes weighted PPI networks.
+                                                                          demonstrated algorithm (MCL-CAw) 
+                                                                          formed better MCL deriving meaningful yeast
+                                                                          complexes particularly presence natural noise.
+                                                                          showed MCL-CAw responded reasonably
+                                                                          considered affinity scoring schemes.                                                                           future work, intend improve prediction ability
+                                                                          algorithm incorporating information gene
+                                                                          annotations, gene expressions, literature mining                                                                           domain-domain interactions. intend extend
+                                                                          work predict complexes organisms                                                                           yeast. context, intend use MCL-CAw
+                                                                          model study existence  extent) core-attach-
+                                                                          ment modularity complexes organisms.
+
+                                                                          Availability
+                                                                          MCL-CAw software developed using PL/SQL                                                                           Oracle 10 g, using framework [58]. source
+                                                                          code, yeast PPI datasets, benchmark predicted yeast
+                                                                          complexes used work freely available                                                                           MCL-CAw project homepage hosted NUS server:
+                                                                          http://www.comp.nus.edu.sg/~leonghw/MCL-CAw/.
+
+                                                                          Additional material
+
+ Figure 10 Correlation essentiality proteins                Additional files 1: Additional figures tables: Figures core-
+ abilities form complexes.  : Proportion essential           attachment modularity illustration predicted complex MCL-
+ proteins complexes different sizes, predicted ICD          CAw. Tables setting MCL-CAw parameters, ranking complex
+ (Gavin+Krogan). Proportion essential proteins complex =           detection algorithms affinity-scored networks.
+ #essential proteins/total #proteins complex. (b): Proportion    Additional files 2: MCL-CAw software package: source code
+ essential proteins K ranked complexes.                         installation details MCL-CAw software.
+
+
+
+  limitation arises bias TAP/MS
+                                                                          Acknowledgements
+purifications complexes certain kind  exam-                like thank editor reviewers valuable
+ple, membrane-bound complexes). TAP/MS data                         comments suggestions; Sean Collins (UCSF) Caroline Friedel (LMU) acquired single condition (rich media),                     making available Consolidated [11] Bootstrap [17] networks,
+                                                                          respectively; Guimei Liu (NUS) Limsoon Wong (NUS) Iterative-CD,
+complexes present cell condi-                   FS Weight CMC softwares [14-16]; Henry Leung (HKU) Wu Min
+tion [21].  new experimental assays needed                  (NTU) CORE [24] COACH [25] softwares, respectively. work complexes reconstructed studied.                   supported National University Singapore ARF
+                                                                          grant R252-000-361-112.
+  Finally, S. cerevisiae used model
+organism eukaryotic interactome analysis, key                    Author details
+                                                                          1
+complexes specialized organisms (including                        Department Science, National University Singapore, 117590,
+                                                                          Singapore. 2Department Pathology, University Michigan, Ann Arbor, MI
+human) studied analysing interaction                   48109, USA. 3Qingdao Institute Bioenergy Bioprocess Technology,
+datasets specific organisms.                         Qingdao 266101, China.
+incompleteness interactome data organ-
+                                                                          Authors’ contributions
+isms makes reconstruction complexes difficult.                     SS conceived initial ideas discussed HWL KN. SS
+                                                                          devised algorithm, developed software, performed experiments
+Conclusion                                                                analysis, wrote revised manuscript. HWL supervised                                                                           project, advised SS, reviewed revised manuscript. KN took ultimate goal interactome analysis                     discussions helped reviewing manuscript. authors stand higher level organization cell. Recon-                   read approved manuscript.
+struction protein complexes serves building block
+                                                                          Received: 3 2010 Accepted: 12 October 2010 achieving goal. paper, inspired               Published: 12 October 2010
+findings Gavin et al. [6], developed novel core-
+ Srihari et al. BMC Bioinformatics 2010, 11:504                                                                                                       Page 24 25
+http://www.biomedcentral.com/1471-2105/11/504
+
+
+
+
+References                                                                         16. Liu G, Wong L, Chua HN: Complex discovery weighted PPI
+1. Ito T, Chiba T, Ozawa R, Yoshida M, Hattori M, Sakaki Y: comprehensive            networks. Bioinformatics 2009, 25:1891-1897.
+    hybrid analysis explore yeast protein interactome. Proc Natl        17. Friedel C, Krumsiek J, Zimmer R: Bootstrapping interactome:
+    Acad Sci 2001, 98:4569-4574.                                                       unsupervised identification protein complexes yeast. Research 2. Uetz P, Giot L, Cagney G, Traci  Judson R, Knight J, Lockshon D,                  Computational Molecular Biology (RECOMB) 2008, 3-16.
+    Narayan V, Srinivasan M, Pochart P, Emil QA, Li Y, Godwin B, Conover D,        18. Dongen S: Graph clustering flow simulation. PhD thesis University     Kalbfleisch T, Vijayadamodar G, Yang M, Johnston M, Fields S, Rothberg M:          Utrecht 2000.
+    comprehensive analysis protein-protein interactions                    19. Enright AJ, Dongen S, Ouzounis CA: efficient algorithm large-scale
+    Saccharomyces cerevisiae. Nature 2000, 403:623-627.                                detection protein families. Nucleic Acids Res 2002, 30(7):1575-1584.
+3. Rigaut G, Shevchenko  Rutz B, Wilm M, Mann M, Seraphin B: generic           20. Pu S, Vlasblom J, Emili  Greenbalt J, Wodak S: Identifying functional
+    protein purification method protein complex characterization               modules physical interactome Saccharomyces cerevisiae.
+    proteome exploration. Nature Biotechnol 1999, 17:1030-1032.                        Proteomics 2007, 7:944-960.
+4. Gavin AC, Bosche M, Krause R, Grandi P, Marzioch M, Bauer  Schultz J,         21. Wang H, kakaradov B, Collins SR, Karotki L, Fiedler D, Shales M, Shokat KM,
+    Rick JM, Michon  Cruciat CM, Remor M, Hofert C, Schelder M,                     Walter T, Krogan NJ, Koller D: complex-based reconstruction     Brajenovic M, Ruffner H, Merino  Klien K, Hudak M, Dickson D, Rudi T,            Saccharomyces cerevisiae interactome. Mol Cell Proteomics 2009,
+    Gnau V, Bauch  Bastuck S, Huhse B, Leutwin C, Heurtier MA, Copley RR,            8:1361-1377.
+    Edelmann  Rybin V, Drewes G, Raida M, Bouwmeester T, Bork P,                 22. Fridel C, Zimmer R: Identifying topology protein complexes     Sepharin B, Kuster B, Neubauer G, Furga GS: Functional organization         affinity purification assays. Systems Biology 2009, 25:2140-2146.
+    yeast proteome systematic analysis protein complexes. Nature             23. Voevodski K, Yu X: Spectral affinity protein networks. BMC Systems
+    2002, 415:141-147.                                                                 Biology 2009, 3:112.
+5. Ho Y, Gruhler  Heilbut  Bader G, Moore L, Adams SL, Millar  Taylor P,     24. Leung H, Xiang Q, Yiu SM, Chin FY: Predicting protein complexes     Bennet K, Boutlier K, Yang L, Wolting C, Donaldson  Schandorff S,                PPI data: core-attachment approach. Journal Comp Biology 2009,
+    Shewnarane J, Vo M, Taggart M, Gouderault M, Muskat B, Alfarano C,                 16:133-44.
+    Dewar D, Lin  Michalickova K, Willems AR, Sassi H, Nielson P,                25. Wu M, Li X, Ng SK: core-attachment based method detect protein
+    Rasmussen K, Anderson J, Johansen L, Hansen L, Jesperson H,                        complexes PPI networks. BMC Bioinformatics 2009, 10:169.
+    Podtelejnikov  Nielson E, Crawford J, Poulsen V, Sorensen B, Matthiesen J,   26. Mitrofanova  Farach-Colton M, Mishra B: Efficient robust prediction
+    Hendrickson RC, Gleeson F, Pawson T, Moran MF, Durocher D, Mann M,                 algorithms protein complexes using Gomory-Hu trees. Pacific
+    Hogue CWV, Figeys D, Tyers M: Systematic identification protein                 Symposium Biocomputing (PSB) 2009, 215-226.
+    complexes Saccharomyces cerevisiae mass spectrometry. Nature             27. Ozawa Y, Saito R, Fujimori S, Kashima H, Ishizaka M, Yanagawa H,
+    2002, 415:180-183.                                                                 Miyamoto-Sato E, Tomita M: Protein complex prediction verifying 6. Gavin AC, Aloy P, Grandi P, Krause R, Boesche M, Marzioch M, Rau C,                 reconstructing topology domain-domain interactions. BMC
+    Jensen LJ, Bastuck S, Dumpelfeld B, Edelmann  Heurtier MA, Hoffman V,            Bioinformatics 2010, 11:350.
+    Hoefert C, Klein K, Hudak M, Michon  Schelder M, Schirle M, Remor M,        28. Srihari S, Ning K, Leong HW: Refining Markov clustering protein
+    Rudi T, Hooper S, Bauer  Bouwmeester T, Casari G, Drewes G,                      complex detection incorporating core-attachment structure. Genome
+    Neubauer G, Rick JM, Kuster B, Bork P, Russel PB, Superti FG: Proteome             Informatics 2009, 23:159-168.
+    survey reveals modularity yeast cell machinery. Nature 2006,            29. Pu S, Wong J, Turner B, Cho E, Wodak S: date catalogues yeast
+    440:631-636.                                                                       protein complexes. Nucleic Acids Res 2009, 37(3):825-831.
+7. Krogan NJ, Cagney G, Yu H, Zhong G, Guo X, Ignatchenko  Li J, Pu S,           30. Mewes HW, Amid C, Arnold R, Frishman D, Guldener U, Mannhaupt G,
+    Datta N, Tikuisis  Punna T, Alverez JM, Shales M, Zhang X, Davey M,              Munsterkotter M, Pagel P, Strack N, Stumpflen V, Warfsmann J, Ruepp 
+    Robinson M, Paccanaro  Bray JE, Sheung  Beattie B, Richards D,                 MIPS: analysis annotation proteins genomes. Nucleic
+    Canadien V, Lalev  Mena F, Wong P, Sharostine  Canette M, Vlasblom J,          Acids Res 2006, 34:D169-D172.
+    Wu S, Orsi C, Collins SR, Chandran S, Haw R, Rilstone J, Gandi K,              31. Aloy P, Bottcher B, Ceulemans H, Mellwig C, Fischer S, Gavin AC, Bork P,
+    Thompson NJ, Musso G, Onge PS, Ghanny S, Lam M, Butland G, Altaf-Ul              Superti-Furga G, Serrano L, Russell RB: Structure-based assembly protein
+    Kanaya S, Shilatifard  Weissman J, Ingles J, Hughes TR, Parkinson J,             complexes yeast. Science 2004, 303:2026-2029.
+    Gerstein M, Wodak S, Emili  Greenblatt JF: Global landscape protein       32. Breitkreutz B, Stark C, Tyers M: GRID: General Repository     complexes yeast Saccharomyces cerevisiae. Nature 2006,                      Interaction Datasets. Genome Biology 2003, 4(3):R23.
+    440:637-643.                                                                   33. Cherry JM, Adler C, Chervitz SA, Dwight SS, Jia Y, Juvik G, Roe T,
+8. Bader GD, Hogue CWV: Analyzing yeast protein-protein interaction data               Schroeder M, Weng S, Botstein D: SGD: Saccharomyces Genome
+    obtained different sources. Nature Biotechnology 2002, 20:991-997.            Database. Nucleic Acids Res 1998, 26:73-79.
+9. von Mering C, Krause R, Snel B, Cornell M, Oliver SG, Fields S, Bork P:         34. Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry M, Davis AP,
+    Comparative assessment large-scale datasets protein-protein                  Dolinski K, Dwight SS, Epigg J, Harris MA, Hill DP, Issel-Tarver L, Kasarkis 
+    interactions. Nature 2002, 417:399-403.                                            Lewis S, Matase JC, Richardson J, Ringwald M, Rubin GM, Sherlock G: Gene
+10. Batada N, Hurst LD, Tyers M: Evolutionary physiological importance             ontology: tool unification biology. Nature Genetics 2000,
+    hub proteins. PLoS Comp Bio 2006, 2:e88.                                        25:25-29.
+11. Collins SR, Kemmeren P, Zhao XC, Greenbalt JF, Spencer F, Holstege F,          35. Zhou X, Kao MC, Wong WH: Transitive functional annotation shortest-
+    Weissman J, Krogan NJ: comprehensive atlas physical                path analysis gene expression data. Proc Natl Acad Sci 2002,
+    interactome Saccharomyces cerevisiae. Mol Cell Proteomics 2007,                 99:12783-8.
+    6:439-450.                                                                     36. Winzeler EA, Shoemaker DD, Astromoff  Liang H, Anderson K, Andre B,
+12. Hart G, Lee  Marcotte ER: high-accuracy consensus map yeast                 Bangham R, Benito R, Boeke JD, Bussey H, Chu  Connelly C, Davis K,
+    protein complexes reveals modular nature gene essentiality. BMC                 Dietrich F, Dow SW, Bakkoury E, Foury F, Friend SH, Gentalen E, Giaever G,
+    Bioinformatics 2007, 8:236-247.                                                    Hegemann JH, Jones T, Laub M, Liao H, Liebundguth N, Lockhart DJ,
+13. Zhang B, Park BH, Karpinets T, Samatova N: pull data                  Lucau-Danila  Lussier M, Menard P, Mittmann M, Pai C, Rebischung C,
+    protein interaction networks complexes biological relevance.              Revuelta JL, Riles L, Roberts CJ, Ross-MacDonald P, Scherens B, Snyder M,
+    Systems Biology 2008, 24:979-986.                                                  Sookhai-Mahadeo S, Storms RK, Veronneau S, Voet M, Volckaert G, Ward TR,
+14. Chua H, Ning K, Sung W, Leong H, Wong L: Using indirect protein-protein            Wysocki R, Yen GS, Yu K, Zimmermann K, Philippsen P, Johnston M,
+    interactions protein complex prediction. J Bioinformatics                  Davis RW: Functional characterization S. cerevisiae genome     Computational Biology 2008, 6:435-466.                                             gene deletion parallel analysis. Science 1999, 285:901-906.
+15. Liu G, Li J, Wong L: Assessing predicting protein interactions using       37. Giaever G, Chu  Ni L, Connelly C, Riles L, Veronneau S, Dow S, Lucau-
+    local global network topological metrics. Genome Informatics              Danila  Anderson K, Andre B, Arkin AP, Astromoff  El-Bakkoury M,
+    2008, 22:138-149.                                                                  Bangham R, Benito R, Brachat S, Campanaro S, Curtiss M, Davis K,
+                                                                                       Deutschbauer  Entian KD, Flaherty P, Foury F, Garfinkel DJ, Gerstein M,
+ Sriha

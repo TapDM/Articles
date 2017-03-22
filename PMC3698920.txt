@@ -1,0 +1,579 @@
+                                                                                                                                                                 GBE
+  Protein Complexes Flip Essentiality Distantly Related Eukaryotes
+Colm J. Ryan1,*, Nevan J. Krogan2,3,4, Pa´draig Cunningham1, Gerard Cagney5
+1
+ School Science Informatics, University College Dublin, Ireland
+2
+ Department Cellular Molecular Pharmacology, University California, San Francisco
+3
+ California Institute Quantitative Biosciences, San Francisco, California, USA
+4
+ J. David Gladstone Institutes, San Francisco, California, USA
+5
+ School Biomolecular & Biomedical Science, University College Dublin, Ireland
+*Corresponding author: E-mail: colm.ryan@ucd 
+Accepted: 3, 2013
+
+
+
+Abstract budding yeast Saccharomyces cerevisiae, subunits given protein complex essential nonessential, suggesting essentiality property molecular machines individual components. excep-
+tions rule,   nonessential genes largely essential complexes essential genes largely nonessential
+complexes.  provide explanations exceptions, showing redundancy complexes, revealed genetic
+interactions, explain cases, “moonlighting,�? revealed membership multiple complexes, explain  Surprisingly, redundancy complexes usually explained gene duplication, suggest-
+ing alternate buffering mechanisms. distantly related Schizosaccharomyces pombe, observe phenomenon modular essentiality, suggesting general feature eukaryotes. Furthermore, complexes flip essentiality cohesive fashion species,  tend change essential nonessential, vice
+versa, mixed patterns. flips essentiality explained differing lifestyles yeasts.
+Collectively, results support previously proposed model proteins essential involvement essential
+functional modules specific topological features degree centrality.
+Key words: essentiality, modularity, yeast, redundancy, genetic interactions, protein complexes.
+
+
+Introduction                                                                                   global experimental studies sought identify work cells carried molecular machines                                 comprehensive maps protein complexes organism
+known protein complexes (Alberts 1998; Hartwell et al.                                      (Gavin et al. 2006; Krogan et al. 2006), 1999). machines composed multiple proteins                                        curated literature identify hundreds com- connected single physical unit.                                         plexes support small-scale experiments (Pu et al. ways, canonical example functional                                       2009). availability genome wide set gene 
+modules biomolecular systems (Pereira-Leal et al. 2006):                                    letion mutants S. cerevisiae (Giaever et al. 2002) protein components densely connected protein                                  organism extremely useful understanding interaction network, suggesting modularity network                                      genotypes map phenotypes.  easiest pheno-
+theory sense (Newman 2006); relatively independent,                                   type measure yeast cell growth viability, reconstituted vitro absence                                  large-scale studies gene deletion collection
+surrounding network (Pereira-Leal et al. 2006); work                                  focused  Giaever et al. (2002) noted ap- carry common function.                                                       proximately 81  genes individually deleted    budding yeast Saccharomyces cerevisiae proved                                       rich media causing cell death  extraordinary resource understanding                                          nonessential. remaining approximately 19  es-
+organization behavior molecular machines.                                         sential cell survival.
+
+
+ß Author(s) 2013. Published Oxford University Press behalf Society Molecular Biology Evolution. Open Access article distributed terms Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses nc/3.0/), permits
+non-commercial use, distribution, reproduction medium, provided original work properly cited. commercial use, contact journals.permissions@oup.com
+
+
+
+
+Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013                                                                             1049
+ Ryan et al.                                                                                                                                              GBE
+
+    disproportionate number essential genes                     property molecular machines individual compo-
+noted belong protein complexes (Hart et al. 2007;                         nents (fig. 1A) (Dezso et al. 2003; Hart et al. 2007; Semple et al.
+Michaut et al. 2011).  relationship                        2008; Wang et al. 2009). Wang et al. (2009) connected gene’s essentiality connectivity encoded protein                 observations noting larger protein complexes subject analysis, number models                   likely essential, explaining essential genes proposed explain link                          likely high cocomplex interaction degree.
+Jeong et al. (2001) noted strong correlation essen-                       generally, observation entire complexes
+tiality protein interaction degree  “centrality-lethality�?              appear essential, henceforth referred modular essential-
+rule). Subsequent analyses shown cor-                   ity, indicates phenotypes associated relation weak interaction networks map binary                    complexes restricted individual genes. Related
+transient interactions (e.g., yeast hybrid) (Yu et al. 2008;                work yeast shown members protein
+Zotenko et al. 2008), robust networks map stable                 complex respond coherent fashion drugs
+cocomplex interactions.  result linking                    (Hillenmeyer et al. 2010), analyses humans
+essentiality interaction degree replicated                       suggested genes protein products belong
+number times, interpretation link sub-                  complex likely result ject debate. initially suggested proteins                   disease phenotype (Fraser Plotkin 2007; Lage et al. high degree essential role main-                 2007; Oti Brunner 2007).
+taining overall connectivity network (Jeong et al.                       work, seek address outstanding questions
+2001), later certain interactions essential                    related modular essentiality:
+high-degree proteins simply likely disrupt essen-
+tial interaction  Zhang 2006). interpretations                 modularity organizing principle explains essen-
+convincingly rejected Zotenko et al. (2008) instead                         tiality protein complexes, exceptions arise?                                                                                     nonessential subunits largely essential
+proposed certain proteins essential                                                                                    complexes essential subunits largely involvement “Essential Complex Biological
+                                                                                   nonessential complexes? redundancy Modules�?—large groups essential proteins, den-                        complexes, revealed genetic interactions, explain
+sely connected protein interaction network                      cases, “moonlighting,�? involved common biological function. Similarly,                        revealed membership multiple complexes, explain shown essential genes concentrated specific                     
+complexes protein complexes essen-                   Second phenomenon modular essentiality 
+tial nonessential, suggesting essentiality                     served species? evidence number 
+
+                                                                                                   C                           2.0
+                                                                                                                                                                 *
+                                                                                               Log2(Observed / Expected)
+
+
+
+
+                                                                                                                           1.5
+                                                                                                                           1.0    *
+                                                                                                                           0.5
+                                                                                                                           0.0
+
+                                          Observed                                                                         -0.5
+    B
+                                                                                                                           -1.0
+                                                                                                                           -1.5                   *
+                                                                                                                                         *
+                                                                                                                           -2.0
+                                                                                                                                  0-20
+
+
+                                                                                                                                         20-40
+
+
+                                                                                                                                                 40-60
+
+
+                                                                                                                                                         60-80
+
+
+                                                                                                                                                                 80-100
+
+
+
+
+                                                                                                                                    Essential Genes Complex
+                                          Expected
+
+      FIG. 1.—Comparing observed distribution essential genes Saccharomyces cerevisiae expected random.   Distribution essential
+genes complexes S. cerevisiae. clarity, nonoverlapping complexes subunits shown. Essential genes shown red,
+nonessential blue. (B) example randomly distributed essential genes set complexes shown  . (C) Comparing observed
+distribution essential genes complexes seen 1,000 randomizations  Materials Methods). log 2 ratio observed expected shown  positive values indicate observed frequency random, negative values indicate frequency random. Stars indicate values extreme seen randomizations.
+
+
+
+1050 Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013
+ Protein Complexes Flip Essentiality Eukaryotes                                                              GBE
+
+  model organisms members complex             “Synthetic Lethality�? included list genes
+  likely share phenotype perturbed           identified nonessential data.
+  (Lage et al. 2007; Lee et al. 2008);  lack   comprehensive set gene deletions organism        Protein Domain Data
+  S. cerevisiae far prevented global analysis.
+  Using comprehensive essentiality data distantly         Protein domain annotations obtained precal-
+  related fission yeast Schizosaccharomyces pombe (Kim             culated InterProScan results (domain.tab) hosted   et al. 2010), strong evidence modular essential-      Saccharomyces Genome Database (Cherry et al. 2012).
+  ity, suggesting general feature eukary-      Annotations matching “HMMPfam�? extracted, resulting
+  otes. Furthermore, complexes flip essentiality      31,924 protein pairs sharing Pfam domain.
+  species cohesive fashion,    change essential nonessential vice      Drug Sensitivity Data
+  versa flips associated larger scale
+  biological differences yeasts.                   Drug sensitivity data obtained heterozygous
+                                                                   fitness screen Hillenmeyer et al. (2008). drug–gene
+                                                                   interactions P < 0.01 considered.
+Materials Methods
+                                                                   Gene Ontology Data
+Essentiality Data
+                                                                   Gene Ontology annotations obtained Saccharomyces cerevisiae data obtained                                                                    Saccharomyces Genome Database (Cherry et al. 2012), OGEE database (Chen et al. 2012), filtered include
+                                                                   unique annotations “Biological Process�? ontol- results Giaever et al. (2002). Schizosaccharomyces
+                                                                   ogy counted.
+pombe essentiality data, orthology mapping Sch. pombe S. cerevisiae, obtained Kim et al.
+                                                                   Protein Complex Definitions
+(2010). Mouse essentiality data obtained OGEE database (Chen et al. 2012).                                  Saccharomyces cerevisiae complex definitions obtained
+                                                                   manually curated list 408 complexes supported                                                                    small-scale experiments literature (Pu et al. 2009).
+Gene Duplications
+                                                                   set covers 56  essential genes budding yeast list duplicate gene pairs resulting genome         (588/1,088).
+duplication obtained Byrne Wolfe (2005).             Mouse complex definitions obtained list extended include list small-scale duplications    CORUM database (Ruepp et al. 2010).
+identified using method Rost (1999). initial list            Schizosaccharomyces pombe complexes identified duplicates identified performing      Gene Ontology annotations maintained Basic Local Alignment Search Tool comparison (E ¼ 10).       PomBase (Wood et al. 2012). Descendants term “mac- subsequently filtered, length aligned    romolecular complex�? included term 
+region (L) 80  length longer protein,       tained word “complex�? “subunit.�? list identity aligned region greater equal    manually expanded include number complexes minimum identity threshold. pairs aligned region     followed different naming conventions example,
+greater 150 , threshold 30 ,            “signalosome�? “U1 SnRNP.�? associations annotated equal n + 480 L0.32(1 + exp(L/1,000)), n ¼ 6,    “IDA�? “IPI�? included—indicating com- Gu et al. (2002).                                           plex definition supported direct experimental evidence                                                                    Sch. pombe just inferred sequence similarity. Finally,
+Genetic Interactions                                               list pruned remove complexes identical subunit quantitative genetic interactions used analysis        composition different names, example, “RNA-directed obtained recently collated interactome contain-        RNA polymerase complex�? “nuclear RNA-directed RNA
+ing majority quantitatively measured S. cerevisiae inter-   polymerase complex.�? list 104 complexes available
+actions (Ryan et al. 2012). interactions score     supplementary table S1, Supplementary Material online. 2.3 considered strong negative genetic
+interaction. better assess relationship homol-      Assessing Modular Distribution ogy complex redundancy, complete list            Essential/Flipped Genes genetic interactions (including low-throughput       Using methodology similar Hart et al. (2007), assessed nonquantitative screens) obtained BioGRID         extent essentiality concentrated specific
+(Stark et al. 2011) version 3.1.8.8. Interactions annotated        complexes. percentage essential genes complex
+“Negative Genetic,�? “Synthetic Growth Defect,�?                  calculated, sorted equal-sized bins, 
+
+Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013                             1051
+ Ryan et al.                                                                                                                                    GBE
+
+compared expected background generated ran-                                             redundancy explains presence nonessential genes
+domly assigning essential genes set complexes.                                  essential protein complexes, essential complexes methodology used assess distribution                                    enriched negative genetic interactions. Using genes “flipped�? essentiality.                                                             set quantitatively measured genetic interactions,                                                                                                case 42  (22/53) measured
+Results                                                                                        interactions essential complexes (60  subunits essen-
+                                                                                               tial) negative compared 5  (84/1,819) confirmed observation modular essentiality                                                                                                nonessential complexes (fig. 2B). Note S. cerevisiae using date manually curated set                                                                                                expect 100  measured interactions “gold-standard" protein complexes (Pu et al. 2009)                                                                                                nonessential genes essential protein complexes neg-
+method Hart et al. (fig. 1, Materials Methods).
+                                                                                               ative, gene need redundant  previous studies, complexes                                                                                                complex subunit.  approximately 65  genes
+essential nonessential,                                                                                                covered data set feature negative genetic interaction phenomenon.  approximately 26 
+(105/401) complexes consist solely essential solely                                   member complex.
+nonessential subunits. Despite success concept                                       plausible explanation redundancy gene duplica-
+modular essentiality explaining behavior protein com-                                tion (Guan et al. 2007; Ihmels et al. 2007; Musso et al. 2007;
+plex subunits, extensive presence exceptions trou-                                   Dean et al. 2008; Szklarczyk et al. 2008; Li et al. 2010;
+bling. protein complexes truly behave single unit,                                VanderSluis et al. 2010). assess extent gene activity dependant coordinated function                                    duplication explain complex redundancy,
+subunits, subunits behave differently                                      assembled list paralogs small-scale                                                                                      genome duplications  Materials Methods).
+                                                                                               Surprisingly, 22 negative genetic
+Redundancy Explains Nonessential Members                                           interactions essential protein complexes ex- Essential Complexes                                                                         plained gene duplication.  examination previ- possible explanation presence nonessential                                      ously reported negative genetic interactions (Stark et al. 2011)
+genes largely essential complexes redundancy ability                                 (including low-throughput nonquantitative gene functionally compensate loss                                 screens) suggests redundancy cocomplexed
+(fig. 2A). relationships ubiquitous biological                                     pairs rarely explained homology. 315 neg-
+systems (Nowak et al. 1997) identified high                                      ative genetic interactions reported occur members
+throughput yeast comparing growth mutants                                         protein complex, 67 explained gene deletions growth mutants                                          gene duplication. 67 interactions, 50 occur gene deleted individually (Baryshnikova et al. 2010;                                      members large small cytosolic ribosomal complexes,
+Collins et al. 2010). Negative genetic interactions,                                      suggesting  notable exception ribosome,
+known synthetic sick synthetic lethal, identified                                    homology redundant cocomplexed pairs double mutant grows significantly worse                                          exception rule.
+expected indicate degree functional redundancy                                            Expanding analysis include proteins share deleted genes.                                                                 Pfam (Punta et al. 2012) domain  Materials Methods),
+
+                                         Complex
+                                                                   B
+                                                                     interactions betweeen
+
+
+
+
+                                                                                             50 
+                                                                     nonessential subunits
+
+
+
+
+                                                                                                        22/53
+                                                                          Synthetic sick
+
+
+
+
+                                                                                             40 
+                                                                                             30 
+                                                                                             20 
+                                                                                             10                          84/1819
+
+                                                                                             0 
+                                                                                                   Essential complex   Nonessential
+                                                                                                                         complex
+
+      FIG. 2.—Redundancy explains nonessential genes largely essential complexes.   Cartoon example redundancy protein complex. Red
+circles represent essential genes, blue circles represent nonessential genes, red edge indicates redundant relationship. (B) Interactions nonessential members essential complexes likely synthetic sick interactions nonessential members nonessential complexes
+(P ¼ 1.9  1015, sided Fisher’s exact test). Complexes 60  essential genes considered essential complexes <40  essential genes considered nonessential. Counts bars indicate number synthetic sick interactions total number measured interactions.
+
+
+
+1052 Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013
+ Protein Complexes Flip Essentiality Eukaryotes                                                                                                                               GBE
+ strict paralogs, 89 315                                                 additional roles outside complex  negative genetic interactions occurring members                                                   “moonlighting�? (Jeffery 2003). hypothesis correct, complex share protein domain.  majority                                                 reasoned protein products moonlighting
+(51) domain-sharing pairs ribosomal proteins,                                                   genes likely members multiple protein
+suggesting shared domains explain apparent                                                   complexes (fig. 3A). tested hypothesis comparing
+redundancy complexes.                                                                                 essential genes nonessential complexes (<40  subu-
+                                                                                                             nits essential) nonessential genes complexes
+Moonlighting Proteins Explain Essential                                                          discovered essential genes significantly
+Genes Nonessential Complexes                                                                              likely members multiple complexes (fig. 3B). possible explanation existence essential genes                                               moonlighting proteins essential nonessential complexes essential genes                                               reasons participation essential complex 
+
+
+                                 Complex 1           B                                                                                                    E   Succinate dehydrogenase
+                                                                                 50           23/49
+                                                         Multiple Complexes
+
+
+
+
+                                                                                                                                                                              SDH4
+
+
+                                                                                 40 
+                                                                                                                                                                    SDH2               SDH1
+
+
+                                                                                 30 
+                                                                                                                                                                              SDH3
+
+
+
+                                                                                 20                                                       85/564                      TIM22          TIM12
+
+
+
+                                                                                 10 
+                                                                                                                                                                     TIM54           TIM18
+
+
+                                   Complex 2                                     0 
+                                                                                                                                                                     Tim22 Complex
+                                                                                       Essential gene non- Nonessential gene non-
+                                                                                         essential complex       essential complex
+
+
+   C                                                                                                          D
+                                  50                                                                                                      50 
+     Additional Nonessential
+
+
+
+
+                                                                                                                Additional Essential
+
+
+
+
+                                  40                                                                                                      40 
+                                                                                                                     Complex
+
+
+
+
+                                                                                                                                                       14/49
+             Complex
+
+
+
+
+                                  30                                                                                                      30 
+
+
+                                  20           9/49                                                                                       20 
+                                                                                       80/564
+                                  10                                                                                                      10 
+
+                                                                                                                                                                                 5/564
+                                  0                                                                                                       0 
+                                        Essential gene non- Nonessential gene                                                             Essential gene non- Nonessential gene                                           essential complex nonessential complex                                                                  essential complex nonessential complex
+
+     FIG. 3.—Moonlighting explains essential proteins nonessential complexes.   Cartoon example moonlighting protein present Complex 1 Complex 2. Colors figure 2. (B) Essential genes nonessential complexes likely belong multiple complexes nonessential genes nonessential complexes (P ¼ 6.3  107 sided Fisher’s exact test). Complexes <40  essential genes considered nonessential, cytosolic
+ribosomal subunits genes excluded analysis, behavior better explained gene duplication. Labels bars indicate actual gene
+counts. (C) Essential genes nonessential complexes likely belong additional nonessential complex nonessential genes nonessential complexes (P ¼ 0.40 sided Fisher’s exact test). Details (B). (D) Essential genes nonessential complexes likely belong essential complex nonessential genes nonessential complexes (P ¼ 5.67  1013 sided Fisher’s exact test). Details (B). (E) SDH3, essential member succinate dehydrogenase complex, recently identified having additional role essential Tim22
+complex.
+
+
+
+Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013                                                                                              1053
+ Ryan et al.                                                                                                            GBE
+
+addition role nonessential complex par-    S. pombe separated S. cerevisiae approximately 400
+ticipation distinct nonessential complexes. distin-       Myr evolution (Sipiczki 2000) eukary-
+guish cases, stratified              ote comprehensive essentiality data available
+groups asked essential genes nonessential            (Kim et al. 2010). species differ greatly complexes likely member additional           basic biology, Sch. pombe appearing similar nonessential complex nonessential genes            metazoan cells respects—including aspects complexes. slight statistically significant      mRNA splicing  extensive presence introns difference groups (fig. 3C, P ¼ 0.40, Fisher’s      Sch. pombe), gene expression controlled RNA
+exact test), suggesting simply membership         interference machinery (absent S. cerevisiae), chromosome
+multiple complexes renders protein essential.           structure epigenetic mechanisms, cell-cycle regula-
+restricting analysis membership additional essen-      tion G2/M transition control (Wood 2006; Rhind et al.
+tial complex, significant difference     2011). Furthermore, divergence, S. cerevisiae groups essential genes approximately 30              undergone genome duplication (Wolfe Shields
+times likely belong additional essential complex      1997). Consequently, features conserved species nonessential genes (fig. 3D, P ¼ 5.7  1013).                 likely broadly conserved eukaryotes.
+    phenomenon widespread explained             assembled list 104 complexes experimental
+small number essential moonlighting proteins present          support Sch. pombe  Materials Methods) including nonessential complexes: membership multiple com-            complexes absent S. cerevisiae. performing
+plexes accounts approximately 50  essential genes        analysis described figure 1, Sch. nonessential complexes (excluding cytosolic ribosome).       pombe complexes disproportionately essential  reasonable ask accounts rest.   nonessential (fig. 4A), confirming modular essen- possible genes actually members       tiality conserved species. Interestingly, complexes, associations experimentally        complexes absent S. cerevisiae completely
+determined documented databases. example        nonessential.
+SDH3, set complex definitions anno-             possible modular essentiality feature conserved
+tated member succinate dehydrogenase complex            single-celled fungi absent metazoans 
+(Oyedotun Lemire 2004). SDH3 essential              creased complexity requirements multiple cell types.
+member complex, suggesting additional         analysis essentiality incomplete set role outside complex,  recently          knock mice suggests distribution essential
+identified member essential TIM22 mitochondrial         genes complexes follows similar, albeit weaker,
+inner membrane protein insertion complex (Gebert et al.             pattern species (supplementary fig. S1, Supplementary
+2011) (fig. 3E).                                                    Material online). coverage knockout collections     undocumented membership complex             metazoans increases, able assess conserva-
+common explanation essential genes annotated belong-         tion trend better.
+ing single nonessential complex, expect genes display phenotypes 
+turbed nonessential genes complex           Protein Complexes “Flip" Essentiality additional functions. tested using data        Species
+large-scale haploinsufficiency screen (Hillenmeyer et al. 2008),    Eighty percent orthologs finding display drug sensitivities nones-       Sch. pombe S. cerevisiae conserved essentiality,
+sential genes nonessential complexes (median 33 drug           nonessential species essential interactions vs. 27). Furthermore, essential genes     species. remaining 17  genes nonessential nonessential complexes greater number biological       species essential  Interestingly, Kim et al.
+process annotations Gene Ontology (median 9 vs. 6)        (2010) genes change essentiality enriched
+(Ashburner et al. 2000). observations support         certain functional categories. enrichment hypothesis essential genes additional func-     statistically significant 50  subunits large
+tions outside nonessential complex.                             complex changed essentiality, behavior                                                                     consistent idea modular essentiality. Instead,                                                                     essentiality truly modular behavior, Schizosaccharomyces pombe Complexes Display                         complexes “flip" essentiality single unit. analyzing
+Modular Essentiality                                                distribution flipped genes complexes com-
+Having confirmed phenomenon modular                          paring expected random, com-
+essentiality S. cerevisiae, sought test       plexes behave modular fashion, observation conserved species. fission yeast     subunits changing essentiality (fig. 4B).
+
+
+1054 Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013
+ Protein Complexes Flip Essentiality Eukaryotes                                                                                                                  GBE
+
+                              2.0                                                          B                           2.0
+                                                                                                                                                                            *
+    Log2(Observed / Expected)
+
+
+
+
+                                                                                             Log2(Observed / Expected)
+                                1.5                                                                                      1.5
+                                         *                                     *
+                                1.0                                                                                      1.0
+
+                                0.5                                                                                      0.5       *
+                                0.0                                                                                      0.0
+
+                                -0.5                                                                                     -0.5
+
+                                -1.0                                                                                     -1.0                         *
+                                                              *                                                                              *
+                                -1.5                                                                                     -1.5
+                                         0-20
+
+
+
+                                                    20-40
+
+
+
+                                                              40-60
+
+
+
+                                                                      60-80
+
+
+
+                                                                               80-100
+
+
+
+
+                                                                                                                                   0-20
+
+
+
+                                                                                                                                            20-40
+
+
+
+                                                                                                                                                      40-60
+
+
+
+                                                                                                                                                               60-80
+
+
+
+                                                                                                                                                                            80-100
+                                                  Essential Genes Complex                                                       Genes Flipped Essentiality Complex
+
+
+    C
+                                        MPRL6 YML6                                      MPRL6 YML6                                                   MPRL6 YML6
+
+                                                        MRPL16                                                            MRPL16                                       MRPL16
+
+                                                            MRPL23                                                              MRPL23                                     MRPL23
+
+
+                                                            MRPL10                                                              MRPL10                                    MRPL10
+
+
+
+
+                                       S. cerevisiae                                    S. pombe                                                      C. albicans
+      FIG. 4.—Schizosaccharomyces pombe complexes exhibit modular essentiality, complexes flip essentiality yeast species.
+  Experimentally characterized S. pombe complexes exhibit modular essentiality. observed distribution essential genes compared expected random, figure 1C  Materials Methods). (B) Protein complexes flip essentiality S. pombe S. cerevisiae. observed
+distribution “flipped�? genes compared expected random, figure 1C. genes present single copy species used analysis. complex definitions used S. cerevisiae, greater coverage S. pombe. (C) mitochondrial
+ribosomal large subunit. complex essential S. pombe Candida albicans nonessential S. cerevisiae. White circles correspond genes essentiality status experimentally determined. Genes orthologs unknown essentiality status C. albicans unlabeled shown smaller circles.
+
+
+
+
+   14 complexes, 80                                               (table 1). example, significant difference subunits flip essentiality coherent fashion                                               seen mitochondrial translation machinery. species. complete list complexes given                                                Saccharomyces cerevisiae cells survive mtDNA
+table 1. complexes range size large mito-                                                “petite" mutants, contrast Sch. pombe (“petite neg-
+chondrial ribosomal subunit, features 36 genes flip,                                            ative") (Jiang et al. 2011). difference lifestyle causes smaller complexes SBF transcription complex,                                                mitochondrial translation machinery flip essentiality  subunits flip. Furthermore, note                                                    tween species, expect machinery complexes (64 ) change essentiality                                                      essential petite negative species. Candida albicans species example, DNA-directed RNA poly-                                                    species—Phylogenetically closer S. cerevisiae
+merase III complex, 17 subunits essential                                                Sch. pombe, displays petite negative phenotype.
+species, Elongator complex, subunits                                                 Comprehensive essentiality data available nonessential species.                                                                              C. albicans;  number pilot studies (Becker et al.
+   Complexes function processes organelles                                                 2010; Noble et al. 2010) established status documented differences yeasts                                                    genes S. cerevisiae orthologs, allowing account half complexes flip essentiality                                                   test hypothesis. Consistent idea changes
+
+
+Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013                                                                                     1055
+ Ryan et al.                                                                                                                 GBE
+
+Table 1
+Protein Complexes Flip Essentiality Schizosaccharomyces pombe Saccharomyces cerevisiae
+Complex                              Fraction      Essential      Essential    Complex        Associated Lifestyle Difference
+                                          Flipped      S. pombe        S. cerevisiae        Size
+Mitochondrial ribosomal small subunit     0.83         23                3                   24           Mitochondrial translation
+Mitochondrial ribosomal large subunit     0.85         36                2                   40           Mitochondrial translation
+Clathrin                                  1.00          2                0                    2           Golgi associated
+GARP complex                              1.00          4                0                    4           Golgi associated
+H+-transporting ATPase, Golgi             1.00         11                0                   11           Golgi associated
+Mdm12p/Mmm1p/Mdm10p complex               1.00          3                0                    3           Mitochondrial translation (absence
+                                                                                                            results loss mtDNA)
+DASH complex                              1.00          0                9                    9           Spindle/Kinetochore
+Gcd10p/Gcd14p complex                     1.00          0                2                    2
+Mtr2p/Mex67p complex                      1.00          0                2                    2
+TORC 2 complex                            1.00          0                3                    3
+Uba2p/Aos1p complex                       1.00          0                2                    2
+Anthranilate synthase complex             1.00          2                0                    2
+SBF complex                               1.00          2                0                    2
+Ula1p/Uba3p complex                       1.00          2                0                    2
+
+
+
+ lifestyle associated flips essentiality,      Understanding Exceptions Greater members large mitochondrial ribosomal subunit              essential genes nonessential com- C. albicans experimentally tested essen-            plexes tend second complex. sharing tial (fig. 4C).                                                           subunits come reasons pro-
+                                                                          tein question unique structural feature (e.g., Discussion                                                                catalytic activity structural recognition domain)                                                                           required complexes (“moonlighting") work, shown modular essentiality                                                                           distinct structural features required complex.
+organizing principle conserved distantly 
+                                                                          Distinguishing cases require integra-
+lated species, suggesting general feature                                                                           tion structural models (Kim et al. 2006) genetic
+eukaryotic systems. Furthermore, provided explana-
+                                                                          perturbation individual interacting domains (Dreze et al.
+tions exceptions principle. Finally, shown
+                                                                          2009; Ear Michnick 2009; Zhong et al. 2009). protein complexes flip essentiality coherent unit 
+                                                                             Furthermore, nonessential genes 
+tween species. Overall, results reinforce concept
+                                                                          wise essential complexes frequently exhibit negative genetic protein complexes fundamental functional unit                                                                           interactions member complex.
+cell biology phenotypes associated                                                                           Previous work complexes enriched neg-
+protein complexes individual genes.
+                                                                          ative genetic interactions tend contain essential
+                                                                          gene (Bandyopadhyay et al. 2008; Wilmes et al. 2008; Essentiality Phenotypes                                     Baryshnikova et al. 2010);  analyses included
+Modular essentiality consistent tendency                   genetic interactions hypomorphic alleles essential
+members protein complexes display coherent “mono-                   genes, making interpretation results difficult.
+chromatic" genetic interactions (Segre` et al. 2005;                       asking inverse question ( nonessential
+Bandyopadhyay et al. 2008; Michaut et al. 2011), display               genes essential complexes display negative genetic interac-
+sensitivity drugs (Fraser Plotkin 2007;                   tions?�?) analyzing genetic interactions Hillenmeyer et al. 2010; Kapitzky et al. 2010),                 nonessential genes, support idea associated disease (Fraser Plotkin 2007;                nonessential subunits redundant.
+Lage et al. 2007; Oti Brunner 2007). explanations                    observed approximately 5  genetic exceptions modular essentiality applied                  interactions nonessential protein complexes negative. contexts providing explanations                      complexes essential presence
+perturbation member complex cause dif-                  drug stress, negative genetic interactions
+ferent disease exhibit different drug sensitivity             observed specific conditions.  members complex                                               noted certain genetic interactions (termed
+
+
+1056 Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013
+ Protein Complexes Flip Essentiality Eukaryotes                                                                        GBE
+
+conditional genetic interactions) observed specific     Ryan et al. 2012), drug–gene interactions (Kapitzky et al.
+conditions (St Onge et al. 2007; Bandyopadhyay et al. 2010;         2010), transcription factor binding (Tan et al. 2007). Gue´nole´ et al. 2013). Consequently, note likely   work, protein complexes “flip" essentiality lower bound estimate frequency redun-            coherent unit species. gene deletion collec-
+dancy nonessential complexes.                                tions available additional species, especially                                                                     closely related Sch. pombe S. cerevisiae, Homology Redundant Proteins                     able compare relative contributions lifestyle
+Complex Exception Rule                       changes factors. possible define groups analyzed retention duplicate genes       core set complexes essential eukaryotes protein complexes roles duplicates play            conditions, example, involved core processes
+(Musso et al. 2007; Pereira-Leal et al. 2007; Szklarczyk et al.     transcription, set “conditionally essential"
+2008). analyzed extent duplicate           complexes associated specific environments
+gene pairs display functional redundancy (Guan et al. 2007;         morphology.
+Ihmels et al. 2007; Dean et al. 2008; Li et al. 2010; van
+Wageningen et al. 2010; VanderSluis et al. 2010) noted          Supplementary Material duplicates coding proteins complex         Supplementary table S1 figure S1 available frequently redundant (Li et al. 2010).  du-       Genome Biology Evolution online (http://www.gbe.
+plicate genes responsible small fraction      oxfordjournals.org/).
+redundancy complexes. suggests duplicate genes complex frequently
+                                                                    Acknowledgments
+redundant, majority redundancy complexes explained duplication. mechanism                authors thank  Roguev, D. Greene, D.C. Shields, nonhomologous genes perform redundant roles             P. Beltrao helpful discussion. work supported unclear;  recently shown           Irish Research Council Science Engineering
+dundant relationships complexes highly conserved         Technology C.J.R., NIH (GM084448, GM084279, species (Ryan et al. 2012) suggesting merit        GM081879, GM098101) N.J.K., Science investigation.                                              Foundation Ireland (08/SRC/I1407) P.C. G.C.
+
+Function, Topology, Primary Determinant               Literature Cited
+Essentiality                                                        Alberts B. 1998. cell collection protein machines: preparing strong evidence protein–protein interactions, es-         generation molecular biologists. Cell 92:291–294.
+                                                                    Ashburner M, et al. 2000. Gene ontology: tool unification pecially members complex,                                                                         biology. Gene Ontology Consortium. Nat Genet. 25:25–29.
+highly conserved species (Shevchenko et al. 2008; van        Bandyopadhyay S, et al. 2010. Rewiring genetic networks response Dam Snel 2008; Leducq et al. 2012). protein’s                DNA damage. Science 330:1385–1389.
+interaction partners remain relatively constant       Bandyopadhyay S, Kelley R, Krogan NJ, Ideker T. 2008. Functional maps requirement protein survival change suggests            protein complexes quantitative genetic interaction data. PLoS
+                                                                        Comput Biol. 4:e1000065. topological features primary determining
+                                                                    Baryshnikova  et al. 2010. Quantitative analysis fitness genetic
+factor essentiality.  observation            interactions yeast genome scale. Nat Methods. 7:1017–1024.
+changes essentiality species fall specific func-    Becker JM, et al. 2010. Pathway analysis Candida albicans survival tional categories (mitochondrial translation, kinetochore,              virulence determinants murine infection model. Proc Natl Acad Sci
+Golgi associated) lends strong support proposal          U S  107:22044–22049.
+                                                                    Beltrao P, et al. 2009. Evolution phosphoregulation: comparison involvement specific biological processes renders                                                                         phosphorylation patterns yeast species. PLoS Biol. 7:e1000134.
+protein essential, network connectivity (Zotenko        Byrne KP, Wolfe KH. 2005. Yeast Gene Order Browser: combining
+et al. 2008).                                                           curated homology syntenic context reveals gene fate polyploid
+                                                                        species. Genome Res. 15:1456–1461.
+Using Protein Complexes Understand Differences                   Chen W-HH, Minguez P, Lercher MJ, Bork P. 2012. OGEE: online gene
+                                                                        essentiality database. Nucleic Acids Res. 40:D901–D906. Species
+                                                                    Cherry JM, et al. 2012. Saccharomyces Genome Database: genomics interested essentiality protein com-              resource budding yeast. Nucleic Acids Res. 40:D700–D705.
+plexes differs species. Previous work highlighted       Collins SR, Roguev  Krogan NJ. 2010. Quantitative genetic interaction
+                                                                        mapping using E-MAP approach. Methods Enzymol. 470: utility protein complexes abstraction 
+                                                                        205–231.
+stand evolution cell-cycle regulation (Jensen et al.         Dean EJ, Davis JC, Davis RW, Petrov DA. 2008. Pervasive persistent
+2006), phosphorylation (Beltrao et al. 2009), genetic interac-          redundancy duplicated genes yeast. PLoS Genet. 4:
+tions (Roguev et al. 2008; Frost et al. 2012; Koch et al. 2012;         e1000113.
+
+
+
+Genome Biol. Evol. 5(6):1049–1059. doi:10.1093/gbe/evt074 Advance Access publication 8, 2013                                        1057
+ Ryan et al.                                                                                                                               GBE
+
+Dezso  Oltvai ZN, Baraba´si L. 2003. Bioinformatics analysis experi-     Lage K, et al. 2007. human phenome-interactome network pro-
+     mentally determined protein complexes yeast Saccharomyces                 tein complexes implicated genetic disorders. Nat Biotechnol. 25:
+     cerevisiae. Genome Res. 13:2450–2454.                                            309–316.
+Dreze M, et al. 2009. “Edgetic�? perturbation C. elegans BCL2               Leducq J-B, et al. 2012. Evidence robustness protein complexes
+     ortholog. Nat Methods. 6:843–849.                                                inter-species hybridization. PLoS Genet. 8:e1003161.
+Ear PH, Michnick SW. 2009. general life-death selection strategy          Lee  et al. 2008. single gene network accurately predicts phenotypic
+     dissecting protein functions. Nat Methods. 6:813–816.                            effects gene perturbation Caenorhabditis elegans. Nat Genet. 40:
+Fraser HB, Plotkin JB. 2007. Using protein complexes predict phenotypic            181–188.
+     effects gene mutation. Genome Biol. 8:R252.                             Li J, Yuan  Zhang  2010. cellular robustness genetic redundancy
+Frost  et al. 2012. Functional repurposing revealed comparing                    budding yeast. PLoS Genet. 6:e1001187.
+     S. pombe S. cerevisiae genetic interactions. Cell 149:1339–1352.       Michaut M, et al. 2011. Protein complexes central yeast genetic
+Gavin C, et al. 2006. Proteome survey reveals modularity yeast cell          landscape. PLoS Comput Biol. 7:e1001092.
+     machinery. Nature 440:631–636.                                             Musso G, Zhang  Emili  2007. Retention protein complex member-
+Gebert N, et al. 2011. Dual function Sdh3 respiratory chain                 ship ancient duplicated gene products budding yeast. Trends
+     TIM22 protein translocase mitochondrial inner membrane.               Genet. 23:266–269.
+     Mol Cell. 44:811–818.                                                      Newman M. 2006. Modularity community structure networks. Proc
+Giaever G, et al. 2002. Functional profiling Saccharomyces cerevisiae          Natl Acad Sci U S  103:8577–8582.
+     genome. Nature 418:387–391.                                                Noble SM, French S, Kohn LA, Chen V, Johnson AD. 2010. Systematic
+Gu  Cavalcanti  Chen F-C, Bouman P, Li W-H. 2002. Extent gene                  screens Candida albicans homozygous deletion library decouple
+     duplication genomes Drosophila, nematode, yeast. Mol               morphogenetic switching pathogenicity. Nat Genet. 42:590–598.
+     Biol Evol. 19:256–262.                                                     Nowak MA, Boerlijst MC, Cooke J, Smith JM. 1997. Evolution genetic
+Guan Y, Dunham MJ, Troyanskaya OG. 2007. Functional Analysis                       redundancy. 388:167–171.
+     Gene Duplications Saccharomyces cerevisiae. Genetics 175:               Oti M, Brunner HG. 2007. modular nature genetic diseases. Clin
+     933–943.                                                                         Genet. 71:1–11.
+Gue´nole´  et al. 2013. Dissection DNA damage responses using              Oyedotun KS, Lemire BD. 2004. quaternary structure      multiconditional genetic interaction maps. Mol Cell. 49:346–358.                 Saccharomyces cerevisiae succinate dehydrogenase. Homology
+Hart TT, Lee  Marcotte ER. 2007. high-accuracy consensus map yeast             modeling, cofactor docking, molecular dynamics simulation
+     protein complexes reveals modular nature gene essentiality. BMC               studies. J Biol Chem. 279:9424–9431.
+     Bioinformatics 8:236.                                                      Pereira-Leal JB, Levy E, Kamp C, Teichmann S. 2007. Evolution protein
+Hartwell LH, Hopfield JJ, Leibler S, Murray AW. 1999. molecular               complexes duplication homomeric interactions. Genome Biol. 8:
+     modular cell biology. Nature 402:C47–C52.                                        R51. X, Zhang J. 2006. hubs tend essential protein                Pereira-Leal JB, Levy ED, Teichmann SA. 2006. origins evolution      networks? PLoS Genet. 2:e88.                                                     functional modules: lessons protein complexes. Philos Trans R
+Hillenmeyer  et al. 2008. chemical genomic portrait yeast:                  Soc Lond B Biol Sci. 361:507–517.
+     uncovering phenotype genes. Science 320:362–365.                 Pu S, Wong J, Turner B, Cho E, Wodak SJ. 2009. date catalogues Hillenmeyer  et al. 2010. Systematic analysis genome-wide fitness               yeast protein complexes. Nucleic Acids Res. 37:825–831.
+     data yeast reveals novel gene function drug action. Genome          Punta M, et al. 2012. Pfam protein families database. Nucleic Acids
+     Biol. 11:R30.                                                                    Res. 40:D290–D301.
+Ihmels J, Collins S, Schuldiner M, Krogan N, Weissman J. 2007. Backup           Rhind N, et al. 2011. Comparative functional genomics fission
+     redundancy: genetic interactions reveal cost duplicate            yeasts. Science 332:930–936.
+     gene loss. Mol Syst Biol. 3:86.                                            Roguev  et al. 2008. Conservation rewiring functional mod-
+Jeffery CJ. 2003. Moonlighting proteins: old proteins learning new tricks.            ules revealed epistasis map fission yeast. Science 322:
+     Trends Genet. 19:415–417.                                                        405–410.
+Jensen LJJ, Jensen TSS, Lichtenberg U, Brunak S, Bork P. 2006.               Rost B. 1999. Twilight zone protein sequence alignments. Protein Eng.
+     evolution transcriptional post-translational cell-cycle                12:85–94.
+     regulation. Nature 443:594–597.                                            Ruepp  et al. 2010. CORUM: comprehensive resource mammalian
+Jeong H, Mason SP, Baraba´si AL, Oltvai ZN. 2001. Lethality centrality         protein complexes—2009. Nucleic Acids Res. 38:D497–D501.
+     protein networks. Nature 411:41–42.                                        Ryan CJ, et al. 2012. Hierarchical modularity evolution genetic
+Jiang H, et al. 2011. Identification characterization mitochon-            interactomes species. Mol Cell. 46:691–704.
+     drial RNA polymerase transcription factor fission yeast         Segre` D, DeLuna  Church GM, Kishony R. 2005. Modular epistasis      Schizosaccharomyces pombe. Nucleic Acids Res. 39:5119–5130.                      yeast metabolism. Nat Genet. 37:77–83.
+Kapitzky L, et al. 2010. Cross-species chemogenomic profiling                   Semple JI, Vavouri T, Lehner B. 2008. simple principle concerning      reveals evolutionarily conserved drug mode action. Mol Syst                   robustness protein complex activity changes gene expression.
+     Biol. 6:451.                                                                     BMC Syst Biol. 2:1.
+Kim D-U, et al. 2010. Analysis genome-wide set gene deletions           Shevchenko  et al. 2008. Chromatin central: comparative
+     fission yeast Schizosaccharomyces pombe. Nat Biotechnol. 28:              proteome accurate mapping yeast proteomic environment.
+     617–623.                                                                         Genome Biol. 9:R167.
+Kim PM, Lu LJ, Xia Y, Gerstein MB. 2006. Relating dimensional             Sipiczki M. 2000. does fission yeast sit tree life? Genome
+     

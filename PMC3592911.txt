@@ -1,0 +1,496 @@
+A Statistical Framework Improving Genomic
+Annotations Prokaryotic Essential Genes
+Jingyuan Deng1,2, Shengchang Su3, Xiaodong Lin5, Daniel J. Hassett3, Long Jason Lu1,2,4*
+1 Division Biomedical Informatics, Cincinnati Children’s Hospital Medical Center, Cincinnati, Ohio, United States America, 2 Department Environmental Health,
+University Cincinnati, Cincinnati, Ohio, United States America, 3 Department Biochemistry Molecular Genetics, University Cincinnati, Cincinnati, Ohio, United
+States America, 4 Department Science, University Cincinnati, Cincinnati, Ohio, United States America, 5 Department Management Science Information Systems, Rutgers University, Piscataway, New Jersey, United States America
+
+
+
+     Abstract
+     Large-scale systematic analysis gene essentiality important step closer unraveling complex relationship
+     genotypes phenotypes. analysis accomplished unbiased accurate annotations      essential genes. current genomic databases, essential gene annotations derived genome
+     transposon mutagenesis (TM), frequently used experimental approach determining essential genes      microorganisms defined conditions.  substantial systematic biases associated TM
+     experiments. study, developed novel Poisson model–based statistical framework simulate TM insertion
+     process subsequently correct experimental biases. quantitatively assessed effects major factors      potentially influence accuracy TM subsequently incorporated relevant factors framework.      iteratively optimizing parameters, inferred actual insertion events occurred described gene’s essentiality      probability measure. Evaluated definite mapping essential gene profile Escherichia coli, model significantly
+     improved accuracy original TM datasets, resulting accurate annotations essential genes. method      showed encouraging results improving subsaturation level TM datasets. test model’s broad applicability      bacteria, applied Pseudomonas aeruginosa PAO1 Francisella tularensis novicida TM datasets. validated      predictions literature allelic exchange experiments PAO1. model correct seven tested
+     genes. Remarkably, cases predictions contradicted TM assignments, experimental validations
+     supported predictions. summary, method promising tool improving genomic annotations essential
+     genes enabling large-scale explorations gene essentiality. contribution timely considering rapidly
+     increasing essential gene sets. Webserver set provide convenient access tool. results source
+     codes available download publication http://research.cchmc.org/essentialgene/.
+
+  Citation: Deng J, Su S, Lin X, Hassett DJ, Lu LJ (2013) Statistical Framework Improving Genomic Annotations Prokaryotic Essential Genes. PLoS 8(3):
+  e58178. doi:10.1371/journal.pone.0058178
+  Editor: Philip M. Kim, University Toronto, Canada
+  Received October 23, 2012; Accepted January 31, 2013; Published March 8, 2013
+  Copyright: ß 2013 Deng et al. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: work supported CCHMC Trustee Award LJL; Cystic Fibrosis Foundation grants HASSETT07G0 R457-CR01 DJH. funders
+  role study design, data collection analysis, decision publish, preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: long.lu@cchmc.org
+
+
+
+Introduction                                                                             understudied species. Constraint-based methods limited
+                                                                                         metabolic signaling pathways require prior knowledge
+    Large-scale systematic analysis gene essentiality                           pathways. Homology mapping works best model important step closer unraveling complex relationship                         target organisms closely related.  prediction genotypes phenotypes [1].  analysis                             coverage low ignores unique physiology accomplished unbiased accurate annota-                             subject species people orthologs tions essential genes.                                                                necessarily degree essentiality [16].
+    genome knockout experiments produce accu-                                 interrogate essential genes understudied
+rate essential gene annotations, consortium                     species, genome transposon mutagenesis (TM) followed labs years complete organism.                              sequence-based identification insertion sites surprising single-gene knockout results currently                          practical frequently used experimental approach
+available handful studied model organisms,                          [17]. Using approach, essential genes variety Escherichia coli [2] Saccharomyces cerevisiae [3]. Computational                     understudied bacterial species, Pseudomonas aeruginosa methods predicting essential genes, e.g., homology mapping                           Francisella tularensis novicida, identified, greatly increasing
+[4,5,6], constraint-based methods [7,8,9,10] supervised                              insights essential processes necessary growth learning [11,12,13,14,15], useful reducing cost                         bacteria defined conditions. 2012, labor.  limited applicability understud-                        24 genomic scale TM studies 19 bacterial species
+ied species. example, supervised learning depends partial                       literature (Table S1), generated
+list known essential genes unavailable                             past years. past years, seen 
+
+PLOS | www.plosone.org                                                           1                                  March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                                Improving Essential Gene Annotations
+
+ new datasets different organisms.                    subsequently incorporated relevant factors framework.
+researchers starting analyze conditional essential genes,             iteratively optimizing parameters, finalized model  essential genes virtually unlimited growth conditions,        inferred actual insertion events occurred gene expect number available TM datasets rapidly                   given observed insertion information. Finally described
+increase future years.                                                gene’s essentiality probability measure, provided
+   result rapid increase, current genomic databases,         corrections possible biases TM assigned annota-
+e.g., [18,19,20], annotations microbial essential             tions.
+genes derived directly indirectly TM experiments.                   took advantage definitive mapping essential genes  unlike single-gene knockouts, TM intrinsic biases               E. coli MG1655 strains determined single gene knockout
+ . correcting biases, TM assignments             experiments (PEC set) [2] identify errors essential contain hundreds mis-annotated essential non-essential           gene annotations produced TM experiments (Gerdes set) [23]
+genes organism, caused substantial confusion               comparing assignments. single-gene genetics community.                                                knockout experiments completely error free,    Transposons segments DNA (transpose)                 considered error-prone [2]. realized location genome [21,22]. locations              essential genes uniquely identified TM biological transposon depends sequence              significance represent genes essential fitness transposase recognizes cleaves, recognition                 suggested Gerdes et al. [32];  focus sequence transposons unclear                    essential survival, referred ‘‘errors’’.
+determined. TM results disruption region genome             note, model dependent single-gene knockout transposon inserted. insertion predicted         results target organism  Discussion section). ORF allows resulting strain form colony appropriate              PEC dataset used assessing errors TM dataset
+solidified media, unlikely ORF essential viability         evaluating model’s performance. conditions (Fig. S1).  TM identifies
+essential genes using ‘‘negative’’ approach, e., identifying        Results
+regions essential presuming essential.                                                                   1. Assessing Overall Error Rates TM Annotations    random nature transposon insertion events,            Essential Genes number factors create systematic biases TM                 Using PEC set reference, assessed overall error
+experiments. example, inevitable genes,                  rates Gerdes dataset. examined subset genes
+especially shorter ones, missed simply chance                     appearing datasets. subset contains 3833 genes [23,24,25]. create false positive errors non-             total, including 615 TM-assigned essential genes (TmEs) 3218
+essential genes determined essential TM.              TM-assigned non-essential genes (TmNs), covers 90  (3833
+hand, insertion place gene,            4291) genes TM dataset. extreme ends, fully disrupt function               According intersection PEC set, Gerdes
+gene product [23,24,25,26,27,28,29,30]. create false               dataset divided mutually exclusive fractions
+negative errors essential genes determined non-              (Table 1): true essential TM (TETmE, essential assigned essential TM. biases TM experiments                       TM PEC), false essential TM (FETmE; essential assigned
+introduced substantial errors essential gene annotations               TM non-essential PEC), false non-essential TM
+current genomic databases [19]. order render large-scale           (FNTmN; non-essential TM essential PEC) true
+integrative comparative analysis essential genes possible,            non-essential TM (TNTmN; non-essential TM biases quantitatively assessed corrected.                  PEC). report, defined TM essential error rate
+   models previously developed tackle biases          (TmER) proportion FETmEs total TmEs;
+TM. example, Lamichhane et al. used Bayesian framework                 likewise, TM non-essential error rate (TmNR) defined estimate essential genes Mycobacterium tuberculosis             proportion FNTmNs total TmNs. subsaturation level TM [28,31]. Jacobs et al. used neutral base         615 TmEs, 186 TETmEs, yielding TmER 70 .
+pair model reach estimation 307 essential genes P.               Similarly, TmNR 2.3 . Typically, TM experiments aeruginosa PAO1 saturation level TM [29].              TmNR low, TmER relatively high.
+key limitation existing models account insertions viable mutants ignore               2. Assessing Effects Factors Accuracy
+disrupt essential genes mutants die            TM Experiments observable.  number real insertions                    Previous studies suggested accuracy TM experiments underestimated equal observed insertions.                affected main factors: gene length, insertions existing models assume gene’s probability inserted depends length insertion sufficient disrupt         Table 1. Using PEC dataset gold-standards identify gene’s function.  TM results ‘‘hot’’             false essential non-essential genes TM dataset.
+‘‘cold’’ spots genome transposon insertions.   require multiple insertions disrupt gene’s
+functions, depending site insertion.                            *E – Essential                          PEC dataset (Gold Standard)
+   Given caveats, developed novel Poisson model based
+statistical framework simulate TM insertion process                *N – Non-essential                      E (259)         N (3574)
+subsequently correct experimental biases. Briefly, statistical        TM dataset        TmEs (615)            186 (TETmEs)    429 (FETmEs)
+framework works follows: quantitatively assessed              (Gerdes set)      TmNs (3218)           73 (FNTmNs)     3145 (TNTmNs)
+effects potential factors affect accuracy TM
+results, gene length relative insertion positions,            doi:10.1371/journal.pone.0058178.t001
+
+
+
+PLOS | www.plosone.org                                               2                              March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                            Improving Essential Gene Annotations
+
+
+
+
+Figure 1. factors strong associations false TM assignments.   Gene length. lengths TmEs significantly shorter PEC dataset total genes. short genes false essential genes. (B) Position insertions. Essential genes
+mistakenly assigned non-essential TM insertions 25  extreme-ends (5  59 end 20  39 end). insertions completely disrupt gene’s function. (C) Number insertions. 75  essential genes mistakenly assigned non-essential TM insertion 
+doi:10.1371/journal.pone.0058178.g001
+
+distal regions, number insertions gene polar effects             insertion number gene FNTmNs 1.56, significantly
+[23,29]. quantitatively assess factor’s influence            smaller TNTmNs (4.13) (P-value #1E-26).
+accuracy TM results, examined association                   (4) Polar effects: potentially causing false positive
+factor FETmEs FNTmNs, respectively (Fig. 1).                   errors. TM experiments, polar effects occur   (1) Gene length: potentially causing false positive                       transposon inserts dispensable gene prevents errors. TM experiments, genes                   transcription downstream essential genes operon
+detected transposon hits assigned essential (Fig.           [23,24,25]. insertion dispensable gene actually
+S1). average detectable insertion density 1 400 bp         disrupts entire downstream essential genes causes death TM experiments saturation levels [23,24,25].                  mutants, dispensable gene incorrectly labeled suggests relatively short genes (e.g. #300 bp) easily              essential, causing false positive error.
+missed simply chance, incorrectly labeled               detect number FETmEs caused polar effects, essential.                                                                  examined TmEs 2,665 operons    quantitatively assess influence, compared length        inferred experimentally computationally  Methods). essential genes Gerdes PEC sets, using total genes        exists TETmE resides downstream FETmE, control (Fig. 1A). student t-test shows average              FETmE considered potentially caused polar effect.
+length essential genes Gerdes set (730 bp) significantly       429 FETmEs, 46 caused polar
+shorter PEC set (1,003 bp) (P-value ,1E-11).         effects. small number likely fact TM significantly shorter total genes (982 bp) (P-value ,1E-          experiments designed prevent polar effects, typically
+25) difference PEC set total genes             designing transposons strong regulatable promoter
+considered significant (P-value .0.05).                                 downstream transposase transposon.
+  (2) Insertions 59- 39-ends genes: potentially
+causing false negative errors. TM experiments,                 3. Developing Statistical Framework Correct TM
+insertions occurring extreme ends gene’s coding                 Errors
+sequence sufficiently disrupt function                             developed statistical framework capable [23,24,25,26,27,28,29,30]. cases, essential genes           incorporating potential factors strong associations mistakenly assigned non-essential genes, creating false                FETmE FNTmN assignments. model estimates
+negative error. compared distributions position            overall error rates, assigns score indicate insertions ORFs FNTmNs TNTmNs.                    probability individual gene essential given TM
+expected, FNTmNs higher percentage transposon                 assignments. incorporated potential
+insertions 39- 59-ends TNTmNs (Fig. 1B).                 factors model. polar effects responsible assess significance difference, simulated pure random        relatively number FETmEs, chose include insertion experiments coding sequences  Methods).            factor model. general idea model illustrated P-values showed 20  39-end              Fig. 2.
+5  59-end regions, FNTmNs significantly                   model requires assumptions: insertions TNTmNs (Table S2). named ‘‘25  extreme ends’’ rule used later model.                       Transposons insert randomly independently   (3) Number insertions gene: potentially causing                          coding region gene; false negative errors. Occasionally, insertions gene             (B)   transposon ability disrupt gene’s insufficient completely disrupt function, especially              function, ability vary different regions target gene relatively long [23,24,25,26,29,33]. plotted                gene. distribution number insertions gene FNTmNs TNTmNs (Fig. 1C). histogram showed                         Assumption   does require transposon insertions 75  FNTmNs mistakenly assigned                 uniformly distributed entire genome non-essential TM harbored single insertion. average           insertion ‘‘hot’’ ‘‘cold’’ spots observed microbial genomes
+
+
+PLOS | www.plosone.org                                              3                            March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                                   Improving Essential Gene Annotations
+
+
+
+
+Figure 2. Illustration statistical model. TM experiment, gene observed insertions, meaning TM essential TmEs,  possibilities: (1)  insertion missed transposons chance. means useful information infer gene  completely blind  blind gene, try best guess assume chance gene essential (Pr (E~1Dnreal §nobs ~0)) equal overall essential gene rate (Pr(overall essential)), gene non-essential equal Pr (E~0Dnreal §nobs ~0) = 1-Pr (E~1Dnreal §nobs ~0). (2) B: actually insertions, inserted mutations
+died. (Pr (E~1,nreal w0Dnreal §nobs ~0)) means gene truly essential. way, split TM assigned essential genes parts, TETmE FETmE. Similarly, TM experiment, gene observed insertions, meaning TM nonessential, really  possibilities: (1) C: observed insertions ineffective, did interrupt gene function. means blind gene. certain chance essential (Pr (E~1,allinsertionsineffectiveDnreal ~nobs w0)), certain
+chance nonessential (1-Pr (E~1,allinsertionsineffectiveDnreal ~nobs w0)). (2) D: effective insertion, did
+interrupt gene function. (Pr (E~1,atleastoneinsertioneffectiveDnreal ~nobs w0)~0). means gene truly non-essential.
+doi:10.1371/journal.pone.0058178.g002
+ provides realistic approximation process               E binary variable E = 1 gene essential;
+transposon insertions.                                                            non-essential. nreal represents real number    assume transposons insert gene independently                insertions occurring gene TM experiment insertions occur constant rate mutagenesis,                  nobs represents observed number insertions TM process characterized Poisson distribution                 dataset. nobs = 0 gene assigned essential TM,
+[34,35]. probability k insertions occurring                   nobs .0 assigned non-essential. nobs gene length L expressed                                  separated parts n30 or50 ends nmiddle represent                                                                                  observed insertions occurring 25  extreme ends                                                                                  middle gene, respectively. transposon insertion process,
+                   Poissonðk; rLÞ~e{rL ðrLÞk =k!                                 insertion hits true essential gene disrupts function,
+                                                                                 inserted mutant die insertion    r local insertion density DNA fragment,
+                                                                                 observable TM dataset; real insertion number
+estimated counting number insertions 30 kb-
+                                                                                 nreal greater equal observed insertion number
+long region flanking coding sequence. k = 0, equation
+                                                                                 nobs . non-essential gene, matter describes probability ORF missed TM
+                                                                                 insertion disrupts function  die. real
+experiments.
+                                                                                 insertion number nreal equals observed insertion
+   Based assumption (B), defined parameters P1 P2                  number nobs . range (0, 1) representing probability                    derivation equations, used iterative
+individual transposon insertion disrupts gene’s function              procedure [36,37,38] estimate values unknown param-
+insertion occurs 25  extreme ends middle                   eters determine Eqs. (1) (2) (details Methods).
+gene, respectively. assumed probability (P1) 5  59-end 20  39-end disrupt gene’s
+function.
+                                                                                 4. Validating Model E. coli TM Dataset
+                                                                                    Gerdes dataset contains 615 TmEs 3218 TmNs. Using
+   assumptions, calculate probability
+                                                                                 algorithm, converged P1 = 0.942, essential gene given TM assignments.
+                                                                                 P2 = 0.984 overall essential rate ress = 12.84 .      TM assigned essential gene (TmE),                      model assigned individual gene score indicate                                                                                  probability essential, ranked genes TmEs
+                                                                                 TmNs separately.   P      615 TmEs, expected
+                Pr (E~1DTmE)~ Pr (E~1Dnreal §nobs ~0)                  ð1Þ       number essential genes ( ni P(E~1)) estimated 480.
+                                                                                 Using expected number essential genes cutoff, (B)    Similarly, TM assigned non-essential gene (TmN),
+                                                                                 480 genes named predicted essential genes model
+       
+                                                                                 TM-assigned essential genes (PETmEs)                                                                                  remaining 135 genes predicted non-essential genes                                                                                  model TM-assigned essential genes (PNTmEs).
+                                                                                 Similarly, 3218 TmNs, expected number             Pr (E~1DTmN)~ Pr (E~1Dnreal ~nobs w0)                      ð2Þ       essential genes estimated 12. Using cutoff, 
+
+PLOS | www.plosone.org                                                   4                             March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                             Improving Essential Gene Annotations
+
+
+12 genes named predicted essential genes model TM-assigned non-essential genes (PETmNs) remaining ones predicted non-essential genes TM-assigned non-essential genes (PNTmNs).
+   assess accuracy predictions, compared results PEC dataset (Table 2). 480 PETmEs,
+176  37 ) true essential, significantly higher original TmEs (186/615 = 30 ) (P-value = 0.013, Fisher’s
+exact test). Remarkably, 135 PNTmEs filtered  10  7.4 ) true essential, significantly lower original TmEs, e., 30  (P-value ,1E-8). hand, 12 PETmNs, 5  42 ) true essential,
+significantly higher original TmNs (2.3 ) (P-value
+,1E-6). results strongly indicated model success-
+fully enhanced accuracy original TM assignments.
+   results showed positive correlation              Figure 3. Enrichment true essential genes using different
+confidence score enrichment essential genes (Fig. 3).        thresholds confidence score. words, higher confidence scores chose cutoff,          doi:10.1371/journal.pone.0058178.g003 higher percentage true essential genes predictions
+contained, indicating score agreement           6. Testing Model’s Applicability P. aeruginosa distribution essential genes. instance, 100
+                                                                           Allelic Exchange Experiments
+PETmEs contained 50 true essential genes, ratio signifi-
+                                                                              ultimate test model applicable cantly higher original TmEs (30 ) P-value
+                                                                           microorganisms. set essential genes determined ,1E-4.
+                                                                           TM saturated level c-Proteobacteria, P. aeruginosa
+                                                                           PAO1 (Jacobs dataset) [29]. TM dataset contains 678 putative
+5. Testing Model’s Robustness Analyzing                             essential genes 4892 non-essential genes. assume Subsaturation Level TM Datasets                                            probability individual transposon insertion disrupts    Compared saturated TM experiment, unsaturated                 gene’s function, different species, e., P1 = 0.942
+TM experiment generally contains higher TmER, genes              P2 = 0.984 E. coli, overall essential rate ress likely missed transposon insertions             estimated PAO1 10.1  expected numbers incorrectly assigned essential.                                         PETmEs PETmNs 540 15, respectively.
+   test model’s applicability unsaturated TM datasets,              genome single gene knockout dataset randomly removed 10 , 30  50  total insertions               available organism, chose pursue allelic exchange Gerdes dataset simulate effects different               experiments validate predictions PAO1.
+subsaturation levels TM experiments. applied                   order make sure experimental procedure correctly
+model subsaturated datasets.                                      identify essential genes, tested PA4238 positive
+   results suggested strong robustness analyzing                  control. PA4238 subunit RNA polymerase, subsaturation level TM datasets (Fig. 3). shown Fig. 4, lower curve (dashed line) showed p-values Fisher’s
+exact test examine true essential rate PNTmEs significantly lower original TmEs set. Similarly, upper curve (solid line) showed p-values Fisher’s
+exact test examine true essential rate PETmNs significantly higher original TmNs set. (10 , 30  50 ) random experiments, repeated 100 times obtain error bars. results showed subsaturation conditions, model significantly improved TM results.
+
+
+ Table 2. Improvement overlaps PEC dataset using
+ model.
+
+
+ TM dataset        Statistical       PEC dataset (Gold Standard)
+
+ (Gerdes set)      Model                 E (259)         N (3574)
+                                                                           Figure 4. Robustness model subsaturation levels  TmEs (615)        PETmEs (480)          176             304               transposon insertions. dashed line showed p-values                    PNTmEs (135)          10              125               Fisher’s exact test examine true essential rate PNTmEs
+                                                                           significantly lower original TmEs set. Similarly,  TmNs (3218)       PETmNs (12)           5               7
+                                                                           solid line showed p-values Fisher’s exact test examine                    PNTmNs (3206)         68              3138              true essential rate PETmNs significantly higher                                                                            original TmNs set.
+ doi:10.1371/journal.pone.0058178.t002                                     doi:10.1371/journal.pone.0058178.g004
+
+
+PLOS | www.plosone.org                                             5                              March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                              Improving Essential Gene Annotations
+
+
+target microbicidal antibiotic, Rifampin [39].                    non-essential. model correct essentiality PA4238 confirmed independent gene knockout             cases.
+efforts [24,29]. expected, PA4238 determined allelic              Overall, seven genes tested allelic exchange
+exchange experiments essential. According model,                   experiments, model agreed experimental validations
+PA4238 rank 46 678, higher expected                     Remarkably, cases directly
+number essential genes TmEs, e., 540;            contradicted TM assignments, allelic exchange experiments
+predicted essential model. case, results          supported predictions. Details allelic exchange experiments TM assignment, model allelic exchange                        provided Supporting Information (Fig. S2 experiment consistent (Table 3).                                         Table S3).
+   selected ORFs PAO1 TM dataset test model: PA0723, PA2954 PA2143                       7. Examples Identified TM Annotation Errors
+selected TmEs; PA3746, PA4260 PA0985                                                                              Confirmed Literature
+selected TmNs. main purpose conduct allelic
+                                                                                TM annotation errors PAO1 identified exchange experiments validations demonstrate TM
+                                                                             model, number confirmed literature. contains errors method capable correcting
+                                                                             examples: errors. serve purpose, chose genes likely TM errors testing cases based              Hfq (PA4944) RNA-binding protein PAO1 involved following considerations:  testing cases TmEs            Bacterial RNA degradation pathway. identified lower ranked (close cutoff 540)           essential gene TM experiments [29], assigned non- testing cases TmNs higher ranked (close            essential model (ranked 572 678 TmEs). recent cutoff 15). higher-ranked genes TmEs                 study [40] investigated effect Hfq virulence stress
+lower-ranked genes TmNs agreements                  response PAO1 compared growth rate wild-type
+TM model likely correct assignments;                  strain Dhfq strain. Dhfq strain showed reduced  interesting testing cases. Second,              growth rate compared wild-type strain, indicates lower-ranked TmEs higher-ranked TmNs,                     gene essential fitness survival challenged selecting difficult cases, e.,       referred non-essential gene  ortholog E. coli assignments based              FpvI (PA2387) RNA polymerase sigma factor orthologs contradictory TM assignments.                   TM-assigned essential gene PAO1. model predicted chose testing cases sides cutoffs test       non-essential assigning rank 582 678 TmEs.
+robustness cutoff setting. Finally, short list           Beare et.al studied role siderophore-mediated cell signaling
+genes met criteria, nailed               [41]. FpvI required synthesis based experimental feasibility.                                           ferripyoverdine receptor FpvA signaling
+   TmEs (PA2954, PA0723 PA2143),                         pathway regulating pyoverdine  form siderophore) production.
+PA0723 true essential gene PA2954 PA2143                       experiment, constructed DfpvI strain turned non-essential. According model, PA0723               mutant produced lower amounts FpvA wild- ranked 414 678. expected number                    type stain, suggests FpvI required normal
+essential genes TmEs 540, correctly predicted             amounts FpvA production survival. essential. contrast, PA2954 PA2143 given rank               PcrG (PA1705) regulator type III secretion (TTSS)
+588 663, respectively. predicted false                 enables bacteria translocate virulence effectors
+positive error  e., non-essential) genes ranks          directly cytosol host cells. ranks 559 lower 540. model correct cases.                    678 TmEs model predicted non-essential gene,
+   TmNs (PA3746, PA4260 PA0985),                         contradicting TM assignment. understand PA0985 true non-essential gene PA3746 PA4260                   mechanism, Sundin’s group constructed frame deletion tested essential. model assigned PA3746 rank             mutant PcrG cultured mutant LB medium. 8 4892. rank higher 15, expected             PcrG mutant regulate expression number essential genes TmNs, PA3746                         exoenzyme S (ExoS) identified effectors
+predicted essential. contrast, PA0985 PA4260               targeted host cells TTSS PAO1 [42]. assigned rank 113 103, respectively; predicted            experiment proved PcrG non-essential gene.
+
+ Table 3. Validation using allelic exchange experiments Pseudomonas aeruginosa PAO1. E – Essential; N – Non-essential.
+
+
+                                Local Insertion                                      Assignments                   Assignments Allelic
+ PAO1 genes       Length        Density         Assignments TM Ranks Model model                  exchange experiments
+
+ PA3746           1374          4.9521        N                    8/4289                  E                       E
+ PA4260           822           3.4102        N                    103/4289                N                       E
+ PA0985           1497          7.5415        N                    113/4289                N                       N
+ PA4238           1002          3.3564        E                    46/678                  E                       E (Positive Control)
+ PA0723           249           7.4446        E                    414/678                 E                       E
+ PA2954           570           2.0336        E                    588/678                 N                       N
+ PA2143           288           2.1479        E                    663/678                 N                       N
+
+ doi:10.1371/journal.pone.0058178.t003
+
+
+
+PLOS | www.plosone.org                                               6                            March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                                 Improving Essential Gene Annotations
+
+
+
+8. Testing Model’s Broad Applicability                            essential rate original TmNs. confidence
+Organisms                                                                      scores generated model shown positive
+   Francisella tularensis Gram-negative, intracellular pathogen           correlations enrichment true essential genes. causes disease tularemia. F. tularensis novicida commonly              able assign PETmNs demonstrates advantage used surrogate virulence studies particularly virulent            approach previous studies recovering true essential
+mice able cause tularemia-like disease rodents.              genes TmNs. existing models, e.g., [28], Genome-scale TM experiments performed                         focused removing false essential genes TmEs, subspecies F. tularensis novicida [25]. TM library consists            incapable recovering false non-essential genes, 16,508 unique insertions covering 1,434 1,767 genes,             relatively  TmNs. E. coli, 12 false non-
+average .9 insertions gene, achieves highest                  essential genes recovered, true essential, significantly
+coverage available TM experiments bacterial                       higher original TmNs (Table 2).
+species. applied model TM library estimated                     Second, model adopts simple realistic overall essential rate 14.5 . 333 TmEs,                    assumptions, applicable multiple microorganisms. predicted 251 genes essential labeled PETmEs.                 important note method dependent single 1434 TmNs, predicted 5 essential labeled                      gene knockout results make predictions. single gene
+PETmNs. prediction results available                 knockout results E. coli used assessing TM
+Web server described section. TM annotations                   errors evaluating performance predictions. P. microorganisms processed deposited               aeruginosa PAO1 single gene knockout results unavailable,
+Web server results available.                                  demonstrated method remarkably accurate based                                                                                literature allelic exchange experiments. 9. Developing Web Server Provides Convenient                            seven chosen genes experimental test, Access Method                                                           assigned correctly model overall accuracy 86 .
+   make model readily available research                         results clearly demonstrated method’s reliability community, developed convenient user-friendly Web                     applicability organisms single gene knockout
+service named EGTEC  Essential Gene TM Annotation                          results. demonstrated model’s broad applicability
+Error Corrector) hosted  http://research.cchmc.org/                         F. tularensis novicida, single gene knockout results essentialgene/. EGTEC interface implemented using                       unavailable.  believe, granted access PHP-HTML comprises main functions (Fig. 5):                         information transposon insertion positions bacterial
+                                                                               genomes, model readily applicable 24 available
+(1) query tool quick exploration corrected TM                   TM datasets listed Table S1.
+    sample results bacteria, currently includes E. coli, P.                model displays robustness analyzing unsaturation
+    aeruginosa F. tularensis novicida. query received,       level TM datasets resisting experimental errors     tool check gene’s presence database                demonstrated simulated unsaturation level TM datasets.
+    displays matching records input, including                 potentially useful significantly reducing time     original TM annotations EGTEC’s prediction                 costs currently associated TM experiments.
+    results single-gene knockout experiments                        Finally, model flexible able incorporate     available. tool accept input query gene’s                potential factors. example, assigned different weights     following formats: gene symbol  GenBank                        insertions based positions inserted     accession number Entrez Gene ID.                                        genes. future, consider factors affect
+(2) uploading tool submitting new TM experimental data                  accuracy TM experiments [33].
+    users. EGTEC accepts user-generated TM experi-                          benchmark method’s performance different
+    mental results makes corrections results.                 types computational methods, compared prediction
+    input contain following information:                     performance Table S4. included studies
+    ORF’s  (b) Start end position ORF (c)                 conducted E. coli order make objective comparison.
+    transposon insert position ORF. sample input                 surprising supervised methods rely gold
+    file provided uploading box. finished,              standard datasets outperform non-supervised methods     corrected TM annotations including predicted                       rely gold standard datasets. main problem     probability ORF essential sent                supervised learning applicable understudied
+    user email.                                                        species essential genes known;
+                                                                                superior performance sensitivity, specificity                                                                                precision meaningful problem intend solve.
+Discussion                                                                     constraint-based method outperforms model    intrinsic biases TM experiments motivated develop              precision, sensitivity specificity poor. reflects statistical framework systematically filter errors               limitation dependent priori knowledge pathways
+FETmEs FNTmNs) improved accuracy TM-                       reactions. Homology mapping similar level determined essential gene annotations. model significant            performance model, requires closely related model ways:                                                                     organism, accuracy assignment highly dependent     model significantly enhances accuracy                 distance model organism target organism.
+original TM assignments. E. coli TmEs, PNTmEs, e.,                case, homology mapping performs mainly false essential genes filtered method,                    single gene knockout results available studied significantly lower true essential rate original              closely-related organism, Acinetobacter baylyi [43]. unrealistic TmEs. contrast, TmNs, PETmNs, e., predicted                expect model organism available essential genes TmNs, significantly higher true                     understudied species.
+
+
+PLOS | www.plosone.org                                                 7                             March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                            Improving Essential Gene Annotations
+
+
+
+
+Figure 5. Interface EGTEC Web server.
+doi:10.1371/journal.pone.0058178.g005
+
+   approach represents significant advancement                   gold-standard dataset available M. tuberculosis, Gerdes approach filter TM errors.  cutoff settings          compare subsaturation results theirs. addition,
+Gerdes approach appeared somewhat arbitrary lack               issues Jacobs et al.’s method statistical rigorousness. example, genes longer 240 bp         disregarding false negative errors differences insertion free inserts assigned essential, genes         density. taking account features, model insertion designated non-essential unless        expected realistic accurate.
+relatively long (.900 bp). contrast, parameters             effort timely given large number existing
+determined iterative learning process. Second, Gerdes           annotations essential genes rapidly increased TM datasets.
+annotations strictly based TM data involved            need assess TM errors manual inspection requires prior knowledge E. coli                  urgent researchers start explore conditional essentials,
+physiology.  Gerdes approach easily extended            hold key understanding gene essentiality. understudied organism expected achieve                past years, seen numerous new bacterial
+performance. contrast, approach relies TM                essential gene sets published majority data, e., transposon insertion positions bacterial genome.         generated TM approach [44,45,46,47,48,49,50,51,52,53] using prior knowledge improve assignments,              (Table S1). expect growth essential gene datasets model significantly outperformed Gerdes approach               greatly accelerate. contribution valuable
+precision specificity (Table S4).                                       timely. long TM experiments remain dominant
+   organisms, performance metrics              method determine essential gens prokaryotes, method easily assessed definite mappings essential genes         expected remain useful. available species, approach exhibits              logical step investigate model’s applicability advantages: model capable estimating probability              eukaryotes.  eukaryotes score essential individual genes,             complex genome structure prokaryotes, e.g., introns, estimating overall essential rate genome             mechanism eukaryotic essential genes expected quite
+Jacobs et al.’s method. addition, Jacobs et al. used multinomial       different prokaryotic essential genes. reason,
+distribution incorporate difference                transposons likely work differently eukaryotes ‘‘hot’’ ‘‘cold’’ spots. Furthermore, method                prokaryotes. thorough investigation aspects applicable correcting false negative errors, e., detecting true       performed apply model eukaryotic genomes.
+essential genes TmNs. Lamichhane et al.’s study,                summary, developed promising tool crucial
+method applicable subsaturation level TM.               large-scale data mining essential genes. analysis
+
+
+PLOS | www.plosone.org                                              8                            March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                              Improving Essential Gene Annotations
+
+
+enabled tool eventually lead better understanding mechanistic basis underlying gene essentiality.                                       Pr (E~1,nreal w0Dnreal §nobs ~0)           ðPartBÞ
+
+Materials Methods
+                                                                              
+1. Data Sources
+   study, tested model different prokaryotic
+organisms: E. coli, P. aeruginosa PAO1 F. tularensis novicida.        Pr (E~1,nreal ~0Dnreal §nobs ~0)
+chose study organisms genomic
+sequences TM datasets publicly available.
+   genomic protein sequences E. coli MG1655                  ~ Pr (E~1Dnreal ~0,nreal §nobs ~0) Pr (nreal ~0Dnreal §nobs ~0)
+downloaded Comprehensive Microbial Resource (CMR) http://cmr.jcvi.org/. contained 4,289 protein coding genes         Pr (E~1Dnreal ~0,nreal §nobs ~0)~ Pr (E~1Dnreal ~0) total.                                                                      probability gene essential given actual insertion
+   E. coli essential dataset downloaded Profiling E.        number equal 0. means insertion coli Chromosome (PEC) v4 http://www.shigen.nig.ac.jp/.              missed transposons chance.  infer
+dataset (PEC set) contained 302 essential genes 4477 non-               information gene, assume probability essential genes.                                                            essential equal overall percentage essential genes
+   E. coli TM dataset downloaded [23]. total            genome. 
+4291 protein-coding genes dataset, 3,311 ORFs observed transposon insertions 649 ORFs                                 Pr (E~1Dnreal ~0)~ Pr (overall essential):
+remaining 331 genes excluded analysis reliable PCR data obtained corresponding region E. coli chromosome technical reasons.                              transposon insertion process follows Poisson
+   total 5,568 protein sequences P. aeruginosa PAO1             distribution, 
+downloaded                     http://www.pseudomonas.com/
+(Pseudomonas_aeruginosa_PAO1.faa, revision 2009-07-17).
+                                                                                                                 Pr (nreal ~0,nreal §nobs ~0)
+   P. aeruginosa PAO1 TM dataset downloaded [29].                  Pr (nreal ~0Dnreal §nobs ~0)~ dataset contained 4,892 ORFs observed transposon                                                      Pr (nreal §nobs ~0)
+insertions 678 ORFs                                                                          ~Poisson(0; rL)
+   F. tularensis novicida TM dataset downloaded [25]. datasets contain 333 putative essential genes 1,767
+putative non-essential genes.                                                 B:
+   E. coli operon dataset downloaded Regulon DB
+version 6.4 http://regulondb.ccg.unam.mx/. dataset                                  Pr (E~1,nreal w0Dnreal §nobs ~0)
+contained 2,665 operons inferred experimentally compu-
+tationally E. coli genome.
+                                                                                            X       ½Pr (E~1jnreal ~m,nreal §nobs ~0)
+2. Simulation Random Insertions                                                      ~     mw0
+   Assuming uniform distribution transposon insertions                                          Pr (nreal ~mjnreal §nobs ~0) ORF, conducted simulation experiment random insertions. Gerdes set, observed 12,966 total                 Pr (E~1Dnreal ~m, nreal §nobs ~0), mw0 proba-
+transposon insertions inside ORFs, excluding intergenic insertions.         bility gene essential given real insertion number randomly generated 12,966 insertions genome,                   m (m .0), insertions survived. didn’t
+excluding intergenic regions. random insertion,                 observe insertion, m insertions effective;
+recorded relative position inside ORF. Repeating                mutants ineffective insertions simulation 1,000 times, obtained distribution                 survived. case, target gene essential, positions simulated insertions. evaluated empirical          insertions interrupted function caused mutant’s death.
+insertion distribution TmNs  TNTmNs FNTmNs)                   
+calculating probability P randomized insertions
+appearing certain position equal greater number times real experiment. concluded                            Pr (E~1Dnreal ~m,nreal §nobs ~0)~1 significant difference P-values #0.01 (Table S2).
+
+3. Derivation Equations                                                              Pr (nreal ~mDnreal §nobs ~0)~Poisson(m; rL)
+  Based probability theory, Eq. (1) rewritten parts (Fig. 2):
+                                                                              Similarly, Eq. (2) rewritten parts (Fig. 2):
+                Pr (E~1Dnreal §nobs ~0)
+                                                                                    Pr (E~1Dnreal ~nobs w0)
+
+               ~ Pr (E~1,nreal ~0Dnreal §nobs ~0)           ðPartAÞ
+
+
+PLOS | www.plosone.org                                              9                              March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                                                                                         Improving Essential Gene Annotations
+
+
+
+                                                                                                                                                                 X
+~ Pr (E~1, insertions ineffective Dnreal ~nobs w0)                                                ðPartCÞ                            E(TETmE)~                      Pr (Ei ~1Dnireal §niobs ~0)
+                                                                                                                                                                TmE
+                                                                                                                                                                 X                                                        ð4Þ
+                                                                                                                                         E(FNTmN)~                      Pr (Ei ~1Dnireal ~niobs w0) Pr (E~1, insertion effectiveDnreal ~nobs w0)ðPartDÞ                                                                                              TmN
+
+
+
+   C:                                                                                                                     ress estimated 
+   insertions disrupted gene’s function infer information gene,                                                                                             E(TETmE)zE(FNTmN)
+assume probability essential equal overall                                                                          ress ~                                                                     ð5Þ
+                                                                                                                                                                NTmE zNTmN
+percentage essential genes genome, 
+
+       Pr (E~1, insertions ineffectiveDnreal ~nobs w0)                                                                     Substituting (4) (5), 
+
+      ~ Pr (overallessential)(1{P1 )n30 or50 ends (1{P2 )nmiddle                                                                                                P P
+                                                                                                                                                                           Poisson(m; ri Li )
+                                                                                                                                                               TmE mw0
+                                                                                                                            ress ~                   P                             P                                          ð6Þ
+                                                                                                                                                                                                ni 0 0                                                                                                                                                    NTmE zNTmN {           Poisson(0; ri Li ){              ^1)
+                                                                                                                                                                                          (1{P                 ^ 2 )nmiddle
+                                                                                                                                                                                                 3 or5 ends (1{P
+                                                                                                                                                    TmE                         TmN
+  D:
+  observed effective insertions target gene mutant gene disrupted survived, target gene                                                                                                    ^ 1 ,P
+                                                                                                                                Step 3. Using current ress P    ^ 2 , assign essential essential.                                                                                                        probability score individual gene TM dataset.
+                                                                                                                                Step 4. Ranking essential probability scores TmEs set
+    Pr (E~1,atleastoneinsertioneffectiveDnreal ~nobs w0)~0                                                                  using expected number essential genes dataset                                                                                                                             cutoff, genes considered PETmEs. Similarly,
+                                                                                                                            ranking essential probability scores TmNs dataset using
+                                                                                                                            expected number essentials dataset cutoff, 4. Estimating Parameters Using Iterative Procedure                                                                       genes considered PETmNs, filtered essential
+   iteratively estimated unknown parameters P1                                                                   dataset combination PETmEs PETmNs.
+probability individual insertion disrupts gene’s function                                                             Step 5. Updating current essential dataset SðEssÞ using                                                                                                                             filtered essential dataset remaining genes update occurs 25  extreme ends gene), P2                                                                                                                              current non-essential dataset S ðNon{essÞ.
+probability individual insertion disrupts gene’s function
+                                                                                                                                Step 6. Going Step 1 result converges. occurs middle gene)                                                                                                                                 model, initial P1 P2 randomly assigned
+ress ~ Pr (OverallEssential)  true essential rate genome)
+                                                                                                                            0 1, updated iteration process follows:
+                                                                                                                            converge.
+   Step 1. Based model assumptions, defined empirical estimators P1 P2 calculating number corresponding insertions (denominator) effectiveness                                                              5. Experimental Validation P. aeruginosa PAO1
+(numerator) using definition follows:                                                                                   verify predictions, conducted allelic exchange
+                                                                                                                            experiments seven chosen genes: PA4238, PA0723,
+                                            P                        P                                                      PA0985, PA2954, PA2143, PA3746 PA4260.  using
+                                                  ni30 or50 ends =          Li                                              genomic DNA strain PAO1 template standard PCR
+                                         S(Ess)                  S(Ess)
+^ 1 ~1{
+P                 P                               P                     P                      P                            techniques, cloned PCR fragments containing desired
+          (                  ni30 or50 ends =                 Lj            ni30 or50 ends =   Li )
+              j[S(Non{ess)                    j[S(Non{ess)               S(Ess)                     S(Ess)              genes 1 kb flanking DNA pUC19. inserted                                             P                        P                                           ð3Þ        non-polar aacC1 (GmR) cassette pUCGM [54] target
+                                                     nimiddle =:              Li
+^ 2 ~1{                                   S(Ess)                 S(Ess)                                                 gene transcriptional orientation ensure P                 P                            P                       P                             P
+          (                  nimiddle =                    Lj                 ni30 or50 ends =              Li )          polar effects downstream genes. inserted fragments
+              j[S(Non{ess)                j[S(Non{ess)               S(Ess)                      S(Ess)                 subcloned gene replacement vector, pEX100T,
+                                                                                                                            resultant constructs conjugated PAO1                                                                                                                             selection GmR. Transconjugates resolved LB agar
+                                                                                                                            containing 7  sucrose counter-selectable marker. Isogenic
+    SðEssÞ S ðNon{essÞ denote set essential                                                             mutants confirmed initially PCR Southern blot.
+non-essential genes current step, respectively. nimiddle                                                      Complementation single copy using unique attB
+observed insert number middle regions ith gene;                                                           locus stable plasmids (details Text S1).
+ni30 or50 ends observed insert number 39 59ends Li length gene.                                                                                                    Supporting Information
+    Step 2. Using P     ^ 1 ,P
+                             ^ 2 estimate ress :
+    step,  calculated expected number essential                                                     Figure S1       Identification essential genes TM.
+genes TmEs TmNs respectively, following equation:                                                             (DOC)
+                                                                                                                            Figure S2 PCR analysis PA0985 merodiploid (single
+                                                                                                                            crossover) mutant (double crossover) recombinant
+                                                                                                                            strains.
+                                                                                                                            (DOCX)
+
+
+PLOS | www.plosone.org                                                                                             10                                      March 2013 | Volume 8 | Issue 3 | e58178
+                                                                                                                                   Improving Essential Gene Annotations
+
+
+Table S1.                                                                                  Text S1.
+(DOC)                                                                                      (DOC)
+Table S2.
+(DOC)                                                                                      Author Contributions
+Table S3.                                                                                  Conceived designed experiments: JD LJL. Performed                                                                                            experiments: SS DJH. Analyzed data: JD XL. Wrote paper: JD
+(DOC)
+                                                                                           LJL SS DJH.
+Table S4.
+(DOC)
+
+References
+ 1. Dowell RD, Ryan O, Jansen  Cheung D, Agarwala S, et al. (2010) Genotype              27. Glass JI, Assad-Garcia N, Alperovich N, Yooseph S, Lewis MR, et al. (2006)
+    phenotype: complex problem. Science 328: 469.                                         Essential genes minimal bacterium. Proc Natl Acad Sci U S 103: 425–
+ 2. Kato J, Hashimoto M (2007) Construction consecutive deletions                    430.
+    Escherichia coli chromosome. Mol Syst Biol 3: 132.                                     28. Lamichhane G, Zignol M, Blades NJ, Geiman  Dougherty  et al. (2003)  3. Winzeler EA, Shoemaker DD, Astromoff  Liang H, Anderson K, et al. (1999)                 postgenomic method predicting essential genes subsaturation levels     Functional characterization S. cerevisiae genome gene deletion               mutagenesis: application Mycobacterium tuberculosis. Proc Natl Acad
+    parallel analysis. Science 285: 901–906.                                                   Sci U S 100: 7213–7218.
+ 4. Mushegian (1999) minimal genome concept. Curr Opin Genet Dev 9:                  29. Jacobs MA, Alwood  Thaipisuttikul  Spencer D, Haugen E, et al. (2003)
+    709–714.                                                                                   Comprehensive transposon mutant library Pseudomonas aeruginosa. Proc
+ 5. Arigoni F, Talabot F, Peitsch M, Edgerton MD, Meldrum E, et al. (1998)                   Natl Acad Sci U S 100: 14339–14344.
+    genome-based approach identification essential bacterial genes. Nat         30. Hutchison CA, Peterson SN, Gill SR, Cline RT, White O, et al. (1999) Global
+    Biotechnol 16: 851–856.                                                                    transposon mutagenesis minimal Mycoplasma genome. Science 286:
+ 6. Bruccoleri  Dougherty TJ, Davison DB (1998) Concordance analysis                     2165–2169.
+    microbial genomes. Nucleic Acids Res 26: 4482–4486.                                    31. Blades NJ, Broman KW (2002) Estimating number essential genes  7. Joyce AR, Palsson BO (2008) Predicting gene essentiality using genome-scale             genome random transposon mutagenesis. Technical Report MS02–20,
+    silico models. Methods Mol Biol 416: 433–457.                                              Department Biostatistics, Johns Hopkins University Working Paper 15.
+ 8. Perumal D, Samal  Sakharkar KR, Sakharkar MK (2011) Targeting multiple               32. Gerdes S, Edwards R, Kubal M, Fonstein M, Stevens R, et al. (2006) Essential
+    targets Pseudomonas aeruginosa PAO1 using flux balance analysis                    genes metabolic maps. Curr Opin Biotechnol 17: 448–456.
+    reconstructed genome-scale metabolic network. J Drug Target 19: 1–13.                  33. Gerdes SY, Scholle MD, D’Souza M, Bernal  Baev MV, et al. (2002)                                                                                                genetic footprinting antimicrobial drug targets: examples cofactor
+ 9. Plata G, Hsiao TL, Olszewski KL, Llinas M, Vitkup D (2010) Reconstruction
+                                                                                               biosynthetic pathways. J Bacteriol 184: 4555–4572.
+    flux-balance analysis Plasmodium falciparum metabolic network. Mol
+                                                                                           34. Good IJ (1986) statistical applications Poisson’s work. Statistical science
+    Syst Biol 6: 408.
+                                                                                               1 (2): 157–180.
+10. Imam S, Yilmaz S, Sohmen U, Gorzalski  Reed JL, et al. (2011) iRsp1095:                                                                                            35. Ross SM (1996) Stochastic processes. New York: Wiley. xv, 510 p. p.
+    genome-scale reconstruction Rhodobacter sphaeroides metabolic network.
+                                                                                           36. Lehmann EL, Casella G (1998) Theory point estimation. New York: Springer.
+    BMC Syst Biol 5: 116.
+                                                                                               xxvi, 589 p.p.
+11. Chen Y, Xu D (2005) Understanding protein dispensability machine-
+                                                                                           37. Zolman JF (1993) Biostatistics : experimental design statistical inference.
+    learning analysis high-throughput data. Bioinformatics 21: 575–581.
+                                                                                               New York: Oxford University Press. xv, 343 p.p.
+12. Saha S, Heber S (2006) silico prediction yeast deletion phenotypes. Genet        38. Balakrishnan N, Melas VB, Ermakov SM (2000) Advances stochastic
+    Mol Res 5: 224–232.                                                                        simulation methods. Boston: Birkha¨user. xxvi, 386 p.p.
+13. Gustafson  Snitkin ES, Parker SC, DeLisi C, Kasif S (2006)              39. Knox C, Law V, Jewison T, Liu P, Ly S, et al. (2011) DrugBank 3.0:     identification essential genes using targeted genome sequencing                     comprehensive resource ‘omics’ research drugs. Nucleic Acids Res 39:
+    comparative analysis. BMC Genomics 7: 265.                                                 D1035–1041.
+14. Seringhaus M, Paccanaro  Borneman  Snyder M, Gerstein M (2006)                     40. Sonnleitner E, Hagens S, Rosenau F, Wilhelm S, Habel  et al. (2003) Reduced
+    Predicting essential genes fungal genomes. Genome Res 16: 1126–1135.                    virulence hfq mutant Pseudomonas aeruginosa O1. Microb Pathog 35:
+15. Deng J, Tan L, Lin X, Lu Y, Lu LJ (2012) Exploring optimal strategy                 217–228.
+    predict essential genes microbes. Biomolecules: 1–22.                               41. Beare PA, RJ, Martin LW, Lamont (2003) Siderophore-mediated cell
+16. Deng J, Deng L, Su S, Zhang M, Lin X, et al. (2011) Investigating                      signalling Pseudomonas aeruginosa: divergent pathways regulate virulence
+    predictability essential genes distantly related organisms using              factor production siderophore receptor synthesis. Mol Microbiol 47: 195–
+    integrative approach. Nucleic Acids Res 39: 795–807.                                       207.
+17. Judson N, Mekalanos JJ (2000) Transposon-based approaches identify                  42. Sundin C, Thelaus J, Broms JE, Forsberg (2004) Polarisation type III
+    essential bacterial genes. Trends Microbiol 8: 521–526.                                    translocation Pseudomonas aeruginosa requires PcrG, PcrV PopN.
+18. Winsor GL, Lam DK, Fleming L, Lo R, Whiteside MD, et al. (2011)                            Microb Pathog 37: 313–322.
+    Pseudomonas Genome Database: improved comparative analysis popula-                 43. Berardinis V, Vallenet D, Castelli V, Besnard M, Pinet  et al. (2008)     tion genomics capability Pseudomonas genomes. Nucleic Acids Res 39:                    complete collection single-gene deletion mutants Acinetobacter baylyi
+    D596–600.                                                                                  ADP1. Mol Syst Biol 4: 174.
+19. Zhang

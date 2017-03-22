@@ -1,0 +1,505 @@
+Österlund et al. BMC Systems Biology 2013, 7:36
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+ RESEARCH ARTICLE                                                                                                                                  Open Access
+
+Mapping condition-dependent regulation metabolism yeast genome-scale
+modeling
+Tobias Österlund1, Intawat Nookaew1, Sergio Bordel1 Jens Nielsen1,2*
+
+
+  Abstract
+  Background: genome-scale metabolic model Saccharomyces cerevisiae, presented 2003,   genome-scale network reconstruction eukaryotic organism. continuous efforts   order improve expand yeast metabolic network.
+  Results: present iTO977, comprehensive genome-scale metabolic model contains reactions,
+  metabolites genes previous models. model constructed based earlier reconstructions,
+  iIN800 consensus network, improved expanded using gap-filling methods   introducing new reactions pathways based studies literature databases. model shown
+  perform growth simulations different media gene essentiality analysis single double
+  knock-outs.  model used scaffold integrating transcriptomics, flux data   different conditions order identify transcriptionally controlled reactions, e. reactions change flux
+  transcription compared conditions.
+  Conclusion: present new yeast model represents comprehensive date collection knowledge
+  yeast metabolism. model used simulating yeast metabolism different growth
+  conditions experimental data conditions integrated model. model   experimental data useful tool identify condition-dependent changes metabolism different
+  environmental conditions.
+  Keywords: Saccharomyces cerevisiae, Genome-scale metabolic model, Integrated analysis, Transcriptionally
+  controlled reactions
+
+
+Background                                                                             applications, reviewed lately [2]. Yeast number metabolic network reconstructions                                    example used extensively biotechnology microorganisms increased rapidly past                                   workhorse production wide range chemicals,
+decade following genome revolution rapid                                   metabolic modeling helped cases guide
+increase genome sequencing projects. yeast                                      strain construction finding strategies improved
+Saccharomyces cerevisiae eukaryote                               chemical production [10]. Recently S. cerevisiae metabolic network reconstructed metabolism                                 metabolic network used basis studied. 10 years yeast                               constructing metabolic models yeasts, e.g.
+metabolic network updated                                 Schizosaccharomyces pombe [11], Yarrowia lipolytica [12],
+reconstructed leading genome-scale models                                   Pichia pastoris Pichia stipitis [13].
+[1-9]. Yeast genome-scale modeling different                                   genome-scale metabolic model S.
+                                                                                       cerevisiae presented 2003 [1] * Correspondence: nielsenj@chalmers.se                                                 11 genome-scale reconstructions released
+1
+ Novo Nordisk Foundation Center Biosustainability, Chalmers University          [2]. overcome problem different models
+Technology, Gothenburg SE412 96, Sweden
+2
+ Novo Nordisk Foundation Center Biosustainability, Technical University                                                                                        having different metabolite names, different scopes Denmark, Hørsholm DK2870, Denmark                                                      representing parts metabolism slightly different
+                                         © 2013 Österlund et al.; licensee BioMed Central  Open Access article distributed terms Creative
+                                         Commons Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution,                                          reproduction medium, provided original work properly cited.
+ Österlund et al. BMC Systems Biology 2013, 7:36                                                                                   Page 2 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+ways consensus metabolic network constructed                               Genome-scale metabolic model reconstructions result community jamboree effort [3].                               used scaffold integrated data analysis,
+consensus network introduced nomenclature standard                         network structure model basis
+metabolites following MIRIAM, using ChEBI annotations                            integration omics data order gain InChI codes. consensus network viewed                          mechanistic knowledge cell’s behavior different genome-scale reconstruction (GENRE) yeast                               environments different conditions. reporter
+metabolism, genome-scale model (GEM) ready                          metabolite algorithm [14] useful tool integration simulations using e.g. constraint-based methods                      transcriptomics data metabolic network. flux balance analysis (FBA), missing information                          algorithm identifies key metabolites neighboring reversibility reactions missing biomass                        genes metabolic network transcriptionally
+equations. consensus network developed                           changed conditions.  regulation improved updated version called Yeast 4 [4]                       cellular response different perturbations GEM ready simulations. expanded                         gene deletion changes environmental conditions updated leading version called Yeast 5 [5].                       occur different levels cell. using relationship yeast genome-scale models                            genome-scale model predict changes metabolic flux
+shown pedigree Figure 1A. model                         different conditions correlate changes
+included detailed description lipid metabolism,                         change expression genes involved, reac- iIN800 [8], included consensus                             tions directly controlled transcription reconstruction.                                                                  identified. random sampling algorithm presented    genome-scale metabolic model thought 1)                           Bordel et al. [15] framework identification biochemically genetically structured database                        kind trancriptionally controlled reactions using metabolism linking enzymes, metabolites reac-                         genome-scale metabolic model.
+tions  2) predictive model estimate                         present updated genome-scale model (GEM) fluxes intracellular reactions predicting                      based consensus network iIN800 growth cell constraining extracellular                       model. goal model provide date
+(measured) fluxes represent growth conditions.                        comprehensive description yeast metabolism, corresponds GENRE second                          new model contains genes, reactions corresponds GEM concept. genome-scale                                 metabolites previous models. metabolic model applied silico hypothesis                        model performs simulating growth testing tool gain insight operations                              different environmental conditions. model metabolism, leading identification targets superior                    used tool integrating large strain development.                                                              omics data different conditions. used
+
+
+                                                  iFF708                                      B
+                                                                                                              iTO980
+
+
+                                                   iND750                 iLL672
+                                                                                                               104
+                                                                                            Number genes
+
+
+
+
+                                 iIN800            iMM904
+                                                                                                               876
+
+                                                  Yeast 1.0
+                                             (Consensus network)
+                                                                                                               25
+
+                                                   Yeast4                Yeast 5
+                                                                                                              Yeast 5
+                                                             Model expansion
+                                 iTO980                      Model reduction/modification
+
+
+ Figure 1 reconstruction process iTO977 comparison Yeast 5.   Yeast genome-scale metabolic model pedigree.  iTO977 model (red) reconstructed iIN800 model consensus network (blue) starting points. starting point
+ reconstructions merged expanded adding new pathways reactions databases literature. (B) comparison  genes included iTO977 Yeast 5.
+ Österlund et al. BMC Systems Biology 2013, 7:36                                                                                               Page 3 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+ random sampling algorithm correlate                        model compartments. compartments iTO977 changes fluxes aerobic anaerobic                             Cytoplasm, Mitochondria, Peroxisome Extracellu-
+conditions carbon limited nitrogen limited                       lar. keeping number compartments low conditions changes gene expression order                          complexity model reduced simulation
+identify condition-dependent transcriptionally controlled                       capabilities improved. reactions reactions.                                                                      consensus network takes place com-
+                                                                                partments, ER nucleus, included Results discussion                                                          iTO977 model localized cytoplasm, order construct comprehensive genome-scale                              reactions compartments metabolic model, consensus network merged                               scope model discarded. com- iIN800 model construct draft starting point                       partments included iTO977 compartments
+reconstruction. model improved adding                           biggest confidence terms localization new pathways, new reactions new metabolites                         proteins Saccharomyces Genome Database model based database searches literature evi-                     (SGD, www.yeastgenome.org).
+dence. resulting model includes 977 metabolic genes                            comparing number metabolites reac- called iTO977. Figure 1A shows iTO977                            tions different models important model created. model available SBML                           mind metabolite present times
+Excel format (Additional files 1 2                          model, different compartments. genome-
+BioMet Toolbox [16], http://www.sysbio.se/biomet )                        scale metabolic models metabolite considered
+list newly added reactions pathways available                         different species localized different Additional file 3.                                                           compartments. measuring levels intracellular
+                                                                                metabolites metabolomics impossible distinguish
+iTO977 model properties                                                         metabolites different compartments, e.g. pyruvate present updated yeast model bigger                             cytoplasm pyruvate mitochondria considered
+scope earlier models; contains genes,                              species metabolome experiment. Similarly
+metabolites reactions previous models. Table 1                         reaction taking place different compartments shows statistical summary current model                            counted twice model. yeast 5 model previous models terms number metabo-                              compartments iTO977 lites, genes reactions. iTO977 model 4                              higher number metabolites reactions taking
+compartments included model contrast                           compartmentalization account.  iTO977
+consensus network Yeast 5 15                                higher number unique metabolites unique
+
+
+Table 1 Summary characteristics different yeast genome-scale metabolic models
+                                    iFF708           iIN800           iMM904              Consensus             Yeast5           iTO977 (Current model)
+Metabolites                         825              985              1228                1168                  1768             1353
+-Unique metabolites                 595              683              713                 664                   779              815
+-Cytosolic metabolites              518              645              634                 590                   579              738
+-Mitochondrial mets                 170              209              241                 235                   308              231
+-Peroxisomal mets                   0                0                80                  80                    75               87
+-Extracellular metabolites          137              131              164                 158                   168              156
+Reactions                           1145             1706             1577                1761                  2034             1566
+-Unique reactions                   780              1041             1053                804                   1068             1207
+-Cytosolic reactions                723              1301             710                 835                   1092             1083
+-Mitochondrial reactions            104              242              306                 330                   334              256
+-Peroxisomal reactions              0                0                109                 121                   111              80
+Genes                               708              800              904                 888                   898              977
+-Percentage1                        10.7             12.1             13.7                13.4                  13.6             14.8 
+-Cytosolic genes                    532              639              736                 676                   681              800
+-Mitochondrial genes                104              124              199                 190                   204              212
+-Peroxisomal genes                  0                0                19                  24                    23               22
+1
+  genome included model. Based updated statistics Saccharomyces Genome Database includes 6607 genes.
+ Aug 29, 2010).
+ Österlund et al. BMC Systems Biology 2013, 7:36                                                                 Page 4 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+reactions previous models, e. taking        percent wild type growth rate, compartmentalization account counting            mutation flagged lethal. Simulations growth
+number metabolites reactions.                           phenotypes carbon sources ethanol
+  number genes included iTO977 model          galactose using different viability cut-offs larger previous models. Figure 1B shows            presented Additional file 6.
+comparison iTO977 model Yeast 5 model terms number open reading frames. list       Integrated analysis
+ORFs included iTO977 model Yeast 5           iTO977 model used scaffold integrated presented Additional file 4. 25 ORFs        data analysis. Chemostat cultivations performed yeast 5 iTO977 considered         dilution rate 0.05 h-1 different scope iTO977 model, mainly        conditions used simulations (carbon limited,
+transporters e.g. Golgi membrane, vacuole         nitrogen limited, aerobic anaerobic) microarray
+membrane organelles included         data external intracellular flux measure- iTO977 model. 104 ORFs                  ments obtained condition [20]. included iTO977, Yeast 5,           particularly interested changes occur belong pathways newly introduced        transcript level flux level, e. correlations
+iTO977 model. pathways represent                 changes transcriptome fluxome biosynthesis lipid-linked oligosaccharides [17]         different conditions. enzymes direct
+Glycosylphosphaditylinositol [18], molecules          link change expression change flux used protein modifications. pathways        good targets expression order provide direct link iTO977 model         direct flux e. desired product, recent model protein secretion machinery yeast       coupling expression flux. [19] step connecting metabolic            used random sampling algorithm [15] identify
+model model protein secretion.                      reactions change flux transcription.                                                                reactions referred transcriptionally controlled
+Model validation                                               reactions seen subset global set predictive power model evaluated         reactions change transcriptionally. random sam-
+ways: 1) comparing simulated growth rate             pling algorithm calculates probability score reac-
+experimental growth rate different conditions,       tion change flux conditions using
+2) comparing predicted viability silico           measured fluxes additional constraints model single double gene knock-outs experimental        able simulate different conditions. extra-
+observations single double mutant growth.               cellular fluxes used constrain condition-specific
+   Figure 2 shows results growth rate             models intracellular flux distributions
+simulations. Experimental measurements specific        predicted condition-specific models growth rate, specific substrate consumption rate           presented Additional file 7. probability score specific product formation rate chemostat cultures    reaction changing flux compared probability different conditions taken previous         score transcriptional change involved genes,
+study [20] compared simulated data using FBA            calculated microarray data. transcriptionally
+ information, materials methods           controlled reactions changing carbon limited Additional file 5). conditions consid-      nitrogen limited conditions changing aerobic 
+ered carbon limited aerobic growth, nitrogen limited      aerobic conditions shown heatmap Figure 4.
+aerobic growth, carbon limited anaerobic growth            reactions probability score calculated nitrogen limited anaerobic growth. model shown         random sampling algorithm higher 0.9, indi- perform predicting growth rate     cates flux transcript level reactions conditions.                                               change direction. Red color corresponds
+   order evaluate model’s capability predicting   regulation flux transcription,
+gene essentiality performed simulations growth        blue corresponds regulation single double gene knock-outs. viability        flux level transcriptional level.
+mutants compared experimental observations literature [6,21,22] SGD. Figure 3 shows          Transcriptionally controlled reactions glycolysis accuracy predictions growth glucose           ergosterol biosynthesis
+minimal media (single gene knock-outs) rich YPD            expected observe big differences glycolytic
+media. knock mutant considered viable       activity anaerobic aerobic chemostat simulated growth rate mutant 10          growth carbon limited nitrogen limited
+ Österlund et al. BMC Systems Biology 2013, 7:36                                                                                                  Page 5 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+                                                     0.5
+
+                                                    0.45             N−limited aerobic
+                                                                     N−limited anaerobic
+                                                     0.4
+                                                                     C−limited aerobic
+                                                                     C−limited anaerobic
+                              vivo growth rate   0.35
+
+                                                     0.3
+
+                                                    0.25
+
+                                                     0.2
+
+                                                    0.15
+
+                                                     0.1
+
+                                                    0.05
+
+                                                      0
+                                                           0           0.1              0.2             0.3              0.4         0.5
+                                                                                       silico growth rate
+ Figure 2 Model validation comparing silico prediction specific growth rate experimental data. Growth phenotypes
+ collected literature compared simulated values chemostat cultivations different conditions, nitrogen limited aerobic
+ (green) anaerobic (red), carbon limited aerobic (blue) anaerobic (white).
+
+
+
+growth. reactions considered                                        chemostat experiments cells controlled grow transcriptionally controlled comparisons                                         specific growth rate conditions. (Figure 4), phosphofructokinase, phosphoglycerase                                        cells consume glucose anaerobic
+mutase pyruvate kinase. reactions                                             conditions aerobic conditions order grow
+glycolytic reactions, reactions                                           rate, anaerobic growth efficient glycolysis considered transcriptionally                                   energetically. Similarly, glycolytic activtity higher
+controlled, e. change sense flux                                        nitrogen limited (glucose excess) conditions
+expression (Figure 5A). flux reactions                                         compared carbon limited conditions, expression involved enzymes higher                                         glucose available, cell uses glucose anaerobic conditions aerobic conditions.                                            able produce biomass ethanol. 
+
+                                                                           B                                           C
+
+                                                                                                                               69 
+                          82 
+                                                                                 92 
+                                                                                                                                           5 
+                                                               15 
+                                                                                                                                     23 
+
+
+
+
+                                                                     TP, predicted growth, experimentally growth
+                                                                     TN, predicted growth, experimentally growth
+                                                                     FP, predicted growth, experimentally growth
+                                                                     FN, predicted growth, experimentally growth
+
+ Figure 3 Model validation comparing simulation single double gene knock mutant growth experimental
+ observations.   Single gene knock mutants cultivated minimal media. (B) Single gene knock mutants cultivated rich YPD media.
+ (C) Double gene knock mutants cultivated rich YPD media. TP = true positive, TN = true negative, FP = false positive  FN = false negative.
+ Österlund et al. BMC Systems Biology 2013, 7:36                                                                                           Page 6 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+                                                                  )  )
+                                                                im im
+                                                     c)       Nl Cl
+                                                 o bi ic) ic ( ic (
+                                               er ob ob ob
+                                            na er er er
+                                            c c                                         m     m                                             li     li ob b
+                                   -N -N er ero
+                    Rxn id     l im lim na na Reaction (subsystem)
+                              C C                              ELO2_4                 Elongation fatty acids protein 2 (Fatty acid biosynthesis)
+                    LYS12                  Homoisocitrate dehydrogenase, mitochondrial (Lysine metabolism)
+                    FPS1                   Glycerol uptake/efflux facilitator protein (Transport, extracellular)
+                    IPT1_1                 Inositolphosphotransferase 1 (Sphingoglycolipid metabolism)
+                    BAT2_1                 Branched-chain-amino-acid aminotransferase, cytosolic (Branched chain amino acid metabolism)
+                    ADY2                   Acetate transporter (Transport, extracellular)
+                    ARO9_1                 Aromatic amino acid aminotransferase 2 (Aromatic amino acid biosynthesis)
+                    LYS20_2                Homocitrate synthase, cytosolic isozyme (Pyruvate metabolism)
+                    LEU4                   2-isopropylmalate synthase (Branched chain amino acid metabolism)
+                    INO1                   Inositol-3-phosphate synthase (Phospholipid biosynthesis)
+                    MEP1                   Ammonium transporter MEP1 (Transport, extracellular)
+                    ADE8                   Phosphoribosylglycinamide formyltransferase (Purine metabolism)
+                    ADE1                   Phosphoribosylaminoimidazole-succinocarboxamide synthase (Purine metabolism)
+                    ADE13_1                Adenylosuccinate lyase (Purine metabolism)
+                    ADE4                   Amidophosphoribosyltransferase (Purine metabolism)
+                    URA2_1                 Aspartate carbamoyltransferase (Pyrimidine metabolism)
+                    ILV5_1                 Ketol-acid reductoisomerase, mitochondrial (Branched chain amino acid metabolism)
+                    ILV3_1                 Dihydroxy-acid dehydratase, mitochondrial (Branched chain amino acid metabolism)
+                    ADE2                   Phosphoribosylaminoimidazole carboxylase (Purine metabolism)
+                    URA10                  Orotate phosphoribosyltransferase 2 (Pyrimidine metabolism)
+                    TAL1                   Transaldolase (Pentose phosphate pathway)
+                    TKL1_1                 Transketolase 1 (Pentose phosphate pathway)
+                    GND1                   6-phosphogluconate dehydrogenase, decarboxylating 1 (Pentose phosphate pathway)
+                    SOL1                   Probable 6-phosphogluconolactonase 1 (Pentose phosphate pathway)
+                    JEN1_2                 Carboxylic acid transporter protein homolog (Transport, extracellular)
+                    SUR2                   Sphingolipid C4-hydroxylase SUR2 (Sphingoglycolipid metabolism)
+                    ERG2                   C-8 sterol isomerase (Sterol biosynthesis)
+                    LEU2                   3-isopropylmalate dehydrogenase (Branched chain amino acid metabolism)
+                    ERG7                   Lanosterol synthase (Sterol biosynthesis)
+                    ERG6                   Sterol 24-C-methyltransferase (Sterol biosynthesis)
+                    ERG27_1                3-keto-steroid reductase (Sterol biosynthesis)
+                    PGI1_2                 Glucose-6-phosphate isomerase (Glycolysis / Gluconeogenesis)
+                    LAC1_1                 Sphingosine N-acyltransferase LAC1 (Sphingoglycolipid metabolism)
+                    ADH1                   Alcohol dehydrogenase 1 (Pyruvate metabolism)
+                    Uelo_4                 Model-specific reaction, involved elongation fatty acids (Fatty acid biosynthesis)
+                    CSG2_1                 Mannosyl phosphorylinositol ceramide synthase (Sphingoglycolipid metabolism)
+                    LCB1                   Serine palmitoyltransferase 1 (Sphingoglycolipid metabolism)
+                    TRP2_1                 Anthranilate synthase component 1 (Aromatic amino acid biosynthesis)
+                    ARO2                   Chorismate synthase (Aromatic amino acid biosynthesis)
+                    ARO1_1                 3-dehydroquinate synthase (Aromatic amino acid biosynthesis)
+                    RNR1_3                 Ribonucleoside-diphosphate reductase large chain 1 (Salvage pathways)
+                    BNA1                   3-hydroxyanthranilate 3,4-dioxygenase (Aromatic amino acid biosynthesis)
+                    GLK1_1                 Glucokinase GLK1 (Glycolysis / Gluconeogenesis)
+                    HOR2                   (DL)-glycerol-3-phosphatase 2 (Aminosugars metabolism)
+                    PHO84                  Inorganic phosphate transporter (Transport, extracellular)
+                    MVD1                   Diphosphomevalonate decarboxylase (Sterol biosynthesis)
+                    TGL5                   Lipase 5 (Glycerol metabolism (glycerolipid metabolism))
+                    PMI40                  Mannose-6-phosphate isomerase (Fructose mannose metabolism)
+                    ERG5                   Cytochrome P450 61 (Sterol biosynthesis)
+                    ERG25_1                C-4 methylsterol oxidase (Sterol biosynthesis)
+                    ERG4                   Delta(24(24(1)))-sterol reductase (Sterol biosynthesis)
+                    DGA1                   Diacylglycerol O-acyltransferase 1 (Glycerol metabolism (glycerolipid metabolism))
+                    GPM1_2                 Phosphoglycerate mutase 1 (Glycolysis / Gluconeogenesis)
+                    CDC19                  Pyruvate kinase 1 (Glycolysis / Gluconeogenesis)
+                    PFK1_1                 Phosphofructokinase 1 (Glycolysis / Gluconeogenesis)
+                    ERG26_1                Sterol-4-alpha-carboxylate 3-dehydrogenase, decarboxylating (Sterol biosynthesis)
+                    ERG1                   Squalene monooxygenase (Sterol biosynthesis)
+                    PMT1                   Dolichyl-phosphate-mannose--protein mannosyltransferase 1 (Glycoprotein metabolism)
+                    ERG20_1                Dimethylallyltranstransferase (Sterol biosynthesis)
+                    PDC1                   Pyruvate decarboxylase isozyme 1 (Pyruvate metabolism)
+                    ERG3                   C-5 sterol desaturase (Sterol biosynthesis)
+                    ERG11                  Cytochrome P450 51 (Sterol biosynthesis)
+                    PGK1                   Phosphoglycerate kinase (Glycolysis / Gluconeogenesis)
+                    ENO1                   Enolase 1 (Glycolysis / Gluconeogenesis)
+                    ERG24                  C-14 sterol reductase (Sterol biosynthesis)
+                    MET22                  3’(2’),5’-bisphosphate nucleotidase (Cysteine metabolism)
+                    HIS5                   Histidinol-phosphate aminotransferase (Histidine metabolism)
+                    GLT1                   Glutamate synthase [NADH] (Glutamate metabolism)
+                    ECM17                  Sulfite reductase [NADPH] subunit beta (Cysteine metabolism)
+                    DUR1_1                 Urea carboxylase (Nitrogen metabolism)
+                    HIS2                   Histidinol-phosphatase (Histidine metabolism)
+                    RNR1_2                 Ribonucleoside-diphosphate reductase large chain 1 (Salvage pathways)
+                    HIS1                   ATP phosphoribosyltransferase (Histidine metabolism)
+                    ARG4                   Argininosuccinate lyase (Arginine metabolism)
+                    GLN1                   Glutamine synthetase (Glutamate metabolism)
+
+ Figure 4 Transcriptionally controlled reactions (reactions change flux correlate change expression  involved genes) comparing carbon limited nitrogen limited growth comparing aerobic anaerobic growth. Red color
+ corresponds regulation flux expression blue color corresponds regulation.
+ Österlund et al. BMC Systems Biology 2013, 7:36                                                                                          Page 7 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+                                                                                B
+                                            Glucose     Flux      Expression              Acetyl-CoA
+                                    Glucokinase
+                                                                                                   Mevalonate pathway
+
+                                                  G6P
+
+                                                                                                 IPP                   Flux Expression
+                                                  F6P
+                                                                                                               ERG20
+                        Phosphofructokinase                                                DMAPP
+                                                 F16P
+                                                                                                              FPP
+                                                                                                   ERG9
+                                                  G3P
+                                                                                                         Squalene
+                     Phosphoglycerase kinase
+                                                                                                       ERG1
+                                                  3PG
+                         Phosphoglycerase
+                         mutase
+                                                                                                       ERG11
+                                                  2PG
+                                                                                                       ERG24
+                                      Enolase
+
+                                                  PEP                                                  ERG26
+                               Pyruvate kinase
+                                                                                                       ERG25
+                                            Pyruvate
+                                                                                                       ERG3
+
+
+                          score          Anaerobic-Aerobic (Nlim)        Clim-Nlim (Anaerobic)         Ergosterol
+
+                      -10 -5    0   5 10
+                                           Anaerobic-Aerobic (Clim)        Clim-Nlim (Aerobic)
+                           = significant change
+
+
+ Figure 5 Transcriptionally controlled reactions glycolysis FPP branch point.   glycolytic reactions  considered transcriptionally controlled conditions. color indicates   regulation conditions, flux
+ expression. reactions considered transcriptionally controlled shown. White color means  significant change conditions particular comparison. comparisons Anaerobic – Aerobic
+ nitrogen limitation (upper left corner), Anaerobic – Aerobic carbon limitation (lower left corner), C-limited – N-limited  anaerobic conditions (upper right corner) C-limited – N-limited aerobic conditions (lower right corner). (B) Transcriptionally controlled
+ reactions ergosterol biosynthesis pathway.
+
+
+
+
+observation flux changes direction                     Identification responsible transcription factors expression enzymes catalyzing reactions                         order identify transcription factors responsible shown Figure 5A suggests glycolytic flux                        transcriptional control reactions shown Figure 4
+transcriptionally controlled regulation                       Figure 5 performed hypergeometric enrichment
+key enzymes cell growth constrained.                        test comparison transcription factor
+contrast studies engineering glycolytic flux                         based known transcription factor – gene interactions expression glycolytic genes [23],                           [24]. transcription factors hypergeometric
+shown possible increase glycolytic                       p-value 0.05 shown Table 2. flux maximum observed limited                                  transcription factor Opi1p, known negative regulator
+growth conditions.                                                             phospholipid biosynthesis represented   steps ergosterol biosynthesis                             comparisons suggest phospholipid
+pathway regulated                                metabolism significantly changed comparisons.
+flux expression carbon limited conditions                            Phospholipid synthesis activated transcription
+compared nitrogen limited conditions (Figure 5B).                         factors Ino2p Ino4p [25] inactivated Opi1p. reactions regulated                           Opi1p turn activated protein kinase (Tpk1p) flux expression anaerobic conditions compared                           activated high glucose levels [26]. aerobic nitrogen limitation. reactions                       genes regulated Opi1p regulated considered transcriptionally controlled presented                    carbon limited conditions compared nitrogen limited Figure 5.                                                                   conditions, suggests flux  Österlund et al. BMC Systems Biology 2013, 7:36                                                                        Page 8 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+Table 2 represented transcription factor interactions            anaerobic conditions. change predicted significantly changed reactions                                 flux reaction model compared Comparison                          TF       Hypergeometric p-value   changes expression involved enzymes
+Anaerobic - Aerobic (C-limited)     Opi1p    0.0009                   reactions directly transcriptionally 
+                                    Pip2p    0.0168                   trolled identified transcription factors
+                                                                      controlling reactions. genome-scale metabolic
+                                    Gis2p    0.0278
+                                                                      model experimental data valuable tool
+Anaerobic - Aerobic (N-limited)     Opi1p    0.0215
+                                                                      data integration order condition-dependent
+C-limited - N-limited (Anaerobic)   Opi1p    0.0070
+                                                                      differences yeast metabolism.
+C-limited - N-limited (Aerobic)     Yap7p    0.0018
+                                    Opi1p    0.0021                   Methods
+                                    Dal80p   0.0153                   Model reconstruction
+                                    Dig1p    0.0290                   step constructing iTO977 model                                                                       merge iIN800 model [8] consensus network
+                                                                      [3] form draft model. importing
+phospholipid synthesis pathways repressed Opi1p              SBML files starting point reconstructions
+glucose excess conditions, carbon limited                  Matlab format using RAVEN toolbox [28].
+conditions. genes regulated            Additional pathways biochemical reactions Opi1p transcription factor regulated                 added Kyoto Encyclopedia Genes Genomes
+anaerobic conditions compared aerobic conditions.                [29], Saccharomyces Genome Database [30] litera-
+  comparing carbon limited growth nitrogen                  ture. list reactions references available
+limited growth aerobic conditions identify              Additional file 3. Reactions consensus
+transcription factors Opi1p, Yap7p, Dal80p Dig1p               network taking place compartments extracel-
+important regulators considering change                  lular, cytoplasm, mitochondria peroxisome moved
+transcription change flux (Table 2). glucose                cytoplasm merging models. limited conditions yeast goes respiration                iIN800 model doesn’t peroxisome model com- glucose excess conditions cell produces                    partment reactions iIN800 involved ethanol flux glycolysis controlled             fatty acid synthesis degradation (beta-oxidation) carbon catabolite repression. Similarly, high nitro-            moved cytoplasm peroxisome merging.
+gen concentrations nitrogen catabolite pathways               Water hydroxyl ions balanced model,
+repressed [27]. transcription factor Dal80p known              assuming processes cell uses involved nitrogen catabolite repression.             molecules  model corrected analysis majority genes regulated             inconsistencies network gaps, using gap filling methods Dal80p higher expression higher flux                 RAVEN. reactions identified inconsistent carbon limited (excess nitrogen) conditions                Zomorrodi et al. [31] corrected improve ability
+nitrogen limited conditions aerobic cultivation,                predict knock growth phenotypes. CHEBI identifiers indicates pathways transcriptionally             INCHI codes added metabolites following
+regulated Dal80p changing nitrogen                       MIRIAM standard reactions model limitation carbon limitation.                                      links EC-numbers KEGG reactions. biomass
+                                                                      equation taken iIN800 model. final
+Conclusions                                                           model converted Matlab format Excel paper present iTO977, new updated genome-                format SBML format.
+scale metabolic model yeast. model bigger scope previous models used                   silico growth simulations
+simulations scaffold integrated analysis.            Experimental data collected literature model follows standards introduced               chemostat cultivations performed various dilution rates consensus reconstruction regarding annotation                  different conditions: carbon limited
+metabolites reactions seen              aerobic [20,32-35], carbon limited anaerobic [36,37], nitro- annotated database representing current know-                gen limited aerobic [35,36,38,39] nitrogen limited
+ledge yeast metabolism. using model                  anaerobic [40,41] (Additional file 5). simulation
+simulate different growth conditions compare                  purposes uptake glucose, NH3 oxygen simulated fluxes different conditions using                  constrained model according measured values
+random sampling algorithm investigate yeast                    experiment. FBA simulations performed metabolism carbon limited, nitrogen limited, aerobic               maximization biomass objective function  Österlund et al. BMC Systems Biology 2013, 7:36                                                                                  Page 9 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+deviation experimentally measured growth rate          conditions compared. fraction com- identified.                                                 parisons reference higher  lower)
+  Anaerobic conditions simulated iTO977           value second condition used probability
+model constraining oxygen uptake rate zero,           score flux decreasing increasing. values allowing uptake sterols simulate             moderated t-statistic transcriptome data compounds supplied media              used calculate probability score P reaction
+anaerobic growth.                                               representing probability flux                                                                 transcription significantly changed direction
+Gene essentiality predictions                                   conditions. hypergeometric enrichment test silico simulations single gene knock growth           performed identify represented transcription carried genes model          factor interactions list reactions constraining flux corresponding reactions         comparison passing cutoff P > 0.9 based known
+zero estimating maximal biomass flux               transcription factor-gene interactions [24].
+using FBA. relative fitness value calculated mutant f = mutant growth rate/wild type growth          Additional files
+rate. mutation considered lethal relative
+fitness smaller cutoff value. different         Additional file 1: iTO977 model Excel format including
+cutoffs considered, 0.8, 0.9 0.95. simulations      annotated spreadsheets reactions, metabolites genes. carried growth glucose,               Additional file 2: iTO977 model SBML format. model                                                                  available Biomet toolbox, www.sysbio.se/biomet.
+simulated minimal media, allowing uptake glucose,
+                                                                 Additional file 3: Changes additional reactions pathways
+ammonium, oxygen, sulfate phosphate, simu-         iTO977.
+lated rich media (YPD media), uptake amino         Additional file 4: ORFs iTO977 Yeast 5 vice versa.
+acids nucleotides allowed. viability          Additional file 5: Growth simulation results.
+mutants compared experimental observations             Additional file 6: Single double growth knockout
+growth phenotypes 524 single gene knockouts               simulation results.
+minimal media YPD media [6,30]. model           Additional file 7: Additional constraints condition-specific
+used simulate relative fitness pairs double    models used random sampling.
+gene knock-outs, simulating growth glucose rich
+media (YPD) compared experimental observations           Competing interests 234,719 double knock-outs [21].                             authors declare competing interests.
+
+                                                                Authors’ contributions
+Random sampling
+                                                                TÖ reconstructed model, analyzed data, performed simulations Experimental data chemostat cultivations         performed random sampling. SB involved manual curation different conditions (carbon limited, nitrogen limited, aer-    model.  SB JN designed study supervised work. TÖ wrote
+                                                                paper. authors read approved final manuscript.
+obic anaerobic) taken Jewett et al. [20]. raw transcriptome data normalized using Probe
+                                                                Acknowledgements
+Logarithmic Intensity Error (PLIER) method mod-         acknowledge funding Novo Nordisk Foundation, European
+erated t-statistic used identify significantly changed   Research Council (ERC grant  247013), Chalmers Foundation Knut genes conditions. upper lower               Alice Wallenberg Foundation. thank Swedish Bioinformatics
+                                                                Infrastructure Life Sciences (BILS). open access charge funded bounds exchange fluxes lipid biomass reac-       Chalmers Library.
+tions iTO977 model constrained according experimentally measured fluxes (Additional file 7)     Received: 16 November 2012 Accepted: 23 April 2013
+                                                                Published: 30 April 2013
+condition. set flux distributions compatible measured fluxes generated considered        References
+conditions previously described [15]. order   1. Forster J, Famili  Fu P, Palsson B, Nielsen J: Genome-scale reconstruction avoid solutions involving loops set default bounds        Saccharomyces cerevisiae metabolic network. Genome Res 2003,
+                                                                    13(2):244–253. metabolic fluxes Inf –Inf instead 1000        2. Österlund T, Nookaew  Nielsen J: years large scale metabolic −1000 commonly  pair                  modeling yeast: developments impacts. Biotechnol Adv 2012,
+condition, compared sample reference            30(5):979–988.
+                                                                3. Herrgard M, Swainston N, Dobson P, Dunn W, Arga K, Arvas M, Bluthgen N,
+condition samples second condition              Borger S, Costenoble R, Heinemann M: consensus yeast metabolic computed times reference higher              network reconstruction obtained community approach  lower) value reaction. process                 systems biology. Nat Biotechnol 2008, 26(10):1155–1160.
+                                                                4. Dobson P, Smallbone K, Jameson D, Simeonidis E, Lanthaler K, Pir P, Lu C,
+repeated samples reference condition             Swainston N, Dunn W, Fisher P, et al: developments possible combinations samples              genome-scale metabolic model yeast. BMC Syst Biol 2010, 4(1):145.
+ Österlund et al. BMC Systems Biology 2013, 7:36                                                                                                           Page 10 10
+http://www.biomedcentral.com/1752-0509/7/36
+
+
+
+
+5.    Heavner BD, Smallbone K, Barker B, Mendes P, Walker LP: Yeast 5                 28. Agren R, Liu L, Shoaie S, Vongsangnak W, Nookaew  Nielsen J: RAVEN
+      expanded reconstruction Saccharomyces cerevisiae metabolic                      toolbox use generating genome-scale metabolic model       network. BMC Syst Biol 2012, 6(1):55.                                                  Penicillium chrysogenum. PLoS computational biology 2013,
+6.    Mo ML, Palsson BØ, Herrgård MJ: Connecting extracellular metabolomic                   9(3):e1002980.
+      measurements intracellular flux states yeast. BMC Syst Biol 2009, 3(1):37.   29. Kanehisa M, Goto S, Hattori M, Aoki-Kinoshita K, Itoh M, Kawashima S,
+7.    Kuepfer L, Sauer U, Blank LM: Metabolic functions duplicate genes                Katayama T, Araki M, Hirakawa M: genomics chemical genomics:
+      Saccharomyces cerevisiae. Genome Res 2005, 15(10):1421–1430.                           new developments KEGG. Nucleic Acids Res 2006, 34:D354–D357.
+8.    Nookaew  Jewett M, Meechai  Thammarongtham C, Laoteng K,                       30. Cherry JM, Hong EL, Amundsen C, Balakrishnan R, Binkley G, Chan ET,
+      Cheevadhanarak S, Nielsen J, Bhumiratana S: genome-scale metabolic                 Christie KR, Costanzo MC, Dwight SS, Engel SR: Saccharomyces Genome
+      model iIN800 Saccharomyces cerevisiae validation: scaffold                Database: genomics resource budding yeast. Nucleic Acids Res
+      query lipid metabolism. BMC Syst Biol 2008, 2:71.                                   2012, 40(D1):D700–D705.
+9.    Duarte N, Herrgard M, Palsson B: Reconstruction validation                  31. Zomorrodi  Maranas C: Improving iMM904 S. cerevisiae metabolic
+      Saccharomyces cerevisiae iND750, fully compartmentalized genome-                     model using essentiality synthetic lethality data. BMC Syst Biol 2010,
+      scale metabolic model. Genome Res 2004, 14(7):1298–1309.                               4(1):178.
+10.   Kim IK, Roldão  Siewers V, Nielsen J: systems�?level approach               32. Bakker BM, Bro C, Kötter P, Luttik MAH, Van Dijken JP, Pronk JT:       metabolic engineering yeast cell factories. FEMS yeast research 2012,               mitochondrial alcohol dehydrogenase Adh3p involved redox
+      12(2):228–248.                                                                         shuttle Saccharomyces cerevisiae. J Bacteriol 2000, 182(17):4730–4737.
+11.   Sohn SB, Kim TY, Lee JH, Lee SY: Genome-scale metabolic model               33. Overkamp KM, Bakker BM, Kötter P, Van Tuijl  Vries S, Van Dijken JP,
+      fission yeast Schizosaccharomyces pombe reconciliation                   Pronk JT: Vivo Analysis Mechanisms Oxidation Cytosolic
+      silico vivo mutant growth. BMC Syst Biol 2012, 6(1):49.                             NADH Saccharomyces cerevisiaeMitochondria. J Bacteriol 2000,
+12.   Loira N, Dulermo T, Nicaud JM, Sherman D: genome-scale metabolic                     182(10):2823–2830.
+      model lipid-accumulating yeast Yarrowia lipolytica. BMC Syst Biol           34. Gombert AK, Moreira dos Santos M, Christensen B, Nielsen J: Network
+      2012, 6(1):35.                                                                         identification flux quantification central metabolism 13.   Caspeta L, Shoaie S, Agren R, Nookaew  Nielsen J: Genome-scale                       Saccharomyces cerevisiae different conditions glucose
+      metabolic reconstructions Pichia stipitis Pichia pastoris                repression. J Bacteriol 2001, 183(4):1441–1451.
+      silico evaluation potentials. BMC Syst Biol 2012, 6(1):24.                35. Vemuri G, Eiteman M, McEwen J, Olsson L, Nielsen J: Increasing NADH
+14.   Patil K, Nielsen J: Uncovering transcriptional regulation metabolism             oxidation reduces overflow metabolism Saccharomyces cerevisiae.
+      using metabolic network topology. Proc Natl Acad Sci 2005,                             Proc Natl Acad Sci 2007, 104(7):2402–2407.
+      102(8):2685–2689.                                                                  36. Tai SL, Daran-Lapujade P, Luttik MAH, Walsh MC, Diderich JA, Krijger GC, van
+15.   Bordel S, Agren R, Nielsen J: Sampling solution space genome-scale              Gulik WM, Pronk JT, Daran JM: Control glycolytic flux       metabolic networks reveals transcriptional regulation key enzymes.                  Saccharomyces cerevisiae grown low temperature. J Biol Chem 2007,
+      PLoS Comput Biol 2010, 6(7):e1000859.                                                  282(14):10243–10251.
+16.   Cvijovic M, Olivares-Hernandez R, Agren R, Dahr N, Vongsangnak W,                  37. Nissen TL, Schulze U, Nielsen J, Villadsen J: Flux distributions anaerobic,
+      Nookaew  Patil KR, Nielsen J: BioMet Toolbox: genome-wide analysis                glucose-limited continuous cultures Saccharomyces cerevisiae.
+      metabolism. Nucleic Acids Res 2010, 38(suppl 2):W144.                                  Microbiology 1997, 143(1):203–218.
+17.   Burda P, Aebi M: dol

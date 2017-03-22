@@ -1,0 +1,359 @@
+Characterization Protein Hubs Inferring
+Interacting Motifs Protein Interactions
+
+ characterization protein interactions essential understanding biological systems. genome-scale
+methods available identifying interacting proteins, pinpoint interacting motifs (e.g., domain,
+sequence segments, binding site, set residues).  develop apply method delineating interacting motifs hub proteins  e., highly connected proteins). method relies observation proteins common interaction partners tend interact partners common interacting motif. sole
+input method binary protein interactions; sequence structure information needed. approach evaluated comparing inferred interacting motifs domain families defined 368 proteins Structural Classification Proteins (SCOP). positive predictive value method detecting proteins common SCOP families 75  sensitivity 10 . inferred interacting motifs significantly
+associated sequence patterns, responsible common interactions. yeast hubs multiple interacting motifs likely essential hubs interacting motifs, rationalizing previously observed correlation essentiality number interacting partners protein. yeast hubs multiple interacting motifs evolve slower average protein, contrary hubs interacting motifs. proposed method help discover unknown interacting motifs provide biological insights protein hubs roles interaction networks.
+Citation: Aragues R, Sali  Bonet J, Marti-Renom MA, Oliva B (2007) Characterization protein hubs inferring interacting motifs protein interactions. PLoS Comput
+Biol 3(9): e178. doi:10.1371/journal.pcbi.0030178
+
+
+                                                                                            scopy. methods applicable Introduction
+                                                                                            number known 3-D atomic structures proteins    Protein–protein interactions play central role                                 complexes limited. result, accurate general
+cellular processes, ranging signal transduction                                     computational methods identifying motifs involved formation cellular macrostructures cell cycle control                                protein–protein interactions needed.
+[1–3]. Recently, techniques hybrid assays                                 Recently, methods [19–25] developed [4–6] afﬁnity puriﬁcations followed mass spectrometry                                protein–protein interactions terms interacting
+[7–9] enabled large-scale identiﬁcation protein–                                    protein domains, deﬁned Structural Classiﬁcation protein interactions. efforts provide rich lists                             Proteins (SCOP) [26], PFAM [27], InterPro [28] databases.
+interacting proteins, produce information                                  methods ﬁnd interactions speciﬁc interfaces involved interaction.                                        predeﬁned protein domains, interactions undeﬁned
+   Proteins interact limited set interface types                               domains remain undetected. Sequence-based methods 
+[3,10,11]. interfaces usually key determinants                             come problem identifying sequence signatures function.  narrowing protein–protein inter-
+                                                                                            consistently occur pairs interacting protein sequen-
+actions interactions speciﬁc protein components
+                                                                                            ces [29], structure-based methods predict amino
+(e.g., domain, sequence segments, binding site, set                                                                                             acid residues contact protein–protein
+residues) important accurate characterization function proteins complexes. Identifying protein interfaces mediate interactions                                    Editor: Ruth Nussinov, National Cancer Institute, United States America, Tel
+                                                                                            Aviv University, Israel
+useful prediction unknown protein–protein
+interactions [12,13], homology-based protein annotation                                 Received April 19, 2007; Accepted July 27, 2007; Published September 14, 2007
+methods [14], relating gene essentiality network                                previous version article appeared Early Online Release July 30,
+topology [15].                                                                              2007 (doi:10.1371/journal.pcbi.0030178.eor).
+   Traditionally, description protein interactions                                Copyright: Ó 2007 Aragues et al. open-access article distributed terms interacting components based                                       terms Creative Commons Attribution License, permits unrestricted
+                                                                                            use, distribution, reproduction medium, provided original author
+protein structural domains [16], protein functional sites [17],                             source credited. protein patches [18].  fully characterizing                                     Abbreviations: iMotif, interacting motif; PDB, Protein Data Bank; PIANA, Protein
+protein surfaces contact                                 Interactions Network Analysis; SCOP, Structural Classification Proteins interaction requires determination structure                               * correspondence addressed. E-mail: mmarti@cipf.es (MAMR);
+protein complexes X-ray crystallography NMR spectro-                                  boliva@imim.es (BO)
+
+
+        PLoS Computational Biology | www.ploscompbiol.org                            1761                                   September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                          Protein Hubs Characterization iMotifs
+
+
+Author Summary                                                                structure sequence information required assign
+                                                                              iMotifs proteins.
+Recent advances experimental methods produced deluge                   main objectives addressed work. protein–protein interactions data.  methods               ﬁrst objective demonstrate protein inter- supply information specific protein regions                  actions used infer interacting motifs. physically contact interactions. Identifying              positive predictive value method detecting proteins
+regions (interfaces) fundamental scientific disciplines           common SCOP families 75  sensitivity 10 ,
+require detailed characterizations protein interactions.                                                                               Spearman correlation coefﬁcient work, present computational method identifies groups proteins similar interfaces. achieved relying          number iMotifs assigned proteins number observation proteins common interaction partners tend            interfaces Kim et al. [15] 0.57. second
+interact similar interfaces. proposed method retrieves            objective examine conclusions protein hubs
+protein interactions public data repositories groups                 Kim et al. [15] hold iMotifs assignments. results
+proteins share sensible number interacting partners.                demonstrate protein hubs multiple iMotifs Proteins group labeled                 likely essential hubs iMotifs ‘‘interacting motif’’ identifier (iMotif). evaluation performed           protein hubs multiple iMotifs evolve slower using known protein domains structural binding sites suggests             average protein dataset, opposed hubs method better suited proteins multiple
+                                                                              iMotifs.
+interacting partners (hubs). Using yeast data, cellular essentiality gene better correlates number interacting motifs absolute number interactions.             Results
+                                                                              Proteins Common Interaction Partners Tend Share
+                                                                              SCOP Domain
+interaction, require information structures                    basic assumption work proteins proteins [30–33]. Recently, Kim et al. used known                        overlapping sets interaction partners tend interact protein interactions structures characterize                       partners common interacting motif. interfaces interacting proteins [15].                  validity assumption tested nonredundant set previously accepted relationships network                   368 proteins known SCOP domains (Material topology genomic features [34–36] actually                       Methods). SCOP does classify proteins reﬂective number distinct binding interfaces.                   interfaces, SCOP domains used surrogates iMotifs
+example, highly connected proteins network  e., hubs)                protein interaction types deﬁned multiple interfaces twice likely essential               domains interacting proteins [43].
+hubs interfaces. ﬁndings Kim                         number common interaction partners (N)
+coworkers clarify previous analyses related                     good indicator probability proteins
+observed essentiality hubs high number                       having domain SCOP family, especially interacting partners [34,37] interactions              highly connected proteins (Figure S1). example, 73  hubs [38]. Kim et al. demonstrated evolutionary                 protein pairs 50–60 common interaction partners
+rate signiﬁcantly lower multi-interface hubs                  shared SCOP domain. studied metrics average protein, hubs                      measure similarity sets interaction
+interfaces.                                                                   partners, outperformed N     basic assumption proteins                      identiﬁcation protein pairs common domain family
+lapping sets interacting partners tend interact                (Figures S1 S2A, Table S1).
+common partners interacting motif,                     worth noting assumption relies binary domain, sequence segments, binding site, set                      nature input interactions. proteins tend residues. similar assumption previously used                    common interacting motif share direct physical
+annotate protein sequences [14,39–41]. ﬁrst tested                    interactions partner(s).  likelihood
+assumption based databases protein interactions [42]                    proteins sharing SCOP domain lower solely protein domains deﬁned SCOP [26], observing                   using yeast hybrid experimental data, detection
+assumption holds true highly connected proteins  e.,                    method likely contain binary protein
+hubs protein–protein interaction network). Building                   interactions experimental methods [44] (Figure validation, developed method identifying                   S2B).
+interacting motifs (iMotifs), implemented protein–protein interaction framework                          Delineating Interacting Motifs
+integration engine PIANA (Protein Interactions Network                       Based observation highly connected proteins
+Analysis) [42]. iMotifs required particular              common interaction partners tend interact structural type size, allowing characterize                     common interacting motif, developed proteins interactions different levels reso-                  method groups proteins similar interacting motifs
+lution, ranging proteins small binding sites.                 (Figure 1 Material Methods section). Brieﬂy, contrast methods, approach limited                     procedure carried steps: 1) build protein–
+ﬁnding predeﬁned classes interacting motifs, SCOP                  protein interaction network; 2) initialize cluster interaction
+domains PROSITE functional sites, used                       network assigning protein network cluster;
+identify unknown interacting motifs.  sole                       3) iteratively create new clusters fusing similar clusters
+input method binary protein interactions;                  (allowing protein cluster) 
+      PLoS Computational Biology | www.ploscompbiol.org                1762                           September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                                 Protein Hubs Characterization iMotifs
+
+
+
+
+Figure 1. Assigning iMotifs Proteins Identifying iMotif–iMotif Interactions  protein interaction network built. Second, cluster interaction network created placing protein different cluster. 
+clustering performed similarity score drops certain threshold. Fourth, iMotif label assigned cluster protein, iMotif assignments interactions derived.
+doi:10.1371/journal.pcbi.0030178.g001
+
+
+
+similarity score drops predeﬁned threshold; 4)                       determining size, sequence, structure feature
+label different interacting motif identiﬁer (iMotif)                 (Figure 2A).  iMotif interface consisting cluster protein derive iMotif–iMotif                      set domains speciﬁc constellation small
+interactions clustered network. step 3),                         number residues (Figure 2B).
+similarity score clusters number common interacting partners cluster interaction                           Method Evaluation
+network (N). Assigning iMotif group proteins                            deﬁnition iMotifs depends similarity metric
+simply establishes certain feature allows                  threshold.  different thresholds metrics interact set partners,                          produce different iMotifs, corresponding different levels
+
+       PLoS Computational Biology | www.ploscompbiol.org                  1763                              September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                                 Protein Hubs Characterization iMotifs
+
+
+
+
+Figure 2. Definition Interacting Motif (iMotif) definition iMotif depends minimum number common partners required order consider given binary protein interactions
+mediated common interacting motif.
+  protein interaction network perspective, proteins common partners  example provided) considered interact partners similar feature,   classified iMotif.
+(B) process shown structural perspective: proteins interacting similar feature (regardless feature structural domains single binding site) considered common iMotif. illustrate method, sample iMotif
+assignment prothrombin (UniProt code THRB_HUMAN) (Figure S3).
+doi:10.1371/journal.pcbi.0030178.g002
+
+ resolution description protein–protein inter-
+actions. example, method applied resolution domains SCOP [26], PFAM [27], higher resolution functional sites PROSITE [45]. section, evaluated method non-
+redundant set proteins (Material Methods) different tasks:   detecting proteins common SCOP
+domain families; (ii) predicting SCOP domain–domain
+interactions observed Protein Data Bank (PDB) [46]; (iii) predicting number distinct binding interfaces deﬁned Kim et al. [15].  evaluation,
+iMotifs effectively represent SCOP family domains  ﬁrst tasks) structural binding interfaces  task).
+
+Detecting Proteins Domains SCOP
+Family
+  evaluated ability method detect proteins domain SCOP family (Methods). Using N
+threshold 30 common interaction partners, method
+achieves positive predictive value ;75 , sensitivity                    Figure 3. Performance Method Detecting Proteins ;10 , applicability ;20  (Figure 3). positive                        Common SCOP Families
+predictive value drops ;50  N 15, indicating                     positive predictive value, sensitivity, applicability (Methods)                                                                                 plotted function number common interaction partners accuracy method detecting proteins                           threshold (N) used clustering.
+common SCOP family domains proportionally decreases                        doi:10.1371/journal.pcbi.0030178.g003
+
+       PLoS Computational Biology | www.ploscompbiol.org                 1764                               September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                                             Protein Hubs Characterization iMotifs
+
+
+
+                                                                                    Table 1. Protein Essentiality Predicted iMotifs
+
+                                                                                    Protein Sets             Proteins           Essential      Percent        p-Value
+                                                                                                             Tested         Proteins       Essential
+                                                                                                             Essentiality
+
+                                                                                    Entire proteome          6,018              1,116          19 
+                                                                                    PIANA             5,034              1,047          21 
+                                                                                    Singlish-iMotif hubs        90                 27          30             singlish: 0.04
+                                                                                    Multi-iMotif hubs          507                262          52             multi:
+                                                                                                                                                              2.2 3 1016;
+                                                                                                                                                              singlish-multi:
+                                                                                                                                                              1.5 3 104
+
+
+                                                                                    fraction yeast proteins products essential genes [58] calculated                                                                                     entire proteome, singlish-iMotif hubs  iMotifs), multi-interface hubs.
+                                                                                    iMotifs assigned applying method yeast hubs PIANA N set 20.
+                                                                                    p-value difference dataset singlish- multi-iMotif
+                                                                                    hubs  singlish multi) singlish multi-iMotif hubs (singlish-multi)                                                                                     calculated using Fisher’s exact test count data.
+                                                                                    doi:10.1371/journal.pcbi.0030178.t001
+
+
+
+                                                                                    method (Figure 4). number protein interfaces                                                                                     correlates number predicted iMotifs protein
+Figure 4. Correlation Number Binding Interfaces Number iMotifs                                                                   (e.g., N 20, rs 0.57 p-value 0.01). number point corresponds protein test set number            iMotifs assigned proteins method tends higher binding interfaces assigned Kim et al. [15], number              number binding sites deﬁned Kim et al. iMotifs inferred N set 20. variables              attributed factors:   current structural data
+significantly correlated (rs 0.57 p-value 0.01). correlation number interfaces number iMotifs                       contain possible protein–protein interactions,
+significant N values lower 23 (Figure S5).                             resulting underestimation number binding
+doi:10.1371/journal.pcbi.0030178.g004                                               sites assigned method [15], (ii) lack                                                                                     coverage interactome space, results                                                                                     overestimation number iMotifs protein assigned number common interacting partners.                            method. second factor addressed using
+method preferentially applied assigning inter-                         sequence information merge similar iMotifs  .
+acting motifs highly connected proteins. growth interactome data [47,48] likely make approach                        iMotifs Assignments Hub Proteins
+applicable future.  applicability                         Using N threshold 20, method assigned 12,342 increased expense positive predictive                      iMotifs 2,014 5,571 hub proteins PIANA  e.,
+value using similarity metrics (Table S1). provide                      proteins 20 interaction partners), resulting complete list iMotif assignments test set (Table S2).                  average 8.6 iMotifs hub. percentage hubs                                                                                     iMotifs 46  (241 hubs iMotif; 689
+Predicting Domain–Domain Interactions                                               hubs iMotifs). studied correlation   Domain–domain interactions predicted                              number iMotifs assigned hub number iMotif–iMotif interactions method (Materials                           interactions, ﬁnding relationship Methods). evaluated accuracy predictions                        variables (Spearman correlation coefﬁcient 0.002 p- respect domain interactions PDB. method                          value 0.94). complete list iMotif assignments hub
+achieves positive predictive value ;65  ;5                          proteins PIANA Table S3 number iMotifs
+proteins test set (Figure S4), suggesting method                    hub Table S4. applied prediction domain–domain
+interactions sufﬁciently large varied sample                          Essentiality Number iMotifs Correlated Hub
+protein interactions known.  available                          Proteins
+interaction data, methods rely interaction                          Similarly Kim workers’ results, [15], networks predeﬁned domains [19–22] better                                yeast hubs multiple iMotifs likely suited approach predicting domain–domain                               essential iMotifs (singlish-iMotif)
+interactions.                                                                       (Table 1). Furthermore, observed correlation (rs 0.61
+                                                                                    p-value 1.64 3 105) number iMotifs Predicting Number Binding Interfaces                                         yeast hubs fraction essential proteins (Figure 5A).
+  Kim et al. used protein 3-D structures binary protein                         compared correlation iMotifs essential-
+interactions make inferences number binding                         ity correlation number interactions interfaces proteins [15]. tested                           hubs essentiality conﬁrm ﬁrst direct
+correlation number binding interfaces                          consequence second (Figure 5B). results suggest work number iMotifs predicted                            number iMotifs predicted protein 
+       PLoS Computational Biology | www.ploscompbiol.org                     1765                                      September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                                                         Protein Hubs Characterization iMotifs
+
+
+
+
+Figure 5. Correlation Number iMotifs Protein Essentiality
+Proteins PIANA binned according number iMotifs   number interactions (B), fraction essential proteins calculated bin. Bins protein considered calculating correlations.
+  Correlation number iMotifs assigned yeast hub proteins (20 interactions) PIANA fraction essential proteins (rs 0.61 p-value 1.6 3 105). iMotifs assigned yeast hubs using N threshold 20.
+(B) Correlation number interactions yeast hub proteins Figure 5A fraction essential proteins (rs 0.51 p-value 1.1
+3 106).
+doi:10.1371/journal.pcbi.0030178.g005
+
+
+used selecting biologically relevant candidates gene                                     occurrence pattern iMotif respect deletion experiments.                                                                            dataset. shown Figure 6, 80  iMotifs speciﬁc
+                                                                                                 sequence pattern contained 74  proteins
+Multi-iMotif Hubs Evolve Slower Proteins;                                             (using p-value cutoff 108). list best sequence
+Singlish-iMotif Hubs                                                                      pattern iMotif provided Table S5. Interestingly,
+   common measure evolutionary rate dN/dS ratio                                      similar analysis based Pfams assignments iMotifs
+ ratio nonsynonymous synonymous substitutions)                                         showed different trend  e., iMotifs [49]. Kim et al. multi-interface hubs lower                                    proteins described Pfam). example, shown evolutionary rate average protein data,                                    Figure S6, 10  iMotifs speciﬁc Pfam true singlish-interface hubs. results                                   28  proteins (p-value cutoff 108). agreement ﬁndings. Multi-iMotif hubs,                                                                                                  difference explained fact inter-
+contrast singlish-iMotif, evolve signiﬁcantly slower                                                                                                  actions carried short sequence patches [3,51], average protein dataset (Table 2).                                                                                                   Pfam families usually consist long structured protein
+evolutionary rate difference multi- singlish-
+                                                                                                 regions.
+iMotif hubs  e., 0.062 0.056, respectively)                                                                                                    indicated  incompleteness interaction data signiﬁcant (p-value 0.21).
+                                                                                                 result artiﬁcially high numbers iMotifs. 
+Extracting Sequence Patterns iMotifs                                                        estimation reduced merging iMotifs common
+  Sequence patterns iMotif generated using                                     sequence pattern (Material Methods). Fusing iMotifs
+PRATT program [50] (Methods). Brieﬂy, PRATT identiﬁes                                            based sequence pattern similarity decreased average
+sequence patterns common set sequences. work,                                    number iMotifs hub 8.6 4.2. reduction, selected signiﬁcant sequence patterns iMotif                                      turn, increased correlation number maximizing number proteins iMotif                                         binding sites Kim et al. [15] number iMotifs
+contained pattern. signiﬁcance  e., p-value)                                      test set proteins (Spearman correlation coefﬁcient sequence pattern assigned iMotif depends                                            0.59 p-value 0.001).
+
+
+
+Table 2. Protein Evolutionary Rate Predicted iMotifs
+
+Analysis                   Entire                          Singlish-iMotif              p-Value                  Multi-iMotif             p-Value               p-Value
+                           Proteome              PIANA            Hubs                          Singlish)           Hubs                      Multi)           (Singlish-Multi)
+
+Evolutionary rate          0.077                 0.074            0.062                        0.12                     0.056                    8.1 3 1011           0.21
+
+ average evolutionary rate yeast proteins [49] calculated entire proteome, single-iMotif hubs, multi-interface hubs. iMotifs assigned applying method yeast proteins PIANA N set 20. p-value difference dataset singlish- multi-iMotif hubs  singlish multi) singlish- multi-iMotif hubs (singlish–multi) calculated using Mann-Whitney U sided test.
+doi:10.1371/journal.pcbi.0030178.t002
+
+
+        PLoS Computational Biology | www.ploscompbiol.org                                 1766                                      September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                              Protein Hubs Characterization iMotifs
+
+
+
+
+Figure 6. Sequence Patterns iMotifs
+Relationship percentage iMotifs significant sequence pattern percentage proteins iMotif contained pattern. different significance cutoffs used associating sequence patterns iMotifs: 105 (long dashed line), 108
+(solid line), 1010 (short dashed line).
+doi:10.1371/journal.pcbi.0030178.g006
+
+
+Discussion                                                                     method works better highly connected proteins
+                                                                               using high values N.  approach    described, implemented, evaluated method                      limited ﬁnding predeﬁned classes protein components
+relies solely binary protein interactions identify
+                                                                               allows predict new types interacting motifs.
+interacting motifs (iMotifs) interactions.                                                                                example, iMotif mapped predeﬁned class
+approach obtained high positive predictive value identi-
+                                                                               (e.g., SCOP domain PROSITE functional site) fying proteins domains SCOP family                                                                                examining known classes assigned proteins predicting domain–domain interactions. analyzed
+                                                                               iMotif.  iMotifs remain unmapped likely
+hub proteins properties based number                                                                                candidates unknown classes. predictions prove
+iMotif assigned  obtaining similar ﬁndings                                                                                useful target selection structural genomics. independent approach rely protein structure
+                                                                                  Relying solely experimentally detected interactions
+information [15].
+                                                                               affects accuracy method. shown    Recent estimates suggested ﬁfth inter-
+action types known [43].  current knowledge                   high-throughput experiments limited reliability protein structures sufﬁcient protein                    detected interactions probably interaction types. approach, contrast                          direct  e., carried protein) previously described methods, accomplishes different                     exist  e., false positives) [52].  did objectives:   predicts number different iMotifs               observe improvement solely using interactions protein, (ii) classiﬁes proteins predicted iMotifs,                yeast hybrid assays (Figure S2B), high-throughput (iii) predicts interactions iMotifs.                    method best suited detect direct interactions. method identify iMotifs independently structural                     interaction data available, reexamine
+sequence information; assign iMotif                           effects restricting method employ interactions
+structural domains iMotifs single domain.                    speciﬁcally labeled ‘‘direct’’ [6]. way avoiding resolution iMotifs protein interfaces                    limitations calculate similarity scores using families depends similarity metric used threshold                        proteins instead absolute numbers protein partners.
+applied method, iMotif assignments used                       prevent assigning iMotif proteins infer interaction mediated multiple,                    common partners belong single, partial domains. hand, setting high                    single protein family. Removal redundancy sets threshold number common interaction partners (N)                     partners increases percentage identiﬁed assign iMotifs reduced sets proteins  e.,                protein pairs common domain family (Figure S7).
+speciﬁc restrictive iMotifs). hand, using low                    combination iMotif assignments sequence
+N thresholds assign iMotif broad numbers                   search methods identiﬁed speciﬁc sequence patterns proteins  e., unspeciﬁc general iMotifs). showed                 iMotifs. iMotifs signiﬁcant
+
+       PLoS Computational Biology | www.ploscompbiol.org                1767                             September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                                    Protein Hubs Characterization iMotifs
+
+
+sequence pattern contained iMotif                          pj) interacts clusters contain partner pj proteins. patterns, responsible                       protein interaction network.
+                                                                                       iteratively create new clusters fusing similar
+iMotif proteins common interactions, used                         clusters similarity score drops predeﬁned threshold.
+  localize iMotif protein sequence, (ii) assign                       clusters similar share minimum number common
+iMotifs proteins interaction data                           interacting partners (N).  similarity score                                                                                    clusters number common partners cluster
+available, (iii) predict interactions proteins                    interaction network. similarity metrics considered, contain patterns assigned interacting iMotifs.                              outperformed use N (Figure S1). fusing    iMotif assignments similar obtained using                      clusters, resulting cluster inherits interactions common
+                                                                                   fused clusters. proteins multiple interfaces, independent approach, relies known                            initial clusters  step 2) remain cluster interaction network
+protein–protein interactions, protein structure                        fused cluster. Interactions non-
+information [15]. agreement results Kim et al.,                     initial clusters considered calculating similarity scores. observe different properties hubs multiple                            Fourth, cluster protein labeled                                                                                    different interacting motif identiﬁer (iMotif), iMotif assigned
+iMotifs (multi-iMotif) hubs iMotifs                            proteins cluster. iMotif–iMotif interactions (singlish-iMotif). particular, ﬁnd   multi-iMotif                     derived interactions cluster interaction network hubs likely singlish-iMotif hubs essential                     sides interaction labeled iMotif identiﬁer.
+                                                                                      example (Figure 1), proteome proteins   B, C, cell viability, (ii) multi-iMotif hubs, contrast                     D, E, F) forms network interactions connects proteins singlish-iMotif hubs, evolve slower average protein.                      B, C, D, protein E B, C, D, F (step 1). Furthermore, observed correlation                           method starts creating cluster interaction network                                                                                    network protein interactions  e., clusters seven number iMotifs hub essentiality cell                       interactions) (step 2).  clusters share largest number
+survival. properties observed hubs respect                         common interactions fused  e., clusters 1 5, number iMotifs reﬂect difference                          common interactions, fused new cluster 7). step proteins multiple simultaneously possible interactions                        repeated maximum similarity score clusters
+                                                                                   drops predeﬁned threshold  e., N ¼ 2 common interactions).
+(multi-iMotif hubs probably involved permanent                               iterative process run iteration creating complexes) proteins multiple exclusive interactions                       new cluster (cluster 8) fusing clusters 2, 3, 4,  singlish-iMotif hubs involved transient interactions).                     common interactions (step 3). iterative process ﬁnished,
+                                                                                   method assigns iMotif identiﬁers proteins clusters agreement previous observation                            protein  e., proteins E cluster 7 share iMotif
+interfaces transient protein–protein interactions                      1, proteins B, C, D cluster 8 share iMotif 2) (step 4).
+restricted evolution interfaces permanent com-                           iMotif–iMotif interactions derived                                                                                    cluster interaction network  e., interaction iMotif 1
+plexes [53].                                                                       iMotif 2).
+   results extend ﬁndings conclusions Kim                          Figure 2 illustrates iMotif assignments network perspective workers [15] proteins unknown structure.                             (Figure 2A) structural perspective (Figure 2B). inferring interacting motifs protein interactions                          detailed description algorithm provided pseudocode                                                                                    Figure S8.
+likely helpful providing biological insights                          Test set evaluation procedure. evaluated method
+hubs structural information available.                             test set created selecting proteins   ﬁve
+                                                                                   experimentally detected interactions, (ii) 80                                                                                     sequence covered domains deﬁned SCOP, (iii) did
+Materials Methods                                                              introduce redundancy bias evaluation  e.,                                                                                    sequences sequence identity greater 30 , BLAST e-value
+   Protein interactions. Protein–protein interactions DIP                     smaller 105, alignment 30 residues, 2006.01.16 [54], MIPS 2006.01 [55], HPRD 2005.09.13 [56], BIND                     shortest member pair selected). ﬁnal set contained
+2006.01 [57], recent high-throughput experiments [5,6]                368 sequences (Table S6). restrictions imposed, test set
+integrated using PIANA version 1.2 [42], allowing work                contains proteins related proteosome ribosome.
+large set 363,571 interactions 42,040 proteins. PIANA                      SCOP family assignment evaluated considering represents protein interactions network nodes                   positive assignments proteins method proteins edges interactions proteins.              common iMotif query protein. positives, network, set proteins linked protein pj  e., physically                deﬁne true positives proteins common SCOP
+interacting pj) named ‘‘partners pj’’. network,            family code query protein.  deﬁne false
+deﬁne hubs proteins 20 partners. average                       negatives proteins SCOP family code number interactions hub dataset ;49. PIANA builds                query protein method share iMotif. protein interaction network retrieving partners initial                 iMotif–iMotif interaction predictions evaluated inter-
+set proteins. avoid positive bias method evaluation,                acting SCOP families obtained PDB. SCOP domains interactions inferred 3-D structures used work.              considered interact crystallized    Structural domains protein binding interfaces. Protein domain               atoms 5  distance. interested domain
+assignments classiﬁcation obtained SCOP release                  interactions protein–protein interaction level, excluded
+1.69 [26].  domains deﬁned SCOP family level.                 intrachain interactions set. method creates list domain–domain interactions refer SCOP family interactions.                  putative domain–domain interactions predicted iMotif–iMotif
+number protein binding interfaces hub proteins obtained                 interaction assuming domains query protein Structural Interaction Network 2.0 [15].                                  iMotif interact domains proteins iMotif.    Essential proteins evolutionary rates. list ORFs essential             context, deﬁne positive iMotif–iMotif interaction survival yeast cell obtained Saccharomyces             query protein involved. positive considered true
+Genome Deletion Project [58]. evolutionary rates (dN/dS) yeast              prediction putative domain–domain interactions
+proteins taken adjusted values given Wall et al. [49].            observed PDB. Finally, false negatives interactions observed
+   Assigning iMotifs proteins ﬁnding iMotif–iMotif interac-                 PDB SCOP families query protein appear tions. assignment iMotifs set proteins carried          list putative SCOP family interactions. step procedure (Figure 1):                                                       avoid biases evaluation, proteins test set
+    build protein interaction network.                                    removing redundancy) SCOP families    Second, initialize cluster interaction network  e., nodes               considered counting positives negatives. positive
+clusters contain proteins, edges interactions             predictive value deﬁned number true positives clusters) assigning protein protein interaction             total number positives, sensitivity number true
+network different cluster. cluster (containing protein               positives sum true positives false negatives. 
+       PLoS Computational Biology | www.ploscompbiol.org                    1768                               September 2007 | Volume 3 | Issue 9 | e178
+                                                                                                                   Protein Hubs Characterization iMotifs
+
+positive predictive value sensitivity calculated respect             Figure S2. Percentage Protein Pairs Having Domain similarity score threshold used stopping clustering.             SCOP Family Plotted Function Similarity Scores deﬁne applicability method percentage                    (Grouped Ranges 10 Units), Using Parameters proteins positive given threshold.                       Figure S1 Introducing New Restrictions
+   Extracting sequence patterns iMotifs. group                      Proteins 70 interactions ignored protein sequences given iMotif, sequence signatures                    performing analysis.
+generated using PRATT program [50], software tool capable                 (B) interactions y2h used.
+ﬁnding ﬂexible sequence patterns set unaligned sequences.
+Parameters set produce patterns covering maximum 15                   doi:10.1371/journal.pcbi.0030178.sg002 (94 KB TIF).
+residues consecutive unspeciﬁed positions                  Figure S3. Sample iMotif Assignment
+(gaps) maximum ﬂexible  variable length) gap region. number nonredundant patterns iMotifs 80,654.                      Superposition prothrombin pancreatic trypsin  patterns searched proteins PIANA             inhibitor structures (PDB IDs 1BTH 2HPQ) shows interaction interaction  dataset 42,040 sequences) using                    SCOP family domain Eukaryotic proteases  red).
+ps_scan program [59].                                                              (B) structure anionic trypsin II interaction    signiﬁcance  e., p-value) association                    pancreatic trypsin inhibitor (PDB ID 1BRB) shows sequence pattern iMotif assessed using binomial                     interaction SCOP family domain Eukaryotic proteases
+distribution, based occurrence pattern inside iMotif              red). respect dataset [60]:                                               doi:10.1371/journal.pcbi.0030178.sg003 (233 KB TIF).
+                                    
+                                     M n                                           Figure S4. Performance Method Predicting SCOP Domain–
+                 p  value ðMnÞ ¼        p ð1  pÞðMnÞ                            Domain Interactions
+                                     n
+                                                                                   positive predictive value, sensitivity, applicability plotted M number protein sequences iMotif, n                     function number common interacting partners
+represents number proteins iMotif contain               threshold used clustering. positive predictive value sequence pattern, p probability ﬁnding protein                sensitivity using trivial approach shown  lines). dataset contains pattern  e., number                                                                                    applicability trivial approach ;70 . Sensitivity highly
+proteins containing pattern divided number proteins                                                                                    dependent group proteins iMotif–iMotif dataset).
+                                                                                   interaction predicted given threshold: protein    Best iMotif sequence pattern. work, best sequence
+                                                                                   prediction SCOP code multiple interactions PDB,
+pattern iMotif (Table S5) considered pattern
+                                                                                   sensitivity obtained vary greatly threshold maximized number proteins iMotif                                                                                      compared method trivial
+pattern. additional considerations taken account                                                                                    approach creating putative lists domain–domain interactions
+selecting best pattern iMotif:   sequence pattern
+                                                                                   assuming domain families proteins test set 70  proteins iMotif (ii)
+                                                                                   interact domain families interaction partners. p-value pattern lower 108.
+                                                                                   positive predictive value trivial approach 33 ,    Merging iMotifs based sequence commonalities. Interacting
+                                                                                   method thresholds higher 15.
+motifs merged means agglomerative hierarchical
+clustering. iMotifs considered similar                doi:10.1371/journal.pcbi.0030178.sg004 (93 KB TIF).
+common sequence pattern applying p-value cutoff 1 3 105 requiring pattern 70  proteins               Figure S5. Spearman Correlation Coefﬁcient Number iMotifs. Using stringent p-value cutoffs did produce                 Interfaces Number iMotifs Plotted Function iMotif fusions proteins test set.                                 Different N Thresholds
+   Assigning Pfams iMotifs. Hidden Markov Models                       limited number iMotif assignments stringent N
+Pfam database [61] assigned proteins               thresholds, correlations nonsigniﬁcant  e., p-value . 0.05)
+known interaction  dataset 42,040 sequences) using HMMER                  N thresholds higher 22.
+package [62]. p-value HMM relation iMotif                doi:10.1371/journal.pcbi.0030178.sg005 (35 KB TIF). calculated using binomial distribution, based occurrence Pfam inside iMotif dataset                  Figure S6. Relationship Percentage iMotifs  .                                                                           Signiﬁcant Pfam Detected Sequence Search    Statistical tests. correlations measured using Spear-              Percentage Proteins iMotif Contained Pfam
+man rank correlation coefﬁcient (rs). assessment                different signiﬁcance cutoffs used ﬁnding Pfams
+binomial samples essentiality observations signiﬁcantly differ-             associated iMotifs: 10–5 (long dashed line), 10–8 (plain line), ent calculated using Fisher’s test. assessment              10–10 (short dashed line).
+non-Gaussian samples evolutionary rate observations come distribution calculated using Mann-Whitney U                  doi:10.1371/journal.pcbi.0030178.sg006 (87 KB TIF).
+sided test. Correlations differences observations                  Figure S7. Percentage Protein Pairs Having Domain considered signiﬁcant p-values lower 0.05. tests                 SCOP Family Plotted Function Similarity Scores
+performed using implementation provided R [63].                             (Grouped Ranges 10 Units), Using Parameters                                                                                    Figure S1 Introducing New Restriction: Redundancy                                                                                    Removed Sets Partners Avoid Artiﬁcial Increase Supporting Information                                                             Decrease Score Caused Groups Homolog Proteins
+Figure S1. Percentage Protein Pairs Having Domain                  procedure followed remove redundancy SCOP Family Plotted Function Similarity Scores               used creating evaluation set. observe signiﬁcant
+(Grouped Ranges 10 Units)                                                    improvement metrics respect Figure S1. measure likelihood proteins pi pj having common                doi:10.1371/journal.pcbi.0030178.sg007 (95 KB TIF).
+interacting motif, deﬁned different similarity metrics: 1) N: number interaction partners common pi pj                    Figure S8. Pseudocode Algorithm Implemented Assigning
+(long dashed line); 2) Rmax: ratio N number                 iMotifs Proteins Protein–Protein Interaction Network
+partners protein partners (bold line); 3) Rmin:               doi:10.1371/journal.pcbi.0030178.sg008 (345 KB TIF).
+ratio N number partners protein fewer
+partners (circles); 4) Rave: average metrics Rmax Rmin (dotted          Table S1. Number Protein Pairs Similarity Score Range
+line). score obtained using similarity metrics described              Metrics Described Figure S1  percentage protein pairs score range                  parentheses, number pairs domain plotted. example, observed using N similarity                   SCOP family indicated. observe metrics metric, 73  proteins 50–60 common interaction partners                     Rmin outperform N detecting higher number protein pairs
+shared SCOP domain.                                                              domain SCOP family,                     expense decreasing accuracy method.
+
+                   
+Table S2. Complete List iMotifs Assignments Proteins               
+Test Set number common interaction partners (N) set 15. column iMotif identiﬁer. Second column number                     
+proteins iMotif. Subsequent colums proteins
+                                                                                     iMotif. Proteins identiﬁed using UniProt entry names
+                                                                                NCBI GI identiﬁers. parentheses, ‘‘yes’’, ‘ ’, ‘‘-’’
+                                                                            
+indicate proteins domain SCOP                     
+family.
+                                                                                      doi:10.1371/journal.pcbi.0030178.st002 (251 KB TXT).                        
+Table S3. Complete List iMotifs Assignments Hub Proteins             
+PIANA
+                                                                                   number common interaction partners (N) set 20.                         
+legend Table S2.                                                         doi:10.1371/journal.pcbi.0030178.st003 (2.4 MB TXT).                           
+Table S4. Number iMotifs Assigned Hub PIANA                         doi:10.1371/journal.pcbi.0030178.st004 (38 KB TXT).
+                                                                                  
+Table S5. Best Sequence Pattern iMotif Table S3                          column iMotif identiﬁer. Second column pattern                     
+PROSITE format. column fraction proteins                      
+iMotif pattern. Fourth column p-value                    
+pattern.                                                                                  doi:10.1371/journal.pcbi.0030178.st005 (704 KB TXT).                        

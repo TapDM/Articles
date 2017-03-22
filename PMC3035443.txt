@@ -1,0 +1,680 @@
+Published online 24 September 2010                                                Nucleic Acids Research, 2011, Vol. 39,  3 795â€“807
+                                                                                                                 doi:10.1093/nar/gkq784
+
+
+Investigating predictability essential genes distantly related organisms using integrative approach
+Jingyuan Deng1,2, Lei Deng1,3, Shengchang Su4, Minlu Zhang5, Xiaodong Lin6, Lan Wei7,
+Ali  Minai3, Daniel J. Hassett4 Long J. Lu1,2,5,8,*
+1
+ Division Biomedical Informatics, Cincinnati Childrenâ€™s Hospital Research Foundation, Cincinnati, OH 45229,
+2
+ Department Biomedical Engineering, 3Department Electrical Engineering, 4Department Molecular Genetics, Biochemistry Microbiology, 5Department Science, University Cincinnati,
+Cincinnati, OH 45229, 6Department Management Science Information Systems, Rutgers University,
+Piscataway, NJ 08854, 7School Medicine, Yale University, New Haven, CT 06511 8Department Environmental Health, University Cincinnati, Cincinnati, OH 45229, USA
+
+Received 28, 2010; Revised August 15, 2010; Accepted August 18, 2010
+
+
+
+ABSTRACT
+                                                                                robust portable existing approaches, sig-
+Rapid accurate identification new essential                              nificantly extending ability predict essential
+genes studied microorganisms signifi-                             genes orthologs.
+cantly improve understanding cell
+works ability engineer microorgan-
+isms.  predicting essential genes                                INTRODUCTION
+distantly related organisms remains challenge.                                recent success â€˜synthetic bacteriaâ€™ rekindled  present machine learning-based integra-                              peopleâ€™s enthusiasm using systems synthetic
+tive approach reliably transfers essential gene                            biology serve needs humanity engineering
+annotations distantly related bacteria.                              microorganisms (1,2). Essential genes important focused bacterial species                                     bioengineering efforts functional micro-
+                                                                                organism contain minimal set essential genes characterized essential genes, tested                                                                                 required survival carrying desired
+transferability pairs                                  functions. Studying gene essentiality important pair, trained classifier learn                               basic science crucial step 
+traits associated essential genes                                   standing complex relationship genotype organism, applied make predictions                             phenotype (3). date, genomic-scale knockout experi-  predictions evaluated                                   ments dozen microorganisms shown examining agreements known essential                               different organisms share limited number essen-
+genes           target    organism.    fold                          tial genes.  rapid accurate identiï¬?cation cross-validation organism yielded AUC                               essential genes studied organism, especially
+scores 0.86 0.93. Cross-organism pre-                               unique organism, poses signiï¬ chal-
+dictions yielded AUC scores 0.69 0.89.                              lenge post-genomic era. lack ability
+                                                                                prevented fully comprehending cell transferability likely affected growth 
+                                                                                works efï¬?ciently engineering microorganisms
+ditions, quality training data set evo-                          energy, bioremediation, pharmaceutical lutionary distance. report                             biodefence applications (4â€“6). gene essentiality reliably predicted                                   Experimental identiï¬?cation essential genes ac-
+using features trained tested distantly                                complished targeted mutagenesis, speciï¬?c
+related organism. approach proves                                      genes identiï¬?ed prior genetic manipulations 
+
+
+ correspondence addressed. Tel: +1 513 636 8720; Fax: +1 513 636 2056; Email: long.lu@cchmc.org
+ authors wish known  opinion, ï¬?rst authors regarded joint Authors.
+
+ÃŸ Author(s) 2010. Published Oxford University Press. Open Access article distributed terms Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ nc/2.5), permits unrestricted non-commercial use, distribution, reproduction medium, provided original work properly cited.
+ 796 Nucleic Acids Research, 2011, Vol. 39,  3
+
+
+conï¬?rmatory studies based experimental data,                         relevant features essential genes makes predictions random mutagenesis, target genes                          using weighted combination hallmark features.
+identiï¬?ed experimental disruptions (7).                           taking advantage near-complete mapping targeted mutagenesis produces reliable                             essential genes Saccharomyces cerevisiae
+results higher accuracy, random mutagenesis                              (13â€“14) E. coli (15â€“17), collection genomic
+appears cost-effective. Nonetheless, genomic-                      features identiï¬?ed correlate gene essen-
+scale systematic screening lethal gene disruptions                     tiality (Table 1). features broadly classiï¬?ed approach formidable undertaking. Taken                            categories: intrinsic context-dependent  universal consensus arguably multiple                          features. Intrinsic features determined laboratories required ensure results                       genomic sequences, e.g. GC content, depend
+accurate, requiring consortium labs                           external conditions. Context-dependent features
+years research.                                                            derived organismâ€™s genome    circumvent expense difï¬?culty                           vary different conditions, e.g. ï¬‚uctuations screens, researchers attempting identify essential                         mRNA expression. dependency essentiality genes studied organisms rely                        categories features suggests multiple aspects
+homology mapping help elucidate essential genes.                           biology unite make gene essential.   method limitations.                           taking account similarity genomic se-
+homology mapping limited conserved orthologs                        quences provides limited perspective highly species, correspond small                            complex property.
+portion target bacterial genome (8). example,                           number machine learning systems 
+Escherichia coli Pseudomonas aeruginosa share                             veloped integrate subset features cross-
+<35  genes orthologs. addition,                       validation essential genes S. cerevisiae E. coli,
+essential genes tend conserved, conserved genes                     showing various degrees prediction accuracy (AUC: essential. example, quarter                      0.7â€“0.82; PPV: 0.34â€“0.68) (18â€“21).  highly conserved bacterial genes essential                      studies address applicability methods
+tested experimentally model bacteria (9â€“12). Finally,                      novel genomes. applicability important, testability homology mapping, differences                       useful predictor perform outside organism genetic regulation protein modiï¬?cation, genetic                      trained. Seringhaus et al. (22) recently
+dundancy divergence cellular pathways processes                      developed method train classiï¬?ers S. cerevisiae organisms great bearing                              essential genes applied predict relative essentiality. example, alaS gene encodes                    S. mikatae.  limited knowledge alanyl-tRNA synthetase essential E. coli                            essential genes S. mikatae, impossible 
+non-essential P. aeruginosa. non-essential                           atically assess performance classiï¬?ers P. aeruginosa probably paralog                            transferring gene essentiality. importantly, (PA2106) carries function.                                  predicting essential genes unstudied organism, Considering limitations, group researchers                     closely related studied organism classi-
+reached disappointing conclusion â€˜gene conser-                         ï¬?ers trained unavailable.  vation bacteria does necessarily indicate                      useful machine learning-based
+essentiality organism extrapolated                    approach proven applicable distantly
+(12).                                                                         related species.
+    study, developed machine learning-                         study, examined question based integrative approach alternative transfer                      gene essentiality accurately transferred
+gene essentiality annotations organisms.                           organisms machine learning approach. contrast homology mapping relies strictly                      ï¬?rst focused bacterial species: E. coli similarity nucleotide sequences, approach identiï¬?es                   Acinetobacter baylyi ADP1. bacteria 
+
+
+Table 1. Features correlated gene essentiality S. cerevisiae E. coli
+
+References                         Genomic features
+
+Jeong et al. (41)                    Fluctuation mRNA expression; (ii) Protein functions; (iii) Connectivity proteinâ€“protein interaction
+                                      (PPI) network
+Chen Xu (18)                     Evolutionary rate; (ii) Duplication rate; (iii) Gene expression correlation network; (iv) Connectivity PPI
+                                      network
+Saha Heber (20)                  Phylogenetic conservation; (ii) Degree paralogy; (iii) Number PPIs
+Seringhaus et al. (22)             14 intrinsic features,  GC content; length protein; hydrophobicity; codon adaptation index; predicted
+                                      subcellular localization compartments, Gustafson et al. (21)                Codon usage; (ii) Paralogs; (iii) Size localization; (iv) Protin interaction network degree; (v) Phyletic 
+                                      tention measure; (vi) Recombination rate; (vii) Strand bias; (viii) Regulatory complexity,                                                                             Nucleic Acids Research, 2011, Vol. 39,  3 797
+
+ characterized essential genes targeted mutagenesis.      Homology mapping COG groups pair, developed classiï¬?er learn traits
+                                                                 implemented alternative approach homology essential genes organism predict              mapping using COG groups (30). COG groups  systematically evaluated         contain list genes organisms predictions examining overlaps known             distinct phylogenetic lineage. used COG
+essential genes target organism, compared         groups map essential genes organism
+performance homology mapping. examine                  gene EC essential, applicability approach, tested transfer-      PA genes COG group assumed ability pairs bacteria: E. coli              essential.
+P. aeruginosa PAO1, E. coli Bacillus subtilis.              COG groups unavailable genes AB.
+                                                                  performed homology mapping                                                                  EC AB based sequence identity groups. MATERIALS METHODS                                            clustered AB proteins groups based                                                                  sequence identities  protein
+Data sources
+                                                                 sequence AB searched protein sequences
+E. coli K-12 (EC) sequence data downloaded             AB Blastp E-value cutoff 1eâ€“5. Proteins
+Comprehensive Microbial Resource (CMR) database               considered sequence identity group http://cmr.jcvi.org/. contains 4289 protein sequences         pair proteins   sequence similarity satisï¬?es total (23). essential genes E. coli K-12          E-value cutoff mutually (ii) sequence identities >35 .
+downloaded PEC database (17). Kato data             Similarly, protein sequence identity groups extracted
+set contains 302 essential genes gene deletion              EC. protein organism essential, experiments.                                                     proteins organism sequence
+   P. aeruginosa PAO1 (PA) sequence data               identity group essential protein predicted RBH
+loaded                http://www.pseudomonas.com/           considered essential.
+(Pseudomonas_aeruginosa_PAO1.faa, revision 17 July
+2009). PA essential genes downloaded (24).             Intrinsic context-dependent genomic features Jacobs dataset contains 678 essential genes             create training dataset classiï¬?er, features transponson mutagenesis PAO1.                                 extracted available ORF organism
+    baylyi ADP1 (AB) sequences collected         annotated known essentiality values Magnifying Genomes database (http://www.genoscope.               essential gene data sets. study considered main
+cns.fr/). total 3308 genes, 499 essential        types features:   intrinsic geneâ€™s sequence
+genes (25).                                                 (e.g. GC content, protein length); (ii) derived    B. subtilis (BS) sequence data downloaded           genomic sequence (e.g. localization signals codon
+Microbial Genome Database (http://mbgd.genome.ad                 adaptation measures) (iii) experimental functional
+.jp/). data set contains 4117 ORFs. essential           genomics data (e.g. gene-expression microarray data)
+gene list downloaded (26) consists               (Supplementary Table S1). data sets:   150 essential genes determined                Genomic sequence properties. Evolutionary selec-
+Kobayashiâ€™s mutantgenesis experiments; (ii) 42 known             tion genes detected base compos-
+essential genes previous studies; (iii) 79 essential        ition genome, e.g. GC content, overall amino
+genes homology mapping bacteria,             acid composition, e.g. hydrophobicity (31). Essential encode proteins involved ribosome synthesis.         genes evolutionarily
+   Gene expression data bacteria              conserved non-essential genes bacteria loaded NCBI GEO (27), ArrayExpress (28),            negative selection essential genes stringent Gasch et al. (29).                                       non-essentials (32).  correlating                                                                  base amino acid composition essentiality Homology mapping reciprocal best hit                          reveal evolutionary constraints predictive                                                                  essential genes. used CodonW (http://bioweb.pasteur developed reciprocal best hit (RBH) method               .fr/) calculate following properties associated identify orthologs EC PA:                     genomic sequences: Kyte Doolittleâ€™s grand average ï¬?rst queried ORFi PA known ORFs                hydropathicity (GRAVY) (33), protein length (amino EC Blastp, E-value threshold 105,           acids), GC content measures codon usage: ef-
+yield set hits {W}.  queried                  fective Nc (34â€“35) CAI (36).
+hit lowest E-value {W} (ORFj)                   (ii  Predicted subcellular localization. Subcellular lo- ORFs PA yield set hits {Y}. pair              calization potentially predictive gene essentiality proteins (ORFi, ORFj) considered putative                 gene products carry speciï¬?c functions
+orthologs ORFiis hit {Y} lowest               conï¬?ned certain subcellular compartments.
+E-value, meet strict                        example, proteins involved essential functions
+criteria:   LengthShorterProtein =LengthLongerProtein 80 ;    information storage processing DNA repli-
+(ii) LengthAlignedRegion =LengthShorterProtein  80  ensure   cation, recombination mRNA synthesis locate sufï¬?cient coverage aligned regions.                           nucleus Eukaryotes cytoplasm Prokaryotes (37).
+ 798 Nucleic Acids Research, 2011, Vol. 39,  3
+
+ contrast, membrane proteins function trans-            narrower range, expression porters participate metabolic related processes.       non-essential genes ï¬‚uctuates widely (41). explains protein transmembrane helix          potential existence feedback mechanisms
+(PredHel) likely non-essential                     stabilize expression level essential genes.
+(Supplementary Figure S1). used PA-SUB Server              observed wide ï¬‚uctuation expres-
+v2.5 obtain features (38). Gram-negative bacteria        sion level essential genes cause death (EC, PA AB) ï¬?ve predicted localizations: inner           organism (41). variance gene calculated
+membrane, extracellular, cytoplasm, periplasm outer           gene expression proï¬?les measure membrane. Gram-positive bacteria (BS) pre-             ï¬‚uctuation gene expression.
+dicted localizations: extracellular, cytoplasm plasma             (iii-b) Topology gene expression network.
+membrane.                                                         Previous research shown proteinâ€“protein inter-
+   (ii-b) Transmembrane helices ORF.                 action (PPI) network, hubs highly connected proteins,
+putative transmembrane helices calculated                 likely essential evolve slowly (42â€“44). TMHMM Web server v2.0 (39,40).                                    shown interacting proteins tend    (ii-c) Phylogenetic proï¬?le gene. Essential genes      expressed involved evolutionarily conserved non-essential genes            pathway (45,46). gene expression microarray data, (14,20â€“21). essential genes              gene-expression cooperativity graph constructed likely involved basic cellular processes,             Gg (D) = (Vg, , vertex set Vg Â¼ fdi jdi 2 Dg
+negative selection acting essential genes strin-      edge set Â¼ fÃ°di ,dj Ãžjdi ,dj 2 Dg 6Â¼ j gent non-essentials (32). used RBH                jrij j  0.7. vertex represents gene edge
+method search orthologs multiple complete                   represents gene pair gene expression proï¬?les cor-
+genomes gene target organism (PA, EC,             relation coefï¬?cient jrij j >0.7. cutoff value jrij j AB BS). number genomes                       determined based previous work (46). hubs
+orthologous hits used measure evolutionary            (nodes high degrees) bottlenecks (nodes conservation gene. conservation shown          high betweenness shortest paths occurrence) correlate dispensability gene (18).         correlations gene essentiality
+   (ii-d) Paralogy. Duplicated genes organism           (42). network statistics calculated using tYNA referred paralogs. Paralogs typically          (http://tyna.gersteinlab.org/).
+similar function arose gene duplication
+events species. expected essential     Feature evaluation selections
+genes fewer number paralogs non-essential genes essential geneâ€™s function          used criteria described â€˜Resultsâ€™ section indispensable likely compensated         select suitable features.
+paralogs (14,20). all FASTA search                measure predictive power different features,
+conducted set ORFs target                 performed NaÄ±Â¨ ve Bayes analysis ranked organism (PA, EC, AB BS) identify paralogs             features according coverage length log-odds E-value threshold 1020.                               ratio (Supplementary Figure S1). longer overall
+   (ii-e) Domain enrichment. contrast evolution-        coverage length  greater contribution cor-
+ary conservation gene (ii-c), domain enrichment           responding feature target class, e. gene essen-
+reï¬‚ects conservation local sequences           tiality. interested predicting essential genes entire gene. individual domain, collected         non-essential genes, features positive occurrence organism (PA, EC, AB BS)               coverage length considered useful features.
+using Pfam database (http://pfam.sanger.ac.uk).                  log-odds ratio calculated feature estimated domain enrichment score accord-             compared features nomograms.
+ing ratio occurrence frequencies essential      Comparing span attribute axis nomograms
+gene sets total genes target organism:             easily identiï¬?es important attributes. effects DES Â¼ Ã°ness =Ness Ãž=Ã°ness =Ness+nnoness =Nnoness Ãž, ness   attribute value clearly represented nnoness represent domainâ€™s occurrence frequency            nomogram, making easy spot direction magni- essential non-essential data set, respectively.        tude inï¬‚uence. Attribute axis aligned Ness Nnoness represent size essential         zero-point inï¬‚uence (prior probability), allows
+non-essential dataset, respectively. round            straightforward comparison contributions
+training-testing, computed DES scores based             different values attributes (Supplementary available data testing data. example,           Figure S1). EC ! PA, given domain PA, DES                         feature, ranked features according computed calculating ratio essential                 positive inï¬‚uence gene essentiality. non-essential genes EC genes encode           high positive inï¬‚uence monotonic relationship domain.  did use information regard-         essentiality candidate features. Speciï¬?cally, ing PA essential genes, ensuring correct training           feature Category  , kept CBI, CAI, Fop, Nc,
+testing.                                                          L_aa, Aromo removed GC, C3s, A3s, T3s, Gravy
+   (iii  Fluctuation gene-expression. mRNA ex-           G3s. Category (B), kept DES, PHYS,
+pression levels essential genes vary, average,        Cytoplasm, Extracellular, PA Inner Membrane                                                                                         Nucleic Acids Research, 2011, Vol. 39,  3 799
+
+
+removed Periplasm, Outer Membrane, ExpAA, First60                            organisms, chose perform analysis pair PredHel. Category (C), kept CEB, CEH                           relatively distantly related organisms: E. coli (EC) 
+FLU.                                                                         baylyi (AB). reasons select organism pair 
+   considered prior biological information remove feature redundancy. example, CBI                                  Essential genes characterized organ-
+Pearson correlation coefï¬?cients 0.92 0.99                              isms. Large-scale gene-knockout experiments CAI Fop, respectively (Supplementary Figure S2),                               identiï¬?ed 302  7 ) essential genes E. coli features derived                                    K-12 total 4289 genes (17). codon usage gene share similar biological                                  baylyi ADP1, total 3308 genes,
+meanings.  removed CBI Fop                                   499  15 ) essential genes identiï¬?ed
+Category   resulted 13 candidate features                           large-scale gene-knockout experiments (25).
+(Table 2).                                                                         mutagenesis experiments performed
+                                                                                   aerobic conditions, Training testing sets preparation                                              standard laboratory rich (LB) media training data included attribute values                           minimal medium supplemented succinate.
+feature class assignments. gene assigned                     (ii) AB EC g-proteobacteria taxonomy; Boolean value regarding essentiality (1â€”essential;                            closely related time
+0â€”non-essential). feature values Boolean                             frame divergence estimated 50â€“200
+real depending type individual features                                  myrs (47â€“48) (Supplementary Figure S3). (Supplementary Table S1). training data                                   approach useful proven ap-
+divided 10 equal parts. folds used                               plicable distantly related species, pair train classiï¬?ers remaining fold used                           species provides excellent testing ground testing. control training set generated                             examining accuracy coverage randomly assigning essential labels E. coli genes.                          approach. number random â€˜essential genesâ€™                              hypothesis true, rationalize number true essential genes used training                      genomic features trained tested using EC essential testing frame.
+                                                                             genes able produce reliable predictions Classiï¬?er design                                                             essential genes AB, vice versa. provide                                                                              objective assessment accuracy coverage used classiï¬?ers train test model:                         predictions, known annotations gene essentiality   NaÄ±Â¨ ve Bayes classiï¬?er; (ii) logistical regression                    target organism used evaluation
+model; (iii) C4.5 decision tree; (iv) CN2 rule.                   stage.
+classiï¬?er scheme independently generates separate                             ï¬?rst used reciprocal best hit (RBH) method probability score gene essentiality. performances                     compare genomes organisms  classiï¬?ers different complementary.                     â€˜Materials Methodsâ€™ section) (18). EC best performance obtained combining outputs                       AB, 1198 orthologs. represents 28 36  diverse classiï¬?ers using unweighted average                      EC AB genomes, respectively (Figure 1).
+approach. classiï¬?ers implemented using                             examined overlaps Orange software package (http://www.ailab.si/orange/).                       essential gene datasets based identifying orthologs
+                                                                             (Figure 1). 195 essential genes common
+RESULTS                                                                      EC AB essential datasets, making                                                                              65 39  essential gene sets, respectively.
+Comparing genomes essential genes E. coli                         clear pathogens substantial portion  baylyi                                                                unique essential genes, consistent previous report order test hypothesis essential gene annota-                  bacterial species share limited number common
+tions transferred distantly related                           essential genes (12).
+
+
+
+Table 2. Thirteen features selected 10-fold cross-validation EC
+
+                                      Intrinsic features                                             Context-dependent features
+                                                                                                      functional genomics experiment)
+Sequence based                              Sequence derived
+
+Codon bias index (CBI)                      Domain enrichment score (DES)                            Fluctuation gene expression (FLU)
+Hydrophobicity score (Nc)                   Phylogenetic score (PHYS)                                expression network bottlenecks (CEB)
+Length Amino Acid (L_aa)                 Subcellular localization: cytoplasm (Cyto)               expression network hubs (CEH)
+Aromaticity (Aromo)                         Subcellular localization: extracellular (Extra)
+                                            Paralogy (PA)
+                                            Subcellular localization: inner membrane (Inner)
+ 800 Nucleic Acids Research, 2011, Vol. 39,  3
+
+
+                                                                        gene essentiality EC relatively weak
+                                                                        correlations (Table 2 Figure 2).
+                                                                        Interestingly, features represent different aspects
+                                                                        sequence function. diverse aspects                                                                         correlated features suggest gene essentiality likely
+                                                                        determined solely genomic sequence gene,
+                                                                        multiple aspects biology. 13 features,
+                                                                        strongest turns DES (domain enrichment                                                                         essential genes), considered                                                                         previous studies. strongest features                                                                         CBI, Nc, PHYS L_aa, consistent previous
+                                                                        studies (18,21â€“22) (Table 1).
+
+Figure 1. Comparison genomes essential genes EC AB.       Cross-validations classiï¬?er using E. coli square represents 4289 EC total genes; rectangle represents     essential gene set
+3308 AB total genes. overlap represents 1198 orthologs
+determined RBH method. rectangle dashed border          13 selected features (Table 2) used input
+represents total 302 EC essential genes. rectangle         variables classiï¬?ers: NaÄ±Â¨ ve Bayes, logistical regres-
+diagonal brick shades represents total 499 AB essential genes. rectangle dashed border diagonal brick          sion, decision tree CN2 rule. input classi-
+shades represents common essential genes species.       ï¬?ers contained features gene class
+area rectangle approximately proportional number      labels used training data. classiï¬?er genes represents.                                                 scheme independently generated probability score                                                                         gene essentiality. best performance obtained                                                                         combining output probability scores diverse
+Selecting suitable features predicting gene essentiality            classiï¬?ers using unweighted approach increasingly apparent genomic se-                   used ï¬?nal prediction.
+quences represent aspect complex genetic                   10-fold cross-validation result shown ROC
+relationships evolved diverse selection                 curve indicated  level 1  FPR, classiï¬?er
+pressures (49);  necessary consider                achieved 45  TPR (Figure 3A). area curve
+variety features, including intrinsic                       (AUC) score classiï¬?er 0.93 positive pre-
+context-dependent features. used criteria                   dictive value (PPV precision) 0.70 probabil-
+select suitable features.                                      ity threshold set 0.5. classiï¬?er represented     features easily obtained avail-             signiï¬ improvement classiï¬?er integrates
+able microorganisms. Intrinsic features                  sequence features S. cerevisiae (22) (AUC = 0.70).
+easily extracted long microorganism com-                  results outperformed recent study E. coli pletely sequenced genome. context-dependent                         considerable margin (21) (AUC = 0.70).
+features, considered gene expression proï¬?les                   imbalanced training dataset (essen-
+measured microarray experiments. did include                  tial:non-essential = 1:13), avoid making excessive false
+functional annotations, pathway proteinâ€“protein inter-               positive predictions, slightly higher cost assigned
+actions (PPIs) method                     false positives. equivalent raising unavailable studied organisms.                                 probability threshold predictions yields
+   Second, features high predictive power               fewer false positives. probability threshold set gene essentiality. quantify predictive power               0.75, precision predictions increased 14  feature, performed NaÄ±Â¨ ve Bayes analysis                 0.80 (108/135) (Figure 3A).
+ranked features according coverage length                    control training set generated randomly 
+log-odds ratio (Supplementary Figure S1).                               signing essential labels E. coli genes (50).     features minimize biological redun-                number random â€˜essential genesâ€™ assigned dancy. Biologically redundant features derived                original training testing sets. performance similar source high correlations                   classiï¬?ers random set signiï¬?cantly lower  example, CBI Pearson correlation                    using real training set (Supplementary Figure S4).
+coefï¬?cients 0.92 0.99 CAI Fop, respectively             suggested method learning (Supplementary Figure S2), features               features characteristic gene essentiality.
+derived codon usage gene similar
+                                                                        Predicting AB essential genes integrating intrinsic biological meanings. Including redundant features
+                                                                        context-dependent features create problems types classiï¬?ers,
+e.g. NaÄ±Â¨ ve Bayes classiï¬?er, increase complexity          10-fold cross-validation known essential necessarily increasing inferential predictive           genes EC, applied classiï¬?er predict AB essen-
+power classiï¬?er (Supplementary Table S2).                        tial genes, denoted EC ! AB.
+   Using criteria, total 28 charac-                    baylyi Gram-negative bacterium commonly
+teristic features considered (Supplementary                     aquatic soil environments. belongs Table S1), identiï¬?ed 13 potentially associated               class g-proteobacteria EC (Supplementary
+                                                                                        Nucleic Acids Research, 2011, Vol. 39,  3 801
+
+
+
+
+Figure 2. Nomogram visualization 13 selected features. feature corresponding line indicating relationship feature value predictive contribution assessed NaÄ±Â¨ ve Bayes analysis. number line value feature value
+corresponds point score  longer line  predictive power feature prediction.
+
+
+Figure S3). set 499 AB essential genes                        highest scores AB, 172 true essential genes.
+identiï¬?ed targeted mutagenesis (25).                         prediction accuracy excellent considering targeted mutagenesis performed minimal media,                        random selection 212 AB genes contain genes involved biosynthesis essential com-                   32 essential genes.
+pounds essential required                        performed reciprocal prediction EC essen- rich media. difference media results                     tial genes using AB essential gene data set, denoted substantially higher percentage essential genes AB                    AB ! EC. prediction yielded ROC curve (16 ) compared EC (7 ).                                                  AUC score 0.89 PPV 0.43 (Figure 3C D).
+   applying classiï¬?er organisms, dis-                   speculated lower precision tributions raw feature compared ï¬?rst                        AB data set contained 100 genes associated biosyn-
+ensure comparable organisms.                       thesis function (e.g. amino acids, cofactors) pair organisms, feature sufï¬?ciently                    needed survival minimal media (25).
+different follow completely different distribu-                   Inclusion training set genes essential
+tions normalized range                             minimal media led classiï¬?er learn
+(Supplementary Figure S5). quantiï¬?ed similarity                      characteristics unique genes, resulting distributions overlapping area. distri-                 poorer classiï¬?cation â€˜trueâ€™ essential genes. test
+butions overlapping area >0.5 considered                     reï¬?ned AB training set lead similar. result, subset 10 features (Supplementary                increased precision prediction, removed 82 genes
+Table S2A) similar distribution EC AB                    associated biosynthesis function AB essen- compiled 3308 AB ORFs,                          tial gene set. reï¬?ned data set achieved substantially
+classiï¬?er trained EC applied dataset.                   better precision (PPV = 0.53) predicting EC essential accuracy evaluated examining agreement                       genes, obvious 10  predictions assignments gene knockout experiments                     (Supplementary Figure S6). AB.
+   level 1  FPR, result indicated                    Prediction essential genes E. coli classiï¬?er achieved 28  TPR (Figure 3B). AUC                           P. aeruginosa
+score 0.80 PPV 0.81 threshold 0.5.                      transferability essential genes  212 predictions received                        limited EC AB, important extend  802 Nucleic Acids Research, 2011, Vol. 39,  3
+
+
+
+
+Figure 3. ROC curves plot TPR versus FPR different thresholds classiï¬?er probability output.   (B): EC ! AB; (C) (D): AB !
+EC.   fold cross-validations EC essential gene data set. (B) Predictions AB essential genes. classiï¬?er trained EC dataset evaluated AB essential genes. (C) fold cross-validations AB essential gene data set. (D) Predictions EC essential genes. classiï¬?er trained AB data set evaluated EC essential genes.
+
+
+
+analysis pairs organisms. conducted                     learning features EC, denoted EC ! PA,
+predictions EC P. aeruginosa PAO1 (PA).                         generated ROC curve AUC score 0.69
+   PA ubiquitous opportunistic pathogen capable                    PPV = 0.57 (Supplementary Figure S8A B). causing chronic infection lungs cystic ï¬?brosis                 reciprocal PA 678 ! EC prediction showed similar
+patients. Gram-negative belongs class                 pattern decreased accuracy (AUC = 0.79 g-proteobacteria EC AB (Supplementary                             PPV = 0.41).
+Figure S3). set 678 PA essential genes, 12                          relatively lower accuracy transferring essentiality total genes, identiï¬?ed transposon mutagen-                  EC PA likely lower quality  e.
+esis (24). random nature transposon inser-                    errors) associated essential gene set
+tion events, results transposon mutagenesis                    produced transposon mutagenesis (52). subset contain systematic bias. example, essential genes                   335 genes, consensus PAO1 determined transposon mutagenesis contain dispro-                      Pseudomonas species PA14 essential gene sets (51), portionately higher percentage short proteins                    believed accurate. trained classi-
+shorter proteins likely missed trans-                     ï¬?er 335 PA essential genes predicted posons (24,51). Comparison orthologs essential                       EC, denoted PA 335 ! EC. Training reï¬?ned data
+genes EC PA shown (Supplementary                          set achieved improved performance PA 678 ! EC
+Figure S7A).                                                                (AUC = 0.82 PPV = 0.47).
+   Using feature selection strategy employed predict essential genes EC AB,                      Prediction essential genes E. coli identiï¬?ed set features EC (Supplementary                    B. subtilis
+Table S2B). Note different used                    explore limit transferability,  EC ! AB (Supplementary Table S2A). used                          tempted predict essential genes B. subtilis (BS). method predict essential genes PA                         Unlike EC, PA AB, BS Gram-positive bacteria.
+                                                                                    Nucleic Acids Research, 2011, Vol. 39,  3 803
+
+ evolutionary distance EC BS substan-                 EC!BS likely lower quality tially farther species: estimated              dataset greater evolutionary distance 3000 myrs (Supplementary Figure S3).                   mentioned previous sections.
+271 essential genes listed (26), included 192 determined experimental techniques disregarded                   Integrative genomics signiï¬?cantly improves accuracy
+79 genes predicted homology mapping                        coverage compared homology mapping bacteria, E. coli. comparison                    order illustrate substantial improvement orthologs essential genes EC BS                      coverage method, ï¬?rst used homology
+shown (Supplementary Figure S7B).                                    mapping transfer essential gene annotations EC
+   Using strategy described previous sections,                AB. 302 known essential genes EC, 234
+applied methods transfer essential gene annotations              genes directly mapped AB genes using EC BS, denoted EC ! BS, compared                        RBH approach.  corresponding 234
+predictions available known essential gene                     orthologous genes AB predicted RBH dataset BS. prediction BS generated ROC                     essential. 234 predictions, 195 true es-
+curve AUC score 0.80 PPV 0.54                            sential determined AB essential gene dataset
+(Supplementary Figures S8C D). Similarly, recip-                (Figure 5). note, 234 orthologs rocal BS ! EC prediction yielded ROC curve                    maximal number predictions homology mapping AUC score 0.86 PPV 0.48.                                         make, given deï¬?nition orthologs.
+   results suggest despite long evolutionary                  selected appropriate cutoffs distance BS EC, common charac-                    method number predictions teristics underlying EC BS essential genes represented              number essential genes target organism, e. 499 features recognized machine                 AB. Compared homology mapping, learning approach.                                                      195 genes correctly predicted homology mapping,    AUC score ROC curve provides                     approach predicted 189 (97 ) true essential. useful estimation predictive accuracy models,             hand, approach predicted 77 unique predic- weights false positive false-negative errors                 tions homology mapping.
+equally (53). ratio essential genes                  used following examples illustrate
+genome different organisms, e.g. 4  BS                      discrepancies method homology 16  AB, evaluating transferability                      mapping (Table 3). example, ACIAD0822 EC target organisms,                    determined essential targeted mutagenesis
+directly compare AUC scores. addition, pre-                 (25) prediction. gene annotated
+dicting essential genes unstudied organism, precision                   function       aspartyl/glutamyl-tRNA prediction (PPV), genes predicted                 amidotransferase ortholog EC (54). closest
+essential essential, useful.                   homolog EC b1394 involved fatty acid metabolic  plotted precision predictions                  process  0006631), different EC target organisms (Figure 4).                   ACIAD0822. addition, b1394 non-essential gene.
+result clearly indicated EC!AB achieved                        case, homology mapping unable predict
+highest precision, lower precisions EC!PA                  ACIAD0822 essential. contrast, integrated
+                                                                        effect strong features (PHYS, PA, CAI 
+
+
+
+Figure 4. Precision predictions EC target organisms.   Figure 5. integrative approach signiï¬?cantly extends coverage Precision versus Rank plot pairs bacteria: EC!AB   homology mapping. IG stands integrative approach. RBH
+(Gray solid), EC!PA (Gray dashed) EC!BS (Black solid).          stands reciprocal best hit approach. IG method, little cross curve represents precision PPV      cutoffs set number essential genes corresponding probability threshold set 0.5.                         organism, e. (PA: 678, AB: 499, BS: 192).
+ 804 Nucleic Acids Research, 2011, Vol. 39,  3
+
+
+
+
+                                                                                                                                                                                                                                                                         Nonâ€“ess (â€“142)
+
+
+
+
+                                                                                                                                                                                                                                                                                          number parenthesis indicates normalized log-odds ratio (points). larger number indicates higher correlation essentiality. Shaded features determine                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Cyto) enabled method correctly assign gene                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              essential. example, ACIAD2634 
+                                                                    Prediction
+
+                                                                                          Ess (15)
+
+                                                                                                                                                                                                                                                                         Ess (81)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             determined essential targeted mutagenesis
+
+
+
+
+                                                                                                                                                               0.17 (â€“25) 0.32 (â€“15) 0.21 (3) 0.61 (â€“15) 0.08 (â€“10) 0.24 (â€“29) 0.31 (â€“30) 0.44 (â€“5) 0.05 (â€“3) 0.22 (â€“10) (â€“139)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (25) prediction. closest homology EC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              b2499, non-essential gene function.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              case, RBH incorrectly predicted non-essential.
+
+
+
+                                                                                                                                                                                                                                                              1 (â€“20)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              combined inï¬‚uence DES, PHYS, Nc
+                                                                                          0 (â€“3)
+
+                                                                                                                                                                                                                                                              0 (â€“3)
+                                                                    Inner
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             CAI allowed method successfully override
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             incorrect assignment RBH. examples
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             highlighted power integrative approach.
+                                                                                          0.13 (â€“7) 0.37 (â€“5) 0.24 (â€“28) 1.00 (20) 0 (â€“4)
+
+                                                                                                                                                               0.74 (58) 1.00 (45) 0 (10) 0.39 (20) 0.09 (â€“9) 0.40 (4) 0.19 (â€“15) 0 (â€“25) 0 (â€“4)
+
+
+                                                                                                                                                               0.43 (3) 0.67 (22) 1 (â€“40) 0.56 (â€“10) 0.05 (â€“12) 0.25 (â€“28) 0.24 (â€“28) 0 (â€“25) 0 (â€“4)
+                                                                    Extra
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                hand, ACIAD2640 determined                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              essential gene targeted mutagenesis (25)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              RBH approach, method incorrectly predicted                                                                     Cyto
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             non-essential. main reason failed predict                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              essential gene paralog AB, resulted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              strongly unfavorable PA score. predicted subcellular
+                                                                    Aromo
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             localization cemented incorrect assignment.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                predictions PA BS suggested similar
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             conclusion (Figure 5). RBH method                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              considered stringent mapping orthologs (55),
+                                                                    CAI
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             forward BLAST yields paralogous best
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             hit, regardless reciprocal BLAST corrects
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             error recovering actual ortholog, pairs                                                                     L_aa
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             excluded.  performed homology
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             mapping using COG groups. Using alternative
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             method homology mapping did change                                                                                           0.49 (4)
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             conclusions (Supplementary Figure S9).
+                                                                    Nc
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                simple way increase coverage homology
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             mapping include homologs orthologs
+                                                                                          0.67 (22) 0 (10)
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             choosing relaxed E-value cutoff. gradually
+                                                                    PA
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             loosening E-value thresholds, compared                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              approach RBH method ROC curves
+                                                                    PHYS
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             (Supplementary Figure S10). clear                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              method dominated RBH method entire range
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ROC curves.
+                                                                    DES
+
+                                                                                          NA
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             DISCUSSIONS
+                                                                                                                                              membrane-speciï¬?c
+                                                                                          acyl-coA hydratase
+
+
+                                                                                                                                              aminoimidazole
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             taking advantage abundant genomic sequences
+                                                                                                                                            Phosphoribosyl
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             functional genomics data available bacterial
+                                                                                                                                              transporter
+                                                                                                                                              lipoprotein
+                                                                                                                                              synthetase
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             species, EC, PA, AB BS, developed                                                                                                                                               subunit
+                                                                    Function
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             machine learning-based approach predicts essential
+                                                                                                                                            Outer
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             genes integrating features potentially associated            Table 3. Examples correct incorrect predictions
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             gene essentiality Prokaryotes. essential gene
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             data sets available genomes (56),
+                                                                    EC gene ID
+
+
+                                                                                            (Non-ess)
+
+                                                                                            (Non-ess)
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             determined transposon mutagenesis
+                                                                                                                                                                                             (Ess)
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             results contain systematic biases (24,52).                                                                                           b1394
+
+                                                                                          b2499
+
+
+                                                                                                                                                                                           b1117
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             strike balance comprehensiveness validity
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             analysis, chose include bacterial
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             species (EC, AB BS) essential gene                                                                                                                                                                                                                                                                                           prediction outcome case.
+                                                                                                       aminoimidazole
+                                                                                                       glutamyl-tRNA
+
+
+
+                                                                                          ACIAD 2640 ABC superfamily
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             determined targeted mutagenesis, considered
+                                                                                          ACIAD 2634 Phosphoribosyl
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             highest quality, (PA) essential genes
+                                                                                                       synthetase
+
+                                                                                                       atp_bind
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             determined transposon mutagenesis inde-
+                                                                                          ACIAD 0822 Aspartyl/
+                                                                    AB Gene ID Function
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             pendent groups.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                10-fold cross-validations organisms showed
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             AUC scores 0.9, suggesting gene essentiality, albeit
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             complex property highly predictable learning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              characteristics underlying gene essentiality. believe                                                                                                                                                                                                                                                                           Average
+                                                                                           (E ss)
+                                                                                           (Ess)
+
+
+
+
+                                                                                           (Ess)
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             best cross-validation result organism                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              date predicting essential genes. attributed                                                                             Nucleic Acids Research, 2011, Vol. 39,  3 805
+
+
+signiï¬ improvement previous studies                  corrected studying role feature plays
+incorporating intrinsic context-dependent               determining essentiality adjusting relative
+features. particular, discovered domain enrichment,        weights. considered previous studies,           study signiï¬ ï¬?rst report
+strongest feature.                                               gene essentiality reliably transferred    results protein domain enrichment          distantly related organisms using machine learning-
+stronger feature predicting gene essentiality            based approach. using method transfer
+orthologs (PHYS) suggests gene essentiality likely       essentiality distantly related organisms, preserved function protein domains             accuracy predicting essential genes affected domain combinations instead conservation          following factors: entire genes. unexpected reasonable               essential gene data set classiï¬?ers numerous examples literature             trained high quality. Errors supports postulation. example, DNA poly-           training dataset signiï¬?cantly reduce accuracy merase III subunits t g domain III (PF12169) (57)            predictions, observed PA ! EC. single copy EC, PA BS. host gene              Second, essentiality transferred domain, dnaX, essential species;         highly similar growth conditions. Gene essential-  sequence identity low.             ity likely contextual property (49). Organisms support modularity essential genes,           likely use different sets essential genes different
+previous studies discovered              conditions. Predicting essential genes different 
+genes essential, domains              ditions training set likely result required essential function. example, E. coli        decreased predictive accuracy, observed EC
+ftsK (b0890) essential gene consisting              AB.  recent study E. coli conditional
+domains: N-terminal (amino acid 1â€“780) C-terminal            essential genes showed <20  total essential
+(amino acid 780â€“1329) domains. N-terminal               genes different glycolysis glucose metab-
+domain gene required role cell             olisms (59).  algorithm useful division viability (58).                                     capturing majority essential genes target
+   reason DES predictive orthologs          organism growth conditions different, protein domains transferable 
+                                                                 best performance achieved ganisms orthologs. example, data showed
+                                                                 highly similar growth conditions. EC PA share <35  genes orthologs,
+                                                                     evolutionary distance play share 70  domains. list domains
+                                                                 important role accuracy predictions. highest lowest DES given                                                                  encouraging classiï¬?er transfer gene es-
+Supplementary Table S4. Identifying exploring                                                                  sentiality Gram-negative Gram-positive
+domains actually responsible carrying essential function, â€˜essential domainsâ€™, greatly         bacteria, accuracy transferring lower
+improve understanding mechanistic basis            gram-negative bacteria. interesting
+gene essentiality.                                               future direction investigate    dominant features DES intrin-        extent method applicable. example, sic features strongest context-dependent feature       extent essential genes transferred CEB ranks seventh 13 features. suggests           Prokaryotes Eukaryotes? geneâ€™s essentiality primarily determined bio-      Fourth, prediction depends availability
+chemical functions, functions es-        features similar distribution organisms.
+sential inï¬‚uenced bacteriaâ€™s growth           useful prediction, features conditions. instance, rewiring gene regula-       similar distribution organisms order allow
+tory networks different conditions alter           accurate training testing (Supplementary Figure S5).
+degree geneâ€™s essentiality organism.            comparison method homology
+investigations inï¬‚uence context-dependent        mapping highlights limitations homology
+features shed light conditional gene essentiality.    mapping. Homology mapping useful closely
+   errors current method inï¬‚uenced        related organisms, S. cerevisiae S. mikatae strong features. example, false positive predictions      (22).  divergent organisms, severely high Phylogenetic score (PHYS).              limited number conserved orthologs. contrast,
+essential genes tend evolutionarily conserved         approach does limitation non-essential genes, quarter highly      prediction based features computed
+conserved bacterial genes essential tested             genes;  easily explore gene space
+experimentally model bacteria (9â€“12).               homology mapping inapplicable 
+assigning excessive weight gene conservation             advantage approach inevitably create false positive errors. hand,      incorporate organism-speciï¬?c context-dependent
+false negative errors, e. essential genes incor-     features, e.g. gene expression number paralogs
+rectly predicted non-essential, result       target organism, potentially identify combined effect features failing override        organism essential genes orthologs non-essential
+decisions strong features. errors           organisms, e.g. ACIAD2634 Table 3.
+ 806 Nucleic Acids Research, 2011, Vol. 39,  3
+
+
+   method easily extended predict essential                    alcohol dehydrogenase genes. Appl. Microbiol. Biotechnol., 85,
+genes unstudied organism. genomic sequences                     651â€“657.
+                                                                          7. Pucci,M.J. (2006) Use genomics select antibacterial targets. genes functional genomics data microarray                       Biochem. Pharmacol., 71, 1066â€“1072.
+gene-expression analysis available                        8. Bruccoleri,R.E., Dougherty,T.J. Davison,D.B. (1998)
+organism genome mutagenesis experi-                         Concordance analysis microbial genomes. Nucleic Acids Res.,
+ments carried  result, essentiality predic-                 26, 4482â€“4486.
+                                                                          9. Arigoni,F., Talabot,F., Peitsch,M., Edgerton,M.D., Meldrum,E.,
+tion prior costly genome                            Allet,E., Fish,R., Jamotte,T., Curchod,M.L. Loferer,H. (1998)
+screening using mutagenesis experiments.                                     genome-based approach identiï¬?cation essential
+   summary, integrating features available                      bacterial genes. Nat. Biotechnol., 16, 851â€“856.
+genes, method provides valuable alternative pre-               10. Freiberg,C., Wieland,B., Spaltmann,F., Ehlert,K., Brotz,H. dicting essential genes orthologs. application                    Labischinski,H. (2001) Identiï¬?cation novel essential Escherichia
+                                                                             coli genes conserved pathogenic bacteria. J. Mol. approach bacterial species tremendous po-                      Microbiol. Biotechnol., 3, 483â€“489.
+tential signiï¬?cantly improve ability engineer               11. Song,J.H., Ko,K.S., Lee,J.Y., Baek,J.Y., Oh,W.S., Yoon,H.S.,
+microorganisms respond emergency                       Jeong,J.Y. Chun,J. (2005) Identiï¬?cation essential genes situations, bioterrorist attack bioremediation                    Streptococcus pneumoniae allelic replacement mutagenesis. oil-spilled Gulf regions. research                       Mol. Cells, 19, 365â€“374.
+                                                                         12. Zalacain,M., Biswas,S., Ingraham,K , Ambrad,J., Bryant ,
+performed Prokaryotes, highest quality                          Chalker F., Iordanescu,S., Fan,J., Fan,F., Lunsford,R.D. et al.
+essential gene datasets available, conclusions                       (2003) global approach identify novel broad-spectrum
+drawn study expected valid                       antibacterial targets proteins unknown function. domains life.                                                       J. Mol. Microbiol. Biotechnol., 6, 109â€“126.
+                                                                         13. Winzeler,E , Shoemaker,D.D., Astromoff , Liang,H.,
+                                                                             Anderson,K., Andre,B., Bangham,R., Benito,R., Boeke,J.D.,
+                                                                             Bussey,H. et al. (1999) Functional characterization S.
+SUPPLEMENTARY DATA                                                           cerevisiae genome gene deletion parallel analysis. Science,
+Supplementary Data available NAR Online.                              285, 901â€“906.
+                                                                         14. Giaever,G., Chu M., Ni,L., Connelly,C., Riles,L., Veronneau,S.,
+                                                                             Dow,S., Lucau-Danila , Anderson,K., Andre,B. et al. (2002)
+                                                                             Functional proï¬?ling Saccharomyces cerevisiae genome.
+ACKNOWLEDGEMENTS                                                             Nature, 418, 387â€“391. authors like thank anonymous review-                  15. Gerdes,S.Y., Scholle,M.D., Campbell,J.W., Balazsi,G., Ravasz,E.,
+                                                                             Daugherty,M.D., Somera L., Kyrpides,N.C., Anderson ,
+ers valuable suggestions. L.D., J.D. L.J.L.                          Gelfand,M.S. et al. (2003) Experimental determination designed research, J.D. L.D. implemented                         level analysis essential genes Escherichia coli MG1655.
+research. M. L.W. offered critical suggestions,                      J. Bacteriol., 185, 5673â€“5684.
+L.D., J.D., L.J.L., M , X.L., S.S. D.J.H.                          16. Baba,T., Ara,T., Hasegawa,M., Takai,Y., Okumura,Y., Baba,M.,
+contributed writing revising article.                             Datsenko,K , Tomita,M., Wanner,B.L. Mori,H. (2006)
+                                                                             Construction Escherichia coli K-12 frame, single-gene
+                                                                             knockout mutants: Keio collection. Mol. Syst. Biol., 2, 2006
+                                                                             0008.
+FUNDING                                                                  17. Kato,J. Hashimoto,M. (2007) Construction consecutive
+Cincinnati Childrenâ€™s Hospital Medical Center (CCHMC)                        deletions Escherichia coli chromosome. Mol. Syst. Biol., 3,
+                                                                             132.
+Trustee Grant awarded  L.J.L.); National Institutes                18. Chen,Y. Xu,D. (2005) Understanding protein dispensability
+Health grant GM69845  D.J.H.). Funding open                           machine-learning analysis high-throughput data.
+access charge: CCHMC Trustee Grant.                                          Bioinformatics, 21, 575â€“581.
+                                                                         19. Jeong,H., Mason,S.P., Barabasi L. Oltvai N. (2001)
+Conï¬‚ict statement. declared.                                Lethality centrality protein networks. Nature, 411, 41â€“42.
+                                                                         20. Saha,S. Heber,S. (2006) silico prediction yeast deletion
+                                                                             phenotypes. Genet. Mol. Res., 5, 224â€“232.
+REFERENCES                                                               21. Gustafson M., Snitkin,E.S., Parker,S.C., DeLisi,C. Kasif,S.
+                                                                             (2006) identiï¬?cation essential genes using targeted
+ 1. Gibson,D.G., Glass,J , Lartigue,C., Noskov,V.N., Chuang,R.Y.,          genome sequencing comparative analysis. BMC Genomics, 7,
+    Algire,M , Benders,G , Montague,M.G., Ma,L.,                         265.
+    Moodie,M.M. et al. (2010) Creation bacterial cell controlled    22. Seringhaus,M., Paccanaro , Borneman , Snyder,M.     chemically synthesized genome. Science, 329, 52â€“56.                 Gerstein,M. (2006) Predicting essential genes fungal genomes.
+ 2. Pennisi,E. (2010) Genomics. Synthetic genome brings new life          Genome Res., 16, 1126â€“1135.
+    bacterium. Science, 328, 958â€“959.                                    23. Hashimoto,M., Ichimura,T., Mizoguchi,H., Tanaka,K.,
+ 3. Dowell,R.D., Ryan,O., Jansen , Cheung,D., Agarwala,S.,                 Fujimitsu,K., Keyamura,K., Ote,T., Yamakawa,T., Yamazaki,Y.,
+    Danford,T., Bernstein,D , Rolfe,P , Heisler,L.E., Chin,B.            Mori,H. et al. (2005) Cell size nucleoid organization     et al. (2010) Genotype phenotype: complex problem. Science,         engineered Escherichia coli cells reduced genome.
+    328, 469.                                                                Mol. Microbiol., 55, 137â€“149.
+ 4. Haselbeck,R., Wall,D., Jiang,B., Ketela,T., Zyskind,J., Bussey,H.,   24. Jacobs,M , Alwood , Thaipisuttikul , Spencer,D.,
+    Foulkes,J.G. Roemer,T. (2002) Comprehensive essential gene           Haugen,E., Ernst,S., O., Kaul,R., Raymond,C., Levy,R.
+    identiï¬?cation platform novel anti-infective drug                et al. (2003) Comprehensive transposon mutant library     discovery. Curr. Pharm. Des., 8, 1155â€“1172.                              Pseudomonas aeruginosa. Proc. Natl Acad. Sci. USA, 100,
+ 5. Fraser,C.M. (2004) genomics-based approach biodefence               14339â€“14344.
+    preparedness. Nat. Rev. Genet., 5, 23â€“33.                            25. Berardinis,V., Vallenet,D., Castelli,V., Besnard,M., Pinet ,
+ 6. Atsumi,S., Wu,T.Y., Eckl,E.M., Hawkins,S.D., Buelter,T.              Cruaud,C., Samair,S., Lechaplais,C., Gyapay,G., Richez,C. et al.
+    Liao,J.C. (2010) Engineering isobutanol biosynthetic pathway         (2008) complete collection single-gene deletion mutants     Escherichia coli comparison aldehyde reductase/           Acinetobacter baylyi ADP1. Mol. Syst. Biol., 4, 174.
+                                                                                      Nucleic Acids Research, 2011, Vol. 39,  3 807
+
+
+26. Kobayashi,K., Ehrlich,S.D., Albertini , Amati,G.,                   43. Kim,P.M., Lu,L.J., Xia,Y. Gerstein,M.B. (2006) Relating
+    Andersen,K.K., Arnaud,M., Asai,K., Ashikaga,S., Aymerich,S.,              dimensional structures protein networks provides
+    Bessieres,P. et al. (2003) Essential Bacillus subtilis genes. Proc.       evolutionary insights. Science, 314, 1938â€“1941.
+    Natl Acad. Sci. USA, 100, 4678â€“4683.                                  44. Zhang,M., Deng,J., Fang,C., Zhang,X. Lu,L.J. (2010)
+27. Barrett,T., Troup,D.B., Wilhite,S.E., Ledoux,P., Rudnev,D.,               Biomolecular network analysis applications. Knowledge-
+    Evangelista,C., Kim F., Soboleva , Tomashevsky,M.                 Based Bioinformatics: Analysis Interpretation, Vol. 11,
+    Edgar,R. (2007) NCBI GEO: mining tens millions                      pp. 253â€“288.
+    expression proï¬?lesâ€“database tools update. Nucleic Acids Res.,     45. Jansen,R., Greenbaum,D. Gerstein,M. (2002) Relating
+    35, D760â€“D765.                                                            genome expression data protein-protein interactions.
+28. Parkinson,H., Kapushesky,M., Shojatalab,M.,                               Genome Res., 12, 37â€“46.
+    Abeygunawardena,N., Coulson,R., Farne , Holloway,E.,                46. Lu,L.J., Xia,Y., Paccanaro , Yu,H. Gerstein,M. (2005)
+    Kolesnykov,N., Lilja,P., Lukk,M. et al. (2007) ArrayExpress             Assessing limits genomic data integration predicting
+    public database microarray experiments gene expression             protein networks. Genome Res., 15, 945â€“953.
+    proï¬?les. Nucleic Acids Res., 35, D747â€“D750.                           47. Brown,J.R. Volker,C. (2004) Phylogeny 29. Gasch P., Spellman,P.T., Kao,C.M., Carmel-Harel,O.,                     gamma-proteobacteria: resolution branch universal
+    Eisen,M.B., Storz,G., Botstein,D. Brown,P.O. (2000)                   tree? Bioessays, 26, 463â€“468.
+    Genomic expression programs response yeast cells         48. Lerat,E., Daubin,V., Ochman,H. Moran,N  (2005)
+    environmental changes. Mol. Biol. Cell., 11, 4241â€“4257.                   Evolutionary origins genomic repertoires bacteria.
+30. Tatusov,R.L., Galperin,M.Y., Natale,D  Koonin,E.V.                  PLoS Biol., 3, e130.
+    (2000) COG database: tool genome-scale analysis          49. Dâ€™Elia,M , Pereira,M.P. Brown,E.D. (2009) essential
+    protein functions evolution. Nucleic Acids Res., 28, 33â€“36.           genes really essential? Trends Microbiol., 17, 433â€“438.
+31. Knight,R.D., Freeland,S.J. Landweber,L.F. (2001) simple         50. Edgington,E.S. (1980) Randomization tests. M. Dekker,
+    model based mutation selection explains trends codon            New York.
+    amino-acid usage GC composition             51. Liberati,N.T., Urbach,J.M., Miyata,S., Lee,D.G., Drenkard,E.,
+    genomes. Genome Biol, 2, RESEARCH0010.                                    Wu,G., Villanueva,J., Wei,T. Ausubel,F.M. (2006) 32. Jordan K., Rogozin B., Wolf,Y  Koonin,E.V. (2002)               ordered, nonredundant library Pseudomonas aeruginosa strain
+    Essential genes evolutionarily conserved                PA14 transposon insertion mutants. Proc. Natl Acad. Sci. USA,
+    nonessential genes bacteria. Genome Res, 12, 962â€“968.                  103, 2833â€“2838.
+33. Kyte,J. Doolittle,R.F. (1982) simple method displaying      52. Gerdes,S., Edwards,R., Kubal,M., Fonstein,M., Stevens,R.     hydropathic character protein. J Mol. Biol., 157,                Osterman  (2006) Essential genes metabolic maps. Curr.
+    105â€“132.                                                                  Opin. Biotechnol., 17, 448â€“456.
+34. Wright,F. (1990) â€˜effective number codonsâ€™ used gene.     53. Lobo,J.M., Jimenez-Valverde  Real,R. (2008) AUC:     Gene, 87, 23â€“29.                                                          misleading measure performance predictive distribution
+35. Fuglsang  (2004) â€˜effective number codonsâ€™ revisited.            models. Global Ecol. Biogeogr., 17, 145â€“151.
+    Biochem. Biophys. Res. Commun., 317, 957â€“964.                         54. Barbe,V., Vallenet,D., Fonknechten,N., Kreimeyer , Oztas,S.,
+36. Sharp,P.M. Li,W.H. (1987) codon adaptation index                Labarre,L., Cruveiller,S., Robert,C., Duprat,S., Wincker,P. et al.
+    measure directional synonymous codon usage bias,               (2004) Unique features revealed genome sequence     potential applications. Nucleic Acids Res., 15, 1281â€“1295.                Acinetobacter sp. ADP1, versatile naturally transformation
+37. Zhang,C.T. Zhang,R. (2008) Gene essentiality analysis based           competent bacterium. Nucleic Acids Res., 32, 5766â€“5779.
+    DEG, database essential genes. Methods Mol. Biol., 416,       55. Wall,D.P., Fraser,H.B. Hirsh E. (2003) Detecting putative
+    391â€“400.                                                                  orthologs. Bioinformatics, 19, 1710â€“1711.
+38. Lu , Szafron,D., Greiner,R., Lu,P., Wishart,D.S., Poulin,B.,        56. Hannay,K., Marcotte,E.M. Vogel,C. (2008) Buffering gene
+    Anvik,J., Macdonell,C. Eisner,R. (2004) Predicting subcellular        duplicates: analysis molecular correlates evolutionary
+    localization proteins using machine-learned classiï¬?ers.                conservation. BMC Genomics, 9, 609.
+    Bioinformatics, 20, 547â€“556.                                          57. Jergic,S., Ozawa,K., Williams,N.K., Su,X.C., Scott,D.D.,
+39. Sonnhammer,E.L., von Heijne,G. Krogh  (1998)                      Hamdan,S.M., Crowther,J , Otting,G. Dixon,N.E. (2007)
+    hidden Markov model predicting transmembrane helices               unstructured C-terminus tau subunit Escherichia
+    protein sequences. Proc. Int. Conf. Intell. Syst. Mol. Bio

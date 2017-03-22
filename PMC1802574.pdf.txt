@@ -1,0 +1,283 @@
+
+Gene loss rate: probabilistic measure conservation eukaryotic genes
+                                                                         common measures gene functional importance, including
+                                                                                  essentiality (1–5) degree encoded protein rate conservation gene evolution                                protein–protein interaction (PPI) network (3,6,7). believed correlated biological impor-                              observations support long-standing ‘knockout rate’
+tance. Recent studies devised various conser-                                hypothesis Wilson et al. (8), claims greater
+vation measures genes shown                                effect gene knockout fitness slower correlated biological characteristics                            evolutionary rate. observed correlation conser- functional importance. Specifically, state                              vation importance varies various  art propensity gene loss (PGL) measure                                servation measures, underscoring need accurate shown strongly correlated gene essential-                              general measures rate gene conservation.
+ity number protein–protein interactions                                   Nucleotide substitution rate traditional measure (PPIs). observed correlation conser-                                  conservation gene evolution. Hirsh Fraser (1)                                                                                   shown growth rate gene deletion mutant corre-
+vation functional importance varies                                                                                   lates gene’s evolutionary rate. studies, com- conservation measures, underscoring                                   puting accurate evolutionary rate estimations, extended
+need accurate general measures rate                               findings showed marked differences gene conservation. develop novel                                     evolutionary rates essential nonessential genes (2,5).
+maximum-likelihood approach computing                                         alternative measure evolutionary conservation,
+rate gene lost evolution, motivated                              measures propensity gene loss (PGL), principles underlying PGL.                                   introduced Krylov et al. (3). PGL computed based  difference PGL considers                                pattern presence absence genes multiple parsimonious ancestral states                                     genomes, considering phylogeny, shown internal nodes phylogenetic tree relating                              higher correlations gene dispensability species, approach weighs probabilistic                                   sequence evolution rate.  measures evolu-
+                                                                                  tionary conservation capture different characteristics manner possible ancestral states, includes
+                                                                                  genes: Sequence evolution rate represents selective  branch length information proba-                               straints protein structure sequence, PGL cap-
+bilistic model. application data 16 eukaryotic                           tures essentiality gene’s function. pointed genomes, approach shows higher correlations                                   Krylov et al., protein linked essential function experimental data PGL, including data                                potentially low propensity lost, evolve
+gene lethality, level connectivity PPI network                            relatively fast relaxed functional constraints.  coherence functionally related genes.                                  moderate correlation measures 
+                                                                                  corroborating intuitive notion weakly constrained
+                                                                                  proteins lost evolution significantly                                                                                   strongly constrained ones.
+INTRODUCTION                                                                         propensity gene loss computed based Large scale sequencing projects producing genome data                      types biological data sources, characterizing gene increasing pace. Interpreting data study gene                      group species:   phyletic pattern gene,
+importance function major goal functional                             pattern presence–absence gene genomics. Recently, studies related different                        set species genomes; (ii) phylogenetic tree topology
+measures evolutionary conservation gene various                        relating different species; (iii) branch length estimates
+
+ correspondence addressed. Tel: +972 3 640 5378; Fax: +972 3 640 9357; Email: borens@post.tau.ac *Correspondence addressed Tomer Shlomi. Tel: +972 3 640 5378; Fax: +972 3 640 9357; Email: shlomito@post.tau.ac  authors wish known  opinion, authors regarded joint Authors
+
+ 2006 Author(s). Open Access article distributed terms Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/ nc/2.0/uk/) permits unrestricted non-commercial use, distribution, reproduction medium, provided original work properly cited.
+ e7   Nucleic Acids Research, 2007, Vol. 35,  1                                                                              PAGE 2      8
+
+ tree.   (ii) used constructing ancestral   considering single parsimonious ancestral
+phyletic pattern presence–absence gene inter-       phyletic pattern restricting gene losses branches nal nodes tree. reconstruction based           equal length, GLR collapses simple measure Dollo parsimony principle (9), gene loss deemed        analytically related PGL. compare biological
+irreversible. Given ancestral phyletic pattern, branch      plausibility GLR PGL using extensive data set treated independent trial gene         16 Eukaryotic species, showing GLR better correlates
+preserved lost. PGL value gene defined         existing measures gene functional importance. ratio total length branches gene lost total length branches gene lost  e. preserved lost). definition       METHODS
+captures idea longer time gene         GLR measure lost  lower propensity gene lost.                                                             developed novel measure, GLR, loss rate    intuitively reasonable, careful examination        gene based maximum likelihood principles. phyloge-
+definition PGL reveals potential weaknesses:                  netic tree T  estimated branch lengths species
+                                                                     study) gene’s phyletic pattern PP, define
+   Assuming gene loss measure reflect           GLR maximum-likelihood estimate rate m      evolutionary loss rate, gene lost          gene loss:
+     long branch, lower rate                                   X
+     gene lost times short branches.          argmaxm Lðm j PPÞ ¼ argmaxm      PðPP‚APP j mÞ            1
+     PGL considers total lengths branches                                        APP
+     gene lost, ignoring possible variation lengths,     APP runs possible ancestral phyletic patterns
+     lead counterintuitive predictions, shown          gene. sections provide details                                                                probabilistic model underlying GLR derivation
+(ii) PGL based single ancestral phyletic pattern             GLR measure. consider simple case      obtained parsimony principle.  simple          fixed ancestral phyletic pattern present general
+     parsimony model correct ancestral          case, considering possible ancestral phyletic patterns.
+     phyletic pattern ignores alternative possible patterns.
+      parsimonious construction ancestral
+     phyletic pattern does account available       GLR fixed ancestral phyletic pattern
+     branch lengths.                                                 Let T phylogenetic tree branch lengths. Given                                                                      phyletic pattern PP ancestral phyletic pattern APP    PGL additionally lacks underlying systematic probabilis-       gene, GLR defined argmaxm PðPP‚ APP j mÞ. Let
+tic model properly describes process gene loss.       c1 ‚. . . ‚cn1 denote lengths branches gene
+contrast, conservation measure based model          conserved, let l1 ‚. . . ‚ln2 denote lengths branches
+provide natural way incorporate additional sources bio-      gene lost. logical data (e.g. confidence level gene presence absence) easily extended allow prediction        PðPP‚APP j mÞ ¼ Pni¼1
+                                                                                        1
+                                                                                           emci Pni¼1
+                                                                                                    2
+                                                                                                       ð1  emli Þ various pertaining parameters branch lengths.
+   present novel approach computing              emt represents probability gene conserved
+servation measure genes, gene loss rate (GLR),               branch length t, accordance standard
+addressing shortcomings. measure based              model nucleotide substitutions (15). simple probabilistic model gene evolution,                rate, m, maximizes probability,
+underlying assumption gene certain rate           log sides equation: lost evolution. Given loss rate estima-                                     X
+                                                                                                    n1           X
+                                                                                                                 n2
+tion, probability gene phyletic pattern calcu-       log PðPP‚APP j mÞ ¼  m              ci þ         logð1  emli Þ
+lated, considering possible ancestral phyletic patterns.                                        1          1
+GLR defined maximum-likelihood estimate                                                                      probability maximized 
+loss rate, e. loss rate maximizes probability phyletic pattern associated gene. Applying              X
+                                                                     n1            Xn2
+                                                                                         li emli maximum-likelihood estimate, model resembles                     ci ¼
+                                                                                       1  emli (10–13), used stochastic birth death process        1          1
+model examine gene family evolution, assumed uni-           easy log likelihood function form birth death rate genes. Recently, related         concave;  maximizing rate obtained gradi-
+measure gene loss mentioned analysis            ent ascent. naive analytical approximation rate m covering numerous characteristics gene function               obtained assuming uniform length l branches evolution (14).  work did focus             gene lost. assumption,  gene loss measures, systematic comparison previ-
+ous methods conducted.                                           X
+                                                                     n1
+                                                                                    n2 leml
+   following, provide rigorous definition GLR                ci ¼
+                                                                                   1  eml derive algorithm efficiently compute             1
+ PAGE 3      8                                                                    Nucleic Acids Research, 2007, Vol. 35,  1        e7
+
+  GLR, defined rate m maximizes                 considering possible ancestral phyletic patterns.
+probability function, given simple case                    Given phyletic pattern loss rate, probability                                                                          gene lost branch leading node           1                n2 l                                          node j 
+m¼         log ð1         P1      Þ                               2
+          l          n2 l þ ni¼1 ci
+                                                                         Pðbi ¼P1‚ bj ¼ 0 j PP‚ mÞ ½n2 l/ðn2 l þ Sni¼1
+                       1
+                          ci Þ PGL value.                                     Pðbi ¼ 1‚ bj ¼ 0‚ PP; APP j mÞ
+                                                                            ¼ APP
+                                                                                             PðPP j mÞ
+General ancestral phyletic pattern general case GLR computation, apply gra-              numerator denominator calculated
+dient ascent rate m maximizes probability           shown previous section, using variant of phyletic pattern, P(PPjm),  weigh possible            Felsenstein’s algorithm. Specifically, numerator calcu-
+ancestral phyletic patterns (Equation 1). end, apply          lated modifying algorithm consider ancestral variant Felsenstein’s tiny maximum-likelihood algorithm             phyletic patterns consistent gene loss (16). simplicity, binary tree. Let            nodes j, setting PðT j bi ¼ 0Þ ¼ 0 PðT j j ji ¼ 1Þ ¼ 0
+denote node phylogenetic tree, let i1 i2 denote         recursion. expected number gene losses children. Let Ti denote subtree rooted node             branch sum probabilities gene phyletic
+Let pði‚ aÞ 2 f0‚ 1g denote probability gene           patterns.
+lost (0) conserved (1) li-long branch parent  previous section, assume             Data acquisition processing
+pði‚ 0Þ ¼ 1  emli pði‚1Þ ¼ emli . Let bi denote gene present (1) absent (0)  given m,             phylogenetic tree following 16 Eukaryotes probability subtree Ti                                     obtained NCBI (17): Homo sapiens, Canis familiaris,
+                                                                         Mus musculus, Rattus norvegicus, Drosophila melanogaster,
+PðT j bi ¼ 0Þ ¼ PðT i1 j bi1 ¼ 0ÞPðT i2 j bi2 ¼ 0Þ                     Anopheles gambiae, Caenorhabditis elegans, Pan troglo-
+PðTXi j bi ¼ 1Þ ¼                                                        dytes, Gallus gallus, Schizosaccharomyces pombe, Saccharo-
+          PðT i1 j bi1 ¼ xÞpði1 ‚xÞPðT i2 j bi2 ¼ yÞpði2 ‚yÞ             myces cerevisiae, Kluyveromyces lactis, Neurospora crassa,
+x‚ y2f0‚ 1g
+                                                                         Arabidopsis thaliana, Oryza sativa Magnaporthe grisea.
+                                                                         divergence time estimates collected multiple noted recursion, Felsenstein’s           sources (3,18–21).
+algorithm (16), probabilities subtrees, T i1             Clusters homologous genes species T i2 , calculated given certain presence-absence assign-           obtained NCBI’s HomoloGene database (17). Homolo-
+ment independent. gene                 Gene automatically arranges genes putative
+present root node tree, probability phy-        homology clusters based DNA protein-based align-
+letic pattern, PðPP j mÞ, given PðT root j broot ¼ 1Þ.         ment measures, identifying clear-cut paralogs orthologs.
+computation derivative case involved                 data lethality gene knockouts yeast using dynamic programming follows:0 Denote                obtained MIPS database (22). PPI data p0   the0 derivative p  according m, e. p ði‚0Þ ¼     interactions reliability scores obtained (23,24).
+li eli m p ði‚ 1Þ ¼  li eli m . derivative probabil-   reliability scores essential controlling errors
+ity subtree Ti                                                 stem noisy large-scale PPI experiments,     0
+                         X       0
+                                                                         previously calculated based type experiments  P ðT j bi ¼ 1Þ ¼            ½P ðT i1 j bi1 ¼ xÞpði1 ‚xÞ               interaction observed, number obser-
+                    x‚ y2f0‚ 1g                                          vations experimental type. total assembled
+                                         0
+                   þ PðT i1 j bi1 ¼ xÞp ði1 ‚xÞ                         14 319 3926 interactions yeast worm, respectively.
+                                                                            Data protein complexes obtained MIPS
+                   PðT i2 j bi2 ¼ yÞpði2 ‚yÞ                             catalog (25), considering manually curated complexes
+                         0
+                   þ ½P ðT i2 j bi2 ¼ yÞpði2 ‚yÞ                          e. removing category 550). used leaves                                          0                               MIPS complex hierarchy, collapsing nodes level > 3                    þ PðT i2 j bi2 ¼ yÞp ði2 ‚yÞ                         level 3. Overall, 35 complexes compiled. Large scale
+                    PðT i1 j bi1 ¼ xÞpði1 ‚xÞ‚                           data 21 phenotypic effects single gene knockouts           0
+                                                                         yeast obtained Dudley et al. (26). P ðT j bi ¼ 0Þ ¼ 0 node  probability subtree does gene present root
+is0 independent m. initialize recursion setting
+P ði j bi ¼ xÞ ¼ 0 leaf nodes x 2 f0‚ 1g.                  RESULTS
+                                                                         following results applying GLR
+                                                                         measure analyze tree 16 eukaryotic organisms, Estimating expected number gene losses                                                                          comprehensive comparison PGL measure. perfor-
+branch
+                                                                         mance evaluation based comparing gene loss
+Given GLR value phyletic pattern, compute                 measures array experimental data yeast worm,
+probability gene lost branch tree,            including data gene lethality level connectivity  e7    Nucleic Acids Research, 2007, Vol. 35,  1                                                                                               PAGE 4      8
+
+
+                                                                                 (b)
+
+
+
+
+Figure 1. simple phylogenetic tree, demonstrating difference GLR PGL measures. Presence absence gene indicated 1 0,
+respectively, corresponding node (based parsimonious reconstruction ancestral phyletic pattern). Dotted lines represent branches gene lost.   gene lost branch length l. (b) gene lost branches, length l/2.
+
+
+protein interaction network. exemplify difference measures, start simple comparison GLR PGL synthetic data.
+ example tree demonstrate difference PGL GLR, analyze synthetic tree shown Figure 1. tree 
+sists species, marked E, divergence
+points. divergence point, tree root, occurred
+l years ago, second occurred l/2 years ago. 
+sider phyletic patterns genes:   gene present species D (Figure 1a); (ii) gene present species B C (Figure 1b). reconstruct corresponding parsimonious ancestral phyletic patterns cases, finding phyletic pattern 1, gene lost branch length l, phyletic pattern 2, gene lost branches length l/2. Given recon-
+structions, reasonable assign higher loss
+rate score second phyletic pattern, reflects gene losses short time periods, compared single
+loss longer time period phyletic pattern.
+   Computing GLR PGL scores cases reveals PGL scores phyletic patterns  GLR correctly captures intuitive trend. Spe-
+cifically, PGL defined ratio total
+length branches gene lost total
+length branches gene lost, PGL value 1/4 cases. contrast, GLR score second phyletic pattern, calculated
+based Equation 2  Methods; fixed ancestral phyletic
+pattern assumed), m ¼  2=lðlogð1  1=4ÞÞ twice size GLR phyletic pattern.
+   Having shown GLR correctly captures variability branch lengths gene lost, PGL fail  turn compare measures using real phy-
+logenetic data various biological measures functional                       Figure 2. phylogenetic tree used analysis, relating 16 eukaryotes.
+importance.                                                                        Estimated divergence times  millions years ago) shown                                                                                    internal nodes. number parentheses branch indicates                                                                                    expected number gene losses  Methods). phylogenetic tree 16 eukaryotes obtained clusters homologous genes 16 Eukaryotic
+species NCBI’s HomoloGene database (17).                                  present cluster. corresponding phylogenetic
+Eukaryotic species include animals, fungi,                           tree taken NCBI divergence time esti- plants (Methods). phyletic pattern associated                         mates collected multiple sources (Figure 2 cluster determined species genes                             Methods). focused subset gene clusters  PAGE 5     8                                                              Nucleic Acids Research, 2007, Vol. 35,  1       e7
+
+ homologous gene present S.cerevisiae        GLR, PGL sequence evolution rate C.elegans, additional biological data                                                                    examined correlation GLR PGL
+validate conservation measures. Furthermore, similarly
+                                                                  correlations common sequence evo- Krylov et al. (3) data, considered                                                                   lution rate (SER) measure obtained (4). clusters gene present common
+                                                                  statistically significant correlation 0.833 (P < 106 , Spear-
+ancestor Fungi/Metazoa group plants                                                                   man correlation test) GLR PGL. Considering
+optimal parsimony reconstruction. genes assumed
+                                                                  measures based data attempt present root phylogenetic tree study
+                                                                  capture similar notion loss rate, strong correlation   form natural set gene loss analysis. 
+                                                                  surprising. Interestingly, significant difference  focusing simple gene loss dynamics consid-
+                                                                  accuracy measures, demonstrated
+ering genes duplication, restrict analysis genes
+                                                                   stems seemingly low disagreement. family size  e. genes                                                                      PGL previously shown significantly correlated
+copy genome  Discussion).
+                                                                  SER. PGL values computed sig-
+   Given phylogenetic tree, GLR PGL values
+                                                                  nificant correlation SER (r ¼ 0.54, P ¼ 7:9 · 104 , gene uniquely determined according gene phy-
+                                                                  Spearman correlation test), higher corresponding
+letic pattern   distinguish gene
+                                                                  correlation GLR SER (r ¼ 0.475, P ¼ 2:1 · 102 ).
+clusters identical phyletic patterns.                                                                    correlation GLR measures SER 
+group genes clusters according phyletic patterns;                                                                   ing evolutionary rate reflects selective constraints group biological property                                                                    protein structure function GLR captures gene
+associate group average value property
+                                                                  dispensability.  homology detection sequence group’s genes. obtain robust biological data                                                                   comparison affected evolutionary rate, homology phyletic patterns, included analysis pat-
+                                                                  relations fast evolving genes remain uncovered. terns associated gene clusters.
+                                                                  consequence  expect mea-
+   Clearly, number different possible values                                                                    sured GLR larger fast evolving genes. PGL GLR) bounded number possible phyletic
+                                                                  words, observed correlation patterns. PGL previously calculated based phyletic
+                                                                  intrinsic properties measurement procedures.
+patterns consisting species  fact, phylogenetic
+tree consisted seven species, phyletic patterns
+included species Arabidopsis thaliana), markedly limiting     Gene loss correlation lethality yeast knockouts number possible PGL values. extended phyloge-
+                                                                  Genes low loss rate assumed associated
+netic tree used allows significantly higher resolu-
+                                                                  essential function survival   knock-
+tion gene loss rate values.
+                                                                  expected lethal effects. trend previ-
+                                                                  ously shown PGL, fraction essential genes accuracy robustness GLR estimations                    significantly higher genes PGL estimate accuracy GLR estimations            value zero, compared genes higher PGL values
+formed series simulations gene loss dynamics.          (3). studies shown similar correlations simulation, chose ‘true’ loss rate value, used      SER lethality (2,5). randomly generate phyletic pattern according          correlation GLR measure phyletic
+gene evolution dynamics assumed model (Supplemen-          pattern lethality 0.655 (P < 107 , Spearman correla-
+tary Data 1). computed GLR value based              tion test). correlation PGL lethality smaller
+derived phyletic pattern compared true loss       (r ¼ 0.605, P < 106 ). correlation SER lethality
+rate used simulation. highly significant cor-   settings 0.457 (P < 102 ). advan-
+relation (r ¼ 0:802‚P < 10300 , Spearman correlation test;       tages GLR expected revealed gene Supplementary Figure 1a) true estimated           lost branches, restricted analysis loss rates. correlation PGL true loss         phyletic patterns parsimonious reconstruc-
+rates markedly lower (r ¼ 0:659‚ P < 10300 ).                tion ancestral phyletic pattern included    examined robustness GLR estimates        branches gene lost. Using restricted modifications phylogenetic tree phyletic pat-    set patterns, correlation GLR lethality
+tern perturbations (Supplementary Data 2).          markedly higher significant (r ¼
+systematically deleting species turn tree        0.880, P < 1013 ) PGL (r ¼ 0.709, relatively minor effect estimated GLR values         P < 106 ). correlation SER lethality did (Supplementary Figure 2a).  using substantially         markedly change setting (r ¼ 0.449, P ¼ 0.03). smaller tree (3), contains seven species,         rest analysis presented paper continue got significantly accurate estimations (Supplementary     focus subset phyletic patterns.
+Data 2). effect noise phyletic patterns examined       evaluate performance measures, changing presence–absence values species       tested prediction power classifying set time. Following data modifications, GLR values         yeast genes lethal nonlethal. Figure 3 shows obtained highly correlated original estima-         receiver operating characteristic (ROC) curves obtained tions, significantly robust PGL estimates       measures. Evidently, GLR outperforms PGL (Supplementary Figure 2b).                                        comparison.
+ e7   Nucleic Acids Research, 2007, Vol. 35,  1                                                                                       PAGE 6     8
+
+
+                                                                               Table 1. Correlation GLR PGL measure connectivity
+                                                                               level PPI network
+
+                                                                                                  Yeast                             Worm
+
+                                                                               GLR                0.429 (P ¼ 0.004)                0.524 (P ¼ 104)
+                                                                               PGL                0.316 (P ¼ 0.04)                 significant
+
+
+
+                                                                               tend coherently conserved (28). Motivated                                                                                observation, examined genes                                                                                complex coherent GLR  PGL) values.
+                                                                                  end, compiled list 135 proteins                                                                                59 manually curated complexes (Methods). com-
+                                                                               plex, calculated standard deviations GLR                                                                                PGL values constituent complex proteins measure
+                                                                               coherency. avoid bias stemming different distribu-
+                                                                               tions GLR PGL values, normalized mea-
+                                                                               sures mean 0 SD 1. Comparing coherence Figure 3. ROC curves GLR PGL illustrating increased specificity sensitivity GLR predicting lethality genes. areas   PGL GLR pairs, genes ROC curves 0.78 0.72 GLR PGL, respectively.                complex tend smaller GLR standard
+                                                                               deviation PGL (P < 0.00027, Wilcoxon signed-rank
+                                                                               test paired data).
+   Finally, examined genes hardly distin-                     Similarly, proteins knockout certain pheno-
+guishable measures correctly classified                   typic effect expected coherently conserved measure. end, sampled pairs phy-                    evolution. test similarity phenotypic effect letic patterns PGL scores phyletic                    manifested coherency GLR values, compiled list
+patterns similar  e. difference                     21 phenotypic effects 312 single gene knockouts values falls low 10  differences                     yeast (26). Comparing coherency PGL GLR values
+possible pairs), computed differences GLR                       proteins associated phenotype, described patterns. significant correlation (r ¼                         higher coherency GLR PGL
+0.615, P < 109 , Spearman correlation test)                    (P < 0.0034, Wilcoxon signed-rank test paired data).
+GLR differences corresponding differences lethal-                   provides support superiority GLR
+ity values. Conversely, testing pairs similar GLR                    PGL.
+values, significant correlation detected differences PGL values differences lethality                 Expected number gene losses branch
+values.                                                                        computed expected number gene losses                                                                                branch phylogenetic tree based optimal GLR
+Gene loss correlation protein                                             values  Methods Figure 2). Expectedly, identified
+interaction information                                                        significant correlation 0.43 (P < 0.01, Spearman correla- degree protein PPI network shown                       tion test) expected numbers gene losses correlated dispensability (6,7).  Krylov et al.                branch lengths. branches tree exhibited rela-
+(3) report significant correlation PGL value                     tively high gene loss values. Notably, expected massive gene degree corresponding protein                   loss 603 genes identified relatively short branch
+yeast PPI network.                                                             leading common ancestor fungi metazoa    overcome noise protein interaction data (27)                   fungi. loss identified branch leading assigned reliability estimates reported interactions                    relatively large subtree, based robust evidence
+defined level connectivity protein expected                 concerning absence genes multiple genomes
+number interactions involving protein (Methods).                         case). putative massive losses Table 1 summarizes correlations obtained                       identified O.sativa common ancestor GLR PGL measure gene connectivity level                        thaliana (946 genes), P.troglodytes corresponding protein PPI networks yeast                      common ancestor H.sapiens (599 genes).  worm. evident table, correlation                         supported single genome require
+GLR experimental network data significantly                        investigation  Discussion).
+higher. Notably, correlation SER connectiv-
+ity level statistically significant.
+                                                                               DISCUSSION
+Gene loss coherence functionally related genes
+                                                                               provided novel maximum-likelihood measure,
+Proteins complex    share                  GLR, rate gene loss. GLR based probabilis- functional role) likely similar functional impor-                tic model takes account phylogenetic tree tance. Specifically, shown protein complexes                  species study, branch lengths, phyletic pattern
+ PAGE 7     8                                                               Nucleic Acids Research, 2007, Vol. 35,  1       e7
+
+
+representing presence absence gene          weaken signal importance, handled
+species. measure shown highly correlated          extent taking account reliabilities experimental data gene lethality connectivity levels,        interactions. aligned biological data compared                  underlying motivation GLR similar
+state art PGL.                                               PGL, measures largely    Previously, complex probabilistic models gene            agreement  exemplified high correlation content evolution account events gene loss,             , GLR shown provide higher correlations duplication transfer proposed (10–13). estima-         biological measures gene functional importance tion multiple parameters complex models requires         improved lethal/nonlethal classification  Figure 3). extensive phylogenetic data performed indi-           believe demonstrated superiority GLR stems
+vidually gene based solely content data. obtain       enhanced probabilistic model, better capturing reliable rate estimations, Gu et al. (11) assumed uniform           gene loss process.
+duplication loss parameters genes tree           Furthermore, GLR based probabilistic model branches, used entire ensemble gene content        extensible utilizing additional data sources rate com-
+data estimate parameters. work Hahn             putation. Specifically, additional data confidence level
+et al. (12) assumed uniformity duplication loss              gene presence absence homology clusters eas-
+parameters genes allowed variability          ily incorporated model, addressing noise problems branches. recent work Csuros Miklos (10),             sequence data. data obtained example
+duplication, loss transfer rates estimated large       significance scores BLAST sequence alignment,
+groups genes similar evolutionary dynamics.            commonly used gene homology detection (33).  works focus global parameters           Additional data confidence level branch length
+characterizing gene evolution, focus work        estimations considered. believe 
+variability evolutionary dynamics different              fidence measures improve accuracy GLR,
+genes. Estimating evolutionary parameters associated         branch length estimations obtained various
+single gene based solely observed phyletic pattern           computational experimental methods known challenging optimization task. Considering single            noisy (21).
+phyletic pattern time prevents usage complex,            GLR model presented assumes  does PGL)
+multi-parameter model. Consequently, employ single-            gene present root tree parameter model characterizes simple gene loss                 lost multiple times different branches. dynamics  (29,30)] apply cases        end, focused genes likely present plausibly described dynamics. Specifically,          root phylogenetic tree  e. present focus Eukaryotic species horizontal gene             Fungi/Metazoa group plants, similarly PGL). gen-
+transfer unlikely, genes genomic copy num-          eral, genes lowest common ancestor does lie
+ber  analysis suggests model accurately         root tree, uncertainty location predicts gene-specific loss rates genes.         incorporated probabilistic model underlying GLR.
+resorting simple model gene loss evolution,                application, GLR computed based possi-
+maximum-likelihood algorithm allows optimal loss             ble ancestral phyletic patterns, representing presence rate estimation. Notably, works mentioned          absence genes internal nodes tree. Alternatively,
+guarantee identification optimal parameters.                 GLR computed single, likely ances-
+   Evaluating correctness gene loss measure cor-        tral phyletic pattern employing ancestral maximum-
+relating various estimates gene importance          likelihood approach (34). accomplished challenging task, owing inherent difficulty defining      modifying gradient ascent search loss rate measuring gene importance. Gene essentiality com-          maximizes probability optimal ancestral phyletic
+mon natural measure importance,               pattern using ancestral maximum-likelihood algorithm.  markedly high correlation cal-         GLR underlying probabilistic model culated loss rates yeast.  expect             generalized support different applications. example,
+GLR ideal predictor gene lethality gene dis-         GLR utilized improve current estimations pensability factors determining             branch lengths estimate branch specific loss rates.
+gene evolution dynamics (31). measures, previously            simultaneously searching branch
+used estimate gene importance, based various char-        specific parameters GLR values maximize proba-
+acteristics gene functionality. Specifically, involve-   bility given set phyletic patterns  genes).
+ment protein various cellular processes assumed       application, providing maximum-likelihood esti-
+reflect functional importance, motivating heuristic mea-      mation expected number gene losses branch
+sure based degree connectivity PPI network.          (including internal branches) considering possible
+Membership protein complex indicates             ancestral phyletic patterns described 
+shared functional role,   similar functional impor-        Determining importance genes  specifically, tance measure. characteristics,               effect genome evolution fundamental problem biol-
+indirect measures importance. evident        ogy. genomic data continues accumulate expect
+weaker correlation gene loss              GLR capture biological significance genes protein interaction information (Table 1). case PPI       accurately, facilitating improved analysis networks, noisy nature data (24,32)          gene functionality evolution.

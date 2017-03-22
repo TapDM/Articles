@@ -1,0 +1,586 @@
+                                                             International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46
+
+
+
+                                                                            Contents lists available SciVerse ScienceDirect
+
+                                                            International Journal Parasitology:
+                                                                  Drugs Drug Resistance
+                                                               journal homepage: www.elsevier.com/locate/ijpddr
+
+
+
+Invited review
+
+Inhibitors RNA editing potential chemotherapeutics trypanosomatid pathogens
+Reza Salavati b,c,⇑, Houtan Moshiri b, Smriti Kala b, Hamed Shateri Najafabadi b,c   Department Biochemistry, McGill University, McIntyre Medical Building, 3655 Promenade Sir William Osler, Montreal, Quebec, Canada H3G1Y6
+b
+  Institute Parasitology, McGill University, 21111 Lakeshore Road, Ste. Anne Bellevue, Quebec, Canada H9X3V9
+c
+  McGill Centre Bioinformatics, McGill University, Bellini Building, 3649 Promenade Sir William Osler, Montreal, Quebec, Canada H3G0B1
+
+
+ r t c l e              n f o                                        b s t r c t
+
+Article history:                                                          related trypanosomatid pathogens, Trypanosoma brucei spp., Trypanosoma cruzi Leishmania spp.
+Received 16 August 2011                                                   cause devastating diseases humans animals continue pose major challenge drug devel-
+Received revised form 17 October 2011                                  opment. Mitochondrial RNA editing, catalyzed multi-protein complexes known editosomes, Accepted 21 October 2011
+                                                                          provided opportunity development ef�?cient speci�?c chemotherapeutic targets try-
+Available online 13 November 2011
+                                                                          panosomatid pathogens. review discuss methods discovery RNA editing inhibitors,                                                                           inhibitors T. brucei editosome recently discovered creative virtual
+Keywords:
+                                                                          high throughput screening methods. addition, use inhibitors agents block
+Trypanosomatids
+RNA editing inhibitor
+                                                                          perturb steps RNA editing process discussed. inhibitors potentially
+Virtual screening                                                         used study dynamic processing assembly editosome proteins. thorough 
+High-throughput screening                                                 standing mechanisms speci�?cities new inhibitors needed order contribute
+                                                                          functional studies essential gene expression mechanism possibility future
+                                                                          drug development trypanosomatid pathogens.
+                                                                                         Ó 2011 Australian Society Parasitology Published Elsevier  rights reserved.
+
+
+
+
+Contents
+
+    1.   Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   36
+    2.   RNA editing process . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        39
+    3.   editosome composition. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .               39
+    4.   Editosome drug target . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           40
+    5.   High-throughput screening (HTS) methods: virtual chemical . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                                        40
+         5.1.   Virtual screening methods . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                 40
+         5.2.   Chemical HTS methods . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                41
+    6.   Editosome inhibitors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         43
+    7.   Conclusion prospects . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .             44
+         References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   44
+
+
+
+
+1. Introduction                                                                                                           Leishmaniasis, respectively. Leishmaniasis reportedly mortal-
+                                                                                                                          ity rate 50,000 individuals year annual loss 2.1 million
+    major trypanosomatid pathogens, Trypanosoma                                                                 disability-adjusted life years (DALYs), followed sleeping sick-
+brucei, Trypanosoma cruzi Leishmania major related para-                                                          ness 48,000 deaths year (1.5 million DALYs year)
+sitic protozoa kinetoplastids, cause different diseases,                                                             2002). Chagas disease causes 15,000 deaths loss
+including Human African trypanosomiasis, Chagas disease,                                                              700,000 DALYs annually. available drugs diseases
+                                                                                                                          ideal, toxic, costly, invasive routes
+                                                                                                                          administration (Croft et al., 2005; Delespaux Koning,
+ ⇑ Corresponding author  Institute Parasitology, McGill University, 21111
+Lakeshore Road, Ste. Anne Bellevue, Quebec, Canada H9X3V9. Tel.: +1 514 398
+                                                                                                                          2007; Stuart et al., 2008; Teixeira et al., 2006).  resistance
+7721; fax: +1 514 398 7857.                                                                                               drugs emerged;    E-mail address: reza.salavati@mcgill.ca (R. Salavati).                                                                 urgent need development new drugs (Buckner et al.,
+
+2211-3207/$ - matter Ó 2011 Australian Society Parasitology Published Elsevier  rights reserved.
+doi:10.1016/j.ijpddr.2011.10.003
+                                     R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46                             37
+
+
+1998; den Boer Davidson, 2006; Olliaro et al., 2005; Wilkinson                        stage, procyclic form (PF) T. brucei highly active mitochon-
+et al., 2008).                                                                            drion (Vickerman, 1965) generates ATP oxidative phosphor-
+   Rob Benne discovered RNA editing 1986 (Benne et al.,                          ylation, RNA editing crucial energy metabolism.
+1986), come learn details mechanisms                            oxidative phosphorylation repressed bloodstream major players involved remarkable post-transcriptional                        form (BF), RNA-editing required maintain ac-
+RNA maturation process, including potential effective                           tive mitochondrion, needed essential metabolic
+anti-trypanosomal drug target. mitochondrial mRNAs                                pathways calcium homeostasis fatty acid metabolism,
+kinetoplastids undergo RNA editing produce mature func-                            (Hashimi et al., 2010; Schnaufer et al., 2005). Encouragingly, 
+tional mRNAs translated multiple essential compo-                           eral proteins involved editing process essential
+nents mitochondrial oxidative phosphorylation                               growth survival BF (Baldassarre et al., 2003;
+(Hannaert et al., 2003; Madison-Antenucci et al., 2002). insect                       Carnes et al., 2005; Deng et al., 2005; Drozdz et al., 2002; Guo
+
+
+
+
+Fig. 1. Schematic presentation RNA editing reactions. RNA editing entails maturation mitochondrial mRNAs insertion (left panel) deletion (right panel) uridylates   speci�?ed small guide RNAs (gRNAs). speci�?c proteins involved catalytic reaction highlighted.
+38                                    R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46
+
+
+Table 1
+Biological importance biochemical functions editosome proteins – alternative nomenclatures mentioned (e.g. TbMP63, T. brucei mitochondrial protein 63 kDa).
+
+     Protein              Proposed function          Essentiality   Technique       Effects RNA editing activities editosome       References
+                                                                    used        complex
+                                                                    inhibition
+     KREPA1/TbMP81        RNA/protein                BF PF      RNAi-             - Inhibition vivo RNA editing                     Drozdz et al. (2002)
+                          interaction                               mediated          - Loss endoribonuclease, TUTase RNA              O’Hearn et al. (2003)
+                                                                    repression          ligase activities associated insertion
+                                                                                        editing
+     KREPA2/TbMP63        RNA/protein                PF             RNAi-             - Great reduction endonuclease activity          Huang et al. (2002)
+                          interaction                               mediated            U deletion U insertion
+                                                                    repression        - Loss KREL1
+                                                                                      - Disruption proper editosome assembly
+     KREPA3/TbMP42        RNA/protein                BF PF      Regulatable       - Complete loss editosome BF                      Brecht et al. (2005), Law et al.
+                          interaction                               knockout       - Reduced RNA editing activity PF                    (2008), Guo et al. (2008), Guo
+                                                                    BF                - Inhibition endoribonucleolytic cleavage         et al. (2010)
+                                                                    RNAi-               U deletion U insertion, steps
+                                                                    mediated            affected
+                                                                    repression
+                                                                    PF
+     KREPA4/TbMP24        RNA/protein                PF             RNAi-             - Loss editosome proteins                            Kala Salavati (2010), Salavati
+                          interaction                               mediated          - Reduction U deletion U insertion          et al. (2006)
+                                                                    repression        - Reduction editosome stability inter-
+                                                                                        ruption editosome assembly
+     KREPA5/TbMP19        RNA/protein                N.D.           N.D.                                                                      Carnes et al. (2011), Panigrahi
+                          interaction                                                                                                         et al. (2006)
+     KREPA6/TbMP18        RNA/protein                PF             RNAi-             - Loss U deletion U insertion               Tarun et al. (2008)
+                          interaction                               mediated          - Loss structural integrity editosome
+                                                                    repression
+     KREN1/TbMP90         U deletion-speci�?c         BF PF      RNAi-             - Inhibition vivo editing                         Kang et al. (2006), Trotter et al.
+                          endonuclease                              mediated          - Inhibition vitro endoribonucleolytic cleav-     (2005)
+                                                                    repression          age deletion substrates; cleavage insertion
+                                                                    PF               substrates catalytic activities edit-
+                                                                    Regulatable         ing affected
+                                                                    knockout                                                                     BF
+     KREN3/TbMP67         Endonuclease speci�?c       BF             Regulatable       - Elimination COII RNA editing vivo               Carnes et al. (2008)
+                          Cytochrome                            knockout          - Inhibition endonucleolytic cleavage COII
+                          oxidase II pre-edited                                         RNA substrate vitro
+                          mRNA                                                        - Editosomes vitro catalytic activities
+                                                                                        (based A6 derived RNA substrates) retained
+     KREN2/TbMP61         Insertion-speci�?c          BF PF      RNAi-             - Inhibition vivo editing PF BF            Carnes et al. (2005)
+                          endonuclease activity                     mediated          - Inhibition vitro cleavage insertion edit-
+                                                                    repression          ing substrates; cleavage deletion substrates
+                                                                    PF               catalytic activities editing                                                                     Regulatable         affected
+                                                                    knockout                                                                     BF
+     KREPB4/TbMP46        RNA/protein                PF             RNAi-             - Altered editosome integrity abundance             Babbarwal et al. (2007)
+                          interaction                               mediated          - Reduced vivo RNA editing
+                                                                    repression        - Reduced insertion deletion endonuclease
+                                                                                        activities
+     KREPB5/TbMP44        RNA/protein                BF             Regulatable       - Loss editing vivo                               Baldassarre et al. (2003)
+                          interaction                               knockout          - Loss editing-associated catalytic activities
+                                                                                        vitro
+                                                                                      - Perturbation editosome structure
+     KREPB6/TbMP49        RNA/protein                N.D.           N.D.                                                                      Panigrahi et al. (2006), Carnes
+                          interaction                                                                                                         et al. (2011)
+     KREPB7/TbMP47        RNA/protein                N.D.           N.D.                                                                      Panigrahi et al. (2006), Carnes
+                          interaction                                                                                                         et al. (2011)
+     KREPB8/TbMP41        RNA/protein                N.D.           N.D.                                                                      Panigrahi et al. (2006), Carnes
+                          interaction                                                                                                         et al. (2011)
+     KREL1/TbMP52         Deletion-speci�?c           BF             Regulatable       - Complete inhibition RNA editing                    Schnaufer et al. (2001), Cruz-
+                          Ligase                                    knockout                                                                  Reyes et al. (2002)
+     KREL2/TbMP48         Insertion-speci�?c                     RNAi-             - effect RNA editing                              Drozdz et al. (2002), Gao                           Ligase                     essential   mediated                                                                  Simpson (2003), Cruz-Reyes
+                                                     BF PF      repression                                                                et al. (2002)
+     KREX1/TbMP100        30 –50 exonuclease         PF             RNAi-             - Disruption editosome                               Kang et al. (2005), Rogers et al.
+                          responsible U-                        mediated          - Reduction KREN1 editosomes                      (2007), Ernst et al. (2009)
+                          deletion                                  repression        - Preferential Inhibition                                                                                       - vitro pre-cleaved U-deletion editing
+     KREX2/TbMP99         30 –50 exonuclease         PF (Minor      RNAi-             - Little effect editosome stability                  Rogers et al. (2007), Ernst et al.
+                          activity                   effect      mediated          - Reductions KREPA2 KREL1 editosomes          (2009)
+                                                     cell           repression        - Modest reductions insertion dele-
+                                                     growth)                            tion endonuclease activities
+                                                                                      - Signi� reduction U removal vitro
+                                    R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46                                      39
+
+
+Table 1 (continued)
+
+  Protein               Proposed function          Essentiality   Technique       Effects RNA editing activities editosome       References
+                                                                  used        complex
+                                                                  inhibition
+  KRET1                 Guide RNA-speci�?c          PF             RNAi-             - Reduction RNA editing                              Aphasizhev et al. (2002), Ernst
+                        TUTase                                    mediated          - Accumulation guide RNA shorter U tails        et al. (2003)
+                                                                  repression
+  KRET2/TbMP57          U insertion-speci�?c        PF             RNAi-             - Complete inhibition U-insertion vitro           Aphasizhev et al. (2003c), Ernst
+                        TUTase                                    mediated          - effect length guide RNA oligo(U)         et al. (2003)
+                                                                  repression          tails
+  KREH1/mHel61p         Helicase activity          PF             Knockout          - Reduced amounts edited mRNAs                       Missel et al. (1997), Li et al.
+                                                                                                                                            (2011)
+
+N.D.: determined.
+
+
+
+
+et al., 2008; Law et al., 2008; O’Hearn et al., 2003; Schnaufer et al.,                  expression stability gRNAs edited pre-edi-
+2001; Trotter et al., 2005).  editing essential process                  ted mRNAs (Acestor et al., 2009; Ammerman et al., 2008, 2011, life stages. observation suggests important                             2010; Hashimi et al., 2009, 2008; Hernandez et al., 2010; Panigrahi
+possibility RNA editing process provide similar                         et al., 2008; Weng et al., 2008).
+ef�?cient chemotherapeutic targets medically
+important trypanosomatid parasites. Furthermore, type                            3. editosome composition
+RNA editing unique parasites;  targeting process effects human host.                              functional editosome proteins identi�?ed     review recent advances development new                        methods including mass spectrometric analysis editosomes methods discover potential inhibitors RNA editing T. brucei.                    puri�?ed serial ion exchange gel permeation chroma- highlight recently reported inhibitors RNA                           tography, immunoaf�?nity chromatography speci�?c editosome
+editing contribute functional studies essen-                     proteins, tandem af�?nity puri�?cation (TAP) based tagged
+tial RNA processing mechanism exciting possibility                         RNA editing proteins (Aphasizhev et al., 2003a; Panigrahi et al.,
+future drug development related trypanosomatid                         2006, 2001a,b, 2003; Rusche et al., 1997). nomenclatures
+pathogens.                                                                               proposed literature editosome pro-
+                                                                                         teins (Panigrahi et al., 2001a; Peris et al., 1997; Rusche et al.,
+2. RNA editing process                                                                   1997; Simpson et al., 2010; Stuart et al., 2005). use
+                                                                                         nomenclature proposed Stuart et al., Kinetoplastid
+    vitro studies using mitochondrial extract T. brucei (Seiw-                   RNA editing (KRE) pre�?x followed abbreviation func-
+ert et al., 1996) indicate RNA editing mediated series                   tion experimentally known (Stuart et al., 2005). letter K coordinated catalytic steps multi-protein complexes known                          replaced species’ abbreviation speci�?cally discussed
+editosomes, insert delete uridylates   speci�?ed                          article. Proteins catalyze exoUase (KREX1 guide RNAs (gRNAs) (Aphasizhev Aphasizheva, 2011; Blum                            KREX2) (Ernst et al., 2009; Kang et al., 2005; Rogers et al., 2007),
+et al., 1990; Osato et al., 2009; Simpson et al., 2003, 2000; Sturm                      TUTase (KRET2) (Aphasizhev et al., 2003c; Ernst et al., 2003), ligase Simpson, 1990). initial event editing reaction                         (KREL1 KREL2) (McManus et al., 2001; Rusche et al., 2001;
+hybridization 50 end gRNA precursor mRNA                            Schnaufer et al., 2001), endonuclease (KREN1, KREN2, KREN3)
+(pre-edited mRNA) just downstream �?rst editing site,                           (Carnes et al., 2005, 2008; Trotter et al., 2005), helicase
+form anchor duplex (Blum et al., 1990). catalytic cascade                         (KREH1) (Li et al., 2009; Missel et al., 1997) activities editing RNA editing occurs endonucleolytic cleavage precursor                       identi�?ed functionally characterized (Fig. 1). mRNA editing site, U addition 30 -terminal uridylyl trans-                     number proteins fully functional editosome known;
+ferase (TUTase) activity removal 30 exouridylylase activity                         recent studies identi�?ed 20 pro-
+(exoUase) 30 end 50 cleavage fragment, sub-                       teins (Table 1) highly dynamic components complexes,
+sequent ligation RNA fragments RNA ligase activity,                         common set core proteins, associated viewed (Hajduk Ochsenreiter, 2010; Stuart et al., 1997)                           different endonuclease (KREN1–3) (Carnes et al., 2011, 2008;
+(Fig. 1). addition, editosome contains RNA editing-associated                     Panigrahi et al., 2006; Trotter et al., 2005). complexes sedi-
+RNA helicase activity, affect gRNA/mRNA interactions                           ment  20 Svedberg (20S) glycerol gradients displace gRNA use (Missel et al., 1997).                                known ‘20S editosome’ (Carnes et al., 2008; Panigrahi et al.,
+    RNA editing appears involve dynamic interactions multiple                      2006). editosomes represent ‘‘catalytic core complex’’
+proteins complexes directly core edito-                     additional proteins contribute RNA editing vivo. Mul-  indirectly regulate ef�?ciency editing edito-                        ti-subunit complexes comprised separate insertion deletion stability. example, MRP complex, consists                          activities sedimenting 5–10S proposed
+MRP1 MRP2 proteins, matchmaking type RNA anneal-                            contribute assembly entire ing activity (Muller Goringer, 2002; Schumacher et al., 2006;                        (Schnaufer et al., 2003). editosomes contain catalytic Zikova et al., 2008). RBP16 plays role gRNA/pre-mRNA                           structural RNA unknown.
+interaction shown overlapping function                               editosome proteins related pairs sets sequence MRP1 MRP2 proteins (Ammerman et al., 2008; Fisk                                 motif similarities reﬂect functions predicted
+et al., 2009). mitochondrial RNA binding complex 1 (MRB1)                            catalytic RNA interaction motifs (Worthey et al., 2003). guide RNA binding complex (GRBC), share number                            instance, editosome RNA ligases similar (41  identity) common protein components likely represent par-                          lines evidence suggested KREL1 involved
+ticle, recently described play role diverse aspects                    U-deletion editing KREL2 involved U-insertion editing, mitochondrial RNA metabolism gRNA utilization                             leading proposed structural functional division 40                              R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46
+
+
+editosome model insertion deletion sub-complexes                            date. section, focus recent developments vir-
+(Schnaufer et al., 2003). KREPA1–6 additional editosome                      tual chemical screening libraries identi�?cation proteins share C-terminal motif associated oligo-                    chemical compounds target editosome.
+nucleotide-binding (OB) fold varying degrees relatedness
+(Worthey et al., 2003). largest �?ve proteins                 5.1. Virtual screening methods C2H2 zinc �?nger motifs, suggesting possible RNA/protein-
+binding functions. speci�?c functions proteins                        Virtual screening emerged important tool discov- known;  recent data propose extensive protein–                       ery drug-like compounds speci�?c target (Kuntz,
+protein interactions mediated OB-fold proteins, coordi-                  1992; Maryanoff, 2004; Shoichet, 2004; Shoichet et al., 2002; Var-
+nating editosome function (Schnaufer et al., 2010).                              ney et al., 1992; von Itzstein et al., 1993). Currently, various proto-
+                                                                                     cols available virtual screening chemical compound
+                                                                                     databases. Overall, virtual screening contains following 4. Editosome drug target
+                                                                                     steps:   rapid docking algorithms used order identify
+                                                                                     likely position orientation available candidate
+    Gene inactivation studies RNA editing ligase 1 T. brucei
+                                                                                     compounds active site protein  (ii) (TbREL1) showed �?rst time RNA editing essential
+                                                                                     compound activity ranked analyzing steric electro- BF (Schnaufer et al., 2001). Subsequent RNAi mediated repres-
+                                                                                     static properties predicted protein–ligand complex (Reddy
+sion gene knockout studies functionally character-
+                                                                                     et al., 2007). approach used recently (Amaro et al.,
+ized editosome proteins shown RNA editing essential
+                                                                                     2008; Durrant et al., 2010; Moshiri et al., 2011) order �?nd po- life cycle stages parasite (Table 1). men-
+                                                                                     tential drug-like compounds TbREL1, essential
+tioned ‘‘dyskinetoplastic’’ trypanosomes                                                                                      enzymes editosome N-terminal high-resolution crys-
+partially lost kinetoplast (Brun et al., 1998),                                                                                      tal structure available (Deng et al., 2004).  RNA editing process suggested dispensable.                                                                                      close human homologs;  TbREL1 used ideal che-
+example, shown dyskinetoplastic Trypano-
+                                                                                     motherapeutic target designing selective inhibitors block
+soma evansi, editosome proteins expressed                                                                                      essential RNA ligase function.
+imported mitochondrion, function essential
+                                                                                          ligation mechanism TbREL1 similar DNA li-
+(Paris et al., 2011). loss essentiality hypothesized
+                                                                                     gases, structures different. ligation reaction result compensatory mutation nuclear-encoded
+                                                                                     follows steps (Fig. 2):   adenylylation step, subunit mitochondrial ATP synthase (Lai et al., 2008;
+                                                                                     conserved catalytic lysine attacks phosphate ATP releases
+Schnaufer et al., 2005, 2002).  drugs targeting RNA edit-
+                                                                                     pyrophosphate. step, enzyme-AMP intermediate ing machinery likely work dyskinetoplastic para-
+                                                                                     formed phosphoamide linkage; (ii) deadenylyla-
+sites livestock, T. evansi T. equipedrum. 
+                                                                                     tion step, TbREL1-AMP recognize double-stranded mentioned  RNA editing essential known trypan-
+                                                                                     nicked mRNA/gRNA transfer bound AMP 50 -phos-
+osomatid parasites human, including closely related T. bru-
+                                                                                     phate RNA molecule, forming adenylylated RNA cei, T. cruzi Leishmania spp.  RNA editing viable
+                                                                                     50 ,50 -phosphoanhydride bond; (iii) ligation step, drug target, indicating need development methods                                                                                      free 30 -hydroxyl 50 fragment attacks phosphoanhydride
+discovery new chemical compounds inhibit pro-
+                                                                                     bond adenylylated 30 RNA fragment nick site, leading
+cess. sections, discuss methods                                                                                      formation phosphodiester bond release AMP.
+compounds discovered.
+                                                                                          Recent studies performed virtual screening various
+                                                                                     compounds high-resolution structure TbREL1 order
+5. High-throughput screening (HTS) methods: virtual                              identify compounds inhibit adenylylation step chemical                                                                             competing ATP active site. �?rst study, Amaro
+                                                                                     et al. (2008) initially used structure-based virtual screening li-
+    review, chosen focus attention dis-                brary compounds National Cancer Institute (NCI) iden-
+covery development innovative therapeutic agents tar-                    tify compounds highest binding af�?nity. RNA editing. Target-driven approaches identify chemicals                     resulted set drug-like candidate compounds, named V1 speci�?cally affect certain biological process minimal                    V8. compounds predicted bind ATP- targets effects (Ilag et al., 2002; Westwell Stevens, 2004).                 binding pocket TbREL1, effect TbREL1 adenylylation
+Identi�?cation validated druggable biological targets                     tested experimentally; V1 V4 showed highest inhibi-
+essential roles cell �?rst step target-driven                   tion adenylylation step candidates. Amaro et al.
+drug discovery. target speci�?c protein essen-                   used ligand-based virtual screening, searched
+tial function, TbREL1. Alternatively, essential protein                   compounds highest similarity V1. came complex biological process considered target,                  compounds predicted high editosome. case, drug discovery process                  af�?nity TbREL1 ATP-binding pocket, named S1 S6, unbiased speci�?c protein, chances identifying                   S5 shown experimentally highest inhibitory effective compound higher. second step consists                      effect TbREL1 (Table 2). drugs reported ‘‘molecule hunt’’ involves HTS libraries small-molecule                  vitro effect adenylylation step, did compounds order identify hit. Modern approaches                      phenotypic effect cultured T. brucei cells, combinatorial chemistry, structural biology computational                        probably cells permeable com-
+analysis leveraged increase chances success                 pounds. Furthermore, inhibitory effect TbREL1 clo-
+step minimize required time. step known                       sely related T4 RNA ligase 2 comparison human DNA ligase III
+hit lead development, aim identifying lead com-                     suggests selectivity RNA ligases. Later, study, Dur-
+pound drug-like properties active cellular                   rant et al. performed virtual screening TbREL1 using li-
+text. Lastly, lead development step test optimize                   brary compounds similar core naphthalene
+pharmacokinetic pharmacodynamic properties lead                           scaffold previously TbREL1 inhibitors, resulting 
+compounds vivo, identi�?cation clinical candi-                    vel compounds named V1 V4 (Durrant et al., 2010).                                R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46                   41
+
+
+
+
+                              Fig. 2. schematic presentation step ligation mechanism RNA editing ligase 1.
+
+
+
+compounds, V2 V4 shown inhibit adenylylation                        sensitivity, speci�?city reproducibility assay [collectively
+step ef�?ciently, V4 able kill parasite                  measured important statistical parameter called factor
+Simultaneously, Moshiri et al., performed structure-based virtual                   (Zhang et al., 1999)], manageability compound library, screening TbREL1 (Moshiri et al., 2011), resulting 12 po-                suitability reagents large-scale screening tential inhibitors TbREL1 adenylylation, shown                  important factors order develop successful HTS assay. experimentally inhibit round RNA editing reaction.                     types HTS assays developed; homogeneous assays compound, named C35, turned com-                          heterogeneous assay. Homogeneous assays simpler include
+pound V2 Durrant et al. Moshiri et al. performed                     straightforward steps addition reagents, incubation, docking single protein conformation based avail-                    reading, heterogeneous assays cumbersome able crystal structure TbREL1, Durrant et al. used ‘‘relaxed                 requirement extra steps washing steps,
+complex scheme’’, compounds docked                          �?ltration, centrifugation.  ideal HTS assay ensemble 30 protein conformations obtained molecular                        homogenous, inexpensive, minimal requirement complex
+dynamic simulations.                                                                instrumentation.
+   According studies, predicted binding mode C35                        Recently, HTS assays designed developed (V2) (Durrant et al., 2010; Moshiri et al., 2011) follow: theo-               screening different chemical libraries editosome
+retically, interaction compound TbREL1 mimics                      (Fig. 3) (Liang Connell, 2009; Moshiri Salavati, 2010). Liang
+certain aspects ATP binding. Similar adenine moiety                    et al. developed heterogeneous RNA aptamer-based assay ATP, naphthalene rings C35 forms p–p stacking                       RNA editing reaction monitored using electroche-
+interaction Phe209.  similar triphosphate tail                  miluminescent signal. study, successful U-insertion
+ATP, sulfonate group forms ion pair guanidine group                   RNA editing, RNA aptamer undergoes conformational change Arg111. Aminonaphthyl group forms water-mediated interac-                      activates streptavidin-binding region, resulting mea-
+tion Arg288 similar N1 atom adenine moiety                    surable electrochemiluminescent signal. study ATP. inhibitor predicted bind deep binding                  Moshiri et al., simple ‘mix measure’ homogeneous HTS assay
+pocket active site, study Durrant et al. revealed                based ﬂuorescence resonance energy transfer (FRET) vel predicted drug binding site periphery TbREL1 ac-                  developed. assay uses hammerhead ribozyme RNA edit-
+tive site, potentially harnessed design speci�?c                     ing substrate. successful U-deletion RNA editing, inactive
+inhibitors, given low similarity region counter-               ribozyme active able cleave 16-nucleotide human DNA ligase.                                                           FRET substrate carries ﬂuorescent reporter (FAM) 50
+   Drug discovery relies experimental validation identi�?ca-                  end quencher (TAMRA) 30 end, resulting detect-
+tion compounds real inhibitory effect target.                 able signal. methods monitor activity section, discuss methods validation computa-                    editosome context U-deletion U-insertion
+tionally identi�?ed chemicals, direct discovery                    RNA editing, novel methods developed speci�?-
+inhibitory compounds chemical compound libraries.                              cally monitor ligase activity TbREL1 (Hall Schnaufer,
+                                                                                    Kinetoplastid Molecular Cell Biology meeting, 2011). availabil-
+5.2. Chemical HTS methods                                                           ity different methods provides opportunity �?nd
+                                                                                    inhibitors wide range RNA editing-related activities.
+   order design successful high-throughput screening assay,                 section, recently inhibitors factors taken consideration. example,                    RNA editing based assays virtual screening.
+42                                    R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46
+
+
+Table 2 potent inhibitors RNA editing possible mode action.
+
+     ID/source               Structure                                         IC50 (lM) based   IC50 (lM) based     Potential mode           References
+                                                                               adenylylation        round RNA         inhibition
+                                                                               activity             editing activity
+     V4, Sigma Mordant                                                         1.59 ± 1.10          N.D.                   Adenylylation               Durrant et al. (2010)
+        Black 25
+
+
+
+
+     C35/V2, NSC162535                                                         1.53 ± 1.17          N.D.                   Deadenylylation/            Durrant et al. (2010),
+                                                                                                                           adenylylation/RNA–          Moshiri et al. (2011)
+                                                                                                                           protein interaction
+
+
+
+
+     V1, NSC45609                                                              2.16 ± 1.20          N.D.                   Adenylylation               Durrant et al. (2010)
+
+
+
+
+     V3, NSC1698                                                               8.36 ± 1.71          N.D.                   Adenylylation               Durrant et al. (2010)
+
+
+
+
+     S5, NSC16209                                                              1.01 ± 0.16          2.1 ± 0.4              Deadenylylation/            Amaro et al. (2008),
+                                                                                                                           adenylylation/RNA–          Moshiri et al. (2011),
+                                                                                                                           protein interaction         Moshiri Salavati
+                                                                                                                                                       (2010)
+
+
+
+
+     S1, NSC100234                                                             1.95 ± 0.61          N.D.                   Adenylylation               Amaro et al. (2008)
+
+
+
+
+     NF023                                                                     N.D.                 2.9 ± 0.7              RNA editing    Liang Connell
+                                                                                                                           endonuclease cleavage   (2010)
+                                                                                                                           step/global effect                                                                                                                            editing complex
+
+
+
+
+     Mitoxantrone                                                              N.D.                 2.6 ± 0.5              RNA editing    Liang Connell
+                                                                                                                           endonuclease cleavage   (2010)
+                                                                                                                           step/global effect                                                                                                                            editing complex
+
+
+
+     D-Sphingosine                                                             N.D.                 2.0 ± 0.1              RNA editing       Liang Connell
+                                                                                                                           endonuclease cleavage       (2010)
+                                                                                                                           step/global effect                                                                                                                            editing complex
+                                      R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46                                43
+
+
+Table 2 (continued)
+
+  ID/source                  Structure                                       IC50 (lM) based     IC50 (lM) based     Potential mode           References
+                                                                             adenylylation          round RNA         inhibition
+                                                                             activity               editing activity
+  GW5074                                                                     N.D.                   2.9 ± 0.4              RNA editing    Liang Connell
+                                                                                                                           endonuclease cleavage   (2010)
+                                                                                                                           step
+
+
+
+
+  Protoporphyrin IX                                                          N.D.                   0.9 ± 0.1              RNA editing    Liang Connell
+                                                                                                                           endonuclease cleavage   (2010)
+                                                                                                                           step
+
+
+
+
+N.D.: determined.
+
+
+
+
+Fig. 3. RNA editing assays developed high-throughput screening – Left panel illustrates RNA aptamer-based assay. assay, aptamer labeled ruthenium (red ball) used, successful addition changes conformation  activated, binding streptavidin coats microtiter plate. electrical stimulation, ruthenium complex generates measurable ECL signal. Right panel illustrates FRET-based assay, 16nt-
+long reporter RNA labeled ﬂuorescent reporter (FAM, red ball) ﬂuorescent quencher (TAMRA, blue ball). assay, successful deletion catalytic core HHR, inactive HHR active cleaves reporter RNA generates detectable ﬂuorescent signal.  interpretation reference colors �?gure legend, reader referred web version article.)
+
+
+
+6. Editosome inhibitors                                                                    et al. used editosome initial target drug discov-
+                                                                                           ery, Amaro group Salavati group used essen-
+    Liang et al. used aptamer-based assay screen library                     tial TbREL1 speci�?c target screen chemical
+pharmacologically active compounds (LOPAC) RNA editing                             compounds inhibitors RNA editing. Amaro group identi-
+machinery, 28 hits strong inhibitory effect RNA                          �?ed naphthalene-based compounds virtual screen-
+editing (Liang Connell, 2010). performing secondary assays,                         ing, reported inhibitory effect compounds compounds perturb endonuclease activ-                             adenylylation step ligation vitro using recombinant TbREL1
+ity initial steps RNA editing process (Table 2). Liang                     (Table 2). compounds, S5 C35 (V2), 44                              R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46
+
+
+later tested Salavati group editosome, showed                    compounds identi�?ed spliceosome allowed dee-
+strong inhibition U-deletion RNA editing (Moshiri et al., 2011).                  understanding assembly functional spliceosome
+Secondary assays con�?rmed compound inhibit                       blocking various stages assembly possessing anti-
+adenylylation TbREL1 low editosome concentrations,                        tumor activities (Albert et al., 2007; Kaida et al., 2007; Kotake et al., higher editosome concentration, required                     2007; O’Brien et al., 2008). anticipate chemical com-
+obtaining round RNA editing, deadenylylation TbREL1                      pounds generated high throughput screening inhibited, adenylylation. Moshiri et al. suggested                  editosome block affect steps compounds able inhibit adenylylation                   editing cycle. steps include potentially various stages
+TbREL1, mechanism drug                       editosome assembly, leading initiation catalytic
+exerts effect functional biological context (Moshiri et al.,              steps, editing multiple sites use multiple gRNAs, 2011). Based observation compounds inhibited                       termination step. multi-subunit nature editosome editing steps required RNA–editosome interaction, Moshiri                   involve assembly units, �?nd chem-
+et al. suggested C35 S5 inhibit interaction edi-                 ical genetics approach advantageous compared RNAi tosome substrate RNA, supported claim di-                      gene replacement strategies, interfering editosome func-
+rectly examining effect compounds RNA–                               tion assembly direct editosome binding. characteristics
+editosome interaction. Consistent observations, C35                       alterations indicate likely functions speci�?c compo-
+addition alter sedimentation pro�?le 20S edi-                   nents editosome proteins order assembly. 
+tosomes likely results direct perturbation                        development characterization editosome inhibitors RNA–protein interactions editosome assembly                           provide opportunities possible therapeutics, tools
+integrity. observations highlight potential use                    studying details editosome assembly function.
+compounds importance better understanding TbREL1-inhibitor interaction editosome assembly. Taken 
+gether, naphthalene-based compounds appear �?nd addi-                        References
+tional targets anticipated ATP-binding pocket TbREL1 context partially puri�?ed functional editosomes.                    Acestor, N., Panigrahi, K., Carnes, J., Zikova, , Stuart, K.D., 2009. MRB1 studies raise essential questions respect naph-                      complex functions kinetoplastid RNA processing. RNA 15, 277–286.
+                                                                                     Albert, B.J., Sivaramakrishnan, , Naka, T., Czaicki, N.L., Koide, K., 2007. Total
+thalene-based inhibitors-TbREL1 interaction; inhibitors                           syntheses, fragmentation studies, antitumor/antiproliferative activities bind similar distinct targets? interactions inhibitors af-                  FR901464 low picomolar analogue. J.  Chem. Soc. 129, 2648–2659.
+fect TbREL1 sub-complex assembly stability,                        Amaro, R.E., Schnaufer, , Interthal, H., Hol, W., Stuart, K.D., McCammon, J , 2008.
+                                                                                         Discovery drug-like inhibitors essential RNA-editing ligase block recruitment editing substrates editosome?                            Trypanosoma brucei. Proc. Natl. Acad. Sci. USA 105, 17278–17283.
+Studying mechanistic details inhibition TbREL1 activity                    Ammerman, M.L., Fisk, J.C., Read, L.K., 2008. GRNA/pre-mRNA annealing RNA compounds provide valuable insights                            chaperone activities RBP16. RNA 14, 1069–1080.
+                                                                                     Ammerman, M.L., Hashimi, H., Novotna, L., Cicova, , McEvoy, S.M., Lukes, J., Read, editosome assembly, instrumental determining                          L.K., 2011. MRB3010 core component MRB1 complex facilitates mode action designing effective inhibitors                        early step kinetoplastid RNA editing process. RNA 17, 865–877.
+editosome.                                                                           Ammerman, M.L., Presnyak, V., Fisk, J.C., Foda, B.M., Read, L.K., 2010. TbRGG2
+                                                                                         facilitates kinetoplastid RNA editing initiation progression past intrinsic
+                                                                                         pause sites. RNA 16, 2239–2251.
+7. Conclusion prospects                                                          Aphasizhev, R., Aphasizheva, , 2011. Uridine insertion/deletion editing                                                                                          trypanosomes: playground RNA-guided information transfer. Wiley
+                                                                                         Interdiscip. Rev. RNA 2, 669–685.
+    recent studies provided insight                        Aphasizhev, R., Aphasizheva, , Nelson, R.E., Gao, G., Simpson, M., Kang, X., Falick,
+structure editosome (Golas et al., 2009; Li et al., 2009),                        M., Sbicego, S., Simpson, L., 2003a. Isolation U-insertion/deletion editing
+                                                                                         complex Leishmania tarentolae mitochondria. EMBO J. 22, 913–924.
+mechanism sequence editosome assembly largely                           Aphasizhev, R., Aphasizheva, , Nelson, R.E., Simpson, L., 2003b. 100-kDa complex
+known. Acting editosome subunit, gRNA–protein complex                            RNA-binding proteins mitochondria Leishmania tarentolae bring gRNA editosome;                          catalyzes RNA annealing interacts RNA editing components.
+                                                                                         RNA 9, 62–76.
+�?rmed (McManus et al., 2000). studies,                                                                                      Aphasizhev, R., Aphasizheva, , Simpson, L., 2003c. tale TUTases. Proc. Natl.
+shown treatment editosome complex nucleases results                         Acad. Sci. USA 100, 10617–10622. disassembly complex loss editing activities, suggesting                 Aphasizhev, R., Sbicego, S., Peris, M., Jang, S.H., Aphasizheva, , Simpson, M., Rivlin, role RNA maintain editosome complex integrity (Apha-                        , Simpson, L., 2002. Trypanosome mitochondrial 30 terminal uridylyl
+                                                                                         transferase (TUTase): key enzyme U-insertion/deletion RNA editing.
+sizhev et al., 2003b; Salavati et al., 2002). hand,                  Cell 108, 637–648. reported mutants lack mitochondrial DNA                           Babbarwal, V.K., Fleck, M., Ernst, N.L., Schnaufer, , Stuart, K., 2007. essential  lack mitochondrial mRNA gRNA contain catalytically                            role KREPB4 RNA editing structural integrity editosome                                                                                          Trypanosoma brucei. RNA 13, 737–744.
+active editosomes (Domingo et al., 2003). data suggest mito-                   Baldassarre, H., Keefer, C., Wang, B., Lazaris, , Karatzas, C.N., 2003. Nuclear transfer
+chondrial encoded RNA required assembly func-                          goats using vitro matured oocytes recovered laparoscopic ovum pick-
+tional editosomes.  known RNA editing                         Clon. Stem Cells 5, 279–285.
+                                                                                     Benne, R., Van den Burg, J., Brakenhoff, J.P., Sloof, P., Van Boom, J.H., Tromp, M.C., catalyzed editosome formed association                        1986. Major transcript frameshifted coxII gene trypanosome
+multi-subunit complexes RNA binding, similar ribo-                           mitochondria contains nucleotides encoded DNA. Cell  RNAs stepwise manner                        46, 819–826.
+                                                                                     Blum, B., Bakalara, N., Simpson, L., 1990. model RNA editing kinetoplastid
+discrete intermediates, similar spliceosome (Hoskins et al.,                      mitochondria: ‘‘guide’’ RNA molecules transcribed maxicircle DNA provide
+2011). Asides use chemotherapeutic agents, small                           edited information. Cell 60, 189–198.
+compounds provided wealth information regarding                        Brecht, M., Niemann, M., Schluter, E., Muller, U.F., Stuart, K., Goringer, H.U., 2005.
+                                                                                         TbMP42, protein component RNA editing complex African
+conformational dynamics ribosome. instance, paromomycin,
+                                                                                         trypanosomes, endo-exoribonuclease activity. Mol. Cell 17, 621–630.
+puromycin, erythromycin, viomycin, quite useful                     Brun, R., Hecker, H., Lun, R., 1998. Trypanosoma evansi T. equiperdum:
+helping understand ribosomal function assembly, recog-                        distribution, biology, treatment phylogenetic relationship  review). Vet.
+nition tRNAs, translation trapping ribosome                          Parasitol. 79, 95–107.
+                                                                                     Buckner, F.S., Wilson, J., White, T.C., Van Voorhis, W.C., 1998. Induction intermediate state (Douthwaite et al., 1985; Ermolenko et al.,                           resistance azole drugs Trypanosoma cruzi. Antimicrob. Agents Chemother.
+2007; Moazed Noller, 1989; Yoshizawa et al., 1999). Similarly,                       42, 3245–3250.
+                                         R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46                                           45
+
+
+Carnes, J., Soares, C , Wickham, C., Stuart, K., 2011. Endonuclease associations       Kaida, D., Motoyoshi, H., Tashiro, E., Nojima, T., Hagiwara, M., Ishigami, K.,
+     distinct editosomes Trypanosoma brucei. J. Biol. Chem. 286, 19320–                   Watanabe, H., Kitahara, T., Yoshida, T., Nakajima, H., Tani, T., Horinouchi, S.,
+     19330.                                                                                        Yoshida, M., 2007. Spliceostatin targets SF3b inhibits splicing Carnes, J., Trotter, J.R., Ernst, N.L., Steinberg, , Stuart, K., 2005. essential RNase        nuclear retention pre-mRNA. Nat. Chem. Biol. 3, 576–583.
+     III insertion editing endonuclease Trypanosoma brucei. Proc. Natl. Acad. Sci.         Kala, S., Salavati, R., 2010. OB-fold domain KREPA4 mediates high-af�?nity
+     USA 102, 16614–16619.                                                                         interaction guide RNA possesses annealing activity. RNA 16, 1951–
+Carnes, J., Trotter, J.R., Peltan, , Fleck, M., Stuart, K., 2008. RNA editing                 1967.
+     Trypanosoma brucei requires different editosomes. Mol. Cell. Biol. 28,             Kang, X., Gao, G., Rogers, K., Falick, M., Zhou, S., Simpson, L., 2006. Reconstitution
+     122–130.                                                                                      round uridine-deletion RNA editing recombinant proteins.
+Croft, S.L., Barrett, M.P., Urbina, J , 2005. Chemotherapy trypanosomiases                Proc. Natl. Acad. Sci. USA 103, 13944–13949.
+     leishmaniasis. Trends Parasitol. 21, 508–512.                                            Kang, X., Rogers, K., Gao, G., Falick, M., Zhou, S., Simpson, L., 2005. Reconstitution
+Cruz-Reyes, J., Zhelonkina, G., Huang, C.E., Sollner-Webb, B., 2002. Distinct                    uridine-deletion precleaved RNA editing recombinant enzymes.
+     functions RNA ligases active Trypanosoma brucei RNA editing                         Proc. Natl. Acad. Sci. USA 102, 1017–1022.
+     complexes. Mol. Cell. Biol. 22, 4652–4660.                                               Kotake, Y., Sagane, K., Owa, T., Mimori-Kiyosue, Y., Shimizu, H., Uesugi, M.,
+Delespaux, V., Koning, H.P., 2007. Drugs drug resistance African                         Ishihama, Y., Iwata, M., Mizui, Y., 2007. Splicing factor SF3b target      trypanosomiasis. Drug Resist. Updat. 10, 30–50.                                               antitumor natural product pladienolide. Nat. Chem. Biol. 3, 570–575.
+den Boer, M., Davidson, R.N., 2006. Treatment options visceral leishmaniasis.             Kuntz, D., 1992. Structure-based strategies drug design discovery. Science
+     Expert Rev. Anti. Infect. Ther. 4, 187–197.                                                   257, 1078–1082.
+Deng, J., Ernst, N.L., Turley, S., Stuart, K.D., Hol, W.G., 2005. Structural basis UTP    Lai, D.H., Hashimi, H., Lun, R., Ayala, F.J., Lukes, J., 2008. Adaptations      speci�?city RNA editing TUTases Trypanosoma brucei. EMBO J. 24, 4007–                  Trypanosoma brucei gradual loss kinetoplast DNA: Trypanosoma
+     4017.                                                                                         equiperdum Trypanosoma evansi petite mutants T. brucei. Proc. Natl.
+Deng, J., Schnaufer, , Salavati, R., Stuart, K.D., Hol, W.G., 2004. High resolution              Acad. Sci. USA 105, 1999–2004.
+     crystal structure key editosome enzyme Trypanosoma brucei: RNA                 Law, J , O’Hearn, S.F., Sollner-Webb, B., 2008. Trypanosoma brucei RNA editing
+     editing ligase 1. J. Mol. Biol. 343, 601–613.                                                 protein TbMP42 (band VI) crucial endonucleolytic cleavages Domingo, G.J., Palazzo, S.S., Wang, B., Pannicucci, B., Salavati, R., Stuart, K.D., 2003.          subsequent steps U-deletion U-insertion. RNA 14, 1187–1200.
+     Dyskinetoplastic Trypanosoma brucei contains functional editing complexes.               Li, F., Ge, P., Hui, W.H., Atanasov, , Rogers, K., Guo, Q., Osato, D., Falick, M., Zhou,
+     Eukaryot. Cell 2, 569–577.                                                                    H., Simpson, L., 2009. Structure core editing complex (L-complex)
+Douthwaite, S., Prince, J.B., Noller, H.F., 1985. Evidence functional interaction              involved uridine insertion/deletion RNA editing trypanosomatid
+     domains II V 23S ribosomal RNA erythromycin-                           mitochondria. Proc. Natl. Acad. Sci. USA 106, 12306–12310.
+     resistant mutant. Proc. Natl. Acad. Sci. USA 82, 8330–8334.                              Li, F., Herrera, J., Zhou, S., Maslov, D , Simpson, L., 2011. Trypanosome REH1 Drozdz, M., Palazzo, S.S., Salavati, R., O’Rear, J., Clayton, C., Stuart, K., 2002. TbMP81         RNA helicase involved 30 –50 polarity multiple gRNA-guided uridine
+     required RNA editing Trypanosoma brucei. EMBO J. 21, 1791–1799.                     insertion/deletion RNA editing. Proc. Natl. Acad. Sci. USA 108, 3542–3547.
+Durrant, J.D., Hall, L., Swift, R.V., Landon, M., Schnaufer, , Amaro, R.E., 2010. Novel     Liang, S., Connell, G.J., 2009. electrochemiluminescent aptamer switch high-
+     naphthalene-based inhibitors Trypanosoma brucei RNA editing ligase 1. PLoS                 throughput assay RNA editing reaction. RNA 15, 1929–1938.
+     Negl. Trop. Dis. 4, e803.                                                                Liang, S., Connell, G.J., 2010. Identi�?cation speci�?c inhibitors Ermolenko, D.N., Spiegel, P.C., Majumdar, K., Hickerson, R.P., Clegg, R.M., Noller,              trypanosomatid RNA editing reaction. RNA 16, 2435–2441.
+     H.F., 2007. antibiotic viomycin traps ribosome intermediate state          Madison-Antenucci, S., Grams, J., Hajduk, S.L., 2002. Editing machines:      translocation. Nat. Struct. Mol. Biol. 14, 493–497.                                        complexities trypanosome RNA editing. Cell 108, 435–438.
+Ernst, N.L., Panicucci, B., Carnes, J., Stuart, K., 2009. Differential functions       Maryanoff, B.E., 2004. Inhibitors serine proteases potential therapeutic agents:
+     editosome exoUases Trypanosoma brucei. RNA 15, 947–957.                                    road thrombin tryptase cathepsin G. J. Med. Chem. 47, 769–787.
+Ernst, N.L., Panicucci, B., Igo Jr., R.P., Panigrahi, K., Salavati, R., Stuart, K., 2003.   McManus, M.T., Adler, B.K., Pollard, V.W., Hajduk, S.L., 2000. Trypanosoma brucei
+     TbMP57 30 terminal uridylyl transferase (TUTase) Trypanosoma brucei               guide RNA poly(U) tail formation stabilized cognate mRNA. Mol. Cell. Biol.
+     editosome. Mol. Cell 11, 1525–1536.                                                           20, 883–891.
+Fisk, J.C., Presnyak, V., Ammerman, M.L., Read, L.K., 2009. Distinct overlapping          McManus, M.T., Shimamura, M., Grams, J., Hajduk, S.L., 2001. Identi�?cation      functions MRP1/2 RBP16 mitochondrial RNA metabolism. Mol. Cell.                     candidate mitochondrial RNA editing ligases Trypanosoma brucei. RNA 7,
+     Biol. 29, 5214–5225.                                                                          167–175.
+Gao, G., Simpson, L., 2003. Trypanosoma brucei REL1 RNA ligase speci�?c U-          Missel, , Souza, E., Norskau, G., Goringer, H.U., 1997. Disruption gene
+     deletion RNA editing, REL2 RNA ligase speci�?c U-insertion                      encoding novel mitochondrial DEAD-box protein Trypanosoma brucei
+     editing? J. Biol. Chem. 278, 27570–27574.                                                     affects edited mRNAs. Mol. Cell. Biol. 17, 4895–4903.
+Golas, M.M., Bohm, C., Sander, B., Effenberger, K., Brecht, M., Stark, H., Goringer,          Moazed, D., Noller, H.F., 1989. Intermediate states movement transfer RNA
+     H.U., 2009. Snapshots RNA editing machine trypanosomes captured                  ribosome. Nature 342, 142–148.
+     different assembly stages vivo. EMBO J. 28, 766–778.                                  Moshiri, H., Acoca, S., Kala, S., Najafabadi, H.S., Hogues, H., Purisima, E., Salavati, R.,
+Guo, X., Ernst, N.L., Carnes, J., Stuart, K.D., 2010. zinc-�?ngers KREPA3                2011. Naphthalene-based RNA editing inhibitor blocks RNA editing activities      essential complete editing mitochondrial mRNAs Trypanosoma                      editosome assembly Trypanosoma brucei. J. Biol. Chem. 286, 14178–14189.
+     brucei. PLoS 5, e8913.                                                               Moshiri, H., Salavati, R., 2010. ﬂuorescence-based reporter substrate Guo, X., Ernst, N.L., Stuart, K.D., 2008. KREPA3 zinc �?nger motifs OB-fold                 monitoring RNA editing trypanosomatid pathogens. Nucleic Acids Res. 38,
+     domain essential RNA editing survival Trypanosoma brucei. Mol.                 e138.
+     Cell. Biol. 28, 6939–6953.                                                               Muller, U.F., Goringer, H.U., 2002. Mechanism gBP21-mediated RNA/RNA
+Hajduk, S., Ochsenreiter, T., 2010. RNA editing kinetoplastids. RNA Biol. 7, 229–               annealing reaction: matchmaking charge reduction. Nucleic Acids Res. 30,
+     236.                                                                                          447–455.
+Hannaert, V., Bringaud, F., Opperdoes, F.R., Michels, P , 2003. Evolution energy         O’Brien, K., Matlin, J., Lowell, M., Moore, M.J., 2008. biﬂavonoid isoginkgetin
+     metabolism compartmentation Kinetoplastida. Kinetoplastid biology                  general inhibitor Pre-mRNA splicing. J. Biol. Chem. 283, 33147–33154.
+     disease 2, 11.                                                                       O’Hearn, S.F., Huang, C.E., Hemann, M., Zhelonkina, , Sollner-Webb, B., 2003.
+Hashimi, H., Benkovicova, V., Cermakova, P., Lai, D.H., Horvath, , Lukes, J., 2010.              Trypanosoma brucei RNA editing complex: band II structurally critical      assembly F(1)F(O)-ATP synthase disrupted interference RNA                   maintains band V ligase, nonessential. Mol. Cell. Biol. 23, 7909–7919.
+     editing Trypanosoma brucei. Int. J. Parasitol. 40, 45–54.                             Olliaro, P.L., Guerin, P.J., Gerstl, S., Haaskjold, , Rottingen, J , Sundar, S., 2005.
+Hashimi, H., Cicova, , Novotna, L., Wen, Y , Lukes, J., 2009. Kinetoplastid guide              Treatment options visceral leishmaniasis: systematic review clinical
+     RNA biogenesis dependent subunits mitochondrial RNA binding                      studies India, 1980–2004. Lancet Infect. Dis. 5, 763–774.
+     complex 1 mitochondrial RNA polymerase. RNA 15, 588–599.                             Osato, D., Rogers, K., Guo, Q., Li, F., Richmond, G., Klug, F., Simpson, L., 2009. Uridine
+Hashimi, H., Zikova, , Panigrahi, K., Stuart, K.D., Lukes, J., 2008. TbRGG1,                insertion/deletion RNA editing trypanosomatid mitochondria: search      essential protein involved kinetoplastid RNA metabolism associated                 editosome. RNA 15, 1338–1344.
+     novel multiprotein complex. RNA 14, 970–980.                                      Panigrahi, K., Ernst, N.L., Domingo, G.J., Fleck, M., Salavati, R., Stuart, K.D., 2006.
+Hernandez, , Madina, B.R., Ro, K., Wohlschlegel, J , Willard, B., Kinter, M.T., Cruz-          Compositionally functionally distinct editosomes Trypanosoma brucei.
+     Reyes, J., 2010. REH2 RNA helicase kinetoplastid mitochondria:                             RNA 12, 1038–1049.
+     ribonucleoprotein complexes essential motifs unwinding guide                 Panigrahi, K., Gygi, S.P., Ernst, N.L., Igo Jr., R.P., Palazzo, S.S., Schnaufer, , Weston,
+     RNA (gRNA) binding. J. Biol. Chem. 285, 1220–1228.                                            D.S., Carmean, N., Salavati, R., Aebersold, R., Stuart, K.D., 2001a. Association Hoskins, , Friedman, L.J., Gallagher, S.S., Crawford, D.J., Anderson, E.G.,                    novel proteins, TbMP52 TbMP48, Trypanosoma brucei RNA
+     Wombacher, R., Ramirez, N., Cornish, V.W., Gelles, J., Moore, M.J., 2011.                     editing complex. Mol. Cell. Biol. 21, 380–389.
+     Ordered dynamic assembly single spliceosomes. Science 331, 1289–                  Panigrahi, K., Schnaufer, , Carmean, N., Igo Jr., R.P., Gygi, S.P., Ernst, N.L., Palazzo,
+     1295.                                                                                         S.S., Weston, D.S., Aebersold, R., Salavati, R., Stuart, K.D., 2001b. related
+Huang, C.E., O’Hearn, S.F., Sollner-Webb, B., 2002. Assembly function RNA               proteins Trypanosoma brucei RNA editing complex. Mol. Cell. Biol. 21,
+     editing complex Trypanosoma brucei requires band III protein. Mol. Cell. Biol.             6833–6840.
+     22, 3194–3203.                                                                           Panigrahi, K., Schnaufer, , Ernst, N.L., Wang, B., Carmean, N., Salavati, R., Stuart,
+Ilag, L.L., Ng, J.H., Beste, G., Henning, S.W., 2002. Emerging high-throughput drug                K., 2003. Identi�?cation novel components Trypanosoma brucei editosomes.
+     target validation technologies. Drug Discov. Today 7, S136–142.                               RNA 9, 484–492.
+46                                         R. Salavati et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 36–46
+
+
+Panigrahi, K., Zikova, , Dalley, R , Acestor, N., Ogata, Y., Anupama, , Myler, P.J.,      Simpson, L., Aphasizhev, R., Lukes, J., Cruz-Reyes, J., 2010. Guide     Stuart, K.D., 2008. Mitochondrial complexes Trypanosoma brucei: novel                        nomenclature kinetoplastid RNA editing: proposal. Protist 161, 2–6.
+    complex unique oxidoreductase complex. Mol. Cell. Proteomics 7, 534–                    Simpson, L., Sbicego, S., Aphasizhev, R., 2003. Uridine insertion/deletion RNA editing
+    545.                                                                                              trypanosome mitochondria: complex business. RNA 9, 265–276.
+Paris, , Hashimi, H., Lun, S., Alfonzo, J.D., Lukes, J., 2011. Futile import tRNAs       Simpson, L., Thiemann, O.H., Savill, N.J., Alfonzo, J.D., Maslov, D , 2000. Evolution
+    proteins mitochondrion Trypanosoma brucei evansi. Mol. Biochem.                       RNA editing trypanosome mitochondria. Proc. Natl. Acad. Sci. USA 97,
+    Parasitol. 176, 116–120.                                                                          6986–6993.
+Peris, M., Simpson, M., Grunstein, J., Liliental, J.E., Frech, G.C., Simpson, L., 1997.         Stuart, K., Allen, T.E., Heidmann, S., Seiwert, S.D., 1997. RNA editing kinetoplastid
+    Native gel analysis ribonucleoprotein complexes Leishmania tarentolae                   protozoa. Microbiol. Mol. Biol. Rev. 61, 105–120.
+    mitochondrial extract. Mol. Biochem. Parasitol. 85, 9–24.                                     Stuart, K., Brun, R., Croft, S., Fairlamb, , Gurtler, R.E., McKerrow, J., Reed, S.,
+Reddy, S., Pati, S.P., Kumar, P.P., Pradeep, H.N., Sastry, G.N., 2007. Virtual screening            Tarleton, R., 2008. Kinetoplastids: related protozoan pathogens, different
+    drug discovery – computational perspective. Curr. Protein Pept. Sci. 8, 329–                 diseases. J. Clin. Invest. 118, 1301–1310.
+    351.                                                                                          Stuart, K.D., Schnaufer, , Ernst, N.L., Panigrahi, K., 2005. Complex management:
+Rogers, K., Gao, G., Simpson, L., 2007. Uridylate-speci�?c 30 –50 -exoribonucleases                    RNA editing trypanosomes. Trends Biochem. Sci. 30, 97–105.
+    involved uridylate-deletion RNA editing trypanosomatid mitochondria. J.                 Sturm, N.R., Simpson, L., 1990. Kinetoplast DNA minicircles encode guide RNAs     Biol. Chem. 282, 29073–29080.                                                                     editing cytochrome oxidase subunit III mRNA. Cell 61, 879–884.
+Rusche, L.N., Cruz-Reyes, J., Piller, K.J., Sollner-Webb, B., 1997. Puri�?cation              Tarun Jr., S , Schnaufer, , Ernst, N.L., Proff, R., Deng, J., Hol, W., Stuart, K., 2008.
+    functional enzymatic editing complex Trypanosoma brucei mitochondria.                        KREPA6 RNA-binding protein essential editosome integrity     EMBO J. 16, 4069–4081.                                                                            survival Trypanosoma brucei. RNA 14, 347–358.
+Rusche, L.N., Huang, C.E., Piller, K.J., Hemann, M., Wirtz, E., Sollner-Webb, B., 2001.           Teixeira, R., Nitz, N., Guimaro, M.C., Gomes, C., Santos-Buch, C , 2006. Chagas
+    RNA ligases Trypanosoma brucei RNA editing complex: cloning                        disease. Postgrad. Med. J. 82, 788–798.
+    essential band IV gene identifying band V gene. Mol. Cell. Biol. 21,              Trotter, J.R., Ernst, N.L., Carnes, J., Panicucci, B., Stuart, K., 2005. deletion site
+    979–989.                                                                                          editing endonuclease Trypanosoma brucei. Mol. Cell 20, 403–412.
+Salavati, R., Ernst, N.L., O’Rear, J., Gilliam, T., Tarun Jr., S., Stuart, K., 2006. KREPA4,   Varney, M.D., Marzoni, G.P., Palmer, C.L., Deal, J.G., Webber, S., Welsh, K.M., Bacquet,
+    RNA binding protein essential editosome integrity survival                             R.J., Bartlett, C , Morse, C , Booth, C.L., et al., 1992. Crystal-structure-based
+    Trypanosoma brucei. RNA 12, 819–831.                                                              design synthesis benz[cd]indole-containing inhibitors thymidylate
+Salavati, R., Panigrahi, K., Morach, B , Palazzo, S.S., Igo, R.P., Stuart, K., 2002.              synthase. J. Med. Chem. 35, 663–676.
+    Endoribonuclease activities Trypanosoma brucei mitochondria. Mol. Biochem.                 Vickerman, K., 1965. Polymorphism mitochondrial activity sleeping sickness
+    Parasitol. 120, 23–31.                                                                            trypanosomes. Nature 208, 762–766.
+Schnaufer, , Clark-Walker, G.D., Steinberg, G., Stuart, K., 2005. F1-ATP                  von Itzstein, M., Wu, W.Y., Kok, G.B., Pegg, M.S., Dyason, J.C., Jin, B., Van Phan, T.,
+    synthase complex bloodstream stage trypanosomes unusual                             Smythe, M.L., White, H.F., Oliver, S.W., et al., 1993. Rational design potent
+    essential function. EMBO J. 24, 4029–4040.                                                        sialidase-based inhibitors inﬂuenza virus replication. Nature 363, 418–423.
+Schnaufer, , Domingo, G.J., Stuart, K., 2002. Natural induced dyskinetoplastic              Weng, J., Aphasizheva, , Etheridge, R.D., Huang, L., Wang, X., Falick, M.,
+    trypanosomatids: live mitochondrial DNA. Int. J. Parasitol. 32,                    Aphasizhev, R., 2008. Guide RNA-binding complex mitochondria     1071–1084.                                                                                        trypanosomatids. Mol. Cell 32, 198–209.
+Schnaufer, , Ernst, N.L., Palazzo, S.S., O’Rear, J., Salavati, R., Stuart, K., 2003.            Westwell, D., Stevens, M.F., 2004. Hitting chemotherapy jackpot: strategy,
+    Separate insertion deletion subcomplexes Trypanosoma brucei RNA                        productivity chemistry. Drug. Discov. Today 9, 625–627.
+    editing complex. Mol. Cell 12, 307–319.                                                        2002. – Global Burden Disease Estimates.
+Schnaufer, , Panigrahi, K., Panicucci, B., Igo Jr., R.P., Wirtz, E., Salavati, R., Stuart,    Wilkinson, S.R., Taylor, M.C., Horn, D., Kelly, J.M., Cheeseman, , 2008. mechanism
+    K., 2001. RNA ligase essential RNA editing survival                             cross-resistance nifurtimox benznidazole trypanosomes. Proc.
+    bloodstream form Trypanosoma brucei. Science 291, 2159–2162.                                   Natl. Acad. Sci. USA 105, 5022–5027.
+Schnaufer, , Wu, M., Park, Y.J., Nakai, T., D

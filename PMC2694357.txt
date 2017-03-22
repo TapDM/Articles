@@ -1,0 +1,666 @@
+Evolution Mutational Robustness Yeast
+Genome: Link Essential Genes Meiotic
+Recombination Hotspots
+Philipp J. Keller, Michael Knop*
+European Molecular Biology Laboratory (EMBL), Cell Biology Biophysics Unit, Heidelberg, Germany
+
+
+
+     Abstract
+     Deleterious mutations inevitably emerge evolutionary process speculated decisively influence      structure genome. Meiosis, thought play major role handling mutations population level,
+     recombines chromosomes non-randomly distributed hot spots meiotic recombination. genomes, various
+     types genetic elements distributed patterns currently understood. particular, important
+     (essential) genes arranged clusters, explained functional relationship involved
+     genes. simulation essential gene   clustering provides fitness benefit handling
+     deleterious mutations sexual populations variable levels inbreeding outbreeding. recessive lethal
+     mutations enforce selective pressure clustered genome architectures. simulations correctly predict        evolution non-random distributions meiotic crossovers, (ii) genome-wide anti-correlation meiotic crossovers      clustering, (iii) evolution enrichment pericentromeric regions (iv) associated absence meiotic
+     crossovers (cold centromeres). results furthermore predict optimal crossover rates yeast chromosomes, match
+     experimentally determined rates. Using Saccharomyces cerevisiae conditional mutator strain, haploid
+     lethal phenotypes result predominantly mutation single loci generally impair mating, leads      accumulation mutational load following meiosis mating. hypothesize purging deleterious mutations      essential genes constitutes important factor driving meiotic crossover.  increased robustness      populations deleterious mutations, arises clustered genome architectures, provide significant selective
+     force shaping crossover distribution. analysis reveals new aspect evolution genome architectures      complements insights molecular constraints, interference pericentromeric crossovers      chromosome segregation.
+
+  Citation: Keller PJ, Knop M (2009) Evolution Mutational Robustness Yeast Genome: Link Essential Genes Meiotic Recombination Hotspots. PLoS
+  Genet 5(6): e1000533. doi:10.1371/journal.pgen.1000533
+  Editor: Harmit S. Malik, Fred Hutchinson Cancer Research Center, United States America
+  Received December 11, 2008; Accepted 22, 2009; Published June 26, 2009
+  Copyright: ß 2009 Keller, Knop. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: Funding project occurred entirely internal resources EMBL. PJK supported predoctoral fellowship EMBL International
+  PhD Programme German National Academic Foundation. funders role study design, data collection analysis, decision publish,   preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: knop@embl 
+
+
+
+Introduction                                                                        cause higher mutation rates) studied experimental
+                                                                                    theoretical work unicellular organisms [6–8]    Mating meiosis masterpieces evolutionary                       cancer progression [9,10]. asexual yeast populations, selective
+invention thought meet challenges changing environ-                       advantage mutator alleles demonstrated, serving mental conditions need solved mutational inventions.                  prerequisite expanding spectrum mutations typically hypotheses govern various benefits                       accessible non-mutator genotypes [11]. study yeast,
+mating meiosis [1], main hypotheses stand  enhanced                     mutator advantage prominent diploid
+purging deleterious mutations [2] combination                         haploid cells, explained presumed
+beneficial alleles genome [3]. remains matter                      dominance beneficial mutations [11,12] recessive
+discussion,  advantages constitutes                      nature deleterious mutations yeast [13]. Furthermore,
+main reason evolution sexual recombination                           accumulation recessive deleterious mutations yeast furthermore, continuing prevalence eukaryotic life                      significantly decrease fitness genotype population
+forms [4,5].                                                                        growth rates, long diploid nuclear condition maintained
+   Mutations form DNA lesions caused                        [14].
+environmental factors, e.g. radiation, natural                     S. cerevisiae yeast fungal species seek byproduct DNA replication. Genotypes exhibit elevated                    maintain diploid state genome, possible; meiosis
+mutation rate frequent nature induced studies                  usually happens immediate mating gametes following experimental evolution. complex interplay factors                    germination. Mating occurs closely related spores,
+govern adaptive significance ‘‘mutator alleles’’  e. alleles               products meiosis, spores
+
+
+       PLoS Genetics | www.plosgenetics.org                                     1                               June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                    Gene Order Evolution Yeast
+
+
+
+  Author Summary                                                            essential genes (‘‘housekeeping genes’’) reported [28,29].
+                                                                            budding yeast, prominent genome-wide enrichment   Sexual life cycles constitute costly alternative                     essential genes observed regions cold   vegetative modes reproduction. categories                       meiotic recombination [30]. finding consistent   hypotheses seek explain sexual life cycles exist:                  observation slight enrichement essential genes near   investigating selective advantages                    centromeres [31], known cold meiotic
+  driven evolution individual parts life cycle               recombination [32,33]. Current models speculate mecha-
+  rationalizing advantages sexual life cycles                 nisms expression reduction gene expression noise   offer  e.g., extant species. Sex                    driving force shaped patterns [29,30,34–36].
+  recombination understood efficient ways                       selective advantage scenario   interact mutations consequences. Mutations                 demonstrated, proof single rearrangements associate   occur random deleterious                                                                             advantage sufficient selection provided.
+  neutral. prominent hypothesis suggests sex   recombination advantageous enhance                        alternative mechanism pool essential genes   purging deleterious mutations create individ-                 clusters reduced probability disruption frequent
+  uals lower average deleterious load. Delete-                  crossovers selection based common
+  rious mutations determine parameters                   denominator. appears essential nature    govern recombination genomes meiosis. Using                      functional correlation essential genes cluster
+  evolutionary simulation diploid, unicellular                  observed [30].
+  sexual populations, recessive lethal muta-                      Meiotic recombination favorable purging deleterious load
+  tions drive evolution chromosome architectures,                populations. hypothesize clustering essential genes
+  essential genes genetically linked                   enhance purging efficiency lethal load sexual
+  clusters. Evolved architectures exhibit structural properties             populations, non-uniform distributions essential genes   fitness similar digitized yeast chromosomes                    crossover sites change global genetic linkage relationship   provide mutational purging capabilities superior                 essential genes  compared situations uniform random
+  randomly generated unclustered architectures.                   distributions). context scenario   study demonstrates importance sexual cycles                 lethal mutation genome, influence segregation
+  context lethal mutations.                                              mutations meiosis subsequent mating.
+                                                                               order address question, computationally studied related cells according population structure [15].                  correlation non-random distributions essential
+Outcrossing unrelated strains [16]                 genes meiotic recombination lethal load affecting
+closely related species sensu stricto yeast group does occur         essential genes. Monte-Carlo-simulation breeding diploid
+[17]; events appear extremely rare,           yeast populations chromosome architectures, termed S.
+important generating new persisting lineages.                   digitalis, allowed investigate fitness genome rare events suffice create selective pressure            architecture exposure lethal mutations. maintaining sexual cycle doubtable.                            hallmarks yeast chromosome crossing    inbreeding, high rates homozygotisation occur                 meiosis consistent natural selection imposed recessive
+various loci. reduced loci linked MAT locus,       lethal mutations affecting essential genes  Figure 1 mating type heterozygosity prerequisite mating event.          overview approach results). MAT-linkage centromeres frequently observed yeast               simulations imply lethal phenotypes frequently fungi [18]. S. cerevisiae, genetic distance        caused single essential gene inactivation. Alternatively, lethal loci range 18–30 cM [19], smaller            phenotypes arise genetic interactions expected physical length caused region               weakly deleterious mutations. explored possibilities using
+intervening loci cold meiotic recombination           conditional yeast mutator strain analyzed causes [20]. Neurospora tetrasperma MAT linkage centromere            accumulation haploid lethal phenotypes. determining enforced crossover suppression long region                   global effect germination mating, tested chromosome, correlates extensive unpaired region              associated load transmitted round diploid pachytene [21]. Reasoning arrangements provided              growth. population genetic models suggest selective advantage                combined results suggest evolutionary history yeast
+arising shielding recurrent deleterious load linkage         sex meiosis fulfilled need efficient purging MAT locus [22]. Population genetic modifier models                 mutational load important/essential genes.
+investigate alteration inbreeding frequency predict evolution high inbreeding rates, particular spores       Results tetrad  e. automixis), linkage load loci MAT locus [23,24]. MAT linked chromosomal recombina-                  Simulation digital yeast genomes S. digitalis
+tion abnormalities believed initiated evolution             sought assay consequences non-random distribu-
+sex chromosomes, continued expansion               tions essential genes meiotic recombination hotspots recombination suppressed region recruitment            fitness populations frequent inactivation essential genes
+sex-related factors [25,26].                                                lethal mutations. analysis requires direct comparison    Non-random distribution meiotic recombination              fitness yeast strains genomic content genomes cold hot regions reported            different arrangements genetic elements. Conducting species [27], molecular mechanisms selective         experiment question addressed isolation
+forces generate patterns fully understood.         possible consequences human-designed
+   Similarly, distribution genes chromosomes appears           genomic architectures far trivial.  developed non-random, species significant clustering           simulation populations digital genomes subjected
+
+
+      PLoS Genetics | www.plosgenetics.org                              2                           June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                       Gene Order Evolution Yeast
+
+
+
+
+Figure 1. Conceptual overview methods main results study. developed simulation (S. digitalis) test hypothesis feedback sexual processes (meiosis mating) genome architecture facilitate purging lethal mutations populations unicellular organisms  baker’s yeast, S. cerevisiae). implementation simulation based population genetic
+concepts results mutation-accumulation experiments Msh2 mutator strain  main text). Experiments performed digitally implemented populations yeast genomes revealed competitive advantage yeast-alike chromosome architectures enabled evolution genomes yeast-alike fitness. investigations provide reasoning hallmarks yeast genome evolution various
+parameters population genetics yeasts.
+doi:10.1371/journal.pgen.1000533.g001
+
+ digital life cycles mitosis, meiosis mating, modeled               reported exhibit weak impact fitness [37] according simple yeast life cycle (Figure 2A). used             types mutations shielded heterozygous diploids
+simulation study relationship genome architecture             [39].  decided focus heterozygous lethal fitness populations evolution genome            mutations, confer lethal phenotype level architectures exposure populations essential gene                 haploids homozygotisation mutations diploids
+inactivating mutations (Figure 2B).                                          (Supplementary Figure 1A Text S1).
+   Haploid lethal mutations frequently observed yeast               S. digitalis simulates populations diploid digital organisms constitute approximately 40  deleterious mutations [37,38]            chromosome, consists different building blocks:
+ . remaining fraction deleterious mutations            genes, intergenic elements, centromeres mating type loci
+
+
+       PLoS Genetics | www.plosgenetics.org                              3                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                              Gene Order Evolution Yeast
+
+
+                                                                                    (MATa MATa). digital genes non-essential                                                                                     essential. gene category carries unique
+                                                                                    identifier. Genes separated intergenic elements  . IEs                                                                                     cold crossing ( = coldspots) hot ( = hotspots).                                                                                     feature represented element matrix                                                                                     population genome, mutations affect elements                                                                                     represent essential genes (Figure 3A). Typical natural yeast
+                                                                                    chromosomes contain genes, digital
+                                                                                    counterparts. Populations finite size typically consist                                                                                     thousand diploid individuals.
+                                                                                       Mitosis yields copy original genome. differs                                                                                     template genome mutations, introduced random
+                                                                                    lead inactivation essential genes (Figure 3B).                                                                                     statistical frequency essential gene mutations diploid
+                                                                                    genome mitosis given genomic recessive lethal
+                                                                                    mutation rate R [40]  example, R = 1 corresponds                                                                                     average essential gene inactivation diploid genome                                                                                     mitosis).
+                                                                                       Genomic rearrangements simulated. manifest
+                                                                                    positional swapping genes associated
+                                                                                    intergenic elements, segmental inversions (Figure 3B).
+                                                                                    Genomic rearrangements occur mitosis affect                                                                                     homologous chromosomes.
+                                                                                       meiosis, genome duplicates homologous
+                                                                                    chromosomes undergo meiotic recombination (crossing .
+                                                                                    distribution crossover sites considers meiotic recombination
+                                                                                    hotspots crossover interference based genetic distance
+                                                                                    definition (hotspot distribution). crossover frequency                                                                                     adjusted shape factor Erlang distribution used
+                                                                                    crossover interference (Figure 3C). meiotic
+                                                                                    haploid progenitor genomes constitute tetrad.
+                                                                                       Mutations allowed occur mitosis  Text S1, section
+                                                                                    ‘‘Supplementary Results Discussion’’ analysis meiotic
+                                                                                    mutations). implementation considers single mitotic cycle
+                                                                                    consecutive meiotic cycles. mimics situation                                                                                     consecutive rounds mitoses occur                                                                                     exponential growth. applies scenarios high loss
+                                                                                    individuals occurs (e.g. individuals eaten predators                                                                                     washed away non-fertile grounds) keeps size local
+                                                                                    population constant. circumstances                                                                                     deleterious mutations recessive influence fitness
+                                                                                    cells  indicated literature [39]), lead                                                                                     accumulation mutations vegetative period life
+Figure 2. Yeast life cycles mutation homeostasis.   key
+elements natural yeast life cycles. Life cycles natural yeast
+                                                                                    cycle. simplified scenario come close realistic
+populations regulated changes environment,               description natural S. cerevisiae consistent absence
+permit mitotic growth induce formation spores meiosis. S.         reports large natural cultures S. cerevisiae (outside human-
+cerevisiae isolates nature diploid, indicating              engineered fermentation processes).  approximation
+return diploid lifestyle immediately following germination.           allows simulate large numbers complete life cycles, occur intra-tetrad spore-mating (inbreeding/automixis), mating             inaccessible computational limitations. spores different tetrads (outbreeding/amphimixis). Optionally,
+mating type switching followed mother-daughter mating                           germination, haploid genomes directly engage generate diploid cell lines  corresponding sections Results              mating haploid genomes (Figure 3D). Mating occur
+Discussion). Predominant diploid life cycles             genomes meiosis, called species yeasts [91]. (B) Loss individuals            intratetrad mating generally referred automixis
+population occurs random decrease fitness caused           inbreeding. Mating haploid genomes different mutations. simulation implements populations cycling
+                                                                                    tetrads occur, referred amphimixis vegetative sexual stages life cycle (mitosis, meiosis mating). genomes constantly exposed mutations.                     outbreeding. article, use terms inbreeding homozygotisation recessive lethal mutations (mutations inacti-              outbreeding distinguish principal types vate essential genes) leads death individual. Alternatively,           mating partner selection simulation: mating inside individuals removed random population                     outside tetrad. Outbreeding events bring
+limitations nutritional supply (starvation). dynamic equilibrium,       closely related genomes  simply finite size average population growth equals zero, influx new
+                                                                                    simulated populations. total fraction inbreeding
+recessive lethal mutations equal outflux associated death removal individuals. details fitness impact          matings round mating specified. Mating optionally
+mutations, main text Supplementary Figure 1A 1B Text S1.             considers mating types, exist (MATa MATa). doi:10.1371/journal.pgen.1000533.g002                                               MAT locus placed chromosome. 
+
+       PLoS Genetics | www.plosgenetics.org                                     4                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                          Gene Order Evolution Yeast
+
+
+
+
+Figure 3. Digital genomes life cycle digital populations.   Schematic illustration genetic building blocks digital
+genomes  : essential genes (wild type, white squares; mutated, crossed squares); non-essential genes (black squares); intergenic elements
+(circles) crossing proficient (recombination hotspots, white circles) silent (crossed circles). Unique identifiers represent essential
+genes. simulation, individual possesses copies single chromosome. diploid genome considered viable contains functional copy individual essential gene. simulation framework implements entire populations individuals diploid
+genomes, arranged population matrix  . Individuals different chromosome architectures belong different species. (B) life cycle digital populations. main text details. (C) Crossover interference implemented using Erlang probability density function shape factor k = 4 (F. Stahl, personal communication, references [46,92,93]). function based genetic distance definition (hotspot
+density). Rescaling Erlang function distance axis allows adjusting crossover frequency chromosome. (D) Breeding occur haploid gametes meiosis (intratetrad mating/inbreeding) gametes different meioses (outbreeding). Mating
+types optional. main text details.
+doi:10.1371/journal.pgen.1000533.g003
+
+case, modeled chromosome considered sex                   mutations’’). decided use simple fitness denominator chromosome. Alternatively, simulation employ virtual                 individuals: 1 assigned diploid genomes contain second chromosome contains MAT locus                      functional copy essential gene, 0 assigned centromere. intratetrad mating, causes linkage                genomes, copies essential gene MAT locus centromeric region investigated                        non-functional. Individuals fitness 0 removed. 
+chromosome [41].                                                               criterion underlying loss individual    Diploid genomes different gene order belong different               mutations homozygotisation mutated essential gene.
+species. Individuals different species able mate          occur different ways: new mutation inactivates  species represent sub-populations, emerge              second wild type copy mating event brings simulation scenarios genomic rearrangements. Alternatively,            chromosomes contain mutated allele different sub-populations specified beginning             position.
+simulation, e.g. order compare fitness different genome              Populations limited size according defined
+architectures (species) survival competition assays.                        maximum  population size cap). Excess individuals    Fitness individuals assessed diploid stage          removed random round mitotic meiotic
+mitotic meiotic cell division. furthermore assumed                  division. simulates limited availability nutrients. result,
+mating prevented haploid lethal mutation                     selective pressure introduced potential driving
+essential gene  assumption experimentally tested;                 evolution species ( = different genome architectures)  section ‘‘Mating rescues genomes associated lethal                 better adapted handle lethal mutations. Supplementary Figure
+
+
+       PLoS Genetics | www.plosgenetics.org                                5                             June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                          Gene Order Evolution Yeast
+
+
+1A 1B Text S1 provides overview mechanisms                 mitosis meiosis (Supplementary Figure 2B 2C simulation.                                                                Text S1).
+   simulation provides modules different types                         Using survival competition assay, directly compared experiments, including mutational robustness benchmarks                     persistence populations random chromosomes populations specific genomic architectures, selection advan-              populations yeast chromosome IX different mutation rates
+tage assessments isolated populations                    different population sizes. competition experiments
+compete nutrients evolution experiments large                revealed clear selective advantage yeast chromosome IX breeding populations constantly undergo genomic                       architecture regions investigated parameter space
+rearrangements  Text S1). Detailed descriptions                     (Figure 4B). stalemate situation observed low
+simulation modules implementation yeast model                   mutation rates R,0.01 extreme inbreeding fractions  = 0
+chromosomes provided Text S1.                                           = 1) (Figure 4B 4C). performed control experiment
+                                                                               demonstrate quantitative outcome survival
+S. cerevisiae chromosome architecture provides                                 competition assay unaffected choice, life cycle
+enhanced mutational robustness                                                 state mutations simulated (mitosis meiosis) (Figure 2D
+  Using S. digitalis assessed maximum mutation rate               Text S1).
+R populations random distributions genes                              analysis recently recorded distribution 4,300 single
+recombination hotspots resist extinct                  crossover events 50 meioses yeast [42] indicated non-random
+mutational robustness Rmax). compared results                  distributions crossovers essential genes entire yeast
+mutational robustness obtained S. cerevisiae chromosome                genome. resulting average level clustering IX architecture, deviates significantly random                    2.5s higher level expected random
+arrangement essential genes meiotic recombination                       distributions (Table 1 Text S1). Using S. digitalis, obtained
+hotspots distribution [30]. revealed superior mutational                comparative data subjecting digitalized implementations robustness yeast chromosome architecture entire                 chromosomes (Text S1) survival competition spectrum inbreeding fractions (Supplementary Figure 4A;                     randomly generated chromosomes. simulation outcome
+Supplementary Figure 2A Text S1). obtained                      attests superior fitness yeast chromosomes
+result allowing mutations occur meiosis                (Figure 4D).
+
+
+
+
+Figure 4. Competitive fitness advantage yeast chromosomes presence lethal mutations.   Mutational robustness Rmax digital populations random chromosomes S. cerevisiae chromosome IX, respectively, different inbreeding fractions. 3,000 experiments performed chromosome configuration. different random architecture composed total number meiotic recombination
+hotspots essential genes generated reference experiment. histogram summarizing results provided Supplementary
+Figure 2A Text S1. digitized chromosome IX architecture based essential gene data obtained www.yeastgenome.org data genome-wide distribution meiotic recombination double strand break sites obtained [32]. representation inset shows
+meiotic recombination hotspot (HS) essential gene   densities chromosome IX sliding window analysis  Text S1). population
+size cap set 200 individuals. (B) Results survival competition experiments S. cerevisiae chromosome IX versus randomly generated
+chromosome architectures (n = 10 experiments grid point), entire inbreeding/outbreeding domain high mutation rates Rmax. level dominance color-encoded (bright red: chromosome IX wins experiments, bright blue: random architecture wins experiments). population size cap set 2,000 individuals. (C) Results survival competition experiments architectures described (B), wide range mutation rates  logarithmic steps, R 1024 1) different population size caps (150, 1,500 15,000). competitive advantage (‘‘comp. adv.’’) indicates percentage chromosome IX wins random architectures. percentage formed average entire inbreeding/outbreeding domain (bars indicate SD). (D) Results survival competition experiments sixteen yeast
+chromosomes versus randomly generated chromosome architectures (n = 170 experiments bar; population size cap: 10,000), averaged entire inbreeding/outbreeding domain. Mutation rates color-encoded; green: 1022, blue: 1021, red: 1. competitive advantage 100  indicates yeast chromosome architecture outperformed random architectures. value 50  indicates yeast chromosome
+exhibited performance identical random architectures. simulation details statistical information Text S1, section ‘‘S. digitalis
+Simulation Settings.’’
+doi:10.1371/journal.pgen.1000533.g004
+
+
+       PLoS Genetics | www.plosgenetics.org                                6                             June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                         Gene Order Evolution Yeast
+
+
+  Taken  data suggest yeast-like chromosome                  Achiasmate meiosis enhances mutational robustness
+architectures contain evolved features consistent selection               digital genomes
+imposed lethal mutations.                                                      tight physical linkage essential genes single,
+                                                                               large cluster likely configuration natural genomes.
+CEN-linked peripheral essential gene clusters provide                       achiasmate meiosis  absence meiotic crossovers)
+cumulative benefits                                                            results comparable situation, genetically links    fitness advantage structure chromosome IX relative           essential genes chromosome. following, use randomly structured chromosomes result essential gene              word ‘‘achiasmate’’ denote absence meiotic crossing
+clusters centromere-linked peripheral                essential genes present chromosome.
+chromosome, cumulatively  designed synthetic                   Meiosis crossovers reported species
+chromosome architectures discern potential impact              [43] suggested occur hemiascomycete yeast
+structural relationships.  simulations MAT loci,          Saccharomycodes ludwigii [44,45]. Using survival competition
+highest average Rmax obtained synthetic chromosomes,               assay achiasmate meiosis exhibits high essential genes distributed large clusters                 mutational robustness Rmax (Supplementary Figure 3 Text
+(Figure 5A).  variability Rmax function            S1, genomes essential gene cluster mating
+inbreeding ratio larger case chromosomes           types, +MAT) provides particularly strong fitness advantage
+essential gene clustering. number clusters providing best           entire investigated parameter space (considering performance depends population size: larger                     inbreeding fraction mutation rate R) MAT
+population smaller optimal number clusters pool              present (Figure 6A, panel).
+essential genes distributed (Figure 5B). clustered                 Generally, advantage achiasmate meiosis architectures, introduction MAT locus  constitutes           expected pure outbreeding. advantage achiasmate
+obligatory heterozygosity) clusters increased              meiosis observed simulations pure outbreeding
+persistence compared genotypes MAT locus (Figure 5A,              domain explained finite population size, inset; Supplementary Figure 3 Text S1). Using survival                  implies individuals related certain degree.
+competition assays genomes MAT-linked clusters,                        MAT linkage essential gene cluster, compared fitness genotypes peripheral essential genes              advantage reduced, significant mutation rates R,1.5 clusters random distributions. obtained fitness           non-extreme inbreeding fractions (0 1) (Figure 6A, lower
+advantage peripheral clustering wide range inbreeding              panel). Using direct competition, strong advantage ratios mutation rates (Figure 5C).  MAT-centromere-                   achiasmate meiosis random chromosomes mutation rates
+linked clusters peripheral essential gene clusters provide                 R 1024 1, increases increasing
+cumulative fitness benefits.                                                   population size (Figure 6B 6C). achiasmate meiosis, linkage
+
+
+
+
+Figure 5. Effect essential gene clustering mutational robustness.   Mutational robustness Rmax function inbreeding ratio
+(n = 3 inbreeding ratio; error bars indicate SD), clustered model chromosome (seven clusters separated regions containing meiotic
+recombination hotspots) random chromosomes. experiment performed different randomly generated chromosome
+containing number elements (400 NEGs, 100 EGs, 166 recombination hotspots). inset shows average increase Rmax SD inbreeding/outbreeding domain response introduction MAT locus. red blue dots Rmax-axis indicate average inbreeding fractions (left: MAT, right: MAT). clustered model chromosomes, MAT locus placed cluster; random chromosomes, MAT locus placed centre chromosome. population size cap set 200 individuals. (B) Rmax
+(average entire inbreeding/outbreeding domain, bars indicate SD) function level clustering (ranging perfect clustering (1) EGs joined single continuous cluster, maximally unclustered architecture (100) pair EGs separated meiotic recombination hotspot). population size cap color-encoded (ranging 50 1,600 individuals). Simulation time conservatively
+assigned; increase maximum number generations did change simulation outcome significantly. (C) Results survival
+competition experiments model chromosomes MAT-linked cluster clusters chromosomal arm region (CF1+5) versus
+model chromosomes MAT-linked cluster random distribution arm region (CF1+R), entire inbreeding/outbreeding
+domain high mutation rates Rmax (n = 10 experiments grid point). competitive advantage color-encoded (bright red: CF1+5 won competitions, bright blue: CF1+R won competitions). population size cap set 1,000 individuals. simulation details statistical
+information Text S1, section ‘‘S. digitalis Simulation Settings.’’
+doi:10.1371/journal.pgen.1000533.g005
+
+
+       PLoS Genetics | www.plosgenetics.org                                7                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                              Gene Order Evolution Yeast
+
+
+
+
+Figure 6. Fitness advantage achiasmate meiosis.   Results survival competition experiments random chromosomes versus achiasmate
+chromosomes (super-cluster architectures) EGs cluster linked  panel) linked MAT locus (lower panel). matrix shows color-encoded level dominance entire inbreeding/outbreeding domain high mutation rates Rmax. population size cap set 2,000 individuals. (B) Results survival competition experiments achiasmate chromosomes versus random chromosomes, wide
+range mutation rates  logarithmic steps, R 1024 1) different population sizes (150, 1,500, 15,000). MAT locus placed chromosome. competitive advantage indicates percentage achiasmate chromosome wins random architectures. percentage formed average inbreeding/outbreeding ratios (bars indicate SD inbreeding/outbreeding domain). (C) (B), MAT locus positioned centromere different chromosome genome. (D) Autosomal chromosomes linked MAT locus centromeres case intratetrad mating. cartoon illustrates simple scenario autosomal chromosome sex
+chromosome. autosomal chromosome contains heterozygous mutation (1). mutation linked centromere; case achiasmate meiosis. MAT locus linked centromere; case S. cerevisiae achiasmate meiosis. loci linked corresponding centromere, intratetrad mating  (4) (5)) involve chromatids derived homologous
+chromosomes segregated meiosis  (2) (3)). reconstitute heterozygous situation sites genome fulfill criterion. population genetic terminology, type mating called intratetrad mating division restitution. demonstrated occur species, including fern, flies fungi [22] constituted driving force evolution sex chromosomes. simulation details statistical information Text S1, section ‘‘S. digitalis Simulation Settings.’’
+doi:10.1371/journal.pgen.1000533.g006
+
+
+       PLoS Genetics | www.plosgenetics.org                                   8                             June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                       Gene Order Evolution Yeast
+
+ MAT locus occurs physically  chromosome                  exclusively based rules govern evolutionary process MAT locus located) centromeres                genomes context unicellular breeding populations chromosomes intratetrad mating). preserves                  subjected deleterious mutations.
+heterozygosity autosomal centromeres  Figure 6D).                     investigation silico evolution clustered
+resulting selection advantage provide population-genetic                  genomes, dissected complementary process: reasoning secondary loss meiotic crossing                  maintenance essential gene clusters context Saccharomycodes ludwigii.                                                     chromosomal rearrangements linkage MAT locus
+                                                                              gene cluster. designed initial genome contained                                                                               essential genes large cluster meiotic recombination novo evolution essential gene clustering                             hotspots outside cluster. Scenarios MAT loci
+complex chromosomes                                                           considered inbreeding domain  intratetrad
+   experiments demonstrated fitness advantage clustered              mating), favorable successful persistence chromosome architectures exposed deleterious mutations.               lineage situation MAT  Figure 6A). +MAT fitness advantage result cumulative effects arising        scenarios, MAT locus placed outside essential gene pre-existing essential gene clusters, does allow        cluster. Populations evolved using different rearrangement
+deduce clustered genomes evolve unclustered               rates (r). rearrangement rates r,1024, simulated architectures
+random architectures solely exposure lethal                     MAT loci preserved highly significant levels
+mutations. example, alternative potentially synergistic               essential gene clustering anti-correlated meiotic crossover
+mechanisms conceivable  Discussion). order constitute           distributions periods 150,000 generations driving force, presence deleterious load               (Figure 7A 7B, Video S1). MAT, high preservation
+cause emergence clusters self-organized manner,                   essential gene clustering observed relatively
+
+
+
+
+Figure 7. Maintenance novo evolution essential gene clustering.   Maintenance clustering inbreeding populations.
+Initially, EGs meiotic recombination hotspots arranged separate clusters. Chromosomes allowed rearrange positional
+swapping genes meiotic recombination hotspots evolution period 150,000 generations. level essential gene clustering determined end experiment using clustering score analysis  described Text S1). Color scheme: green indicates significant
+clustering 150,000 generations. high clustering score indicates high level essential gene clustering regions low meiotic
+recombination hotspot density. (B) Time-course clustering value different regimes  . evolution populations 1 2 visualized Video S1. (C) Schematic illustration small model genome essential genes, designed study mechanisms involved evolution clustering  (D)). clustering scores (red) possible architectures (green) shown scheme. Symbols: light box =  black box = NEG; circle = meiotic recombination hotspot; circle cross = meiotic recombination coldspot. (D)
+Distributions clustering scores inbreeding populations evolved initial genome shown (C). simulation performed presence MAT locus (green line) MAT locus (red line) (n = 1,000 experiments configuration). distribution clustering scores random architectures shown blue serves reference (n = 2?106). presence MAT locus, clustering evolved broad range rearrangement rates (Supplementary Figure 4 Text S1). simulation details statistical information Text S1, section
+‘‘S. digitalis Simulation Settings.’’
+doi:10.1371/journal.pgen.1000533.g007
+
+
+       PLoS Genetics | www.plosgenetics.org                               9                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                    Gene Order Evolution Yeast
+
+
+narrow range mutation rates (0.6,R,1.4). presence              rates close ‘‘destructive regime’’, emerging
+MAT loci,  clustering maintained                    cluster quickly scrambled. setting allowed significantly broader range mutation rates (R$0.2)              simulate genomic restructuring quantitatively occur higher rearrangement rates (Figure 7A).               long evolutionary timescales using reasonable amounts mating type locus relocated position inside             computation time.  scaling rearrangement rate
+cluster stochastic rearrangement (usually 1,000         necessitates scaling mutation rate, order arrive generations, n = 20 experiments) remained cluster            selective pressure par potential destructive force  experiment demonstrates significant level           introduced random rearrangements. computation time clustering preserved presence lethal mutations.         unlimited, expect qualitatively comparable clustered architectures arise presence             outcome lower values R context lower
+destructive forces (genomic rearrangements) quenched           rearrangement rates.
+selective pressure better-performing clustered archi-              able qualitatively reproduce results respect
+tectures, long rearrangement rate high.                evolution essential gene clustering additional
+   step, investigated novo evolution MAT-          series experiments. experiments, provided linked essential gene clusters small model genomes containing            simulation framework unclustered architectures assembled essential genes, non-essential genes recombina-          genetic building blocks S. cerevisiae chromosomes VI,
+tion hotspots (Figure 7C). genomes evolved MAT                VII X (Supplementary Figure 5A Text S1 data linked essential gene clusters broad range mutation rates         shown). large chromosomes chromosome VII- rearrangement rates, consistent fact             X-like sizes, highly significant levels essential gene clustering
+inbreeding preserves MAT-linked heterozygosity (Supplementary               reproducibly established.  similar results Figure 7D; Supplementary Figure 4 Text S1). Architectures            obtained using externally linked mating type locus single cluster (2+1+1+1, 3+1+1, 4+1 5 genes)                 using lower rearrangement rates longer evolution
+consistently favored multi-cluster architectures (2+2+1 2+3         periods (r = 1025 200,000 generations, Supplementary Figure
+genes) (Figure 7C 7D; grey rectangles indicate single-cluster           5A Text S1).
+architectures Figure 7D).                                                   Taken  silico experiments demonstrate    order investigate evolution large yeast-like                deleterious mutations inactivating important genes provide chromosome architectures switched domains 50                     sufficient driving force reproducibly evolve chromosome
+inbreeding, advantage chromosome-peripheral clus-               architectures resembling natural counterparts respect
+tering apparent extreme breeding domains = 0           essential gene distributions, meiotic recombination hotspot = 1 (Figure 4 Figure 5C). series experiments,          distributions MAT-centromere linkage.  recurrent
+implemented species barrier simulation              exposure lethal mutations select genome architectures section Results, Text S1, section ‘‘Supplementary Results            order account associated load context sexual Discussion’’).  genomic rearrangement leads             cycle. formation new species. scenario mimics reproductive
+isolation meiotically incompatible chromosomes. new                Competitive advantage novo evolved genome
+species eventually dominate population                  architectures
+extinct depending reproductive success arising                 evolutionary process, successful, generate
+fitness (dis-)advantage particular genome architecture.           individuals perform better conditions simple life cycle mitosis, meiosis mating         evolution ancestors. order determine level sufficient reproducibly evolve genomes MAT-linked           success evolutionary simulation, performed survival non-random peripheral essential gene distributions (Figure 8A            competition experiments evolved genomes discussed Video S2). order obtain good statistics                   random chromosomes yeast chromosome IX. phenomenon, parallelized assay using grid computing,              observed strong fitness advantage +MAT genomes evolved allowed simultaneously evolve unrelated                    R = 1.0 competing random chromosomes yeast
+populations (n = 3,000 experiments). average 15,000                chromosome IX (Figure 8B). expected presence generations, high-R +MAT populations reproducibly evolved                 large MAT-associated essential gene clusters genomes, level clustering 2s mean level encountered random           fitness advantage results wide range mutation rates
+architectures. evolution level clustering low-        (R$1023) entire inbreeding/outbreeding domain. R +MAT populations 2MAT populations required 2–3                   genomes +MAT populations evolved R = 0.1 performed
+fold longer period. Importantly, high-R +MAT populations            significantly better random architectures, slightly small fraction populations eventually arrived        better chromosome IX architecture, exception level clustering natural yeast chromosome IX                  mixed breeding ratios high mutation rates (R = 1.0), (emerging 30,000–70,000 generations, statistics provided          chromosome IX performed better. statistical average, low-R legend Figure 8A). Genomes MAT-linked cluster            +MAT populations exhibited overall performance
+dominated high mutation rates (R = 1), genomes              chromosome IX architecture (Figure 8C). clusters, associated MAT locus,                  expand analysis, performed competitions
+typically evolved lower mutation rates (R = 0.1).                        chromosome X-like products evolution experiment
+   point parameter space explored               shown Supplementary Figure 5A Text S1 random
+evolution clustering constitutes compromise enforced                architectures actual S. cerevisiae chromosome X,
+limitations computation time. computation events              using chromosome description derived [42]. results generation requires approximately seconds CPU             competition experiments qualitatively comparable time population 4,000 individuals. order able           obtained chromosome IX (Supplementary Figure 5B perform statistically meaningful number experiments              5C Text S1). reproduction results context different conditions, applied relatively high rearrangement              chromosome X particularly striking, digitalized
+
+
+      PLoS Genetics | www.plosgenetics.org                             10                           June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                           Gene Order Evolution Yeast
+
+
+
+
+Figure 8. Evolution yeast-like essential gene clustering.   Evolution chromosome architectures yeast chromosome IX-like size genetic content. Beginning completely unclustered chromosomes, populations MAT allowed evolve different
+mutation rates R indicated (nred = 830, ngreen = 826, nblue = 839 experiments). Clustering scored measuring size largest
+essential gene cluster average size remaining clusters. genomes containing MAT, largest cluster observed linked MAT. scatter plot shows scores obtained evolution period 100,000 generations. Score distributions different
+populations spanned axes (including reference distributions randomly generated populations size). ‘‘clustering
+score’’ n quantifies level essential gene clustering. defined sum squared sizes essential gene clusters (maximum-sized groups essential genes disrupted hotspot), normalized total number essential genes meiotic recombination hotspots. Random
+architectures chromosome IX genetic content score n = 107617 (SD), chromosome IX architecture itself scores n = 224. percentages indicate fraction experiments yielding genomes clustering value n 2s average score randomly
+generated genomes (n$141). insets meiotic recombination hotspot essential gene densities obtained sliding window analyses selected genomes (indexed iv). (B) Survival competition evolved genomes shown   versus chromosome IX random genome
+architectures. matrices average statistical results evolved genomes green red groups  . (C) bars indicate total number wins evolved architectures chromosome IX respectively competition experiments shown (B). simulation
+details statistical information Text S1, section ‘‘S. digitalis Simulation Settings.’’
+doi:10.1371/journal.pgen.1000533.g008
+
+
+
+
+       PLoS Genetics | www.plosgenetics.org                                 11                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                           Gene Order Evolution Yeast
+
+
+chromosome X architecture exhibits highest level essential               switching populations load higher lethal mutations
+gene clustering sixteen yeast chromosomes  Table 1                diploid (Supplementary Figure 6 Text S1). regime,
+Text S1) constitutes particularly challenging                   small percentage diploidisation haplo-selfing (2 )
+opponent evolution products survival competition.                constituted strong disadvantage.
+  conclude  context reference life cycle,                    assay impact haplo-selfing fitness different
+architectures chromosome IX-like purging evolve                     chromosome configurations, performed analyses. 
+regime characterized lower mutation rate. high-R                     compared mutational robustness (Rmax) chromosome IX
+regime promotes evolution single large gene clusters,                random chromosomes different levels haplo-selfing. extreme represents achiasmate meiosis.                                 high haplo-selfing rate 50  leads significant increase                                                                                 mutational robustness Rmax, random architectures Mating type switching influences lethal load                             chromosome IX. lower rate 10  haplo-selfing, populations                                                                     advantage chromosome IX architecture remained,    far, investigated correlation lethal                  mutational robustness decreased compared situation
+mutations essential genes parameters govern                     haplo-selfing  Supplementary Figure 2A 2E population fitness respect crossing population                 Text S1). performed competitive advantage experi-
+genetics simulations simple life cycles.            ments chromosome IX vs. random chromosomes 10  haplo-
+processes influence lethal load present populations             selfing mutation rates 1023 Rmax.  Discussion). particular, mating type switching followed            absence mutagenic pre-load, noticed emergence mating daughter cells (termed ‘‘haplo-selfing’’)               phase transition parameter space high mutation rates,
+respective mothers prominent feature life cycle S.               indicating region dominated random architectures
+cerevisiae  yeasts, Discussion). Mating type                 (Figure 9).  extreme scenario chromo-
+switching leads homozygous diploid, involves              IX architectures, average, performed better haploid genome free lethal mutations.                       random architectures (57  competition wins chromosome IX
+occurring significant rates, haplo-selfing expected              vs. 43  competition wins random architectures).
+decrease lethal load populations.  mutagenic
+load population high, small probability           Meiotic crossover rates S. cerevisiae optimal generating viable diploids haplo-selfing. Comparing pre-                    Using S. digitalis, determined influence meiotic
+loaded chromosomes haplo-selfing revealed                    crossover rate chromosomes fitness ability sharp transition competitive advantage favor non-                  purge mutational load. yeasts, crossover rates vary considerably,
+
+
+
+
+Figure 9. effect mating type switching population fitness. Results survival competition experiments S. cerevisiae
+chromosome IX versus randomly generated chromosome architectures (n = 10  row) 100  row) experiments grid point), presence (10 ) absence mating type switching. Different breeding conditions mutation rates  1023 Rmax) considered. matrixes row outcome high-resolution analysis high-R regime, pronounced differences observed. level dominance color-encoded (bright red: chromosome IX wins experiments, bright blue: random architecture wins experiments). population size cap set 2,000 individuals. simulation details statistical information Text S1, section ‘‘S. digitalis
+Simulation Settings.’’
+doi:10.1371/journal.pgen.1000533.g009
+
+
+       PLoS Genetics | www.plosgenetics.org                                12                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                        Gene Order Evolution Yeast
+
+ 0 (achiasmate meiosis) approximately 20–40 crossovers               revealed increase Rmax increasing crossover rates, chromosome S. pombe. genomic mean S. cerevisiae             reaching saturation levels (95–99.5 ) range 4.5–8
+chromosomes 5.6 crossovers meiosis (derived                    crossovers. observed variability Rmax function genetic map, www.yeastgenome.org) [46]. value                         inbreeding fraction minimal 95–99.5  saturation
+confirmed direct assessment crossover frequency                  interval (Figure 10A). slight dependency chromosome length
+distribution [42]. chromosome-specific number crossovers                apparent (Figure 10A, inset). Direct competition chromo-
+scales linearly number genes (R2 = 0.89), range            IX populations subjected natural crossover rate 2.5–9 crossovers individual chromosomes (Supplementary                     chromosome IX populations modified crossover rates demon-
+Figure 7 Text S1). used random genomes different sizes                strated crossing rates higher lower naturally
+(250–1,500 genes) assess mutational robustness Rmax                observed average lead decrease fitness advantage
+function crossover frequency inbreeding fraction.                  (Figure 10B; Supplementary Figure 8 Text S1 plot 
+
+
+
+Figure 10. Natural crossing rates yeast chromosomes optimal.   Rmax function number crossovers meiosis
+(logarithmic scale) populations random chromosomes 750 genes (20  EGs). Bars indicate SD Rmax entire inbreeding/
+outbreeding domain. Inset: Number crossovers meiosis required reach 95  99.5  respectively maximum mutational robustness
+Rmax, chromosomes different lengths (250, 500, 750, 1,000, 1,500 genes) random configurations. (B) Results survival competition
+experiments chromosome IX populations subjected different crossing rates (n = 5 experiments grid point), mutation
+rates R Rmax entire inbreeding/outbreeding domain. color-code indicates winning chromosome architecture. (C) Results survival competition experiments yeast chromosome IX random chromosomes different crossing rates (n = 10 experiments grid point). experimental conditions (B). Supplementary Figure 8 Text S1 shows plots average fitness advantages results (B) (C). ‘‘minimum’’ = crossover chromosome meiosis; ‘‘maximum’’ = 58 hotspots active meiosis. simulation details statistical information Text S1, section ‘‘S. digitalis Simulation Settings.’’
+doi:10.1371/journal.pgen.1000533.g010
+
+
+       PLoS Genetics | www.plosgenetics.org                               13                           June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                    Gene Order Evolution Yeast
+
+ average performance).  assessing competition               freely segregating single mutagenic events affecting essential
+experiments chromosome IX versus random architectures                function/gene. Importantly, frequency tetrads function crossover rate, chromosome IX performed best            dead spore low, indicating low cumulative lethal effects regime yeast-like crossing rates (Figure 10C;                    non-lethal mutations recombined haploid genome Supplementary Figure 8 Text S1 plot average                  meiosis. Taken  data suggest losses genomes
+performance). suggests natural rates meiotic                associated random mutagenic events frequently associated
+crossovers S. cerevisiae adapted handle deleterious load.          single events leading lethal haploid phenotype.
+
+Lethal mutations frequently associated single                       Mating rescues genomes associated lethal
+loci                                                                         mutations
+   Haploid lethal phenotypes caused mutational                        scenario, linked mutation providing advantage inactivation essential gene, arise                   lost soon lethal mutation exposed, e.g. consequence cumulative effects non-lethal mutations                 haploid growth following meiosis homozygotisation. 
+essential non-essential genes. Dissecting synthetic lethal               genome lethal mutation preserved mating
+relationships demonstrated 0.8–4  chance lethality                 spore containing wild type allele. order test non-essential genes deleted [47]; simple extrapolation             haploid lethal mutations high low chance predicts 50  chance lethal phenotype inactivation            render spores unable mate, investigated rates diploid
+approximately 7–14 non-essential genes, assuming scalability             colony formation single dyads using fluorescence activated cell
+ignoring possibility non-linear network properties,           sorting (FACS) different mutation accumulation periods
+positive epistasis [48]). case,  cells           (Supplementary Figure 9 Text S1). observed frequency died reaching high load,                     diploid colonies did change significantly function inactivation 19  essential genes.                  accumulated mutations, compared wild type. spores
+empirical analysis indicate haploid lethal                   associated lethal mutations frequently unable mate –
+phenotypes caused inactivation single essential gene,            lethal mutation itself accumulated hypothesized purpose investigation.                     non-lethal mutations – greater fold decrease diploid
+   order test hypothesis directly, generated diploid         colonies course experiment strain containing MSH2 control weak fully                   expected (Figure 11C). Consistently, repressible GalS promoter order perform mutation accumu-               minor fraction viable spores impaired mating lation experiments. Deletion mismatch repair gene MSH2                dead spores germinate form microcolonies
+leads greatly elevated levels point mutations [49,50].                  Text S1, section ‘‘Supplementary Results Discussion’’;
+Additionally, reduced sequence specificity homologous recom-             Supplementary Figure 10 Text S1 histogram bination observed [51,52], leading increased levels                colony sizes). result consistent recombination similar sequences separate loci (ectopic            observation majority lethal phenotypes caused
+recombination). Mismatch repair deficient strains accumulate high            meiosis non-disjunction, spores lack entire chromo-
+levels lethal mutations, associated            somes usually fail germinate. Taken  results increase gross chromosomal rearrangements [53].                        majority randomly occurring lethal mutations did    Growth conditional mutator strain glucose-containing           prevent spores mating.
+medium led depletion Msh2 cells (Figure 11A 11B) accumulation mutant phenotypes reduced               Discussion
+viability. order restrict accumulation mutations vegetative growth, shifted cells galactose-containing                 investigated influence deleterious mutations medium induce MSH2 expression prior sporulation                        evolution genome architectures. breeding unicellular diploid
+(Figure 11A), prevents aberrant post-meiotic segrega-             organisms subjected high mutation rates, frequent
+tion events ectopic recombination associated MSH2               inactivation important genes selects non-random distribu-
+deletion [54]. grown exclusively galactose-containing                tions important/essential genes meiotic recombination
+medium, GalS-MSH2 strain exhibited wild type spore viability             hotspots. simulated experiments architectures evolve, (Figure 11C). mutation accumulation approximately 30–               bear striking resemblance architectures natural yeast
+36 generations  growth periods day , tetrad                chromosomes provide competitive advantage wide
+analysis (n = 400) revealed little 3-spore 1-spore viability (8           range mutation rates. 15.5 ). majority tetrads unviable spores
+contained viable spores (36 ), caused                  Purging deleterious mutations
+single locus events leading haploid lethality. Alternatively,           selective advantage clustered genomes arises 2-spore viability resulted meiosis non-disjunction.          multiple effects cumulatively improve fitness tested option measuring linkage lethal load         genomes. Initially, average mutational load (m) simulated
+2-spore viable asci heterozygous leu2/LEU2 locus,               population subjected mutation rate R increases itself centromere-linked (5 cM), lethal load           architecture-dependent equilibrium reached. equilibrium,
+exhibited average partial linkage leu2 (27 cM).         influx new stochastic mutations equal outflux
+load locus different analyzed tetrad,                     associated loss individuals population (Figure 2B).
+approximately 25  cases crossing                     elimination individual, mutations associated centromere/leu2 locus prevented  Text S1, section                     genome removed population (Supplementary
+‘‘Supplementary Results Discussion’’), tight               Figure 1A Text S1). simulation framework, loss
+centromere linkage load consequence                      individuals occurs factors.  random removal homologous non-disjunction meiosis  prominent             excess genomes population size cap entirely neutral,
+fraction tetrads viable spores likely caused         affects evolved sub-populations 
+
+      PLoS Genetics | www.plosgenetics.org                              14                          June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                           Gene Order Evolution Yeast
+
+
+
+
+Figure 11. Mutation accumulation genetic analysis lethality mating.   Outline mutation accumulation experiment.
+Diploid GalS-MSH2/GalS-MSH2 cells grown presence glucose repress MSH2 expression (MSH2off) growth periods 24 hours
+(1/1000 dilution cultures). growth period, aliquot removed GalS promoter induced spreading cells galactose-containing plates 24 hours order prevent accumulation mutations. sporulation, products meiosis analyzed viability using tetrad analysis (results given main text) sorting single spores dyads FACS. ability mating analyzed testing mating types sorted dyads order determine formed colonies haploid  spore unviable, mating) diploid (mating). (B) Msh2 levels GalS-MSH2 control cells grown galactose (1), glucose 24 hours (2) finally galactose 6 hours (3); detection Western blotting antibodies specific Msh2 (Santa Cruz, Msh2 (yC-15): sc-26230). (C)
+Viability spores dyads. time point 1,536 spores 384 dyads FACS-sorted array patterns YP-Gal plates (140 mm
+diameter). Spore viability determined counting number formed colonies. Mating efficiency spores dyads determined counting fraction colonies consisted diploid cells. wild type cells 0 h GalS-MSH2 strain, fraction 53 . probability having viable spores opposite mating type dyad calculated time-dependent spore viability fraction diploid formation 0 h. data allowed calculate probability diploid formation (mating), unviable spores unable mate (dashed line).
+doi:10.1371/journal.pgen.1000533.g011
+
+
+       PLoS Genetics | www.plosgenetics.org                                15                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                        Gene Order Evolution Yeast
+
+
+probability. Second, importantly, genomes lost               interacting mechanisms exist conceivable explain homozygotisation mutant locus. probability                   observation. result, difficult precisely define
+homozygotisation new mutation vegetative                     scenario mechanism dominant division proportional mutational load present                  different mechanisms interact  situation
+genome, irrespective genome architecture. higher                     complicated, usually exceptions mutational load population lowers fitness               explanation (e.g. species, certain aspects different):
+mitosis increased sensitivity new mutations,            yeast does exhibit centromeric repeats; species, heterozygous load entirely neutral.                 crossovers occur preferentially centromere-proximal
+process outcome improved meiosis loss              regions [59],  fact molecular mechanisms
+individuals homozygotisation mating. homo-                 provide support different scenarios (crossovers close zygotisation single recessive lethal mutation removes              away centromeres) makes difficult deduce genome population, including associated                    causal connection.
+mutations, effect clustering explained generally              Exploring specific mechanism singularly able reduction total number individuals lost              provide valid explanation constitutes strategy tackling mating. maximization mutation purging caused                issue. case S. cerevisiae, evolutionary scenario able evolutionary optimization genome context sexual            recapitulate evolution crossover suppression essential
+lifestyle. Supplementary Figure 11 Text S1 illustrates simple            gene enrichment pericentromeric regions. simulation
+scenario.                                                                     provides evidence lethal mutations chromosome
+    Clustering increases level genetic load                evolution interact.  course, record true
+maintained genome. order obtain positive overall               historical events enforced constellation. complete
+effect, clustering needs compensate increased mitotic losses,          answer given exploring (derived) genomes simulations random chromosome architectures                       ancestors S. cerevisiae evolution molecular
+constitute approximately 20  homozygotisation losses                   mechanisms govern centromeric crossover protection  life cycle. simulation scenarios,              subject investigation).
+large cluster evolved (R = 1.0), mitotic losses reach                 took advantage recent data Mancera et al. [42] magnitude meiotic losses (Supplementary Figure 12                  experiments involving digitalization natural yeast
+Text S1).                                                                     chromosomes, digital implementation chromosome IX     conclusion, advantage clustered genomes arise              derived using hotspot mapping data Gerton et al. [32]. increase reproductive fitness mitosis meiosis.              meantime, additional hotspot data sets published results optimized balancing factors                  [60,61]. Using data sets double strand breaks predict influence frequency, homozygotisation lethal              distribution crossovers accompanied limitation load locus occurs (Supplementary Figure 1B Text S1                     DSB frequencies translate linearly crossover frequen-
+Supplementary Figure 11 Text S1). mitosis, homozygotisa-                cies. sense Gerton et al. data set  data
+tion lethal mutations dependent new mutations                set available time began analysis) helpful [32],
+global load population, meiosis, homozygotisation             provided correct description cold centromeres, results mating. influenced crossover distribution            confirmed yeast genetic map. recent studies frequencies, breeding behavior genetic linkage                [60,61] detected DSBs near centromeres,  
+relationship crossover sites essential gene loci.                 convert crossovers (www.yeastgenome.org, Text
+    experiments, applied mutation rates higher         S1, section ‘‘Supplementary Results Discussion’’ average deleterious mutation rate reported S. cerevisiae             quantitative assessment cM kb relationship pericen-
+strains [37,55,56].  noted description               tromeric regions). studies deviate simulation  Results, section ‘‘Simulation digital yeast genomes        Gerton et al. study rest genome  S. digitalis’’), did assume exponential growth          subtelomeric regions, relevant context).
+populations, implemented scenario species
+compete limited pool nutrients. scenario                 mutator scenario genome evolution
+implementation round mitosis consecutive                  Natural isolates S. cerevisiae reported exhibit large
+meioses mimics scenario mitoses population                  diversity terms mutagenic load, yielding significant fraction
+growth. properly growth               isolates low extremely low spore viability. population local niche short period time, certainly          proportion load, accumulated does recapitulate longer evolutionary periods include               mitotic growth preserved inbreeding [62,63], consecutive sexual cycles. reasonable assume natural            caused mutator phenotypes. Widespread occurrence
+yeast populations undergo mitoses meioses.             natural variation rise mutator phenotypes mutation rate compared natural mutation rate,         reported [64,65]; similar type variation divided average number consecutive mitoses.                 reason formation natural yeast strains highly
+number,  currently known.                                      unstable karyotypes [66]. caused impaired
+                                                                              recombinational repair, indicated certain dependency Crossing suppression near centromeres                            Rad52 [67]. Interestingly, strains rise meiotic
+hotspot–crossover relation                                                    offspring stable karyotypes.
+   Crossover suppression near centromeres caused                  Based considerations speculate genomic interference pericentromeric crossovers proper meiotic            rearrangements, associated formation new
+chromosome segregation [57]. Alternatively, proposed              species lineages, frequently associated high cold centromeres caused requirement protect               mutation rates occasionally – particular centromeric repeats [58]. considerations relate general            periods shape genome – exert selective pressure issue evolutionary biology: frequently, independent             means high levels lethal mutations.
+
+
+       PLoS Genetics | www.plosgenetics.org                              16                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                        Gene Order Evolution Yeast
+
+
+   yeast evolutionary history governs million                 occurrence deleterious mutations predicted select
+years includes species  nowadays)                       evolution properties increase robustness, predominantly diploid life cycles [19,68,69]. average             evolved genomes lower maximum fitness mutation-
+frequency meioses unknown  general perspective               free environment. compensated higher mean fitness individual species), sufficient number              variants present mutant population, known ‘‘survival
+sexual cycles genomic rearrangements taken place                 flattest’’ [77]. Support provided studies viruses allow maintenance selection particular genome               bacteria, studies using digital organisms [78]. architectures.                                                                 important body literature summarized Wilke Adami
+                                                                               (2003) [79]).
+Mating type switching loss heterozygosity (LOH)                            yeast, mechanisms exist account buffering
+    yeast, mating highly favored process occurs                   mutational load. global buffering positive epistasis cells opposite mating type meet 2 dense                     fitness reduction combinations non-essential gene deletions
+populations level spores tetrad [31,70].            [48]. Essential genes exhibit expression noise non-
+considering S. cerevisiae aborts formation           essential genes [80,81]. Batada Hurst [36] proposed spores sporulation  limited availability             evolution essential gene clustering driven nutrients), overall formation spores mating partner              accumulation chromosomal regions low average nucleo-
+available tetrad 80                   occupancy (open chromatin), domains lower
+broad range conditions [31]. circumstance               expression noise coincide domains low
+possibility mating spores different tetrads indicates          meiotic recombination [82]. idea intriguing, mating type switching likely dominant way                   support provided scenario results fitness
+diploidisation S. cerevisiae.  appears safe assume          advantage sufficient select relocation essential gene relative effects observed level 10  haplo-selfing               cluster. S. cerevisiae grows predominantly diploid. represents overestimation actual situation,           individual intrinsic noise copy gene uncorrelated
+underestimation.                                                               noise copy, lower total noise level present
+    Mating type switching key inventions lifestyle           diploids compared haploids [83]. Selection low noise variation emerged time point genome               essential genes effective diploids duplication [68,71]. wonder reasons                 haploids. 9  heterozygous deletion strains evolutionary invention place, causes                 essential genes exhibit haplo-insufficiency S. cerevisiae [84],
+recurrent secondary loss (mating type switching deficient S.                   indicating low noise particularly important cerevisiae constitute 10  strains isolated               diploid situation, copy essential gene inactivated
+natural wine fermentation, [72]). Lifestyles evolve            mutation. minimize noise context preference diploid stages [73], heterozygosity           overall reduced protein level. result suggest maintained. associated need efficient purging load               significant interaction exist low noise model influenced evolution mating type switching. Occa-                  purging mutations diploids, act synergistically
+sionally, mutation rates high meiotic cycles                improving clustering essential genes. infrequent, resulting high lethal load able                  Proliferation tumor cells depends inactivation tumor
+select mating type switching. Diploidy context               suppressor genes subsequent multiple mutations. early-
+lethal load enforce evolution high levels                   acquired mutations DNA mismatch repair pathways
+intratetrad mating unicellular eukaryotes [23], observed              required genetic stability [10,85–87], mutator phenotypes non-switching pre-WGD duplication yeast species Saccharomyces              potential accelerating progression cancer develop-
+kluyveri [74] Saccharomycodes ludwigii [45,75]. consider-            ment enhancement variability Darwinian
+ations exclude additional roles mating            selection act [9,10,88]. scenario, evolved robustness
+type switching intratetrad mating, suggest lethal            haploid lethal load important factor mutations mutagenic load frequently accompany diploid                  implications understanding genetic instability cancer
+life cycles unicellular organisms.                                          development.
+    Additional mechanisms exist influence lethal load diploid populations. Loss heterozygosity associated mitosis            Conclusions
+acts position-specific manner increased frequency               Purging deleterious load depends tendency away centromere. provide                        accumulate load presence alleles increase additional reason essential gene enrichment pericentromeric             rate mutations occur  e. mutator alleles). robustness
+regions.  frequency low (approximately 0.5 10            inherent genome architecture yeast indicates
+10,000 cell divisions young cells 50 500 old mother               high mutation rates genetic load played cells [76]) unlikely significantly influence        important role evolution, ability deal global lethal load populations.                                         deleterious load evolved better suited genome architec-
+                                                                               tures. Altogether increasing evidence deleterious load
+‘‘Survival flattest’’ improve                        common evolving yeast populations aspects    race beneficial mutations exposure new                     cellular physiology evolved allow survival fit ‘‘flat’’
+conditions, essential genes effectively reduce genetic drift,         species. inactivation caused significant fitness reduction diploid organism. Consequently, chance acquiring new                    Methods
+mutations immediately accessible original genome decrease, e.g. reducing frequency beneficial                      Yeast mutator experiment
+mutations accompanied mutation causes                     diploid strain carrying chromosomal MSH2 control loss essential function.                                                 inducible GalS promoter constructed [89] 
+
+
+       PLoS Genetics | www.plosgenetics.org                               17                            June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                                           Gene Order Evolution Yeast
+
+
+sporulating SK1 genetic background [90]. cells                                    size 20 elements). Histograms sliding window analyses constantly maintained GalS inducing conditions (YP-                                  shown  Initially, EGs located galactose/raffinose (YP-Gal), Text S1, section ‘‘Supple-                          chromosomes, recombination hotspots form cluster mentary Methods’’) exhibited wild type spore viability.                             middle non-essential genes  end order allow random mutations occur, GalS promoter                            chromosome). high mutation rates, clustering repressed using glucose cells grown 24, 48                              maintained (left, movie shows period 100,000 generations). 72 hours (24 hours<10–12 generations) using serial dilution.                            low mutation rates, clustering maintained EGs time point, aliquot cells (5?107 cells) plated                       distributed random patterns (right). simulations
+YP-Gal 16 hours. cells washed  plated                           used identical values parameters R.
+sporulation plate (1  KAc, 0.02  raffinose, 0.02  galactose)                            doi:10.1371/journal.pgen.1000533.s003 (1.26 MB
+incubated 40 hours room temperature. Ascus formation                                MOV)
+occurred cases frequencies .99 . disrupting asci, FACS sorting used spot single spores dyads                             Video S2 Evolution clustering. Visualization large YP-Gal plates (1536 spores 384 dyads plate). Sorted                           evolution clustered genome architectures function time spores dyads analyzed colony formation (viability)                            population representative high-R +MAT evolution mating type (MATa, MATa mating type = diploid cells)                            experiment shown Figure 8A Main Text. left panel
+using mating type tester strains halo assay (Text S1, section                        shows density difference sliding window plot genomes
+‘‘Supplementary Methods;’’ Supplementary Figure 9 Text                              (red = essential genes, blue = hotspots, green = equal
+S1). viability spores 400 different tetrads                            densities essential genes hotspots). panels
+analyzed tetrad dissection.                                                             essential gene hotspot densities entire population.
+                                                                                           average clustering score population (white, SD red) Simulation framework yeast genome evolution—S.                                          indicated right panel (dashed white line = level digitalis                                                                                  clustering random architectures [107617]). simulation
+  source code simulation S. digitalis provided                            starts maximally unclustered genome architecture. Protocol S1. detailed description simulation included                       inbreeding percentage 50 . Movie playback speed: 6,000
+Text S1, section ‘ Simulation S. digitalis;’’                          generations second (400 generations frame).
+Table 2 Text S1.                                                                         doi:10.1371/journal.pgen.1000533.s004 (7.17 MB
+                                                                                           MOV)
+Supporting Information
+                                                                                           Acknowledgments
+Text S1 simulation S. digitalis; supplementary
+results discussion; supplementary materials methods;                               thank Sarah Otto, Lars Juhl Jensen, Michael Hood, Darren Gilmour,
+                                                                                           unknown reviewers valuable comments constructive
+supplementary figures tables; S. digitalis simulation settings.
+                                                                                           discussions; Nicola Hastings Audun Lier helpful comments  doi:10.1371/journal.pgen.1000533.s001 (1.26 MB PDF)                              manuscript. appreciate generous support Manfred
+Protocol S1 S. digitalis simulation. Matlab source code. Version                           Alef, Urban Liebel, Marc Hemberger, Michael Wahlers using 1.79 (2005–2009), Philipp J. Keller, EMBL Heidelberg.                                      clusters EMBL Karlsruhe Institute Technology.  doi:10.1371/journal.pgen.1000533.s002 (0.05 MB ZIP)                              thank Andrew Riddell Alexis Perez Gonzalez help flow
+                                                                                           cytometry. Franklin Stahl kindly acknowledged advice modeling
+Video S1 Maintenance clustering low high                                   crossover interference yeast Deepankar Pal contributions early
+mutation rates. Maintenance essential gene clustering                                experiments. grateful Ernst Stelzer supporting PJK. Eugenio
+evolving inbreeding populations data points                              Mancera, Wolfgang Huber, Lars Steinmetz kindly acknowledged
+Figure 7A Main Text. right panel corresponds data                                sharing data prior publication.
+point #1, left corresponds data point #2. graphs genomic element densities                           Author Contributions
+entire population. Chromosomes vertically aligned. color-                          Conceived designed experiments: PJK MK. Performed coding reports differences density EGs recombination                         experiments: PJK MK. Analyzed data: PJK MK. Contributed
+hotspots (sliding window analyses individual genomes, window                            reagents/materials/analysis tools: PJK. Wrote paper: PJK MK.
+
+References
+1. Kondrashov (1993) Classification hypotheses advantage                   10. Nowak MA, Michor F, Komarova NL, Iwasa Y (2004) Evolutionary dynamics    amphimixis. J Hered 84: 372–387.                                                            tumor suppressor gene inactivation. Proc Natl Acad Sci USA 101:
+2. Muller HJ (1932) Genetic Aspects Sex. American Naturalist 66:                       10635–10638.
+   118–138.                                                                                11. Thompson DA, Desai MM, Murray AW (2006) Ploidy controls success 3. Fisher RA (1930) Genetical Theory Natural Selection. Oxford, UK:                     mutators nature mutations budding yeast evolution. Curr Biol 16:
+   Oxford University Press.                                                                    1581–1590.
+4. Zeyl CW, Otto SP (2007) short history recombination yeast. Trends Ecol          12. Kondrashov  Crow JF (1991) Haploidy diploidy: better? Nature
+   Evol 22: 223–225.                                                                           351: 314–315.
+5. Maynard Smith J, Szathmary E (1995) major transitions eovlution.                 13. Papp B, Pal C, Hurst LD (2003) Dosage sensitivity evolution gene
+   Oxford, UK: Oxford University Press.                                                        families yeast. Nature 424: 194–197.
+6. Metzgar D, Wills C (2000) Evidence adaptive evolution mutation rates.        14. Sliwa P, Kluz J, Korona R (2004) Mutational load transition    Cell 101: 581–584.                                                                          diploidy haploidy inexperimental populations yeast Saccharomyces
+7. Sniegowski PD, Gerrish PJ, Lenski (1997) Evolution high mutation rates                cerevisiae. Genetica 121: 285–293.
+   experimental populations E. coli. Nature 387: 703–705.                            15. Aa E, Townsend JP, Adams RI, Nielsen KM, Taylor JW (2006) Population
+8. Taddei F, Radman M, MaynardSmith J, Toupance B, Gouyon PH, et al. (1997)                    structure gene evolution Saccharomyces cerevisiae. FEMS Yeast Res 6:
+   Role mutator alleles adaptive evolution. Nature 387: 700–702.                         702–715.
+9. Beckman Ra, Loeb La (2006) Efficiency carcinogenesis              16. Ruderfer DM, Pratt SC, Seidel HS, Kruglyak L (2006) Population genomic
+   mutator mutation. Proc Natl Acad Sci USA 103: 14140–14145.                                analysis outcrossing recombination yeast. Nature Genet 38: 1077–1081.
+
+
+
+
+       PLoS Genetics | www.plosgenetics.org                                           18                                June 2009 | Volume 5 | Issue 6 | e1000533
+                                                                                                                                                Gene Order Evolution Yeast
+
+
+17. Wei W, McCusker JH, Hyman RW, Jones T, Ning Y, et al. (2007) Genome                     53. Heck Ja, Gresham D, Botstein D, Alani E (2006) Accumulation recessive
+    sequencing comparative analysis Saccharomyces cerevisiae strain YJM789.              lethal mutations Saccharomyces cerevisiae mlh1 mismatch repair mutants     Proc Natl Acad Sci USA 104: 12825–12830.                                                    associated gross chromosomal rearrangements. Genetics 174: 519–523.
+18. Zakharov IA (2005) Intratetrad mating genetic evolutionary                  54. Reenan RaG, Kolodner RD (1992) Characterization Insertion Mutations     consequences. Genetika 41: 508–519.                                                         Saccharomyces cerevisiae Msh1 Msh2 Genes - Evidence Separate
+19. Knop M (2006) Evolution hemiascomycete yeasts: life styles                Mitochondrial Nuclear Functions. Genetics 132: 975–985.
+    importance inbreeding. BioEssays 28: 696–708.                                        55. Hill Ja, Otto SP (2007) role pleiotropy maintenance sex yeast.
+20. Baudat F, Nicolas (1997) Clustering meiotic double-strand breaks yeast              Genetics 175: 1419–1427.
+    chromosome III. Proc Natl Acad Sci USA 94: 5213–5218.                                   56. Joseph SB, Hall DW (2004) Spontaneous mutations diploid Saccharomyces
+21. Gallegos  Jacobson DJ, Raju NB, Skupski MP, Natvig (2000) Suppressed                   cerevisiae: beneficial expected. Genetics 168: 1817–1825.
+    recombination pairing anomaly mating-type chromosome                    57. Brar Ga, Hochwagen  Ee LS, Amon (2009) Multiple Roles Cohesin
+    Neurospora tetrasperma. Genetics 154: 623–633.                                              Meiotic Chromosome Morphogenesis Pairing. Mol Biol Cell 20:
+22. Hood  Antonovics J (2004) Mating meiotic tetrad                       1030–1047.
+    maintenance genomic heterozygosity. Genetics 166: 1751–1759.                         58. Charlesworth B, Langley CH, Stephan W (1986) Evolution Restricted
+23. Johnson LJ, Antonovics J, Hood (2005) evolution intratetrad mating                Recombination Accumulation Repeated DNA-Sequences. Genetics
+    rates. Evolution 59: 2525–2532.                                                             112: 947–962.
+24. Antonovics J, Abrams JY (2004) Intratetrad mating evolution linkage          59. Guo XM, Allen SK (1996) Complete interference nonrandom distribution
+    relationships. Evolution 58: 702–709.                                                       meiotic crossover mollusc, Mulinia lateralis (Say). Biolog Bulletin 191:
+25. Ohno S (1967) Sex chromosomes sex-linked genes. New York, NY:                           145–148.
+    Springer-Verlag.                                                                        60. Blitzblau HG, Bell GW, Rodriguez J, Bell SP, Hochwagen (2007) Mapping 26. Rice WR (1987) Accumulation Sexually Antagonistic Genes                         meiotic single-stranded DNA reveals double-strand-break hotspots near
+    Selective Agent Promoting Evolution Reduced Recombination                    centromeres telomeres. Curr Biol 17: 2003–2012.
+    Primitive Sex-Chromosomes. Evolution 41: 911–914.                                       61. Buhler C, Borde V, Lichten M (2007) Mapping meiotic single-strand DNA
+27. Petes TD (2001) Meiotic recombination hot spots cold spots. Nature Rev                  reveals new landscape DNA double-strand breaks Saccharomyces cerevisiae.
+    Genet 2: 360–369.                                                                           PLoS Biol 5: 2797–2808. doi:10.1371/journal.pbio.0050324.
+28. Hurst LD, Pal C, Lercher MJ (2004) evolutionary dynamics eukaryotic              62. Johnston JR, Baccari C, Mortimer RK (2000) Genotypic characterization     gene order. Nature Rev Genet 5: 299–310.                                                    strains commercial wine yeasts tetrad analysis. Res Microbiol 151:
+29. Lercher MJ, Urrutia AO, Hurst LD (2002) Clustering housekeeping genes                    583–590.
+    provides unified model gene order human genome. Nature Genet 31:            63. Mortimer RK, Romano P, Suzzi G, Polsinelli M (1994) Genome renewal: new
+    180–183.                                                                                    phenomenon revealed genetic study 43 strains Saccharomyces cerevisiae
+30. Pal C, Hurst LD (2003) Evidence evolution gene order                          derived natural fermentation grape musts. Yeast 10: 1543–1552.
+    recombination rate. Nature Genet 33: 392–395.                                           64. Demogines  Smith E, Kruglyak L, Alani E (2008) Incompatibilities Involving
+31. Taxis C, Keller P, Kavagiou  Jensen LJ, Colombelli J, et al. (2005) Spore                 Yeast Mismatch Repair Genes: Role Genetic Modifiers Implications
+    number control breeding Saccharomyces cerevisiae: key role self-             Disease Penetrance Variation Genomic Mutation Rates. PLoS Genet
+    organizing  J Cell Biol 171: 627–640.                                                4: e1000103. doi:10.1371/journal.pgen.1000103.
+32. Gerton JL, DeRisi J, Shroff R, Lichten M, Brown PO, et al. (2000) Inaugural             65. Heck JA, Argueso JL, Gemici  Reeves RG, Bernard  et al. (2006) Negative
+    article: global mapping meiotic recombination hotspots coldspots              epistasis natural variants Saccharomyces cerevisiae MLH1 PMS1
+    yeast Saccharomyces cerevisiae. Proc Natl Acad Sci USA 97: 11383–11390.
+                                                                                                genes results defect mismatch repair. Proc Natl Acad Sci USA 103:
+33. Lambie EJ, Roeder GS (1988) Yeast Centromere Acts Cis Inhibit                       3256–3261.
+    Meiotic Gene Conversion Adjacent Sequences. Cell 52: 863–873.
+                                                                                            66. Carro D, Pina B (2001) Genetic analysis karyotype instability natural
+34. Lercher MJ, Hurst LD (2006) expressed yeast genes cluster long range
+                                                                                                wine yeast strains. Yeast 18: 1457–1470.
+    regularly spaced. J Mol Biol 359: 825–831.
+                                                                                            67. Carro D, Bartra E, Pina B (2003) Karyotype rearrangements wine yeast
+35. Poyatos JF, Hurst LD (2006) optimal gene order impossible? Trends Genet 22:
+                                                                                                strain rad52-dependent rad52-independent mechanisms. Appl Environ
+    420–423.
+                                                                                                Microbiol 69: 2161–2165.
+36. Batada NN, Hurst LD (2007) Evolution chromosome organization driven                                                                                             68. Fabre E, Muller H, Therizols P, Lafontaine  Dujon B, et al. (2005)
+    selection reduced gene expression noise. Nature Genet 39: 945–949.
+                                                                                                Comparative genomics hemiascomycete yeasts: Evolution sex, silencing,
+37. Wloch DM, Szafraniec K, Borts RH, Korona R (2001) Direct estimate                                                                                                 subtelomeres. Mol Biol Evo 22: 856–873.
+    mutation rate distribution fitness effects yeast Saccharomyces
+                                                                                            69. Piskur J, Langkjaer RB (2004) Yeast genome sequencing: power     cerevisiae. Genetics 159: 441–452.
+                                                                                                comparative genomics. Mol Microbiol 53: 381–389.
+38. Eyre-Walker  Keightley PD (2007) distribution fitness effects new
+    mutations. Nature Rev Genet 8: 610–618.                                                 70. Barkai N, Rose MD, Wingreen NS (1998) Protease helps yeast mating
+                                                                                                partners. Nature 396: 422–423.
+39. Szafraniec K, Wloch DM, Sliwa P, Borts RH, Korona R (2003) Small fitness
+    effects weak genetic interactions deleterious mutations                  71. Wolfe KH, Shields DC (1997) Molecular evidence ancient duplication     heterozygous loci yeast Saccharomyces cerevisiae. Genet Res 82: 19–31.               entire yeast genome. Nature 387: 708–713.
+40. Kondrashov (2001) Sex U. Trends Genet 17: 75–77.                                 72. Mortimer RK (2000) Evolution variation yeast (Saccharomyces) genome.
+41. Zakharov IA (2005) Intratetrad mating genetic evolutionary                      Genome Research 10: 403–409.
+    consequences. Russian J Genet 41: 402–411.                                              73. Bell G (1994) comparative biology alteration generations. 
+42. Mancera E, Bourgon R, Brozzi  Huber W, Steinmetz LM (2008) High-                          Kirkpatrick M, ed. Lectures mathematics life sciences: theories     resolution mapping meiotic crossovers non-crossovers yeast. Nature                evolution haploid-diploid life cycles: Math Soc, Providence, R.  pp 1–26.
+    454: 479–U471.                                                                          74. Mccullough J, Herskowitz (1979) Mating Pheromones Saccharomyces kluyveri -
+43. Zickler D, Kleckner N (1999) Meiotic chromosomes: integrating structure                 Pheromone Interactions Saccharomyces kluyveri Saccharomyces cerevisiae.
+    function. Ann Rev Genet 33: 603–754.                                                        J Bacteriol 138: 146–154.
+44. Yamazaki T, Ohara Y, Oshima Y (1976) Rare occurrence tetratype                   75. Winge LO (1939) Saccharomycodes ludwigii Hansen, balanced heterozygote.
+    tetrads Saccharomycodes ludwigii. J Bacteriol 125: 461–466.                              C R Trav Lab Carlsberg Ser Physiol 22: 357–380.
+45. Lindegren CC (1945) Yeast Genetics: Life Cycles, Cytology, Hybridization,          

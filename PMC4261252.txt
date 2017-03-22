@@ -1,0 +1,460 @@
+
+Metabolic network prediction pairwise rational kernels
+
+
+
+  Abstract
+  Background: Metabolic networks represented set metabolic pathways. Metabolic pathways series
+  biochemical reactions, product (output) reaction serves substrate (input)   reaction. pathways remain incompletely characterized. major challenges computational biology   obtain better models metabolic pathways. Existing models dependent annotation genes.   propagates error accumulation pathways predicted incorrectly annotated genes. Pairwise
+  classification methods supervised learning methods used classify new pair entities.   classification methods, e.g., Pairwise Support Vector Machines (SVMs), use pairwise kernels. Pairwise kernels   similarity measures pairs entities. Using pairwise kernels handle sequence data requires long
+  processing times large storage. Rational kernels kernels based weighted finite-state transducers   represent similarity measures sequences automata. effectively used problems   handle large sequence information protein essentiality, natural language processing machine
+  translations.
+  Results: create new family pairwise kernels using weighted finite-state transducers (called Pairwise Rational
+  Kernel (PRK)) predict metabolic pathways variety biological data. PRKs advantage simpler
+  representations faster algorithms transducers. raw sequence data used, predictor model
+  avoids errors introduced incorrect gene annotations. developed experiments PRKs   Pairwise SVM validate methods using metabolic network Saccharomyces cerevisiae. result, PRKs
+  used, method executes faster comparison pairwise kernels.  use PRKs combined
+  simple kernels include evolutionary information, accuracy values improved,   maintaining lower construction execution times.
+  Conclusions: power using kernels sort data represented using kernels. 
+  completely disparate types data combined add power kernel-based machine learning methods.   compared proposal using PRKs similar kernel, execution times decreased,   compromise accuracy. proved combining PRKs kernels include evolutionary
+  information, accuracy improved. proposal use type sequence data, genes   need properly annotated, avoiding accumulation errors incorrect previous annotations.
+  Keywords: Metabolic network, Pairwise rational kernels, Supervised network inference, Finite-state transducers,
+  Pairwise support vector machine
+
+
+
+
+Background                                                       Yamanishi [9] Kotera et al. [11] described Related work                                                   theory implementation GENIES, web applica-
+Metabolic networks allow modelling molecular sys-       tion allowed prediction unknown parts tems understand underlying biological mechanisms        metabolic networks using supervised graph inference cell [1]. Metabolic networks represented set   kernel methods. algorithms implemented metabolic pathways. Metabolic pathways series      GENIES decision predictive func-
+biochemical reactions, product (output)      tions supervised network inference. reaction serves substrate (input)        algorithms Kernel Canonical Correlation Analysis
+reaction. experimental determination metabolic          (KCCA) [13,14], Expectation-Maximization (EM) algo-
+networks, based known biological data DNA           rithm [15] Kernel Matrix Regression (KMR) [9]. protein sequences, gene expression data,   authors developed experiments, did challenging [2].  efforts      use sequence data.  motivations develop supervised learning methods determine genes         extend previous research [7] use sequence
+coding missing enzymes predict unknown parts        data combined algorithms. noted  metabolic networks [3,4].                                      obtained best accuracy values SVM method
+  methods predict metabolic networks            combined sequence kernels, high execution
+assume genome annotation correct, e.g., Path-      times.
+way Tools [4], software application predict metabolic       address high computational costs, 
+networks using information BioCyc databases [5].          sider results Allauzen et al. [16], proposed
+Pathway Tools uses algorithm,         method predict protein essentiality using SVMs 1 infers reactions catalyzed organism          manipulating sequence data using rational kernels. set enzymes present annotated genome,            authors designed sequence kernels (called general 2 infers metabolic pathways present        domain-based kernels), instances rational
+organism reactions 1.           kernels. handle large data (6190 domains
+sidering BioCyc MetaCyc huge              3000 protein sequences), automata rep-
+available data, application potentially make pre-     resentation used create rational kernels. cise metabolic pathway predictions [6].           results showed final kernels favourably predicted
+2 based annotated genes,            protein essentiality. note,  errors annotation, inferred pathways           previous works using rational kernels bioinformatics correct.  methods intrinsically         [16-18] considered problems related biological
+carry error accumulations incorrect genome              network predictions.
+annotations.                                                     Based fact rational kernels described   tackle problem, previously proposed          Allauzen et al. [16] extended problems,
+using information directly related sequence          define new kernels applied metabolic network primary data (e.g., genomic proteomic data)            predictions. research, represent sequence data
+[7]. result, obtained best accuracy values         using rational kernels. Rational kernels advantage using Support Vector Machine (SVM) methods combined            fast algorithms  efficient representation  string kernels representing sequence data.         transducers sequence manipulations improve 
+experimentally demonstrated SVMs supersede          formance. sequence data used, raw genomic
+methods, matrix kernel regression, predict-        proteomic information considered, ing metabolic networks. consistent recent         method avoids problems associated incorrect anno-
+results showing usefulness SVMs bioinformatics       tation predicting metabolic networks. Additionally,
+[8].  solution [7] computationally expen-      current work combine rational kernels
+sive terms execution time sequence data       (using finite-state transducers) [17-20] known pair-
+manipulation.                                                  wise kernels [10,21-23] obtain pairwise rational kernels.
+  authors combined SVM               kernel techniques proposed paper supervised learning techniques kernel methods          applied equally machine learning tools predict metabolic networks [9-11]. main advantage          employ kernel methods, KCCA, EM KMR, using kernel methods heterogeneous data         focused SVMs illustration capabil- represented combined simultaneously.            ity reduce computational costs. chosen
+disparate types data manipulated kernels,         SVM methods light experimental results data sources contribute uni-          obtained previous works [7], efficiency
+formly information training set building    effectiveness SVM methods predict protein
+model [12].                                                    essentiality [16].
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                      Page 3 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+
+Automata transducers                                             example, weighted transducer shown Automata define mathematical formalism analyze            Figure 1 . use delimiters colon sepa-
+model real problems useful machines [24].               rate input output labels transitions automaton set states (generally represented            slash separate weight values  e., nota-
+circles), transitions (generally represented arrows).       tion input:output/weight). States represented automaton moves state state                circles, set initial states bold circles (makes transition) activated event func-           set final states double circles. ini-
+tion. variant automaton called finite state           tial final states associated weighs  notation
+machine. finite-state machine used model               state/weight). Example 1 shows compute simple  turnstiles transit lights,          weight transducer T  e., T(x, y)) given
+complex systems sophisticated spaceship controls           sequences x y. case, define alphabets
+[25].                                                               = {G, C}  = {G, C}.
+   Automata work sequence symbols,  ∗
+denotes finite sequences using symbols          Example 1. weight  value) associated trans-
+alphabet , including  represents sym-             ducer T Figure 1  pair (x, y) = (GGC, CCG) ∈
+bol. order formally define automata transducers,          ∗ × ∗ computed  follow notations used Cortes et al. [17].             T(GGC, CCG) = 1 ∗ 2 ∗ 3 ∗ 6 ∗ 1 + 1 ∗ 3 ∗ 1 ∗ 4 ∗ 1 = 48,
+automaton 5-tuple (, Q,  F, δ) [24]        considering accepting paths labelled
+input alphabet set, Q state set, ⊂ Q subset        input GCC output CCG. paths  initial states, F ⊂ Q subset final states,             Path 1 : State 0  → State 0  → State 1  → State 3,
+δ ⊆ Q × ( ∪ {}) × Q transition set. transition               Path 2 : State 0  → State 1  → State 2  → State 3.
+ι ∈ δ describes actions moving state            initial final values terms T(GGC, CCG) condition (input symbol) encountered.            correspond weights initial final
+   Similarly, Finite-State Transducer (FST) automa-        states.
+ton output label included transition addition input label. Based definition,          Figure 1(b) shows graph representation weighted FST T 6-tuple (, , Q,  F, δ) [18], new        automaton. obtained output projection term  output alphabet transition set δ          transducer T input labels omitted.  δ ⊆ Q × ( ∪ {}) × ( ∪ {}) × Q. Similar pre-         alphabet   = {G, C} weight computation
+vious definition, transition ι ∈ δ action moving       automaton given sequences shown state input symbol              Example 2. encountered output  produced.
+   addition, Automata Finite-State Transducers          Example 2. weight  value) associated weighted, transition labelled              Automaton Figure 1(b) y = CCG ∈ ∗ com-
+weight.  Weighted Automaton (WA) 7-tuple               puted 
+(, Q,  F, δ, λ, �?) Weighted Finite-State Transducer            CCG) = 1 ∗ 2 ∗ 3 ∗ 6 ∗ 1 + 1 ∗ 3 ∗ 1 ∗ 4 ∗ 1 = 48
+(WFST) 8-tuple (, , Q,  F, δ, λ, �?) [18],       considering accepting paths labelled
+new terms λ �?  λ : → R, initial weight func-         CCG. paths 
+tion, �? : F → R, final weight function. new                 Path 1 : State 0  → State 0  → State 1  → State 3,
+transitions WFSTs δ ⊆ Q×(∪{})×                    Path 2 : State 0  → State 1  → State 2  → State 3.
+R×Q δ ⊆ Q×(∪{})×(∪{})×R×Q, respectively,                   initial final values terms CCG) R represents weights real numbers.                    correspond weights initial final states.
+
+
+
+
+ Figure 1 Weighted transducer weighted automaton representing sequences alphabet  =  = {G, C}.   Weighted
+ Transducer T. (b) Weighted Automaton  obtained projecting output T).
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                      Page 4 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+
+  operations defined automata                 Using Algorithm 1, overall complexity com-
+transducers, inverse composition. Given             pute value rational kernel O(|U||Mx | |),
+transducer T, inverse T −1 transducer obtained           |U| remains constant. practice, complexity input output labels swapped               reduced O(|U| + |Mx | +  |) kernels transition. composition operation transduc-              used areas natural language process-
+ers T1 T2 input output alphabets                  ing computational biology. example, Algorithm 1
+equal  weighted transducer, denoted T1 ◦                n-gram kernel linear complexity  2 , provided sum given (T1 ◦ T2 )(x, y) =
+T                                                                   detailed description n-gram kernel .
+    ∗ T1 (x, T2   y) defined R (x, y) ∈      Kernels used training methods discriminant clas-
+∗.                                                                 sification algorithms (e.g., SVM) need satisfy Mercer’s
+                                                                    condition equivalently Positive Definite Sym-
+Rational kernels                                                    metric - PDS [18]. Cortes et al. [18] proven result order manipulate sequence data, FSTs provide sim-           gives general method construct PDS rational
+ple representation efficient algorithms          kernel using WFSTs.
+composition shortest-distance [18]. Rational Kernels,
+based Finite-State Transducers, effective ana-           Theorem 1. ([18]). T arbitrary weighted trans-
+lyzing sequences variable lengths [17].                        ducer, U = T ◦ T −1 defines PDS rational kernel.
+  formal definition, function k :  ∗ × ∗ → R rational kernel exists WFST U k           n-gram kernel rational kernel
+coincides function defined U, e., k(x, y) =           Hofmann et al. [26] defined class similarity mea-
+U(x, y) sequences x, y ∈  ∗ × ∗ [17].            sures biological sequences function  consider input output alphabets             number equal subsequences  symbols  e.,  = ), terms   ∗            example measures spectrum kernel defined used.                                                       Leslie et al. [27]. Similarity values results   order compute value U(x, y) partic-            summing products counts sub-
+ular pair sequences x, y ∈  ∗ ×  ∗ , composition           sequences. referred computational biology
+algorithm weighted transducers used [17]:                     k-mer n-gram kernel. rest paper,                                                                     use term n-gram follow notation Hofmann
+  •  Mx , considered trivial weighted
+                                                                    et al. [26] Cortes et al. [17].
+    transducers representing x, y respectively,     Mx (x, x) = 1 Mx (v, w) = 0 v 
+ = x w 
+ = x.          n-gram kernel defined kn (x, y)                  =
+                                                                        =n cx  cy   fixed integer n, represents
+    Mx obtained using linear finite automata
+                                                                    subsequences length n.  ca (b) number     representing x augmenting transition                                                                     times subsequence b appears  kn     output label identical input label setting
+                                                                    represented rational kernel using weighted trans-
+    transition, initial final weights                                                                      ducer = Tn ◦ Tn−1 , transducer Tn defined
+    obtained similar way using y.
+                                                                    Tn (x,  = cx  , x, ∈   ∗   = n [18].
+  •  definition weighted transducer
+                                                                    example, n = 2, k2 (x, y) =  =2 cx  cy       composition:
+                                                                    rational kernel represents subsequences
+    (Mx ◦ U ◦ )(x, y) = Mx (x, x)U(x, y (y, y).
+                                                                     ∗ size 2 T2 (x,  = cx   counts     Considering Mx (x, x) = 1 (y, y) = 1,                                                                     times occurs x.
+    obtain (Mx ◦ U ◦ )(x, y) = k(x, y), e., sum                                                                       Allauzen et al. [16] extended construction     weights paths Mx ◦ U ◦ exactly
+                                                                    kernel, kn , measure similarity     U(x, y) = k(x, y).
+                                                                    sequences represented automata. Firstly, define
+  Based representation, step algorithm             count     sequence weighted automaton defined Cortes et al. [17] obtain k(x, y) = U(x, y).          cA   =         u∈ ∗ cu  u), u ranges                                                                     set sequences  ∗ represented                                                                     automaton  equation represents sums
+                                                                    obtained u, times occurs Algorithm 1 Rational Kernel Computation                             u multiplied weight  value) associated INPUT: pair sequences (x, y) WFST U                        sequence u automaton  computed   compute N using composition N = Mx ◦ U ◦                  Example 2).
+(ii) compute sum paths N using                           similarity measure weighted
+shortest-distance algorithm, equal U(x, y).             automata A1 A2 , according n-gram kernel kn , RESULTS: value k(x, y) = U(x, y)                                 defined 
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                           Page 5 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+                      
+    kn (A1 , A2 ) =           (A1 ◦ Tn ◦ Tn−1 ◦ A2 )(x, y)             di binary values (e.g., pair (xi , yj ) classified                       x,y∈X                                            +1 −1), = 1, . . . , n, j = 1, . . . , n mapping
+                                                                      function 	, Pairwise SVM methods opti-
+                 =            cA1  cA2                      (1)
+                                                                       mal hyperplane, wT 	(xi , yi ) + b = 0, separate                        =n
+                                                                       points categories. solutions based   Based definition using Algorithm 1,                  dual formalism optimization problem described
+n-gram rational kernel constructed time                      Cortes et al. [33]. case decision function 
+O( | + |Mx | +  |), described Allauzen et al. [16]                          n                            Mohri et al. [28].                                                       f (x, y) =       αij K (xi , yj ), (x, y) + b,
+                                                                                            j
+  Yu et al. [29] verified n-gram sequence kernels good predict protein interactions. address concerns experiments combin-                K pairwise kernel, (xi , yj ) set train-
+ing n-gram kernels include evolutionary                ing examples, α obtained Lagrange Multipliers
+information.                                                           function w  normal vector) b offset
+                                                                       hyperplane   Cortes et al. [33] Pairwise kernels
+                                                                       details). case, α b “learned�? parame- apply kernel methods problem predicting
+                                                                       ters training process.  f classifies new
+relationships given entities, e., pairwise pre-
+                                                                       pairs (x, y). example, f (x, y) >= 0, (x, y) classified
+diction. Models solve problem input
+                                                                       +1, (x, y) classified −1. instances, output relationship  Kernels used models need define simi-                Metabolic networks
+larities arbitrary pairs entities. Typically,           work, metabolic network represented construction pairwise kernels K based simple             graph, vertices enzymes, kernels k, k : X × X → R. paper differ-             edges enzyme-enzyme relations  proteins ent pairwise kernels investigated: Direct Sum Learning             enzymes catalyze successive reactions known path-
+Pairwise Kernel [21], Tensor Learning Pairwise Kernel               ways). Figure 2 represents graphical transition Kronecker Kernel) [22,30,31], Metric Learning Pairwise                 metabolic pathway graph.
+Kernel [23] Cartesian Pairwise Kernel [10].                           traditional representation metabolic path-
+  pairwise functions guarantee symmetry                  way, enzymes vertices (nodes), metabolites pairwise kernels K, e., K((x1 , y1 ), (x2 , y2 )) =           edges (branches). Following Yamanishi [9], represent
+K((x2 , y2 ), (x1 , y1 )), x1 , x2 , y1 , y2 ∈ X.    differently, interactions pairs simple kernel k PDS (satisfies Mercer condition),               enzymes considered discrete data points. exam- resulting pairwise kernel K PDS,               ple, Figure 2 , enzyme numbered EC 5.3.1.9 pairwise kernels defined [10,32].                            create D-fructose-6-phosphate product,                                                                        turn used substrate enzyme numbered
+Pairwise support vector machine
+                                                                       EC 2.7.1.11. means enzyme-enzyme rela- rationale preceding discussion represent-
+                                                                       tion EC 5.3.1.9 EC 2.7.1.11.  create
+ing disparate types data kernels enable                                                                        graph enzyme-enzyme relations edges
+use machine learning formalisms Support
+                                                                       enzymes nodes shown Figure 2(b). Vector Machines (SVMs). SVMs used classifica-
+                                                                       relation enzymes, relation clas-
+tion regression analysis, defined supervised models
+                                                                       sified +1  e., interacting pair). Enzyme-enzyme pairs associated learning algorithms [33]. research,
+                                                                       relation exists classified −1 (non- use SVMs classification. SVMs represents data
+                                                                       interacting pairs). Figure 2(c) describes classifica- vectors vector space  e., input feature space).
+                                                                       tions, used training set SVM method. training set, entities xi (vectors) classified categories given. SVM trained                Using pairwise kernel SVM predict metabolic
+hyperplane separates vector space parts.               networks feature space groups entities                input data, considered training example category.  new entity x classified              dataset ((xi , yi ), di ), set known pairs enzymes
+depending location feature space related            genes) classified categories (interacting hyperplane [33].                                                       non-interacting pairs). Figure 3  shows example   Pairwise Support Vector Machines, instead, classify pair             input data, obtained metabolic network entities (x, y) [32]. Let formally define binary             described Figure 2(c). Figure 3 , enzymes rep-
+Pairwise Support Vector Machine formulation, following                 resented EC number   gene nomenclature
+Brunner et al. [32]: given training data ((xi , yj ), di ),     .
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                                    Page 6 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+
+ Figure 2 Conversion metabolic network graph representation.   Glycolysis Pathways, BioCyc Database [5,6].
+ (b) resulting graph nodes (enzymes) edges (enzyme-enzyme relations). (c) Table represents known enzymes relations (EC
+ numbers related classified +1 non-related -1).
+
+
+  Figure 3(b) represents example pairwise                         Pairwise SVM based dual formalism kernel (K((x1 , y1 ), (x2 , y2 ))). state art pair-        optimization problem represented Figure 3(c). wise kernels mentioned  example,                     parameters αij b learned, using pairwise
+consider Tensor Product Pairwise Kernel K [22],                  kernel, K, training dataset, (xi , yi ). Finally, new
+K((x1 , y1 ), (x2 , y2 )) computed using simple kernel k             pairs enzymes genes (x, y) classified (e.g., k simple Phylogenetic (PFAM) ker-                     interacting interacting, depending evaluation
+nel described Ben-Hur et al. [22]). PFAM kernel                    decision function f  example representation
+(kpfam (x, y)) describes similarity measures based                 Figure 3(d)). predicting gene interactions PFAM database [34] gene x gene y.                     unseen examples, metabolic pathways  Tensor Product Pairwise Kernel K, using                    predicted.
+simple kernel PFAM Kernel kpfam defined                           pairwise kernel computation     K((x1 , y1 ), (x2 , y2 )) = kpfam (x1 , x2 ) ∗ kpfam (y1 , y2 )       expensive tasks prediction metabolic
+                                                                          networks processing storage. Using sequence data
+                                + kpfam (x1 , y2 ) ∗ kpfam (y1 , x2 )     causes longer execution times large storage
+  example, Figure 3(b)  genes                    needs.  mentioned advantages associated variables follow: x1 = YAR071W, y1 =                 using sequence data order avoid error accumu-
+YAL002W, x2 = YDR127W, y2 = YAL038W, Tensor                           lation genome annotation dependencies. Product Pairwise Kernel                                                 SVMs guarantee better accuracy values 
+    K ((x1 , y1 ), (x2 , y2 )) = kpfam (YAR071W, YDR127W) ∗ kpfam (YAL002W, YAL038W)
+                 + kpfam (YAR071W, YAL038W) ∗ kpfam (YAL002W, YDR127W) = 0.5.
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                                              Page 7 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+
+ Figure 3 Diagram pairwise SVM applied metabolic network prediction.   example pairs training set using EC
+ numbers   gene names  . (b) pairwise kernel matrix, numerical values cell correspond measure  similarities, given pairs EC numbers   pairs gene names  . (c) model trained estimate parameters αi,j b  decision function f . (d) Given new pair EC numbers (left) gene names (right) decision function evaluated pair classified  interacting non-interacting.
+
+
+
+
+supervised learning methods sequence ker-                              • Tensor Product Pairwise Rational Kernel
+nels metabolic network inference [7].                              (KPRKT ) focus improvement pairwise kernel computa-                                K((x1 , y1 ), (x2 , y2 )) = U(x1 , x2 ) ∗ U(y1 , y2 )+
+tions representation, incorporating rational kernels                         U(x1 , y2 ) ∗ U(y1 , x2 ) manipulate sequence data. accomplish                            • Metric Learning Pairwise Rational Kernel proposed new framework called Pairwise Rational                              (KPRKM ) Kernels.                                                                            K((x1 , y1 ),(x2 , y2 )) = (U(x1 , x2 )−U(x1 , y2 )−U(y1 , x2 )
+                                                                                                              +U(y1 , y2 ))2
+Methods                                                                           • Cartesian Pairwise Rational Kernel (KPRKC ) Pairwise rational kernels
+                                                                                    K((x1 , y1 ), (x2 , y2 )) = U(x1 , x2 ) ∗ δ(y1 = y2 ) section, propose new pairwise kernels based
+                                                                                                                +δ(x1 = x2 ) ∗ U(y1 , y2 ) rational kernels, e., Pairwise Rational Kernels (PRKs).
+                                                                                                                +U(x1 , y2 ) ∗ δ(y1 = x2 ) obtained using rational kernels sim-
+                                                                                                                +δ(x1 = y2 ) ∗ U(y1 , x2 )
+ple kernels k. defined PRKs, based                                                                                     δ(x = y) = 1 x = y 0  notations definitions Background Section
+                                                                                    ∀x, y ∈ X. 
+Definition 1. Given X ⊆  ∗ transducer U,                            Following Theorem 1, construct U using function                                                                        weighted transducer T, U = T ◦ T −1 , K : (X × X) × (X × X) → R                                                    guarantee U Positive Definite Symmetric
+                                                                                (PDS) kernel. PDS needed condition use kernels
+  • Direct Sum Pairwise Rational Kernel (KPRKDS )                          training classification algorithms. kernels
+    K((x1 , y1 ), (x2 , y2 )) = U(x1 , x2 ) + U(y1 , y2 )+                      defined results PDS kernel operations,     U(y1 , x2 ) + U(x1 , y2 )                                                   PRK kernels PDS [35].
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                      Page 8 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+
+Algorithm                                                          graph species. used SVM methods designed general algorithm, Algorithm 2,              metabolic network inference, prefer balanced
+compute kernels, using composition weighted             dataset. dataset, unbalanced pro-
+transducers. extension Algorithm 1.             portions interacting (+1) non-interacting (−1)
+uses input transducers Mx1 , My1 , Mx2 , My2 ,           classified pairs (e.g., dataset 282060 represent sequences x1 , y1 , x2 , y2 ∈ X         non-interacting pairs). order balance dataset, Weighted Finite-State Transducer U, outputs                followed procedure recommended Yu et al. [29],
+value K((x1 , y1 ), (x2 , y2 )).                                using program BRS-noint select non-interacting
+                                                                   pairs. Yu et al. [29] describes bias non-
+Algorithm 2 Pairwise Rational Kernel Computation                   interacting pair selection training process                                                                    accuracy estimation. eliminate bias, BRS-
+INPUT: pairs sequences (x1 , y1 ), (x2 , y2 ) WFST U
+                                                                   noint program used create “balanced�? negative
+  obtain Mx1 , My1 , Mx2 , My2 use transducer
+                                                                   set maintain right distribution non-interacting
+composition compute:
+                                                                   interacting pairs. result, obtained 2574 non-
+N1 = Mx1 ◦ U ◦ Mx2
+                                                                   interacting pairs total 5149 pairs training
+N2 = Mx1 ◦ U ◦ My2
+                                                                   process.
+N3 = My1 ◦ U ◦ Mx2
+N4 = My1 ◦ U ◦ My2
+(ii) compute sum paths N1 , N2 , N3 , N4 using       Training process kernel computation
+shortest-distance algorithm                                        known metabolic network converted
+(iii) compute formulas Definition 1:                        graph obtained pairs training set,
+KPRKDS ((x1 , y1 ), (x2 , y2 )) = N1 + N2 + N3 + N4                corresponding Figure 3 . PRK representation
+KPRKT ((x1 , y1 ), (x2 , y2 )) = N1 ∗ N4 + N2 ∗ N3                 coincides Figure 3.  compu-
+KPRKM ((x1 , y1 ), (x2 , y2 )) = (N1 − N2 − N3 + N4 )2             tation PRKs  main contribution KPRKC ((x1 , y1 ), (x2 , y2 )) = N1 ∗δ(y1 = y2 )+N2 ∗δ(y1 = x2 )   research), given data yeast Saccharomyces
++N3 ∗ δ(x1 = y2 ) + N4 ∗ δ(x1 = x2 )                               cerevisiae:
+RESULTS: values K((x1 , y1 ), (x2 , y2 ))
+                                                                     • 755 known genes represented                                                                        trivial weighted automaton  e., Ax1 , Ax2 , . . . Ax755 )
+  implementation described  use n-                 using nucleotide sequences,
+gram rational kernel kernel U  n-gram kernel          • n-gram kernel, n = 3, used rational
+                                                                                                         rational kernel Section details).               kernel, U(Ax1 , Ax2 ) =  =3 cAx1  cAx2    complexity steps   (ii) O(|Mx1 | + |My1 | +               n-gram kernel rational kernel Section |Mx2 | + |My2 |). Step (iii) adds constant time complexity.          details), conclude PRKs based n-gram kernels             • Algorithm 2 implemented obtain K values, computed time O |Mx1 | + |My1 | + |Mx2 | + |My2 | .            • example, Tensor Product Pairwise Rational
+                                                                       Kernel Definition 1 obtained 
+Experiments
+                                                                       KPRKT ((x1 , y1 ), (x2 , y2 )) = section experiments predict
+metabolic networks using pairwise SVMs combined                   = U(Ax1 , Ax2 ) ∗ U(Ay1 , Ay2 ) + U(Ax1 , Ay2 )
+PRKs. aim prove advantage using PRKs                      +U(Ay1 , Ax2 )
+                                                                                                      
+improve execution time computation                   =  =3 cAx1  cAx2   ∗  =3 cAy1  cAy2  +
+                                                                                                       
+pairwise kernels training process, maintain-                +  =3 cAx1  cAy2   ∗  =3 cAy1  cAx2  .
+ing improving accuracy values.
+                                                                     • finally, PRK kernels K positive
+Dataset                                                                eigenvalues normalized avoid fact used data yeast Saccharomyces cerevisiae                   longer sequences contain n-grams,
+[36]. species selected compare methods,                resulting similarities [16].
+implementations results methods predict biological networks Saccharomyces cerevisiae             implemented method compute PRKs
+[9,10,22].                                                         using Open Finite-State Transducer (OpenFST) library
+  data species taken KEGG               [38] OpenKernel library [39]. input data pathway [37] converted graph described                 nucleotide sequences known genes, outputs previous section  Figure 2 details).           pairwise rational kernel values similarity 755 nodes 2575 interacting pairs             measure pairs. Example 3 shows input Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                     Page 9 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+
+output values method described  equivalent           represent abbreviated nucleotide sequences, inter- Figure 3(b), using sequence data.                           act interact. decision function, f (x, y),                                                                    previously obtained training process  Example 3. Given nucleotide sequences x1 , y1 , x2 , y2 ,          Pairwise support vector machine Section details). represent abbreviated examples known genes             resulting value evaluating decision function dataset,                                                       f (x, y) greater 0, pair (x, y) interact, x1 = GCTAAATTGGACAAATCTCAATGAAATTGTC                               pair (x, y) interact. Suppose evaluation
+TTGG                                                               y1 = ATGTCCTCGTCTTCGTCTACCGGGTACAGAA                               f (x, y) = f (CTCAAAGTCTTAATGCTTGGACAAATTGA
+AA                                                                 AATTGG . . . , TCTACAGAGTCGTCCTTCGTCTACCGG
+x2 = CATGACTAAAGAAACGATTCGGGTAGTTATT                               GAAAAT . . .) = +3.
+TGGCGG                                                              predict nucleotide sequences (x, y)
+y2 = ATCTACAAGCGAACCAGAGTCTTCTGCAGGC                               interact context metabolic network TTAGAT                                                             yeast Saccharomyces cerevisiae. Tensor Product Pairwise Rational Kernel KPRKT                  case, used 755 genes training pro-
+((x1 , y1 ), (x2 , y2 )) obtained using 3-gram ratio-   cess, species 6000 genes [41].
+nal kernel, e.g., = TCT, values                       rest metabolic pathways predicted
+                                                                   classifying pairs genes  pairs raw
+  • cAx   = 2  TCT appears twice x1                   nucelotide sequences), interacting non-interacting,
+       1
+    GCTAAATTGGACAAATCT CAATGAAATTG                                 using decision function f . Note decision func-
+    TCT TGG,                                                       tion obtained training process,   • cAy   = 2  TCT appears twice y1                   used needed prediction process.
+       1
+    ATGTCCTCGTCT TCGTCT ACCGGGTACAGA
+    AAA,                                                             advantage using sequence data nucleotide
+  • cAx   = 1  TCT appears x2                    sequences used, annotated.
+       2
+    CATGACTAAAGAAACGATTCT GGTAGTTATT                                type sequence data, e.g., high-
+    TGGCGG,                                                    throughput analysis, considered combined,
+  • cAy   = 3  TCT appears times y2             using similar implementation.
+       2
+    ATCT ACAAGCGAACCAGAGTCT TTCT GCAGG
+    CTTAGAT.                                                       Experiment description performance measures
+                                                                   used pairwise SVM PRKs metabolic
+  results values corresponding                network prediction, using data algo- 3-gram rational kernel, KPRKT computed                rithms described  ran experiments KPRKT ((x1 , y1 ), (x2 , y2 )) = 0.3, 0.3 measure    different kernels. Firstly, used PRKs
+similarity.                                                        described Definition 1 using 3-gram rational
+                                                                   kernel  e., KPRKDS−3gram , KPRKT−3gram , KPRKM−3gram
+SVM predicting process                                         KPRKC−3gram ). addition, combination PRKs implement pairwise SVM method, use                   kernels considered. included sequential minimal optimization (SMO) technique               phylogenetic kernel (Kphy ) described Yamanishi 2010 package LIBSVM [40] combination OpenKer-               [9] PFAM kernel (Kpfam ) Ben-Hur et al.
+nel library [39]. training process, decision        [22].  second set experiments devel-
+function obtained estimating parameters,          oped combining PRKs phylogenetic kernel  e.,
+shown Figure 3(c).  prediction process allows           KPRKDS−3gram + Kphy , KPRKT−3gram + Kphy , KPRKM−3gram +
+classification new pairs nucleotide sequences             Kphy KPRKC−3gram + Kphy ). Finally, combined
+interacting interacting evaluating decision          PRKs PFAM kernel, obtaining KPRKDS−3gram +
+function. Example 4 shows description prediction          Kpfam , KPRKT−3gram + Kpfam , KPRKM−3gram + Kpfam process, similar process described Figure 3(d),          KPRKC−3gram + Kpfam kernels. Considering phy- using nucleotide sequences.                                    logenetic PFAM kernels PDS, resulting
+                                                                   combinations PDS [35].
+Example 4. example predictor process.              compare advantages PRKs framework,
+Suppose want know                                         developed new set experiments x = CTCAAAGTCTTAATGCTTGGACAAATTGAAAT                               dataset, using finite-state transducers. TGG,                                                           considered pairwise (n-gram) kernel, e., KT−3gram .
+y=TCTACAGAGTCGTCCTTCGTCTACCGGGAAAAT,                               KT−3gram denoted pairwise tensor product described
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                          Page 10 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+ Pairwise kernels Section. consistent                accuracy comparable Experiments II III.
+previous experiments, combined KT−3gram ker-                       Similar results obtained Yu et al. [29] PPI net-
+nel phylogenetic kernel (Kphy ) PFAM kernel                  works. stated simple sequence-based kernels, (Kpfam ), e., KT−3gram + Kphy KT−3gram + Kpfam ker-                 n-gram, properly predict-protein interactions.
+nels, respectively. pairwise SVM algorithm used                    Yu et al. [29] combined sequence kernels predict metabolic network using data set                  kernels incorporate evolutionary informa-
+described  Table 1 describes groups created                  tion, accuracy model predictor improved.
+compare kernels equivalent PRKs.                           obtained similar results applied metabolic net-
+   experiments executed PC intel                        works predictions: PHY PFAM kernels i7CORE, 8MB RAM. validate model, used                       included (Experiments II III, respectively), accuracies
+10-fold cross validation method measured average                  improved maintaining adequate processing
+Area Curve Receiver Operating Characteris-                   times. best accuracy value obtained com-
+tic (AUC ROC) score.                                                      bining PRK-Metric-3gram PFAM kernels (aver-
+   Cross-validation method suitable approach val-                 age AUC=0.844). papers used similar kernel
+idate performance predictive models. k-fold cross-                  combinations improve prediction biological net-
+validation, original dataset randomly partitioned                  works, Ben-Hur et al. [22] Yamanishi [9]. k equal-sized subsets.  model trained k                   rational kernels used previous
+times. time, k subsets reserved                    research.
+testing remaining k − 1 subsets used                    Ben-Hur et al. [22] report average AUC value training. final value obtained average k             0.78 PFAM kernels, Yamanishi [9] reports results  Kohavi et al. [42] details).                        average AUC 0.77 PHY kernel predicting
+   Receiver Operating Characteristic (ROC) curve                   Saccharomyces cerevisiae metabolic pathways. plot True Positive Rate (TPR) versus False Pos-                previously developed similar experiments using SVM
+itive Rate (FPR) different possible cut-offs binary              methods [7]. result, obtain AUC values 0.92
+classifier  cut defines level discriminat-             PFAM kernel 0.80 PHY kernel, execution
+ing positive negative categories. ROC curve analysis                  times 12060 7980 seconds, respectively.  used assess overall discriminatory ability               cases random selection negative posi-
+SVM binary classifiers. area curve (aver-                   tive training data used. noted Yu et al. [29],
+age AUC score) used metric evaluate                  average AUC values obtained random selection strength classification.                                           data training machine learning tools results bias
+   addition, 95  Confidence Intervals (CIs)                        genes  proteins) large numbers inter- computed, following method described                        actions.  high AUC results previous Cortes Mohri [43]. authors provide                           works directly compared results distribution-independent technique compute confi-                      paper. employed balanced sampling tech-
+dence intervals average AUC values. variance                      niques suggested Yu et al. [29] combat bias depends number positive negative examples                     training set. results, average AUC values (2575 2574 cases) number classifica-                range 0.5-0.844, comparable exceed cases tion errors, ranging 889 1912 cases.                   results obtained Yu et al. [29] balanced sampling,
+                                                                          range 0.5-0.75 different kernels
+Results discussion                                                    protein interaction problems. obtained
+Table 2 shows SVM performance, execution times                    results execution times 15-140 seconds. 95  CIs grouped kernels mentioned                      exception direct sum kernel,   experiments using PRK best                 fidence intervals behaviour random
+execution times (Exp.  transducer representations                classifier. algorithms speed processing.                         developed experiment PFAM
+                                                                          kernel simple kernel Pairwise Tensor Product
+Table 1 Groups PRK pairwise kernel comparison                     (Kpfam ) using balanced sampling suggested Yu
+                                                                          et al. [29]. Note PRK; regular
+Group             PRKs 1                              Pairwise Kernel 2
+                                                                          pairwise kernel using PFAM simple kernel, similar
+N-GRAM            KPRKT−3gram                         KT−3gram            example Using pairwise kernel SVM
+PHY               KPRKT−3gram +Kphy                   KT−3gram + Kphy     predict metabolic networks Section. result, PFAM              KPRKT−3gram +Kpfam                  KT−3gram + Kpfam    average AUC 0.61 execution time 122
+1
+  Kernels taken Table 2.
+                                                                          seconds. compare values results
+2
+  Computed Tensor Product Pairwise Kernel.                       Table 2 Exp.  kernels KPRKM−3gram
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                           Page 11 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+
+Table 2 Average AUC ROC scores processing times various PRKs
+Exp        Type kernels      Kernel                                         Average AUC score   Runtime (sec)    Confidence intervals
+           Pairwise Rational    PRK-Direct-Sum (KPRKDS−3gram )                 0.499               15.0             [0.486, 0.512]
+           Kernels (PRK)        PRK-Tensor-Product (KPRKT−3gram )              0.597               16.2             [0.589, 0.605]            (3-gram)             PRK-Metric-Learning (KPRKM−3gram )             0.641               17.4             [0.633, 0.648]
+                                PRK-Cartesian (KPRKC−3gram )                   0.640               15.0             [0.632, 0.647]
+           PRKs combined        PRK-Direct-Sum+Phy (KPRKDS−3gram + Kphy )      0.425               136.2            [0.411, 0.438]
+           phylogenetic    PRK-Tensor+Phy (KPRKT−3gram +Kphy )            0.733               135.6            [0.725, 0.741]
+II
+           data (Kphy Non-      PRK-Metric+Phy (KPRKM−3gram +Kphy )            0.761               139.2            [0.753, 0.768]
+           sequence kernel)     PRK-Cartesian+Phy (KPRKC−3gram +Kphy )         0.742               132.6            [0.734, 0.749]
+           PRKs combined        PRK-D-Sum+PFAM (KPRKDS−3gram +Kpfam )          0.493               136.2            [0.480, 0.506]
+           PFAM data       PRK-Tensor+PFAM (KPRKT−3gram +Kpfam )          0.827               136.8            [0.819, 0.834]
+III
+           (Kpfam               PRK-Metric+PFAM (KPRKM−3gram +Kpfam )          0.844               140.4            [0.837, 0.850]
+           Sequence kernel)     PRK-Cartesian+PFAM (KPRKC−3gram +Kpfam )       0.842               132.0            [0.835, 0.849]
+
+
+ KPRKC−3gram better average accuracy  e., 0.641                   classification methods. McNemar’s test defines 0.640, respectively) lesser average execution                      score, calculated 
+times (17.4 15.0 seconds, respectively). addition,                                              
+                                                                                       |Nsf − Nfs | − 1 Pairwise Rational Kernel 3-gram combined                           =                                            (2)
+                                                                                                      PFAM kernel Exp. III,  e., Tensor                                        Nsf + Nfs
+Product Pairwise Rational Kernel - KPRKT−3gram +Kpfam ), average accuracy value (average AUC=0.827)                          Nfs number times Algorithm failed
+better Pairwise Tensor Product (Kpfam ),                     Algorithm B succeeded, Nsf number execution time just increased 14.8 seconds  e.,                   times Algorithm succeeded Algorithm B failed. 122 seconds, using Kpfam , 134.8 seconds, using                     equal 0, algorithms similar
+KPRKT−3gram +Kpfam ).                                                       performance. Additionally, Nfs larger Nsf   order statistically compares theses results,                     Algorithm B performs better Algorithm  vice
+applied McNemar’s non-parametric statistical test                       versa. computed scores considering Algorithm [44]. McNemar’s tests recently used Bostanci                   SVM algorithm using Pairwise Tensor Product
+et al. [45] prove significant statistical differences                    (Kpfam ) different Algorithm Bs, using SVM
+
+
+
+
+     Figure 4 Comparison pairwise rational kernels pairwise kernels grouped kernel types (N-GRAM group, PHY group      PFAM group).
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                             Page 12 13
+http://www.biomedcentral.com/1471-2105/15/318
+
+
+
+ different PRKs Table 2  e., KPRKM−3gram ,   used similar types stochiometric data, KPRKC−3gram KPRKT−3gram +Kpfam mentioned .          converted kernels consider PRKs. cases, obtained scores greater 0  e.,
+4.73, 4.54, 7.51), mean PRKs performed better.      Conclusion score proved difference statis-     paper, introduced new framework called
+tically significant confidence level 99  (based     Pairwise Rational Kernels, pairwise kernels tailed Prediction Confidence Levels described          obtained based transducer representations, e., ratio- [45]).                                                     nal kernels. defined framework, developed general
+   Cartesian Kernel widely used        algorithms tested pairwise Support Vector defined Kashima et al. [10]. Kashima et al. [10]    Machine method predict metabolic networks.
+used Expression, Localization, Chemical Phylogenetic        used dataset yeast Saccharomyces cere-
+kernels predict metabolic networks.          visiae validate compare proposal similar non-sequence kernels. current experiments          models using data species. obtained computed, time, pairwise Cartesian ker-      better execution times models, nel rational kernel (sequence kernel) repre-        maintaining adequate accuracy values.  PRKs
+sent sequence data metabolic network prediction.          improved performance pairwise-SVM algo-
+Cartesian kernels [10] defined alternative    rithm used training process supervised improve Tensor Product Pairwise Kernel [22] com-       network inference methods.
+putation performance. experiments shown         methods, learning process executed
+Table 2, confirmed definition, obtained    obtain decision function. decision func-
+better accuracy execution times used          tion used times necessary predict
+Cartesian Pairwise Rational Kernel (KPRKC−3gram )      interaction sequences species Tensor Product Rational Kernel (KPRKT−3gram ).       predict metabolic pathways.
+Comparing results Kashima et al. [10],              methods research used sequence data
+obtained better average AUC values  e., 0.844 vs 0.79),     (e.g., nucleotide sequences) predict interactions. approximately average execution           Genes need correctly annotated raw
+times  e., 93 seconds). Kashima et al. [10] used non-       sequences used.  methods sequence data random selection positive nega-      able avoid error accumulation wrong gene
+tive data training.                                       annotations.
+   Figure 4 shows results experiments compar-        future work, proposal used produce ing PRK framework pairwise kernels.        set candidate interactions pathways comparative groups described Table 1 used.      species, experimentally validated. seen, execution times better       pairwise rational kernels developed
+PRKs used groups. proves PRKs      using finite-state transducers operations.
+compute faster rational kernels use finite-state
+transducer operations representations, improving      Competing interests
+                                                              authors declare competing interests.
+performance.
+   power using kernels sort         Authors’ contributions data represented using kernels.           ARL implemented algorithms developed experiments. ARL, MD
+                                                              BF contributed equally drafting manuscript. authors completely disparate types data combined         reviewed approved final version manuscript.
+add power kernel-based machine learning methods
+[8]. example, coefficients describing relative amounts    Acknowledgements
+                                                              work funded Natural Sciences Engineering Research Council of metabolites involved biochemical reaction  e.,      Canada (NSERC) Microbial Genomics Biofuels Products stochiometric data) represented ker-           Biorefining Processes (MGCB2 project).
+nels added strength predicting model. example, reaction catalyzed fructose-bisphosphate      Author details
+                                                              1 Department Science, University Manitoba, Winnipeg,
+aldolase [EC 4.1.2.13] splits 1 molecule fructose          Manitoba, Canada. 2 Department Plant Science, University Manitoba, R3T
+1,6-bisphosphate 2 molecules glyceraldehyde           2N2 Winnipeg, Manitoba, Canada.
+3-phosphate, relative amounts substrate
+                                                              Received: 11 April 2014 Accepted: 23 September 2014 product represented coefficients 1         Published: 26 September 2014
+2, respectively. stoichiometric kernel encode coefficients substrates products,    References
+                                                              1. Faust K, Helden J: Predicting metabolic pathways sub-network
+enzymes interact stoichiometric            extraction. Bacterial Molecular Networks. Methods Molecular Biology.
+coefficients 0. authors [46-48] defined         Springer: New York; 2012:107–130.
+Roche-Lima et al. BMC Bioinformatics 2014, 15:318                                                                                                   Page 13 13
+http://www.biomedcentral.com/1471-2105/15/318
+

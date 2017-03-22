@@ -1,0 +1,658 @@
+Handling Uncertainty Dynamic Models: Pentose
+Phosphate Pathway Trypanosoma brucei
+Eduard J. Kerkhoven1,2., Fiona Achcar3,4., Vincent P. Alibu1  Richard J. Burchmore1, Ian H. Gilbert5,
+Maciej Trybiło6, Nicole N. Driessen7¤b, David Gilbert6, Rainer Breitling8*, Barbara M. Bakker7,9*,
+Michael P. Barrett1*
+1 Wellcome Trust Centre Molecular Parasitology, Institute Infection, Immunity Inflammation Glasgow Polyomics, College Medical, Veterinary Life
+Sciences, University Glasgow, Glasgow, United Kingdom, 2 Systems Synthetic Biology Group, Department Chemical Biological Engineering, Chalmers
+University Technology, Gothenburg, Sweden, 3 Institute Molecular, Cell Systems Biology, College Medical, Veterinary Life Sciences, University Glasgow,
+Glasgow, United Kingdom, 4 Groningen Bioinformatics Centre, Groningen Biomolecular Sciences Biotechnology Institute, University Groningen, Groningen, Netherlands, 5 Biological Chemistry Drug Discovery, College Life Sciences, University Dundee, Dundee, United Kingdom, 6 School Information Systems,
+Computing Mathematics, Brunel University, Uxbridge, United Kingdom, 7 Department Molecular Cell Physiology, Faculty Earth Life Sciences, VU University
+Amsterdam, Amsterdam, Netherlands, 8 Faculty Life Sciences, Manchester Institute Biotechnology, University Manchester, Manchester, United Kingdom,
+9 Department Pediatrics Systems Biology Centre Energy Metabolism Ageing, University Groningen, University Medical Center Groningen, Groningen, Netherlands
+
+
+
+     Abstract
+     Dynamic models metabolism useful identifying potential drug targets, especially unicellular organisms.      model glycolysis causative agent human African trypanosomiasis, Trypanosoma brucei, shown      utility approach. add pentose phosphate pathway (PPP) T. brucei glycolytic model. PPP      localized cytosol glycosome adding glycolytic model adjustments leads      draining essential bound-phosphate moiety glycosome. phosphate ‘‘leak’’ resolved      model reasonable representation parasite physiology. main types theoretical solution problem
+     identified:   including additional enzymatic reactions glycosome, (ii) adding mechanism transfer
+     bound phosphates cytosol glycosome. example type solution presence      glycosomal ribokinase regenerate ATP ribose 5-phosphate ADP. Experimental characterization ribokinase      T. brucei showed low enzyme levels sufficient parasite survival, indicating mechanisms      required controlling phosphate leak. Examples second type involve presence ATP:ADP
+     exchanger recently described permeability pores glycosomal membrane, current absence      identified genes encoding molecules impedes experimental testing genetic manipulation. Confronted      uncertainty, present modeling strategy identifies robust predictions context incomplete      characterization. illustrate strategy exploring mechanism underlying essential function PPP
+     enzymes, validate confirming model predictions experimentally.
+
+  Citation: Kerkhoven EJ, Achcar F, Alibu VP, Burchmore RJ, Gilbert IH, et al. (2013) Handling Uncertainty Dynamic Models: Pentose Phosphate Pathway   Trypanosoma brucei. PLoS Comput Biol 9(12): e1003371. doi:10.1371/journal.pcbi.1003371
+  Editor: Martin Meier-Schellersheim, National Institutes Health, United States America
+  Received July 3, 2013; Accepted October 16, 2013; Published December 5, 2013
+  Copyright: ß 2013 Kerkhoven et al. open-access article distributed terms Creative Commons Attribution License, permits
+  unrestricted use, distribution, reproduction medium, provided original author source credited.
+  Funding: work supported SULSA PhD studentship EJK (http://www.sulsa.ac.uk/), NWO Vidi grant RB (http://www.nwo.nl funding 
+  funding-instruments/nwo/innovational-research-incentives-scheme/vidi/index.html) SysMO2 grant (SilicoTryp, http://www.sysmo.net/index.
+  php?index = 164) RB, MPB BMB. BMB recipient Rosalind Franklin Fellowship (http://www.rug.nl/umcg/research/rosalind-franklin-fellowships/).
+  Wellcome Trust Centre Molecular Parasitology supported core funding Wellcome Trust (085349, http://www.wellcome.ac.uk/Funding/
+  Biomedical-science/Funded-projects/Major-initiatives/Wellcome-Trust-Centres/index.htm). funders role study design, data collection analysis,
+  decision publish, preparation manuscript.
+  Competing Interests: authors declared competing interests exist.
+  * E-mail: rainer.breitling@manchester.ac.uk (RB); b.m.bakker@umcg.nl (BMB); michael.barrett@glasgow.ac.uk (MPB)
+  . authors contributed equally work.
+   Current address: Department Veterinary Parasitology Microbiology, Faculty Science, Makerere University, Kampala, Uganda.
+  ¤b Current address: Department Parasitology, Leiden University Medical Center, Leiden, Netherlands.
+
+
+
+
+Introduction                                                                            computational models, focusing energy production                                                                                         glycolytic pathway [4–8]. pathway considered    Human African trypanosomiasis, sleeping sickness, lethal                     particularly promising target new drugs, 50  reduction
+disease caused protozoan parasite Trypanosoma brucei [1,2].                      ATP production T. brucei inhibitors glycolysis Current drugs trypanosomiasis difficult administer,                      demonstrated sufficient kill parasites [9].
+unacceptably toxic, relatively expensive considering                          paper, extended model glycolysis impoverished state patients [3]. search new                             description pentose phosphate pathway (PPP), promising drug targets supported series                                essential [10,11] maintenance pathway generates reducing
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                   1                        December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                      Modelling Metabolism Trypanosoma brucei
+
+
+
+  Author Summary                                                             based predictions [20]. Figure 1 gives overview models
+                                                                             considered paper, stoichiometry kinetic
+  Mathematical models valuable tools                           parameters described Table 1 S1, respectively.
+  investigating complex behaviors metabolism.                         provide glucose 6-phosphate (Glc-6-P) cytosolic
+  incomplete knowledge biological systems,                       glucose 6-phosphate dehydrogenase (G6PDH), trace   models contain inevitable uncertainty. uncertainty                 cytosolic hexokinase added models B–D. alternative
+  present measured estimated parameter values,                     solution, transport Glc-6-P glycosomal
+  structure metabolic network.                membrane allowed, gave similar results. Fractionation studies
+  paper increase coverage particularly                      suggest exclusively glycosomal localization hexokinase
+  studied model glucose metabolism Trypanosoma                         activity [21] insufficiently sensitive discriminate trace
+  brucei, tropical parasite causes African sleeping                   cytosolic hexokinase.  enzymes targeted   sickness, extending additional pathway                    glycosome fully folded cytosol, leaves room
+  compartments. modeling process                                                                              small, residual activity compartment.   highlighted uncertainties parameter values network
+                                                                             decided explore model behavior presence cytosolic
+  structure used formulate new hypotheses
+  subsequently tested experimentally.                         hexokinase following analyses, acknowledge   models improved experimentally derived                       choice somewhat arbitrary. reaction utilizing cytosolic Glc-6-P
+  data, uncertainty remained concerning exact                        added models B–D, absence reaction resulted   topology  models allowed                         accumulation Glc-6-P cytosol (25  models   investigate effects loss enzyme, 6-                      cytosolic Glc-6-P concentration 20 mM, contrast   phosphogluconate dehydrogenase. taking uncertainty                      measured steady-state value 2.6 mM). reaction primarily
+  account, models demonstrated loss                     represents use Glc-6-P cytosolic pathways,   enzyme lethal parasite mechanism                       glycosylation proteins [22].
+  different organisms. methodology                        model glycolysis (Figure 1B, model  conserved
+  shows formally introducing uncertainty model                      sum phosphorylated metabolites glycosome, consisting   building provides robust model behavior indepen-                   ATP, ADP glycolytic intermediates (Table 2). Extension   dent network structure parameter values.                         glycolysis model PPP (Figure 1B, model B) introduces                                                                              drain moiety phosphorylated glycosomal compounds.
+equivalents form NADPH used cells’                 extension PPP adds metabolites protection oxidative stress provides metabolic            glycosome derived Glc-6-P, phosphorylated
+link important drug target trypanosomes [12].                  PPP intermediates prevented entering glycolysis Bloodstream form T. brucei relies PPP primary source           key enzymes non-oxidative PPP—ribulose-5-phosphate NADPH, contrast procyclic T. brucei                  epimerase [23] transketolase [17,23] expressed produce NADPH malic enzyme [13].                                         bloodstream form parasite. renders ribose 5-
+   Kinetic models metabolism, constructed T.             phosphate (Rib-5-P) end product PPP according brucei glycolysis, include kinetic parameters uncertain       classical scheme, leads lethal drainage phosphates
+variety reasons, measurement errors lack data.           previously conserved moiety (Figure 2). phosphate previously shown importance taking uncertainty                ‘‘leak’’ entails bound phosphate, inorganic phos- parameter values account [8]. approach                   phate, independent conserved moiety. leak demonstrate model behaviors robust uncertainty,             phosphates conserved moiety bound phosphates helping indicate fragilities model highlighting areas       observed glycosome, bound phosphates need detailed experimental characterization.                    conserved cytosol, net production ATP
+introducing PPP model glycolysis face                   pyruvate kinase. Model B obviously non-
+additional challenge uncertainty model topology itself;         physiological model investigated  know sure reactions active context            phosphate leak effect stoichiometry model pathway. explicit consideration uncertainty         enzyme kinetics: formal proof exists model construction reveals robust behavior indicates gaps            elementary mode (Table S2) model B flux knowledge T. brucei metabolism. illustrate                  PPP.
+consequences uncertainty, robust predictions possible, exploring model behavior various                Exploring solutions phosphate leak
+physiological conditions (different levels oxidative stress            uncertainty glycosomal phosphate leak external glucose concentration) characterizing effects            prevented parasite. types solution considered: inhibition 6-phosphogluconate dehydrogenase (6PGDH),                 maintaining conserved moiety phosphorylated metabo-
+essential enzyme pentose phosphate pathway, proposed               lites including additional reactions glycosome, (ii) potential drug target [14].                                          transferring phosphorylated metabolites glycosomal
+                                                                             membrane. priori knowledge exists balancing bound
+Results                                                                      phosphates glycosome convincingly support
+                                                                             solution 
+Simple modeling PPP creates glycosomal
+phosphate ‘‘leak’’                                                           type solution: Maintaining conserved moiety
+  existing mathematical model glycolysis T. brucei [8]                type solution, stoichiometric analysis extended include reactions pentose phosphate             known predicted glycosomal enzymes [18–20] performed
+pathway (PPP). T. brucei, PPP localized cytosol        indicate additional reactions glycosome recover glycosomes, based subcellular localization studies [15–17],           bound-phosphate lost Rib-5-P (Tables S3, S4, Figure S1).
+proteomic analysis [18,19] subcellular targeting-sequence-               ribokinase, C-terminal PTS-1 sequence 
+
+PLOS Computational Biology | www.ploscompbiol.org                        2                    December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                      Modelling Metabolism Trypanosoma brucei
+
+
+
+
+Figure 1. Schematic overview models used simulation.   Detailed scheme modeled metabolic pathways. numbered
+arrows correspond reactions Table 1. Extensions original model glycolysis indicated colored shapes. Boundary metabolites bold, glycosomal Rib-5-P boundary metabolite model C D. (B) Schematic overview different models, consisting unique
+combination colored modules described   Table 1. Model C D alternatively utilize fructose (model Cfru Dfru), branch switched unless specifically mentioned.
+doi:10.1371/journal.pcbi.1003371.g001
+
+localizes glycosome, able support steady-state flux        provide alternative solutions phosphate leak,  PPP requirement additional reactions              ribokinase solution representative class solutions known predicted localized glycosome.            bound phosphate balanced glycosome addition hypothetical reactions glycosome                  moiety bound phosphates conserved. solution requires
+
+
+PLOS Computational Biology | www.ploscompbiol.org                        3                     December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                                   Modelling Metabolism Trypanosoma brucei
+
+ Table 1. Model stoichiometry modules subsequent reactions.
+
+
+ Module                                     Reaction                              Reaction stoichiometry
+
+ Glycolysis                          1         GlcTplasma   membrane                      Glcout«Glcc
+                                     2         GlcTglycosomal   membrane                  Glcc«Glcg
+                                     3         HXKg                                       Glcg+ATPg«Glc-6-Pg+ADPg
+                                     4         PGI                                        Glc-6-Pg«Fru-6-Pg
+                                     5         PFK                                        Fru-6-Pg+ATPg«Fru-1,6-BPg+ADPg
+                                     6         ALD                                        Fru-1,6-BPg«DHAPg+GA-3-Pg
+                                     7         TPI                                        DHAPg«GA-3-Pg
+                                     8         GAPDH                                      GA-3-Pg+NAD+g+Pig«1,3-BPGAg+NADHg
+                                     9         PGK                                        1,3-BPGAg+ADPg«3-PGAg+ATPg
+                                     10        PGAT                                       3-PGAg«3-PGAc
+                                     11        PGAM                                       3-PGAc«2-PGAc
+                                     12        ENO                                        2-PGAc«PEPc
+                                     13        PYK                                        PEPc+ATPc«Pyrc+ADPc
+                                     14        PyrT                                       PyrcRPyrout
+                                     15        GDH                                        DHAPg+NADHg«NAD+g+Gly-3-Pg
+                                     16        DHAP:Gly-3-P antiporter                    DHAPc+Gly-3-Pg«DHAPg+Gly-3-Pc
+                                     17        GPO                                        Gly-3-Pc+0.5 O2RDHAPc
+                                     18        GK                                         Gly-3-Pg+ADPg«Glyout+ATPg
+                                     19        ATP utilization                            ATPcRADPc
+                                     20        AKg                                        2 ADPg«ATPg+AMPg
+                                     21        AKc                                        2 ADPc«ATPc+AMPc
+
+ Cytosolic extension                 22        G6P utilization                            Glc-6-Pc«Glcc+Pic
+                                     23        HXKc                                       Glcc+ATPc«Glc-6-Pc+ADPc
+                                     24        G6PDH                                      Glc-6-Pc+NADP+c«6-PGLc+NADPHc
+                                     25        PGL                                        6-PGLc«6-PGc
+                                     26        6PGDH                                      6-PGc+NADP+c«Rul-5-Pc+NADPHc+CO2
+                                     27        PPI                                        Rul-5-Pc«Rib-5-Pc
+                                     28        NADPH utilization                          NADPHc«NADP+c
+                                     29        TR                                         TS2,c+NADPHc«T(SH)2,c+NADP+c
+                                     30        TOX                                        T(SH)2,cRTS2,c
+
+ Glycosomal extension                31        G6PDH                                      Glc-6-Pg+NADP+g«6-PGLg+NADPHg
+                                     32        PGL                                        6-PGLg«6-PGg
+                                     33        6PGDH                                      6-PGg+NADP+g«Rul-5-Pg+NADPHg+CO2
+                                     34        PPI                                        Rul-5-Pg«Rib-5-Pg
+                                     35        NADPH utilization                          NADPHg«NADP+g
+
+ Model C extension                   36        RK                                         Rib-5-Pg+ADPg«Ribg+ATPg
+
+ Model D extension                   37        ATP:ADP antiporter                         ATPc+ADPg«ATPg+ADPc
+
+ Fructose growth                     38        FruTplasma   membrane                      Fruout«Fruc
+                                     39        FruTglycosomal   membrane                  Fruc«Frug
+                                     40        HXK(fru)g                                  Frug+ATPg«Fru-6-Pg+ADPg
+
+ Bold characters indicate external metabolites kept fixed. metabolites internal variables 
+ doi:10.1371/journal.pcbi.1003371.t001
+
+
+ribokinase operate direction ribose ATP                              improved low ATP/ADP ratio. similar solution, 
+production, favored thermodynamically standard                        exploited regard glycerol kinase conditions. equilibrium constant 0.0036                             onset anaerobiosis. response loss mitochondrial
+direction ribose formation, [24]) ribokinase require                      alternative oxidase reaction conditions, trypanosomal 300-fold accumulation Rib-5-P ribose                            glycerol kinase runs direction glycerol ATP
+glycosome, indicating ribose glycosome                    production, glycerol 3-phosphate accumulates low
+mM range Rib-5-P mM range. ratio                       ATP/ADP ratio maintained glycosome [25].
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                 4                        December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                                 Modelling Metabolism Trypanosoma brucei
+
+
+
+ Table 2. Conserved moieties models Figure 1.
+
+
+ Model             Moieties                          Metabolites
+
+                 1                                 ATPg+ADPg+AMPg
+                   2                                 ATPc+ADPc+AMPc
+                   3                                 NADHg+NAD+g
+                   4                                 Gly3-Pc+DHAPc
+                   5                                 Glc-6-Pg+Fru-6-Pg+2 Fru-1,6-BPg+DHAPg+GA-3-Pg+1,3-BPGAg+Gly-3-Pg+2 ATPg+ADPg
+ B                 1,2,3,4
+                   6                                 NADPHg+NADP+g
+                   7                                 NADPHc+NADP+c
+                   8                                 TS2,c+T(SH)2,c
+ C                 1,2,3,4,6,7,8
+                   9                                 Glc-6-Pg+Fru-6-Pg+2 Fru-1,6-BPg+DHAPg+GA-3-Pg+1,3-BPGAg+Gly-3-Pg+2 ATPg+ADPg+6-PGg+6-PGLg+Rul-5-
+                                                     Pg+Rib-5-Pg
+ D                 1,2,3,4,6,7,8
+
+ moieties present multiple models, number indicated. Moieties 1–4 conserved model versions. Moieties 6–8 result  extension pentose phosphate pathway. Moiety 9 modified version moiety 5, including phosphorylated metabolites pentose-phosphate
+ pathway. appears glycosomal PPP completed ribokinase. glycosomal PPP linked ATP transport instead, moiety 5 disappears
+ altogether.
+ doi:10.1371/journal.pcbi.1003371.t002
+
+
+   Model B extended glycosomal ribokinase,                      Table S1 determined kinetic parameters). Dynamic simulations
+generating model C (Figure 1), represents solution                     extended model subsequently indicated feasibility glycosomal conserved moiety bound phosphates restored                      ribokinase solution, allows metabolic fluxes (Table 2, moiety 9). order provide kinetic parameters                      branches (Figure S2 Table S2).
+model C, enzyme kinetics heterologously expressed T. brucei                      ribokinase responsible maintaining ribokinase characterized used update model                       phosphate balance glycosomes, presence expected                                                                                      essential parasite survival. investigate hypothesis,                                                                                      genetic mutant (RKRNAi) generated knockdown levels                                                                                      ribokinase transcript RNA interference.  growth
+                                                                                     phenotype observed (Figure S3). Attempts generate gene
+                                                                                     knockout ribokinase, surprisingly, failed spite numerous
+                                                                                     rounds transfection. conditional knockout generated                                                                                      inducible expression exogenous copy T. brucei
+                                                                                     ribokinase gene. non-induced growth resulted depletion
+                                                                                     ribokinase, growth phenotype observed,                                                                                      ectopic copy switched  concluded                                                                                      ribokinase activity essential residual levels RKRNAi
+                                                                                     leaky expression conditional knockout sufficient                                                                                      fulfill essential role.
+                                                                                        Additionally, requirement low ribose/Rib-5-P ratio                                                                                      catalyze formation ribose ribokinase predicts ribose
+                                                                                     toxic parasites (Figure S4), similar way                                                                                      glycerol prevent glycerol kinase working                                                                                      reverse direction.  incubation parasites ribose                                                                                      30 mM 72 hours non-lethal. results
+                                                                                     genetic mutants, concluded ribokinase Figure 2. Phosphate leak model PPP. Time course                              unlikely sole glycosomal enzyme responsible maintaining
+simulation model B, reactions glycosomal PPP              phosphate balance. kinases, arginine kinase [26]
+switched t = 0 increasing Vmax value zero                 phosphoenolpyruvate carboxykinase (PEPCK), value given Table S1. Glce 5 mM kTOX = 2 ml?min21?mg
+protein21. Solid lines indicate medians, shaded areas interquartile
+                                                                                     present glycosome bound phosphate homeostasis
+ranges. Fluxes (J) plotted left y-axis indicative              involve large redundant network contributing
+glucose uptake (GlcTplasma membrane), glycerol (GK) pyruvate                     metabolic pathways. uncertainty remains enzymes
+production (PyrT) branches pentose phosphate                          involved preventing phosphate leak restoring
+pathways (G6PDHc/g). sum bound phosphates glycosome                    conserved moiety phosphorylated metabolites, model C
+(SPg), exists model glycolysis (Table 2, moiety 5), plotted
+                                                                                     represents generic representation solution. Continued right y-axis. 25 minutes, bound phosphates glycosome depleted metabolic fluxes subsequently drop                 analysis model   provide insight zero.                                                                                effects solution absence specific
+doi:10.1371/journal.pcbi.1003371.g002                                                individual enzyme.
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                5                       December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                        Modelling Metabolism Trypanosoma brucei
+
+
+
+Second type solution: Transferring phosphates                          bloodstream forms [32], procyclic forms, grow glycosomal membrane                                                        glucose proline, rescued removal    alternative solution phosphate leak requires transfer-            sugars medium [32], ablation hexokinase
+ring bound-phosphates glycosomal membrane.                   [33]. Simulations model D indicate presence achieved presence single ATP:ADP antiporter                     ATP:ADP antiporter mimics absence glycosome, operative glycosomal membrane, analogous yeast               high risk sugar-phosphate accumulation (Figure 3). peroxisomal adenine nucleotide transporter [27]. Model D                   presence PPP partly rescue model ATP:ADP
+generated addition ATP:ADP antiporter model B                  antiporter accumulation sugar-phosphates (Figure 3B–C,
+(Figure 1), stoichiometric analysis model D showed                  compare model AAT D), high risk accumulation
+absence conserved moiety phosphorylated glycosomal                     remains antiporter active (Figure 3D–E). metabolites (Table 2).                                                         shown experimentally procyclic trypanosomes    Dynamic analysis model D showed absence                  accumulation occurs enzymes mislocalized, conservation constraint phosphorylated metabolites                   detrimental cells [31]. types transporters,
+glycosome introduced risk high accumulation                      including recently described pores glycosomal membrane
+metabolites. autocatalytic design glycolysis means                 [34], facilitating net transport phosphorylated compounds surplus ATP produced later steps glycolysis fuel             glycosome gave similar results, absence known reactions positive feedback loop. ‘‘turbo design’’ [28]        genes encoding transporters impedes testing controlled organisms additional negative feedback                hypothesis genetic manipulation.
+regulation, e.g. inhibition PFK PEP [29]. Trypanosomes lack                  hypothesized solutions phosphate leak regulation, dynamic modeling supported direct                      theoretically able restore glycolytic PPP flux. experimentation revealed glycosomal localization              current available knowledge insufficient explicitly exclude glycolysis prevents turbo effect trypanosomes [30,31].               types solutions, analysis models Glucose predicted lethal glycosome deficient                      valuable insights instance 6PGDH inhibition,
+
+
+
+
+Figure 3. ATP:ADP antiporter mimics turbo-state.   Overview models used figure. Model D Figure 1, model 
+glyc model glycosomal localization, described [31], model AAT model ATP:ADP antiporter. (B–C) Steady-state
+concentrations glycosomal Glc-6-P Fru-1,6-BP depicted various models. (D) Increasing activity ATP:ADP antiporter
+(Vmax,ATP:ADP antiporter) model D leads high risk accumulation hexose phosphates. green line indicates concentration Fru-1,6-BP original model glycolysis (17.2 mM, panel C, model . Glce simulation 25 mM. (E) Time course simulation model D 25 mM Glce various values Vmax,ATP:ADP antiporter parameter. Plotted concentration glycosomal phosphates (SP similar Figure 2, moiety 5 Table 2). ATP:ADP antiporter activity values 1 nmol?min21?mg protein21 result depletion glycosomal phosphates (cf. Figure 2).
+kTOX = 2 ml?min21?mg protein21 models. Solid lines indicate medians, shaded areas error bars interquartile ranges, derived uncertainty modeling.
+doi:10.1371/journal.pcbi.1003371.g003
+
+
+PLOS Computational Biology | www.ploscompbiol.org                          6                     December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                      Modelling Metabolism Trypanosoma brucei
+
+ ignoring uncertainty involved. demonstrate             inhibited trypanosomes potentially renders parasites                                                                        susceptible oxidative stress. analyze hypotheses,
+                                                                             activity 6PGDH investigated models C D.
+Predictive behavior using extended models                                6PGDH inhibition models resulted accumulation
+trypanosome glucose metabolism                                               6-PG anticipated (Figure 5A–B). models gave    Dynamic simulations using models, containing               similar results, major difference glycosomal 6- theoretical solutions phosphate-leak problem,                 PG model C restricted 45 mM constraint showed oxidative stress regulates flux PPP              conserved moiety phosphorylated metabolites. Highly oxidative
+(Figure 4A), line measured increases flux         conditions resulted cytosolic 6-PG accumulation started
+PPP related species T. cruzi induced oxidative stress            lower 6PGDH inhibitions, cytosolic PPP flux activated
+[35]. Low oxidative stress (kTOX = 2 mLNmin21Nmg protein21)                  provide NADPH required trypanothione reductase.
+represents healthy proliferating trypanosome results              6PGDH activity decreased 95 
+low PPP flux, supported experimental observation                 glycolysis reduced negligible flux. observe effects consumed glucose excreted pyruvate                accumulated 6-PG PGI isolation effects, model glycerol [36,37]. sudden burst oxidative stress simulated           6-PG sensitive PGI simulated different 6-PG levels. completely (99 ) oxidizing pools trypanothione              50  reduction glycolytic flux lethal parasite [9], NADPH subsequently allowing model reach steady                level inhibition reached 6-PG levels state. parasite able restore redox balance           500 mM (Figure 5C). model C, conserved moiety bound minute (Figure 4B). experiment simulates extreme                 phosphates restrict glycosomal 6-PG level 45 mM
+level oxidative stress, reality pools          (Figure 5A), model D high accumulation 99  oxidized, PPP respond faster.                               glycosomal 6-PG occurs combination far extreme
+   previously proposed inhibition              accumulation cytosolic 6-PG (Figure 5B). model
+enzyme PPP, 6-phosphogluconate dehydrogenase                          supports PGI inhibition hypothesis explana-
+(6PGDH), lethal trypanosomes [38]. Drosophila                tion lethality 6PGDH inhibition T. brucei.
+[39,40], yeast [41] mammalian cancer cells [42], lethality               second hypothesis initially proposed posits 6PGDH
+6PGDH inhibition based inhibition glycolysis             inhibition lethal reduced flux PPP accumulation 6-phosphogluconate (6-PG). Inhibition                     associated increased sensitivity oxidative stress. models,
+6PGDH results accumulation substrate 6-PG,                simulation 6PGDH inhibition demonstrates cell’s
+potent inhibitor phosphoglucose isomerase (PGI) [43], 6-PG                ability cope oxidative stress strongly affected, flux
+subsequently inhibits conversion glucose 6-phosphate                trypanothione reductase inhibited activity (Glc-6-P) fructose 6-phosphate. Glc-6-P instead                 6PGDH reduced 50  (Figure 5A–B). directed PPP, 6-PG accumulates higher levels,            hypothesis introduced model C reveals accumulation ultimately inhibiting ATP producing glycolytic pathway.               glycosomal 6-PG depletes bound phosphates Drosophila yeast, lethal phenotype rescued                glycosome, inhibiting glycolytic flux. Sensitivity oxidative
+additional loss G6PDH, completely shutting PPP               stress, depletion bound phosphates conserved preventing accumulation 6-PG [40,41]. Growth                   moiety, explain loss viability ablation
+alternative hexoses fructose, bypassing PGI reaction             6PGDH. accumulation toxic lactone precursor 6- preventing inhibition glycolysis, shown                PG product inhibition lactonase enzyme rescue 6PGDH deficient cancer cells [42]. similar route                 possibility, high equilibrium constant reaction renders lethality 6PGDH inhibition PGI inhibition hypothesized            insensitive product [44]. Finally, reduced production T. brucei [10], experimental proof exists corroborate          nucleotide precursor Rib-5-P PPP explain 6PGDH hypothesis. Alternatively, reduced PPP flux 6PGDH                inhibition lethality.
+
+
+
+
+Figure 4. Simulations oxidative stress model C.   steady state flux cytosolic pentose phosphate pathway model C function oxidative stress varying kinetic constant kTOX. (B) Fluxes cytosolic PPP enzymes function time sudden oxidative stress. time-course, kTOX = 2 ml?min21 ? mg protein21. removed steady state t = 0, setting
+99  NAD(P)H trypanothione pools oxidized form. Shown relaxation cytosolic PPP fluxes. Solid lines indicate medians,
+shaded areas interquartile ranges. Near identical results obtained model D (Figure S5).
+doi:10.1371/journal.pcbi.1003371.g004
+
+
+PLOS Computational Biology | www.ploscompbiol.org                        7                     December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                        Modelling Metabolism Trypanosoma brucei
+
+
+
+
+Figure 5. Simulations 6PGDH inhibition 6-PG accumulation.  B) effects inhibition 6PGDH 6-PG concentrations metabolic fluxes simulated reducing Vmax,6PGDH model C D high oxidative stress (kTOX = 200 ml?min21?mg protein21). Simulations low oxidative stress (kTOX = 2 ml?min21?mg protein21) shown Figure S6. ATP production flux steady-state flux PFK indicated red, trypanothione reductase steady-state flux indicated yellow, plotted left y-axis. Steady-state concentration cytosolic (blue) glycosomal (green) 6-phosphogluconate plotted right y-axis. Shaded areas indicate interquartile ranges. (C) Steady-state flux glycolysis function glycosomal 6-PG concentration model  glycosomal 6-PG concentration 500 mM reduces glycolytic
+flux 50 .
+doi:10.1371/journal.pcbi.1003371.g005
+
+
+RNA interference confirms 6PGDH essential, lethality inhibition glycolysis
+   predictions modeling tested experimentally. genetic mutant 6PGDH transcript knocked RNA interference (6PGDHRNAi) yielded reduced levels activities 6PGDH (Figure 6A) subsequent cell death,
+confirming severe effects 6PGDH inhibition observed model simulations. Antibodies 6PGDH revealed enzyme distributed cytosol lesser degree glycosome (Figure 6B).
+   6PGDH activity measurements indicate growth parasites affected 6PGDH activity reduced 50  24 hours. 72 hours, 15  6PGDH activity remains. suggests hypotheses, e. PGI inhibition depletion bound
+phosphate moiety, unlikely. 6PGDHRNAi parasites rescued addition 0.5 mM ribose, alternative
+pathway Rib-5-P, suggesting availability Rib-5-P nucleotide biosynthesis responsible lethal
+phenotype.
+   test proposed feedback loop related inhibition PGI accumulating 6-PG tested 6PGDHRNAi                       Figure 6. Ablation 6PGDH.   Effect 6PGDH ablation trypanosomes behaved grown fructose, glycolytic                     growth rate. non-induced 6PGDHRNAi culture, grown glucose-
+substrate [11,37,45] enter pathway PGI step,           containing HMI-9 split 0 h, +tet induced tetracycline, previously shown rescue growth 6PGDH deficient                2tet non-induced control. (B) Specific activities 6PGDH cancer cells [42].                                                            induced control 6PGDHRNAi parasites. (C) Western blot showing
+                                                                              predominant localization 6PGDH glycosomal marker
+   Model C D extended using fructose                        aldolase (fraction S), faint band observed transporter subsequent utilizing reactions (Figure 1), using          cytosolic fraction P marker enolase. (D) Cell densities parameter values literature (Table S1). rate equation            growth different substrates. t = 0 h, 6PGDHRNAi culture grown hexokinase adapted substrate competition            glucose split 1?105 ml21 HMI-9 glucose glucose fructose. Steady-state calculation fructose                fructose, absence presence tetracycline. Plotted cell
+                                                                              densities cumulative, 2tet cultures split 48 h versions models (model Cfru Dfru) predict growth                                                                               1?105 ml21. higher starting cell density used allow parasites supported fructose, lethal effect             parasites adapt change carbon source. Growth fructose
+6PGDH inhibition averted using substrate                 slower glucose, unable rescue induced cultures.
+(Figure S7). indicates lethal effect 6PGDH             doi:10.1371/journal.pcbi.1003371.g006
+
+
+PLOS Computational Biology | www.ploscompbiol.org                         8                      December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                          Modelling Metabolism Trypanosoma brucei
+
+
+loss trypanosomes catastrophic positive feedback              tandem low levels residual glycolytic enzyme activity loop induced PGI inhibition.                                             cytosol [46], knowing genes encode    vitro, 6PGDHRNAi slightly slower growth glucose              glycosomal membrane translocases remain uncertain medium substituted fructose (Figure 6C).                 roles play.
+common model predictions, growth fructose unable                     topology active metabolic network rescue lethal phenotype 6PGDH ablation 6PGDHRNAi                   glycosome remains uncertain, types solutions
+cell line (Figure 6C). fact G6PDH essential                 models discarded, models used bloodstream form T. brucei [11], loss enzyme                 probe aspects behavior glycolytic pentose
+revert lethality associated loss 6PGDH Drosophila [40]            phosphate pathways, expanding modeling strategy intro-
+yeast [41], indicates loss oxidative branch         duced [8]. Simulations model types provided PPP se T. brucei responsible death,       similar results; behavior oxidative stress nearly identical,
+glycolysis inhibitory loop proposed eukaryotes.                         inhibition 6PGDH showed minor differences
+                                                                                 models, taking account additional
+Discussion                                                                       uncertainty exact kinetic parameters enzymes
+                                                                                 involved.
+   mathematical model glucose metabolism                              types model showed different behavior bloodstream form trypanosome extensively                       low 6PGDH activities, able exclude initial
+curated dynamic models cellular metabolism. model                         hypothesis inhibition PGI accumulated 6-PG accurately simulates range features glucose metabolism                explanation lethal effect 6PGDH inhibition [10,38]. parasitic protist. paper, extended curated              verified experimentally RNA interference confirmed
+model trypanosomal glycolysis PPP.  doing                 loss 6PGDH lethal cells lethality soon obvious knowledge central               retained fructose used carbon energy source. metabolism incomplete. Using previously established               fructose enters pathway PGI, feedback loop strategy explicitly handling uncertainty dynamic models,              PGI, proposed operate eukaryotes [39–42], additionally taking uncertainty metabolic network topology                explain lethality. remaining possibility inhibition account, able characterize important gaps                  6PGDH renders parasite sensitive oxidative stress, knowledge trypanosomal metabolism,                     test given knockdown gene lethal. behaviors robust uncertainty.                                      article demonstrate building models    type solution observed phosphate ‘‘leak’’,                metabolism provide powerful means indicate introduced extension glycolytic model PPP,                  knowledge biological lacking. required presence additional enzymatic reactions               hypothesize possible solutions gaps knowledge
+glycosome recover bound phosphate. example type                 test possible solutions, silico experimentally. solution, glycosomal ribokinase added kinetic model                Interestingly, uncertainties actual structure
+able restore glycosomal phosphate balance generating                   resolved technical reasons ATP. Kinetic characterization recombinant T. brucei ribokinase                experimental testing hypotheses limited, explicit
+showed enzyme work ribose production                consideration uncertainties model construction direction (albeit far effectively opposite direction).          analysis allows make meaningful predictions face Various genetic mutants ribokinase,  subsequently                     limited information. considerably extends usefulness indicated unlikely ribokinase involved                dynamic models, uncertainty levered strength.
+restoring phosphate balance. gene appears essential, ribokinase enzyme apparently present vast excess             Materials Methods phenotype observed cells transcript knocked RNA interference.  cells                   Stoichiometry
+inducible copy gene present place endogenous                   computational model constructed modular way.
+alleles, growth occurs gene switched ‘ ’,                   reactions included module listed Table 1 presumably leaky expression. essential role small                 graphically represented Figure 1. starting point module
+amounts ribokinase unknown, unlikely                describing glycolysis bloodstream form T. brucei [7,8]. sole enzyme capable sustaining bound-phosphate balance                 modifications kinetic equations listed  cells. Given glycosome contains multiple pathways                 PPP modules, consisting identical set glycolysis PPP, purine salvage, pyrimidine                reactions; localized entirely glycosomal matrix biosynthesis, parts ether lipid, fatty acid isoprenoid            cytosol. allow flux glycosomal PPP
+metabolic pathways (Table S3), highly redundant                   model extended ribokinase
+provide robust network maintain phosphate balance.                          module ATP:ADP antiporter glycosomal
+   second type solution bound-phosphate leak                   membrane. rationale extensions discussed involve flow bound phosphates glycosome.                Results section. example type solution, addition theoretical                   Ribose 5-phosphate ribose modeled end-products glycosomal ADP:ATP antiporter analogous adenine                           PPP, depending model version compartment. nucleotide antiporter yeast peroxisomes [27] allowed                    published intracellular concentrations available ribose 5-
+glycolysis oxidative branch PPP operate                     phosphate ribose, cytosolic glycosomal concentra-
+concert, shown modeling results.                      tions fixed 0.01 mM unless stated 
+genes encoding necessary transporters identified,
+experimental support model predictions possible               Kinetic equations point. variant type solution involve                 Generic equations.       rate equations follow non-specific pores glycosomal membrane, working                        generic form:
+
+
+PLOS Computational Biology | www.ploscompbiol.org                            9                    December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                                                                   Modelling Metabolism Trypanosoma brucei
+
+
+
+
+                                                 
+                                      ½S1c=g ½S2c=g
+                                                                                                                                                                                 
+                                     : 1{ C x,c=g
+                                             :                                                                                                           ½Glc-6-Pg
+                                                                                                                                                                      : 1{ CPGI,c
+                                      Km,S1 Km,S2
+                                           Keq,x                                                                                                         Km,Glc-6-P       K
+vx,c=g ~Vmax,c=g :                                     , ð1Þ                                                                vPGI,g ~Vmax,g :
+                                                                                                                                                                               eq,PGI
+                                                                                                                                                                                                     ð8Þ
+                       ½S1    ½P1       ½S2      ½P2                                                                                              ½Glc-6-Pg     ½Fru-6-Pg         ½6-PGg
+                    1z K c=g K c=g : 1z K c=g K c=g                                                                                            1z K            zK              zK
+                                   m,S1          m,P1                      m,S2               m,P2                                                     m,Glc-6-P      m,Fru-6-P            6-PG
+ reactions substrates products. Reactions                                                       CPGI,g follows equation 4. substrate product involved follow:                                                                           ATP:ADP antiporter, G6PDH, 6PGDH, PPI, RK,
+                                                                                                                         TR. reversible reactions pentose phosphate
+                                               ½S1c=g                                                                 pathway modeled according Equations 1–4, dependent                                                : 1{ C x,c=g                                                              number substrates products. ATP:ADP
+                                         Km,S1        Keq,x
+                      vx,c=g ~Vmax,c=g :     ½S1c=g   ½P1
+                                                                                    ,                     ð2Þ            antiporter substrates S1 S2 ATPc ADPg                                          1z K        K c=g                                                             products P1 P2 ATPg ADPc.
+                                               m,S1      m,P1
+                                                                                                                           Phosphogluconolactonase. 6-phosphogluconolacto- x identifies reaction, S1 S2 substrates                                                      nase (PGL) reaction, spontaneous hydrolysis P1 P2 products reaction. Subscripts c/g indicates                                                     enzyme-catalyzed rate included [48]: separate equations used cytosolic glycosomal
+hexokinase. Keq standard equilibrium constant, Cx,c/g                                                                                                                       
+                                                                                                                                                         ½6-PGLc=g          CPGL,c
+specifies ratio substrates products defined                                                                                                      : 1{
+                                                                                                                                                         Km,6-PGL            Keq,PGL
+                                                                                                                                  vPGL,c=g ~Vmax,c=g :        ½6-PGLc=g       ½6-PGc=g
+                                        ½P1c=g :½P2c=g                                                                                                  1z K
+                                                                                                                                                                 m,6-PGL
+                                                                                                                                                                           zK
+                                                                                                                                                                                m,6-PG               ð9Þ
+                               Cx,c=g ~                  ,                                                ð3Þ
+                                        ½S1 :½S2  c=g           c=g
+                                                                                                                                                      
+                                                                                                                                                                               ½6-PGc=g
+                                                                                                                                                                                             
+                                                                                                                                             zk:Vc=g : ½6-PGL         c=g { Equation 1,                                                                                                                                                             Keq,PGL
+
+                                                                                                                         k rate spontaneous hydrolysis Vc/g volume
+                                                    ½Pc=g                                                               relevant compartment, 5.4549 0.2451 mL                                       Cx,c=g ~                ,                                           ð4Þ
+                                                    ½Sc=g                                                               mg protein cytosol glycosome, respectively.
+                                                                                                                            Glc-6-P utilization. Glc-6-P utilization reaction Equation 2.                                                                                                           modeled loss Glc-6-P glucose hypothetical
+   Modified glycolysis model. glycolysis module                                                             phosphatase reaction, using Equations 2 4. fates Glc-6-
+modified compared latest version [7,8] using reversible                                                     P, entry inositol metabolism mannose glycocon-
+rate equations hexokinase (HXK), phosphofructokinase (PFK)                                                           jugate biosynthesis, kinetic parameters known, pyruvate kinase (PYK), modeled previously                                                              covered generic Glc-6-P consuming reaction.
+irreversible reactions. Hexokinase follows Equation 1 3.                                                           NADPH utilization trypanothione oxidation reactions
+   PFK modeled reversible ordered bi-bi kinetics                                                            (TOX). Glycosomal cytosolic oxidation NADPH mixed inhibition fructose 1,6-bisphosphate [47]:                                                                      trypanothione modeled mass action kinetics:
+
+
+vPFK,g ~Vmax,g :
+                           Kii        :                                                                                                       vx,c=g ~kx :½NADPHc=g                                ð10Þ
+                   ½Fru-1,6-BPg zKii
+                                                               
+                              ½Fru-6-Pg : ½ATPg   : 1{ CPFK,g                                            ð5Þ           kx mass-action constant reaction x.
+                             Km,Fru-6-P Km,ATP          K     eq,PFK                                      (5)
+Ks,ATP     ½ATPg        ½Fru-6-Pg       ½Fru-6-Pg :½ATPg        ½ADPg              ½Fru-1,6-BPg :½ADPg
+                                                                                                                ,
+Km,ATP   zK
+              m,ATP
+                      zK
+                          m,Fru-6-P
+                                      zK             :
+                                          m,Fru-6-P Km,ATP
+                                                                  zK
+                                                                        m,ADP
+                                                                                          Kis :Km,ADP                  Kinetic parameters
+                                                                                                                           kinetic parameters rate equations mentioned                                                                                                                          predominantly derived literature. parameters CPFK,g follows Equation 3, Kii Kis mixed                                                          T. brucei enzyme available, parameters related
+inhibition fructose 1,6-bisphosphate taken [47].                                                    species used. necessary, Keq values corrected pH 7.
+  Pyruvate kinase modeled reversibly cooperativity PEP:                                                      Kinetic parameters used fixed parameter model listed                                                                                                                          Table S1. Distributions parameters used uncertainty
+vPK,c ~
+                                                                                                                       modeling given Text S1.
+                                 
+                            ½PEPc n : ½ADPc       : 1{ CPK,c
+                             KPEP     Km,ADP            K          eq,PK                                  ð6Þ            Metabolite concentrations
+Vmax,c :                                            
+                 ½PEPc n   ½Pyrc  : 1z ½ADPc ½ATPc                                                                    extension model glycosomal pentose
+             1z K         zK            K        K                                                                       phosphate pathway led extension conserved moiety                        PEP             m,Pyr                   m,ADP                m,ATP
+                                                                                                                         phosphorylated glycosomal metabolites compared earlier CPK,c meaning Equation 3,                                                             model versions [4]. precise overview conserved moieties                                                                                                                          model version Table 2. new conserved sum                                                  
+                                  ½ATPc ½ADPc                                                                          chosen extension glycolysis model                 KPEP ~Km,PEP : 1z                :                                                      ð7Þ            glycosomal PPP ribokinase results similar steady state
+                                  Ki,ADP   Ki,ADP
+                                                                                                                         concentrations glycolytic metabolites models.   Phosphoglucose isomerase. known inhibition                                                                      conserved sum NADPH cytosol glycosome phosphoglucose isomerase (PGI) PPP intermediate 6-                                                                arbitrarily chosen 2 mM, conserved sum phosphogluconate (6-PG) included described [43]:                                                               trypanothione chosen 0.38 mM [12]. models
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                                                   10                    December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                    Modelling Metabolism Trypanosoma brucei
+
+
+including fructose transport, cytosolic Fru-6-P fixed           hygromycin phosphotransferase puromycin N-acetyl-transferase
+measured steady-state value 0.9 mM, additional reactions          gene antibiotic resistance markers. tetracycline-inducible cytosol included model consume Fru-          expression ribokinase conditional knockout DRK::HYG/
+6-P. Inorganic phosphate (Pi) explicitly included            PAC::RKtet generated cloning ribokinase coding
+model, assumed present saturating levels             sequence pHD1336 using cell line 449 (kind gifts Prof
+regulated independently glycolysis.                                     Christine Clayton, Heidelberg). Parasites transfected                                                                            Amaxa nucleofection (Lonza) [57] using Tb-BSF buffer [58], Calculations simulations                                               plated limiting serial dilution.
+   model initially constructed simulations performed PySCeS 0.7.8 [49] COPASI 4.8 [50]. SBML                    Western blotting
+versions models supplied Dataset S1. models              Polyclonal antibodies T. brucei ribokinase raised paper additionally modeled taking uncer-              rabbits injection purified recombinant T. brucei ribokinase,
+tainty account described [8]. simulation exists         purified protein chromatography, antibody titer 1000 individual runs, run parameter values           .1:192,000 measured ELISA (GenicBio, Shanghai,
+sampled simultaneously. 6PGDH Vmax scans Figures 5              China). anti-serum purified immunoaffinity
+S5, S6, S7, S8 250 simulations, longer time-limit          chromatography. Recombinant T. brucei ribokinase coupled accumulating metabolites greatly increased time                mixture Affi-Gel 10 15 (Bio-Rad). Antibodies eluted
+simulation finish  week desktop PC model D).             column 3.5 M MgCl2. Polyclonal antibodies parameter distributions described Text S1,           T. brucei 6PGDH raised rats infection purified parameter sets provided Dataset S2, S3.                   recombinant T. brucei 6PGDH.
+                                                                              protein samples, 5?106 cells harvested centrifugation
+Expression recombinant ribokinase                                          washed PBS. Samples separated NuPAGE 4–
+   T. brucei ribokinase gene (GenBank ID:3664382)                  12  Bis-Tris precast gels (Life Technologies) 45 min 200 V
+amplified Lister 427 strain T. brucei genomic DNA                 transferred nitrocellulose membrane (Hybond-ECL,
+cloned plasmid pET28a(+) (Novagen) add N-terminal               Amersham) 100 V 2 h. Membranes blocked overnight tag. protein overexpressed E. coli BL21(DE3),               4uC 5  milk PBS-T (PBS 0.05  Tween-20), washed
+purified Ni2+ chelate chromatography dialyzed 50 mM              times PBS-T, probed purified polyclonal
+Tris-HCl pH 7.0, 100 mM NaCl, 20  glycerol. Purity                     rabbit anti-T. brucei ribokinase antibody, diluted 1:2000 1  milk
+assessed SDS-PAGE Coomassie blue staining.                          PBS-T, 4 h room temperature. additional
+                                                                           washes PBS-T, membrane incubated Enzyme activity assays                                                     secondary antibody (goat anti-rabbit IgG peroxidase conjugate,
+                                                                           Calbiochem) 1:2000 1  milk PBS-T 2 h room
+   Activity ribokinase assayed 25uC buffer containing
+                                                                           temperature. washes PBS-T, horseradish peroxidase
+10 mM KH2PO4, 15 mM NaCl, 85 mM KCl 10 mM MgCl2
+                                                                           activity measured SuperSignal HRP substrate (Novagen). pH 7. Ribokinase activity direction ribose 5-phosphate
+                                                                              Subcellular localization 6PGDH trypanosomes production assayed spectrophotometrically according [51],
+                                                                           performed modification digitonin fractionation method 5 mM ribose, 5 mM phosphoenolpyruvate, 5 mM ATP,
+                                                                           described [59]. Specifically, 5?107 procyclic cells washed
+0.2 mM NADH, 5 u PK 5 u LDH. Ribokinase activity                                                                            STEN buffer (250 mM sucrose; 25 mM Tris-HCl, pH 7.5;
+direction ribose production assayed spectrophotometrically
+                                                                           1 mM EDTA 150 mM NaCl) resuspended 300 mL 5 mM ribose 5-phosphate, 5 mM glucose, 5 mM ADP,
+                                                                           STEN supplemented protease inhibitors (Roche). cells
+0.2 mM NADP, 5 u HXK 5 u G6PDH.
+                                                                           differentially permeabilized 40 mg digitonin 100 mg
+                                                                           cellular protein (2.5?107 cells) 2 hours ice centrifuged Parasites genetic mutants                                              16,000 g minutes. TCA precipitation, equal amounts
+   Bloodstream form Lister 427 strain T. brucei parasites             (equivalent 4?106 cells) supernatant (S) pellet (P) routinely cultured HMI-9 [52] 37uC 5  CO2. growth            analyzed SDS-PAGE blotted rat anti-Tb6PGDH. 6PGDHRNAi alternative hexose source, glucose HMI-9             goat anti-rabbit IgG peroxidase used visualization substituted fructose concentration. Antibiotic        described ribokinase. Enolase aldolase used concentrations genetic mutants  0.5 mg mL21 phleomycin            cytosolic glycosomal markers, respectively, antibodies 2.5 mg mL21 hygromycin RKRNAi; 0.5 mg mL21 phleo-                  proteins kindly provided Prof. Paul Michels
+mycin, 5 mg mL21 G418 10 mg mL21 hygromycin                        (University Louvain, Belgium).
+6PGDHRNAi; 0.5 mg mL21 puromycin DRK::PAC/RK;
+2.5 mg mL21 hygromycin DRK::HYG/RK 0.5 mg mL21
+                                                                           Supporting Information
+puromycin, 2.5 mg mL21 hygromycin, 0.5 mg mL21 phleomycin 2 mg mL21 blasticidin DRK::HYG/PAC::RKtet. Sensitivity             Dataset S1 SBML versions models. SBML versions of T. brucei ribose assayed alamarBlue described            models presented Figure 1.
+previously [53].                                                           (ZIP)
+   ribokinase knockdown cell line RKRNAi generated
+                                                                           Dataset S2 Parameter sets used simulations using pRPaiSL vector/2T1 cell line [54], 6-
+                                                                           models D. Sets parameter values sampled phosphogluconate dehydrogenase (Tb427tmp.211.3180) knock-
+                                                                           distributions described Text S1, used simulations cell line 6PGDHRNAi generated using p2T7 vector/
+                                                                           models D growth glucose.
+1313 cell line [55]. generation ribokinase
+                                                                           (CSV)
+knockout cell line DRK::HYG/PAC attempted using
+constructs containing 600 bp 59 39 UTRs adjacent                Dataset S3 Parameter sets used simulations ribokinase gene, cloned vector pTBT [56], flanking           models Cfru Dfru. Sets parameter values sampled
+
+
+PLOS Computational Biology | www.ploscompbiol.org                     11                    December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                       Modelling Metabolism Trypanosoma brucei
+
+ distributions described Text S1, used simulations          steady state flux cytosolic pentose phosphate pathway models Cfru Dfru.                                                      model D function oxidative stress varying (CSV)                                                                         kinetic constant kTOX. (B) Fluxes cytosolic PPP
+                                                                              enzymes function time sudden oxidative stress.
+Figure S1 Enzymes purine salvage pathway localized
+                                                                              time-course, kTOX = 2 ml?min21?mg protein21. glycosome. glycosomal PPP shown enzymes
+                                                                              removed steady state t = 0, setting 99  purine salvage pathway predicted glycosomal
+                                                                              NAD(P)H trypanothione pools oxidized form.
+localization (Table S3). Reactions PPP model indicated
+                                                                              Shown relaxation cytosolic PPP fluxes. Solid lines number Table 1, additional reactions                                                                               indicate medians, shaded areas interquartile ranges.
+indicated  PRPP: phosphoribosyl pyrophosphate synthetase;
+                                                                              (TIF)
+AdK: adenosine kinase; ANase: adenosine nucleosidase; APRT:
+adenine phosphoribosyltransferase. Metabolites                   Figure S6 Simulations 6PGDH inhibition 6-PG
+balanced pathway indicated bold. scheme                accumulation.  B) effects inhibition 6PGDH 6-
+demonstrates presence purine salvage pathway                PG concentrations metabolic fluxes simulated unable rescue phosphate leak, resulting overall reaction        reducing Vmax,6PGDH model C D low oxidative stress glucose+ATPRribose+AMP+PPi (+CO2, implied balanced                   (kTOX = 2 ml?min21?mg protein21). Results simulations low gaseous CO2). Additional ADK ANase reactions does                oxidative stress (kTOX = 200 ml?min21?mg protein21) shown improve situation, resulting overall reaction                  Figure 5. ATP production flux steady-state flux PFK glucose+ADPR2 ribose+adenine+2 PPi (+CO2). contrast,                       indicated red, trypanothione reductase steady-state flux ribokinase capable resolving phosphate leak                  indicated yellow, plotted left y-axis. Steady-state
+resulting overall reaction glucoseRribose (+CO2).                          concentration cytosolic (blue) glycosomal (green) 6-
+(TIF)                                                                         phosphogluconate plotted right y-axis. Shaded areas
+                                                                              indicate interquartile ranges.
+Figure S2 Steady-state fluxes various models.
+                                                                              (TIF)
+Steady state fluxes standard conditions (green, kTOX = 2 ml?-
+min21?mg protein21) cytosolic PPP maximized (red,                   Figure S7 Simulations 6PGDH inhibition kTOX = 200 ml?min21?mg protein21). Error bars indicate inter-                 growth fructose.  B) effects inhibition 6PGDH
+quartile ranges. NA denotes  Applicable’ branches            6-PG concentrations metabolic fluxes simulated absent certain model version, Glce 5 mM models.                reducing Vmax,6PGDH model C D high oxidative stress glucose consumption flux distributed production            (kTOX = 200 ml?min21?mg protein21), similar Figure 5. ATP
+glycerol pyruvate branches PPP. Note              production flux steady-state flux PFK indicated ALD generates trioses hexose, fluxes             red, trypanothione reductase steady-state flux indicated trioses glycerol pyruvate double hexose               yellow, plotted left y-axis. Steady-state concentration
+flux. errors bars indicated interquartile ranges result           cytosolic (blue) glycosomal (green) 6-phosphogluconate uncertainty modelling. large error bars glycerol                  plotted right y-axis. Shaded areas indicate interquartile
+production result low flux smaller uncertainties         ranges.
+assigned fluxes pathways. information             (TIF) given model B, model incomplete reach
+                                                                              Figure S8 Percentage models reaching steady-state 10 steady state (outlined main text).
+                                                                              million simulation minutes 6PGDH inhibitions. (TIF)
+                                                                              explained Text S1, 250 random parameter sets Figure S3 Genetic investigations T. brucei riboki-                         used calculating steady-states 6PGDH inhibition
+nase.   Northern blot RKRNAi induced non-induced T.                  (Figures 5 S5). Outcome model C shown high  
+brucei, samples taken 24, 48 72 hours post induction                   low (B) oxidative stress; model D high (C) low (D)
+tetracycline. Tubulin used loading control. (B) Western blot           oxidative stress. Panel C correspond Figures 5A–B, RKRNAi Drk::HYG/PAC::RKtet, samples taken t = 0, 1,                 panel B D correspond Figures S6A–B.
+2 3 days post induction tetracycline. (C) Growth curve              (TIF)
+ribokinase knockdown mutant RNA interference. Induction                                                                               Figure S9 Percentage models reaching steady-state 10
+RNAi started t = 0 addition 1 mg/mL tetracycline.
+                                                                              million simulation minutes 6PGDH inhibitions Cell densities induced (dotted line) control (solid line)
+                                                                              growth fructose. explained Text S1, 250
+cultures determined cell counts, cultures diluted
+                                                                              random parameter sets used calculating steady-states 2?104 cells ml21 t = 48 96 h. difference                                                                               6PGDH inhibition (Figures 6 S6). Outcome high
+growth effect observed. (D) Successful transfection T.
+                                                                              oxidative stress shown model C   D (B). Results brucei knockout constructs confirmed PCR.
+                                                                              simulations shown Figure S7.
+(TIF)
+                                                                              (TIF)
+Figure S4 Ribose sensitivity. Steady state concentrations  
+                                                                              Table S1 Kinetic parameters enzymes related PPP. fluxes (B) model C various concentrations ribose. Solid
+                                                                              Activities, depend expression level enzymes, lines indicate medians, shaded areas interquartile ranges.
+                                                                              specified separately fraction enzyme localized Increasing ribose concentration results depletion ATP                                                                               glycosome  applicable, fraction located accumulation ribose 5-phosphate glycosome.                                                                               cytosol. c/g indicates cytosolic glycosomal activities glycosomal PPP flux (JG6PDHg) remains unaffected,                                                                               identical. parameters assumed identical glycolytic flux (JPGI) strongly reduced.
+                                                                              glycosomal cytosolic enzyme fractions. Parameter values given
+(TIF)
+                                                                              used fixed parameter models. Distributions Figure S5 Simulations oxidative stress model D.                         parameter values used uncertainty modelling given Text S1.
+Near identical Figure 4, results model D instead.            (DOCX)
+
+
+PLOS Computational Biology | www.ploscompbiol.org                        12                     December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                                              Modelling Metabolism Trypanosoma brucei
+
+
+Table S2 Elementary flux modes models PPP.                                           alternative oxidase (TAO), phosphofructokinase (PFK), fructose
+elementary modes different model versions including                                     bisphosphatase (FBPase), phosphogluconolactonase (PGL).
+glycosomal PPP listed overall reactions plus brackets                            Protons, Pi, PPi, H2O, CO2 O2 included individual enzyme-catalyzed reactions relative flux                             reactions. Glucose, 3-phosphoglyceric acid, ribose glycerol
+weight. simplicity cytosolic PPP cytosolic NADPH                               set external metabolites. resulting model 9
+utilization left analysis. modules included                            elementary modes, modes occurring model version refer Table 1 color-coded                                        models described paper. Elementary mode 5 futile
+extensions Figure 1 main text. negative number                                     cycle external metabolites involved. Elementary modes 6–
+indicates reaction occurs reverse direction                                 9 unlikely occur dividing bloodstream trypanosomes, compared Table 1 main text. order reactions                                   high glucose pyruvate glycerol flux maintained.
+corresponds Table 1 main text. glycolytic                                Additionally, activity fructose bisphosphatase modes 1–3 possible model versions, listed                               measured [23,61]. model versions extended glycosomal PPP.                                 (DOCX)
+Elementary mode analysis model B results flux
+modes 1–3.                                                                                     Text S1 Uncertainty modeling distribution (DOCX)                                                                                         parameter values. Detailed description methodology
+                                                                                               uncertainty modeling distributions defined sampling Table S3 Predicted glycosomal proteome. reactions                                          random parameter values.
+present bloodstream form T. brucei glycosome, according                              (DOCX)
+comprehensible glycosomal proteomics [18,19]. reactions
+present bloodstream form parasite included.
+Abbreviations EC numbers given reaction.                                      Acknowledgments
+Models indicated reactions model                                like thank Jurgen Haanstra careful look main text. Indicated reactions elementary                              manuscript modelling.
+model  Table S4).
+(DOCX)                                                                                         Author Contributions
+Table S4 Elementary modes glycosomal proteome.                                            Conceived designed experiments: EJK FA RJB IHG DG RB BMB
+model glycosomal metabolism constructed use                                      MPB. Performed experiments: EJK FA VPA MT NND. Analyzed METATOOL version 4.9.3 [60]. reactions Table S3                                       data: EJK FA VPA MT NND. Contributed reagents/materials/analysis used. reactions set reversible,                                    tools: RJB. Wrote paper: EJK FA RB BMB MPB.
+
+
+References
+ 1. Barrett MP, Burchmore RJ, Stich  Lazzari JO, Frasch AC, et al. (2003)                      malic enzyme pentose phosphate pathway fed gluconeogenic flux.
+    trypanosomiases. Lancet 362: 1469–1480. doi:10.1016/S0140-6736(03)14694-6.                       J Biol Chem 288: 18494–18505. doi:10.1074/jbc.M113.462978.
+ 2. Brun R, Blum J, Chappuis F, Burri C (2010) Human African trypanosomiasis.                  14.   Barrett MP, Le Page RWF (1993) 6-phosphogluconate dehydrogenase gene
+    Lancet 375: 148–159. doi:10.1016/S0140-6736(09)60829-1.                                          Trypanosoma brucei. Mol Biochem Parasitol 57: 89–99. doi:10.1016/
+ 3. Barrett MP, Boykin DW, Brun R, Tidwell RR (2007) Human African                                   0166-6851(93)90247-U.
+    trypanosomiasis: pharmacological engagement neglected disease.                   15.   Heise N, Opperdoes FR (1999) Purification, localisation characterisation     Br J Pharmacol 152: 1155–1171. doi:10.1038/sj.bjp.0707354.                                       glucose-6-phosphate dehydrogenase Trypanosoma brucei. Mol Biochem
+ 4. Bakker BM, Michels PAM, Opperdoes FR, Westerhoff HV (1997) Glycolysis                         Parasitol 99: 21–32.
+    bloodstream form Trypanosoma brucei understood terms                      16.   Duffieux F, Van Roy J, Michels PA, Opperdoes FR (2000) Molecular
+    kinetics glycolytic enzymes. J Biol Chem 272: 3207–3215. doi:10.1074/                     characterization enzymes pentose-phosphate pathway     jbc.272.6.3207.                                                                                  Trypanosoma brucei. Glucose-6-phosphate dehydrogenase 6-phosphoglu-
+ 5. Bakker BM, Michels PAM, Opperdoes FR, Westerhoff HV (1999)                                  conolactonase. J Biol Chem 275: 27559–27565. doi:10.1074/jbc.M004266200.
+    controls glycolysis bloodstream form Trypanosoma brucei? J Biol Chem 274:               17.   Stoffel SA, Alibu VP, Hubert J, Ebikeme C, Portais J-C, et al. (2011)
+    14551–14559. doi:10.1074/jbc.274.21.14551.                                                       Transketolase Trypanosoma brucei. Mol Biochem Parasitol 179: 1–7.
+ 6. Helfert S, Este´vez  Bakker B, Michels P, Clayton C (2001) Roles                           doi:10.1016/j.molbiopara.2011.04.006.
+    triosephosphate isomerase aerobic metabolism Trypanosoma brucei.                    18.   Colasante C, Ellis M, Ruppert T, Voncken F (2006) Comparative proteomics     Biochem J 357: 117–125.                                                                          glycosomes bloodstream form procyclic culture form Trypanosoma
+ 7. Albert M  Haanstra JR, Hannaert V, Roy JV, Opperdoes FR, et al. (2005)                         brucei brucei. Proteomics 6: 3275–3293. doi:10.1002/pmic.200500668.
+    Experimental silico analyses glycolytic flux control bloodstream form         19.   Vertommen D, Van Roy J, Szikora J-P, Rider MH, Michels PAM, et al. (2008)
+    Trypanosoma brucei. J Biol Chem 280: 28306–28315. doi:10.1074/                                   Differential expression glycosomal mitochondrial proteins     jbc.M502403200.                                                                                  major life-cycle stages Trypanosoma brucei. Mol Biochem Parasitol 158: 189–
+ 8. Achcar F, Kerkhoven EJ, SilicoTryp Consortium, Bakker BM, Barrett MP,                        201. doi:10.1016/j.molbiopara.2007.12.008.
+    et al. (2012) Dynamic modelling uncertainty: case Trypanosoma                 20.   Opperdoes FR, Szikora J-P (2006) silico prediction glycosomal enzymes
+    brucei energy metabolism. PLoS Comput Biol 8: e1002352. doi:10.1371/                             Leishmania major trypanosomes. Mol Biochem Parasitol 147: 193–206.
+    journal.pcbi.1002352.                                                                            doi:10.1016/j.molbiopara.2006.02.010.
+ 9. Haanstra JR, Kerkhoven EJ, van Tuijl  Blits M, Wurst M, et al. (2011) domino           21.   Visser N, Opperdoes FR (1980) Glycolysis Trypanosoma brucei.
+    effect drug action: metabolic assault parasite differentiation. Mol              Eur J Biochem 103: 623–632.
+    Microbiol 79: 94–108. doi:10.1111/j.1365-2958.2010.07435.x.                                22.   Turnock DC, Ferguson MAJ (2007) Sugar Nucleotide Pools Trypanosoma
+10. Hanau S, Rippa M, Bertelli M, Dallocchio F, Barrett MP (1996) 6-                                 brucei, Trypanosoma cruzi, Leishmania major. Eukaryotic Cell 6: 1450–
+    Phosphogluconate dehydrogenase Trypanosoma brucei. Eur J Biochem                            1463. doi:10.1128/EC.00175-07.
+    240: 592–599. doi:10.1111/j.1432-1033.1996.0592h.x.                                        23.   Cronin CN, Nolan DP, Paul Voorheis H (1989) enzymes classical
+11. Cordeiro  Thiemann OH, Michels PAM (2009) Inhibition Trypanosoma                           pentose phosphate pathway display differential activities procyclic     brucei glucose-6-phosphate dehydrogenase human steroids effects                     bloodstream forms Trypanosoma brucei. FEBS Letters 244: 26–30.
+    viability cultured parasites. Bioorg Med Chem 17: 2483–2489. doi:doi:                  doi:10.1016/0014-5793(89)81154-8.
+    DOI: 10.1016/j.bmc.2009.01.068.                                                            24.   Tewari YB, Steckler DK, Goldberg RN, Gitomer WL (1988) Thermodynamics
+12. Fairlamb AH, Henderson GB, Bacchi CJ, Cerami (1987) vivo effects                         hydrolysis sugar phosphates. J Biol Chem 263: 3670–3675.
+    difluoromethylornithine trypanothione polyamine levels bloodstream               25.   Krakow JL, Wang CC (1990) Purification characterization glycerol kinase
+    forms Trypanosoma brucei. Mol Biochem Parasitol 24: 185–191.                                  Trypanosoma brucei. Mol Biochem Parasitol 43: 17–25.
+13. Allmann S, Morand P, Ebikeme C, Gales L, Biran M, et al. (2013) Cytosolic                  26.   Voncken F, Gao F, Wadforth C, Harley M, Colasante C (2013)     NADPH homeostasis glucose-starved procyclic Trypanosoma brucei relies                      Phosphoarginine Energy-Buffering Trypanosoma brucei Involves
+
+
+
+PLOS Computational Biology | www.ploscompbiol.org                                         13                         December 2013 | Volume 9 | Issue 12 | e1003371
+                                                                                                                                 Modelling Metabolism Trypanosoma brucei
+
+
+      Multiple Arginine Kinase Isoforms Different Subcellular Locations. PLoS                      characterization gene analysis enzyme. Eur J Biochem 184:
+      8: e65908. doi:10.1371/journal.pone.0065908.                                                  455–464.
+27.   Van Roermund CW, Drissen R, van Den Berg M, Ijlst L, Hettema EH, et al.                     44.   Goldberg RN, Tewari YB (1995) Thermodynamics Enzyme-Catalyzed
+      (2001) Identification peroxisomal ATP carrier required medium-chain                      Reactions: 5. Isomerases Ligases. J Phys Chem Ref Data 24: 1765–
+      fatty acid beta-oxidation normal peroxisome proliferation Saccharomyces                    1801.
+      cerevisiae. Mol Cell Biol 21: 4321–4329. doi:10.1128/MCB.21.13.4321-                        45.   Ryley J (1962) Studies metabolism protozoa. 9. Comparative
+      4329.2001.                                                                                        metabolism blood-stream culture forms Trypanosoma rhodesiense.
+28.   Teusink B, Walsh MC, van Dam K, Westerhoff HV (1998) danger                                Biochem J 85: 211–223.
+      metabolic pathways turbo design. Trends Biochem Sci 23: 162–169.                       46.   Achcar F, Barrett MP, Breitling R (2013) Explicit consideration topological
+      doi:10.1016/S0968-0004(98)01205-5.                                                                parameter uncertainty gives new insights established model 29.   Blangy D, Buc H, Monod J (1968) Kinetics allosteric interactions                        glycolysis. FEBS Journal doi: 10.1111/febs.12436.
+      phosphofructokinase Escherichia coli. J Mol Biol 31: 13–35. doi:10.1016/               47.   Cronin CN, Tipton KF (1987) Kinetic studies reaction catalysed       0022-2836(68)90051-X.                                                                             phosphofructokinase Trypanosoma brucei. Biochem J 245: 13–18.
+30.   Bakker BM, Mensonides FI, Teusink B, van Hoek P, Michels PA, et al. (2000)                  48.   Miclet E, Stoven V, Michels PA, Opperdoes FR, Lallemand JY, et al. (2001)
+      Compartmentation protects trypanosomes dangerous design                               NMR spectroscopic analysis steps pentose-phosphate
+      glycolysis. Proc Natl Acad Sci USA 97: 2087–2092. doi:10.1073/                                    pathway elucidates role 6-phosphogluconolactonase. J Biol Chem 276:
+      pnas.030539197.                                                                                   34840–34846. doi:10.1074/jbc.M105174200.
+31.   Haanstra JR, Tuijl van, Kessler P, Reijnders W, Michels PAM, et al. (2008)                49.   Olivier BG, Rohwer JM, Hofmeyr J-HS (2005) Modelling cellular systems       Compartmentation prevents lethal turbo-explosion glycolysis trypanosomes.                 PySCeS. Bioinformatics 21: 560–561. doi:10.1093/bioinformatics/bti046.
+      Proc Natl Acad Sci USA 105: 17718–17723. doi:10.1073/pnas.0806664105.                       50.   Hoops S, Sahle S, Gauges R, Lee C, Pahle J, et al. (2006) COPASI COmplex
+32.   Furuya T, Kessler P, Jardim  Schnaufer  Crudder C, et al. (2002) Glucose                   PAthway SImulator. Bioinformatics 22: 3067–3074. doi:10.1093/bioinfor-
+      toxic glycosome-deficient trypanosomes. Proc Natl Acad Sci USA 99: 14177–                      matics/btl485.
+      14182. doi:10.1073/pnas.222454899.                                                          51.   Anderson  Cooper RA (1969) significance ribokinase ribose
+33.   Kessler PS, Parsons M (2005) Probing role compartmentation glycolysis                   utilization Escherichia coli. Biochim Biophys Acta 177: 163–165.
+      procyclic form Trypanosoma brucei RNA interference studies PEX14,                     52.   Hirumi H, Hirumi K (1989) Continuous cultivation Trypanosoma brucei
+      hexokinase phosphofructokinase. J Biol Chem 280: 9030–9036.                                   blood stream forms medium containing low concentration serum
+      doi:10.1074/jbc.M412033200.                                                                       protein feeder cell layers. J Parasitol 75: 985–989.
+                                                                                                  53.   Ward CP, Wong PE, Burchmore RJ, Koning HP, Barrett MP (2011)
+34.   Gualdron-Lo´pez M, Vapola MH, Miinalainen IJ, Hiltunen JK, Michels PAM, et
+                                                                                                        Trypanocidal furamidine analogues: influence pyridine nitrogens       al. (2012) Channel-forming activities glycosomal fraction                                                                                                         trypanocidal activity, transport kinetics, resistance patterns. Antimicrob
+      bloodstream form Trypanosoma brucei. PLoS 7: e34530. doi:10.1371/
+                                                                                                        Agents Chemother 55: 2352–2361. doi:10.1128/AAC.01551-10.
+      journal.pone.0034530.
+                                                                                                  54.   Alsford S, Horn D (2008) Single-locus targeting constructs reliable regulated
+35.   Maugeri DA, Cazzulo JJ (2004) pentose phosphate pathway                                                                                                         RNAi transgene expression Trypanosoma brucei. Mol Biochem Parasitol
+      Trypanosoma cruzi. FEMS Microbiol Lett 234: 117–123. doi:10.1016/
+                                                                                                        161: 76–79. doi:10.1016/j.molbiopara.2008.05.006.
+      j.femsle.2004.03.018.
+                                                                                                  55.   Alibu VP, Storm L, Haile S, Clayton C, Horn D (2005) doubly inducible
+36.   Grant PT, Fulton JD (1957) catabolism glucose strains                                RNA interference rapid RNAi plasmid construction       Trypanosoma rhodesiense. Biochem J 66: 242–250.                                                   Trypanosoma brucei. Mol Biochem Parasitol 139: 75–82. doi:10.1016/
+37.   Haanstra JR, van Tuijl  van Dam J, van Winden W, Tielens AGM, et al.                            j.molbiopara.2004.10.002.
+      (2012) Proliferating bloodstream-form Trypanosoma brucei use negligible              56.   Cross M, Kieft R, Sabatini R, Dirks-Mulder  Chaves  et al. (2002) J-binding
+      consumed glucose anabolic processes. Int J Parasitol 42: 667–673.                          protein increases level retention unusual base J trypanosome
+      doi:10.1016/j.ijpara.2012.04.009.                                                                 DNA. Mol Microbiol 46: 37–47. doi:10.1046/j.1365-2958.2002.03144.x.
+38.   LePage RW, Barrett MP (1990) Cloning 6-phosphogluconate dehydro-                     57.   Burkard G, Fragoso CM, Roditi (2007) Highly efficient stable transformation
+      genase gene Trypanosoma brucei complementation Escherichia coli.                       bloodstream forms Trypanosoma brucei. Mol Biochem Parasitol 153: 220–
+      Biochem Soc Trans 18: 724–727.                                                                    223. doi:10.1016/j.molbiopara.2007.02.008.
+39.   Bewley GC, Lucchesi JC (1975) Lethal effects low ‘‘null’’ activity alleles        58.   Schumann Burkard G, Jutzi P, Roditi (2011) Genome-wide RNAi screens       6-phosphogluconate dehydrogenase Drosophila melanogaster. Genetics 79:                         bloodstream form trypanosomes identify drug transporters. Mol Biochem
+      451–457.                                                                                          Parasitol 175: 91–94. doi:10.1016/j.molbiopara.2010.09.002.
+40.   Hughes MB, Lucchesi JC (1977) Genetic rescue lethal ‘‘null’’ activity allele           59.   Hauser R, Pypaert M, Hausler T, Horn EK, Schneider (1996) vitro import
+      6-phosphogluconate dehydrogenase Drosophila melanogaster. Science 196:                      pr

@@ -1,0 +1,467 @@
+                                                                                                                                               GBE
+
+Correlating Traits Gene Retention, Sequence
+Divergence, Duplicability Essentiality Vertebrates,
+Arthropods, Fungi
+Robert M. Waterhouse*,1,2, Evgeny M. Zdobnov1,2,3, Evgenia V. Kriventseva*,1,2
+1
+ Department Genetic Medicine Development, University Geneva Medical School, Geneva, Switzerland
+2
+ Swiss Institute Bioinformatics, Geneva, Switzerland
+3
+ Imperial College London, South Kensington Campus, London, United Kingdom
+*Corresponding author: E-mail: robert.waterhouse@unige.ch; evgenia.kriventseva@isb-sib.ch.
+Accepted: 4 December 2010
+
+
+
+Abstract
+Delineating ancestral gene relations large set sequenced eukaryotic genomes allowed rigorously examine
+links evolutionary functional traits. classified 86  1.36 million protein-coding genes 40
+vertebrates, 23 arthropods, 32 fungi orthologous groups linked 90  Gene Ontology InterPro annotations. Quantifying properties ortholog phyletic retention, copy-number variation, sequence
+conservation, examined correlations gene essentiality functional traits. half vertebrate,
+arthropod, fungal orthologs universally present lineage. universal orthologs preferentially
+distributed groups single-copy multicopy genes, sequence evolution predominantly single-
+copy orthologous groups markedly constrained. Essential genes representative model organisms, Mus
+musculus, Drosophila melanogaster, Saccharomyces cerevisiae, significantly enriched universal orthologs lineage, essential-gene-containing groups consistently exhibit greater sequence conservation  study eukaryotic gene repertoire evolution identifies shared fundamental principles highlights lineage-specific
+features, confirms essential genes highly retained conclusively supports ‘‘knockout-rate prediction’’ stronger constraints essential gene sequence evolution.  distinction sequence conservation single- versus multicopy orthologs quantitatively prominent orthologous groups essential genes. previously underappreciated difference tolerance gene duplications contrasting
+evolutionary modes ‘‘single-copy control’’ versus ‘‘multicopy license’’ reflect major evolutionary mechanism allows extended exploration gene sequence space.
+Key words: orthologs, essential genes, molecular evolution, vertebrates, arthropods, fungi.
+
+
+Introduction                                                                        brate, arthropod, fungal lineages offer unprecedented
+                                                                                    opportunities comprehensively catalog gene genealogies
+Proteins constitute major cellular machinery                                                                                     relate increasingly detailed characteriza-
+inherited genes encoded genomic DNA,                                                                                     tions eukaryotic gene function.
+continual evolutionary processes gene duplications, los-
+                                                                                        Comparative sequence analysis allows identification
+ses, sequence mutations alter repertoire, abun-
+                                                                                    ancestral relations genes,  homology. dance, sequence identity. Taking advantage                                                                                     reference specific species radiation, homologous rela-
+availability genetic blueprints numerous eukaryotic
+                                                                                    tions define orthologs,  genes arose vertical
+species, set explore trends protein-coding
+                                                                                    decent single gene common ancestor
+gene repertoire evolution sampled lineages
+                                                                                    (Fitch 1970; Koonin 2005). Gene duplications descen- large-scale consistent manner. total 95
+                                                                                    dent lineages, referred inparalogs, 
+selected species spanning hundreds millions                                                                                     orthologs comprise orthologous group descended
+years evolution (Hedges Kumar 2009), verte-
+
+
+ª Author(s) 2010. Published Oxford University Press behalf Society Molecular Biology Evolution. Open Access article distributed terms Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses nc/
+2.5), permits unrestricted non-commercial use, distribution, reproduction medium, provided original work properly cited.
+
+
+
+
+Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010                                                               75
+ Waterhouse et al.                                                                                                  GBE
+ gene common ancestor. Delineation           sampling mouse gene knockouts did identify impact
+orthologs given lineage defines core       gene essentiality rate protein sequence evolu-
+set genes common ancestor. conservation        tion (Liao et al. 2006). Saccharomyces cerevisiae, gene protein sequence identities orthologous group            evolutionary rates negatively correlated adverse
+members indicative strength selection inferred       effects knockouts fitness parallel growth assays rate gene sequence divergence. Selection intensity      comparing required maximal growth dis- gene retention deduced phyletic distribu-          pensable genes failed identify significant difference
+tions member genes; presence absence           (Hirsh Fraser 2001). Saccharomyces cerevisiae–Candida
+considered species. Constraints gene duplicability         albicans comparisons evolutionary rates did cor- manifested gene copy-number variations indepen-          relate dispensability,  true du-
+dently evolving lineages. Detailing ancestral gene relations      plicated genes  species homologs) enables quantification properties ortholog        singletons (unique genes, species homologs)
+sequence divergence, phyletic retention, copy-number          (Yang et al. 2003). duplicates singletons, Cae-
+variation. orthologous relations defined         norhabditis elegans RNAi data suggested amino acid gene function, identifying ‘‘equivalent’’ genes mod-        replacement levels lower essential
+ern species provides working hypothesis         genes (Castillo-Davis Hartl 2003). Ignoring duplications
+similar functionality, especially single-copy orthologs.      selecting ortholog compared  confirmed putative functional annotations            eukaryotic species estimate evolutionary rates, orthologous group members—including gene ontolo-               RNAi data provided evidence sequence evolution 
+gies, protein domains, gene essentiality—define puta-         dispensable proteins constrained selection (Luz tive biological features characterizing group      Vingron 2006). Dispensability correlated evo- question formulated link func-       lutionary rates comparisons S. cerevisiae tional characteristics quantifiable evolutionary proper-     closely related fungi, rate differences genes
+ties orthologs sequenced genomes.                           lethal nonlethal effects pronounced 
+    Essential genes operationally defined molecular ge-    ly comparing closer relatives (Zhang 2005).
+netics gene knockouts result (conditional) lethality    unequivocal support knockout-rate prediction infertility described strongly contributing    remained elusive. organismal fitness. naı¨ve expectation indis-          Gene essentiality indicates critical contribution 
+pensable genes given species indispens-         ganismal fitness, does necessarily ability equivalents species.         specific biological roles. Detailed functional characteriza-
+assumption, studies bacteria identified broader phyletic       tions required explore evolutionary
+distributions essential genes (Jordan et al. 2002; Gerdes      traits genes linked particular cellular processes, facili-
+et al. 2003), phyletic retention levels proved         tated state art functional annotations provided predictive feature essentiality bacterial    Gene Ontology    Consortium 2010) yeast genes (Gustafson et al. 2006). Similarly, gene          InterPro (Hunter et al. 2009) resources. rigorously
+silencing RNA-interference (RNAi) nematodes identi-         curated   accurate comprehensive
+fied greater proportion mutants targeted genes         gene functional annotations represented s orthologs eukaryotes (Castillo-Davis Hartl      founding model organisms: mouse (Mus musculus), fly (Dro-
+2003). Furthermore, quantifying propensity gene loss          sophila melanogaster), yeast (S. cerevisiae). Detailed clusters orthologous groups seven distantly           mouse, fly, yeast annotations  respec-
+related eukaryotes revealed enrichment yeast essential         tively, facilitate inferred putative functionality orthologs
+genes clusters losses (Krylov et al. 2003).         vertebrate, arthropod, fungal lineages.
+    second expectation, formulated Wilson et al.          Matches InterPro signatures protein domains, (1977) known ‘‘knockout-rate prediction,’’ antici-     majority annotated, provide hints
+pates stringent constraints sequence evolution        describing likely biological roles genes recogniz- essential genes. gained support        able sequence signatures.  InterPro resour-
+studies bacteria (Jordan et al. 2002), confounding factors     ces offer large-scale functional characterization describing covariation evolutionary rates levels gene     confirmed putative biological features majority
+expression, somewhat inconsistent observations         eukaryotic protein-coding genes. studies eukaryotes, yielded inconclusive        number previous studies investigated 
+results. Substitution rates mouse rat orthologs       nections evolutionary traits functional proper-
+suggested essential genes slower evolving,       ties premise gene functionality impacts difference observed controlling fast-evolving       strength negative selection. studies immunity genes (Hurst Smith 1999), greater            focused relating gene essentiality rates sequence
+
+
+76       Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010
+ Correlating Traits Gene Retention, Sequence Divergence, Duplicability Essentiality                                 GBE
+
+evolution summarized  additional examined charac-               SilkDB, VectorBase wFleaBase (current releases July
+teristics included gene expression levels, propensity gene           2009), 32 fungi UniProt (Release 15.0, March
+loss, gene compactness, placements protein inter-              2009) (supplementary table 1, Supplementary Material 
+action gene regulatory networks, example, gene se-                line). Preprocessing gene sets selected longest
+quence evolutionary rates negatively correlated                protein-coding transcript gene annotated mul-
+expression level positively correlated propensity               tiple transcripts resulting nonredundant set gene loss (Krylov et al. 2003). correlating pairs             1,363,300 protein-coding genes subsequent orthology specific traits, composite variables derived multivar-           delineation analysis.
+iate statistical approaches reveal intercorrelations
+                                                                         Gene Annotations. Gene essentiality data mouse (M. traits highlight emergent gene properties. Using
+                                                                         musculus), fly (D. melanogaster), yeast (S. cerevisiae) approaches, Wolf et al. (2006) interpreted principal
+                                                                         retrieved Database Essential Genes
+component seven characteristics reflecting
+                                                                         (DEG 5.4) (Zhang Lin 2009). Alternative gene essential- gene’s ‘‘importance’’ ‘‘status’’, strong positive 
+                                                                         ity data retrieved querying: 1) Mouse Genome 
+tributions expression level, number paralogs, essen-
+                                                                         formatics (MGI) (Bult et al. 2010) resources pre/peri/
+tiality protein interactions, large negative contributions
+                                                                         postnatal lethality phenotypes, 2) FB (Tweedie et al. evolutionary rate, propensity gene loss (Wolf
+                                                                         2009) ‘‘phenotypic class: lethal’’, 3) Saccharomyces
+et al. 2006). Concomitant analysis gene character-
+                                                                         Genome Database (SGD) (Engel et al. 2010) ‘‘systematic
+istics applying multivariate approaches use-
+                                                                         deletion phenotype: inviable.’’ InterPro annotations
+ful provide perspectives principal factors influencing
+                                                                         describing putative gene functional attributes  evolution genes gene repertoires.
+                                                                         trieved InterPro UniProt (UniProt-Consortium
+    study, applying consistent methodology                                                                          2010) resources, respectively. term parent–child
+delineation orthologous gene relations compar-
+                                                                         relationships InterPro mappings 
+ative analysis 40 vertebrates, 23 arthropods, 32 fungi
+                                                                         trieved 
+allowed identify core sets genes descended common ancestor lineage. quan-
+tifying evolutionary properties gene retention, sequence              Orthologous Group Classification
+divergence, duplicability, able examine
+                                                                         Orthology Delineation. classification protein-
+correlations traits links gene functional
+                                                                         coding genes orthologous groups based clus-
+characteristics. focused testing specific hypotheses
+                                                                         tering procedure all Smith–Waterman protein
+using intuitively interpretable pairwise relations gene
+                                                                         sequence comparisons using PARALIGN (Saebø et al. 2005)
+characteristics major eukaryotic lineages, supported
+                                                                         implemented OrthoDB methodology (Waterhouse principal component analysis examine intercorre-
+                                                                         et al. 2010). clustering procedure starts iden-
+lations traits. essential genes rep-
+                                                                         tification best reciprocal hits e value cutoff resentative model organisms, aimed explore                                                                          1  10 6, followed triangulation e value
+expectation broad phyletic distributions essential genes
+                                                                         cutoff 1  10 3, requiring member sequences  dozens eukaryotic species distinct
+                                                                         lap; clusters expanded include lineages. Furthermore, utilizing consistent measures                                                                          closely related species inparalogs. procedure
+sequence evolution, set test knockout-rate
+                                                                         scrutinized genome projects
+prediction fungal, arthropod, vertebrate lin-
+                                                                         (Richards et al. 2008; Elsik et al. 2009; Kirkness et al. 2010;
+eages. Employing functional attributes gene essentiality
+                                                                         Werren et al. 2010), extensive manual examination  comprehensive gene ontologies protein domain
+                                                                         thologous groups (Waterhouse et al. 2007; Wyder et al. 2007;
+signatures, explored relations gene functional-
+                                                                         Lemay et al. 2009; Matsui et al. 2009) confirmed ity evolutionary traits reflecting strengths selection                                                                          biological relevance acceptable accuracy. orthol-
+gene retention, sequence divergence, duplicability.
+                                                                         ogy defined relative common ancestor spe-
+                                                                         cies considered, determining hierarchical
+Materials Methods                                                    nature orthologous classifications, procedure built 
+                                                                         thologous groups radiation phyloge-
+Data Sources                                                             nies 40 vertebrates, 23 arthropods, 32 fungi.
+Gene Sets. complete predicted protein-coding gene                    Orthology Type. Orthologous groups exhibit different
+sets 95 eukaryotic species retrieved publically             phyletic distributions member genes, allowing available genomic resources. included 40 verte-                    classified different types according gene
+brates Ensembl (Release 55, July 2009), 23 arthro-                  copy-numbers phylogenies. Univer-
+pods AphidBase, BeeBase, BeetleBase, FlyBase (FB),                  sal groups, separately defined lineage, 
+
+Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010                                        77
+ Waterhouse et al.                                                                                                 GBE
+
+required gene members 90               vertebrates, arthropods, fungi. Mapping essential genes
+species (missing arthropods            DEG resource orthologous groups line- vertebrates fungi), accounting          age identified 1,673 mouse orthologous groups (2,054 possible artifacts incomplete genome sequencing           mouse genes), 324 fly orthologous groups (334 fly genes), annotation. remaining orthologous groups           1,074 yeast orthologous groups (1,110 yeast genes).
+deemed nonuniversal. Universal orthologous groups             Employing alternative species-specific resources identified partitioned single-copy groups,         1,560 mouse orthologous groups (1,954 MGI genes),
+gene member half species,           2,066 fly orthologous groups (2,234 FB genes), 1,074
+maining multicopy groups, gene          yeast orthologous groups (1,109 SGD genes). Analyses half species. binary distinction   DEG-defined essential genes mouse yeast FB-
+universal nonuniversal orthologous groups           defined fly genes presented main text, al- single-copy multicopy orthologous groups               ternative sets supporting conclusions described chosen simplicity consistency alternative         Supplementary Material online.
+(stricter possibly intuitive) categorizations presented Supplementary Material online support conclusions (supplementary figs. 1–3, Supplementary
+Material online).
+                                                                   Results Discussion
+                                                                   Core Gene Sets Vertebrates, Arthropods, Average Percent Identity. average amino acid 
+                                                                   Fungi
+cent identity members orthologous
+group provides measure level overall group pro-        Majority Genes Exhibit Traceable Orthology
+tein sequence conservation. average percent identity       Functional Annotations. orthology delineation orthologous group calculated mean           procedure established ancestral gene relations 95 species pairwise percent identities member pro-         eukaryotic species level major lineages.
+teins. Excluding species pairwise identities effectively    total 1,363,300 protein-coding genes, 86  calculates measure group sequence conservation         classified 16,031, 18,937, 13,535 orthologous member species independent gene copy-           groups levels common ancestor verte-
+number. universal orthologous groups defined            brates, arthropods, fungi, respectively (fig. 1A). Assum- lineage, definition broad phyletic dis-     ing genes descended common ancestor tributions, provides absolute measure group             likely share general functionality enabled tentative ex-
+sequence conservation.                                             trapolation functional attributes ascribed Related Groups. all Smith–Waterman pro-            members group  Accordingly, orthologous
+tein sequence comparisons enabled identification ho-       group descriptions summarized associated Inter-
+mologous relations orthologous groups. Comparing             Pro annotations individual member genes orthologous groups, average alignment score         92  1.18 million orthologous group group gene comparisons provide basis           member genes classified orthologous groups 
+calculating corresponding e value, indicative number      scribed InterPro domains terms 81  matches score good ex-         attributes. larger classified proportion verte-
+pected occur chance. number orthologous               brate genes (93.4 ) compared arthropods (76.5 )
+groups database scoring used          fungi (81.6 ) likely reflects higher levels evolu-
+(substitution matrix gap penalties)           tionary divergence species sampled ar-
+taken account calculate e value. em-       thropod fungal phylogenies, limit pirical calculations averaged scores corresponding      detection distant homology. Estimated divergence times
+log-scaled averaged e values all gene         major eukaryotic lineages (Hedges Kumar 2009) sug-
+comparisons correlation matches exactly         gest compared 450 vertebrate evolu- lambda value scoring used PARALIGN         tion, arthropods diverged 700 (supplementary fig. 4, Supplementary Material online), aver-       fungi probably span billion years. addition,
+aged group gene gene e values used           rates vertebrate protein sequence evolution signifi-
+approximation e values describing homologous rela-          cantly slower compared arthropods (Wyder et al.
+tions orthologous groups, considering homology               2007) fungi (Dujon 2006). smaller proportion clas-
+support e value cutoffs 1  10 3 1  10 10.              sified genes arthropods influenced                                                                    variable annotation approaches resulting total gene
+Essential Orthologous Groups. Essential genes                 counts (supplementary fig. 5 table 1, Supplementary
+model organisms mapped orthologous groups               Material online).
+
+
+78       Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010
+ Correlating Traits Gene Retention, Sequence Divergence, Duplicability Essentiality                                              GBE
+
+
+
+
+      FIG. 1.—Orthology classification 40 vertebrates, 23 arthropods, 32 fungi.   average numbers classified annotated proteins proteome shown lineage. Eighty percent total 1.36 million genes classified orthologous groups, 92  classified genes assigned orthologous groups described InterPro attributes  (B) Copy-number distributions universal orthologous groups mouse (Mus musculus), fly (Drosophila melanogaster), yeast (Saccharomyces cerevisiae). half orthologous groups universal lineage single copy multicopy. Orthologous groups members 90  vertebrate, arthropod, fungal species define sets universal orthologous groups lineage constitute half mouse, fly, yeast orthologous groups (inset pie charts). proportion predominantly multicopy universal orthologous groups notably larger mouse compared fly yeast.
+
+
+
+  comprehensive catalog hierarchical orthologous                        multiple independent duplications majority 
+groups protein-coding genes eukaryotic lin-                  scendant lineages, prominently vertebrates, ef-
+eages associated InterPro attributes freely                     fectively issuing ‘‘multicopy license’’ entire
+accessible OrthoDB resource, http://cegg.                          lineage.
+unige.ch/orthodb (Waterhouse et al. 2010).                                        trend ‘‘single-copy control’’ versus multicopy li-
+                                                                               cense, observed lineages, suggests Half Orthologous Groups                                       major modes gene function influences
+Universal Lineage                               eukaryotic gene repertoire evolution. Investigations corre-
+Single Copy Multicopy. Defining universal orthol-                       lating gene evolutionary functional traits 
+ogous groups lineage having gene members                        fore consider appropriate controls account 90  sampled species classified half                   dichotomy gene duplicability. mouse, fly, yeast groups universal verte-
+brate, arthropod, fungal lineages, respectively (fig. 1B).                  Sequence Conservation Universal Orthologous orthologs exhibit broad phyletic distributions                      Groups Markedly Higher Single-Copy likely stringent selection gene retention.                 Multicopy Orthologs. Single- multicopy   seemingly indispensable universal single-                   thologous groups considered universal verte-
+copy orthologs lost (Wyder et al. 2007) missed                    brate, arthropod, fungal lineages originate genome sequencing annotation. Partitioning                            common ancestor considered species phylog- fractions universal orthologous groups according                      eny. Despite ages, single-copy groups ex- member gene copy-numbers revealed                            hibit significantly higher average protein sequence identities
+majority groups single copy mul-               compared multicopy groups (fig. 2, supplementary fig.
+ticopy (fig. 1B). distribution suggests strong gene                  1, Supplementary Material online). vertebrate
+dosage constraints likely preserve single-copy status                   lineage exhibits accumulated duplicates majority universal orthologs, especially arthropods                  arthropods fungi (fig. 1B), striking contrast fungi, allowing exceptional cases ‘‘copy-                     sequence conservation single-copy genes versus number runaways.’’ end spectrum,                           divergence multicopy genes consistently observed relaxation copy-number restrictions appears lead                      lineages.
+
+
+Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010                                                      79
+ Waterhouse et al.                                                                                                                    GBE
+
+
+
+
+     FIG. 2.—Phyletic profiles sequence conservation levels essential compared nonessential genes mouse (Mus musculus), fly
+(Drosophila melanogaster), yeast (Saccharomyces cerevisiae). Orthologous groups essential genes enriched universal orthologs constrained sequence evolution.   majority mouse (74 ), fly (82 ), yeast (85 ) essential gene-containing orthologous groups universal belong orthologous groups members 90  vertebrate, arthropod, fungal species, 50  remaining, nonessential, orthologous groups universal. Orthologous groups essential genes significantly likely universal nonessential groups (Fisher’s Exact Tests P , 1  10 65). Distinguishing predominantly single-copy predominantly
+multicopy universal orthologous groups reveals universal essential groups single copy fly yeast. (B) single- multicopy universal orthologous groups, essential genes display greater sequence conservation, measured mean interspecies
+protein sequence identities orthologous group members,  Notched boxes medians orthologous group percent
+identities limits upper lower quartiles, box widths proportional number orthologous groups category. significance tests, supplementary table 2 (Supplementary Material online).
+
+
+   indicative substantially greater impact                 common ancestors vertebrates, arthropods, ganismal fitness mutations genes evolving sin-                    fungi. e value cutoff 1  10 3, 4,869 unique gene
+gle-copy control. Mutations better buffered                         sequences estimated vertebrate ancestor, case multicopy genes, maintained                    1.5 times arthropods (3,145) duplication principally gene dosage constraints                        double fungi (2,212). functional innovations (Aury et al.                       consistent insights ancestral gene contents
+2006).  subset eukaryotic genes                      major eukaryotic lineages support ideas ex- multicopy license allowed explore protein se-                     panding gene universe perceived organismal complexity.
+quence space, turn facilitate functional diver-
+gence fine-tuning novelties models                                                                               Evolutionary Traits Essential Genes
+subfunctionalization neofunctionalization (Lynch Conery 2000; Hahn 2009).                                                      delineation orthologous groups phyloge-
+                                                                              nies vertebrate, arthropod, fungal species se- Ancestral Repertoire Distinct Protein-                                 quenced genomes describes core gene sets Coding Sequences Grown Fungi                                      different eukaryotic lineages. provided context Arthropods Vertebrates. Detectable homology                             examine evolutionary characteristics tween orthologous groups  Materials Methods)                       subset experimentally defined essential genes indicative common sequence ancestry                      concomitant analysis gene dispensability evolution-
+length member genes (ancient paralogs) individual se-                   ary traits orthologous group phyletic distributions se-
+quence regions (protein domains). e value cutoff 1                   quence diversities. Employing viability data model
+ 10 3, half universal orthologous groups                         organisms  Materials Methods) identified 14.2 
+mouse (41.2 ), fly (59.5 ), yeast (43.9 ) homol-                      mouse, 19.6  fly, 23.7  yeast orthologous
+ogous universal orthologous group                    groups contained essential gene (essential groups). respective lineages (supplementary fig. 6, Supplemen-                   mapping essential genes orthologous groups
+tary Material online). Counting sets homologous                      vertebrate, arthropod, fungal line-
+universal groups summing groups                         ages allowed explore broader evolutionary context
+homologs provides lower estimate total numbers                       single model organism species, derive distinct protein-coding sequences genomes                        predictive associations essentiality.
+
+
+80        Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010
+ Correlating Traits Gene Retention, Sequence Divergence, Duplicability Essentiality                                 GBE
+
+Essential Genes Enriched Universal                                vertebrate lineage, majority ar-
+Orthologs. Comparing proportions universal essen-                 thropod fungal universal groups single copy.
+tial groups vertebrates, arthropods, fungi revealed                  prompts speculation negative effects essential groups significantly likely                gene expression level imbalances diminished verte-
+universal nonessential groups (Fisher’s Exact Tests                 brates, relaxing single-copy controls allowing
+P , 1  10 65; fig. 2A, supplementary fig. 2 table                   multicopy gene buffering mutations lead ex-
+2, Supplementary Material online). preferentially univer-            tended exploration protein sequence space. suppos-
+sal phyletic distributions essential gene-containing groups           edly redundant gene copies provide buffer examined eukaryotic lineages consistent               gene inactivation,  compensation essential func- observed broad phyletic distributions essential genes            tions paralogs assumed, duplicates bacteria, yeasts, nematodes (Jordan et al. 2002;                  mouse necessarily confer functional redundancy
+Castillo-Davis Hartl 2003; Gerdes et al. 2003; Krylov                (Liao Zhang 2007). fact, retention gene duplicates
+et al. 2003; Gustafson et al. 2006). correlation            facilitated coordinated reduction expression
+supported principal component analysis (supplementary                 levels, rendering copies necessary fulfill biolog-
+fig. 7 table 3, Supplementary Material online),                ical role ancestral gene creating redundancy agreement observed opposing contributions                     level molecular function (Qian et al. 2010).
+essentiality propensity loss gene’s importance               differences gene duplicability 
+(Wolf et al. 2006), highlighted major coordinated contri-                flect relative strengths purifying selection lin-
+butions gene essentiality phyletic retention levels.              eages imposed factors effective population sizes.
+Furthermore, comparing lineages reveals                   greater permissiveness slightly deleterious events universal vertebrate, arthropod, fungal groups make                   vertebrates allow accumulation redundant similar majority essential groups mouse (74 ),                gene copies purged intensive se-
+fly (82 ), yeast (85 ), respectively, suggests                 lection pressures (Lynch Conery 2000). quarters experimentally identi-
+fied essential genes individual organisms likely               Sequence Evolution Essential Genes orthologs lineage.  minor                Constrained. single- multicopy universal
+fraction essential groups exhibit nonuniversal phyletic dis-          orthologous groups, essential genes exhibit
+tributions, suggesting essential genes cru-            greater sequence conservation (fig.
+cial biological processes specific selected model              2B, supplementary fig. 2 table 2, Supplementary Mate-
+organisms closer relatives.                                    rial online). difference clear orthologous groups
+   large-scale study,  ultimately confirms             partitioned universal single- versus multicopy
+propensity essential genes belong universal orthol-             groups control effects age copy-number
+ogous groups fungi confidently extends                   constraints sequence evolution. Universal groups trend arthropod vertebrate lineages.                          descendants ancestral genes retained                                                                          lineage represent orthologous groups Majority Universal Essential Groups                           common age old common ancestor.
+Single Copy Yeast Fly. Distinguishing                     remaining nonuniversal groups ancient
+single- multicopy universal orthologous groups reveals               groups experienced multiple gene losses, youn-
+marked differences lineages respect                 ger clade-specific groups, display variable ranges essentiality. Yeast essential groups enriched univer-          sequence identities (supplementary fig. 3, Supplementary
+sal single-copy multicopy groups, fly                Material online). Subsequent partitioning age  single copy greater proportion                trolled universal orthologous groups single- multi- multicopy groups, mouse, multicopy                    copy groups  shown fig. 1B) distinguishes
+groups enriched (Fisher’s Exact Tests P , 1  10 50;                 effects copy-number constraints fig. 2A, supplementary fig. 2 table 2, Supplementary                 effects essentiality sequence evolution.
+Material online). reflected total proportions                 lower level amino acid substitutions essen- lineage, mouse exhibits larger propor-              tial groups indicative stronger purifying selection
+tion universal multicopy groups (44.9 ) compared                 evolution vertebrates, arthropods, fly (17.4 ) yeast (14.4 ) (fig. 1B). Principal component             fungi supports knockout-rate prediction slower
+analysis suggests relaxation copy-number                sequence evolution essential genes.  quan-
+constraints distinguishing feature verte-             titative distinction genes known essential
+brates (supplementary fig. 7 table 3, Supplementary                  functions substantially prominent
+Material online).  highly constrained                    distinction single-copy constrained
+essential genes, maintained duplications appear prevalent                genes multicopy license.  
+
+Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010                                        81
+ Waterhouse et al.                                                                                                                                                 GBE
+
+Table 1
+Essential Nonessential Orthologous Groups Related Groups Mouse (Mus musculus), Fly (Drosophila melanogaster), Yeast
+(Saccharomyces cerevisiae)
+                                               Mouse                                                Fly                                             Yeast
+  Cutoff                                  ES            NE                 ft                ES            NE                 ft              ES            NE                ft
+          3                                                                      24                                                 13                                              2
+1  10             Relatives              667          1,978         1.2  10              1,123          2,207         9.0  10              420           828         7.6  10
+                   relatives           565          3,214                                 565          1,701                               495         1,099
+          10                                                                     12                                                 3                                               2
+1  10             Relatives              192            376         5.7  10                653          1,187         9.8  10              173           321         7.8  10
+                   relatives         1,040          4,816                               1,035          2,721                               742         1,606
+     NOTE.—Universal essential orthologous (ES) groups nonessential (NE) groups compared universal orthologous groups related groups e value
+cutoffs 1  10 3 1  10 10. Essential groups animals likely relatives (P values Fisher’s Exact Tests [ft] enrichment). Materials Methods definitions universal, essential, related orthologous groups. results alternative essentiality data sets, supplementary table 4 (Supplementary Material online).
+
+
+
+ consistent, genome scale analysis, higher                                      Material online). Member gene InterPro attributes
+constraints sequence evolution essential genes                                       facilitated assignment principal terms (e.g., ge- vertebrates, arthropods, fungi.                                                     neric Slim terms) universal mouse, fly, yeast 
+                                                                                               thologous groups using child parent relations Essential Groups Animals Likely                                                 InterPro mappings  Consortium 2010). Homologs. essential gene duplications resulted                                      23 biological processes, 16 10 enriched essential
+severely imbalanced functionality critical biological pro-                                  genes mouse fly, respectively, 2 cesses essential groups expected limited                                   significant enrichment yeast. Examining categories  appearing lineage unique ortholo-                                      fined generic Slim subsets biological processes,
+gous groups. Instead, essential groups appear likely                                   molecular functions, cellular components confirms relatives, suggesting essential gene ancestors                                  difference processes functions compo- frequently given rise novel related orthologous                                        nents instead exhibit similar proportions enriched terms groups vertebrates arthropods (table 1, supplemen-                                      lineages (supplementary table 5 fig. 8, Sup-
+tary table 4, Supplementary Material online). Alternatively,                                   plementary Material online).
+ancient genes frequently maintained duplicates                                          variations annotation strategies contrib-
+gained essential functions. 54  universal                                          ute observed differences, general paucity mouse essential groups universal group relatives,                                    categories enriched essential groups fungi compared
+38  universal nonessential groups related                                      animals appears suggest fungal processes
+universal orthologous groups 1  10 3 cutoff.                                       functions robust gene knockouts. Robust-
+difference similar fly groups, 67  universal                                   ness key attribute complex systems facilitates
+essential versus 56  universal nonessential groups                                     evolvability itself selected (Kitano 2004). relatives.  yeast, small 3  difference                                   tempting speculate stronger effective se-
+statistically significant (46  essential vs. 43  nonessential).                                lection evolution fungi confer
+    trend consistent studies compared evo-                                   greater robustness fungal processes functions.
+lutionary rates duplicated genes  species ho-
+mologs) singletons (unique, species                                        Divergence Rates Vary Functional
+homologs) showed conserved genes                                             Categories Lineages. Orthologous groups genes
+strained sequence evolution likely rise                                      involved processes translation precursor  maintained duplicates (Davis Petrov 2004; Jordan                                        tabolism (generation precursor metabolites energy)
+et al. 2004).  functionally important genes                                  highest levels sequence conservation verte-
+stituent domains appear utilized fre-                                        brates, arthropods, fungi (fig. 3). end quently evolution eukaryotes.                                                scale, immune responses adhesion processes shared
+                                                                                               divergent categories reproductive processes rela-
+Functional Perspective                                                                         tively divergent vertebrates arthropods,                                                                                                divergence DNA metabolism common arthropods Majority Biological Processes Enriched                                              fungi. Structural molecule translation factor activ- Essential Genes Animals. Identifying proportions                                        ities commonly conserved molecular functions, essential gene-containing orthologous groups                                          divergent include receptor, signal transducer, functional categories revealed significant enrichment es-                                   nuclease activities, carbohydrate chromatin
+sential genes principal biological processes mouse                                    binding (supplementary table 5 fig. 8, Supplementary fly (fig. 3, supplementary table 5, Supplementary                                          Material online). cellular components, ribosome
+
+
+82             Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010
+ Correlating Traits Gene Retention, Sequence Divergence, Duplicability Essentiality                                            GBE
+
+
+
+
+     FIG. 3.—Orthologous group sequence conservation principal biological processes mouse (Mus musculus), fly (Drosophila melanogaster), yeast (Saccharomyces cerevisiae). Processes ordered median orthologous group sequence identities fly categories divergent red conserved blue  standard deviation greater dark blue dark red mean identity). mouse fly biological processes enriched essential gene-containing orthologous groups (striped shading) contrast processes yeast. Notched boxes medians orthologous group percent identities limits upper lower quartiles, box heights proportional number orthologous groups category. identifiers, median identities, orthologous group counts, Fisher’s Exact
+Tests enrichment essential groups, supplementary table 5 (Supplementary Material online).
+
+
+
+appears highly conserved, divergent                      tens groups examining
+extracellular elements vertebrates arthropods                      protein domain signatures orthologous groups components nucleus arthropods fungi.                      numerous related groups reveals proliferation
+results agreement pairwise studies fly–                   functional domains created distinguishing
+mosquito (Zdobnov et al. 2002) human–chicken                               superfamilies lineage (fig. 4). e value cutoff (Chicken-Genome-Consortium 2004) comparisons                             1  10 3  Materials Methods), 9.0  vertebrate
+identified structural molecules involved protein                 7.3  arthropod orthologous groups transport conserved signal transducers                    50 related groups, fungi, 5.4  ortholo-
+immune-related genes divergent. Similarly, mul-                   gous groups 20 related groups. essen-
+tispecies comparisons human yeast associated                     tial genes orthologous groups
+fast-evolving protein families regulatory roles                   highest numbers relatives (fig. 4), agreement
+sponses stimuli immune challenges,                       observation functionally important genes trast slow-evolving families involved transport, protein                   domains frequently reutilized eukary-
+synthesis, primary metabolism (Lopez-Bigas et al. 2008).                   otic evolution (table 1).
+   Orthologous group average sequence identities,                          highly abundant zinc finger proteins feature fore, clearly distinguish fast- slowly evolving                   vertebrates arthropods, proliferation functional categories, highlighting common dis-                      rhodopsin-like G protein–coupled receptors (GPCRs) ver-
+tinct evolutionary pressures functional subsets genes                   tebrates contrasts expanded superfamily arthropod eukaryotic lineages.                                             peptidases. Cytochrome P450s prominent arthropods
+                                                                              fungi, families transporters characterize Distinct Domain Proliferations Characterize                                   fungi, protein kinases prominent lin-
+Vertebrate, Arthropod, Fungal Proteomes.                                  eages. domains characterize abun-
+Shared sequence homology orthologous groups                             dant eukaryotic protein-coding genes, derive expanded repertoires functionally ben-                     domains highlight lineage-specific biology verte-
+eficial protein domains lineage. orthologous                     brate Kruppel-associated boxes involved transcriptional
+groups related (share common sequence ancestry)                        repression major histocompatibility complex proteins
+
+
+Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010                                                    83
+ Waterhouse et al.                                                                                                                     GBE
+
+
+
+
+     FIG. 4.—Independent proliferation functional domains created distinguishing protein superfamilies vertebrates  , arthropods (B), fungi (C). majority orthologous groups identifiable homology groups related groups,  numerous relatives characterized specific protein domains. superfamily zinc finger C2H2-like proteins common vertebrates arthropods, expansion vertebrate rhodopsin-like GPCRs contrasts arthropod peptidases. fungi characterized families transporters major facilitator superfamily general substrate transporters. Cytochrome P450s prominent arthropods fungi protein kinases feature lineages. Orthologous groups essential genes highest numbers relatives. Related groups defined average pairwise Smith–Waterman e value members group lineage cutoff 1  10 3.
+
+
+ acquired immune (supplementary table 6,                         family expansions, notably rhodopsin-like GPCRs,
+Supplementary Material online). Arthropod-specific domains                    include vertebrate olfactory chemokine receptors
+include pheromone/odorant-binding proteins oxygen-                        absent arthropods. contrast, arthropod che-
+carrying hemocyanins, subfamilies glycoside                        moreceptors related rhodopsin-like GPCRs hydrolases cellulose-binding domains characterize                         operate instead ligand-gated ion channels form
+fungal-specific biology.                                                      large repertoire gustatory receptors Arthropoda
+   Zinc finger motifs form DNA-binding domains                     olfactory receptors terrestrial insects (Sato et al. 2008; transcription factors mediate protein–protein                     Pen˜alva-Arana et al. 2009). usually secreted S1/S6 pep-
+teractions (Brayer Segal 2008). evolution zinc fin-                tidases employ histidine–aspartate–serine catalysis cleave
+ger proteins animal lineages followed                         target proteins diverse processes including fertilization,
+distinct paths, expansions AD-type arthropods                  development, intestinal digestion, blood coagulation, apo- mirrored vertebrates, proliferation ver-               ptosis, immunity (Di Cera 2009). Arthropod diversity tebrates zinc finger proteins acquired vertebrate-                reflected variety food sources rely,
+specific Kruppel-associated boxes (Copley 2008). prolif-                  especially larvae nymphs, abundance ar-
+eration proteins regulatory interaction                   thropod proteases driven digestive require-
+diating functions facilitated evolution                           ments. expansions reflect key roles organismal complexity higher eukaryotes. GPCRs sig-                    proteases characteristic arthropod processes molting
+nal-transducer transmembrane proteins include hor-                       metamorphosis immune defense open
+mone, olfactory, neurotransmitter, light receptors                        circulatory  Cytochrome P450s important (Fredriksson et al. 2005). Vertebrates exhibit extensive GPCR                 synthesis breakdown hormones 
+
+84        Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010
+ Correlating Traits Gene Retention, Sequence Divergence, Duplicability Essentiality                                        GBE
+
+detoxification processes critical clearance              Literature Cited
+potentially harmful xenobiotics. prominent diversity               Aury J, et al. 2006. Global trends genome duplications arthropods certainly linked incredible va-                revealed ciliate Paramecium tetraurelia. Nature.
+riety environmental challenges, particularly respect                  444(7116):171–178. coevolution arthropods plants (Feyereisen                  Brayer K, Segal D. 2008. fingers DNA: protein-protein
+2006). numerous cytochrome P450s fungi contribute                      interactions mediated C2H2 zinc finger domains. Cell Biochem ability occupy large variety ecological niches               Biophys. 50(3):111–131. require specialized secondary metabolism (Kelly               Bult C, Kadin J, Richardson J, Blake J, Eppig J. 2010. Mouse Genome
+et al. 2009), numerous transporters critical                    Database: enhancements updates. Nucleic Acids Res. exchanging solutes environments.                               38:D586–D592 (Database issue).
+                                                                         Castillo-Davis C, Hartl D. 2003. Conservation, relocation duplication
+                                                                              genome evolution. Trends Genet. 19(11):593–597.
+Conclusions                                                              Chicken-Genome-Consortium. 2004. Sequence comparative anal-
+                                                                              ysis chicken genome provide unique perspectives study provides consistent view gene evolutionary
+                                                                              vertebrate evolution. Nature. 432(7018):695–716.
+traits large set vertebrate, arthropod, fungal
+                                                                         Copley R. 2008. animal genome: comparative genomics species spanning millions years divergence sheds                    evolution. Philos Trans R Soc Lond B Biol Sci. 363(1496):1453–1461.
+light fundamental principles eukaryotic gene               Davis J, Petrov D. 2004. Preferential duplication conserved proteins repertoire evolution. Classification protein-coding genes                  eukaryotic genomes. PLoS Biol. 2(3):E55. orthologous groups genes descended                    Di Cera E. 2009. Serine proteases. IUBMB Life. 61(5):510–515.
+common ancestors reveals majority groups ex-                 Dujon B. 2006. Yeasts illustrate molecular mechanisms eukaryotic
+hibit broad phyletic distributions genes univer-                  genome evolution. Trends Genet. 22(7):375–387.
+sally present lineage. genes evolve            Elsik C, et al. 2009. genome sequence taurine cattle: window
+                                                                              ruminant biology evolution. Science. 324(5926):522–528. single-copy control multicopy license
+                                                                         Engel S, et al. 2010. Saccharomyces Genome Database provides mutant
+frequently duplicate entire lineage. Evolution                                                                               phenotype data. Nucleic Acids Res. 38:D433–D436 (Database issue).
+single-copy orthologs constrained sequence                Feyereisen R. 2006. Evolution insect P450. Biochem Soc Trans. 34(Pt
+level contrasts elevated divergence main-                       6):1252–1255.
+tained duplicates. addition, evolutionary perspective             Fitch W. 1970. Distinguishing homologous analogous proteins. gene essentiality assessed model organisms firmly sup-                  Syst Zool. 19(2):99–113.
+ports hypotheses genes stronger                  Fredriksson R, Lagerstro¨m M, Schio¨th H. 2005. Expansion selection gene retention gene sequence                       superfamily G-protein-coupled receptors chordates. Ann N Y
+servation vertebrates, arthropods, fungi.                              Acad Sci. 1040:89–94.
+                                                                         Gerdes S, et al. 2003. Experimental determination level
+   methodologically consistent large-scale approach
+                                                                              analysis essential genes Escherichia coli MG1655. J Bacteriol.
+provides evidence principles shared
+                                                                              185(19):5673–5684. major eukaryotic lineages highlights               Consortium. 2010. Gene Ontology 2010: extensions lineage-specific idiosyncrasies taken ac-                 refinements. Nucleic Acids Res. 38:D331–D335 (Database issue).
+count cross-lineage comparisons. princi-               Gustafson  Snitkin E, Parker S, DeLisi C, Kasif S. 2006. ples, stronger constraints sequence                        identification essential genes using targeted genome sequencing
+evolution essential genes, previously hypothesized                    comparative analysis. BMC Genomics. 7:265. evidenced using smaller data sets, quantita-             Hahn M. 2009. Distinguishing evolutionary models tively prominent distinction tolerance gene copy-                   maintenance gene duplicates. J Hered. 100(5):605–617.
+number variations largely underappreciated.                     Hedges SB, Kumar S. 2009. timetree life. Oxford: Oxford
+                                                                              University Press.
+                                                                         Hirsh  Fraser H. 2001. Protein dispensability rate evolution.
+Supplementary Material                                                        Nature. 411(6841):1046–1049.
+                                                                         Hunter S, et al. 2009. InterPro: integrative protein signature
+Supplementary figures 1–8 tables 1–6 available                                                                               database. Nucleic Acids Res. 37:D211–D215 (Database issue).
+Genome Biology Evolution online (http://www.gbe.                     Hurst L, Smith N. 1999. essential genes evolve slowly? Curr Biol.
+oxfordjournals.org/).                                                         9(14):747–750.
+                                                                         Jordan  Rogozin  Wolf Y, Koonin E. 2002. Essential genes Acknowledgments                                                               evolutionarily conserved nonessential genes bacteria.
+                                                                              Genome Res. 12(6):962–968. authors like thank Prof Iwona Stroynowski, Dr               Jordan  Wolf Y, Koonin E. 2004. Duplicated genes evolve slower Ivo Pedruzzi, Dr Fredrik Tegenfeldt, members                   singletons despite initial rate increase. BMC Evol Biol. 4:22.
+Computational Evolutionary Genomics Group useful dis-                Kelly D, Krasevec N, Mullins J, Nelson D. 2009. CYPome
+cussions, anonymous referees                     (Cytochrome P450 complement) Aspergillus nidulans. Fungal
+structive suggestions.                                                        Genet Biol. 46(Suppl 1):S53–S61.
+
+
+
+Genome Biol. Evol. 2:75–86. doi:10.1093/gbe/evq083 Advance Access publication December 9, 2010                                                 85
+ Waterhouse et al.                                                                                                                      GBE
+
+Kirkness E, et al. 2010. Genome sequences human body louse              Sato K, Pellegrino M, Nakagawa T, Vosshall L, Touhara K. 2008. Insect
+    primary endosymbiont provide insights permanent               olfactory receptors heteromeric ligand-gated ion channels.
+    parasitic lifestyle. Proc Natl Acad Sci U S  107(27):12168–12173.            Nature. 452(7190):1002–1006.
+Kitano H. 2004. Biological robustness. Nat Rev Genet. 5(11):826–837.           Tweedie S, et al. 2009. FlyBase: enhancing Drosophila Gene
+Koonin E. 2005. Orthologs, paralogs, evolutionary genomics. Annu               Ontology annotations. Nucleic Acids Res. 37:D555–D559 (Data-
+    Rev Genet. 39:309–338.                                                         base issue).
+Krylov D, Wolf Y, Rogozin  Koonin E. 2003. Gene loss, protein sequence       UniProt-Consortium. 2010. Universal Protein Resource
+                                                                                   (UniProt) 2010. Nucleic Acids Res. 38:D142–D148 (Database
+    divergence, gene dispensability, expression level, interactivity                                                                                    issue).
+    correlated eukaryotic evolution. Genome Res. 13(10):2229–2235.
+                                                                               Waterhouse R, et al. 2007. Evolutionary dynamics immune-related
+Lemay D, et al. 2009. bovine lactation genome: insights                                                                                    genes pathways disease-vector mosquitoes. Science.
+    evolution mammalian milk. Genome Biol. 10(4):R43.
+                                                                                   316(5832):1738–1743.
+Liao B, Scott N, Zhang J. 2006. Impacts gene essentiality, expression
+                                                                               Waterhouse R, Zdobnov E, Tegenfeldt F, Li J, Kriventseva E. 2010.
+    pattern, gene compactness evolutionary rate                      OrthoDB: hierarchical catalog eukaryotic orthologs 2011.
+    mammalian proteins. Mol Biol Evol. 23(11):2072–2080.                           Nucl. Acids Res. doi: 10.1093/nar/gkq930. Advance Access October
+Liao B, Zhang J. 2007. Mouse duplicate genes essential                   23, 2010.
+    singletons. Trends Genet. 23(8):378–381.                                   Werren J, et al. 2010. Functional evolutionary insights Lopez-Bigas N, S, Teichmann S. 2008. Functional protein divergence              genomes parasitoid Nasonia species. Science.
+    evolution Homo sapiens. Genome Biol. 9(2):R33.                       327(5963):343–348.
+Luz H, Vingron M. 2006. Family specific rates protein evolution.    

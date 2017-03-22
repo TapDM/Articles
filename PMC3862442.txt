@@ -1,0 +1,576 @@
+                                            International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199
+
+
+
+                                                         Contents lists available SciVerse ScienceDirect
+
+                                             International Journal Parasitology:
+                                                   Drugs Drug Resistance
+                                                journal homepage: www.elsevier.com/locate/ijpddr
+
+
+
+ silico prediction antimalarial drug target candidates
+Philipp Ludin b, Ben Woodcroft c,1, Stuart  Ralph c, Pascal MÃ¤ser b,â‡‘   Swiss Tropical Public Health Institute, 4002 Basel, Switzerland
+b
+  University Basel, 4000 Basel, Switzerland
+c
+  Department Biochemistry Molecular Biology, Bio21 Molecular Science Biotechnology Institute, University Melbourne, Victoria 3010, Australia
+
+
+ r t c l e        n f o                           b s t r c t
+
+Article history:                                       need new antimalarials persistent emergence drug resistant parasites. aim
+Received 19 April 2012                                 identify new drug targets Plasmodium falciparum phylogenomics Plasmodium spp. Received revised form 28 June 2012                  comparative genomics Homo sapiens. proposed target discovery pipeline largely independent Accepted 3 July 2012
+                                                       experimental data based assumption P. falciparum proteins likely essential  
+Available online 17 July 2012
+                                                       similar proteins proteome (ii) highly conserved malaria
+                                                       parasites mammals. hypothesis tested using sequenced Saccharomycetaceae species Keywords:
+                                                       touchstone. Consecutive ï¬?lters narrowed potential target space P. falciparum proteins Plasmodium falciparum
+Phylogenomics
+                                                       likely essential, matchless human proteome, expressed blood stages parasite,
+Gene essentiality                                      amenable small molecule inhibition. ï¬?nal set 40 candidate drug targets signiï¬?cantly
+Drug target                                            enriched essential proteins comprised proven targets (e.g. dihydropteroate synthetase enzymes
+                                                       non-mevalonate pathway), targets currently investigation (e.g. calcium-dependent protein
+                                                       kinases), new candidates potential phosphomannose isomerase, phosphoenolpyr-
+                                                       uvate carboxylase, signaling components, transporters. targets prioritized based drugga-
+                                                       bility indices availability vitro assays. Potential inhibitors inferred similarity                                                        known targets disease systems. identiï¬?ed candidates P. falciparum provide insight                                                        biochemical peculiarities vulnerable points malaria parasite serve starting points
+                                                       rational drug discovery.
+                                                                        Ã“ 2012 Australian Society Parasitology Published Elsevier  rights reserved.
+
+
+
+
+1. Introduction                                                                                Rational post-genomic drug discovery based screening
+                                                                                           large chemical libraries â€“ virtually high-throughput
+   Drug discovery programs launched Medicines Malaria                           format â€“ given target enzyme parasite. persistent
+Venture product-development partnerships culmi-                             bottleneck target-based approaches identiï¬?cation nated development promising new antimalarial com-                                suitable drug target ï¬?rst place. enzyme essen-
+pounds synthetic peroxide OZ439 (Charman et al.,                               tial survival parasite sufï¬?ciently different 2011) spiroindolone NITD 609 (Rottmann et al., 2010),                              closest counterpart human host inhibited selectively. currently undergoing clinical trials. spite                          Experimental tools validate candidate drug targets limited
+recent successes, pivotal maintain early phase drug discov-                       malaria parasites. Gene silencing RNAi does ery prevent antimalarial drug development pipeline                             feasible (Baum et al., 2009). Gene replacement select-
+draining. propensity parasite                                  able markers (Triglia et al., 1998), inherently problem-
+drug-resistant (Muller Hyde, 2010; Sa et al., 2011), need                          atic gene essential failing knock  Inducible new antimalarial chemotypes persist human-                              degradation Plasmodium falciparum proteins pathogenic Plasmodium spp. eventually eradicated.                                      fused FKBP-destabilization domain (Armstrong Goldberg,
+                                                                                           2007) currently conclusive method antimalarial
+                                                                                           target validation.  reverse genetic methods
+  â‡‘ Corresponding author  Swiss Tropical Public Health Institute, Socinst-
+rasse 57, 4002 Basel, Switzerland. Tel.: +41 61 284 8338; fax: +41 61 284 8101.
+                                                                                           practicable genome-wide scale. Adding chal-
+    E-mail addresses: philipp.ludin@unibas.ch (P. Ludin), b.woodcroft@uq.edu.au            lenges Plasmodium molecular biology lack phyloge-
+(B. Woodcroft), saralph@unimelb.edu.au (S  Ralph), pascal.maeser@unibas.ch               netically close model organism serve point (P. MÃ¤ser).                                                                                reference â€“ case parasitic nematodes, essenti-
+  1
+    Current address: School Chemistry Molecular Biosciences, Australian             ality genes estimated based RNAi phenotypes
+Centre Ecogenomics, University Queensland, St. Lucia, Queensland 4072,
+Australia.
+                                                                                           (Schindelman et al., 2011) orthologues Caenorhabditis elegans.
+
+2211-3207/$ - matter Ã“ 2012 Australian Society Parasitology Published Elsevier  rights reserved.
+http://dx.doi.org/10.1016/j.ijpddr.2012.07.002
+192                             P. Ludin et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199
+
+
+    bioinformatic approaches previously em-                        2.3. Algorithms
+ployed help identify prioritize drug targets Plasmodium
+parasites. include techniques based automated identiï¬?ca-                       pipeline comparative genomics target prediction
+tion important steps metabolic pathways (Yeh et al., 2004;                     run semi-automated way, combining existing pro-
+Fatumo et al., 2009; Huthmacher et al., 2010; Plata et al., 2010),                   grams  Section 2.2) self Perl scripts parsing,
+techniques combine chemical starting points protein-                        formatting, analysis outputs. Druggability scores based queries (Joubert et al., 2009), use TDR-                 extracted TDRtargets website (Magarinos et al., 2012).
+targets web-resource (http://www.tdrtargets.org) (Magarinos                          druggability predictions numerical values 0
+et al., 2012) prioritize drug targets combination                  1, 1 corresponding druggable targets. Scores 
+multiple data types relevant drug development (Crowther                           ï¬‚ect combination factors including degree similarity et al., 2010).                                                                       large library targets ChEMBL database (Hopkins
+    try predict antimalarial drug targets silico, build-               et al., 2011; Gaulton et al., 2012), empirically determined
+ing previous approaches labs predicting essentiality                 interactions drug like compounds, possession physiochem- proteins based phylogeny (Doyle et al., 2010; Waterhouse                       ical features enriched known drug targets, drug-like
+et al., 2010). deï¬?ne protein candidate antimalarial                        quality inhibitors known interact homologues.
+drug target   conserved orthologues mamma-                 scores outputs combination multiple discrimina-
+lian-pathogenic Plasmodium spp.; (ii) match                          tors based empirically-characterized drug targets, P. falciparum; (iii) does good match human prote-                  untested Plasmodium, concordance high-
+ome  (iv) expressed trophozoite gametocyte                      scoring proteins known antimalarial drug tar-
+stages; (v) predicted function enzyme, receptor,                  gets. Proteins higher druggability scores likely transporter. rationale conserved genes fulï¬?ll                      amenable inhibition drug-like molecules proteins
+essential functions â€“ genes fulï¬?lling essential func-                 low druggability scores, used tions negative selection. conserved single copy gene                     aspect ranking  lack parasite-speciï¬?c lacks close matches genome likely                          direct data algorithms assign cutoff indispensable. Starting complete predicted proteome                      designating acceptable score.
+P. falciparum (Gardner et al., 2002), applied consecutive ï¬?lters extract candidate drug targets meet criteria.
+                                                                                     3. Results discussion
+
+2. Material methods                                                              3.1. Using yeast touchstone essentiality prediction
+
+2.1. Datasets                                                                           central hypothesis implemented present target dis-
+                                                                                     covery pipeline  protein likely essential    predicted Plasmodium spp. proteomes downloaded                           similar proteins proteome conserved PlasmoDB (http://www.plasmodb.org/common/downloads)                             orthologues related species. applying malaria
+(Aurrecoechea et al., 2009), Saccharomyces cerevisiae proteome                   parasites, tested hypothesis yeast S. cerevisiae SGD (Saccharomyces genome database; http://www                             essentiality proteins tested systematic knock loads.yeastgenome.org/) (Engel et al., 2010), Homo sapiens pro-                  respective genes (Winzeler et al., 1999). current null mu-
+teome EBI (ftp://www.ftp.ebi.ac.uk/pub/databases/integr8/                       tant dataset Saccharomyces Genome Database comprises
+fasta/proteomes) (Mulder et al., 2008), UniProt                  5477 genes, 1109 essential. test
+(http://www.uniprot.org/taxonomy) (Magrane Consortium,                           given S. cerevisiae protein unique, best match
+2011). P. falciparum 3D7 cell cycle expression data (Le Roch et al.,                 (excluding itself) proteome identiï¬?ed Blastp
+2003) obtained PlasmoDB, using threshold                          (Altschul et al., 1990), Needleman-Wunsch global align-
+expression E > 10 probe signal distribution log P < 0.5 pro-                 ment (Needleman Wunsch, 1970) performed posed authors (Le Roch et al., 2003). S. cerevisiae deletion                  proteins. median global identity S. cerevisiae
+phenotype data SGD (http://www.downloads.yeastge-                          protein best match 15.7  (red bar Fig. 1). 14  nome.org/curation/literature/phenotype_data.tab). Proteins                      proteins match median essential, com-
+termed essential phenotype knock (mutant                           pared 24  median (Fig. 1). difference type = â€˜nullâ€™) corresponding gene â€˜inviableâ€™. TDRtar-
+gets web resource (http://www.tdrtargets.org) (Magarinos et al.,
+2012), BRENDA database (http://www.brenda-enzy-                           698 (24 )                   407 (14 ) essential proteins
+mes.org) (Scheer et al., 2011) used identify proteins precedence interaction small molecule chemical inhibi-
+                                                                                           200
+tors. Essentiality Plasmodium berghei orthologues                                                                            S. cerevisiae RMgmDB (Rodent Malaria genetically modiï¬?ed Parasites;                              150                                            n = 5,887
+                                                                                                                                               ,
+http://www.pberghei.eu/) (Janse et al., 2011).                                             100
+
+                                                                                             50
+2.2. Programs
+                                                                                                        10     20    30     40    50    60     70    80     90    100
+   InParanoid obtained http://www.inparanoid.sbc.su.se QuickParanoid http://www.pl.postech.ac.kr/QuickPara-                        Fig. 1. S. cerevisiae non-redundant proteins. Frequency distribution similar-
+noid. BLAST 2.2.17 (Altschul et al., 1990) downloaded                       ities predicted S. cerevisiae proteins best match NCBI (ftp.ncbi.nlm.nih.gov), Needle  EMBOSS suite (Rice                     proteome. 1109 essential proteins, 698 median identity                                                                                      15.7  (red bar) 407 (4 proteins exactly 15.7  identity et al., 2000)) http://www.emboss.sourceforge.net. pro-                      best match). black area represents proteins threshold 615 
+grams run Basel Biocomputing Linux cluster (http://                      global identity.  interpretation references colour ï¬?gure legend,
+www.bc2.unibas.ch).                                                                  reader referred web version article.)
+                                            P. Ludin et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199                                                      193
+
+
+signiï¬ (p < 0.0001, sided Chi-square test) supported                                 Table 1 hypothesis â€˜unmatchedâ€™ proteins likely                                   Proteomes used study, sizes sources.
+
+essential (Hannay et al., 2008). Setting cut 615  global                                     Species                          Proteins                  Source                   Version
+identity 2648 S. cerevisiae proteins passed (black area Fig. 1),                                     P. falciparum                    5410                      PlasmoDB                 8.1
+26  essential (Fig. 2).                                                                   P. vivax                         5396                      PlasmoDB                 8.1
+   determine S. cerevisiae proteins conserved                                       P. berghei                       4861                      PlasmoDB                 8.1 Saccharomycetaceae, set related (Fitzpatrick et al.,                                    P. chabaudi                      5119                      PlasmoDB                 8.1
+                                                                                                        P. knowlesi                      5194                      PlasmoDB                 8.1
+2006) fully sequenced yeasts served reference: Candida                                       P. yoelii                        7724                      PlasmoDB                 8.1
+glabrata, Ashbya gossypii, Kluyveromyces lactis, Candida albicans,                                      H. sapiens                       67,172                    Integr8                  08/2011
+Debaryomyces hansenii, Yarrowia lipolytica. predicted pro-                                      S. cerevisiae                    5887                      SGD                      R64-1-1
+teomes (Table 1) fed InParanoid QuickParanoid                                              gossypii                      4761                      UniProt                  08/2011
+                                                                                                        C. albicans                      5727                      UniProt                  08/2011
+(Ostlund et al., 2010), programs utilize reciprocal, proteome-
+                                                                                                        C. glabrata                      5197                      UniProt                  08/2011
+wide Blastp searches build groups orthologous proteins                                        D. hansenii                      6242                      UniProt                  08/2011
+rank  total 3546 S. cerevisiae proteins possessed ortho-                                      K. lactis                        5074                      UniProt                  08/2011
+logues included yeasts. highly conserved orthology                                       Y. lipolytica                    6414                      UniProt                  08/2011
+clusters, e. median similarity, signiï¬?cantly 
+riched essential proteins (Fig. 2): 29  S. cerevisiae pro-
+teins belonged conserved cluster essential
+                                                                                                                                                                            P. falciparum
+(p < 0.0001, sided Chi-square test). Finally intersect 
+
+
+
+                                                                                                   Number proteins
+                                                                                                                        200                                                 n = 5410 sets, unmatched conserved, contained 632 proteins
+                                                                                                                        150 40  essential (Fig. 2). yeast results supporting working hypothesis, went apply malaria                                                               100
+parasites.                                                                                                              50
+
+3.2. Essentiality prediction P. falciparum
+                                                                                                                                 10      20       30   40     50      60      70    80      90   100
+
+    predicted P. falciparum proteome exhibits strikingly low
+                                                                                                                            Global identity best match proteome
+degree redundancy, large majority proteins exhibit-
+ing low level similarity best match                                Fig. 3. P. falciparum non-redundant proteins. Frequency distribution simi- proteome (Fig. 3). described (Section 3.1) S. cere-                            larities predicted P. falciparum proteins best match visiae, closest hit P. falciparum protein determined                              proteome. median shown red, black area represents proteins Blastp. Similarity measured global alignment ex-                                  passing threshold 615  global identity, assumed enriched
+                                                                                                 essential ones.
+pressed percent identical amino acids. median global iden-
+tity P. falciparum protein best match 13  (red bar Fig. 3), 3078 5410 proteins passed                               species 26,377, determined InParanoid Quick- threshold 615  global identity best match                                   Paranoid (Ostlund et al., 2010). amounts 78  proteins,
+(black area Fig. 3).                                                                          reï¬‚ecting close relationship malaria parasites. num-
+    conserved Plasmodium proteins identiï¬?ed compar-                                  ber proteins common clusters conserved ing P. falciparum available genome sequences mam-
+malian malaria parasites, P. berghei, Plasmodium chabaudi Plasmodium yoelii (mouse), Plasmodium knowlesi (primate), Plasmodium vivax (human tertian malaria). genomes                                                                                          0                    4000                 8000
+encode total 33,704 predicted proteins (Table 1). common
+intersect proteins orthology clusters represented                                                                                                                                       P. falciparum            3610
+
+                                                                                                                                      P. vivax
+                           Saccharomyces cerevisiae
+                      ae
+                 etacea
+
+
+
+
+                                   Candida glabrata
+                                   C                                                                                                  P. knowlesi
+                                    Ashbya gossypii
+              myce
+
+
+
+
+                                   y     y
+                                Kluyveromyces lactis                                                                                  P. berghei
+          harom
+
+
+
+
+                                   Candida albicans
+                                                                                                                                      P. yoelii
+      Sacch
+
+
+
+
+                             Debaryomyces hansenii
+      S
+
+
+
+
+                                  Yarrowia lipolytica                                                                                 P. chabaudi
+
+
+                                                                                                                                                            Species-specif ic proteins
+                                                        Total    Essential                                                                                  Plasmodium spp. rodents
+                                                                                                                                                            Plasmodium spp. primates
+      S cerevisiae proteome
+      S.                                                5,477
+                                                        5 477      1,109
+                                                                   1 109       20                                                                           Plasmodium spp. analyzed
+      Unmatched >15  global
+                     g      identity
+                                   y                    2,648
+                                                         ,          677        26                                                                           Irregular distribution orthologues
+
+      Conserved Saccharomycetaceae                   1,773       514        29 
+                                                                                                 Fig. 4. conserved malaria proteome. cladogram depicts phylogeny       Unmatched & conserved                             632         253        40                fully sequenced malaria parasites mammals (Martinsen et al., 2008). bars
+                                                                                                 divide predicted proteome proteins present species itself,
+Fig. 2. Testing essentiality yeasts. cladogram depicts phylogeny             proteins orthologues Plasmodium spp. sharing intermediate hosts, fully sequenced Saccharomycetaceae (Fitzpatrick et al., 2006). Eliminating S.            proteins orthologues analyzed species (3610 P. falciparum).
+cerevisiae proteins possess matches proteome (gray area                     white sections represent proteins irregular distribution insofar Fig. 1), conserved analyzed yeasts, enriches              presence orthologues did correlate host speciï¬?city  essential proteins.                                                                          phylogeny).
+194                                                        P. Ludin et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199
+
+
+analyzed Plasmodium spp., size proteomes corre-
+                                                                                                                   Total proteome                                                             5,410
+lated number species-speciï¬?c proteins (Fig. 4). 5410 predicted P. falciparum proteins, 3610 (67 ) possessed                                                     Unique P. falciparum                                                    3,078 orthologue Plasmodium species
+(Fig. 4). 630 P. falciparum proteins did orthologue                                                 Conserved Plasmodium spp.                                               944 species 139 orthologue P. vivax P.
+knowlesi malaria parasites rodents (Fig. 4). dif-                                            good match human proteome                                        426
+ferent protein subsets outlined Fig. 4 parasite avail-
+able Supplementary excel ï¬?le (supplement1.xls). intersect                                                 Expressed asexual erythrocytic stages                               288 subsets, P. falciparum unique (n = 3078) P. falcipa-
+rum highly conserved  e. median, n = 1805), contained                                                      Predicted function enzyme, receptor, transporter                        40
+944 proteins posit â€“ based results S. cerevi-
+siae â€“ enriched essential ones.                                                                       Fig. 6. genome target. Overview silico pipeline narrow                                                                                                                 potential target space P. falciparum. 40 identiï¬?ed candidates listed                                                                                                                 Table 2.
+3.3. Comparative genomics parasite host
+                                                                                                                complete list available Supplementary excel ï¬?le (supple-
+    predicted protein P. falciparum best match                                           ment2.xls). half (n = 178) assigned human proteome identiï¬?ed Blastp, ranking obtained                                                  putative function. potential conserved
+hits ascending expectancy (E-values). similarity                                               malaria parasites absent humans, proteins P. falciparum protein closest match H. sapiens                                                 time  removed candidate target set. quantiï¬?ed Needleman-Wunsch global alignment                                                         proteins removed manually likely  local alignment provided Blast misleading                                               function susceptible inhibition, e.g. structural pro- similarity unrelated proteins                                                  teins surface antigens. Focusing proteins clear, ï¬?ned smaller common domain). frequency distribution                                                    putative, functional annotation PlasmoDB  global identity human proteins P. falciparum proteome                                              zyme, receptor transporter resulted ï¬?nal set 40 P. falcipa- shown Fig. 5. conserved proteins parasite                                                rum candidate drug targets (Fig. 6). host ubiquitins, histones, calmodulin, tubulin. median global identity P. falciparum protein best
+                                                                                                                3.5. Assessing essentiality 40 identiï¬?ed candidate targets
+match H. sapiens 10  (red bar Fig. 5). Proteins exhibiting
+>10  identity host (gray area Fig. 5) removed                                                                                                                     predicted essential proteins attempts potential target space, trimmed                                                                                                                 disrupt corresponding gene P. falciparum (Table 3).
+426 proteins (Fig. 6). highly signiï¬                                                                                                                 cases disruption attempted deletion Blastp E-values human protein, e.g. P. falciparum kinases
+                                                                                                                recombination gene deletion obtained (Santiago
+listed Table 2, short region high similarity                                                                                                                 et al., 2004; Wang et al., 2004; Abdi et al., 2010). fourth disparate proteins return high local alignment
+                                                                                                                gene ispH (HMBPP reductase; PFA0225w), introduction ham-
+score  case P. falciparum kinases, region cat-
+                                                                                                                merhead ribozyme targeting transcript lethal (Vinayak
+alytic domain).  selective targeting possible
+                                                                                                                Sharma, 2007).  genes experimentally domains.
+                                                                                                                examined appeared essential. Similarly, small number                                                                                                                 proteinsâ€™ orthologues P. berghei Toxoplasma gondii 3.4. Blood-stage expression putative targets                                                                 subject directed gene knock mutagenesis
+                                                                                                                experiments aimed assaying essentiality. orthologues
+   majority genes P. falciparum expressed stage-                                             kinases PF13_0166 CDPK7 (PF11_0242) sug-
+dependent manner (Llinas DeRisi, 2004), asex-                                              gested essential P. berghei (Tewari et al., 2010). T. gondii,
+ual gametocyte stages attempt ï¬?nd targets given                                                  orthologue apurinic/apyrimidinic endonuclease roles pathology transmission. relied published                                             (PF13_0176) shown essential conditional knockout
+microarray dataset (Le Roch et al., 2003) P. falciparum cultures                                             (Onyango et al., 2011) GAP40 (PFE0785c) essen-
+synchronized sorbitol treatment identify potential targets                                            tial glideosome complex, protein itself present blood stages. Retaining products                                            veriï¬?ed essential (Frenal et al., 2010). gene genes expressed ring stages, trophozoites,                                                  non-essential. P. berghei CDPK6 (PF11_0239) orthologue
+schizonts, reduced target space 288 proteins (Fig. 6).                                               successfully deleted double crossover (Coppi et al.,
+                          400
+                                                                                                                2007). experimental assays essentiality indicate
+                                                                                                                predicted proteins essential,                                                                                                                 non-essential, supporting method enrich essentiality.
+                          300
+ P. falciparum proteins
+
+
+
+
+                          200                                                                                   3.6. Prediction druggability
+
+                          100                                                                                       order recognize important role chemical accessibil-
+                                                                                                                ity ranking putative drug targets looked druggability
+                                                                                                                information predicted essential targets. Druggability 
+                                     10     20     30     40     50     60     70     80      90    100         scribes properties protein make able interact
+                                                                                                                drug-like molecule. proteins physiochemical                                   Global identity best match H. sapiens
+                                                                                                                structural properties make unlikely bind com-
+Fig. 5. Parasite vs. host. Frequency distribution percent global identity H.
+                                                                                                                pound necessary characteristic drug, sapiens P. falciparum proteome. red bar marks median, gray areas                             genome analyses estimated 10  genome P. falciparum proteins excluded potential target space.                                  represent druggable proteins (Hopkins Groom, 2002).                                         P. Ludin et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199                                     195
+
+
+Table 2 candidate drug targets P. falciparum identiï¬?ed outlined Fig. 6, putative function, Blastp E-value best hit human proteome, druggability index
+(D ). categories (italics) arbitrary mainly meant illustrate functional diversity identiï¬?ed targets.
+
+  Accession                              Putative function                                                         Id Hsa                        E Hsa                         D 
+  Metabolism
+  PF08_0095                              Dihydropteroate synthetase (2.5.1.15)                                     0.8                           8.5                           0.8
+  MAL8P1.156                             Mannose-6-P isomerase (5.3.1.8)                                           6.9                           1E-8                          0.6
+  PF08_0068                              FAD-dependent monooxygenase                                               6.0                           0.07                          0.5
+  PF14_0334                              Ornithine aminotransferase (2.6.1.13)                                     4.3                           1E-14                         0.3
+  PF13_0234                              PEP carboxykinase (4.1.1.49)                                              4.0                           3.6                           0.2
+  PF14_0246                              PEP carboxylase (4.1.1.31)                                                3.8                           4.5                           0.1
+  PFI1180w                               Patatin-like phospholipase                                                6.3                           7.4                           0.1
+  PF10_0221                              HMB-PP synthase (GcpE, 1.17.7.1)                                          6.5                           2.2
+  PFA0225w                               HMB-PP reductase (1.17.1.2)                                               7.3                           5.3
+  MAL7P1.88                              Thioredoxin-like protein                                                  3.1                           4.9
+  PFI1340w                               Fumarate hydratase (Fumarase, 4.2.1.2)                                   10.0                           2.7
+  PF08_0132                              Glutamate dehydrogenase C (1.4.1.2)                                       8.1                           7.2
+  PFD0285c                               Lysine decarboxylase (4.1.1.18)                                           5.6                           7.4
+  PFL0620c                               Glycerol-3-P acyltransferase (2.3.1.15)                                   9.8                           1.0
+  PF14_0250                              Lipase                                                                    3.3                           8.1
+  Nucleic acids
+  PF14_0273                              RNA methyltransferase                                                     9.8                           7E-30                         0.7
+  PF13_0080                              Telomerase reverse transcriptase (2.7.7.49)                               0.3                           0.04                          0.5
+  PF13_0176                              Apur./apyr. endonuclease (4.2.99.18)                                      2.6                           2.6                           0.2
+  MAL13P1.311                            Exonuclease                                                               5.9                           7E-4                          0.1
+  MAL13P1.328                            DNA topoisomerase VI, b subunit                                           4.9                           7.1
+  PFE0675c                               DNA photolyase (4.1.99.3)                                                 3.7                           0.06
+  PF13_0048                              NUDIX hydrolase (3.6.1.17)                                                8.4                           8E-35
+  PF08_0111                              RNA helicase                                                              7.8                           8E-15
+  PFC0980c                               RNA triphosphatase                                                        8.5                           8.6
+  Signaling
+  PF11_0239                              Ca2+-dependent protein kinase 6                                           7.8                           9E-34                         0.5
+  PF11_0242                              Ca2+-dependent protein kinase 7                                           9.0                           6E-41                         0.5
+  PF13_0258                              Serine/threonine protein kinase TKL3                                      4.8                           3E-21                         0.5
+  PFA0515w                               Phosphatidylinositol-4-P-5-kinase (2.7.1.68)                              7.0                           1E-24                         0.5
+  PF13_0166                              Protein kinase                                                            8.9                           7E-4                          0.3
+  PF07_0024                              Inositol phosphatase                                                      7.3                           1E-31                         0.3
+  MAL7P1.18                              Serine/threonine protein kinase                                           4.7                           5E-13                         0.1
+  MAL7P1.64                              G protein-coupled receptor                                                2.5                           93                            0.1
+  PF14_0143                              Atypical protein kinase, ABC-1 family                                     3.8                           4E-26
+  PF14_0614                              Phosphatase                                                               6.1                           4E-5
+  Protease/chaperone
+  PF14_0382                              Stromal-processing peptidase                                              4.4                           0.001                         0.5
+  PF10_0032                              DnaJ protein                                                              2.4                           7E-4
+  Transporter
+  PF11_0092                              Mechanosensitive ion channel                                              5.0                           11                            0.1
+  PF13_0019                              Na+:H+ antiporter                                                         6.6                           0.01                          0.1
+  PFI0785c                               Sugar transporter                                                         2.8                           0.09                          0.1
+  PFE0785c                               Metabolite transporter/glideosome component                               0.7                           10
+
+ TDRtargets project druggability score assigned                             inhibitors.  dihydropteroate synthetase (DHPS;
+zymes P. falciparum proteome (Aguero et al., 2008; Mag-                              PF08_0095) validated targets clinically
+arinos et al., 2012). score predicts suitability protein                      used antimalarials, consistent value approach binding drug like molecule, aggregate fac-                         identifying essential targets. additional 13 proteins ortho-
+tors including physiochemical structural features pro-                             logues identiï¬?ed small molecule inhibitors. Identiï¬?cation tein sequence similarity validated druggable proteins                             inhibitors provides useful starting points identi- organisms (Al-Lazikani et al., 2007; Gaulton et al., 2012).                          fying small molecules interrogate Plasmodium 40 targets predicted essential, 23 positive druggability                          targets, indicates likely potentially
+scores (Table 2). highest scores predicted                              druggable targets. Compounds curated exclude facile druggable structures prioritized                             inhibitors natural amino acids, ATP NaCl, potential targets low zero druggability scores.                              systematic attempt rate drug-like quality higher druggability scores likely indicative prom-                          predicted inhibitors. kinases list slightly mod-
+ising drug target-like proteins, positive score indicates                             iï¬?ed approach taken, kinase inhibitors structural physiochemical similarity proteins pre-                            known cross reactive multiple kinases. empirical
+cedence interaction drug-like molecule.                                            cut 30  local sequence identity kinase domains     search proteins speciï¬?c compounds starting                                 used identify homologues potential inhibitors points inhibitor development searched proteins                           TDR/ChEMBL data (Table 3). identiï¬?ed targets inhibitors, ortho-
+logues identiï¬?ed inhibitors. Searches conducted                              3.7. Experimental amenability predicted targets
+TDRTargets database, ChEMBL database BRENDA data-
+base identify targets. 40 predicted essential P. falci-                           Tractability target developing assay inhibi-
+parum genes, 2 directly validated targets                                 tion major factor prioritizing promising drug targets 196                                    P. Ludin et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199
+
+
+Table 3
+Identiï¬?ed targets, evidence essentiality apicomplexan parasites (Pfa, P. falciparum; Pbe, P. berghei; Tgo, T. gondii), known inferred inhibitors, published vitro
+assays.
+
+  Accession       Enzyme                Essentiality   Inhibitors       Assay    References
+  PF08_0095       DHPS                  Pfa            Sulfonamides     Yes      Wang et al. (2010)
+  PF14_0273       RNA                                  8 inferred       Yes      Riguet et al. (2005), Leber et al. (2009)
+                  methyltransferase
+  MAL8P1.156      M6P isomerase                        8                         Wells et al. (1995), Salvati et al. (2001) Foret et al. (2009)
+  PF11_0242       CDPK7                 Pbe            72 inferred               12 Publications
+  PF11_0239       CDPK6                 Pbe     2488                      189 Publications
+                                                       inferred
+  PFA0515w        PI-4-P-5-kinase                      1                         Kobayashi et al. (2005) Santiago et al. (2004)
+  PF13_0080       Telomerase RT                        Berberine                 Sriwilaijareon et al. (2002)
+  PF13_0258       TKL3                  Pfa                             Yes      Abdi et al. (2010)
+  PF13_0166       Protein kinase        Pbe
+  PF14_0334       OAT                                  >10              Yes      Strecker (1965), Levillain et al. (2000), Wang et al. (2007), Stranska et al. (2008) Gafan
+                                                                                 et al. (2001)
+  PF13_0176       AP endonuclease       Tgo            >20              Yes      Onyango et al. (2011), Zawahir et al. (2009), Bapat et al. (2010), Adhikari et al. (2012)                                                                                  Haltiwanger et al. (2000)
+  PF13_0234       PEP                                                   Yes      Hayward (2000)
+                  carboxykinase
+  PF14_0246       PEP carboxylase                      9                Yes      Pairoba et al. (1996), McDaniel Siu (1972) Jenkins (1989)
+  PFD0285c        Lysine                               4                         Yamamoto et al. (1991) Takatsuka et al. (1999)
+                  decarboxylase
+  PFI1340w        Fumarase                             2                Yes      Flint (1994), Beeckmans Van Driessche (1998) Bulusu et al. (2011)
+  PFL0620c        G3P                   Pfa            >40              Yes      Santiago et al. (2004), Yamashita Numa (1981), Coleman (1988) Wydysh et al.
+                  acyltransferase                                                (2009)
+  PF13_0048       NUDIX hydrolase                      >20                       Guranowski et al. (2003, 2009) Branson et al. (2009)
+  PF08_0132       GDH C                                >20              Yes      Li et al. (2007, 2009), Rodriguez-Acosta et al. (1999)
+  PFA0225w        HMB-PP                Pfa                             Yes      Vinayak Sharma (2007) Rohrich et al. (2005)
+                  reductase
+
+
+
+
+infectious diseases smaller research communities,                               candidate drug targets P. falciparum shown Table
+compared working human proteins, means fewer pro-                               2. conï¬?dent set contains promising leads tein reagents available. exacerbated malaria research                        includes known targets dihydropteroate synthetase P. falciparum genome extremely + T rich,                          (PF08_0095), target sulfonamides (dihydrofolate synthetase
+proteins long low-complexity insertions, making recombi-                               included 20  identical human mitochondrial
+nant protein production challenging. High throughput attempts                               tetrahydrofolylpolyglutamate synthase, EC 6.3.2.17), enzymes generate recombinant Plasmodium enzymes relatively high                             non-mevalonate pathway isoprenoid synthesis. failure rates (Abdi et al., 2010), presence existing assay                     potential target apicoplast stromal processing particularly relevant criteria target prioritization.                     peptidase (PF14_0382), characterized fore prioritized proteins researchers developed                           P. falciparum (van Dooren et al., 2002). Investigational targets iden- direct vitro assay P. falciparum enzyme. 40                      tiï¬?ed include glutamate dehydrogenase C (PF08_0132) (Aparicio
+predicted essential enzymes vitro assays described                           et al., 2010; Storm et al., 2011) Ca2+-dependent protein kinases
+P. falciparum, cases readily                              (PF11_0239, PF11_0242) (Kato et al., 2008; Ojo et al., 2010; Lim
+amenable high throughput inhibitor screening.                                            et al., 2012). addition, enzymes tar-
+                                                                                            geted systems, e.g. apurinic/apyrimidinic endonuclease
+3.8. Candidate antimalarial drug targets                                                    (PF13_0176) (Tell et al., 2010) telomerase reverse transcriptase
+                                                                                            (PF13_0080) (Chen et al., 2009) antitumor agents, phospho-
+    approach presented  starting com-                            mannose isomerase (MAL8P1.156) antifungals. Phosphoman-
+plete proteome, means embracing sense                           nose key enzyme yeast cell wall synthesis (Mastrolorenzo discover potential drug target. essential pro-                             et al., 2000; Wills et al., 2001); knowledge, P. falciparum
+teins known drug targets missed, P. falciparum                             orthologue far studied. surprising ï¬?nd list
+enzymes possess human orthologues exhibit exploitable                             candidate targets phosphoenolpyruvate carboxylase
+differences  differences sequence,                        (PF14_0246), enzyme responsible carbon ï¬?xation C4 case glyceraldehyde-3-phosphate dehydrogenase (Satc-                            plants. P. falciparum orthologue characterized pro-
+hell et al., 2005) regulation, demonstrated dihydrofolate                      posed ï¬?x atmospheric carbon (McDaniel Siu,
+reductase (Zhang Rathod, 2002). proven targets                               1972). process essential, PEP carboxylase eliminated possess paralogues, e.g. falci-                         attractive target inhibitors identiï¬?ed C4 plant
+pains (Teixeira et al., 2011). Using rigorous ï¬?lters, tried max-                      herbicides (Madhusudana et al., 1980; Jenkins, 1989; Pairoba
+imize speciï¬?city target prediction cost sensitivity,                       et al., 1996). candidate targets taking account large number false negatives. aim                              identiï¬?ed signaling enzymes nutrient transporters (Table 2). identify potential antimalarial drug targets come sizeable list promising targets                            4. Conclusion
+  serve starting points rational drug discovery (ii) provide new insights peculiarities vulnerable points                             Translating pathogenâ€™s genome sequence new drugs malaria parasites. applied selection criteria rigor-                        key challenge post-genomic biology. strategies ous (Fig. 6), list potential targets expanded                         prediction drug targets essential unique par-
+using stringent ï¬?lters. present approach identiï¬?ed 40                              asite proposed (Payne et al., 2001; Joyce Palsson,
+                                         P. Ludin et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199                                          197
+
+
+2008; Holman et al., 2009; Crowther et al., 2010; Deng et al., 2010;                          Beeckmans, S., Van Driessche, E., 1998. Pig heart fumarase contains distinct
+                                                                                                  substrate-binding sites differing afï¬?nity. J. Biol. Chem. 273, 31661â€“31669.
+Doyle et al., 2010; Magarinos et al., 2012). implement
+                                                                                              Branson, K.M., Mertens, H.D., Swarbrick, J.D., Fletcher, J , Kedzierski, L., Gayler, K.R.,
+phylogenomic comparison clade related parasites                                 Gooley, P.R., Smith, B.J., 2009. Discovery inhibitors lupin diadenosine 50 ,5000 -
+fer protein essentiality, referring model organ-                              P(1), P(4)-tetraphosphate hydrolase virtual screening. Biochemistry 48,
+ism understood phylogenetically                                        7614â€“7620.
+                                                                                              Bulusu, V., Jayaraman, V., Balaram, H., 2011. Metabolic fate fumarate, distant parasites. addition, estimate redundancy                                     product purine salvage pathway intraerythrocytic stages parasiteâ€™s proteome based global alignments quan-                                Plasmodium falciparum. J. Biol. Chem. 286, 9236â€“9245.
+tify protein similarity. proposed target identiï¬?cation                               Charman, S , Arbe-Barnes, S., Bathurst, C., Brun, R., Campbell, M., Charman, W.N.,
+                                                                                                  Chiu, F.C., Chollet, J., Craft, J.C., Creek, D.J., Dong, Y., Matile, H., Maurer, M.,
+pipeline does rely experimental data predict essentiality,                              Morizzi, J., Nguyen, T., Papastogiannidis, P., Scheurer, C., Shackleford, D.M., generally applicable. identiï¬?ed candidate tar-                               Sriraghavan, K., Stingelin, L., Tang, Y., Urwyler, H., Wang, X., White, K.L., Wittlin,
+gets P. falciparum  deï¬?nition, present Plasmo-                             S., Zhou, L., Vennerstrom, J.L., 2011. Synthetic ozonide drug candidate OZ439
+                                                                                                  offers new hope single-dose cure uncomplicated malaria. Proc. Natl.
+dium spp. analyzed. Conservation targets P. falciparum                                 Acad. Sci. USA 108, 4400â€“4405. P. vivax important eventual new drugs need ac-                             Chen, H., Li, Y., Tollefsbol, T.O., 2009. Strategies targeting telomerase inhibition. Mol.
+tive parasites. Conservation candidate targets                                Biotechnol. 41, 194â€“199.
+                                                                                              Coleman, R , 1988. Hepatic sn-glycerol-3-phosphate acyltransferases: effect human- rodent-pathogenic Plasmodium spp. desir-                                    monoacylglycerol analogs mitochondrial microsomal activities.
+able  mouse models indispensable drug                                    Biochim. Biophys. Acta 963, 367â€“374.
+development process. presented target discovery pipeline                               Coppi, , Tewari, R., Bishop, J.R., Bennett, B.L., Lawrence, R., Esko, J.D., Billker, O.,
+                                                                                                  Sinnis, P., 2007. Heparan sulfate proteoglycans provide signal Plasmodium
+corroborated presence known antimalarial targets                                                                                                   sporozoites stop migrating productively invade host cells. Cell Host output list (Table 2). hope newly identiï¬?ed candi-                                Microbe 2, 316â€“327.
+date targets support development novel antimalarials.                             Crowther, G.J., Shanmugam, D., Carmona, S.J., Doyle, M , Hertz-Fowler, C.,
+                                                                                                  Berriman, M., Nwaka, S., Ralph, S , Roos, D.S., Van Voorhis, W.C., Aguero, F.,
+                                                                                                  2010. Identiï¬?cation attractive drug targets neglected-disease pathogens
+Acknowledgments                                                                                   using silico approach. PLoS Negl. Trop. Dis. 4, e804.
+                                                                                              Deng, J., Deng, L., Su, S., Zhang, M., Lin, X., Wei, L., Minai, , Hassett, D.J., Lu, L.J.,
+                                                                                                  2010. Investigating predictability essential genes distantly related
+   wish thank Basel Computational Biology Center                                    organisms using integrative approach. Nucleic Acids Res. 39, 795â€“807.
+runtime Linux cluster. SAR funded Australian                             Doyle, M , Gasser, R.B., Woodcroft, B.J., Hall, R.S., Ralph, S , 2010. Drug target
+search Council Future Fellowship (FT0990350). BJW supported                                   prediction prioritization: using orthology predict essentiality parasite
+                                                                                                  genomes. BMC Genomics 11, 222. University Melbourne Research scholarship.                                            Engel, S.R., Balakrishnan, R., Binkley, G., Christie, K.R., Costanzo, M.C., Dwight, S.S.,
+                                                                                                  Fisk, D.G., Hirschman, J.E., Hitz, B.C., Hong, E.L., Krieger, C.J., Livstone, M.S.,
+                                                                                                  Miyasato, S.R., Nash, R., Oughtred, R., Park, J., Skrzypek, M.S., Weng, S., Wong,
+Appendix  Supplementary data                                                                    E.D., Dolinski, K., Botstein, D., Cherry, J.M., 2010. Saccharomyces Genome
+                                                                                                  Database provides mutant phenotype data. Nucleic Acids Res. 38, D433â€“436.
+                                                                                              Fatumo, S., Plaimas, K., Mallm, J.P., Schramm, G., Adebiyi, E., Oswald, M., Eils, R.,
+   Supplementary data associated article                                Konig, R., 2009. Estimating novel potential drug targets Plasmodium online version, http://dx.doi.org/10.1016/j.ijpddr.2012.07.                                falciparum analysing metabolic network knock strains silico.
+002.                                                                                              Infect. Genet. Evol. 9, 351â€“358.
+                                                                                              Fitzpatrick, D , Logue, M.E., Stajich, J.E., Butler, G., 2006. fungal phylogeny based
+                                                                                                  42 complete genomes derived supertree combined gene analysis.
+References                                                                                        BMC Evol. Biol. 6, 99.
+                                                                                              Flint, D.H., 1994. Initial kinetic mechanistic characterization Escherichia coli
+                                                                                                  fumarase  Arch. Biochem. Biophys. 311, 509â€“516.
+Abdi, , Eschenlauer, S., Reininger, L., Doerig, C., 2010. SAM domain-dependent
+                                                                                              Foret, J., Courcy, B., Gresh, N., Piquemal, J.P., Salmon, L., 2009. Synthesis     activity PfTKL3, essential tyrosine kinase-like kinase human malaria
+                                                                                                  evaluation non-hydrolyzable D-mannose 6-phosphate surrogates reveal 6-
+    parasite Plasmodium falciparum. Cell. Mol. Life Sci. 67, 3355â€“3369.
+                                                                                                  deoxy-6-dicarboxymethyl-D-mannose new strong inhibitor Adhikari, S., Manthena, P.V., Kota, K.K., Karmahapatra, S.K., Roy, G., Saxena, R., Uren,
+                                                                                                  phosphomannose isomerases. Bioorg. Med. Chem. 17, 7100â€“7107.
+    , Roy, R., 2012. comparative study recombinant mouse human
+                                                                                              Frenal, K., Polonais, V., Marq, J.B., Stratmann, R., Limenitakis, J., Soldati-Favre, D.,
+    apurinic/apyrimidinic endonuclease. Mol. Cell. Biochem. 362, 195â€“201.
+                                                                                                  2010. Functional dissection apicomplexan glideosome molecular
+Aguero, F., Al-Lazikani, B., Aslett, M., Berriman, M., Buckner, F.S., Campbell, R.K.,
+                                                                                                  architecture. Cell Host Microbe 8, 343â€“357.
+    Carmona, S., Carruthers, M., Chan, W., Chen, F., Crowther, G.J., Doyle, M ,
+                                                                                              Gafan, C., Wilson, J., Berger, L.C., Berger, B.J., 2001. Characterization ornithine
+    Hertz-Fowler, C., Hopkins, L., McAllister, G., Nwaka, S., Overington, J.P., Pain,
+                                                                                                  aminotransferase Plasmodium falciparum. Mol. Biochem. Parasitol. 118, 1â€“
+    , Paolini, G.V., Pieper, U., Ralph, S , Riechers, , Roos, D.S., Sali, ,
+                                                                                                  10.
+    Shanmugam, D., Suzuki, T., Van Voorhis, W.C., Verlinde, C.L., 2008. Genomic-
+                                                                                              Gardner, M.J., Hall, N., Fung, E., White, O., Berriman, M., Hyman, R.W., Carlton, J.M.,
+    scale prioritization drug targets: TDR Targets database. Nat. Rev. Drug
+                                                                                                  Pain, , Nelson, K.E., Bowman, S., Paulsen, T., James, K., Eisen, J , Rutherford,
+    Discov. 7, 900â€“907.
+                                                                                                  K., Salzberg, S.L., Craig, , Kyes, S., Chan, M.S., Nene, V., Shallom, S.J., Suh, B.,
+Al-Lazikani, B., Gaulton, , Paolini, G., Lanfear, J., Overington, J., Hopkins, L.
+                                                                                                  Peterson, J., Angiuoli, S., Pertea, M., Allen, J., Selengut, J., Haft, D., Mather, M.W.,
+    (2007). molecular basis predicting druggability.  Bioinformatics â€“
+                                                                                                  Vaidya, B., Martin, D.M., Fairlamb, H., Fraunholz, M.J., Roos, D.S., Ralph, S ,
+    Genomes Therapies.  Holy Grail: Molecular Function, vol. 3,
+                                                                                                  McFadden, G , Cummings, L.M., Subramanian, G.M., Mungall, C., Venter, J.C.,
+    Wiley, T.L. Weinheim, pp. 1315â€“1334.
+                                                                                                  Carucci, D.J., Hoffman, S.L., Newbold, C., Davis, R.W., Fraser, C.M., Barrell, B.,
+Altschul, S.F., Gish, W., Miller, W., Myers, E.W., Lipman, D.J., 1990. Basic local
+                                                                                                  2002. Genome sequence human malaria parasite Plasmodium falciparum.
+    alignment search tool. J. Mol. Biol. 215, 403â€“410.
+                                                                                                  Nature 419, 498â€“511.
+Aparicio, M., Marin-Menendez, , Bell, , Engel, P.C., 2010. Susceptibility                                                                                               Gaulton, , Bellis, L.J., Bento, P., Chambers, J., Davies, M., Hersey, , Light, Y.,
+    Plasmodium falciparum glutamate dehydrogenase inhibitors possible new
+                                                                                                  McGlinchey, S., Michalovich, D., Al-Lazikani, B., Overington, J.P., 2012. ChEMBL:
+    antimalarial target. Mol. Biochem. Parasitol. 172, 152â€“155.
+                                                                                                  large-scale bioactivity database drug discovery. Nucleic Acids Res. 40,
+Armstrong, C.M., Goldberg, D.E., 2007. FKBP destabilization domain modulates
+                                                                                                  D1100â€“1107.
+    protein levels Plasmodium falciparum. Nat. Methods 4, 1007â€“1009.
+                                                                                              Guranowski, , Starzynska, E., McLennan, G., Baraniak, J., Stec, W.J., 2003.
+Aurrecoechea, C., Brestelli, J., Brunk, B.P., Dommer, J., Fischer, S., Gajria, B., Gao, X.,
+                                                                                                  Adenosine-50 -O-phosphorylated adenosine-50 -O-phosphorothioylated
+    Gingle, , Grant, G., Harb, O.S., Heiges, M., Innamorato, F., Iodice, J., Kissinger,
+                                                                                                  polyols strong inhibitors (symmetrical) (asymmetrical) dinucleoside
+    J.C., Kraemer, E., Li, W., Miller, J , Nayak, V., Pennington, C., Pinney, D.F., Roos,
+                                                                                                  tetraphosphatases. Biochem. J. 373, 635â€“640.
+    D.S., Ross, C., Stoeckert Jr., C.J., Treatman, C., Wang, H., 2009. PlasmoDB:                                                                                               Guranowski, , Starzynska, E., Pietrowska-Borek, M., Rejman, D., Blackburn, G.M.,
+    functional genomic database malaria parasites. Nucleic Acids Res. 37, D539â€“
+                                                                                                  2009. Novel diadenosine polyphosphate analogs oxymethylene bridges
+    543.
+                                                                                                  replacing oxygen polyphosphate chain: potential substrates Bapat, , Glass, L.S., Luo, M., Fishel, M.L., Long, E.C., Georgiadis, M.M., Kelley, M.R.,
+                                                                                                  inhibitors Ap4A hydrolases. FEBS J. 276, 1546â€“1553.
+    2010. Novel small-molecule inhibitor apurinic/apyrimidinic endonuclease 1
+                                                                                              Haltiwanger, B.M., Karpinich, N.O., Taraschi, T.F., 2000. Characterization class II
+    blocks proliferation reduces viability glioblastoma cells. J. Pharmacol.
+                                                                                                  apurinic/apyrimidinic endonuclease activities human malaria parasite,
+    Exp. Ther. 334, 988â€“998.
+                                                                                                  Plasmodium falciparum. Biochem. J. 345 (Pt 1), 85â€“89.
+Baum, J., Papenfuss, T., Mair, G.R., Janse, C.J., Vlachou, D., Waters, P., Cowman,
+                                                                                              Hannay, K., Marcotte, E.M., Vogel, C., 2008. Buffering gene duplicates:     F., Crabb, B.S., Koning-Ward, T.F., 2009. Molecular genetics                                                                                                   analysis molecular correlates evolutionary conservation. BMC Genomics
+    comparative genomics reveal RNAi functional malaria parasites.
+                                                                                                  9, 609.
+    Nucleic Acids Res. 37, 3788â€“3798.
+198                                       P. Ludin et al. / International Journal Parasitology: Drugs Drug Resistance 2 (2012) 191â€“199
+
+
+Hayward, R.E., 2000. Plasmodium falciparum phosphoenolpyruvate carboxykinase                      endonucleases apicomplexan parasite Toxoplasma gondii. DNA Repair
+    developmentally regulated gametocytes. Mol. Biochem. Parasitol. 107, 227â€“                     (Amst.) 10, 466â€“475.
+    240.                                                                                        Ostlund, G., Schmitt, T., Forslund, K., Kostler, T., Messina, D.N., Roopra, S., Frings, O.,
+Holman, G., Davis, P.J., Foster, J.M., Carlow, C.K., Kumar, S., 2009. Computational                Sonnhammer, E.L., 2010. InParanoid 7: new algorithms tools eukaryotic
+    prediction essential genes unculturable endosymbiotic bacterium,                        orthology analysis. Nucleic Acids Res. 38, D196â€“203.
+    Wolbachia Brugia malayi. BMC Microbiol. 9, 243.                                          Pairoba, C.F., Colombo, S.L., Andreo, C.S., 1996. Flavonoids inhibitors NADP-
+Hopkins, L., Groom, C.R., 2002. druggable genome. Nat. Rev. Drug Discov. 1,                    malic enzyme PEP carboxylase C4 plants. Biosci. Biotechnol. Biochem.
+    727â€“730.                                                                                         60, 779â€“783.
+Hopkins, L., Bickerton, G.R., Carruthers, M., Boyer, S.K., Rubin, H., Overington, J.P.,     Payne, D.J., Holmes, D.J., Rosenberg, M., 2001. Delivering novel targets     2011. Rapid analysis pharmacology infectious diseases. Curr.  Med.                    antibiotics genomics. Curr. Opin. Investig. Drugs 2, 1028â€“1034.
+    Chem. 11, 1292â€“1300.                                                                        Plata, G., Hsiao, T.L., Olszewski, K.L., Llinas, M., Vitkup, D., 2010. Reconstruction Huthmacher, C., Hoppe, , Bulik, S., Holzhutter, H.G., 2010. Antimalarial drug                      ï¬‚ux-balance analysis Plasmodium falciparum metabolic network. Mol.
+    targets Plasmodium falciparum predicted stage-speciï¬?c metabolic network                    Syst. Biol. 6, 408.
+    analysis. BMC Syst. Biol. 4, 120.                                                           Rice, P., Longden, , Bleasby, , 2000. EMBOSS: European molecular biology
+Janse, C.J., Kroeze, H., van Wigcheren, , Mededovic, S., Fonager, J., Franke-Fayard,               open software suite. Trends Genet. 16, 276â€“277.
+    B., Waters, P., Khan, S.M., 2011. genotype phenotype database                    Riguet, E., Desire, J., Boden, O., Ludwig, V., Gobel, M., Bailly, C., Decout, J.L., 2005.
+    genetically modiï¬?ed malaria-parasites. Trends Parasitol. 27, 31â€“39.                              Neamine dimers targeting HIV-1 TAR RNA. Bioorg. Med. Chem. Lett. 15,
+Jenkins, C.L., 1989. Effects phosphoenolpyruvate carboxylase inhibitor 3,3-                   4651â€“4655.
+    dichloro-2-(dihydroxyphosphinoylmethyl)propenoate photosynthesis: C(4)                   Rodriguez-Acosta, , Dominguez, N., Aguilar, , Giron, M.E., 1999. Detection     selectivity studies C(4) photosynthesis. Plant Physiol. 89, 1231â€“1237.                    glutamate dehydrogenase enzyme activity Plasmodium falciparum infection.
+Joubert, F., Harrison, C.M., Koegelenberg, R.J., Odendaal, C.J., Beer, T , 2009.                Indian J. Med. Res. 109, 152â€“156.
+    Discovery: interactive resource rational selection comparison             Rohrich, R.C., Englert, N., Troschke, K., Reichenberg, , Hintz, M., Seeber, F., Balconi,
+    putative drug target proteins malaria. Malar. J. 8, 178.                                      E., Aliverti, , Zanetti, G., Kohler, U., Pfeiffer, M., Beck, E., Jomaa, H., Wiesner, J.,
+Joyce, R., Palsson, B.O., 2008. Predicting gene essentiality using genome-scale                 2005. Reconstitution apicoplast-localised electron transfer pathway
+    silico models. Methods Mol. Biol. 416, 433â€“457.                                                  involved isoprenoid biosynthesis Plasmodium falciparum. FEBS Lett.
+Kato, N., Sakata, T., Breton, G., Le Roch, K.G., Nagle, , Andersen, C., Bursulaya, B.,             579, 6433â€“6438.
+    Henson, K., Johnson, J., Kumar, K , Marr, F., Mason, D., McNamara, C., Plouffe,           Rottmann, M., McNamara, C., Yeung, B.K., Lee, M.C., Zou, B., Russell, B., Seitz, P.,
+    D., Ramachandran, V., Spooner, M., Tuntland, T., Zhou, Y., Peters, E.C., Chatterjee,             Plouffe, D.M., Dharia, N.V., Tan, J., Cohen, S.B., Spencer, K.R., Gonzalez-Paez, G.E.,
+    , Schultz, P.G., Ward, G.E., Gray, N., Harper, J., Winzeler, E , 2008. Gene                  Lakshminarayana, S.B., Goh, , Suwanarusk, R., Jegla, T., Schmitt, E.K., Beck, H.P.,
+    expression signatures small-molecule compounds link protein kinase                      Brun, R., Nosten, F., Renia, L., Dartois, V., Keller, T.H., Fidock, D , Winzeler, E ,
+    Plasmodium falciparum motility. Nat. Chem. Biol. 4, 347â€“356.                                     Diagana, T.T., 2010. Spiroindolones, potent compound class treatment
+Kobayashi, T., Takematsu, H., Yamaji, T., Hiramoto, S., Kozutsumi, Y., 2005.                         malaria. Science 329, 1175â€“1180.
+    Disturbance sphingolipid biosynthesis abrogates signaling Mss4,                   Sa, J.M., Chong, J.L., Wellems, T.E., 2011. Malaria drug resistance: new observations
+    phosphatidylinositol-4-phosphate 5-kinase, yeast. J. Biol. Chem. 280, 18087â€“                  developments. Essays Biochem. 51, 137â€“160.
+    18094.                                                                                      Salvati, L., Mattu, M., Tiberi, F., Polticelli, F., Ascenzi, P., 2001. Inhibition Le Roch, K.G., Zhou, Y., Blair, P.L., Grainger, M., Moch, J.K., Haynes, J.D., La Vega, P.,        Saccharomyces cerevisiae phosphomannose isomerase donor S-
+    Holder, , Batalov, S., Carucci, D.J., Winzeler, E , 2003. Discovery gene                nitroso-acetyl-penicillamine. J. Enzym. Inhib. 16, 287â€“292.
+    function expression proï¬?ling malaria parasite life cycle. Science 301,            Santiago, T.C., Zufferey, R., Mehra, R.S., Coleman, R , Mamoun, C.B., 2004.     1503â€“1508.                                                                                       Plasmodium falciparum PfGatp endoplasmic reticulum membrane protein
+Leber, W., Skippen, , Fivelman, Q.L., Bowyer, P.W., Cockcroft, S., Baker, D , 2009.              important initial step malarial glycerolipid synthesis. J. Biol. Chem.
+    unique phosphatidylinositol 4-phosphate 5-kinase activated ADP-                          279, 9222â€“9232.
+    ribosylation factor Plasmodium falciparum. Int. J. Parasitol. 39, 645â€“653.               Satchell, J.F., Malby, R.L., Luo, C.S., Adisa, , Alpyurek, E., Klonis, N., Smith, B.J.,
+Levillain, O., Diaz, J.J., Reymond, , Soulet, D., 2000. Ornithine metabolism             Tilley, L., Colman, P.M., 2005. Structure glyceraldehyde-3-phosphate
+    female mouse nephron: localization ornithine decarboxylase ornithine                      dehydrogenase Plasmodium falciparum. Acta Crystallogr. D: Biol.
+    aminotransferase. Pï¬‚ugers Arch. 440, 761â€“769.                                                    Crystallogr. 61, 1213â€“1221.
+Li, M., Allen, , Smith, T.J., 2007. High throughput screening reveals new             Scheer, M., Grote, , Chang, , Schomburg, , Munaretto, C., Rother, M., Sohngen, C.,
+    classes glutamate dehydrogenase inhibitors. Biochemistry 46, 15089â€“15102.                     Stelzer, M., Thiele, J., Schomburg, D., 2011. BRENDA, enzyme information
+Li, M., Smith, C.J., Walker, M.T., Smith, T.J., 2009. Novel inhibitors complexed                2011. Nucleic Acids Res. 39, D670â€“676.
+    glutamate dehydrogenase: allosteric regulation control protein dynamics.              Schindelman, G., Fernandes, J.S., Bastiani, C , Yook, K., Sternberg, P.W., 2011.
+    J. Biol. Chem. 284, 22988â€“23000.                                                                 Worm Phenotype Ontology: integrating phenotype data Lim, D.C., Cooke, B.M., Doerig, C., Saeij, J.P., 2012. Toxoplasma Plasmodium                     C. elegans community. BMC Bioinform. 12, 32.
+    protein kinases: roles invasion host cell remodelling. Int. J. Parasitol. 42,        Sriwilaijareon, N., Petmitr, S., Mutirangura, , Ponglikitmongkol, M., Wilairat, P.,
+    21â€“32.                                                                                           2002. Stage speciï¬?city Plasmodium falciparum telomerase inhibition
+Llinas, M., DeRisi, J.L., 2004. Pernicious plans revealed: Plasmodium falciparum                     berberine. Parasitol. Int. 51, 99â€“103.
+    genome wide expression analysis. Curr. Opin. Microbiol. 7, 382â€“387.                         Storm, J., Perner, J., Aparicio, , Patzewitz, E.M., Olszewski, K., Llinas, M., Engel, P.C.,
+Madhusudana, Rao , Swamy, P.M., Das, V.S.R., 1980. Herbricide (sic) inhibited                      Muller, S., 2011. Plasmodium falciparum glutamate dehydrogenase     phosphoenolpyruvate carboxylase leaves nonsucculent scrub species.                     dispensable drug target erythrocytic development. Malar. J.
+     Pï¬‚anzenphysiol 99, 69â€“74.                                                                     10, 193.
+Magarinos, M.P., Carmona, S.J., Crowther, G.J., Ralph, S , Roos, D.S., Shanmugam, D.,         Stranska, J., Kopecny, D., Tylichova, M., Snegaroff, J., Sebela, M., 2008. Ornithine
+    Van Voorhis, W.C., Aguero, F., 2012. TDR Targets: chemogenomics resource                   delta-aminotransferase: enzyme implicated salt tolerance higher
+    neglected diseases. Nucleic Acids Res. 40, D1118â€“1127.                                           plants. Plant Signal. Behav. 3, 929â€“935.
+Magrane, M., Consortium, U., 2011. UniProt Knowledgebase: Hub Integrated                   Strecker, H.J., 1965. Puriï¬?cation properties rat liver ornithine delta-
+    Protein Data. Database, Oxford, bar009.                                                          transaminase. J. Biol. Chem. 240, 1225â€“1230.
+Martinsen, E.S., Perkins, S.L., Schall, J.J., 2008. genome phylogeny malaria         Takatsuka, Y., Onoda, M., Sugiyama, T., Muramoto, K., Tomita, T., Kamio, Y., 1999.
+    parasites (Plasmodium closely related genera): evolution life-history                     Novel characteristics Selenomonas ruminantium lysine decarboxylase
+    traits host switches. Mol. Phylogenet. Evol. 47, 261â€“273.                                    capable decarboxylating L-lysine L-ornithine. Biosci. Biotechnol.
+Mastrolorenzo, , Scozzafava, , Supuran, C.T., 2000. Antifungal activity Ag                  Biochem. 63, 1063â€“1069.
+    Zn(II) complexes aminobenzolamide (5-sulfanilylamido-1,3,4-                          Teixeira, C., Gomes, J.R., Gomes, P., 2011. Falcipains, Plasmodium falciparum
+    thiadiazole-2-sulfonamide) derivatives. J. Enzym. Inhib. 15, 517â€“531.                            cysteine proteases key drug targets malari

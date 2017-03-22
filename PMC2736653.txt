@@ -1,0 +1,1073 @@
+Molecular Systems Biology 5; Article number 301; doi:10.1038/msb.2009.56
+Citation: Molecular Systems Biology 5:301
+& 2009 EMBO Macmillan Publishers Limited rights reserved 1744-4292/09
+www.molecularsystemsbiology.com
+
+
+Genome-scale gene/reaction essentiality synthetic
+lethality analysis
+Patrick F Suthers1, Alireza Zomorrodi1 Costas D Maranas*
+
+Department Chemical Engineering, Pennsylvania State University, University Park, PA, USA
+1
+  authors contributed equally work
+* Corresponding author. Department Chemical Engineering, Pennsylvania State University, University Park, PA 16802, USA. Tel.: þ 1 814 863 9958;
+Fax: þ 1 814 865 7846; E-mail: costas@psu.edu
+
+Received 23.12.08; accepted 8.7.09
+
+
+
+
+                Synthetic lethals pairs non-essential genes simultaneous deletion prohibits growth.
+                extend concept synthetic lethality considering gene groups increasing size
+                simultaneous elimination genes lethal, individual gene deletions
+                 developed optimization-based procedures exhaustive targeted enumeration
+                multi-gene  extension multi-reaction) lethals genome-scale metabolic models.
+                Specifically, approaches applied iAF1260, latest model Escherichia coli, leading                 complete identification double triple gene reaction synthetic lethals                 targeted identification quadruples higher-order ones. Graph representations                 synthetic lethals reveal variety motifs ranging hub-like highly connected subgraphs
+                providing birds-eye view avenues available redirecting metabolism uncovering
+                complex patterns gene utilization interdependence. procedure enables use                 falsely predicted synthetic lethals metabolic model curation. analyzing functional
+                classifications genes involved synthetic lethals, reveal surprising connections                 clusters orthologous group functional classifications.
+                Molecular Systems Biology 5: 301; published online 18 August 2009; doi:10.1038/msb.2009.56
+                Subject Categories: simulation data analysis; cellular metabolism
+                Keywords: bilevel optimization; gene essentiality; genome-scale metabolic models; network robustness;
+                synthetic lethality
+
+                open-access article distributed terms Creative Commons Attribution Licence,
+                permits distribution reproduction medium, provided original author source                 credited. Creation derivative works permitted resulting work distributed                 similar licence  licence does permit commercial exploitation specific
+                permission.
+
+
+
+
+Introduction                                                                       Synthetic gene lethality arise variety reasons.                                                                                 example, gene protein products interchangeable
+Robustness inherent property metabolic networks                        respect essential function (isozymes), act enabling living systems maintain cellular functions                 essential pathway  mutation decreasing response genetic environmental perturbations (Kim                        flux pathway), operate separate
+et al, 2007). study metabolic robustness response                                                                                 pathways redundant complementary essential func-
+genetic perturbations usually associated concepts
+                                                                                tions (Guarente, 1993; Tucker Fields, 2003; Kaelin, 2005). gene essentiality lethality alluding                                                                                 study synthetic lethality plays pivotal role organism survive single- multiple-gene deletions.
+                                                                                elucidating functional associations genes gene
+Essential genes consist genes individual deletion lethal  e. biomass formation) specific environ-                    function predictions (Ooi et al, 2006). example, SL screens
+mental condition (e.g. glucose minimal medium). analogy,                     used identify new genes involved morpho-
+synthetic lethals (SLs) refer pairs non-essential genes                   genesis (Bender Pringle, 1991; Wang Bretscher, 1997), simultaneous deletion lethal (Novick et al, 1989;                      vacuolar protein transport (Chen Graham, 1998), DNA
+Guarente, 1993).  extend concepts essentiality                   damage (Mullen et al, 2001), spindle migration (Schoner et al, synthetic lethality reactions preclude biomass                      2008) studies (Kuepfer et al, 2005; Ye et al,
+formation elimination single pair                         2005). context human genetics, gene lethality studies
+reactions, respectively.                                                        implicated cancer therapies development
+
+& 2009 EMBO Macmillan Publishers Limited                                                                               Molecular Systems Biology 2009 1
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+ new pharmaceuticals (Hartman et al, 2001; Dolma et al,                  pair time.  analyses fail assess
+2003; Kamb, 2003; Kaelin, 2005).                                           range robustness functional organization    traditional method identifying SL interactions                  metabolic networks afforded higher-order interactions relies mutant screens (Forsburg, 2001);  recent              redundancies. Extending concept lethality just
+years witnessed rapid progress development                  pairs triples, quadruples,  capture multi-gene/ high-throughput SL screens. efforts,                reaction interdependencies. challenge exhaustively
+Tong et al (2001) developed genome-scale method                      identifying higher-order SLs lies combinatorial construction double mutants termed synthetic genetic                complexity underlying mathematical problem. Efforts
+array (SGA) analysis applied yeast genome.                   addressing challenge include work Later, Ooi et al (2003) introduced systematic technique                  Deutscher et al (2006) conducted silico multiple
+called synthetic lethality analysis microarray (SLAM),                  knockout investigation iFF708 (Forster et al, 2003) takes advantage molecular bar codes detect                     yeast metabolic network. cataloged gene sets lethality. efforts direction include development          provide mutual functional backup interacting improved technology called diploid-based synthetic leth-                genes. subsequent study, Deutscher et al (2008)
+ality analysis microarrays (dSLAM) exploits hetero-                developed computational approach based ideas zygous diploid yeast knockouts (YKOs) detect genome-wide                game theory multiple knockout analysis S. cerevisiae
+lethality (Pan et al, 2004) recently technique                  elucidate insights localization metabolic
+termed GIANT-coli high-throughput generation                        functions. Alternatively, Behre et al (2008) extended double mutants Escherichia coli based F factor-driven                previous study single knockouts (Wilhelm et al, 2004) conjugation (Typas et al, 2008). Despite advances                 introducing generalized framework analyzing structural
+large-scale screening techniques, comprehensive mapping                robustness metabolic networks based concept of SL pairs remains labor-intensive task. particular,             elementary flux modes. applied framework studied genetic Saccharomyces                       metabolic networks describing amino acid metabolism cerevisiae, using SGA (Tong et al, 2001, 2004)             E. coli human hepatocytes, central
+4  total estimated interactions single-growth               metabolism human erythrocytes. Yeast preferred
+condition queried. task                   analysis genetic interactions (Ooi et al, 2006)
+taxing considering multiple growth conditions (Wong                   short non-coding regions, genome containing
+et al, 2004).                                                              o7  introns (Grate Ares, 2002) existence    availability genome-scale metabolic models                    haploid diploid states. Consequently, research
+organisms provided foundation development                  focused investigating lethality S. cerevisiae, computational frameworks rapidly predict effect               model microorganisms E. coli. studies
+multiple genetic manipulations strain growth pheno-                 using E. coli limited sample pairwise
+type different media. example, applying flux                  interactions.
+balance analysis (FBA) iFF708 metabolic network model                 paper, present comprehensive map SL S. cerevisiae (Forster et al, 2003), Segre et al (2005)                 gene reaction pairs genome-scale models. calculated maximal rates biomass production                  SL pairs exhaustively identify SL triples single- double-gene knockouts comparison wild-               higher-order interactions genes reactions. Limited
+type strain assess spectrum epistatic interactions.              absence customized algorithms, existing
+Plaimas et al (2008) proposed using machine learning                     silico multiple knockout studies use brute-force searches
+strategy distinguish essential non-essential                (Deutscher et al, 2006) focus limited parts metabolism
+reactions E. coli characterizing enzyme based              (Behre et al, 2008). overcome challenges local network topology, gene homologies, expression                 introducing bilevel optimization framework uses FBA
+FBA. studies focused far S. cerevisiae             completely identify multi-reaction/gene lethals E. coli (Wong et al, 2004; Kim et al, 2007; Le Meur                    genome-scale models. framework applied Gentleman, 2008) nonetheless reports studying                    iAF1260 model E. coli K12 (Feist et al, 2007) aerobic silico lethality organisms. example,              growth minimal glucose medium. contrast reconstructed metabolic network Helicobacter pylori                     predicted SLs experimental data provide number used carry single- double-mutation studies                  model refinement possibilities. elucidate SL
+based FBA (Thiele et al, 2005). Alternatively, Wunderlich               gene reaction triples introduce concept Mirny (2006) introduced network topological measure                  degree essentiality unravel contribution termed synthetic accessibility showed just                    reaction ‘buffering’ cellular functionalities. topology metabolic network E. coli S.                   study provides complete analysis gene reaction
+cerevisiae sufficient predict viability knockout              essentiality lethality latest E. coli model iAF1260
+strains accuracy comparable FBA. Similarly,               ushers computational means performing similar
+studies explore metabolic network essentiality lethality               analyses genome-scale models. Furthermore,
+using topological concept missing alternatives                   exhaustively elucidating model growth predictions
+reaching nodes network (Palumbo et al,                  response multiple gene knockouts, provides 2005, 2007).                                                               fold increase number genetic perturbations
+   majority vivo silico studies                      used assess performance silico
+concentrated perturbing/deleting single gene gene                metabolic models.
+
+2 Molecular Systems Biology 2009                                                                     & 2009 EMBO Macmillan Publishers Limited
+                                                                                                      Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                                            PF Suthers et al
+
+
+
+
+Results                                                                                   strains rescued supply missing
+                                                                                          nutrients  e. amino acids compounds), SL pairs                                                                                  second type includes lack essential functionalities testing impact removal gene time                             restored adding extra components feasibility biomass formation, identified total                            growth medium. 86 predicted SL pairs, 53 (B62 ) 188 essential genes (15  total metabolic genes)                               yield auxotrophic strains silico essential non-gene associated reactions  total 155                            restored supplementation. example, E. coli
+present model) E. coli iAF1260 model (Feist et al,                         strain lacking asnA (b3744) asnB (b0674) 2007) incorporating list reactions suppressed                                 rescued silico supplementation growth aerobic glucose medium conditions. results                             medium asn-L (L-asparagine). Note names agreement list reported Feist et al (2007).                               abbreviations metabolites reactions follow relatively small fraction genes essential alludes                          iAF1260 (Feist et al, 2007). hand, disruption built robustness E. coli metabolism single-gene                              modA (b0763) cysA (b2422) results strain deletions, implying higher-order gene essentiality                                 rescued addition missing compound
+analysis needed adequately assess metabolic                                  mobd (molybdate) gene disruptions eliminate MOB-
+network redundancy. using exhaustive enumeration                                   Dabcpp (molybdate periplasm transport ABC sys-
+procedure described Materials methods section,                              tem). example, double-mutant strain lacking identified 83 genes non-gene associated reactions                                gene pair folA (b0048) folM (b1606) unable grow involved 86 SL pairs (B0.01  total possible pairs)                               supplemented medium, produce uptake
+shown Figure 1. SL pairs analyzed                         precursor metabolite thf (5,6,7,8-tetrahydrofolate). terms phenotypic, topological functional
+impact.
+                                                                                          Topological classification
+                                                                                          representing genes forming SL pairs nodes connected
+Phenotypic classification                                                                 edge, variety different topological motifs emerge identified SL pairs phenotypically classified                             Figure 1). include disjoint pairs, stars highly
+types. type includes ones yield auxotrophic                            connected subgraphs. Disjoint pairs motifs representing
+
+                  Disjoint pairs                                          1-connected (Stars)                                   k-connected (Highly connected)
+
+     mutT       ntpA
+                                yadF      cynT                        fdhF                         B     gltD
+                                                                                                                                              G    ilvH
+
+      ddlB       ddlA           yadQ      ynfJ                   purT       purN                     gdhA       gltB          k=2         ilvN             ilvB
+
+     dadX         alr                                                                                                                              ilvI
+
+                                                                      C                                  D             ygeS                   H      nrdB
+     gutQ       yrbH                                       eno
+                                metE      metH
+                                                                     ppsA        gapA          gpt       guaB          ygeT   k=2        nrdE                nrdF
+     acnB       acnA            thrA      metL             pgk                                                         ygeU
+                                                                                                                                               nrdA        gor
+                                asnB      asnA
+                                                                            R1PK         E
+      tktB       tktA                                                                                                                                                     cysK      cysM                                                       ndk                                      modC        cysW
+                                                                            prsA         adk
+
+     pyrH        cmk            malY      metC                              phnN
+                                                                                                                              k=3      cysA                 modA
+                                argF      argI
+      ubiX      ubiD                                                                                                                          modB        cysU
+                                ydiB      aroE
+                                                                          F             fepB fepD
+                                                                               exbD                      fepG
+     hemF      hemN
+                                aroL      aroK                            exbB                                                            J       gcvH
+                                                                                                            fepC                                            glyA
+     pdxH     PDX5PO2
+                                                                                        FE3abcpp
+                                                                                                                                       serA
+                                glnA      puuA                          ybdA
+      ubiB     OPHHX3                                                                                        fes              k=3                                 gcvT
+                                                                          tonB
+                                                                                                                                        lpd
+      folA      ydgB                                                                                     fepA
+                                                                               entD                                                                         serB
+                                                                                        entF     entE                                             gcvP
+
+Figure 1 Topological functional classification clusters SL gene pairs. types network motifs present: disjoint pairs (left); stars, 1-connected
+motifs (center); highly connected subgraphs, k-connected motifs (right). Genes color-coded accordance COG (Tatusov et al, 2003) functional
+categorization. Names genes set italics names non-gene associated reactions set roman. Note reaction abbreviations follow iAF1260 (Feist et al, 2007).
+
+& 2009 EMBO Macmillan Publishers Limited                                                                                              Molecular Systems Biology 2009 3
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+
+gene pairs code isozymes essential reaction               illustrated using different colors Figure 1. Table lists separate reactions form SL reaction pair.                 number genes involved category. shown total nineteen disjoint gene pairs disjoint                  Figure 1, SL genes participate diverse parts cellular
+pairs containing non-gene associated reactions  Figure 1)                   function, predominantly amino acid, nucleotide seventeen encode isozyme pairs. example,                      inorganic transport metabolism. comparison cysK (b2414) cysM (b2421) enable reaction CYSS                     COG functional classification essential genes (Table 
+(cysteine synthase) required cysteine anabolism.                    reveals large number essential genes involved
+   Star motifs clusters single gene  e. hub gene)                  amino acid nucleotide transport metabolism connected genes. important implication                 consequence pivotal role pathways clusters unless hub gene present, ‘satellite’                contributing biomass components.  unlike SLs, genes need functional biomass formation feasibility.                  small portion essential genes involved inorganic
+Star motifs 1-connected graphs biomass formation                      ion transport metabolism. contrast, genes preserved simply retaining functionality single gene                SL pairs belong coenzyme transport metabolism.
+ e. hub-gene). identified total star clusters                    analyzing COG functional classifications, shown
+involving 32 genes non-gene associated reactions                        Figure 1, number trends revealed. organized 30 SL pairs. example, cluster F                         lethal pairs involve genes belong COG.
+Figure 1), hub non-gene associated reaction FE3abcpp                   Notably, genes categories G (carbohydrate transport (Fe(III) transport ABC [periplasm                         metabolism), M (cell wall/membrane/envelope biogenesis)
+cytoplasm]). members cluster directly                        L (replication, recombination repair) follow indirectly involved iron III transport extra-                     pattern intra-category lethality exceptions. Using
+cellular environment periplasm periplasm                  gene–reaction–protein (GPR) associations, deduce cytoplasm.                                                                  gene pairs encode isozymes catalyzing
+   Highly connected subgraphs, formally known k                          essential reactions. Conversely, lethal pairs genes
+nected motifs k41 (Diestel, 2005), clusters                  belong different functional groups form highly connected
+unlike star clusters (k¼1) require functionality                    clusters. noted earlier functionally distant gene biomass formation feasible.                          genes cause synthetic lethality gene deletion identified k-connected clusters contained total                causes loss function primary function 22 genes participating 33 SL pairs. clusters                  creates cascade compensatory cellular responses multi-protein enzymes/isoenzymes present.                         possibly affecting pathways (Schoner et al, 2008). largest cluster type  e. J) consists seven nodes               inter-category connections indicative need fourteen edges genes coding reactions involved                 bring bear different parts metabolism enable serine, glycine folate metabolism  Figure 2B).                      production biomass precursors. quite apparent underlying reasons complicated connectivity                      category C (energy production conversion) deduced redrawing cluster using reactions instead                    genes form inter-category SL gene pairs.
+genes  Figure 2). shown Figure 2A, GLYCL                     Interestingly, majority genes category form
+GHMT2r form SLs reactions. figure                      SLs genes category F (nucleotide transport expanded gene–reaction associations                          metabolism) alluding interdependence nucleotide
+Figure 2B), reason essentiality connections                 energy  ATP GTP) metabolism supporting corresponding genes clearly discernible.                       crucial aspects metabolism.
+
+
+Functional classification                                                       vivo comparisons predicted results investigated membership genes clusters                          searched experimental evidence examine validity
+orthologous groups (COGs) ontology (Tatusov et al, 2003),                       silico predicted SL pairs. Direct experimental evidence
+                                                                                literature  Table II) SLs.                             B                   GLYCL                         SLs rescued nutrient supplementation:
+        GLYCL                                                                   amino acids  metabolites                                    gcvP       gcvH        gcvT      lpd         combination amino acids nutrients.
+                                                                                auxotrophic example predicted SL (aroK,
+PGCD             PSP_L                                                          aroL). Lobner-Olesen Marinus (1992) reported E.
+                                                                                coli strain deficient aroK (b3390) aroL (b0388) requires
+                             PGCD serA                           serB   PSP_L
+                                                                                aromatic amino acid supplementation grow. conversion
+       GHMT2r                                                                   shikimic acid phosphorylated derivative, shikimate
+                                                   glyA                         3-phosphate essential step synthesis aromatic
+                                                  GHMT2r                        amino acids E. coli catalyzed isozymes
+                                                                                shikimic acid kinase (SK) II, encoded aroK (b3390)
+Figure 2   Reaction centric view cluster J Figure 1. reaction       aroL (b0388), respectively. example, abbreviations follow iAF1260 (Feist et al, 2007). GLYCL, glycine
+cleavage  PGCD, phosphoglycerate dehydrogenase; PSP_L, phospho-          cysteine supplementation requirement E. coli strain
+serine phosphotase (PSP_L); GHMT2r, glycine hydroxymethyl). (B) Arranged        lacking cysteine synthase genes cysK (b2414) cysM
+gene/reaction associations cluster J.                                        (b2421), observed experimentally Saito et al (1993).
+
+4 Molecular Systems Biology 2009                                                                            & 2009 EMBO Macmillan Publishers Limited
+                                                                                              Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                                    PF Suthers et al
+
+
+
+
+Table Number essential genes genes involved SL gene pairs different COG (Tatusov et al, 2003) functional classes
+
+COG functional class                                                       COG Abbreviation           # essential genes         # genes involved SL pairs
+
+Amino acid transport metabolism                                                  E                         55                                 28
+Nucleotide transport metabolism                                                  F                         22                                 13
+Inorganic ion transport metabolism                                               P                          7                                 12
+Energy production conversion                                                     C                          7                                  8
+Cell wall/membrane/envelope biogenesis                                               M                         20                                  6
+Carbohydrate transport metabolism                                                G                          3                                  6
+Coenzyme transport metabolism                                                    H                         59                                  6
+Replication, recombination repair                                                L                         —                                   2
+Lipid transport metabolism                                                                               18                                  1
+Post-translational modification, protein turnover, chaperons                         O                         —                                   1
+Secondary metabolites biosynthesis, transport catabolism                         Q                          3                                 —
+General function prediction                                                     R                          2                                 —
+Translation, ribosomal structure biogenesis                                      J                          1                                 —
+Signal transduction mechanism                                                        T                          1                                 —
+Defense mechanisms                                                                   V                          1                                 —
+
+
+
+
+Table II Direct indirect experimental evidence predicted SL gene pairs auxotrophic characteristics
+
+SL gene pair                                       Topology             Experimental evidence                       Growth supplementation mutant strain
+
+SLs direct evidence
+  ddlA (b0381), ddlB (b0092)                       Disjoint pair        McCoy Maurelli (2005)                   D-alanyl-D-alanine (D-Ala-D-Ala) dipeptide
+  dadX (b1190), alr (b4053)                        Disjoint pair        Wild et al (1985)                           D-Ala
+  gutQ (b2708), yrbH (b3197)                       Disjoint pair        Meredith Woodard (2005)                 D-arabinose 5-phosphate
+  acnA (b1276), acnB (b0118)                       Disjoint pair        Gruer et al (1997)                          Glutamate
+  tktA (b2935), tktB (b2465)                       Disjoint pair        Zhao Winkler (1994)                     Aromatic amino acids Vitamin B6
+  cynT (b0339), YadF (b0126)                       Disjoint pair        Hashimoto Kato (2003)                   High CO2 concentration
+  metE (b3829), metH (b4019)                       Disjoint pair        Ahmed (1973)                            Methionine
+                                                                        Urbanowski et al (1987)
+  cysK (b2414), cysM (b2421)                       Disjoint pair        Saito et al (1993)                          Cysteine
+  argF (b0273), argI (b4254)                       Disjoint pair        Lee Cho (2006)                          Arginine
+  aroL (b0388), aroK (b3390)                       Disjoint pair        Lobner-Olesen et al (1992)                  Aromatic amino acids
+  purT (b1849), purN (b2500)                       Cluster            Nygaard Smith (1993)                    Purine
+SLs indirect evidence
+  ubiX (b2311), ubiD (b3843)                       Disjoint pair        Meganathan (2001)                       —
+                                                                        Gulmezian et al (2001)
+  metC (b3008), malY (b1622)                       Disjoint pair        Zdych et al (1995)                          —
+  aroE (b1692), YdiB (b3281)                       Disjoint pair        Lindner et al (2005)                    —
+                                                                        Michel et al (2003)
+  adk (b0474), ndk (b2518)                         Cluster E            Willemoes Kilstrup (2005)               —
+  nrdA/B (b2234/5), nrdE/F (b2675/6)               Cluster H            Jordan et al (1994b)                    —
+                                                                        Jordan et al (1994a)
+
+
+
+ experimentally verified SLs yielded strains                      predicted SL involving ndk (b2518) adk (b0474). auxotroph compounds amino acids                             genes code nucleoside diphosphate kinase (Ndk)
+ Table II). example, Wild et al (1985) demonstrated                     adenylate kinase (Adk) activities, respectively, alanine racamase activity E. coli distinct genes,                   catalyze reactions involved ADP synthesis (Willemoes
+alr (b4053) dadX (b1190) double alr                           Kilstrup, 2005). reported presence dadX mutant  predicted SL) dependent external D-                         Adk able restore normal growth rates mutant
+Ala growth. Similarly, McCoy Maurelli (2005) reported                        strains E. coli lacking Ndk (Willemoes Kilstrup, 2005), dependence E. coli strain, deficient ddlA                          implying simultaneous disruption adk ndk
+(b0381) ddlB (b0092) exogenous supply D-alanyl-                         lethal E. coli. Similarly, shown D-alanine (D-Ala-D-Ala) dipeptide growth. Finally, Zhao                          MalY, encoded malY (b1622) able compensate Winkler (1994) observed tktA (b2935) tktB                           methionine requirement metC mutants growth (Zdych
+(b2465) double mutant, predicted SL, devoid                           et al, 1995), agreement lethality disrupting transketolase isoenzymes requires pyridoxine (vita-                          genes. Interestingly, SLs min B6) aromatic amino acids vitamins                         rescued supplementation form disjoint pairs  growth.                                                                              Table II; Figure 1). possible reason disjoint
+  addition, uncovered cases                          pairs (unlike stars k-connected motifs) tend correspond
+experimental evidence indirectly supports lethality                       isozymes likely identified SL pairs  Table II). example type                   experimentally characterized. Overall, presence direct
+
+& 2009 EMBO Macmillan Publishers Limited                                                                                        Molecular Systems Biology 2009 5
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+
+Table III Mismatches predicted SL pairs experimental data        indirect experimental evidence predicted
+single gene knockouts                                                                SLs alludes reliability iAF1260 model SL
+Gene (Blattner            Topology               Experimental condition         predictions.
+                                                      essentialb
+
+pyrH (b0171)                   Disjoint pair          ubiD (b3843)c                  Disjoint pair                                  Model refinement suggestions
+pdxH (b1638)                   Disjoint pair          Shared                         Comparisons silico predictions vivo observations
+ubiB (b3835)                   Disjoint pair                                  single gene essentiality data (Becker Palsson, 2008)
+folA (b0048)                   Disjoint pair          yadF (b0126)                   Disjoint pair                                                                                               used drive process metabolic model
+metE (b3829)                   Disjoint pair          Glucose                        refinement (Kumar Maranas, 2009). believe metL (b3940)                   Disjoint pair          Shared                         extending workflow include SL pairs, triplets,  thrA (b0002)                   Disjoint pair          Shared                         provide additional layers model validation opportu-
+metC (b3008)c                  Disjoint pair          Shared
+aroE (b3281)c                  Disjoint pair          Shared                         nities correction. identified 27 silico SLs glnA (b3870)                   Disjoint pair          Shared                         inconsistent vivo SL data. fall different
+eno (b2779)                    Cluster C                                      groups. includes predicted SLs contain gapA (b1779)                   Cluster C              pgk (b2926)d                   Cluster C                                      vivo essential genes, contains
+guaB (b2508)c                  Cluster D              Shared                         predicted SL agreement vivo SL data prsA (b1207)                   Cluster E                                      imply incorrect supplementation rescue  e. auxotrophy)
+adk (b0474)                    Cluster E                                      scenarios.
+entD (b0583)d                  Cluster F              nrdA (b2234)c                  Cluster H                                         majority inconsistent SL predictions  e. nrdB (b2235)c                  Cluster H                                      group) involve member reported essential glyA (b2551)                   Cluster J              Shared                         vivo (Baba et al, 2006; Joyce et al, 2006; Feist et al, 2007). lpd (b0116)d                   Cluster J              Glucose
+serA (b2913)                   Cluster J              Shared                         indicated Table III, 25 vivo essential genes
+serB (b4388)                   Cluster J              Shared                         involved 44 predicted SL pairs. Kumar Maranas
+                                                                                     (2009) recently showed essential genes    listed genes reported essential based experimental data glucose   Table III) likely misclassified alluded MOPS medium (Baba et al, 2006) analyzed (Feist et al, 2007). Glycerol         marginal essentiality scores. remaining 22 genes, minimal medium data derived analyzed (Joyce et al, 2006). conditions aerobic.                                                             form SL pairs genes b
+   essential rich medium; Glucose, essential glucose minimal         expressed aerobic glucose minimal conditions (Covert
+medium conditions  Shared, essential glucose glycerol minimal
+media.
+                                                                                     et al, 2004).  essentiality prediction c
+ genes forming pair genes expressed    genes vivo recapitulated appending appropriate
+aerobic glucose conditions based data (Covert et al, 2004),              regulatory constraints model restricts gene
+expression level cutoff 300.
+d
+  Classified non-essential based analysis glucose minimal           expression seven genes aerobic glucose conditions
+medium data (Baba et al, 2006) Kumar Maranas (2009).                        Table IV). support observation, knockout
+
+
+
+Table IV Model refinements iAF1260 suggested SL gene pair analysis
+
+Modificationa                                                                  Comments
+
+Suppress ubiX (b2311)                                                          complement ubiD (b3843); expressedb
+Suppress malY (b1622)                                                          complement metC (b3008); expressed
+Suppress ydiB (1692)                                                           complement aroE (b3281); expressed
+Suppress ygeS (b2866)                                                          complement guaB (b2508); expressed
+Suppress ygeT (b2867)                                                          complement guaB (b2508); expressed
+Suppress ygeU (b2868)                                                          complement guaB (b2508); expressed
+Suppress nrdEc (b2675) nrdF (b2676)                                        complement nrdA (b2234) nrdB (b2235) ; expressed
+Suppress PDX5PO2                                                               complement pdxH (b1638)
+Suppress OPHHX3 aerobic conditions                                       complement ubiB (b3835)
+Suppress R1PK aerobic conditions                                         complement prsA (b1207)
+Suppress cmk (b0910)                                                           complement pyrH (b0171); Hypothesis
+Suppress ydgB (b1606)                                                          complement folA (b0048); Hypothesis
+Suppress cynT (b0339)                                                          complement yadF (b0126); Hypothesis
+Suppress metH (b4019)                                                          complement metE (b3829); Hypothesis
+Change HSDy GPRa relationship                                             thrA (b0002) metL (b3940) complement                                                                       essential; Hypothesis
+Suppress puuA (b1297)                                                   Hypothesis
+complement glnA (b3870)
+Suppress ppsA (b1702)                                                          complement eno (b2779) gapA (b1779); Hypothesis
+Suppress gcvP (b2903), gcvH (b2904),                                           gcvP (b2903), gcvH (b2904), gcvT (b2905) complement serA (b2913),
+gcvT (b2905)                                                                   serB (b4388), glyA (b2551); Hypothesis
+ modifications aerobic glucose conditions unless specified  GPR, gene–protein–reaction association.
+b expressed aerobic glucose conditions based data (Covert et al, 2004), expression level cutoff 300.
+c expression level nrdE data (Covert et al, 2004) slightly expression level cutoff (300).
+
+
+6 Molecular Systems Biology 2009                                                                                    & 2009 EMBO Macmillan Publishers Limited
+                                                                           Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                 PF Suthers et al
+
+
+
+
+mutants genes rescued       information). predicted SL triples, 111 (B57 ) overexpressing SL partner(s) E. coli. example,         yield auxotrophic strains silico restore growth genetic evidence regarding complementation nrdA         supplementation growth medium (b2334) nrdB (b2335) mutants E. coli nrdE (b2675)        rest result strains rescued nrdF (b2676) overexpressed plasmid (Jordan et al,           supplemented medium  Supplementary information 1994a, b). example, ydiB (b1692) aroE (b3281)        complete listing).
+encode YdiB paralog AroE, respectively,              Similarly SL gene pairs, variety different topological
+members quinate/shikimate 5-dehydrogenase family             motifs emerge SL gene triples depicted. Note functions essential shikimate pathway (Lindner          pictorially represented using triangle et al, 2005). relationship implies simulta-      members forming SL triple depicted edge connected
+neous disruption genes lethal.            nodes  Figure 3). Figure 3 shows number disjoint  aroE (b3281) reported essential (Table III).      triples k-connected clusters different size. example outcome arise inability low specific           disjoint triple cluster genes mgtA (b4242)
+activity YdiB compensate deletion AroE unless      corA (b3816) form SL triple non-gene associated
+amplified, reported Michel et al (2003). note      reaction  e. Mg2t3_2pp (magnesium (Mg þ 2) transport regulation rules introduced Covert et al (2004)         proton antiport (periplasm)). components
+nrdE, nrdF ydiB.                                                 cluster responsible magnesium transport
+   22 genes reported essential           different mechanisms. Cluster H example (Table III),  e. pdxH (b1638), ubiB (b3835), adk (b0474), prsA    1-connected cluster, presence gene
+(b1207)) form lethal pairs non-gene associated             e. pitA pitB) prevent lethality. seen Figure 3,
+reactions. addition, ubiB, adk prsA essential     unlike SL gene pairs, small number SL gene rich medium conditions, pdxH essential          triples participate disjoint triples. Instead majority
+glucose minimal medium rich medium.                form complex k-connected clusters (e.g. clusters K,
+results imply model missing regulatory restrictions     L M). used mixed-integer optimization formu- non-gene associated reactions listed  suggest      lation proposed Burgard et al (2001) identify OPHHX3, R1PK PDX5PO2 suppressed                  minimum required set genes  non-gene associated examined experimental conditions (Table IV).           reactions) clusters prevent lethality.
+particular, non-gene associated reactions OPHHX3            Surprisingly, clusters K L R1PK likely inactive aerobic conditions              minimal sets contained single member  e. k¼1).
+(Alexander Young, 1978; Hove-Jensen et al, 2003),               example, maintaining activity purT (b1849) PDX5PO2 likely inactive glucose              cluster K activity purU (b1232) purN
+minimal conditions (Zhao Winkler, 1995). changes          (b2500) cluster L, prevent lethality. Unlike clusters lead correct predictions essentiality      K L, cluster M fourteen alternative minimal sets genes.                                                              containing members  e. k¼9) need active    cases mismatches experimental          prevent lethality  Supplementary information complete
+results concerning auxotrophy: (aroL, aroK) (tktA, tktB).       listing). SL pair (tktA, tktB) auxotrophic aromatic amino
+acids requires addition pydxn (pyridoxine) medium (Zhao Winkler, 1994). contrast, silico         SL reaction triples
+predictions remained SL rich medium,      application exhaustive enumeration procedure unable produce biomass precursor pydx5p             described Materials methods section single-
+(pyridoxal 50 -phosphate). Pyridoxine direct precursor      reaction deletions led identification 277 essential
+pydx5p, inspection transport reactions contained      reactions (B13.5  total number reactions). Note iAF1260 reveals pyridoxine transport reaction            did allow 304 exchange reactions 29
+present.  resolved vivo silico conflict       spontaneous reactions iAF1260 model participate SL addition pyridoxine uptake pathway      SL. excluding essential, exchange, spontaneous model. Interestingly, adding uptake pathway leads     981 blocked reactions, considered applying corrected prediction pdxH (b1638) non-essential      exhaustive enumeration procedure  Materials meth- rich medium implementing regulatory adjust-            ods section) 792 remaining reactions identify ments. Table IV summarizes suggested iAF1260 model              pair triple combinations reaction eliminations negate
+modifications.                                                      biomass formation. case pairs, 96 SL
+                                                                    reaction pairs  Supplementary information complete
+                                                                    list).  applying approach identify SL
+SL triples                                                          reaction triples required exhaustively exploring concept synthetic (pair) lethality extended SL     83 million triple combinations. avoid computational
+triples, simultaneous deletion genes       burden, developed targeted enumeration procedure  lethal. searching SL triples, essential genes SL   Materials methods section) relying bilevel optimiza-
+pairs excluded consideration eliminate trivial          tion procedure identify synthetic reaction triples results. identified 193 SL gene triples involving 114 genes      having explicitly test 83 million triple combinations. non-gene associated reactions  Supplementary        identified total 243 SL triples involving 163 reactions.
+
+& 2009 EMBO Macmillan Publishers Limited                                                                   Molecular Systems Biology 2009 7
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+
+    Disjoint triples                                                                               k-connected triples
+
+                                    G      nrdE             trxB            H       pstS                       pstA                 glcE                          glcF                    J                  CMPN
+       mgtA
+                                                                                                                                                                                                  xapB                          surE
+                MG2t3_2pp                          trxC                                   pitB          pitA                                  yghK             lldP
+                                                                                                                                                                                                  codA                        CSND
+         corA                              trxA             gor
+                                                                                   pstB                        pstC                    gcl                          glcD                                        cmk
+                                                   k =1                                          k =1                                                 k =1
+                                                                                                                                                                                                                         k =1
+                                                                                                                                                                               lpcA     rfaZ
+                                                                          hyfE                                                                                        gmhB                       rfaY
+                                                             hycC
+  B      cysP
+                                   K                                                 hyfG                                L                      UPLA4FNF
+                                                                                                                                                           UPLA4FNT                                     rfaS
+
+                                                                                                                                                                                                               rfaP
+                     sbp                            hyfF
+                                                                                                 hycB                     k =1          ULA4Ntppi                                                                     lpxL
+         modA                      k =1
+                                            hycD                                                                                    UDPGD                                                                                    lpxM
+
+                                                                                                        hyfJ               UDCPPtppi                                                                                                arnT
+
+                                          hyfD
+                                                                                                                         LA4NTpp                                                                                                    UDPKAAT
+                                                                                                         purT
+  C      pgpB
+                                                                                                                      ACOLIPAtex
+                                          hyfA                                                                                                                                                                                             purN
+                    bacA
+         ybjG                                                                                           hyfI          ULA4NFT                                                                                                               galU
+
+
+                                            hycE
+                                                                                                                                                                                                                                           yfbG
+                                                                                                                        purU
+                                                                                                 hycG
+                                                    hyfC                                                                 UDPGDC                                                                                                        ugd
+  D      eutI
+                                                             hycF
+                                                                                     hyfH
+                                                                          hyfB                                                 rfaQ                                                                                                 rfbC
+                  ACt2rpp
+                                                                                cydD       AACTOOR                                    rfaG                                                                                   rfbD
+         pta
+                                                                                                                                             rfaB                                                                     yfbE
+
+                                                                     gcvT                                  gshA                                     rfaI                                                       yfbF
+
+                                                      M                                                                                                      rfaJ
+                                                                                                                                                                      rfaK                       rfaD
+                                                                                                                                                                                                        rfaE
+
+                                                                                                                                                                               rfaC     rfaF
+
+  E      pbpC
+                                                                    eno                                         kbl
+                    mrcA
+                                                      k =9
+         mrcB
+                                                                           glyA                         ltaE
+                                                   73 triples                            tdh                                                                                                    pgk      idnO
+                                                                                                                                                                                    gcvH                          mmuM
+
+  F      gltS                                      32 genes
+                                                                                                                                                                             gshB                                            tpiA
+                                                   1 non-gene
+                    actP
+                                                   assoc. rxn
+         sstT                                                                                                                                                          cydC                                                    idnT
+
+                                                                         sucD
+                                                                                  prpE
+                                                                                                                                                                             gcvP                                            gapA
+                                                              sucB
+                                                                                     lpd
+                                                                                                                                                                                      edd                             pgi
+                                                                  ygfH
+                                                                                                                                                                                                mgsA      eda                         gnd
+                                                                                  sucC
+                                                                         sucA
+                                                                                                                                                                                                                             sgcE             rpe
+
+Figure 3 Topological classification motifs SL gene triples. disjoint triples (left) k-connected triples (right) seen. Names genes set italics names non-gene associated reactions set roman type. Note reaction abbreviations follow iAF1260 (Feist et al, 2007).
+
+Table V Comparison approximate CPU time (single 3 GHz) finding                                         Similarly gene SLs, elimination reaction triples essential reaction, SL reaction pair, triples quadruples using                                    yield auxotroph strains capable restoring growth
+exhaustive targeted enumeration approaches, respectively
+                                                                                                               supply missing nutrients strains lack
+Order                       Exhaustive enumeration                            Targeted                         essential functionalities rescued adding extra SLs                                                                      enumeration                        components growth medium. 243 predicted
+                    Possible           SL ( )                CPU            CPU time/SL
+                  combinations                             time/SL
+                                                                                                               essential reaction triples, 202 (83 )                                                                                                                yield silico auxotroph strains rescued
+Single              B2050               13.5               B1 s                   B5 s                         supplementation  Supplementary information Double             B313,000             0.03              B28 min                B12 min                       complete listings). example, elimination PGK (phos-
+Triple             B8.3 107         2.9 104            B2 days                B40 min
+Quadruple          B1.6 1010            ND                ND                    B5 h/SL                       phoglycerate kinase), TALA (transaldolase) TPI (triose-
+                                                                                                               phosphate isomerase) results strain rescued
+ND, determined.                                                                                            (according model) supplementation                                                                                                                growth medium murein5px4p  disacharide linked
+Table V depicts CPU times targeted enumeration                                                     murein units, pentapeptide crosslinked tetrapeptide). 
+procedure versus exhaustive enumeration procedure                                                          trast, eliminating AGMHE (ADP-D-glycero-D-manno-heptose
+revealing orders magnitude improvement.                                                                     epimerase), RPE (ribulose 5-phosphate 3-epimerase) 
+8 Molecular Systems Biology 2009                                                                                                                                        & 2009 EMBO Macmillan Publishers Limited
+                                                                                                    Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                                          PF Suthers et al
+
+
+
+
+       Disjoint triples                                                                  k-connected triples
+
+
+                                                  D             k=1                        E CYTBD2pp                                       DUTPDP
+        MG2uabcpp                                                                                                    k=1               F                       k=1
+                                                         R1PK            PRPPS
+                         MG2tpp                                                             QMO3                 SPODM              DURIK1               DURIPP
+
+        MG2t3_2pp                                                                                                                             URIDK2r
+                                                  NDPK1           ADK1            ADK3               DHORD2             SUCOAS
+                                                                                                                                       k=1
+
+        KAS15
+                           B
+                                                                                                           G ACCOAL               PPCSCT
+
+                      MACPD
+                                                          PPM            R15BPK                                          AKGDH
+
+       ACOA TA                                H                                                                                                                                                                                                                        k=23
+                                                                   k=2
+                                           GLYCT O2                                  HPYRI
+                           C                                    GLYCLTtex
+        TRDR
+
+                       CAT
+                                                              GLYCLTt2rpp
+                                                                                                      222 triples
+     PDX5PO2
+                                           GLYCT O3                                 TRSARr            129 reactions
+
+
+
+Figure 4 Topological classification motifs SL reaction triples. Similarly SL gene triples Figure 3, SL reaction triples occur disjoint triples (left) k-connected triples (right). Note reaction abbreviations follow iAF1260 (Feist et al, 2007).
+
+TALA (transaldolase) yields strain, produce                                 Table VI Frequency participation reactions multiple SL triples silico biomass precursors supplemented
+                                                                                           # SL triples                                   # reactions (Rxn abb.)
+medium unable make uptake precursor
+metabolite pydx5p (pyridoxal 50 -phosphate).                                                1                                                            42
+   Reaction SL triples pictorially shown triangles                              2                                                            67 reactions depicted edge connected nodes                               3                                                             8
+                                                                                            4                                                            12
+Figure 4). graphical representation reveals                                5                                                             3
+small number reactions  e. 34) form small clusters                                 6                                                             5
+Figure 4)  e. 129) joined                            7                                                             1
+                                                                                            8                                                             4 highly connected large cluster  e. giant component).                            9                                                             4
+example, reactions cluster shown Figure 4                            10                                                             5
+responsible magnesium transport different mechan-                                11                                                         1 (RPI)
+isms. Interestingly, looking GPR associations                           12                                                        1 (PPS)
+                                                                                           17                                                         1 (PGI) cluster maps exactly cluster Figure 3                              20                                                        1 (PGM)
+reactions MG2uabcpp MG2tpp coded genes                                  27                                                  3 (GAPD, PGK, TALA)
+mgtA (b4242) corA (b3816), respectively. giant                                     33                                                        1 (RPE)
+                                                                                           34                                              3 (ATPS4rpp, FTHFD, GARFT)
+component (cluster  consists 129 reactions forming 222                                35                                                         1 (TPI)
+SL triples. used mixed-integer optimization formula-
+tion proposed Burgard et al (2001) identify                                     abbreviations follow Feist et al (2007). complete list given alternative reaction sets, 23 reactions  e. k¼23)                              supplementary information. allow biomass components formation  Supplementary information). minimal reaction                                    highly triple-participating reaction, membership 35
+sets spanned 29 different reactions, seventeen                                different SL triples. surprisingly, reactions
+present alternative minimal sets  Supplemen-                               appear complex cluster SL triples (cluster .
+tary information).                                                                         Interestingly, half reactions belong    analyzed reaction SL triples determining                              glycolysis, rest  ATPS4rpp) number SL triples reaction participates                               involved pentose phosphate pathway (PPP), folate meta-
+ Table VI). wide range participation                                  bolism purine pyrimidine biosynthesis. different reactions. reactions  e. 85 ) appear                            interesting patterns, reactions seven fewer triples, reactions                                      participate large number SLs catalyzed proteins
+participate triples. Notably, TPI                             encoded genes participate large number 
+& 2009 EMBO Macmillan Publishers Limited                                                                                               Molecular Systems Biology 2009 9
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+
+SLs. Specifically, reactions FTHFD GARFT                               excluding spontaneous, exchange, blocked essential
+associated genes purU (b1232) purN (b2500)                           reactions, 229 SL reaction quadruples 137 reactions highly connected nodes cluster L Figure 3. Similar                           involved identified  Supplementary information observations cluster J Figure 1 clusters Figures 3                     complete list). Using targeted enumeration approach 4 indicate gene synthetic lethality explained                       able elucidate higher-order SL inter-
+analyzing corresponding reaction synthetic lethality.                              actions, SL reaction quintuples. example, set
+                                                                                       reactions F6PA (fructose 6-phosphate aldolase), FBA
+                                                                                       (fructose-bisphosphate aldolase), GLCptspp (D-glucose trans-
+Higher-order SLs                                                                       port PEP:Pyr PTS [periplasm]), GLCt2pp (D-glucose
+                                                                                       transport proton symport [periplasm]) RPI identified number SL quadruples iAF1260
+                                                                                       (ribose-5-phosphate isomerase) SL quintuple.
+model aerobic glucose minimal medium conditions.
+                                                                                          Unlike essential reactions participate SLs,
+                                                                                       possible gene/reaction involved SL pairs                 Genes                                  Reactions
+                                                                                       participate SL triples higher-order SLs.
+                                                                                       Figure 5 shows form Venn diagram number      Blocked             Essential            Blocked            Essential
+                                                                                       genes/reactions participate various orders SLs.         401                188                   774                282                note 183 non-essential,‘non-blocked’ genes participate                                                                                        SL pair triple. Interestingly, fourteen
+                                                                                       genes participating SL pair participate          Pairs          Triples                   Pairs         Triples
+                                                                                       SL triples. case SL reactions, identified
+                                                                                       39 participate SL pairs triples. example,            69     14       100                     80      39       102                glycine cleavage (GLYCL), involved                                                                                        degradation glycine ammonia CO2, participates                                                                                        SL pairs, SL triples SL quadruples  Figure 5 Venn diagram number genes reactions participating               Figure 6). identified nineteen SL quintuples SLs order                                                      GLYCL. implies deletion reactions
+
+
+
+                                              PGCD           PSP_L          PSERT         GHMT2r
+
+
+                                  PGK                                                             GLUCYS*
+
+
+
+                                                                                                  AACTOOR*
+
+                                     ENO                                                                         GTHS
+
+
+                                   GAPD                                                                   GTHRDabc2pp*
+                                                                                                                                     GLYAT*
+
+                         PGM
+
+                                                                    GLYCL                                    CGL Ytex
+
+                         PTAr
+
+                                   ACALD                                                               GLYAT*
+                                                                                                                                 GTHRDtex
+
+                                                                                                               AACTOOR*
+                         PDH
+                                                            TRDR
+                                            GLUCYS*                        GTHRDabc2pp*
+                                  ACKr                                                                   GTHRDHpp
+
+
+                                                                   CAT
+
+Figure 6 Pictorial view SLs reaction GLYCL (glycine cleavage . Double, solid dashed lines depict SL pairs, triples quadruples, respectively. reaction abbreviations follow iAF1260 (Feist et al, 2007). Note ease presentation reactions occur SL triples SL quadruples repeated (marked star) SL quadruples containing coupled fluxes SL quintuples. complete list SL quadruples quintuples GLYCL given Supplementary information.
+
+10 Molecular Systems Biology 2009                                                                                       & 2009 EMBO Macmillan Publishers Limited
+                                                                             Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                   PF Suthers et al
+
+
+
+
+depicted Figure 6 compensated GLYCL              Table VII Distribution degree essentiality (DOE) genes/reactions
+Alternatively, removal GLYCL render PGCD,              network. Table entries represent gene/reactions specific
+                                                                    degree essentiality belong COG functional class  Table COG
+PSP_L, PSERTand GHMT2r essential. Notably, reactions        abbreviations). Note gene/reactions belong present Figure 6 forming SL pair GLYCL            COG functional class
+PSERT) associated genes cluster J Figure 1.
+                                                                    Cog                   Genes                                 Reactions reactions, GHMT2r converts glycine serine,           Class  PGCD, PSERT PSP_L serve  second                         DOE          Blocked Total           DOE            Blocked Total committed steps serine biosynthesis pathway,
+                                                                            1    2   3 4+                         1   2    3 4+
+respectively.  primary reason synthetic
+lethality GLYCL reactions          J        1 0 1    0            24       26    1    0    1     3     25       30
+requirement serine production directly conver-       K        0 0 0    2             2        4    0    1    0     6      1        8
+sion glycine  Supplementary information              L        0 2 0    3             0        5    1    0    1    12      0       14
+                                                                    V        1 0 1    4             0        6    4    1    1    38      0       44
+complete list precursor metabolites           T        1 0 0    2             1        4    1    0    0     9      8       18
+produced reaction eliminations). Furthermore,        M       19 6 20 37             13       95   42    7   25   173    210      457
+elimination GAPD PGK ENO PGM prevents          U        0 0 0    2             0        2    0    1    0     4      7       12
+                                                                    O        0 1 3 11               8       23    1   10    2     8     16       37 production metabolite 3pg (3-phospho-D-glycerate),           C        7 8 28 62             67      172    7   19   11    55     99      191 blocking serine biosynthesis pathway. Finally,      G        2 6 9 62             103      182    3   12   24    74    123      236
+removal GLYCL combination GLUCYS,           E       52 28 4 116            30      230   72   20   12   140     70      314
+                                                                    F       22 13 2 25              5       67   28   18   13    49     43      151
+GLYAT, AACTOOR GTHRDabc2pp prevents formation               H       49 6 3 11              28       97   60   12    4    37     47      160 biomass precursor metabolites coa  enzyme , amet              17 1 4 19              13       54   48   25    3   118     70      264
+(S-adenosyl-L-methionine) sheme (sirohem). com-            P        7 9 10 34             33       93   11   19    6   112     58      206
+prehensive synthetic lethality analysis GLYCL demonstrates       Q        0 0 0    6             4       10   22    4    2    39     22       89
+                                                                    R        0 0 2 16              14       32   15    6    9    97     78      205 looking higher-order SLs unravel non-            S        0 0 0    3             1        4    1    0    2     9      3       15
+intuitive biomass component deficiencies               10 3 13 73             55      154   30    8   17   123    125      303
+apparent visual inspection metabolic map.
+   similar pattern emerged identified set SL reaction
+quadruples. highly participating reactions SL
+triples appear high frequency list identified   DOE COGs reveals differing buffering
+SL quadruples. example, TPI participates 55 SL               capacity functional category biomass formation
+quadruples. Notably, instances           (Deutscher et al, 2006). highly participating member SL triples occurring                 focus attention DOE results SL quadruples. instance, 55 SL           reactions participating central metabolism (spanning
+quadruples TPI, 21 contained PGM (phosphoglyce-           glycolysis, PPP, TCA cycle anaplerotic reactions). Figure 8
+rate mutase). reason reactions appear SLs      illustrates color-coded degree essentiality reactions
+different orders serve key branch points         central metabolism DOE  central metabolism. simultaneous removal multiple            majority reactions central metabolism DOE 
+branch points require flux rerouting bypass       likely presence reactions latent pathways (Fong et al, 2006)             multiple diverging converging branches pathways production essential biomass precursors amino            central metabolism. relatively small fraction essential
+acids.                                                              reactions expected, earlier reports noted conserved
+                                                                    metabolic pathways TCA cycle glycolysis
+                                                                    generally contain essential reactions (Gerdes et al, 2003;
+Degree essentiality                                              Ghim et al, 2005). reactions PPP DOE quantify dispensability gene reaction            glycolycis reactions involve DOEs metabolic network respect biomass formation,              reaction glycolysis PPP DOE 
+introduce concept degree essentiality (DOE).         reactions essentiality degree metric defined size smallest SL gene   belong TCA cycle. Eliminating reaction member   essential genes reactions    essential reactions prevent formation list DOE  genes reactions participate      precursor metabolites including sheme (sitroheme), pheme SL pairs  higher-order SLs) DOE         (protoheme) murein5px4p  disacharide linked  noted DOE metric genes akin    murein units, pentapeptide crosslinked tetrapeptide). ‘k-robustness’ term introduced Deutscher et al (2006).       reactions subsequent steps TCA cycle determined DOE genes              converting oxaloacetate 2-ketoglutarate. Application flux
+reactions DOE reactions central    coupling analysis (Burgard et al, 2004) showed metabolism active aerobic glucose conditions.             fully coupled  e. ACONTa (aconitase [half-reaction
+distribution DOE genes reactions present different    B, Isocitrate hydro-lyase]), ACONTb (aconitase [half-reaction
+COG classifications (Tatusov et al, 2003) shown Table VII     B, Isocitrate hydro-lyase]) ICDHyr (isocitrate dehydrogen- Figure 7. Data Table VII genes reactions       ase)). important note reactions operating different COGs quite different DOE statistics. Figure 7b    opposite directions different DOEs. examples
+pictorially delineates percentage reaction participation     include reaction pairs FBP PFK PPC PPCK.
+
+& 2009 EMBO Macmillan Publishers Limited                                                                     Molecular Systems Biology 2009 11
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+
+                            1   2   3   4+   Blocked                             B                                      1   2    3    4+   Blocked
+
+                             Gene degree essentiality                                                                  Reaction degree essentiality
+                      20            40          60            80           100                                      20            40          60        80         100 
+       J                                                                      26                            J                                                            30
+       K                                                                       4                            K                                                             8
+       L                                                                       5                            L                                                            14
+       V                                                                       6                            V                                                            44
+       T                                                                       4                            T                                                            18
+       M                                                                      95                            M                                                          457
+
+
+
+
+                                                                                   COG functional classes
+       U                                                                       2                            U                                                            12
+       O                                                                      23                            O                                                            37
+       C                                                                     172                            C                                                          191
+       G                                                                     182                            G                                                          236
+       E                                                                     230                            E                                                          314
+       F                                                                      67                            F                                                          151
+       H                                                                      97                            H                                                          160
+                                                                            54                                                                                     264
+       P                                                                      93                            P                                                          206
+       Q                                                                      10                            Q                                                            89
+       R                                                                      32                            R                                                          205
+       S                                                                       4                            S                                                            15
+                                                                        154                                                                                  303
+
+Figure 7 Percentage degree essentiality different parts network arranged COG (Tatusov et al, 2003) functional classifications.   Genes.
+(B) Reactions. numbers right indicate total number items COG classification. Note genes/reactions belong COG classification.
+
+
+Discussion                                                                         forms SL pairs RPE (ribulose 5-phosphate 3-epimerase),
+                                                                                   TALA (transaldolase), TKT1 TKT2 (transketolase) presented comprehensive silico study gene                           participates number higher-order SLs  reaction synthetic lethality E. coli K12 based recent                    Table IV). erroneous model predictions genome-scale metabolic model iAF1260. computationally                         fact genome-scale metabolic model reconstructions tend
+intensive goal possible developing efficient                          predict metabolic capabilities procedure targeted enumeration SL interactions                      organism. arises inclusion model relying bilevel optimization. Unlike earlier efforts                       functionalities active sufficient level (e.g. relied incomplete sampling elucidate partial lists                        regulation) ensure biomass formation. list SLs
+higher-order SLs (Behre et al, 2008; Deutscher et al, 2008),                       reported study   interpreted provided complete enumerations high-order SL                            conservative depiction synthetic lethality, recognize
+interactions gene reaction centric representations.                   additional SLs likely present stoichiometric network organization elucidated SLs recapitulated                       models reveal  e. false-negatives).
+modular lethality relationships consistent previous                              exploited identified vivo silico mismatches
+observations yeast (Segre et al, 2005). coloring network                     suggest number iAF1260 model modifications  nodes using COG classification, surprising compensatory                        Table IV). motivated observation false-
+interactions seemingly unrelated gene reaction                             negative/positive model predictions provide opportunities
+classes revealed. Earlier efforts silico elucida-                  model improvement evaluation tion SLs (Wunderlich Mirny, 2006; Palumbo et al, 2005,                      experimental data (Thiele et al, 2005). model
+2007) did anticipate lethality caused inability                      corrections involve addition removal reactions
+meet non-growth associated ATP maintenance require-                            iAF1260 incorporation regulatory
+ment. Notably, study, 120 SLs                      constraints  e. condition-dependent presence different
+triggered deficiency.                                                      reactions). Unfortunately, existing experimental data    contrasting literature data gene essentiality                         SLs account small portion predicted SL
+synthetic lethality predicted SLs, 27 instances                         limiting potential model improvement. inconsistencies (false-positive SLs) identified. Similar                      calls development combinatorial methods examples false-positive predictions                       rapid generation screening SLs recently
+reaction SLs. example, reaction RPI (ribose-5-phosphate                        developed GIANT-coli technology allows isomerase) essential vivo (Neidhardt                        high-throughput generation double mutants E. coli
+Curtiss, 1996),  according model iAL1260,                        (Typas et al, 2008).
+
+12 Molecular Systems Biology 2009                                                                                                  & 2009 EMBO Macmillan Publishers Limited
+                                                                                                                          Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                                                                PF Suthers et al
+
+
+
+
+                            Degree essentiality                                    glc-D
+                                                                GLCt2       h
+                                             1                                                atp
+                                                                  h[e]                    HEX1
+                                             2                                                  h
+                                                                                  adp
+                                                                          GLCpts G6PDHy                     6pgl      PGL    6pgc                 GND
+                                             3
+                                                           glc-D[e]                   g6p
+                                                                  pep             pyr nadp nadph h h2o                   h     EDD        nadp          nadph co2
+                                             4
+                                                                                PGI                                    h2o
+                                                                                          f6p
+                                         5+
+                                                                       pi
+                                                                                atp
+                                                                                                                                                        TKT2
+                                                                                                                                                                RPE
+                              Blocked                                                                                                                                   ru5p-D
+                                                                       FBP PFK F6PA                                2ddg6p                       e4p            xu5p-D
+                                                                                adp                                                      TAL
+                                                                    h2o          h
+                                                                                  fdp                                                               TKT1                RPI
+                            h2o              lgt-S    LGTHL                   FBA                                     EDA                  s7p                 r5p
+                                                                                          dha
+                                                             pi
+                         GLYOX                                      MGSA              TPI
+                              h             gthrd                                       g3p
+                                                          mthgxl            dhap                      pi
+                                         lac-D                                                        nad
+                            nad
+                                                                                    GAPD
+                                          LDH_D                                                       nadh
+                          nadh                                                                        h
+                                                                                      13dpg
+                              h                                                                       adp
+                                       pyr                                            PGK
+                                                                                                      atp
+                                                                                        3pg
+                                                                                    PGM
+                                                                                                    2pg
+                                                                                    ENO
+                                                                                                      h2o
+                                                                                 pi                 pep
+                                                                                amp                     h
+                             co2                   co2                            h                     adp
+                             h2o                   adp                          PPS                   PYK
+                                                                                 h2o
+                              PPC                PPCK                            atp                      atp
+                                  h                 atp
+                                  pi             nadph              co2                   pyr         coa
+                                                   co2              nadh                              nad
+                                                                                      PDH            nadh
+                                                     ME2        ME1x                                 co2
+                                                                                      accoa          h2o          coa h succ[e]           succ
+                                                  nadp              nad
+                                                                                    oaa                         CS
+                                                                                                                                CITt7
+                                                               h
+                                                            nadh         mql8           ubq8h2              CITL             cit           cit[e]
+                                                                                                     ac
+                                                                MDH MDH3 MDH2                                                ACONT
+                                                             nad         mqn8
+                                        MALt6_na                                            ubq8                ICL
+                                                                                                                              icit
+                        mal-L[e]
+                                                                mal-L           MALS            glx             nadp
+                                       na1[e]             na1             coa h               h2o
+                                                            FUM                                                              ICDHy
+                                                                             h2o              nadph                           hAKGt6       h[e]
+                         fum[e]                                           fum
+                                                                                    mql8         co2
+                                                                                                                                               akg[e]
+                                   SUCFUMt                                    fadh2      2dmmql8     akg                           coa
+                                                                                                                                   nad
+                                                          SUCD1i                FRD2 FRD3
+                                                                                                                             AKGD
+                                                                              fad                   2dmmq8
+                                                                                       mqn8                                   co2
+                                                          SUCCt2                                       SUCOAS                nadh
+                          succ            succ[e]                      succ                                              succoa
+                                                h[e]               h                    atp         coa          pi    adp
+
+Figure 8   Color-coded representation reactions central metabolism according degree essentiality.
+
+
+
+
+   key challenges correctly interpreting                                                      UbiX UbiD required decarboxylation,
+obtained predictions delineation true function                                                 especially logarithmic growth, implying genes
+isozymes complementation studied conditions.                                                      essential. inconsistencies silico predictions example, experimental evidence predicted SL                                                     vivo observations nuanced model
+(ubiX, ubiD) conflicting. analyses propose                                                     modifications dependent conditions ubiD knockout lethal (Baba et al, 2006; Joyce et al, 2006;                                                   growth phase. example, metL (b3940) Feist et al, 2007), data Covert et al (2004)                                                     thrA (b0002) form disjoint SL pair isozymes suggest ubiX expressed examined condi-                                                    aspartate kinase activity. Surprisingly, genes reported
+tions. contrast, Gulmezian et al (2007) recently observed                                                    essential (Table IV), suggesting operator 
+& 2009 EMBO Macmillan Publishers Limited                                                                                                                         Molecular Systems Biology 2009 13
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+ changed operator gene–protein–reaction                    analysis synthetic lethality metabolic networks
+association.  simply knowing gene essential              requires introduction following sets: sufficient. cases, elucidating                                    ¼ fiji ¼ 1; 2; :::; Ng ¼ set metabolites
+functional reason(s) (e.g. loss sufficient aspartate kinase                              J ¼ fjjj ¼ 1; 2; :::; Mg ¼ set reactions
+activity, ) essentiality needed properly                             K ¼ fkjk ¼ 1; 2; :::; Gg ¼ set genes
+correcting model. indicated Table III, classifica-
+tion entD cluster F Figure 1 essential likely                  N, M G denote total number metabolites, reactions
+erroneous. observation supported fact                    genes network, respectively. imposing metabolite
+eliminating FE3abcpp make entD essential                       balances entire metabolic model steady-state
+render genes essential known                   conditions obtain:
+non-essential. Finally, predictions disruption                                      X
+                                                                                                       sij nj ¼ 0 ; 8 2                  ð1Þ particular SL results auxotroph strain likewise                                       j
+exploited model correction demonstrated SL
+(tktA, tktB).                                                                 sij, represents stoichiometric coefficient metabolite 
+   introduction concept degree essentiality                 reaction j, nj, denotes flux reaction j.  enabled quantitative assessment dispensability                 exhaustive targeted SL enumeration approaches  gene reaction metabolic network.  querying derived list SLs, examine                                                                              Exhaustive enumeration SL interactions removal gene/reaction affects dispensability
+                                                                             computational prediction synthetic lethality hinges characteristics genes/reactions. Results GLYCL
+                                                                             calculation maximum biomass formation presence  Figure 6) revealed surprising compensatory interactions                 gene reaction deletions implied examined SL. chose reactions seemingly unrelated pathways. elucida-                 1  maximum theoretical biomass yield cutoff tion SL DOE human metabolism implications                   computationally predicted growth. prediction identification drug targets. example,                 silico lethality particularly sensitive selected biomass
+                                                                             formation cutoff value. example, considering single-gene
+suggested SL partners missing enzymatic function-                mutants mutants  0.6  genes alities tumors cells promising drug targets                      model) involve biomass formation values 1–50 . (Hartman et al, 2001; Kamb, 2003). idea healthy                  aware definition silico synthetic lethality Deutscher
+cells remain unaffected ability compensate               et al (2006) study.  believe using conservative
+                                                                             universal cutoff 1  mutants safeguards possibility drug-suppressed functionality, tumor cells,
+                                                                             misclassifying SL gene mutants viable. missing enzymatic functionality,                       words, want minimize occurrence false-positives  SL predictions used pinpoint multi-               expense missing SLs. D set reactions set
+gene disease mappings (Hoh Ott, 2003) identify                       zero directly consequence GPR associations
+combinations genes likely interact disease                     implied gene deletions problem determining                                                                              maximum biomass formation formulated following
+phenotypes (Wong et al, 2004).                                               linear program:
+   procedure proposed used rapidly
+predict growth phenotypes multiple knockout mutants                                    Maximize          vbiomass      ½MaxBiomass
+                                                                                                                                                         ð2Þ variety organisms S. cerevisiae,                                       s:t:
+B. subtilis H. pylori various media. effect                                               P
+different conditions  e. alternate carbon substrates, aerobic                                                 sij nj ¼ 0   8i 2                      ð1Þ
+                                                                                                            j
+vs anaerobic, ) certain regulatory constraints membership SL sets assessed straightforward
+                                                                                                       LBj pnj pUBj           8j 2 J                     ð3Þ
+manner adjusting appropriate model constraints based exchange reaction usage gene/reaction availability.                                                 vd ¼ 0 d 2 D  J                                 ð4Þ
+
+                                                                                                        vglucose Xvuptake
+                                                                                                                   glucose
+                                                                                                                           limit
+                                                                                                                                                         ð5Þ
+
+Materials methods                                                                                   voxygen Xvuptake
+                                                                                                                  oxygen
+                                                                                                                         limit
+                                                                                                                                                         ð6Þ separate optimization-based procedures enumeration SLs gene reaction levels described. relies                              vATPM ¼ vmaintenance                             ð7Þ
+                                                                                                                 ATPM exhaustive biomass formation capability evaluation single,
+double, triple,  combinations gene reaction deletions. method computationally prohibitive searching                                              vj 2 R 8 j 2 j
+higher-order SLs (n42).  alternative efficient
+                                                                                                                            uptake limit uptake limit targeted method, relying bilevel optimization, described       vbiomass denotes biomass flux vglucose     , voxygen     identifies SL combinations relying exhaustive             vmaintenance
+                                                                               ATPM       denote minimum required glucose oxygen uptake
+enumeration possible gene/reaction eliminations. reduce        rates non-growth associated ATP maintenance, respec-
+search space approaches, flux coupling analysis           tively. values upper lower bounds, UBj LBj, (Burgard et al, 2004) performed pre-processing step allow        Equation (3) chosen exclude physiologically removal representative fully coupled reaction        relevant metabolic flux values. upper bound reactions set. noted,  complete lists reactions       set 1000. lower bound set zero irreversible reactions
+present SL degree  provided              1000 reversible reactions. external carbon
+Supplementary information.                                                   containing metabolite, maximum transport rate cell 
+14 Molecular Systems Biology 2009                                                                                & 2009 EMBO Macmillan Publishers Limited
+                                                                                     Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                           PF Suthers et al
+
+
+
+set 20 mmol gDW1 h1. remaining source exchange fluxes,          primal objective function equal dual introduced lower bound set 1000 mmol gDW1 h1 (Feist et al, 2007).         (Burgard et al, 2003):
+Glucose minimal conditions modeled restricting glucose
+                                                                                                                 Minimize vbiomass
+uptake rate 10 mmol gdW1 h1 oxygen uptake rate                                                                                                    ð9Þ
+20 mmol gdW1 h1. non-growth associated ATP maintenance                                                     s:t: fixed 8.39 gDW1 h1 (Feist et al, 2007).                                                             X
+   elucidation SL reactions using formulation MaxBiomass                          vbiomass ¼                  mj UBj yj þ vmaintenance
+                                                                                                                                     ATPM        :mATPM          ð10Þ
+straightforward membership set D  set reaction                                                   j
+deletions) known priori. case gene deletions, information                                     X
+gleaned GPR association relations needs encoded                                                     sij nj ¼ 0 ; 8i 2                         ð1Þ
+elucidate effect gene deletions reaction deletions                                                   j
+accounting isozymes, multi-meric enzymes combination
+thereof. Formulation MaxBiomass iteratively solved identify SL                                              vj pUBj yj        8j 2 J                       ð11Þ genes reactions involving pre-specified number n deletions
+ n order SL sought . exhaustive evaluation                                            vglucose pvuptake
+                                                                                                                            glucose
+                                                                                                                                    limit
+                                                                                                                                                                 ð12Þ computationally intractable higher-order (higher  SLs  Table V) motivating development following                                               voxygen pvuptake limit
+                                                                                                                                                                 ð13Þ
+targeted enumeration procedure.                                                                                            oxygen
+
+
+                                                                                                              vATPM ¼ vmaintenance
+                                                                                                                       ATPM                                       ð7Þ
+Targeted enumeration SLs                                                                X
+                                                                                                 li sij þmj X0              8j 2 J  fbiomass; ATPMg             ð14Þ proposed targeted enumeration procedure relies solution                          bilevel optimization formulation identifies n simultaneous                                   X
+gene/reaction deletions suppressing biomass formation. bilevel                                           li si biomass þ mbiomass X1                        ð15Þ
+formulation identifies set n gene/reaction deletions                                         minimizes maximum biomass formation potential network.                                            X minimal value maximum biomass                                                  li siARPM þmATPM X0                        ð16Þ
+imposed cutoff  e. 1  maximum biomass) corresponding                                           combination n gene/reaction deletions forms SL. important                                               X
+note obviates need explore exhaustively deletion                                                       ð1  yj Þpn                          ð17Þ
+combinations bilevel formulation ‘homes  biomass                                                  j
+negating combinations.
+    mathematical description bilevel formulation                                       vj ; mj X0               8 j 2 J  fATPMg
+determine SL reactions requires definition binary variable yj encodes reactions deleted:                                                                    li ; mATPM 2 R              8i 2                   
+                    0; reaction j eliminated                                                           yj 2 f0; 1g                 8j 2 J
+             yj ¼                                   8j 2 J         ð8Þ
+                    1; reaction j active
+                                                                              li, mj mATPM dual variables associated allows forth following min–max bilevel optimization       stoichiometric constraints (equation (1)), inequalities equation (11)
+formulation (SL Finder):                                                     constraint non-growth associated ATP maintenance
+                                                                             (equation (7)), respectively. Equations (12) (13) replace (5)                Minimize            vbiomass   ½Outer ½SL Finder            (6), respectively, split reversible fluxes                      yj
+                                                                             forward backward reaction steps. Note non-linear term
+              s:t:                                                           mjyj equation (10) exactly linearized follows:
+                 2                                      3
+                   Maximize vbiomass ½Inner                                                                                aj ¼ mj yj                           ð18Þ
+                           vj
+                 6                                      7
+                 6 s:t:                                 7
+                 6 P                                    7                                                        mmin yj paj pmmax yj                            ð19Þ
+                 6                                      7                                                         j            j
+                 6            sij vj ¼ 0         8i 2 7
+                 6       j                              7
+                 6                                      7                                       mj  mmax ð1  yj Þpaj pmj  mmin ð1  yj Þ                      ð20Þ
+                 6 v pUB y                   8   j 2 J  7                                             j                       j
+                 6      j           j j                 7
+                 6                                      7
+                 6 vglucose pvuptake limit              7                     mmin
+                                                                                     j        mmax
+                                                                                                   j  lower upper bounds dual
+                 6                      glucose         7                    variable mj. optimal objective function value                  6                                      7
+                 6 voxygen pv           uptake limit    7                    optimization problem imposed cutoff,                  6                      oxygen          7
+                 6                                      7                    reactions yj¼0, reported SL degree n.                  4 vATPM ¼ vmaintenance ATPM            5
+                                                                             alternative SL reaction sets size n successively obtained                           vj ¼ 0        8j 2 J                               excluding previously identified SLs using integer cuts resolving
+                 X                                                           bilevel formulation. example, reactions j1, j2,y, jn                           ð1  yj Þpn                                        form SL set size n, exclude solution obtain                      j                                                       appending following constraint formulation                  yj 2 f0; 1g            8j 2 J                               ensures reactions forming previously
+                                                                             identified SL active.
+Formulation (SL Finder) min–max mixed-integer linear program.
+                                                                                                 yj1 þ yj2 þ ::: þ yjn X1 j1 ; j2 ; :::; jn 2 J                  ð21Þ inner problem adjusts fluxes achieve maximum biomass
+production, subject network stoichiometry, reaction deletions             Note searching set SL reactions particular
+imposed outer problem possible growth                   order n, need preclude removal reactions forming lower
+environmental constraints. outer problem hand,              order SLs. accomplished appending constraints aims finding synthetic reaction eliminations lower               following form outer problem bilevel program maximum biomass production imposed cutoff.                 reactions j1, j2, y, jp forming SL set size p (pon):
+split reversible fluxes forward backward reaction steps.                                                                                          yj1 þ yj2 þ ::: þ yjp X1 j1 ; j2 ; :::; jp 2 J;           8 pon         ð22Þ
+solve bilevel formulation shown inner maximization recast set constraints appending formulation list   important note elimination certain reactions constraints corresponding dual inner problem setting       prevent equation (7) satisfied, precludes 
+& 2009 EMBO Macmillan Publishers Limited                                                                                         Molecular Systems Biology 2009 15
+ Genome-scale gene/reaction essentiality synthetic lethality analysis
+PF Suthers et al
+
+
+
+identification SLs. Merging required non-growth ATP        Dolma S, Lessnick SL, Hahn WC, Stockwell BR (2003) Identification
+maintenance biomass equation resolves problem               genotype-selective antitumor agents using synthetic lethal
+Supplementary information details).                                       chemical screening engineered human tumor cells. Cancer Cell
+   formulation (SL Finder) introduced modified            3: 285–296 set SL genes adding set constraints outer
+                                                                           Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD,
+problem describing GPR associations. end, binary variable
+                                                                              Broadbelt LJ, Hatzimanikatis V, Palsson BO (2007) genome-scale
+wk, representing gene k deleted defined following:
+                                                                             metabolic reconstruction Escherichia coli K-12 MG1655                         0; gene k deleted                               accounts 1260 ORFs thermodynamic information. Mol Syst
+               wk ¼                             ; 8k 2 K            ð23Þ
+                        1; gene k active                                Biol 3: 121
+                                                                           Fong SS, Nanchen  Palsson BO, Sauer U (2006) Latent pathway impact gene deletions reaction eliminations GPR             activation increased pathway capacity enable Escherichia coli
+relationships mathematically described incorporated                                                                               adaptation loss key metabolic enzymes. J Biol Chem 281: model using appropriate equations relating binary variables
+wk yj  Supplementary information details).                        8024–8033
+                                                                           Forsburg SL (2001) art design genetic screens: yeast. Nat
+                                                                              Rev Genet 2: 659–668
+                                                                           Forster J, Famili  Fu P, Palsson BO, Nielsen J (2003) Genome-scale
+Supplementary information                                                     reconstruction Saccharomyces cerevisiae metabolic network.
+Supplementary information available Molecular Systems               Genome Res 13: 244–253
+Biology website (www.nature.com/msb).                                      Gerdes SY, Scholle MD, Campbell JW, Balazsi G, Ravasz E, Daugherty
+                                                                              MD, Somera AL, Kyrpides NC, Anderson  Gelfand MS, Bhattacharya
+                                                                               Kapatral V, D0 Souza M, Baev MV, Grechkin Y, Mseeh F, Fonstein
+Conflict                                                           Overbeek R, Barabasi AL, Oltvai ZN et al (2003) Experimental authors declare conflict                    determination level analysis essential genes                                                                               Escherichia coli MG1655. J Bacteriol 185: 5673–5684
+                                                                           Ghim CM, Goh KI, Kahng B (2005) Lethality synthetic lethality References                                                                    genome-wide metabolic network Escherichia coli. J Theor
+                                                                              Biol 237: 401–411
+Ahmed (1973) Mechanism repression methionine biosynthesis          Grate L, Ares Jr M (2002) Searching yeast intron data Ares lab Web
+   Escherichia coli.  role methionine, s-adenosylmethio-          site. Methods Enzymol 350: 380–392
+    methionyl-transfer ribonucleic acid repression.            Gruer MJ, Bradbury AJ, Guest JR (1997) Construction properties
+   Mol Gen Genet 123: 299–324                                                 aconitase mutants Escherichia coli. Microbiology 143  6):
+Alexander K, Young IG (1978) Alternative hydroxylases aerobic         1837–1846
+   anaerobic biosynthesis ubiquinone Escherichia coli.           Guarente L (1993) Synthetic enhancement gene interaction:    Biochemistry 17: 4750–4755                                                 genetic tool come age. Trends Genet 9: 362–366
+Baba T, Ara T, Hasegawa M, Takai Y, Okumura Y, Baba M, Datsenko            Gulmezian M, Hyman KR, Marbois BN, Clarke CF, Javor GT (2007)
+   KA, Tomita M, Wanner BL, Mori H (2006) Construction                     role UbiX Escherichia coli coenzyme Q biosynthesis.
+   Escherichia coli K-12 frame, single-gene knockout mutants:          Arch Biochem Biophys 467: 144–153
+   Keio collection. Mol Syst Biol 2: 2006.0008                             Hartman JLt, Garvik B, Hartwell L (2001) Principles buffering Becker SA, Palsson BO (2008) factors underlying incorrect            genetic variation. Science 291: 1001–1004
+   silico predictions essential metabolic genes. BMC Syst Biol 2: 14    Hashimoto M, Kato J (2003) Indispensability Escherichia coli
+Behre J, Wilhelm T, von Kamp  Ruppin E, Schuster S (2008)                   carbonic anhydrases YadF CynT cell proliferation low
+   Structural robustness metabolic networks respect                CO2 partial pressure. Biosci Biotechnol Biochem 67: 919–922
+   multiple knockouts. J Theor Biol 252: 433–441                           Hoh J, Ott J (2003) Mathematical multi-locus approaches localizing
+Bender  Pringle JR (1991) Use screen synthetic lethal          complex human trait genes. Nat Rev Genet 4: 701–709
+   multicopy suppressee mutants identify new genes involved         Hove-Jensen B, Rosenkrantz TJ, Haldimann  Wanner BL (2003)
+   morphogenesis Saccharomyces cerevisiae. Mol Cell Biol 11:            Escherichia coli phnN, encoding ribose 1,5-bisphosphokinase
+   1295–1305                                                                  activity (phosphoribosyl diphosphate forming): dual role Burgard AP, Nikolaev EV, Schilling CH, Maranas CD (2004) Flux                 phosphonate degradation NAD biosynthesis pathways.
+   coupling analysis genome-scale metabolic network                        J Bacteriol 185: 2793–2801
+   reconstructions. Genome Res 14: 301–312                                 Jordan  Gibert  Barbe J (1994a) Cloning sequencing Burgard AP, Pharkya P, Maranas CD (2003) Optknock: bilevel                  genes Salmonella typhimurium encoding new bacterial
+   programming framework identifying gene knockout strategies             ribonucleotide reductase. J Bacteriol 176: 3420–3427
+   microbial strain optimization. Biotechnol Bioeng 84: 647–657        Jordan  Pontis E, Atta M, Krook M, Gibert  Barbe J, Reichard P
+Burgard AP, Vaidyaraman S, Maranas CD (2001) Minimal reaction sets            (1994b) second class ribonucleotide reductase Enterobacteri-
+   Escherichia coli metabolism different growth require-            aceae: characterization Salmonella typhimurium enzyme.
+   ments uptake environments. Biotechnol Prog 17: 791–797                 Proc Natl Acad Sci USA 91: 12892–12896
+Chen CY, Graham TR (1998) arf1Delta synthetic lethal screen             Joyce AR, Reed JL, White  Edwards R, Osterman  Baba T, Mori H,
+   identifies new clathrin heavy chain conditional allele              Lesely SA, Palsson BO, Agarwalla S (2006) Experimental    perturbs vacuolar protein transport Saccharomyces cerevisiae.           computational assessment conditionally essential genes    Genetics 150: 577–589                                                      Escherichia coli. J Bacteriol 188: 8259–8271
+Covert MW, Knight EM, Reed JL, Herrgard MJ, Palsson BO (2004)              Kaelin (2005) concept synthetic lethality context    Integrating high-throughput computational data elucidates              anticancer therapy. Nat Rev Cancer 5: 689–698
+   bacterial networks. Nature 429: 92–96                                   Kamb (2003) Mutation load, functional overlap, synthetic lethality
+Deutscher D, Meilijson  Kupiec M, Ruppin E (2006) Multiple                  evolution treatment cancer. J Theor Biol 223: 205–213
+   knockout analysis genetic robustness yeast metabolic          Kim PJ, Lee DY, Kim TY, Lee KH, Jeong H, Lee SY, Park S (2007)
+   network. Nat Genet 38: 993–998                                             Metabolite essentiality elucidates robustness Escherichia coli
+Deutscher D, Meilijson  Schuster S, Ruppin E (2008) single              metabolism. Proc Natl Acad Sci USA 104: 13638–13642
+   knockouts accurately single gene functions? BMC Syst Biol 2: 50     Kuepfer L, Sauer U, Blank LM (2005) Metabolic functions duplicate
+Diestel R (2005) Graph Theory, 3rd edn. Berlin, New York: Springer            genes Saccharomyces cerevisiae. Genome Res 15: 1421–1430
+
+16 Molecular Systems Biology 2009                                                                       & 2009 EMBO Macmillan Publishers Limited
+                                                                                   Genome-scale gene/reaction essentiality synthetic lethality analysis
+                                                                                                                                         PF Suthers et al
+
+
+
+
+Kumar VS, Maranas CD (2009) GrowMatch: automated method             Tatusov RL, Fedorova ND, Jackson JD, Jacobs AR, Kiryutin B, Koonin
+   reconciling silico vivo growth predictions. PLoS Comput Biol         EV, Krylov DM, Mazumder R, Mekhedov SL, Nikolskaya  Rao
+   5: e1000308                                                                BS, Smirnov S, Sverdlov AV, Vasudevan S, Wolf YI, Yin JJ, Natale
+Le Meur N, Gentleman R (2008) Modeling synthetic lethality. Genome            DA (2003) COG database: updated version includes
+   Biol 9: R135                                                               eukaryotes. BMC Bioinformatics 4: 41
+Lee YJ, Cho JY (2006) Genetic manipulation primary metabolic          Thiele  Vo TD, Price ND, Palsson BO (2005) Expanded metabolic
+   pathway L-ornithine production Escherichia coli. Biotechnol         reconstruction Helicobacter pylori (iIT341 GSM/GPR):    Lett 28: 1849–1856                                                         silico genome-scale characterization single- double-deletion
+Lindner HA, Nadeau G, Matte  Michel G, Menard R, Cygler M (2005)            mutants. J Bacteriol 187: 5818–5830
+   Site-directed mutagenesis active site region quinate/     Tong AH, Evangelista M, Parsons AB, Xu H, Bader GD, Page N,
+   shikimate 5-dehydrogenase YdiB Escherichia coli. J Biol Chem            Robinson M, Raghibizadeh S, Hogue CW, Bussey H, Andrews B,
+   280: 7162–7169                                                             Tyers M, Boone C (2001) Systematic genetic analysis ordered
+Lobner-Olesen  Marinus MG (1992) Identification gene (aroK)          arrays yeast deletion mutants. Science 294: 2364–2368
+   encoding shikimic acid kinase Escherichia coli. J Bacteriol 174:   Tong AH, Lesage G, Bader GD, Ding H, Xu H, Xin X, Young J, Berriz GF,
+   525–529                                                                    Brost RL, Chang M, Chen Y, Cheng X, Chua G, Friesen H, Goldberg
+McCoy AJ, Maurelli (2005) Characterization Chlamydia MurC-              DS, Haynes J, Humphries C, G, Hussein S, Ke L et al (2004)
+   Ddl, fusion protein exhibiting D-alanyl-D-alanine ligase activity        Global mapping yeast genetic interaction network. Science
+   involved peptidoglycan synthesis D-cycloserine sensitivity.         303: 808–813
+   Mol Microbiol 57: 41–52                                                 Tucker CL, Fields S (2003) Lethal combinations. Nat Genet 35: 204–205
+Meganathan R (2001) Ubiquinone biosynthesis microorganisms.             Typas  Nichols RJ, Siegele DA, Shales M, Collins SR, Lim B,
+   FEMS Microbiol Lett 203: 131–139                                           Braberg H, Yamamoto N, Takeuchi R, Wanner BL, Mori H,
+Meredith TC, Woodard RW (2005) Identification GutQ                    Weissman JS, Krogan NJ, Gross CA (2008) High-throughput,
+   Escherichia coli D-arabinose 5-phosphate isomerase.                   quantitative analyses genetic interactions E. coli. Nat
+   J Bacteriol 187: 6936–6942                                                 Methods 5: 781–787
+Michel G, Roszak AW, Sauve V, Maclean J, Matte  Coggins JR, Cygler       Urbanowski ML, Stauffer LT, Plamann LS, Stauffer GV (1987) new
+   M, Lapthorn AJ (2003) Structures shikimate dehydrogenase AroE           methionine locus, metR, encodes trans-acting protein
+   Paralog YdiB. common structural framework different          required activation metE metH Escherichia coli    activities. J Biol Chem 278: 19463–19472                                   Salmonella typhimurium. J Bacteriol 169: 1391–1397
+Mullen JR, Kaliraman V, Ibrahim SS, Brill SJ (2001) Requirement        Wang T, Bretscher (1997) Mutations synthetically lethal    novel protein complexes absence Sgs1 DNA               tpm1delta lie genes involved morphogenesis. Genetics 147:
+   helicase Saccharomyces cerevisiae. Genetics 157: 103–118                1595–1607
+Neidhardt FC, Curtiss R (1996) Escherichia coli Salmonella:            Wild J, Hennig J, Lobocka M, Walczak W, Klopotowski T (1985)
+   Cellular Molecular Biology, 2nd edn. Washington, DC: ASM               Identification dadX gene coding predominant isozyme
+   Press                                                                      alanine racemase Escherichia coli K12. Mol Gen Genet 198:
+Novick P, Osmond BC, Botstein D (1989) Suppressors yeast actin             315–322
+   mutations. Genetics 121: 659–674                                        Wilhelm T, Behre J, Schuster S (2004) Analysis structural robustness
+Nygaard P, Smith JM (1993) Evidence novel glycinamide                   metabolic networks. Syst Biol (Stevenage) 1: 114–120
+   ribonucleotide transformylase Escherichia coli. J Bacteriol 175:     Willemoes M, Kilstrup M (2005) Nucleoside triphosphate synthesis
+   3591–3597                                                                  catalysed adenylate kinase ADP dependent. Arch Biochem
+Ooi SL, Pan X, Peyser BD, Ye P, Meluh PB, Yuan DS, Irizarry RA, Bader         Biophys 444: 195–199
+   JS, Spencer FA, Boeke JD (2006) Global synthetic-lethality analysis     Wong SL, Zhang LV, Tong AH, Li  Goldberg DS, King OD, Lesage G,
+   yeast functional profiling. Trends Genet 22: 56–63                     Vidal M, Andrews B, Bussey H, Boone C, Roth FP (2004) Combining
+Ooi SL, Shoemaker DD, Boeke JD (2003) DNA helicase gene                       biological networks predict genetic interactions. Proc Natl Acad
+   interaction network defined using synthetic lethality analyzed          Sci USA 101: 15682–15687
+   microarray. Nat Genet 35: 277–286                                       Wunderlich  Mirny LA (2006) Using topology metabolic
+Palumbo MC, Colosimo  Giuliani  Farina L (2005) Functional                networks predict viability mutant strains. Biophys J 91:
+   essentiality topology features metabolic networks: case          2304–2311
+   study yeast. FEBS Lett 579: 4642–4646                                Ye P, Peyser BD, Pan X, Boeke JD, Spencer FA, Bader JS (2005) Gene
+Palumbo MC, Colosimo  Gi

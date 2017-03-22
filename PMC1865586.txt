@@ -1,0 +1,282 @@
+Molecular Systems Biology 3; Article number 104; doi:10.1038/msb4100144
+Citation: Molecular Systems Biology 3:104
+& 2007 EMBO Nature Publishing Group rights reserved 1744-4292/07
+www.molecularsystemsbiology.com
+
+REPORT
+
+Pathway redundancy protein essentiality revealed Saccharomyces cerevisiae interaction networks
+Igor Ulitsky Ron Shamir*
+
+School Science, Tel Aviv University, Tel Aviv, Israel
+* Corresponding author. School Science, Tel Aviv University, Tel Aviv 69978, Israel. Tel.: þ 972 3 6405383; Fax: þ 972 3 6405384;
+E-mail: rshamir@tau.ac 
+Received 8.1.07; accepted 11.2.07
+
+
+
+
+               biological interpretation genetic interactions major challenge. Recently, Kelley                Ideker proposed method analyze genetic physical networks, explains                known genetic interactions linking different pathways physical network.                 extend method devise novel analytic tools interpreting genetic interactions physical
+               context. Applying tools large-scale Saccharomyces cerevisiae data set, analysis
+               reveals 140 pathway models explain 3765 genetic interactions, roughly doubling                previously explained. Model genes tend short mRNA half-lives                phosphorylation sites, suggesting stringent regulation linked pathway redundancy.
+               identify ‘pivot’ proteins physical interactions pathways                models, pivots tend essential highly conserved. analysis models                pivots sheds light organization cellular machinery roles individual
+               proteins.
+               Molecular Systems Biology 17 April 2007; doi:10.1038/msb4100144
+               Subject Categories: metabolic regulatory networks; computational methods
+               Keywords: essential genes; genetic interactions; pathway analysis; protein interactions; S. cerevisiae
+
+
+
+
+Introduction                                                                     interact physically (Tong et al, 2001, 2004), protein
+                                                                                 PIs likely GIs (Ozier et al,
+Gene knockout studies shown B18                                2003).
+Saccharomyces cerevisiae genes essential growth                        modular nature cellular organization rich medium (Giaever et al, 2002). Consequently, buffering                    widely recognized (Hartman et al, 2001). methods genetic level believed abundant eukaryotes                       developed detecting functional modules
+(Hartman et al, 2001). better understand role                          PI networks. modules, termed pathways,
+nonessential genes, large-scale studies performed                        represent physically interacting proteins involved carrying
+double knockouts (Pan et al, 2004; Tong et al, 2004)                         particular function. Depending detection
+identified events synthetic lethality, mutant                    method, pathways represent molecular complexes
+carrying deletions nonessential genes lethal,                      (Bader Hogue, 2003) signaling cascades (Rives synthetic sickness, mutant shows weaker                              Galitski, 2003). Kelley Ideker (2005) defined pathway
+phenotype. use term genetic interaction (GI)                    group proteins densely interconnected interaction genetic perturbations affecting                PI network, studied frequency GIs phenotype, lethal sick. graph genes                   pathways. systematic analysis large-scale
+nodes edges corresponding GIs called GI network.                   GI PI data, concluded pathway
+   Recent technologies enable systematic mapping                       explanations GIs B3.5 times abundant protein–protein (Ito et al, 2001) protein–DNA (Lee et al,                    pathway explanations, concluded GIs 2002) interactions (physical interactions (PIs)), yielding large                 bridge redundant processes. arguments PI networks. networks larger, need                            prevalence pathway GIs given Ye et al
+computational tools dissecting mounting.                         (2005), postulated genes pathway integrated analysis PI GI networks compelling                        expected share common GI partners, used similarity challenge, carry important complementary                             GI patterns successful function prediction. Similar results
+biological signals. Initial studies shown proteins                  established recently DNA damage (Pan region GI network slightly likely                    et al, 2006).
+
+& 2007 EMBO Nature Publishing Group                                                                                     Molecular Systems Biology 2007 1
+ Pathway redundancy essential proteins Ulitsky R Shamir
+
+
+
+
+Results discussion                                                                connected subnetwork PI network  connected
+                                                                                      pathway, described Materials methods). example
+Assembly GI PI networks                                                        sparse pathways presented Figure 2A. assembled GI network (Figure 1A) taking                              buffering mechanism DNA repair BioGRID database version 2.0.19 (Stark et al, 2006) 13 632                            homologous recombination response oxidative
+synthetic lethality synthetic fitness interactions                            stress partially recovered using dense
+S. cerevisiae, covering 2682 genes. focusing genes                         pathway definition  shown). define pathway interactions, obtained GI network 1869                           model (BPM) Kelley Ideker (2005), using new
+genes 12 850 interactions. PI network, consisting                          notion pathway (Figure 1C). scoring models protein–protein protein–DNA interactions multiple                            model detection algorithm defined Materials sources (Supplementary information 1), contained 68172                                methods. comparison models using
+interactions covering 6184 proteins.                                                  dense pathways interaction data (Supplementary
+                                                                                      information  shows construct 
+                                                                                      pathway explanations GIs (3765 versus 3117), Pathway definitions pathway models                                        maintaining significant functional content models.                                                                                       models allow direct interpretation specific starting point computational framework Kelley
+                                                                                      buffering cases congruence methods (Supplementary Ideker (2005) detection pathway inter-
+                                                                                      information B).
+pretations GIs. Kelley Ideker define ‘pathway’ densely connected set proteins PI network,  pathway model’ disjoint pair pathways densely interconnected GI network (Figure 1B).                             comprehensive model map S. cerevisiae
+Models defined probabilistically using                            BPM finding approach generated 140 models greedy algorithm. requirement high PI density                         provided pathway explanations 3765 GIs, 2.7-
+appropriate complexes, known biological                                fold increase 1377 interactions explained Kelley
+pathways (e.g. linear signaling cascades) induce dense                         Ideker (2005). mainly incorporation subnetworks physical network. chose                            GIs (12 850 instead 4125) lesser extent employ alternative definition, pathway simply                        using PIs (68172 versus 27 604), use 
+
+
+
+Figure 1 Study outline methodology.   Overview analysis methods reported results. (B) BPM constructed dense pathways PI
+network. (C) BPM constructed connected pathways PI network. (D, E) Examples biological explanations pivot proteins. (D), pivots
+correspond shared members linear pathways, signal flow indicated arrow directions, (E), correspond shared complex
+members. Note pivots (E) redundant, densely connected pathways physical interactions genetic interaction 
+
+2 Molecular Systems Biology 2007                                                                                            & 2007 EMBO Nature Publishing Group
+                                                                                                                        Pathway redundancy essential proteins
+                                                                                                                                         Ulitsky R Shamir
+
+
+
+
+Figure 2 Model examples. Rectangles represent genes, pathways shown different colors. blue ovals pivot nodes. Essentials genes drawn thicker border. main text discussion BPMs  E).  , clarity, 52 genetic interactions pathways shown.
+
+
+
+ create ‘scaffolds’ pathways scoring models.                       Po0.001; Supplementary Figure S2). correlation gene content models available supplementary                      pathways BPM higher expected (0.112 versus
+archive. description interactive visualization                     0.0378 expected, Po0.001; Supplementary Figure S2). models available http://acgt.cs.tau.ac bpm.
+                                                                                    Identification pivot proteins
+Functional enrichment models                                                     established pathways models frequently
+                                                                                    represent coherent functional units, functional units utilized TANGO algorithm (Shamir et al, 2005) order
+                                                                                    cell share components (Krause et al, test functional enrichment models                                                                                     2004), tested possibility computationally detecting
+categories (Ashburner et al, 2000). total 71.4 69.3 
+                                                                                    shared components PI network. end, BPMs enriched functional
+                                                                                    model, sought proteins densely connected
+category ‘biological process’ ‘cellular
+                                                                                    pathways (Figure 1D E, Materials compartment’ ontologies, respectively (Supplementary Table
+                                                                                    methods), called pivot proteins model.
+S1). complexes annotated SGD slim (Cherry et al,
+                                                                                    Altogether, identified 124 distinct pivots 40 models. 1998), 46.3  enriched BPM. Despite                                                                                     average, 1.09 pivots model, pivot
+low coverage GI network, coverage complexes                                                                                     appeared 1.22 models.
+comparable achievable direct analysis PI
+                                                                                       systematically analyzed representation proteins
+network (Supplementary information C).
+                                                                                    known distinct processes                                                                                     group pivots. end, identified proteins participat-
+                                                                                    ing complexes pathways  Materials Phenotypic coherence                                                                                     methods), used curated set multicomplexed
+pathways                                                                            genes (Krause et al, 2004). summarized Table  extent pathways BPM                           pivots enriched sets. example function? answer question, used phenotypic                           overlap BPM 96 (Figure 2B). model containing contribution non-essential genes S. cerevisiae,                            pathways parts SWR1 Ino80 complexes involved measured fitness deletion mutants diverse                              chromatin remodeling, identified pivot proteins Arp4,
+treatments (Brown et al, 2006). BPM pathway                         Rvb1 Rvb2, proteins known significantly coherent phenotypic response pattern                   participate SWR1 Ino80 complexes (Shen random connected groups size physical                       et al, 2000; Krogan et al, 2003). BPM 97 (Figure 2C), Sus1,
+network (Pearson correlation 0.384 versus average 0.0382,                  shown nuclear pore
+
+& 2007 EMBO Nature Publishing Group                                                                                          Molecular Systems Biology 2007 3
+ Pathway redundancy essential proteins Ulitsky R Shamir
+
+
+
+
+Table Multiple roles pivot proteins
+
+                                                 proteins                      Pivots                     Expected                        Significance
+ complexes                                          206                              21                          4.35                        P¼1.27 109
+KEGG pathways                                         390                              11                          8.24                        P¼0.200
+Filtered KEGG pathways                                 71                               6                          1.50                        P¼3.68 103
+Known complex overlaps                                 39                               8                          0.55                        P¼7.49 109
+ enrichment proteins known participate multiple physical pathways set pivot proteins. complexes taken SGD ‘macromolecular
+complex slim’ ontology. filtered KEGG pathways KEGG pathways 50  genes formed connected component physical network.
+Known complex overlaps taken Krause et al (2004). Significance evaluated using hypergeometric distribution.
+
+ SAGA complex (Rodriguez-Navarro et al, 2004)                          partially redundant (McCleland et al, 2003), identified pivot model representing GIs                     placed different pathways. Note pathways. pivots correspond known                              subunits Ndc80 complex possible GIs PIs
+complex pathway overlaps, frequently represent                            pairs, biologically correct partition general purpose genes cooperating multiple pathways.                         complex pathways obtained taking  example, BPM 87, general transcription factor Spt15                    sideration GIs model. example, Mad1 identified pivot model contains components                     physically connects Tid3/Spc25 subunit distinct transcription-related complexes RSC, SWR1                     genetically interacts Nuf2/Spc24 subunit. SAGA (Figure 2D).                                                                 additional external interactions cause biologically correct
+                                                                                  partition score higher alternatives.
+                                                                                     Mad1, highly conserved protein specific function Essentiality evolutionary retention pivot                                  spindle cell cycle checkpoint, additional  proteins                                                                          spindle checkpoint, cells arrested metaphase
+                                                                                  chromosomes successfully attach microtubules. pathways form model partially
+                                                                                  Tid3 Spc25, members Ndc80 complex, redundant function, pivots represent proteins
+                                                                                  appear pathway Mad1, specifically linked active pathways, hypothesized                                                                                   spindle checkpoint organisms (summarized pivots frequently correspond essential genes.  72
+                                                                                  Bharadwaj et al, 2004).  recruitment Mad1 pivots essential, highly significant
+                                                                                  shown dependent Spc25 Tid3 Xenopus fraction given total number essential genes                                                                                   human cells (McCleland et al, 2003; Bharadwaj et al, 2004) network (22.6 essentials expected, P¼1.42 1023).                                                                                   spindle checkpoint shown defective spc25 observed general strong correlation degree                                                                                   mutants (Wigge Kilmartin, 2001). exactly does Mad1
+essentiality (P¼5.87 1085 using rank-sum test), pre-
+                                                                                  attach kinetochore currently known. viously reported (Jeong et al, 2001), high prevalence                                                                                   Mad1 shows yeast hybrid interaction Spc25 essential genes pivots far                                                                                   S. cerevisiae (Newman et al, 2000) Tid3 human
+explained degrees (39.98 essentials expected,
+                                                                                  cells (Martin-Lluesma et al, 2002), attempts demonstrate Po105). essential pivots tend closer
+                                                                                  biochemical interaction Ndc80 Mad1 functions BPMs (Supplementary information D).
+                                                                                  reported unsuccessful (Martin-Lluesma et al, 2002; McCleland
+Essentiality recently shown connected                                                                                   et al, 2003).
+evolutionary retention genes eukaryotes (Gustafson
+                                                                                     model, Mad1 linked pivot Smc1, member et al, 2006). Using data Gustafson et al (2006)                                                                                   cohesin complex, required sister chromatid cohesion pivots significantly retained evolution
+                                                                                  mitosis. Smc1 shown localize kinetochore
+(P¼9.79 109), controlling large fraction
+                                                                                  meiosis interact Tid3 yeast human essential genes (P¼0.029).
+                                                                                  cells (Zheng et al, 1999; Gregson et al, 2002). Furthermore,
+                                                                                  Smc1 shown required proper assembly                                                                                   mitotic spindle human cells (Gregson et al, 2001), Example: spindle checkpoint model
+                                                                                  exact function metaphase unknown. findings interesting example using models pivots                             suggest connection Mad1 kinetochore understanding cellular mechanisms BPM 66 (Figure 2E).                          general Ndc80 complex particular, mediated model represents buffering different compo-                          Smc1. Note use pivots provides additional
+nents kinetochore, complex bound centromeres                      clues BPM annotation understanding inter- chromosomes mitosis. pivots,                      pathway organization.
+model composed members known subcomplexes inner kinetochore: Ndc80, COMA MIND  Wulf
+et al, 2003). Specifically, pivots Mtw1 Dsn1 correspond distinct unit MIND complex, bridges                             Physiological properties models
+different kinetochore subcomplexes  Wulf et al, 2003;                          Recently, physiological properties PI network hubs
+Westermann et al, 2003). subunits Ndc80                            extensively analyzed (Batada et al, 2006). complex, Nuf2/Spc24 Tid3/Spc25, shown                           proteins models hubs, asked 
+4 Molecular Systems Biology 2007                                                                                      & 2007 EMBO Nature Publishing Group
+                                                                                                               Pathway redundancy essential proteins
+                                                                                                                                Ulitsky R Shamir
+
+
+
+ physiological properties differed                  ensemble networks degree sequence counting
+hubs.  focus analysis mRNA stability (Wang                 fraction contain interaction b. log-
+                                                                             odds score et al, 2002) number putative phosphorylation sites
+(Obenauer et al, 2003), properties manifesting                                           PðV1 ; V2 jMBPM Þ
+                                                                                SðV1 ; V2 Þ ¼ log
+turnover regulation gene. Detailed analysis,                                          PðV1 ; V2 jMnull Þ
+                                                                                                 Q
+covering additional properties, described Supplementary                                log ða;bÞ2V1 V2 bIða; bÞ þ ð1  bÞð1  Iða; bÞÞ
+information E Supplementary Table S2.                                                   ¼Q
+                                                                                               ða;bÞ2V1 V2 ra;b Iða; bÞ þ ð1  ra;b Þð1  Iða; bÞÞ
+   tests BPM genes behave significantly unlike genes. average mRNA half-life BPM genes                     main difference score score described                                                                              Kelley Ideker (2005) structure imposed BPMs 21.4, versus 26.2 genes (P¼9.97 1010, rank-sum                PI network. score model density PIs test). average number phosphorylation sites 5.1,                  pathway, instead require connected GP.
+versus 4.0 genes (P¼3.13 109). parameters significantly correlated pathways constitute BPM (intraclass correlations 0.408 0.189,                Model finding algorithm
+Po104 P¼0.0184, respectively). finding                   model finding procedure described Kelley Ideker (2005) explained high degrees model genes (Supplementary                  greedy network search algorithm uses seeds single GIs. Table S2).                                                                   improve procedure initializing algorithm better seeds
+                                                                             maximal bicliques GI network  biclique disjoint
+   Note mRNA half-lives experimentally derived,                 pair node sets node set edges nodes phosphorylation sites computationally                     set). following procedure performed u, v
+ferred sequence. 3552 genes                   (u, v)AEP
+parameters available, correlated (r¼0.0182
+                                                                             1. Identify B set nodes adjacent u v GG. Proceed
+P¼0.276).  parameters significantly corre-                      |B|Xkmin.
+lated genes BPMs (566 genes, r¼0.132,                         2. Partition B connected components GP: B1, B2, y, Bl.
+P¼1.6 103). results remain highly significant                   3. Bi |Bi|Xkmin, identify set Ai nodes
+controlling key functions enriched model partici-                    adjacent nodes Bi GG.
+                                                                             4. Ai, partition connected components induces pants (Supplementary Figure S4). findings suggest                    GP, A1i , A2i , y,               j                           j
+                                                                                                    add (Bi, Ai) set seeds |Ai|Xkmin.
+genes BPMs experience stringent regulation. possible hypothesis pathways redundant                  algorithm produces maximal bicliques (V1, V2) GG,                                                                              Vi induces connected component GP size Xkmin. mechanisms available, tighter regulation allows cell               produced set seeds filtered overlaps. used kmin¼2 switch alternatives faster.                      tests. Owing relatively sparse nature interaction
+conclusion revalidated GIs covering wider                   networks, method efficient practice.
+functional range available.                                              optimization phase starts seed candidate model,
+                                                                             greedily tries improve score current model    results indicate despite limitations today’s GI
+                                                                             addition, removal exchange nodes pathways PI networks, integrated analysis powerful                     keeping pathway connected PI network. order approach understanding organization yeast                     efficiently track connectivity requirement, use cellular  expect analysis provide                   notion articulation nodes. articulation node connected graph
+insights large picture genetic redundancy higher              node removal disconnects graph. Articulation nodes                                                                              efficiently detected depth search traversal eukaryotes                                                           graph, calculating ‘lowpoint’ values node (cf. 
+                                                                             1979). algorithm maintains connectivity pathway                                                                              dynamically updating, pathway, set articulation nodes.
+Materials methods                                                        set used ban optimization moves disrupt connectivity.
+                                                                             optimization, filtering step removes models overlap Scoring models                                                               450  pathways higher scoring models. additional
+                                                                             model filtering step computes empiric P-value sampling 1000 build probabilistic score described Kelley Ideker
+                                                                             random gene groups size, retains BPMs (2005) Sharan et al (2005) identify pathway explana-
+                                                                             Po0.05  Supplementary information F).
+tions GIs finding BPMs GI PI networks. Let
+GG¼(V,  GI network let GP¼(V, EP) PI network.
+Note nodes V represent genes products,
+depending context. BPM pair disjoint sets V1, V2,      Identification pivot proteins   |V1|, |V2|X2, (b) Vi induces connected subgraph GP        Given model (V1, V2), seek nodes densely connected (c) unusually GIs V1 V2 (Figure 1C).          pathways physical network. Specifically, vAV, Vi pathway. Property (c) reflects assumption         denote Ni(v) nodes Vi adjacent v GP. v genetic buffering implies dense set GIs pathways.           pivot  1, 2, |Ni(v)|Xlmin |Ni(v)| significant, given    quantify property (c). derive log-odds score reflecting       degree v GP (PoPmax, using hypergeometric test). actual likelihood density GIs pathways           analysis described paper, used lmin¼2 Pmax¼0.05. unusually high. compare hypotheses: BPM                     addition, filter master regulator genes involved hypothesis, pair genes, V1 V2,          processes, protein folding chaperons, considered genetically interact high probability b, independently   pivots proteins degree o250 GP.
+gene pairs, likelihood model (V1, V2) P  b V1  V2)bI  b) þ (1b)(1  b)),  b) equals 1 exists GI b equals 0; null
+hypothesis, pair   b) connected probability ra, b,           Statistical analysis
+representing chance observing interaction random, given       Correlation analysis performed using non-parametric Spear- degrees b GG. estimate ra, b generating random       man test, unless indicated. P-values reported 
+& 2007 EMBO Nature Publishing Group                                                                                Molecular Systems Biology 2007 5
+ Pathway redundancy essential proteins Ulitsky R Shamir
+
+
+
+controlling specific gene class (e.g. essential genes) obtained   Gregson HC, Schmiesing JA, Kim JS, Kobayashi T, Zhou S, Yokomori K random sampling large number gene groups                (2001) potential role human cohesin mitotic spindle aster
+fraction genes class. P-values reported                    assembly. J Biol Chem 276: 47575–47582
+controlling degrees calculated binning         Gregson HC, Van Hooser AA, Ball Jr AR, Brinkley BR, Yokomori K
+genes 40 equal-size bins based degree, sampling
+                                                                                 (2002) Localization human SMC1 protein kinetochores.
+genes bins, maintaining proportion genes                                                                                  Chromosome Res 10: 267–277 bin.
+                                                                             Gustafson  Snitkin ES, Parker SC, DeLisi C, Kasif S (2006)                                                                                  identification essential genes using targeted genome
+                                                                                 sequencing comparative analysis. BMC Genomics 7: 265
+Supplementary information                                                    Hartman JLt, Garvik B, Hartwell L (2001) Principles buffering                                                                                  genetic variation. Science 291: 1001–1004
+Supplementary information available Molecular Systems
+                                                                             Ito T, Chiba T, Yoshida M (2001) Exploring protein interactome
+Biology website (www.nature.com/msb).
+                                                                                 using comprehensive hybrid projects. Trends Biotechnol 19:
+                                                                                 S23–S27
+                                                                             Jeong H, Mason SP, Barabasi AL, Oltvai ZN (2001) Lethality                                                                                  centrality protein networks. Nature 411: 41–42
+Acknowledgements                                                             Kelley R, Ideker T (2005) Systematic interpretation genetic thank members Shamir laboratory helpful                        interactions using protein networks. Nat Biotechnol 23: 561–566
+discussions. IU fellow Edmond J Safra Bioinformatics             Krause R, von Mering C, Bork P, Dandekar T (2004) Shared
+Program Tel-Aviv University. RS supported                  components protein complexes—versatile building blocks Wolfson foundation, EMI-CD project funded              biochemical artefacts? BioEssays 26: 1333–1343
+European Commission FP6 Programme, thematic             Krogan NJ, Keogh MC, Datta N, Sawa C, Ryan OW, Ding H, Haw RA,
+area ‘Life Sciences, genomics biotechnology health’, contract            Pootoolal J, Tong  Canadien V, Richards DP, Wu X, Emili 
+number LSHG-CT-2003-503269.                                                      Hughes TR, Buratowski S, Greenblatt JF (2003) Snf2 family
+                                                                                 ATPase complex required recruitment histone H2A variant
+                                                                                 Htz1. Mol Cell 12: 1565–1576
+                                                                             Lee TI, Rinaldi NJ, Robert F, Odom DT, Bar-Joseph  Gerber GK,
+References                                                                       Hannett NM, Harbison CT, Thompson CM, Simon  Zeitlinger J,
+                                                                                 Jennings  Murray HL, Gordon DB, Ren B, Wyrick JJ, Tagne JB,
+Ashburner M, Ball CA, Blake JA, Botstein D, Butler H, Cherry JM,                 Volkert TL, Fraenkel E, Gifford DK, Young RA (2002)
+   Davis AP, Dolinski K, Dwight SS, Eppig JT, Harris MA, Hill DP, Issel-         Transcriptional regulatory networks Saccharomyces cerevisiae.
+   Tarver L, Kasarskis  Lewis S, Matese JC, Richardson JE, Ringwald            Science 298: 799–804
+   M, Rubin GM, Sherlock G (2000) Gene ontology: tool                Martin-Lluesma S, Stucke VM, Nigg EA (2002) Role Hec1 spindle
+   unification biology. Gene Ontology Consortium. Nat Genet               checkpoint signaling kinetochore recruitment Mad1/Mad2.
+   25: 25–29                                                                     Science 297: 2267–2270
+Bader GD, Hogue CW (2003) automated method finding                    McCleland ML, Gardner RD, Kallio MJ, Daum JR, Gorbsky GJ, Burke
+   molecular complexes large protein interaction networks. BMC                DJ, Stukenberg PT (2003) highly conserved Ndc80 complex    Bioinformatics 4: 2                                                           required kinetochore assembly, chromosome congression, Batada NN, Hurst LD, Tyers M, Russell R (2006) Evolutionary                  spindle checkpoint activity. Genes Dev 17: 101–114
+   physiological importance hub proteins. PLoS Comput Biol 2: e88         Newman JR, Wolf E, Kim PS (2000) computationally directed screen
+Bharadwaj R, Qi W, Yu H (2004) Identification novel                       identifying interacting coiled coils Saccharomyces cerevisiae.
+   components human NDC80 kinetochore complex. J Biol                     Proc Natl Acad Sci USA 97: 13203–13208
+   Chem 279: 13076–13085                                                     Obenauer JC, Cantley LC, Yaffe MB (2003) Scansite 2.0: proteome-wide
+Brown JA, Sherlock G, Myers CL, Burrows NM, Deng C, Wu HI,                       prediction cell signaling interactions using short sequence
+   McCann KE, Troyanskaya OG, Brown JM (2006) Global analysis                 motifs. Nucleic Acids Res 31: 3635–3641
+   gene function yeast quantitative phenotypic profiling. Mol          Ozier O, Amin N, Ideker T (2003) Global architecture genetic
+   Syst Biol 2:1                                                                 interactions protein network. Nat Biotechnol 21: 490–491
+Cherry JM, Adler C, Ball C, Chervitz SA, Dwight SS, Hester ET, Jia Y,        Pan X, Ye P, Yuan DS, Wang X, Bader JS, Boeke JD (2006) DNA
+   Juvik G, Roe T, Schroeder M, Weng S, Botstein D (1998) SGD:                   integrity network yeast Saccharomyces cerevisiae. Cell 124:
+   Saccharomyces genome database. Nucleic Acids Res 26: 73–79                    1069–1081 Wulf P, McAinsh AD, Sorger PK (2003) Hierarchical assembly         Pan X, Yuan DS, Xiang D, Wang X, Sookhai-Mahadeo S, Bader JS,
+   budding yeast kinetochore multiple subcomplexes. Genes Dev               Hieter P, Spencer F, Boeke JD (2004) robust toolkit functional
+   17: 2902–2921                                                                 profiling yeast genome. Mol Cell 16: 487–496 S (1979) Graph Algorithms. Potomac, MD: Science                Rives AW, Galitski T (2003) Modular organization cellular networks.
+   Press                                                                         Proc Natl Acad Sci USA 100: 1128–1133
+Giaever G, Chu  Ni L, Connelly C, Riles L, Veronneau S, Dow S,            Rodriguez-Navarro S, Fischer T, Luo MJ, Antunez O, Brettschneider S,
+   Lucau-Danila  Anderson K, Andre B, Arkin AP, Astromoff  El-               Lechner J, Perez-Ortin JE, Reed R, Hurt E (2004) Sus1,    Bakkoury M, Bangham R, Benito R, Brachat S, Campanaro S,                      functional component SAGA histone acetylase complex    Curtiss M, Davis K, Deutschbauer  Entian KD, Flaherty P, Foury F,           nuclear pore-associated mRNA export machinery. Cell 116:
+   Garfinkel DJ, Gerstein M, Gotte D, Guldener U, Hegemann JH,                   75–86
+   Hempel S, Herman  Jaramillo DF, Kelly  Kelly SL, Kotter P,           Shamir R, Maron-Katz  Tanay  Linhart C, Steinfeld  Sharan R,
+   LaBonte D, Lamb DC, Lan N, Liang H, Liao H, Liu L, Luo C, Lussier             Shiloh Y, Elkon R (2005) EXPANDER integrative program suite
+   M, Mao R, Menard P, Ooi SL, Revuelta JL, Roberts CJ, Rose M, Ross-            microarray data analysis. BMC Bioinformatics 6: 232
+   Macdonald P, Scherens B, Schimmack G, Shafer B, Shoemaker DD,             Sharan R, Ideker T, Kelley B, Shamir R, Karp RM (2005) Identification
+   Sookhai-Mahadeo S, Storms RK, Strathern JN, Valle G, Voet M,                  protein complexes comparative analysis yeast bacterial
+   Volckaert G, Wang CY, Ward TR, Wilhelmy J, Winzeler EA, Yang Y,               protein interaction data. J Comput Biol 12: 835–846
+   Yen G, Youngman E, Yu K, Bussey H, Boeke JD, Snyder M,                    Shen X, Mizuguchi G, Hamiche  Wu C (2000) chromatin
+   Philippsen P, Davis RW, Johnston M (2002) Functional profiling             remodelling complex involved transcription DNA
+   Saccharomyces cerevisiae genome. Nature 418: 387–391                      processing. Nature 406: 541–544
+
+6 Molecular Systems Biology 2007                                                                              & 2007 EMBO Nature Publishing Group
+                                                                                                        Pathway redundancy essential proteins
+                                                                                                                         Ulitsky R Shamir
+
+
+
+
+Stark C, Breitkreutz BJ, Reguly T, Boucher L, Breitkreutz  Tyers M    Wang Y, Liu CL, Storey JD, Tibshirani RJ, Herschlag D, Brown PO
+   (2006) BioGRID: general repository interaction datasets.          (2002) Precision functional specificity mRNA decay.
+   Nucleic Acids Res 34: D535–D539                                         Proc Natl Acad Sci USA 99: 5860–5865
+Tong AH, Evangelista M, Parsons AB, Xu H, Bader GD, Page N,             Westermann S, Cheeseman IM, Anderson S, Yates 3rd JR, Drubin DG,
+   Robinson M, Raghibizadeh S, Hogue CW, Bussey H, Andrews B,              Barnes G (2003) Arch

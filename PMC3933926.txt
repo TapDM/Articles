@@ -1,0 +1,750 @@
+                            NIH Public Access
+                            Author Manuscript
+                            J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Published final edited form 
+NIH-PA Author Manuscript
+
+
+
+
+                            J Theor Biol. 2014 March 21; 345: 12–21. doi:10.1016/j.jtbi.2013.12.009.
+
+
+
+                           Incorporation Flexible Objectives Time-Linked Simulation
+                           Flux Balance Analysis
+                           Elsa W. Bircha, Madeleine Udellb, Markus W. Covertc
+                           aChemical Engineering, Stanford University, Stanford, CA, 94305, USA
+
+                           bComputational       Mathematical Engineering, Stanford University, Stanford, CA, 94305, USA
+                           cBioengineering,       Stanford University, Stanford, CA, 94305, USA
+
+                           Abstract
+                                present modifications Flux Balance Analysis (FBA) metabolic modeling
+                                framework relax implicit assumptions biomass reaction. flexible Flux Balance
+                                Analysis (flexFBA) objective removes fixed proportion reactants, NIH-PA Author Manuscript
+
+
+
+
+                                produce subset biomass reactants. time-linked Flux Balance Analysis (tFBA) simulation
+                                removes fixed proportion reactants byproducts,                                 transitions metabolic steady states. Used  flexFBA tFBA model time scale
+                                shorter regulatory growth steady state encoded biomass reaction.                                 combined short-time FBA method intended integrated modeling applications enable
+                                detailed dynamic depictions microbial physiology cell modeling.                                 example, modeling Escherichia coli, avoids artifacts caused low-copy-number
+                                enzymes single-cell models kinetic bounds. outside integrated modeling contexts,                                 detailed predictions flexFBA tFBA complement existing FBA techniques.                                 detailed metabolite production silico knockouts used identify correct essentiality
+                                predictions wrong reason.
+
+
+                           Keywords
+                                Metabolism; Integrated Modeling
+NIH-PA Author Manuscript
+
+
+
+
+                           1. Introduction
+                                             Quantitative metabolic models important tools understanding engineering                                              behavior microorganisms. Flux Balance Analysis (FBA) powerful technique                                              simulate large metabolic networks kinetic parameters unavailable. FBA
+                                             simulations capture microorganism growth, nutritional resource consumption, waste-
+                                             product secretion rates [1, 2]. addition FBA generate knockout essentiality
+                                             predictions treated hypotheses explore organism's metabolic capability
+                                             [3, 4].
+
+
+
+
+                           Crown Copyright © 2013 Authors. Published Elsevier  rights reserved
+                           Publisher's Disclaimer: PDF file unedited manuscript accepted publication. service                            customers providing early version manuscript. manuscript undergo copyediting, typesetting, review                            resulting proof published final citable form. note production process errors                            discovered affect content, legal disclaimers apply journal pertain.
+                           Birch et al.                                                                                            Page 2
+
+
+                                          Classical implementations FBA quantify microbial growth using rigid biomass reaction
+                                          represents processes cell replication single proportion reactants
+                                          required byproducts returned. used quantify microbial growth NIH-PA Author Manuscript
+
+
+
+
+                                          objective used refine flux predictions evaluate perturbations [5, 6, 7].
+
+                                          biomass reaction produce balanced growth complete inactivity                                           predictions. applications assumptions underlying behavior
+                                          valid results useful.  current silico biology
+                                          incorporates FBA integrated models combine mathematical models different
+                                          types interact simulation [8, 9]. applications — notably cell
+                                          models [10] — rigid biomass reaction limitation.
+
+                                          enable cell modeling, require nuanced alternative biomass
+                                          reaction FBA produce metabolites non-wild-type non-steady-state
+                                          proportions.
+
+                                          work, relax implicit assumptions biomass reaction construct new
+                                          FBA methods. assumption balanced population average growth, encoded                                           biomass reaction's fixed proportion reactants. second assumption steady
+                                          state growth, encoded biomass reaction's fixed proportion byproducts reactants.
+                                          Relaxing reactant byproduct assumptions results flexible FBA (flexFBA) NIH-PA Author Manuscript
+
+
+
+
+                                          time-linked FBA (tFBA) approaches, respectively.
+
+                                           balanced steady-state growth assumptions inherent biomass reaction                                           FBA make method applicable timescale longer regulatory cell process
+                                          interactions. combining flexFBA tFBA methods relax assumptions,
+                                          obtain short-time FBA appropriate use cell models. short-time scale                                           consistent cell models evaluate metabolic model timescales shorter
+                                          regulatory process interactions explicitly represent.
+
+                               1.1. Biomass Reaction Assumptions
+                                          biomass reaction ubiquitous microbial FBA lends great predictive power
+                                          constrained metabolic network. succinct mathematical form                                           composed straightforward parameter values. addition quantifying growth,                                           biomass reaction flux used optimization objective case                                           called `biomass objective' [11]. literature evaluates ability various FBA
+                                          objectives mimic observed growth, gene essentiality, flux states [6, 12, 13, 14, 15],
+                                          comparison `biomass objective' performance. contrast, discuss
+                                          simulation regimes biomass reaction does adequately model range NIH-PA Author Manuscript
+
+
+
+
+                                          metabolic network function, longer relevant quantification growth.
+
+                                          constraining process reactant requirements byproduct returns                                           biomass reaction combines subtly different assumptions deal (1)
+                                          reactant reactant (2) byproduct reactant groups.
+
+                                          Reactant reactant fixed proportion biomass reaction assumes population average
+                                          balanced growth: homogeneity cells cells time. assumption                                           contained biomass reaction's negative coefficients. consequence, biomass
+                                          reaction scales fractional fulfillment process reactants whichever                                           limited. Homogeneity cells arises biomass reaction coefficients
+                                          bulk cell composition values. single cells short timescales homogeneity
+                                          conflicts biological reality. Bulk phenotypes given average neglect
+                                          variance underlying population [16, 17]. Strict temporal homogeneity metabolite
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                              Page 3
+
+
+                                          production ratios unreasonable transcriptional translational regulatory
+                                          mechanisms enforce operate timescales longer typical FBA time
+                                          step (1 sec minutes [18, 19]). Furthermore, regulatory interactions exist
+NIH-PA Author Manuscript
+
+
+
+
+                                          metabolites included biomass reaction enforce proportional
+                                          production. Experimental observations reveal essential metabolites                                           produced non-wild-type proportions [20, 21, 22, 23]. Additionally, metabolites
+                                          included biomass reaction essential model growth. biomass reaction
+                                          includes process reactants non-essential cell replication, false-essential
+                                          predictions result [24]. Previously, inflexible ratio essentiality biomass
+                                          reaction addressed alternate biomass reaction definitions, [24, 25] reactions
+                                          allowing similar metabolites substitute [26]; approaches                                           practical entire scale pathways metabolism.
+
+                                          Byproduct reactant fixed proportion biomass reaction assumes steady state
+                                          metabolic function. assumption contained biomass reaction's positive coefficients.
+                                          principle example return spent energy carrier ADP set proportional                                           ATP produced time step. Proportional byproducts reactants means                                           ADP return immediately matched capacity metabolism recharge ATP,
+                                          consistent previous time step's metabolic conditions. Relating                                           reactant byproduct quantities reasonable, long-time assumption implied                                           single evaluation FBA optimization. Perturbations changes available media
+NIH-PA Author Manuscript
+
+
+
+
+                                          resources result immediate transition new steady state single time step
+                                          applied. type transition unrealistic short time step evaluations
+                                          energy carrier supply turnover limited.
+
+                               2. Methods
+                                          Mathematically biomass reaction consists coefficients mi metabolites Mi appended
+                                          single reaction column stoichiometric matrix S equation,
+NIH-PA Author Manuscript
+
+
+
+
+                                                                                                                                        (1)
+
+                                          values mi < 0 represent consumption process reactants, mi > 0 represent
+                                          byproduct return. majority n total mi values zero associated
+                                          metabolites participate cell processes metabolism. Coefficient magnitudes
+                                          anabolic products given relative quantities bulk biomass [11]; Coefficient
+                                          magnitudes case catabolic energy carriers given requirements                                           macromolecule synthesis calculated bulk yields [11]. Units mi usually chosen
+                                          flux biomass reaction, element flux vector v denoted vbio,
+
+                                          directly interpreted microbial growth rate [1]. Metabolite accumulation                                                 set zero [1], applying steady state assumption metabolic network intermediates 
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                                Page 4
+
+
+                                            timescale evaluation Δt, typically 1 s longer. Using biomass reaction flux                                             maximization objective, optimization problem 
+NIH-PA Author Manuscript
+
+
+
+
+                                                                                                                    (2)
+
+
+
+                                            S′ = [S | m] v′ vbio appended end v Equation 1.
+
+                                            coefficients mi quantities required basis cell mass,                                             convenient think biomass reaction flux vbio fractional fulfillment                                             requirement time. classical FBA biomass reaction requires                                             fractional fulfillment metabolite requirements 
+
+                               2.1. Designing Biomass Reaction Alternative
+                                            sought relax biomass reaction's assumptions, wanted simultaneously
+                                            preserve behavior wild-type long-time limits. developed flexFBA                                             produce possible process reactants inhibition distant/unrelated blocked
+                                            pathways maintaining population average cell composition wild type networks.
+                                            developed tFBA allow observation transient behavior integration                                             biological process models reproducing steady state growth. additional design
+NIH-PA Author Manuscript
+
+
+
+
+                                            constraint need integrated modeling methods computationally efficient                                             function human supervision.
+
+                                            flexFBA tFBA rely interfere  implemented
+                                            separately  treat individually initial methods explanation
+                                            evaluation.  flexFBA tFBA relax separate long-time assumptions
+                                            biomass reaction, implementing achieve short-time FBA
+                                            suitable use cell models.
+
+                               2.2. Reactant Flexibility: flexFBA
+                                            long process reactants participate reaction provided                                             network rates related nonzero constant multiplier. remove constraint                                             produce independently, append coefficients separate reactions                                             stoichiometric matrix:
+NIH-PA Author Manuscript
+
+
+
+
+                                                                                                                                             (3)
+
+                                            fluxes corresponding reactions fi appended v, intuitively
+                                            represent fractional fulfillments requirement metabolites processes,                                             vary  combined matrix Equation                                             combined vector . blocks appended S square diagonal general forms                                             Equations 3 5, zero columns neglected practical use.
+
+
+                                                 J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                            Page 5
+
+
+                                          objective criteria applied incentivize process reactant metabolite production —
+                                          large values fi — simultaneously encourage proportional production — similar values
+                                          fi. wild type case, objective result process reactant exchange NIH-PA Author Manuscript
+
+
+
+
+                                          metabolic network identical biomass reaction flux maximization case                                           Equation (2). achieve mathematically using objective,
+
+                                                                                                                  (4)
+
+
+                                          fatp fractional fulfillment energy carrier ATP. maximizes fractional
+                                          fulfillment ATP penalizing metabolite produced proportionally                                           ATP. weight γ applied penalty terms constant, explain choose
+                                          later. Figure 1a compares biomass reaction flux maximization flexible form.
+
+                                          ℓ1 norm penalty encourages sparsity arguments; incentivizing fi match
+                                          fatp drawing fi constrained low. Similar
+                                          motivations ℓ1 norm use robust regularized regression [27, 28].                                           contrast, ℓ2 norm does penalize small errors, draws solution outliers.
+                                          ℓ2 norm numerically stable, failing reliable results                                           metabolic 
+
+                                          ATP production fatp used representative metabolic function, based biological
+NIH-PA Author Manuscript
+
+
+
+
+                                          importance large process requirement mi. Including ATP explicitly objective                                           consistent previous FBA implementations include ATP rate yield                                           optimization criteria maintenance energy flux constraints [6]. Alternatives choice
+                                          include functions fi values mean, prone trade-offs                                           metabolites, especially orders magnitude spanned values mi.
+
+                                          additionally introduce constraint fatp ≥ fi, resulting simplification                                           difference penalty terms.  constraint optional ℓ1 norm penalties                                           used subsequent equations instead. ATP coefficient mATP based bulk
+                                          yield measurements accounts thermodynamic inefficiencies                                           metabolism, chosen maintain strictly fatp ≥ fi constraint.                                           include optional biomass reaction flux weight β optimization criteria,                                           problem 
+
+
+
+
+                                                                                                                        (5)
+NIH-PA Author Manuscript
+
+
+
+
+                                          biomass group term gbio, included su ciently large β, assures                                           metabolite produced using biomass reaction FBA. Including                                           biomass group alters exFBA simulation pathway partially restricted
+                                          upstream branch multiple process reactant metabolites, discuss subsequently.
+                                          problem Equation 5 forced biomass reaction solution setting
+                                          0 ≤ gbio = fi.
+
+                                          Basic flexFBA simulation results shown Figure 1b identical metabolite
+                                          production biomass reaction FBA wild-type network. glycogen synthesis
+                                          capacity removed simulated gene knockout, biomass reaction predicts 
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                            Page 6
+
+
+                                          metabolite production, flexFBA predicts wild type level production                                           metabolites glycogen.
+NIH-PA Author Manuscript
+
+
+
+
+                                          Simulations Figure 2 exemplify contribution biomass group gbio term.
+                                          Pathway restriction makes metabolic precursor tyrosine phenylalanine limited
+                                          resource. E. coli biomass contains slightly greater amounts phenylalanine tyrosine
+                                          (mtyr < mphe), 57  flux branch point heading phenylalanine.                                           process requirement tyrosine smaller means increment fractional
+                                          fulfillment costly terms limited precursor flexible terms (fatp                                           penalty Equation (4) produce ftyr > fphe. biomass group incentivizes
+                                          proportional production extent flux permitted: ftyr = fphe single
+                                          knockdown (left columns). contribution limited restricted process
+                                          metabolites, just biomass reaction  preference                                           flexFBA smaller requirement downstream restricted branch biomass
+                                          group additionally constrained — Figure 2 glycogen pathway restriction                                           double knockdown (right columns, Figure 2).
+
+                                          addition βgbio flexible objective ways increase fi similarity
+                                          subsets process metabolites. Mathematically terms positively
+                                          weight group production biomass group term. Taking example reactants
+                                          DNA synthesis, entail adding βdNTPgdNTP maximization criteria NIH-PA Author Manuscript
+
+
+
+
+                                          constraint gdNTP ≤ fj j = {dATP, dTTP, dGTP, dCTP} problem Equation 5.
+                                          Similarly, deviations group penalized using form like flexible
+                                          objective itself, strict limit imposed members fj ≤ mink fk, j, k = {dATP, dTTP,
+                                          dGTP, dCTP}. additional terms apply assumption varying strictness
+                                          molecular interactions maintain proportion metabolites timescale
+                                          FBA evaluation.  assigning groups weighting terms increases                                           parameterization potentially complicates optimization problem. consider current
+                                          experimental evidence insufficient guide justify including groups generally.
+
+                               2.3. Time-Linked Byproducts: tFBA
+                                          Biomass reaction FBA represent steady states growth transients
+                                          steady states. limitation process byproducts returned                                           reactants provided processes optimization time step. tFBA                                           byproducts time step t available metabolic network time step t + Δt                                           modification remove long term steady state assumption biomass
+                                          reaction.
+
+                                          Additional motivation tFBA construct integrated models advantageous NIH-PA Author Manuscript
+
+
+
+
+                                          separate process reactant requirements byproduct return. biomass reaction                                           thought integrated model lumping cell processes  biomass
+                                          reaction expressed single linear equation, included linear                                           optimization.  possible represent processes differential equation form,
+                                          especially stochastic processes, framework. required evaluate
+                                          FBA optimization process models separately, simulation include methods                                           assure metabolic solution exists overall simulation conserves mass —                                           processes metabolism consistent. solution maintaining process-metabolism
+                                          consistency preserving byproduct reactant ratio FBA optimization
+                                          required multiple evaluations simulated time step. applied solution
+                                          FBA integrated modeling Birch et al. 2012 [8], computationally
+                                          inefficient, prone time step dependent artifacts, problematic                                           stochastic models. preferable alternative tFBA: process-metabolism consistency 
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                               Page 7
+
+
+                                          enforced straightforward metabolite quantities separating process reactant
+                                          consumption byproduct return occur time steps.
+NIH-PA Author Manuscript
+
+
+
+
+                                          biomass reaction summarizes molecular steps share reactants                                           byproducts, mi summarizes reactant byproduct stoichiometric coefficient ri pi
+                                          respectively: mi = pi + ri, ri < 0 pi > 0. tFBA replace mi reactant
+                                          coefficient ri reactions appended S matrix,
+
+
+
+
+                                                                                                                                         (6)
+
+                                          separate exchange reactions xi process byproducts added, NIH-PA Author Manuscript
+
+
+
+
+                                          matrix flux vector denotedŜ v̂. bounds byproduct exchanges xl ≤ x ≤ 0
+                                          set uptake, based available byproduct metabolite returned                                           processes prior time step. case simple proportionality used                                           represent processes, steady state wild type network exchange reactions                                           flux bounds values xi = xl – pif f fractional fulfillment                                           metabolites steady state. transient metabolic states bounds xl                                           depend ci,j, fj,(t–Δt) fractional fulfillment related reactant Mj previous
+                                          time step. Note maintain FBA steady state assumption respect metabolic
+                                          intermediates, addresses intermediate timescale fluctuations                                           metabolite concentrations enzyme-small molecule interactions respond quickly,
+                                          longer regulatory responses. optimization problem statement tFBA 
+
+
+
+
+                                                                                                                     (7)
+NIH-PA Author Manuscript
+
+
+
+
+                                          case flexFBA used. implement tFBA retain fixed
+                                          proportion reactants constraint Equation 7 0 ≤ gbio = fi.
+
+                                          present impact tFBA method simulations, compare previous
+                                          methods generating FBA time courses. methods consist updating media
+                                          concentrations based resources consumed discrete time steps,                                           thorough accounting called dynamic FBA (dFBA) Mahadevan et. al. 2002 [2].                                           simulations capture organism growth rate shifts time step resources                                           exhausted.  time step growth steady state respect biomass
+                                          reaction, resulting time course sequence growth steady states. Figure 3a b
+                                          illustrate reactant-byproduct relationship time course biomass reaction FBA
+                                          steady states, tFBA, respectively. change conditions, biomass reaction FBA
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                              Page 8
+
+
+                                           byproduct return informed new conditions — arrow                                            reactants byproducts Figure 3a appears reversed respect time —                                            immediately achieves steady state. comparison, tFBA byproduct return function NIH-PA Author Manuscript
+
+
+
+
+                                           reactant consumption previous time step condition. result, transitions                                            number evaluations new steady state. steady-state growth, time steps                                            identical result obtained long time limit.
+
+                                           Figures 3c d process reactants byproducts example transition                                            acetate glucose media conditions biomass reaction FBA tFBA simulations.
+                                           Transition time distinction, tFBA accounts difference                                            resources needed maintain states. E. coli network purine energy carriers ATP
+                                           ADP important example. Using biomass reaction FBA,                                            modeling assumptions additional ADP assumed exist soon                                            phosphorylated glucose media condition, tFBA simulation includes synthesis
+                                           additional purine molecules metabolic network. higher glucose growth
+                                           rate requires twice number ATP plus ADP sustain [29], certainly preferable                                            account resources used synthesis. Figure 3 simulations employ                                            wild type network necessary media resources available produce balanced growth,
+                                           flexFBA biomass reaction objective produce results shown.
+
+                                           note quantities reactants byproducts exchanged metabolism
+NIH-PA Author Manuscript
+
+
+
+
+                                           processes representative physiological metabolite concentrations.
+                                           quantities accounting practicality representing discrete metabolic steps                                            cell function linear representation.  variables                                            metabolism-process interface provide opportunity methods development                                            FBA cell modeling fields.
+
+                               2.4. Implementation
+                                           genome scale metabolic model used main text figures slight expansion                                            iMC1010 [30]. Text files used reaction network modeling information                                            included code associated publication. Kinetic bounds reaction
+                                           perturbations included source code. Simulations implemented Python,                                            linear programming completed using CVXOPT [31] GLPK MOSEK. Source code                                            simulation figure generation available simtk.org/home/flexfbatfba.
+
+                                           Simulations silico knockouts entail setting associated reaction flux constraints vl =
+                                           vu = 0. tFBA simulations, use process byproduct protons metabolism required.
+                                           Fluxes accounted simulations cell gram dry cell
+                                           weight basis, displayed unless noted. β nonzero hold NIH-PA Author Manuscript
+
+
+
+
+                                           value large, β ≫ 1.
+
+                                           weighting penalty terms 0 < γ < 1 production biomass
+                                           metabolites ATP, tighter lower upper bounds depending                                            metabolic network biomass metabolite count (theoretically γ ≥ 1 feasible                                            practically interferes solver). main text simulations work value 0.1
+                                           used, chosen based total count process reactants terms avoid solution
+                                           convergence biomass reaction limit. analysis metabolite production sensitivity
+                                           γ (Supplementary Figure S1) shows value chosen produce                                            desired qualitative flexFBA solution, robust various conditions multiple
+                                           perturbations. Figure S1 includes simulations physiologically reasonable range                                            growth conditions, range metabolites constrained low production.
+
+
+
+
+                                                J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                              Page 9
+
+
+                               3. Results
+                               3.1. Knockouts
+NIH-PA Author Manuscript
+
+
+
+
+                                            Using combined flexFBA tFBA achieve short-time FBA, simulate                                             metabolic network dynamic response silico gene knockout perturbation.                                             applied knockouts, observed broad types simulation results, examples                                             presented Figure 4.
+
+                                            knockouts converge immediately steady state, Figure 4a. example
+                                            pgsA catalyzes step synthesis E. coli membrane components cardiolipin
+                                            phosphatidylglycerol. Immediately constraining pgsA flux zero,                                             associated process reactant production zero  left Figure 4a) continues                                             long time limits  right Figure 4a).  unrelated biomass reactants                                             byproducts continue produced  left right Figure 4a). Lack cardiolipin
+                                            phosphatidylglycerol pgsA knockout simulation consistent experimental
+                                            evidence strain shown lack membrane components [32]                                             survive conditions.
+
+                                            smaller group knockouts display qualitatively different metabolite synthesis
+                                            immediately long perturbation, exemplified purA Figure 4b. Flux
+                                            reaction novo purine synthesis set zero, short term
+NIH-PA Author Manuscript
+
+
+
+
+                                            purines provided processes  right Figure 4b). Continued purine
+                                            availability tFBA purines returned previous step byproduct spent
+                                            energy carrier ADP. Long-term gradual decrease occurs time step                                             returned purines sequestered cell macromolecules RNA `soluble pool'
+                                            maintenance — mathematically mamp + matp < −madp — ability synthesize
+                                            adenosine small molecule nutrients free declines  right Figure 4b).
+                                            Based flexFBA constraint fm < fatp, represents biological dependance                                             metabolic activity ATP, biomass reactants decrease proportionally  left
+                                            right Figure 4b). Experimentally, purA knockouts purine auxotrophs [33], consistent
+                                            flexFBA tFBA phenotype predictions.
+
+                                            flexFBA tFBA techniques allow compare knockout simulations experiment
+                                            metabolite individually, binary essential/non-essential gene
+                                            classifications biomass reaction FBA. Previously, detailed predictions                                             possible testing media supplements simulations,                                             computational searches FBA solution space [34]. Figure 5 emphasizes                                             increase prediction techniques summarizing results like Figure
+                                            4. Figure 5, genes knocked computationally true-essential predictions glucose
+NIH-PA Author Manuscript
+
+
+
+
+                                            minimal media Feist et al. 2007 [24]. Process reactant absence indicated dark
+                                            shading metabolite, short-term long-term border. contrast                                             results analogous biomass reaction results (small grids Figure 5): using                                             biomass reaction useful contained completely shaded grid (right Figure 5).
+
+                                            make graded assessments metabolic network predictions. knockout                                             historically called true-essential biomass reaction flux value                                             threshold gene experimentally necessary growth. true-essential
+                                            matches considered metric quality metabolic network reconstructions.
+                                             provides information prediction correct relevant
+                                            biological reason. compared literature information flexFBA metabolites absences                                             Figure 5, indicate agreement color (associated references Table S1). strains
+                                            missing biomass metabolites analogous auxotrophs,                                             experimental literature confirms media supplemented metabolites
+
+
+                                                 J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                              Page 10
+
+
+                                           unavailable simulation precursors. genes experimental evidence                                            consistent silico phenotype, expected critical components                                            exchanged media, assigned  agreement' classification.  NIH-PA Author Manuscript
+
+
+
+
+                                           agreement' group consists membrane components, electron transport chain
+                                           enzymes, nucleotide kinases.
+
+                                           Shown pie inset Figure 5, majority true-essential predictions occur                                            biologically relevant consequences metabolic network. agreement means                                            detailed results largely consistent accuracy classification implied `true'                                            true-essential biomass reaction predictions. 14 metabolic phenotypes                                            partially inconsistent biochemical genetic evidence. phenotypes include
+                                           cases FBA technically correct predictions essentiality, faulty
+                                           reasoning. example metK knockout spermidine synthesis blocked                                            silico, preventing biomass reaction flux. zero biomass reaction flux traditional
+                                           FBA prediction metK essential gene, matches metK essentiality                                            experimentally.  metK knockout lethal spermidine absence,                                            strains isolated polyamines [35]. Instead, reason metK knockout
+                                           lethal involves production critical cofactors required methionine biosynthesis
+                                           [36]. cofactors used cycles, means FBA `balance' fluxes
+                                           cofactors produced. new approach allows resolve                                            discrepancy biochemical evidence silico phenotype, NIH-PA Author Manuscript
+
+
+
+
+                                           previous FBA methods claimed correct prediction. folA knockout prediction                                            analogous case metK; serA, serB, serC knockouts demonstrate opposite
+                                           phenomena cycles possible FBA cells disrupted.                                            number incorrect predictions involve cofactor cycling, folA metK
+                                           knockouts able produce metabolites synthesis reality prevented.                                            cases serA, serB, serC knockouts balance interconversion acetyl-
+                                           CoA CoA perturbed, FBA apparently sensitive metabolism                                            vivo.
+
+                               3.2. Expression Bursts
+                                           Figure 6 compares results short-time FBA biomass reaction simulations                                            case enzyme copy number fluctuations single cell. process reactant metabolites
+                                           required cell small amounts, enzymes produce exist                                            order tens cell. Increasingly, FBA approaches refined addition                                            enzymatic parameters bounds calculation [14], example using protein counts                                            turnover number constrain internal network fluxes [10]. kinetic flux bounds                                            applied single cell integrated models, flexFBA required avoid biomass reaction
+NIH-PA Author Manuscript
+
+
+
+
+                                           artifacts low copy number enzymes.
+
+                                           Coenzyme (CoA) small process requirement metabolite example Figure 6
+                                           simulations, total inclusion biomass acetyland succinyl-CoA                                            orders magnitude smaller process requirement ATP. essential step CoA
+                                           synthesis performed coaBC, observed average                                            cell, produced transcription events cell cycle [16]. input                                            approximation coaBC expression translational bursts, informs kinetic bounds                                            CoA synthesis shown Figure 6a b, compared kinetic bounds smoothly
+                                           increase according population average. biomass reaction flexFBA predictions
+                                           CoA synthesis rate similar, restricted kinetic bounds single
+                                           cell lower smooth population average (Figure 6a b). difference                                            CoA synthesis constrained smooth level, using biomass reaction, process
+                                           reactant metabolite synthesis constrained (Figure 6c), unperturbed 
+
+                                                J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                                      Page 11
+
+
+                                          CoA limits using flexFBA (Figure 6d). Biomass reaction accumulation macromolecular
+                                          precursors lowered periods restriction. deficit seen slightly lower
+                                          fluxes compared smooth case coaBC enzyme limiting.
+NIH-PA Author Manuscript
+
+
+
+
+                               4. Discussion Conclusions
+                                          constructed FBA objective able produce subsets process
+                                          reactants, reproduces traditional biomass production wild-type network case.
+                                          addition, time-linked simulations allow observe transitions FBA steady
+                                          states. Critically, methods satisfy requirement quick unsupervised operation                                           used integrated modeling applications, using shelf                                           open-source optimization packages. Furthermore, flexFBA functions robustly                                           single added adjustable parameter penalty term weighting γ. additional strength                                           penalty weighting approaches question asked converges                                            metabolism make' classic population survival assessment.
+
+                                          detailed results flexFBA tFBA silico knockout predictions offer new
+                                          window metabolic reconstructions. Correctness incorrectness essentiality                                           metabolic phenotype predictions properties metabolic reconstruction gene
+                                          associations. methods make possible identify correct predictions                                           wrong reason, indicating problem metabolic reconstruction.
+NIH-PA Author Manuscript
+
+
+
+
+                                          Identification erroneous true-essential predictions important cause
+                                          problems applications FBA. example, metabolic engineering design
+                                          lead misguided computational suggestions strain development efforts.
+
+                                          short-time FBA necessary avoid artifacts apply FBA short-time scale
+                                          single-cell level enzyme count kinetic parameters constraints. Using biomass
+                                          reaction, models predict cell constrains distant pathways, including large fluxes
+                                          catalyzed high copy number enzymes, match transcriptional fluctuations single
+                                          rare protein. second timescales, strict constraint unreasonable                                           evolutionary perspective mechanistic understanding. Furthermore,                                           coaBC example saw impact reaction limited enzyme produced                                           bursts, exist  simulation simultaneously, result                                           dramatic limitation. methods introduce FBA solution avoids propagating
+                                          low copy enzyme bounds implausibly.
+
+                                          biomass reaction previously limited application genome scale stoichiometric
+                                          metabolic models population average steady state growth. FlexFBA tFBA
+                                          bring relevant timescale intermediate range allow NIH-PA Author Manuscript
+
+
+
+
+                                          represent cell physiological  combined short-time FBA instrumental
+                                          cell simulations understanding heterogeneity underlies critical
+                                          phenomena microbiology.
+
+                               Supplementary Material
+                                          Refer Web version PubMed Central supplementary material.
+
+
+                               Acknowledgments
+                                          thank Derek Macklin Jonathan Karr helpful discussions methods presentation. work                                           supported NIH Directors Pioneer Award (5DP1LM01150-05), Allen Distinguished Investigator Award,                                           Hellman Faculty Scholarship M.W.C; Stanford Bio-X Fellowship E.W.B; NSF Graduate Research
+                                          Fellowship DGE-1147470 Gabilan Stanford Graduate Fellowship Funds M.U.
+
+
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                                  Page 12
+
+
+                               References
+                                          [1]. Varma  Palsson BO. Metabolic capabilities Escherichia coli:  synthesis biosynthetic
+NIH-PA Author Manuscript
+
+
+
+
+                                                precursors cofactors. J Theor Biol. 1993; 165(4):477–502. [PubMed: 21322280]
+                                          [2]. Mahadevan RR, Edwards JSJ, Doyle FJF. Dynamic flux balance analysis diauxic growth                                                 Escherichia coli. Biophys J. 2002; 83(3):1331–1340. [PubMed: 12202358]
+                                          [3]. Covert MW, Schilling CH, Famili  Edwards JS, Goryanin II, Selkov E, Palsson BO. Metabolic
+                                                modeling microbial strains silico. Trends Biochem Sci. 2001; 26(3):179–186. [PubMed:
+                                                11246024]
+                                          [4]. Edwards JS, Palsson BO. Metabolic flux balance analysis silico analysis Escherichia
+                                                coli K-12 gene deletions. BMC Bioinformatics. 2000; 1:1. [PubMed: 11001586]
+                                          [5]. Raman K, Chandra N. Flux balance analysis biological systems: applications challenges.
+                                                Briefings Bioinformatics. 2009; 10(4):435–449. [PubMed: 19287049]
+                                          [6]. Schuetz R, Kuepfer L, Sauer U. Systematic evaluation objective functions predicting
+                                                intracellular fluxes Escherichia coli. Molecular Systems Biology. 2007; 3:119–119. [PubMed:
+                                                17625511]
+                                          [7]. Segrè D, Vitkup D, Church GM. Analysis optimality natural perturbed metabolic
+                                                networks. Proc Natl Acad Sci USA. 2002; 99(23):15112–15117. [PubMed: 12415116]
+                                          [8]. Birch EW, Ruggero NA, Covert MW. Determining Host Metabolic Limitations Viral
+                                                Replication Integrated Modeling Experimental Perturbation. PLoS Comput Biol. 2012;
+                                                8(10):e1002746. [PubMed: 23093930]
+NIH-PA Author Manuscript
+
+
+
+
+                                          [9]. Gonçalves E, Bucher J, Ryll  Niklas J, Mauch K, Klamt S, Rocha M, Saez-Rodriguez J.
+                                                Bridging layers: integration signal transduction, regulation metabolism                                                 mathematical models. Mol. BioSyst.
+                                          [10]. Karr JR, Sanghvi JC, Macklin DN, Gutschow MV, Jacobs JM, Bolival B, Assad-Garcia N, Glass
+                                                JI, Covert MW. cell computational model predicts phenotype genotype. Cell.
+                                                2012; 150(2):389–401. [PubMed: 22817898]
+                                          [11]. Feist  Palsson BO. biomass objective function. Curr Opin Microbiol. 2010; 13(3):344–
+                                                349. [PubMed: 20430689]
+                                          [12]. Harcombe WR, Delaney NF, Leiby N, Klitgord N, Marx CJ. Ability Flux Balance
+                                                Analysis Predict Evolution Central Metabolism Scales Initial Distance                                                 Optimum. PLoS Comput Biol. 2013; 9(6):e1003091. [PubMed: 23818838]
+                                          [13]. Burgard AP, Maranas CD. Optimization-based framework inferring testing hypothesized
+                                                metabolic objective functions. Biotechnol Bioeng. 2003; 82(6):670–677. [PubMed: 12673766]
+                                          [14]. Reed JL. Shrinking Metabolic Solution Space Using Experimental Datasets. PLoS Comput
+                                                Biol. 2012; 8(8):e1002662. [PubMed: 22956899]
+                                          [15]. Zomorrodi AR, Suthers PF, Ranganathan S, Maranas CD. Mathematical optimization
+                                                applications metabolic networks. Metab Eng. 2012; 14(6):672–686. [PubMed: 23026121]
+                                          [16]. Taniguchi Y, Choi PJ, Li GW, Chen H, Babu M, Hearn J, Emili  Xie XS. Quantifying E. coli
+NIH-PA Author Manuscript
+
+
+
+
+                                                Proteome Transcriptome Single-Molecule Sensitivity Single Cells. Science. 2010;
+                                                329(5991):533–538. [PubMed: 20671182]
+                                          [17]. Lidstrom  Konopka MC. role physiological heterogeneity microbial population
+                                                behavior. Nat Chem Biol. 2010; 6(10):705–712. [PubMed: 20852608]
+                                          [18]. Covert MW, Palsson BØ. Transcriptional regulation constraints-based metabolic models                                                 Escherichia coli. J Biol Chem. 2002; 277(31):28058–28064. [PubMed: 12006566]
+                                          [19]. Covert MW, Xiao N, Chen TJ, Karr JR. Integrating metabolic, transcriptional regulatory                                                 signal transduction models Escherichia coli. Bioinformatics. 2008; 24(18):2044–2050.
+                                                [PubMed: 18621757]
+                                          [20]. Jackowski S, Rock  Regulation coenzyme biosynthesis. Journal Bacteriology.
+                                                1981; 148(3):926–932.
+                                          [21]. Goldstein  Goldstein DB, Brown BJ, Chou S-C. Amino acid starvation Escherichia coli
+                                                auxotroph.  E ects protein nucleic acid synthesis cell devision. Biochim Biophys
+                                                Acta. 1959; 36:163–172. [PubMed: 13850757]
+
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                                   Page 13
+
+
+                                          [22]. Goss WA, Deitz WH, Cook TM. Mechanism Action Naladixic Acid Escherichia coli.
+                                                Journal Bacteriology. 1964; 88:1112–1118.
+                                          [23]. Ohashi Y, Hirayama  Ishikawa T, Nakamura S, Shimizu K, Ueno Y, Tomita M, Soga T.
+NIH-PA Author Manuscript
+
+
+
+
+                                                Depiction metabolome changes histidine-starved Escherichia coli CE-TOFMS. Mol.
+                                                BioSyst. 2008; 4(2):135. [PubMed: 18213407]
+                                          [24]. Feist  Henry CS, Reed JL, Krummenacker M, Joyce AR, Karp PD, Broadbelt LJ,
+                                                Hatzimanikatis V, Palsson BØ. genome-scale metabolic reconstruction Escherichia coli
+                                                K-12 MG1655 accounts 1260 ORFs thermodynamic information. Molecular Systems
+                                                Biology. 2007; 3:121. [PubMed: 17593909]
+                                          [25]. Nookaew  Jewett MC, Meechai  Thammarongtham C, Laoteng K, Cheevadhanarak S,
+                                                Nielsen J, Bhumiratana S. genome-scale metabolic model iIN800 Saccharomyces
+                                                cerevisiae validation: scaffold query lipid metabolism. BMC Syst Biol. 2008; 2(1):71.
+                                                [PubMed: 18687109]
+                                          [26]. Heavner BD, Smallbone K, Barker B, Mendes P, Walker LP. Yeast 5 – expanded
+                                                reconstruction Saccharomyces cerevisiae metabolic network. BMC Syst Biol. 2012; 6(1):
+                                                55. [PubMed: 22663945]
+                                          [27]. Boyd, S.; Vandenberghe, L. Convex optimization.
+                                          [28]. Sra, S.; Nowozin, S.; Wright, SJ. Optimization Machine Learning. MIT Press; 2012.
+                                          [29]. Bennett BD, Kimball EH, Gao M, Osterhout R, Van Dien SJ, Rabinowitz JD. Absolute
+                                                metabolite concentrations implied enzyme active site occupancy Escherichia coli. Nature
+                                                Publishing Group. 2009; 5(8):593–599.
+NIH-PA Author Manuscript
+
+
+
+
+                                          [30]. Covert MW, Knight EM, Reed JL, Herrgard MJ, Palsson BO. Integrating high-throughput                                                 computational data elucidates bacterial networks. Nature. 2004; 429(6987):92–96. [PubMed:
+                                                15129285]
+                                          [31]. Andersen, MS.; Dahl, J.; Vandenberghe, L. CVXOPT: Python package convex
+                                                optimization.
+                                          [32]. Mileykovskaya E, Ryan AC, Mo X, Lin C-C, Khalaf KI, Dowhan W, Garrett TA. Phosphatidic
+                                                acid N-acylphosphatidylethanolamine form membrane domains Escherichia coli mutant
+                                                lacking cardiolipin phosphatidylglycerol. J Biol Chem. 2009; 284(5):2990–3000. [PubMed:
+                                                19049984]
+                                          [33]. Zalkin, H. Escherichia coli Salmonella. American Society Microbiology; Washington,
+                                                DC: 1996. Biosynthesis purine nucleotides.
+                                          [34]. Imielinski M, Belta C, Halasz  Rubin H. Investigating metabolite essentiality genome-
+                                                scale analysis Escherichia coli production capabilities. Bioinformatics. 2005; 21(9):2008–
+                                                2016. [PubMed: 15671116]
+                                          [35]. Tabor CW, Tabor H. Polyamines microorganisms. Microbiol Rev. 1985; 49(1):81. [PubMed:
+                                                3157043]
+                                          [36]. Wei Y, Newman EB. Studies role metK gene product Escherichia coli K-12.
+                                                Molecular Microbiology. 2002; 43(6):1651–1656. [PubMed: 11952912]
+NIH-PA Author Manuscript
+
+
+
+
+                                               J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                               Page 14
+
+
+
+                                          Highlights
+NIH-PA Author Manuscript
+
+
+
+
+                                          rigid Flux Balance Analysis (FBA) biomass reaction hinders cell
+                                          modeling.
+                                          New flexible FBA produce subsets biomass reactants.
+                                          Time-linked FBA removes reactant byproduct long-time assumption.
+                                          new methods avoid low-copy enzyme metabolic artifacts cell
+                                          modeling.
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                          J Theor Biol. Author manuscript; available PMC 2015 March 21.
+                           Birch et al.                                                                                       Page 15
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                       

@@ -1,0 +1,988 @@
+                               NIH Public Access
+                               Author Manuscript
+                               Cell. Author manuscript; available PMC 2012 April 29.
+                           Published final edited form 
+NIH-PA Author Manuscript
+
+
+
+
+                            Cell. 2011 April 29; 145(3): 470–482. doi:10.1016/j.cell.2011.03.037.
+
+
+
+                           High-Resolution C. elegans Essential Gene Network Based                            Phenotypic Profiling Complex Tissue
+                           Rebecca Green, Huey-Ling Kao^,+, Anjon Audhya*,+, Swathi Arur , Jonathan R. Mayers*,
+                           Heidi Fridolfsson#, Monty Schulman^, Siegfried Schloissnig°, Sherry Niessen‡, Kimberley
+                           Laband, Shaohe Wang, Daniel Starr#, Anthony Hyman°, Tim Schedl§, Arshad Desai, Fabio
+                           Piano^, Kristin C. Gunsalus^,†, Karen Oegema†
+                           Ludwig Institute Cancer Research Department Cellular Molecular Medicine,
+                           University California, San Diego, CMM-East 3053, 9500 Gilman Drive, La Jolla, CA 92093
+                           *Department Biomolecular Chemistry, University Wisconsin-Madison Medical School, 1300
+                           University Avenue. Madison, WI 53706
+                           ^Center Genomics Systems Biology, Department Biology, New York University, 12
+NIH-PA Author Manuscript
+
+
+
+
+                           Waverly Place, 8th Floor, New York, NY 10003
+                            Department Genetics, University Texas MD Anderson Cancer Center, 1515
+                           Holcombe Blvd, Unit 1010, Houston, TX 77030
+                           #Dept. Molecular Cellular Biology, College Biological Sciences, University California,
+                           Davis, Shields Avenue, Davis, CA 95616
+                           §Department Genetics, Washington University School Medicine, Saint Louis, Missouri,
+                           63110 Washington University, St. Louis, MO
+                           °Max Planck Institute Molecular Cell Biology Genetics, Pfotenhauerstrasse 108, 01307
+                           Dresden, Germany
+                           ‡ Skaggs Institute Chemical Biology Department Chemical Physiology, Center
+                           Physiological Proteomics, Scripps Research Institute, La Jolla, CA 92037
+
+                           SUMMARY
+                                 High-content screening gene profiling generally limited single cells.                                   explore alternative approach—profiling gene function analyzing effects gene
+NIH-PA Author Manuscript
+
+
+
+
+                                 knockdowns architecture complex tissue multicellular organism. profile 554
+                                 essential C. elegans genes imaging gonad architecture scoring 94 phenotypic features.                                  generate reference evaluating methods network construction, genes manually
+                                 partitioned 102 phenotypic classes, predicting functions uncharacterized genes 
+
+                           © 2011 Elsevier  rights reserved.
+                           †
+                             Corresponding authors: Karen Oegema, Phone: (858) 534-9576, Fax: (858) 534-7750, koegema@ucsd.edu & Kristin Gunsalus,
+                           Phone: (212) 998-8236, Fax: (212) 992-4015, kcg1@nyu.edu.
+                            authors contributed equally
+                           Author Contributions: Conceived designed experiments: KO, AD, RG, AA. Performed experiments: RG, AA, SN, SA, TS,
+                           SW, HF, DS, JM. Scored data: AA, RG, KO. Manually partitioned genes classes: RG, KO. Reworked Phenobank                            include gonad morphology data: SS, RG, KO, AH. Developed N-Browse: HK, MS, FP, KG. Developed CSI: KO, RG, HK, MS,
+                           FP, KG. Conceptualized performed network analysis: HK, FP, KG. Contributed reagents/materials/analysis tools: KO, RG, AA,
+                           SN, KL, SA, TS, AD, HK, MS, KG, FP, HF, DS.
+                           Publisher's Disclaimer: PDF file unedited manuscript accepted publication. service                            customers providing early version manuscript. manuscript undergo copyediting, typesetting, review                            resulting proof published final citable form. note production process errors                            discovered affect content, legal disclaimers apply journal pertain.
+                            Green et al.                                                                                                  Page 2
+
+
+                                    diverse cellular processes. Using classification benchmark, developed robust
+                                    computational method constructing gene networks high-content profiles based                                     network context-dependent measure ranks significance links genes. NIH-PA Author Manuscript
+
+
+
+
+                                    analysis reveals multi-parametric profiling complex tissue yields functional maps                                     resolution similar genetic interaction-based profiling unicellular eukaryotes—pinpointing
+                                    subunits macromolecular complexes components functioning common cellular
+                                    processes.
+
+
+                              INTRODUCTION
+                                              major challenge post-genomic era translate parts lists generated genome
+                                              sequencing maps pathways execute cellular processes. Approaches                                               combine systematic gene inhibition functional tests span continuum single
+                                              readout assays complex assays interrogate broad spectrum cellular processes.
+                                              single readout assays identify pathways impact specific process (Mathey-
+                                              Prevot Perrimon, 2006), complex assays used construct functional networks
+                                              collections genes diverse cellular roles. approaches emerged                                               distilling complex phenotypes phenotypic profiling: genetic interaction profiling                                               high-content screening. methodologies distinct, strategies translate                                               consequences inhibiting gene activity phenotypic profiles compared NIH-PA Author Manuscript
+
+
+
+
+                                              generate map functional relationships genes (Boone et al., 2007; Collins et
+                                              al., 2009; Conrad Gerlich, 2010; Piano et al., 2002; Sönnichsen et al., 2005).
+
+                                              Genetic interaction profiling pioneered budding yeast, using comprehensive
+                                              deletion library non-essential genes collections hypomorphic alleles essential
+                                              genes (Boone et al., 2007; Collins et al., 2009). Genetic interaction profiling captures                                               consequences inhibiting gene measuring effect growth rate pairwise
+                                              inhibitions genes collection. analysis generates
+                                              quantitative interaction profiles gene clustered reveal functionally
+                                              significant relationships. genome-scale genetic interaction map recently constructed
+                                              S. cerevisiae (Costanzo et al., 2010), maps generated subsets                                               gene implicated specific processes RNA processing, chromosome biology,
+                                              proteasome function, secretory pathway (Breslow et al., 2008; Collins et al., 2007;
+                                              Schuldiner et al., 2005; Wilmes et al., 2008).
+
+                                              metazoans, genetic interaction profiling difficult implement comprehensive
+                                              libraries deletion/hypomorphic strains exist developing reproducible high-
+                                              throughput methods quantify fitness formidable barrier (Gunsalus, 2008).
+                                              Consequently, high-content screening primary method mapping functional gene
+NIH-PA Author Manuscript
+
+
+
+
+                                              networks animal cells. high-content screen, light microscopy used assess
+                                              phenotypes arising gene inhibition RNA-mediated interference, phenotype
+                                              captured scoring large parameter set (Conrad Gerlich, 2010). depth                                               phenotypic profile based biological complexity assay nature                                               accuracy parameter scoring. date, requirement high-resolution imaging                                               generally limited high-content screening single cells early embryos.
+
+                                              C. elegans prototype metazoan functional mapping essential genes
+                                              (Piano et al., 2006). C. elegans ~20,000 genes, ~2,500 essential embryo
+                                              production viability (WormBase release WS210; Harris et al., 2010). set                                               pioneering high-content screens, time-lapse Differential Interference Contrast (DIC)
+                                              microscopy used film early divisions embryos following individual inhibitions
+                                              specific subsets C. elegans genes (Gönczy et al., 2000; Piano et al., 2000; Zipperlen et
+
+
+
+                                                       Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                               Page 3
+
+
+                                          al., 2001). extended genome screen generated high-content
+                                          phenotypic profiles ~500 essential genes (Sönnichsen et al., 2005). profiles                                           combined protein-protein interaction expression profiling data create 
+NIH-PA Author Manuscript
+
+
+
+
+                                          generation integrative map linked 305 essential C. elegans genes “multiple support�?
+                                          network grouped genes modules involved specific processes including spindle
+                                          assembly, chromosome segregation, nuclear envelope dynamics, cortical dynamics,                                           centrosome function (Gunsalus et al., 2005). Despite success studies, large
+                                          collection essential genes profiled inhibition results sterility
+                                          treated worm.  554 genes “sterile�? collection, control
+                                          fundamental cellular processes membrane trafficking, translation, proteasome
+                                          function, cortical remodeling, largely absent analysis.
+
+                                          gap analysis C. elegans essential gene set, profiled 554 sterile
+                                          genes imaging syncytial gonad architecture high-resolution following gene knockdown
+                                          scoring 94 phenotypic parameters. generate reference evaluating computational
+                                          methods network construction, genes manually partitioned 102 phenotypic
+                                          classes, predicting functions 106 116 uncharacterized genes collection.
+                                          Using manual classification benchmark, developed robust computational
+                                          method constructing gene networks high-content profiles based network
+                                          context-dependent measure ranks significance functional links genes.
+                                          method allowed integrate data prior high-content embryo-
+NIH-PA Author Manuscript
+
+
+
+
+                                          filming dataset generate network representation 818 essential C. elegans genes                                           viewed multiple levels functional resolution.
+
+                              RESULTS
+                              Phenotypic Profiling Based Morphology Complex Tissue: C. elegans
+                              Gonad
+                                          900 C. elegans genes required embryo production early
+                                          embryonic cell divisions (Sönnichsen et al., 2005); collection includes majority                                           genes essential basic processes common cells. inhibition leads                                           sterility, 554 genes profiled embryo filming. 554 sterile
+                                          genes, 166 unnamed, indicating prior characterization (Fig. 1A). unnamed
+                                          gene, determined predicted product member KOG (eukaryotic
+                                          orthologous group; Tatusov et al., 2003) used Ensembl database determine                                           orthologs species. 166 unnamed genes, 50 characterized orthologs                                           predicted function C. elegans protein (Unnamed-Group Table S2).                                           remaining 116 members KOGs unknown function, predicted
+                                          orthologs, multiple C. elegans paralogs (Unnamed-Group II Table S2); refer NIH-PA Author Manuscript
+
+
+
+
+                                          116 genes “uncharacterized�? (Fig 1A).
+
+                                          profile 554 sterile genes, developed high-content assay based 3D color
+                                          fluorescence confocal imaging gonad, complex tissue adult C. elegans
+                                          hermaphrodite (Fig. 1B). syncytial gonad contains ~1000 meiotic nuclei cup-shaped
+                                          compartments open common cytoplasmic core. Compartments mature oocytes                                           progress distal tip proximal region gonad adjacent                                           spermatheca. Gonad maturation maintenance involves broad spectrum basic cellular
+                                          processes (Fig. 1C), making tissue attractive substrate high-content profiling.
+                                          Gonad architecture analyzed strain expressing fluorescent markers target                                           plasma membrane (GFP fusion binds PI4,5P2) chromosomes (mCherry-histone
+                                          H2B). Hermaphrodites soaked dsRNA target gene 24 hours beginning
+                                          late L4 larval stage, gonad achieved complement nuclei
+
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                           Page 4
+
+
+                                          (Kimble Crittenden, 2005). 48 hours recovery, gonad architecture assessed                                           triplicate anesthetizing worms imaging gonad worm.
+NIH-PA Author Manuscript
+
+
+
+
+                                          Binary phenotypic profiles generated scoring set 3 image stacks target
+                                          gene 94 possible defects. movie set gene inspected 94
+                                          defects (Fig. 1D; complete list examples Table S1), assigning “0�?                                           defect absent “1�? defect present 2 3 movies.                                           image stacks analyzed pair individuals, viewed scored                                            image stacks indexed RNA number, making analysis blind gene
+                                          identity. 24 cases movies consistent, experiment                                           repeated  Fig. S1, Suppl. Experimental Procedures, Table S6 details screen
+                                          design scoring methods).
+
+                              Generation Benchmark Constructing Gene Networks Based Gonad Architecture
+                              Phenotypes
+                                          Initial attempts using raw parameter dataset automated clustering broadly grouped
+                                          genes, failed partition resolution similar achieved                                           blinded manual classification experienced investigator. develop better
+                                          computational method, began manually partitioning genes classes generate
+                                          reference use evaluate computational methods network construction.
+                                          Manual partitioning placed 554 sterile genes 102 phenotypic classes (Table S2
+NIH-PA Author Manuscript
+
+
+
+
+                                          contains description, sample image, gene list class). organizational
+                                          purposes, 102 classes grouped 29 broad categories (labeled  AA, AB                                           AC) contain classes sharing prominent defects. Movies class
+                                          designations accessed Phenobank website
+                                          (http://worm.mpi-cbg phenobank_gonad).
+
+                                          manually defined phenotypic classes contained characterized genes common
+                                          annotated molecular functions (Fig. 1E), indicating similar gonad architecture
+                                          phenotypes reflect similar molecular functions. Manual partitioning placed 106 116
+                                          uncharacterized genes phenotypic classes containing characterized genes, leading                                           predictions functions. Prior using manually defined classes benchmark                                           optimize computational methods network analysis, validated functional
+                                          predictions arising classification following 8 uncharacterized genes 5
+                                          classes.
+
+                                          class (E2) predicted role T09E8.1 microtubule cytoskeleton (Fig. 2A).
+                                          Unlike class E2 genes, partial T09E8.1 inhibition did lead defects early
+                                          embryonic cell divisions  shown). dividing cells, microtubule cytoskeleton NIH-PA Author Manuscript
+
+
+
+
+                                          organized centrosomes, gonad dominated non-centrosomal microtubule
+                                          arrays (Zhou et al., 2009).  hypothesized T09E8.1 specifically required                                           non-centrosomal microtubule array formation. Hypodermal cells, born late                                           embryogenesis, non-centrosomal microtubule arrays function nuclear
+                                          positioning (Fridolfsson Starr, 2010). Partial T09E8.1 inhibition hypodermis led
+                                          defects nuclear positioning (Fig. 2B), ~3 fold reduction number                                           increase length GFP-EBP-1 “comets�? mark growing microtubule ends
+                                          (Fig. 2C). conclude T09E8.1, noca-1  non-centrosomal array),
+                                          plays important role organization non-centrosomal microtubule arrays                                           gonad hypodermis.
+
+                                          second class (G1) predicted role F54D12.5 DAF-21, hsp90-family
+                                          chaperone, MAPK signaling pathway (Fig. 2D). tested predictions using                                           genetic test. Worms homozygous reduction function allele mpk-1(ga111) exhibit
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                           Page 5
+
+
+                                          normal gonad morphology, phosphorylated MPK-1 levels, readout                                           pathway activity, reduced compared controls (Fig. 2E,F; Lee et al., 2007). Partial
+                                          knockdown daf-21 F54D12.5, conditions did result morphological
+NIH-PA Author Manuscript
+
+
+
+
+                                          phenotype control worms, led strong MAPK knockdown phenotype                                           mpk-1(ga111) background (Fig. 2E,F; Fig. S2, Table S3). RNAi daf-21 reduced
+                                          phosphorylated MPK-1 levels control let-60 gain function worms (Fig. 2E,F;
+                                          Table S3), indicating DAF-21 acts level downstream LET-60/Ras                                           MAPK pathway (Fig. 2G). F54D12.5 RNAi did reduce phosphorylated MPK-1 levels,
+                                          F54D12.5 contains 2 potential MPK-1 docking sites suggesting MPK-1
+                                          substrate (Fig. 2G). conclude DAF-21 F54D12.5 function different points                                           MAPK signaling pathway F54D12.5, eom-1, enhancer mpk-1(ga111).
+
+                                          class (S2) predicted roles uncharacterized proteins anaphase-
+                                          promoting complex/cyclosome (APC/C; Fig. 3A). Immuno-affinity purification                                           uncharacterized gene product, K10D2.4, C. elegans extracts followed mass
+                                          spectrometry recovered seven APC components (Fig. 3B). product                                           uncharacterized Class S2 gene, C09H10.7, recovered—indicating                                           K10D2.4 C09H10.7 APC/C subunits. K10D2.4 recently identified                                           metazoan-specific component APC/C (Hubner et al., 2010; Hutchins et al., 2010;
+                                          Kops et al., 2010) gene named emb-1/apc-16. C09H10.7, apc-17.
+NIH-PA Author Manuscript
+
+
+
+
+                                          fourth class (F2) predicted role BTB-domain containing protein C08C3.4                                           cortical remodeling/cytokinesis (Fig. 3C). GFP fusion C08C3.4 localized                                           contractile ring tip cleavage furrow dividing embryos (Fig. 3D), embryos
+                                          partially depleted C08C3.4 exhibited cytokinesis defects (Fig. 3E). conclude                                           C08C3.4 required cortical remodeling gonad cytokinesis embryos                                           gene cyk-7.
+
+                                          fifth class (I2) phenotype included debris labeled plasma membrane probe,
+                                          suggesting role membrane trafficking (Fig. 3F). tested trafficking function                                           imaging compartment boundaries strain expressing mCherry labeled plasma
+                                          membrane probe GFP fusion SNB-1, SNARE trafficked                                           endomembrane delivered plasma membrane (Fig. 3G). Compartment
+                                          boundaries control worms SNB-1-GFP plasma membrane probe                                           yellow. Trafficking defects prevent SNB-1-GFP reaching plasma membrane,
+                                          leading red compartment boundaries. 8 15 Class I2 genes, including F27C8.6                                           T01B7.6, exhibited defects SNB-1 assay (Fig. 3G). F27C8.6 T01B7.6
+                                          trcs-1 trcs-2, respectively, (transport cell surface).
+NIH-PA Author Manuscript
+
+
+
+
+                                          follow work classes demonstrates gonad architecture sufficient
+                                          resolution functionally classify genes broad spectrum essential cellular
+                                          functions. validates manual classification, establishing benchmark                                           evaluating computational methods network construction.
+
+                              Development Network Context-Dependent Method Evaluate Significance                               Functional Links Genes Based High-Content Phenotypic Profiles
+                                          initial efforts using automated clustering unable partition genes resolution
+                                          comparable achieved experienced investigator. circumvent                                           limitation, used manually-defined classes tool develop robust computational
+                                          method constructing gene networks based high-content parameter profiles.                                           compared phenotypic profiles calculating Pearson’s Correlation Coefficient
+                                          (PCC) pair genes. resulting network visualized using N-Browse,                                           interactive Java-based tool (Kao Gunsalus, 2008), display connections genes
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                              Page 6
+
+
+                                          profiles correlated PCC greater equal specified threshold
+                                          (Fig. 4A,B; dark blue lines connecting grey gene nodes). assess effectiveness                                           approach, circled gene clusters corresponded manually-defined classes. NIH-PA Author Manuscript
+
+
+
+
+                                          approach revealed optimal PCC threshold viewing functionally relevant
+                                          connections (red outlined boxes Fig. 4B) varied substantially different network
+                                          neighborhoods. variability varying nature profiled phenotypes                                           extent captured parameter set, extent scored
+                                          parameters related versus independent, fact profiles features                                           exhibit variance. Viewing entire network single PCC threshold possible
+                                          regions threshold low view cluttered non-specific
+                                          connections (Fig 4B, images right red boxed images), regions                                           threshold high, yielding network meaningful connections                                           absent (Fig. 4B, images left red boxed images).
+
+                                          circumvent limitations PCC-based analysis, developed measure ranks                                           significance functional links genes based network context. pair                                           genes B, assigned Connection Specificity Index (CSI)  1) calculating                                           PCC connections B genes dataset, 2)
+                                          counting number genes connected B PCC ≥ PCCAB μ 0.05  e. level
+                                          comparable better correlation B, correlations PCC                                           0.05 PCCAB considered similar offset determined empirically); 3)
+NIH-PA Author Manuscript
+
+
+
+
+                                          dividing number total number genes screen (554); 4) subtracting                                           result 1.0 (Fig. 4C). CSI equivalent fraction genes dataset                                           profiles similar B profile profile B.                                           example, CSI 0.97 means similarity B highly specific:                                           ~3  gene knockdowns profiles comparable higher similarity                                           B. CSI scales uniformly functional significance entire network,
+                                          connections similar level significance simultaneously displayed single
+                                          CSI threshold (Fig. 4D).
+
+                                          evaluated performance CSI PCC threshold networks comparing ability
+                                          automated clustering algorithm   Module Identification NEtworks; K.
+                                          Rhrissorrakrai K.C. Gunsalus, press) identify gene clusters corresponding                                           manually-defined classes. analysis revealed useful range                                           parameters, networks generated using CSI thresholds ~3-fold fewer connections                                           comparable PCC networks; noise reduction translates substantial improvement                                           ability automated algorithm identify functionally relevant gene clusters (Fig.
+                                          4E,F; Fig. S3). Approximately half manually-defined classes containing 4                                           genes identified automated clustering network constructed using single
+NIH-PA Author Manuscript
+
+
+
+
+                                          CSI threshold 0.96, 14  identified comparable PCC network
+                                          (Fig. 4F). allowed search networks spanning range CSI thresholds
+                                          (0.90 0.99), clusters corresponding ~90  manually-defined classes                                           identified, compared 65  networks spanning range PCC thresholds (0.5–1). Heat
+                                          map dendograms revealed sharply defined clusters using CSI, indicating
+                                          CSI increases network clarity (Fig. 4G; Table S4).
+
+                                          conclude constructing networks using CSI thresholds circumvents variability                                           significance strict correlation measure different network regions arises                                           complexity high-content screening parameters. Using CSI instead PCC
+                                          reduces connection noise allows connections similar functional significance                                           viewed entire network single threshold.
+
+
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                          Page 7
+
+
+                              Varying CSI Threshold Reveals Functional Modularity Gene Network Different
+                              Levels Resolution
+                                          CSI-based network representation allows exploration functional modularity NIH-PA Author Manuscript
+
+
+
+
+                                          different levels resolution. point illustrated region gene network
+                                          involved protein production (Fig. 5A): relatively low threshold CSI 0.90 connects                                           entire set genes involved protein translation, mRNA splicing, protein folding                                           dense meshwork. intermediate CSI threshold 0.93 results sparser network                                           specific connections defines smaller gene groups. high CSI threshold 0.97,                                           chaperonins, tRNA synthetases, translation initiation/elongation factors, small ribosome
+                                          subunits, large ribosome subunits, splicing factors resolved separate clusters.
+                                           dialing CSI reveals functional relationships different levels                                           resolution. automated clusters identified different CSI thresholds                                           provided supplement (Table S5; note genes multiple clusters).
+
+                                          assessed resolution limit gonad architecture assay using region                                           network representing genes involved protein degradation (Fig. 5B, Fig. S4).                                           high CSI threshold 0.99, connections remained linked genes specific
+                                          proteasome subcomplexes  Lid, core β-ring, core α-ring 19S ATPase base;
+                                          Fig. 5B). conclude phenotypic profiling based complex tissue architecture,
+                                          coupled automated construction CSI-based networks parameter profiles,                                           capable correctly assigning fine distinctions protein function.
+NIH-PA Author Manuscript
+
+
+
+
+                              CSI-Enabled Integration High-Content Data Sets Generates Global View C.
+                              elegans Essential Gene Network
+                                           gonad architecture (554 genes) time-lapse embryo filming (661 genes)
+                                          screens provide high-content profiles 885 essential genes (330 profiled                                           screens). CSI ideally suited integrating datasets filters low
+                                          specificity phenotypic links, leading network combines significant
+                                          relationships identified screens. binarized phenotypic signatures                                           embryo timelapse screen, based scoring 45 possible defects (Sönnichsen
+                                          et al., 2005), calculated CSI gene pair, simultaneously displayed data
+                                          sets N-Browse create integrated network. merged network, network regions
+                                          centered genes  viewed CSI threshold N-Browse (instructions
+                                          demo video describing use N-Browse accessed                                           http://worm.mpi-cbg phenobank_gonad/nbrowse). CSI threshold 0.96,                                           integrated network 3382 high significance connections linking 818 genes (Fig. 6A–C).
+                                          combined view provides functional information ~90  genes required                                           embryo production embryonic divisions. Despite presence 330 genes
+NIH-PA Author Manuscript
+
+
+
+
+                                          common, relationships identified datasets highly orthogonal 23
+                                          total 3382 phenotypic links shared (Fig. 6A). lack overlap explained                                           majority 330 common genes failing make high-significance connections                                           embryo time-lapse screen sterility onset (Fig. S5). Overall, CSI-based network
+                                          integrates information acquired biologically distinct contexts gonad embryo
+                                          provide multi-layered view function 818 genes required essential cellular
+                                          processes multicellular organism.
+
+                              DISCUSSION
+                                          High-content screening primary method mapping functional gene networks                                           animal cells (Collins et al., 2009; Conrad Gerlich, 2010; Gunsalus, 2008). number                                           high-content screens classified genes based cell morphology following gene
+                                          knockdown (examples include Bakal et al., 2007; Echard et al., 2004; Eggert et al., 2004;
+
+
+                                                  Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                             Page 8
+
+
+                                          Goshima et al., 2007; Liu et al., 2009; Neumann et al., 2010; Piano et al., 2002; Sönnichsen
+                                          et al., 2005). successful identifying genes contribute cell division                                           morphology, ability screens assess protein function breadth NIH-PA Author Manuscript
+
+
+
+
+                                          cellular processes falls far short attained using genetic interaction profiling
+                                          fungi. Screen resolution ability discriminate different biological
+                                          functions—depends information content phenotypic assay;                                            approach enhance resolution time-lapse imaging (Conrad Gerlich, 2010).
+                                           explored alternative approach—analyzing effects gene knockdowns                                           complex tissue architecture single timepoint multicellular organism. monitored
+                                          C. elegans gonad architecture following gene knockdown scoring 94 phenotypic features.
+                                          results demonstrate biological complexity gonad translates                                           phenotypes enable profiling wide spectrum essential cellular processes                                           resolution approaching genetic interaction profiling yeasts.
+
+                              Sterile Gene Collection: Prominent Gap Functional Genomic Analysis                               C. elegans Essential Gene Set
+                                          Sequencing C. elegans genome discovery RNAi catalyzed efforts                                           systematically catalog functions predicted genes (Piano et al., 2006). C. elegans
+                                          ~900 essential genes required embryo production events                                           embryonic divisions. subset genes previously characterized time-lapse
+                                          imaging early embryos (Fraser et al., 2000; Gönczy et al., 2000; Piano et al., 2002;
+NIH-PA Author Manuscript
+
+
+
+
+                                          Sönnichsen et al., 2005).  sterility onset following RNAi major complication
+                                          precluded depth characterization large number genes. efforts focused                                           554 sterile genes, profiled imaging gonad architecture following RNAi
+                                          knockdowns generating parameterized description resulting phenotypes.
+
+                                          analysis generated functional predictions 106 116 uncharacterized sterile
+                                          genes. predictions span variety cellular processes including membrane
+                                          trafficking, glycosylation, fatty acid synthesis, cortical dynamics, chromosome structure/
+                                          segregation, RNA splicing, mitochondrial function, microtubule cytoskeleton, proteasome
+                                          function, translation, MAPK signaling, transcription, RNA binding, metaphase-
+                                          anaphase transition. validated predictions 8 genes play important roles                                           microtubule cytoskeleton, MAP kinase signaling, metaphase-anaphase transition,
+                                          cortical remodeling/cytokinesis, membrane trafficking. gonad used                                           “test tube�? functionally profile genes, subsequent work early later stage
+                                          embryos indicates majority essential genes collection broadly
+                                          important. 554 sterile genes, ~60  predicted homologs higher organisms,                                           50  106 uncharacterized genes predicted homolog conserved
+                                          domain.  addition filling large gap analysis C. elegans essential
+NIH-PA Author Manuscript
+
+
+
+
+                                          gene set, findings provide starting point address functions related genes                                           humans.
+
+                              High-Resolution Phenotypic Profiling Based Morphology Complex Tissue
+                                          original motivation screen profile sterile gene set, fortuitous
+                                          byproduct realization complex tissue, structure depends                                           dynamic coordination broad spectrum cellular processes, ideal substrate                                           phenotypic profiling. major finding work profiles based complex tissue
+                                          architecture acquired single time point following gene knockdown greater
+                                          information depth profiles derived timelapse imaging divisions                                           early embryo  single cell). example, shown Figure 5, gonad data partitions
+                                          set genes involved protein production 15 different classes (chaperones,
+                                          ribosome components, tRNA synthetases, proteins involved protein folding, splicing
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                             Page 9
+
+
+                                          components ) distinctions based embryo filming
+                                          data. high level resolution generally holds dataset.
+NIH-PA Author Manuscript
+
+
+
+
+                                          note means inferring function single point morphology assay distinct
+                                          used embryo-filming screen. embryo screen, gene function                                           inferred directly phenotype. example, defects spindle assembly, chromosome
+                                          segregation, polarity establishment led assignment classes implicated                                           corresponding processes (Sönnichsen et al., 2005). contrast, link cataloged
+                                          phenotypic features gonad architecture assay gene function direct                                           know knockdown genes specific functions lead specific spectrum                                           phenotypic features. Instead, protein function inferred comparing profile                                           phenotypic features genes dataset, process conceptually analogous
+                                          function inferred genetic interaction profiles budding yeast.
+
+                                          presence proteasome components dataset offered opportunity compare
+                                          resolution approach genetic interaction profiling yeast. proteasome                                           2.5-MDa macro-molecular machine contains 30 different subunits organized                                           20S core complex, composed α β rings, 19S regulatory particle, containing base
+                                          lid sub-complexes (Bochtler et al., 1999). yeast, distinct genetic interaction profiles
+                                          obtained subunits proteasome sub-complexes using sensitive
+                                          competitive growth assay (Breslow et al., 2008). CSI ≤ 0.99  high-stringency filter),
+NIH-PA Author Manuscript
+
+
+
+
+                                          connections remained subunits specific proteasome subcomplexes
+                                          (α ring, β ring, lid base; Fig. 5B). observation indicates phenotypic profiles based
+                                          gonad morphology provide resolution sufficient group subunits specific proteasome
+                                          subcomplexes.
+
+                                          core dataset profiles composed parameters visually scored                                           experienced investigators acquired automated image analysis. Given                                           complexity substrate 3 dimensional tissue living organism variably
+                                          positioned worm large spectrum knockdown phenotypes entirely
+                                          change properties structure (gonad size, shape, position, compartment nuclei
+                                          number morphology) automated parameter scoring exceedingly
+                                          difficult.  exact properties make automated analysis difficult varied
+                                          dramatic effects gene knockdowns gonad architecture                                           properties assay profiling power. manual parameter scoring                                           introduce bias, minimized performing analysis blinded gene identity
+                                          fact individual parameters scored investigators largely
+                                          oblivious larger patterns ultimately emerge.
+NIH-PA Author Manuscript
+
+
+
+
+                              Robust Computational Method Constructing Gene Networks High-Content
+                              Screening Data
+                                          evaluating computational methods network construction using validated manual
+                                          classification rich phenotypic dataset, able devise robust computational
+                                          method constructing gene networks high-content phenotypic profiles. method
+                                          overcomes challenges encountered network analysis high-content datasets.                                           challenge level profile correlation significant varies different
+                                          network regions varying nature profiled phenotypes extent                                           captured parameter set. second challenge commonly encountered
+                                           informative) phenotypes generate “hairball�? connections                                           obscures meaningful functional links. center method developed                                           overcome challenges simple metric CSI, network context-
+                                          dependent measure ranks significance functional links genes. Compared
+                                          Pearson’s Correlation Coefficient, constructing networks based CSI reduces
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                        Page 10
+
+
+                                          non-specific connection noise, improves network clarity, allows connections similar
+                                          functional significance simultaneously viewed entire network single
+                                          threshold.
+NIH-PA Author Manuscript
+
+
+
+
+                                          Ranking connection significance allows exploration gene network different levels
+                                          functional resolution integration high-content screening data different
+                                          sources. demonstrate usefulness CSI using integrate high-content
+                                          data gonad architecture screen prior embryo-filming screen,                                           generate integrated network provides multi-layered view 818 genes C.
+                                          elegans essential gene set. phenotypic profiles datasets composed                                           parameters visually scored measured automated image
+                                          analysis.  constructing networks based phenotypic profiles faces                                           challenges, regardless parameters scored manual automated
+                                          means. Consequently, anticipate CSI-based method described                                           equal utility analyzing integrating datasets composed parameters acquired                                           automated analysis.
+
+                              EXPERIMENTAL PROCEDURES
+                              C. elegans Strains
+                                          Strains listed Table S7. strains OD95, UD299, DP38, OD70, MSN142, NL2098,
+NIH-PA Author Manuscript
+
+
+
+
+                                          BS3623 previously described (Arur et al., 2009; Essex et al., 2009, Fridolfsson                                           Star, 2010; Kachur et al., 2008; Maduro Pilgrim, 1995; Shi et al., 2010; Sijen et al.,
+                                          2001). OD447 generated using PDS-1000 Biolistic Particle Delivery                                           (Bio-Rad Laboratories; Praitis et al., 2001) bombard construct containing C08C3.4
+                                          genomic locus cloned SpeI site pIC26 (Cheeseman et al., 2004) DP38.
+                                          OD449 generated mating OD447 OD70.
+
+                              RNA Production
+                                          Templates dsRNA production generated using primers tails containing                                           T3 T7 promoters amplify amplify 500–1000 bp region corresponding gene
+                                          genomic DNA. possible, oligo pairs used Sönnichsen et al. (2005)                                           chosen. New oligos designed genes Sönnichsen screen                                           Sönnichsen oligo pairs amplified introns regions smaller larger 500–1000 bp
+                                          (oligos listed Table S2). PCR reactions cleaned (PerfectPrep 96 kit; Eppendorf)
+                                          used templates T3 T7 transcription reactions (Megascript T3 T7 kits,
+                                          Ambion). Transcription reactions mixed, cleaned (MegaClear96 kit, Ambion),                                           annealed adding 3x Soaking buffer (32.7 mM Na2HPO4, 16.5 mM KH2PO4, 6.3 mM
+NIH-PA Author Manuscript
+
+
+
+
+                                          NaCl, 14.1 mM NH4Cl) final concentration 1X incubating reactions 68°C
+                                          10 minutes followed 37°C 30 minutes.
+
+                              RNA Interference
+                                          Larval (L4 stage) worms strain OD95 rinsed M9 soaked 5 μl                                           dsRNA (supplemented 0.5 μl 50/50 mixture 63 mM spermidine 1.1  
+                                          gelatin) 24 hrs 20 °C inside humid chamber. Worms transferred NGM plates
+                                          seeded OP50 E. coli allowed recover 20°C 48 hrs prior imaging.
+
+                              Live Imaging
+                                          worms anesthetized fresh mixture 1 mg/ml Tricane (ethyl 3-aminobenzoate
+                                          methanesulfonate salt) 0.1 mg/ml tetramisole hydrochloride (TMHC) dissolved                                           M9 15–30 minutes transferring agarose pad coverslip                                           imaging. Gonads imaged collecting 80 x 0.5μm series including DIC, GFP 
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                        Page 11
+
+
+                                          RFP images plane. Microscopy performed spinning disk confocal
+                                          mounted Nikon TE2000-E inverted microscope equipped 60x 1.4 NA
+                                          PlanApochromat lens, krypton-argon 2.5 W water-cooled laser (Spectra-Physics,
+NIH-PA Author Manuscript
+
+
+
+
+                                          Mountain View, CA) Hamamatsu Orca ER CCD camera. Acquisition parameters,
+                                          shutters, focus controlled MetaMorph software (Molecular Devices,
+                                          Downington, PA).
+
+                              Sterility Assessment
+                                          time worms cohort anesthetized imaged, 3 worms
+                                          moved fresh plate. 24 hours 20°C, number embryos L1 progeny
+                                          plate counted. gene “sterile�? embryos L1 larvae observed,
+                                          “partially sterile�? <50 embryos/L1 worms present, “wild-type�? >50 embryos/
+                                          L1 worms present. additional 24 hours, assessed knockdown
+                                          resulted embryonic lethality. >50 L1-L2 larvae present, considered
+                                          “viable�?, <50 L1-L2 larvae present >5 dead embryos,                                           considered “embryonic lethal�?.
+
+                              Antibody Production
+                                          Antibodies K10D2.4 generated using oligos
+                                          cgcgcgggatccgctttgatgtacccattcca gcgcgcgaattctcaaggatttgcaggcatattt amplify region
+NIH-PA Author Manuscript
+
+
+
+
+                                          encoding amino acids 2–81 cDNA library. product digested Bam HI/
+                                          EcoRI cloned pGEX6P-1 digested enzymes (GE Healthcare Life
+                                          Sciences). purified GST fusion protein outsourced injection rabbits
+                                          (Covance). Antibodies affinity purified binding columns antigen
+                                          removal GST tag described previously (Desai et al., 2003).
+
+                              Immunoprecipitation Mass Spectrometry
+                                          K10D2.4 immunoprecipiated extracts prepared frozen worm pellets (Desai et
+                                          al., 2003) mass spectrometry performed (Cheeseman et al., 2004) described,
+                                          using recent version predicted C. elegans proteins (Wormprep111).
+
+                              Hypodermal Cell Experiments, MAP Kinase Experiments, Membrane Trafficking Assay
+                                          Figure 2C, embryos produced adult hermaphrodites strain UD299                                           imaged described (Fridolfson Starr, 2010), 20 hours injection dsRNA                                           T09E8.1 gonad. Nuclear migration scored L1 larvae using DIC optics                                           described (Starr et al., 2001). attenuated RNAi, gonad dissection, immunofluorescence,
+                                          gonad analysis Figure 2E F (Arur et al., 2009) GFP-SNB-1 trafficking
+NIH-PA Author Manuscript
+
+
+
+
+                                          assay (Shi et al., 2010) performed described.
+
+                              Phenobank N-Browse
+                                          Movies accessed Phenobank website
+                                          (http://worm.mpi-cbg phenobank_gonad) RNAiDB (http://www.rnai.org).
+                                          Written instructions demo video explaining search Phenobank                                           http://worm.mpi-cbg phenobank_gonad/project. Written instructions demo video
+                                          describing visualize gene network N-Browse2                                           http://worm.mpi-cbg phenobank_gonad/nbrowse. described instructions, gonad
+                                          embryo data viewed N-Browse2 entering URL
+                                          http://gnetbrowse.org/gonad.jnlp browser providing password
+                                          “phenotypes�? prompt. Additional information N-Browse, including                                           requirements tutorials, http://www.gnetbrowse.org.
+
+
+
+                                                  Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                                       Page 12
+
+
+                              Automated clustering using                                           (Module Identification Networks) graph clustering algorithm shows
+                                          comparable better performance compared similar algorithms identifying
+NIH-PA Author Manuscript
+
+
+
+
+                                          functional modules dense interaction networks (K. Rhrissorrakrai K.C. Gunsalus,                                           press).  similar MCODE (Bader Hogue, 2003) uses modified
+                                          weighting scheme takes account network modularity, available Cytoscape
+                                          plug http://www.cytoscape.org Perl package  request authors).
+
+                              Supplementary Material
+                                          Refer Web version PubMed Central supplementary material.
+
+
+                              Acknowledgments
+                                          work supported grants American Cancer Society (PF-06-254-01-CCG, RG), Helen Hay
+                                          Whitney Foundation  AA), NIH (R01 GM074207 KO, R01 HD046236, KCG FP; R01
+                                          GM085503, KCG; R01 GM085150 TS; R01 GM088151 AA) funding Ludwig Institute                                           Cancer Research KO AD. thank Kahn Rhrissorrakrai algorithm, Michael Volkmer                                           movie formatting, Caenorhabditis Genetics Center, funded NIH National Center Research
+                                          Resources, strains.
+
+
+                              References
+NIH-PA Author Manuscript
+
+
+
+
+                                          Arur S, Ohmachi M, Nayak S, Hayes M, Miranda  Hay  Golden  Schedl T. Multiple ERK
+                                            substrates execute single biological processes Caenorhabditis elegans germ-line development.
+                                            Proc Natl Acad Sci U S  2009; 106:4776–4781. [PubMed: 19264959]
+                                          Bader GD, Hogue CW. automated method finding molecular complexes large protein
+                                            interaction networks. BMC Bioinformatics. 2003; 4:2. [PubMed: 12525261]
+                                          Bakal C, Aach J, Church G, Perrimon N. Quantitative morphological signatures define local signaling
+                                            networks regulating cell morphology. Science. 2007; 316:1753–1756. [PubMed: 17588932]
+                                          Bochtler M, Ditzel L, Groll M, Hartmann C, Huber R. proteasome. Annu Rev Biophys Biomol
+                                            Struct. 1999; 28:295–317. [PubMed: 10410804]
+                                          Boone C, Bussey H, Andrews BJ. Exploring genetic interactions networks yeast. Nat Rev
+                                            Genet. 2007; 8:437–449. [PubMed: 17510664]
+                                          Boxem M, Maliga  Klitgord N, Li N, Lemmens  Mana M, Lichtervelde L, Mul JD, van Peut
+                                            D, Devos M, et al. protein domain-based interactome network C. elegans early
+                                            embryogenesis. Cell. 2008; 134:534–545. [PubMed: 18692475]
+                                          Breslow DK, Cameron DM, Collins SR, Schuldiner M, Stewart-Ornstein J, Newman HW, Braun S,
+                                            Madhani HD, Krogan NJ, Weissman JS. comprehensive strategy enabling high-resolution
+                                            functional analysis yeast genome. Nat Methods. 2008; 5:711–718. [PubMed: 18622397]
+NIH-PA Author Manuscript
+
+
+
+
+                                          Cheeseman IM, Niessen S, Anderson S, Hyndman F, Yates JR 3rd, Oegema K, Desai  conserved
+                                            protein network controls assembly outer kinetochore ability sustain tension. Genes
+                                            Dev. 2004; 18:2255–2268. [PubMed: 15371340]
+                                          Collins SR, Miller KM, Maas NL, Roguev  Fillingham J, Chu CS, Schuldiner M, Gebbia M, Recht
+                                            J, Shales M, et al. Functional dissection protein complexes involved yeast chromosome
+                                            biology using genetic interaction map. Nature. 2007; 446:806–810. [PubMed: 17314980]
+                                          Collins SR, Weissman JS, Krogan NJ. information knowledge: new technologies defining
+                                              gene function. Nat Methods. 2009; 6:721–723. [PubMed: 19953683]
+                                          Conrad C, Gerlich DW. Automated microscopy high-content RNAi screening. J Cell Biol. 2010;
+                                              188:453–461. [PubMed: 20176920]
+                                          Costanzo M, Baryshnikova  Bellay J, Kim Y, Spear ED, Sevier CS, Ding H, Koh JL, Toufighi K,
+                                              Mostafavi S, et al. genetic landscape cell. Science. 2010; 327:425–431. [PubMed:
+                                              20093466]
+
+
+
+
+                                                    Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                                  Page 13
+
+
+                                          Desai  Rybina S, Muller-Reichert T, Shevchenko  Hyman  Oegema K. KNL-1 directs assembly
+                                              microtubule-binding interface kinetochore C. elegans. Genes Dev. 2003; 17:2421–
+                                              2435. [PubMed: 14522947]
+NIH-PA Author Manuscript
+
+
+
+
+                                          Echard  Hickson GR, Foley E, O’Farrell PH. Terminal cytokinesis events uncovered RNAi
+                                              screen. Curr Biol. 2004; 14:1685–1693. [PubMed: 15380073]
+                                          Eggert  Kiger AA, Richter C, Perlman ZE, Perrimon N, Mitchison TJ, Field CM. Parallel chemical
+                                              genetic genome-wide RNAi screens identify cytokinesis inhibitors targets. PLoS Biol.
+                                              2004; 2:e379. [PubMed: 15547975]
+                                          Essex  Dammermann  Lewellyn L, Oegema K, Desai  Systematic analysis Caenorhabditis
+                                              elegans reveals spindle checkpoint composed largely independent branches. Mol.
+                                              Biol. Cell. 2009; 20:1252–1267.
+                                          Fraser AG, Kamath RS, Zipperlen P, Martinez-Campos M, Sohrmann M, Ahringer J. Functional
+                                              genomic analysis C. elegans chromosome systematic RNA interference. Nature. 2000;
+                                              408:325–330. [PubMed: 11099033]
+                                          Gönczy P, Echeverri C, Oegema K, Coulson  Jones SJ, Copley RR, Duperon J, Oegema J, Brehm
+                                              M, Cassin E, et al. Functional genomic analysis cell division C. elegans using RNAi genes
+                                              chromosome III. Nature. 2000; 408:331–336. [PubMed: 11099034]
+                                          Fridolfsson HN, Starr DA. Kinesin-1 dynein nuclear envelope mediate bidirectional
+                                              migrations nuclei. J Cell Biol. 2010; 191:115–128. [PubMed: 20921138]
+                                          Goshima G, Wollman R, Goodwin SS, Zhang N, Scholey JM, Vale RD, Stuurman N. Genes required
+                                              mitotic spindle assembly Drosophila S2 cells. Science. 2007; 316:417–421. [PubMed:
+                                              17412918]
+NIH-PA Author Manuscript
+
+
+
+
+                                          Gunsalus KC. Caenorhabditis elegans genetic-interaction map wiggles view. J Biol. 2008; 7:8.
+                                              [PubMed: 18341704]
+                                          Gunsalus KC, Ge H, Schetter AJ, Goldberg DS, Han JD, Hao T, Berriz GF, Bertin N, Huang J,
+                                              Chuang LS, et al. Predictive models molecular machines involved Caenorhabditis elegans
+                                              early embryogenesis. Nature. 2005; 436:861–865. [PubMed: 16094371]
+                                          Harris TW, Antoshechkin  Bieri T, Blasiar D, Chan J, Chen WJ, La Cruz N, Davis P, Duesbury
+                                              M, Fang R, et al. WormBase: comprehensive resource nematode research. Nucleic Acids
+                                              Res. 2010; 38:D463–467. [PubMed: 19910365]
+                                          Hubner NC, Bird AW, Cox J, Splettstoesser B, Bandilla P, Poser  Hyman  Mann M. Quantitative
+                                              proteomics combined BAC TransgeneOmics reveals vivo protein interactions. J Cell Biol.
+                                              2010; 189:739–754. [PubMed: 20479470]
+                                          Hutchins JR, Toyoda Y, Hegemann B, Poser  Heriche JK, Sykora MM, Augsburg M, Hudecz O,
+                                              Buschhorn BA, Bulkescher J, et al. Systematic Analysis Human Protein Complexes Identifies
+                                              Chromosome Segregation Proteins. Science. 2010; 328:593–599. [PubMed: 20360068]
+                                          Kachur TM, Audhya  Pilgrim DB. UNC-45 required NMY-2 contractile function early
+                                              embryonic polarity establishment germline cellularization C. elegans. Dev. Biol. 2008;
+                                              314:287–299.
+                                          Kimble, J.; Crittenden, SL. WormBook. Germline proliferation control. C. elegans
+NIH-PA Author Manuscript
+
+
+
+
+                                              Research Community, WormBook. August 15. 2005 http://www.wormbook.org
+                                          Kops GJ, Voet MV, Manak MS, van Osch MH, Naini SM, Brear  McLeod IX, Hentschel DM, Yates
+                                              JR 3rd, van den Heuvel S, et al. APC16 conserved subunit anaphase-promoting
+                                              complex/cyclosome. J Cell Sci. 2010; 123:1623–1633. [PubMed: 20392738]
+                                          Lee MH, Ohmachi M, Arur S, Nayak S, Francis R, Church D, Lambie E, Schedl T. Multiple functions
+                                              dynamic activation MPK-1 extracellular signal-regulated kinase signaling Caenorhabditis
+                                              elegans germline development. Genetics. 2007; 177:2039–2062. [PubMed: 18073423]
+                                          Li S, Armstrong CM, Bertin N, Ge H, Milstein S, Boxem M, Vidalain PO, Han JD, Chesneau  Hao
+                                              T, et al. map interactome network metazoan C. elegans. Science. 2004; 303:540–
+                                              543. [PubMed: 14704431]
+                                          Liu T, Sims D, Baum B. Parallel RNAi screens different cell lines identify generic cell
+                                              type-specific regulators actin organization cell morphology. Genome Biol. 2009; 10:R26.
+                                              [PubMed: 19265526]
+
+
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                                Page 14
+
+
+                                          Maduro M, Pilgrim D. Identification cloning unc-119, gene expressed Caenorhabditis
+                                              elegans nervous  Genetics. 1995; 141:977–988. [PubMed: 8582641]
+                                          Mathey-Prevot B, Perrimon N. Drosophila genome-wide RNAi screens: delivering NIH-PA Author Manuscript
+
+
+
+
+                                              promise? Cold Spring Harb Symp Quant Biol. 2006; 71:141–148. [PubMed: 17381290]
+                                          Neumann B, Walter T, Heriche JK, Bulkescher J, Erfle H, Conrad C, Rogers P, Poser  Held M,
+                                              Liebel U, et al. Phenotypic profiling human genome time-lapse microscopy reveals cell
+                                              division genes. Nature. 2010; 464:721–727. [PubMed: 20360735]
+                                          Oegema, K.; Hyman, AA. WormBook. Cell division. C. elegans Research Community,
+                                              WormBook. January 19. 2006 http://www.wormbook.org
+                                          Piano, F.; Gunsalus, KC.; Hill, ; Vidal, M. WormBook. 2006. C. elegans network biology:                                               beginning; p. 1-20.
+                                          Piano F, Schetter AJ, Mangone M, Stein L, Kemphues KJ. RNAi analysis genes expressed                                               ovary Caenorhabditis elegans. Curr Biol. 2000; 10:1619–1622. [PubMed: 11137018]
+                                          Piano F, Schetter AJ, Morton DG, Gunsalus KC, Reinke V, Kim SK, Kemphues KJ. Gene clustering
+                                              based RNAi phenotypes ovary-enriched genes C. elegans. Curr Biol. 2002; 12:1959–
+                                              1964. [PubMed: 12445391]
+                                          Praitis V, Casey E, Collar D, Austin J. Creation low-copy integrated transgenic lines                                               Caenorhabditis elegans. Genetics. 2001; 157:1217–1226. [PubMed: 11238406]
+                                          Rhrissorrakrai K, Gunsalus KC.  Module Identification NEtworks. BMC Bioinformatics.                                               press.
+                                          Schuldiner M, Collins SR, Thompson NJ, Denic V, Bhamidipati  Punna T, Ihmels J, Andrews B,
+NIH-PA Author Manuscript
+
+
+
+
+                                              Boone C, Greenblatt JF, et al. Exploration function organization yeast early
+                                              secretory pathway epistatic miniarray profile. Cell. 2005; 123:507–519. [PubMed:
+                                              16269340]
+                                          Shi  Chen CC, Banerjee R, Glodowski D, Audhya  Rongo C, Grant BD. EHBP-1 functions                                               RAB-10 endocytic recycling Caenorhabditis elegans. Mol. Biol. Cell. 2010; 21:2930–
+                                              2943.
+                                          Sijen T, Fleenor J, Simmer F, Thijssen KL, Parrish S, Timmons L, Plasterk RH,  role                                               RNA amplification dsRNA-triggered gene silencing. Cell. 2001; 107:465–476. [PubMed:
+                                              11719187]
+                                          Simonis N, Rual JF, Carvunis AR, Tasan M, Lemmens  Hirozane-Kishikawa T, Hao T, Sahalie JM,
+                                              Venkatesan K, Gebreab F, et al. Empirically controlled mapping Caenorhabditis elegans
+                                              protein-protein interactome network. Nat Methods. 2009; 6:47–54. [PubMed: 19123269]
+                                          Sönnichsen B, Koski LB, Walsh  Marschall P, Neumann B, Brehm M, Alleaume  Artelt J,
+                                              Bettencourt P, Cassin E, et al. genome RNAi profiling early embryogenesis                                               Caenorhabditis elegans. Nature. 2005; 434:462–469. [PubMed: 15791247]
+                                          Starr DA, Hermann GJ, Malone CJ, Fixsen W, Priess JR, Horvitz HR, Han M. unc-83 encodes novel
+                                              component nuclear envelope essential proper nuclear migration. Development.
+                                              2001; 128:5039–5050. [PubMed: 11748140]
+NIH-PA Author Manuscript
+
+
+
+
+                                          Tatusov RL, Fedorova ND, Jackson JD, Jacobs AR, Kiryutin B, Koonin EV, Krylov DM, Mazumder
+                                              R, Mekhedov SL, Nikolskaya  et al. COG database: updated version includes
+                                              eukaryotes. BMC Bioinformatics. 2003; 4:41. [PubMed: 12969510]
+                                          Wilmes GM, Bergkessel M, Bandyopadhyay S, Shales M, Braberg H, Cagney G, Collins SR,
+                                              Whitworth GB, Kress TL, Weissman JS, et al. genetic interaction map RNA-processing
+                                              factors reveals links Sem1/Dss1-containing complexes mRNA export splicing.
+                                              Mol Cell. 2008; 32:735–746. [PubMed: 19061648]
+                                          Zhou K, Rolls MM, Hall DH, Malone CJ, Hanna-Rose W. ZYG-12-dynein interaction nuclear
+                                              envelope defines cytoskeletal architecture C. elegans gonad. J Cell Biol. 2009; 186:229–
+                                              241. [PubMed: 19635841]
+                                          Zipperlen P, Fraser AG, Kamath RS, Martinez-Campos M, Ahringer J. Roles 147 embryonic lethal
+                                              genes C. elegans chromosome identified RNA interference video microscopy. EMBO
+                                              J. 2001; 20:3984–3992. [PubMed: 11483502]
+
+
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                             Page 15
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                          Figure 1. Phenotypic profiling using high-content assay based architecture complex
+                                          tissue
+                                           Breakdown 554 genes sterile collection. B. Screen flow chart. C. C.
+                                          elegans gonad complex dynamic tissue architecture depends broad spectrum
+                                          interacting cellular processes (blue text schematic). Spinning disc confocal
+                                          microscopy used collect 80 plane color series gonad. imaged
+                                          region indicated (red dashed box) sample central section control gonad                                           shown. D. sample defects illustrated pairing numbered boxed regions                                           control gonad C corresponding regions gonads indicated defects.
+                                          E. Central plane images gene knockdowns 3 phenotypic classes. Knockdowns
+                                          Class B2 (left column), contains chaperonin complex subunits, led rounded
+                                          compartments nuclei fell compartments (yellow arrowheads).
+                                          Knockdowns Class F3 (middle column), contains genes implicated Rho GTPase
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                        Page 16
+
+
+                                          signaling, led “tubulated�? gonads clustered nuclei. Knockdowns Class C2 (right
+                                          column), contains cell cycle regulators, led gonads compartments/
+                                          oocytes. Bars, 10 μm. Figure S1, Table S1 Table S2.
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                  Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                         Page 17
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                          Figure 2. Validation manual classification                                           Class E2:  List genes Class E2. Schematic central plane images illustrate                                           class phenotype. B. Nuclei dorsal cords T09E8.1(RNAi) (yellow arrowheads),
+                                          control, L1 worms (insets 2.4X), reflecting hypodermal cell nuclear migration
+                                          defect. Table shows quantification nuclear migration defect. effects                                           simultaneous inhibition dynein-regulatory proteins BICD-1 NUD-2 quantified
+                                          dataset Fridolfsson et al. (2010) shown comparison. C. effect                                           T09E8.1 knockdown microtubule arrays hypodermis (schematic) monitored
+                                          timelapse imaging EB1-GFP fusion (Fridolfsson Starr, 2010). Bar graphs                                           mean length (left) number (right) EB1-GFP comets. Error bars SE.
+                                          Class G1: D. Class G1 contains 3 characterized genes implicated MAPK signaling
+                                          (gray), 1 characterized gene previously implicated MAPK signaling (orange), 1
+                                          uncharacterized gene (purple). Schematic central plane images illustrate class
+                                          phenotype. E. Partial RNAi daf-21, GFP control, performed presence 
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                      Page 18
+
+
+                                          absence weak mpk-1 loss function mutation (ga111). Gonads fixed stained
+                                          chromosomes (DAPI, green), plasma membrane (SYN-4 PTC-1, red),                                           activated MPK-1 (Phospho-MPK-1, right panels). analysis performed NIH-PA Author Manuscript
+
+
+
+
+                                          rrf-1(pk1417) background RNAi effective gonad,                                           surrounding somatic cells. F. Quantification phenotypes resulting partial RNAi                                           daf-21 F54D12.5 mpk-1(ga111) background  Table S3). * Percentages                                           include 21  germlines showed severe MPK-1 “null�? phenotype. G. Schematic
+                                          places DAF-21 F54D12.5 MAPK signaling pathway. Error bars SE. Bars,
+                                          10 μm. Figure S2, Table S2 Table S3
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                                  Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                            Page 19
+NIH-PA Author Manuscript
+
+
+
+
+                                          Figure 3. Validation manual classification II
+                                          Class S2:  List genes Class S2. Schematic central plane images gonads
+                                          (left) adjacent embryos (right) illustrate class phenotype. B. List relevant proteins
+                                          identified mass spectrometry immuno-affinity purification K10D2.4 worm
+                                          extracts, percent coverage. Proteins encoded uncharacterized Class S2
+                                          genes (purple) listed, APC components Class S2 (gray) additional
+                                          APC components screen (black).
+NIH-PA Author Manuscript
+
+
+
+
+                                          Class F2: C. List genes Class F2. Schematic central plane images illustrate                                           class phenotype. D. Embryo expressing GFP-C08C3.4 (green) mCherry tagged
+                                          plasma membrane probe (red) cell division. E. Central plane images                                           control C08C3.4(RNAi) embryos expressing mCherry-histone H2B (green) GFP
+                                          plasma membrane probe (red). Multiple nuclei cell C08C3.4(RNAi) embryo
+                                          cytokinesis failure.
+                                          Class I2: F. Schematic central plane images illustrate Class I2 phenotype,                                           includes punctate debris containing plasma membrane probe (arrow schematic). G.
+                                          Schematic trafficking assay. List Class I2 genes defects SNB-1-GFP
+                                          trafficking assay. Images assay 1 characterized 2 uncharacterized Class I2
+                                          genes. Bars 10μm F 5 μm G. Table S2.
+NIH-PA Author Manuscript
+
+
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                            Page 20
+NIH-PA Author Manuscript
+
+
+
+
+                                          Figure 4. Constructing gene networks using Connection Specificity Index (CSI) instead                                           PCC reduces connection noise allows connections similar functional significance                                           viewed entire network uniform threshold
+                                           Flowchart steps used construct gene networks B. B. Gene networks                                           constructed displaying connections (dark blue lines) genes knockdown
+                                          profiles correlated PCC ≥ specified thresholds (0.46,  0.60, middle;
+                                          0.70, . column shows network region, labeled based primary function
+                                          genes region. compare computational network manually-defined
+                                          phenotypic classes, gene groups manually-assigned classes circled labeled.
+NIH-PA Author Manuscript
+
+
+
+
+                                          optimal PCC threshold significant connections displayed non-
+                                          specific connections filtered (red boxes) different different network
+                                          regions. C. Method used calculate CSI. D. Gene network showing regions                                           B constructed displaying connections (light blue lines) CSI ≥ 0.97. E. Bar graph
+                                          showing number connections gene networks constructed using PCC CSI
+                                          thresholds 0.55 0.96, respectively. thresholds chosen                                           highest thresholds retain genes network; genes drop                                           network longer make connections PCC/CSI exceeds                                           specified threshold. F. Bar graph showing percent 49 manually-defined
+                                          phenotypic classes containing 4 genes identified automated clustering
+                                          algorithm   networks constructed using PCC CSI thresholds 0.55 0.96,
+                                          respectively. G. Heatmap dendograms sterile gene set constructed based PCC
+                                          CSI. Figure S3 Table S4.
+NIH-PA Author Manuscript
+
+
+
+
+                                                   Cell. Author manuscript; available PMC 2012 April 29.
+                            Green et al.                                                                                              Page 21
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+NIH-PA Author Manuscript
+
+
+
+
+                                          Figure 5. Varying CSI threshold reveals functional modularity gene network                                           different levels resolution
+                                           region gene network involved protein production shown using                                           different CSI thresholds filter displaye

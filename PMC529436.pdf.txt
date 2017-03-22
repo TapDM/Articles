@@ -1,0 +1,306 @@
+
+Information assessment predicting protein-protein interactions
+
+                 Abstract
+                 Background: Identifying protein-protein interactions fundamental understanding                  molecular machinery cell. Proteome-wide studies protein-protein interactions                  significant value, high-throughput experimental technologies suffer high rates                  false positive false negative predictions. addition high-throughput experimental data,                  diverse types genomic data help predict protein-protein interactions, mRNA
+                 expression, localization, essentiality, functional annotation. Evaluations information
+                 contributions different evidences help establish parsimonious models                  comparable better prediction accuracy, obtain biological insights relationships
+                 protein-protein interactions genomic information.
+                 Results: assessment based genomic features used Bayesian network approach
+                 predict protein-protein interactions genome-wide yeast. special case, does
+                 missing information features, analysis shows larger
+                 information contribution functional-classification expression correlations                  essentiality. case alternative models, logistic regression                  random forest, effective Bayesian networks predicting interactions.
+                 Conclusions: restricted problem posed complete-information subset, identified
+                 MIPS Gene Ontology   functional similarity datasets dominating information
+                 contributors predicting protein-protein interactions framework proposed                  Jansen et al. Random forests based MIPS information highly accurate
+                 classifications. particular subset complete information, adding genomic data does
+                 little improving predictions. data discretizations used Bayesian
+                 methods decreased classification performance.
+
+
+
+
+Background                                                                     catalyze large numbers chemical reactions, cru-
+Proteins transmit regulatory signals cell,                      cial stability numerous cellular structures.
+
+                                                                                                                                        Page 1 11
+                                                                                                                  (page number citation purposes)
+BMC Bioinformatics 2004, 5:154                                              http://www.biomedcentral.com/1471-2105/5/154
+
+
+
+Interactions proteins key cell functioning        (PIP) mRNA expression, Gene Ontology, identifying interactions crucial deciphering    MIPS functional coessentiality data. PIP fundamental molecular mechanisms cell. rel-       sub-network, different genomic features assumed evant genomic information exponentially increasing           independent prior. addition, method quantity complexity, silico predictions       involved discretizing raw data groups repre-
+protein-protein interactions possible        senting mRNA expression profiles (cell cycle challenging. number techniques devel-            Rosetta compendium data) principal compo-
+oped exploit combinations protein features           nent computational convenience.
+training data predict protein-protein interactions applied novel proteins. study motivated       current study focuses assessing contributions study Jansen et al. [1], proposed Bayesian           different types genomic data predicting pro-
+method use MIPS [2] complexes catalog gold            tein-protein interactions. help understand
+standard positives lists proteins separate subcel-    genomic features closest biological rela-
+lular compartments [3] gold standard negatives.          tionship protein-protein interactions various protein features considered method              construct better prediction model. prediction rules
+include time course mRNA expression fluctuations         involving relevant information lower pre- yeast cell cycle [4] Rosetta compendium [5],        diction accuracy, analysis insights biological function data Gene Ontology [6]         construct parsimonious models com- MIPS functional catalog, essentiality data [2],         parable better prediction accuracy. potential disad-
+high-throughput experimental interaction data [7-10].           vantage Bayesian network approach MIPS Gene Ontology functional annotations           data discretization obscure information contained used quantifying functional similarity          raw genomic data.  addition assessing proteins. MIPS functional catalog  biolog-        information content data sources, propose
+ical process annotation) thought hierarchi-      alternative non-Bayesian models fully utilize data
+cal tree functional classes  directed acyclic graph     discretization. methods, logistic
+(DAG) case . protein member       regression random forests, require prior member functional class,        knowledge, evaluate importance dif-
+protein describes "subtree" overall hierarchical       ferent genomic features context methods.
+tree classes  subgraph DAG case .
+Given proteins, compute intersection tree       Results discussions subtrees associated proteins.        accurately quantitatively assess information
+intersection tree computed complete list      contributions different genomic features, construct
+protein pairs  proteins pair      essence simplified problem functional classification), distribution inter-   elements original study.  look
+section trees obtained. "functional similarity"     subset data [1] comprising 18 million proteins defined frequency       protein pairs total approximately 8,000 gold stand- intersection tree proteins occurs dis-    ard positives 2.7 million gold standard negatives. tribution. Intuitively, intersection tree gives func-   subset  Additional File 1) contains 2,104 positives tional annotation proteins share.             172,409 negatives. subset, complete infor-
+ubiquitous shared functional annotation  larger     mation feature quantitatively functional similarity frequency; specific       assess relative contributions different features shared functional annotation  smaller         set. data set downloaded http://
+functional similarity frequency. essentiality data rep-     bioinformatics.med.yale.edu/PPI. doing  resents categorical variable denotes zero,       features stronger influence proteins protein pair essential.       overall prediction. true larger
+supplementary online material [1]http://www.science          problem  number caveats mag.org/cgi/data/302/5644/449/DC1/1 provides               mind, features details quantification variables.      present subset strongest Bayesian method predicts protein-protein interactions           set 18 million protein pairs.
+genome-wide probabilistic integration genomic fea-
+tures weakly associated interactions (mRNA        Alternative models
+expression, essentiality localization). model        construct models predicting protein-protein
+used separate predictions probabilistic interac-     interactions  given gold standards, basically
+tomes (PI), (PIE) built high-           dichotomous classifiers. Multiple logistic regression [11]
+throughput experimental interaction data sets,          commonly used model application
+
+
+                                                                                                                   Page 2 11
+                                                                                             (page number citation purposes)
+BMC Bioinformatics 2004, 5:154                                                   http://www.biomedcentral.com/1471-2105/5/154
+
+
+
+[12,13]. alternative, sophisticated supervised           Table 1: Order variables enter final model stepwise
+learning approach apply random forest algo-       selection logistic regression
+rithm [14]. Note  focus            Variables                                                 Order methods used compute estimated
+probabilities predicted protein-protein interactions.         Gavin                                                      1
+                                                                  MIPS                                                       2
+Logistic regression                                               Rosetta                                                    3 logistic model advantage provides                                                                  4
+                                                                  cellcycle                                                  5
+estimated probability pair proteins interact,                                                                   essentiality                                               6 readily available standard statistical packages.    Rosetta*cellcycle                                          7
+paper, logistic regression analysis generated using       cellcycle*essentiality                                     8
+PROC LOGISTIC SAS/STAT software, Version 9              Ho                                                         9
+SAS   evaluate importance           essentiality                                            10
+different genomic features variable selections.          Uetz                                                       11 available schemes, chose stepwise variable selec-         cellcycle                                               12
+                                                                  cellcycle*essentiality                                  13
+tion widely used standard packages. Stepwise
+                                                                  MIPS*essentiality                                          14
+selection greedy search algorithm selects variables     MIPS*Rosetta                                               15 best marginal prediction power given current
+model. quantify importance predictor varia-
+bles model fitting, use deviance measure
+
+-2(log L1 - log L0),                                             Table 2: Deviance reduced model final model                                                                  removing corresponding variables L0 likelihood final model given        Variable                                       Deviance
+stepwise selection, L1 likelihood reduced
+model removing terms involve correspond-                                                      1376.437
+ing predictor variable final model.         MIPS                                            1333.97
+measure considers prediction power variables          essentiality                                    579.988 training sample random test sam-          Rosetta                                         778.493
+                                                                  cellcycle                                      1271.461
+ples.  measure biased                                                                   Ho                                              68.718
+dependence training sample.                                Uetz                                            20.513
+                                                                  Gavin                                          1839.181 consider, similarly [1], main effects interaction terms genomic features PIP
+(indirect evidence protein-protein interactions) PIE (direct experimental protein-protein interaction
+measurements) respectively. Table 1 presents terms       Random forest
+remained final model orders enter        "random forest" method [14] supervised learning
+final model. Table 2 shows deviance measure pre-          algorithm previously successfully applied dictor variables. Gavin data, Gene Ontology              genomic studies. implemented MIPS functional similarity features, cell cycle gene     randomForest package R [15]. random forest expression data important genomic evi-              ensemble classification trees generated dences predicting protein-protein interactions accord-       bootstrap samples original data. known
+ing deviance measure, high-       random forests avoid overfitting usually throughput experimental data sets relevant           better classification accuracy classification trees. significant effects included       natural way evaluate importance feature var-
+final model.  logistic model restricted        iables random forest algorithm measure linear form provide optimal solution          increase classification error variables prediction problem. objective         permuted. Intuitively, important variables evaluate variable importance according pre-         permuted, produce larger classification errors.
+diction accuracy random test samples. fol-        importance score provided random forest lowing, present results using random             accurate estimate classification error 
+forest, sophisticated supervised learning                 siders situation random test samples. 
+algorithm.                                                       importance score provides objective evalua-
+                                                                 tion relative merit different genomic features 
+
+                                                                                                                       Page 3 11
+                                                                                                 (page number citation purposes)
+BMC Bioinformatics 2004, 5:154                                             http://www.biomedcentral.com/1471-2105/5/154
+
+
+
+protein-protein interaction prediction.           sets negligible effects.  different intrinsic tree structure random forest easily takes     result logistic regression, Gavin data set shown account interactions different varia-       important MIPS Gene Ontology func-
+bles avoids complications caused missing data      tional similarity features considering situation occurred modeling procedures.                    random test samples. observations motivated                                                                perform thorough information assessment performed random forest analysis growing             genomic evidences considered. compared 
+5,000 trees. Figure 1 shows importance measures         formance different classification methods (random  genomic evidences used random forest algo-          est, logistic regression Bayesian network), rithm. result agrees logistic      evaluated importance different genomic data-
+regression MIPS Gene Ontology functional       sets framework best method  method
+similarity features important,            lowest classification error). high-throughput experimental data
+
+
+
+
+         MIPS
+
+
+           
+
+        Gavin
+
+
+     Cellcycle
+
+
+        Essen
+
+
+      Rosetta
+
+
+            Ho
+
+
+           Utz
+
+
+            Ito
+
+                  0.000               0.002                  0.004              0.006                  0.008
+
+                                                              Importance
+
+Figure 1 measure genomic features random forest algorithm
+Importance
+Importance measure genomic features random forest algorithm horizontal axis presents importance measure vertical axis denotes genomic features.
+
+Figure
+ROC curves
+       2 random forest, logistic regression Bayesian networks using 7-fold cross validations
+ROC curves random forest, logistic regression Bayesian networks using 7-fold cross validations
+
+
+
+
+Comparison methods                                     MIPS gene ontology functional similarity data conducted 7-fold cross validations subset        saw MIPS Gene Ontology functional sim-
+complete information (described  fea-          ilarities important information sources
+tures random forest, logistic regression Baye-      logistic regression random forests
+sian network method. Figure 2 displays receiver           methods. Histograms MIPS functional sim-
+operating characteristic (ROC) curves, observe       ilarity data (Figures 3 4) dif-
+better performance random forest          ferent gold standard positives negatives; similar performances logistic regression        protein pairs gold standard positives associated Bayesian network.                                       smaller functional similarity values gold
+                                                                standard negatives. pattern explains func-
+Information assessment                                          tional similarity features strong impact Information assessment different genomic data            classification accuracy model fitting, observed help understand relationship protein-pro-         Figure 2.  vast number protein pairs tein interactions, form guideline future model        gold standard negatives likely development.                                                    thoroughly studied researchers, henceforth
+
+
+ 
+Figure 3 MIPS Gene Ontology function data gold standard positives negatives
+Histograms
+Histograms MIPS Gene Ontology function data gold standard positives negatives
+
+
+
+ observed belong large functional categories              genomic features included, (ii) MIPS Gene
+actually divided specific cate-           Ontology functional similarities  (iii) genomic
+gories. conjecture suggests information            features MIPS Gene Ontology
+MIPS Gene Ontology function data possibly caused               functional similarities. random forest performance selection biases intrinsic biological rele-             evaluated classification error (Err) defined vance. deserves investigations relationship         follows. gold standards MIPS Gene
+Ontology functional similarity data.                                  Denote Err1 proportion protein pairs misclassi-
+                                                                      fied gold standard positives, Err2 counter- following paragraphs, quantitatively              gold standard negatives. define MIPS Gene Ontology functional similarities                classification error average Err1 Err2. dominating information contributors predicting
+protein-protein interactions, genomic features                            Err1 + Err2 negligible benefit provide credible pre-               Err =                     .
+                                                                                           2
+dictions  examine performance random forests using different genomic feature sets:
+
+Figure 4histograms MIPS Gene Ontology function data gold standard positives negatives lower end
+Zoom Zoom histograms MIPS Gene Ontology function data gold standard positives negatives lower end
+
+
+
+
+Err balanced error rate gold standard positives                  achieved C(X) = f1(X) >f2(X)). formula, negatives. Suppose joint probability density func-                   estimate optimal (minimum) classification error
+tions predictor features X f1(X) f2(X)                based estimates f1(X) f2(X). study,
+gold standard positives negatives, respectively.                         f1(X) f2(X) estimated empirical density
+Denote classifier C(X). classification error                   functions. written                                                                              Table 3 presents optimal classification error using      1                         1
+Err = ∫ C( X) = 1] f1( X)dX + ∫ C( X) = 0] f2 ( X)dX ,       (1)         MIPS Gene Ontology functional similarity data. Using
+     2                         2                                             MIPS Gene Ontology functional similarity data sets  indicator function equal 1                     results highly accurate classification opti-
+true 0  minimal classification error Errmin                  mal error 0.28 . Table 3 shows effects computed minimizing (1) space X.                     data discretizations originally used easy                                                       Bayesian network method ("grouped"). significant dis-
+                                                                             crepancy optimal classification errors using                    1                                                         raw data discretized data ("grouped") suggests                    2∫
+Errmin =              min( f1( X), f2 ( X))dX                                discretization causes loss information.
+
+
+                                                                                                                                   Page 7 11
+                                                                                                             (page number citation purposes)
+BMC Bioinformatics 2004, 5:154                                               http://www.biomedcentral.com/1471-2105/5/154
+
+
+
+Table 3: Optimal classification errors using different      Bayesian method terms classifications  like genomic features                                                 Bayesian method, produces estimated probabilities  Variables                        Optimal Classification Error   proteins interact. dichotomous classifier,                                                                  random forest method outperforms methods
+ MIPS                                       1.69                 considered efficiently uses information,
+                                         2.15                 computationally expensive. partic-
+ MIPS                                     0.28                ular, importance measure provides objective
+ MIPS (grouped)                             7.31                 assessment different genomic features predicting
+ (grouped)                               13.35 
+                                                                 protein-protein interactions simply considering
+ MIPS (grouped)                          6.34 
+                                                                 contributions model fitting. findings moti-
+                                                                 vation look  sensible data resources
+                                                                 superior models.
+ genomic features                                           data discretizations used Baye- estimated classification errors using            sian methods decreased classification performance. genomic features random forest frame-           note genomic features datasets investi-
+work. Table 4 shows adding genomic evi-           gated highly processed versions dences complete-information subset provides               datasets derived negligible benefit reduces classification       better ways original data account.
+accuracy.
+                                                                 caveat predictions just  compared ROC curves (Figure 5)           defining groups proteins genomic
+random forest method using genomic information,              properties protein complexes MIPS data. MIPS functional similarities,            does necessarily mean really represent
+genomic information MIPS  Figure 5             protein complexes.  represent groups shows barely gain considering               proteins properties protein com-
+genomic information MIPS available;            plexes.
+classifications MIPS functional sim-
+ilarity data poor complete-information subset.        analysis looked relative weights Note,  subset interaction data          various features predicting protein-protein interac- strongest expression correlations          tions based previous study [1]. looked necessarily complete-information set considered.             particular subset data complete  expect expression correlations              information able  par- stronger source information               ticular subset information, able context.                                                         functional classification features MIPS
+                                                                 functional catalog Gene Ontology Conclusions                                                      informative particular machine learning algo- restricted problem posed complete-infor-           rithms, random forests effective mation subset, identified MIPS Gene              Bayesian networks.  mind
+Ontology functional similarity datasets dominat-          problem issue incomplete
+ing information contributors predicting protein-         information. data sets incomplete information
+protein interactions framework proposed             Bayesian approaches maybe effective [1]. Random forests based MIPS informa-            easily handle missing information. care-
+tion highly accurate classifications.     ful studies needed determine
+particular subset complete information, adding          optimum machine learning method genomic data does little improving predictions.          optimum features presence incomplete infor-
+MIPS information,  available              mation. great consider small proportion ~18M protein pairs.                genomic features phylogenetic profiles [16]                                                                  local clustering information [17]. just considered alternative non-Bayesian methods              step direction. logistic regression random forest predicting
+protein-protein interactions. existing methods require prior information needed Bayesian
+approach, fully utilize raw data dis-
+cretization. logistic model performs similarly 
+
+
+
+
+
+Table 4: Classification errors random forest algorithm using different genomic features
+
+                     Variables             Err1 (positives)                    Err2 (negatives)                         Err
+
+                     MIPS             114/2104 = 5.42                      180/172409 = 0.1                         2.76 
+                                     165/2104 = 7.80                      89/172409 = 0.05                         3.95 
+                                   1056/2104 = 78.09                    313/172409 = 0.20                        25.20 
+
+
+ sensitivity
+specificity
+
+
+Figure
+ROC  curves
+       5    random forest using different genomic feature sets
+ROC curves random forest using different genomic feature sets   – genomic information; 'MIPS  – MIPS Gene Ontology function data;   – genomic features MIPS Gene Ontology function data
+
+
+
+
+
+
+
+Methods                                                              Additional material
+Logistic regression
+Denote gold standards random variable Y genomic features X1, X2, ..., Xn. Let Y = 1                                                                           Additional File 1
+                                                                          complete-information subset ZIP file. proteins interact, e., complex,                Click file Y = 0  logistic model form                     [http://www.biomedcentral.com/content/supplementary/1471-
+                                                                          2105-5-154-S1.zip]
+        Pr(Y = 1)
+log                 = α + β X,
+      1 − Pr(Y = 1) random vector X consists X1, X2, ..., Xn             interaction terms.                                        
+Stepwise variable selection stepwise selection procedure starts null model.        step, adds variable significant             
+score statistics model,              
+sequentially removes variable score sta-    
+tistic model score statistics            significant. process terminates varia-    
+ble added model variable just         
+entered model variable removed         
+subsequent elimination.  score statistic measures     significance effect variable.           
+ROC curve analysis                                                       
+                                                                       
+Receiving operator characteristic (ROC) curve [18]        
+graphical representation used assess discriminatory     
+ability dichotomous classifier showing                       
+tradeoffs sensitivity specificity. Sensitivity cal-     
+culated dividing number true positives (TP)        number positives, equals sum              true positives false negatives (FN); specificity   calculated dividing number true negatives                 
+(TN) number negatives, equals          sum true negatives false positives (FP).    
+Sensitivity = TP/(TP + FN), Specificity = TN/(TN + FP).      ROC curve plot shows 1 - specificity X axis       
+sensitivity Y axis. good classifier ROC curve    
+climbing rapidly upper left hand corner              
+graph. quantified measuring area            curve. closer area 1.0, better classifier  closer area 0.5, worse         
+classifier                                                     
+Authors' contributions                                                   
+NL BW conducted major data analysis, created tables figures, supervi-     
+sion HZ. RJ MG provided data sets anal-           
+ysis contributed discussion comparisons          different methods. authors read approved                  
+final manuscript.                                                     
+
+
+

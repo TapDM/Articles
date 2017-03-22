@@ -1,0 +1,1258 @@
+Comparative Functional Genomics
+Comp Funct Genom 2004; 5: 304–327.
+Published online Wiley InterScience (www.interscience.wiley.com). DOI: 10.1002/cfg.411
+                        Research Article
+
+                        Comparative genomic assessment novel
+                        broad-spectrum targets antibacterial
+                        drugs
+Thomas  White1 Douglas B. Kell2 *
+1 Department   Biology, University York, Box 373, Heslington, York YO10 5YW, UK
+2 Department   Chemistry, UMIST, Faraday Building, Sackville St, PO Box 88, Manchester M60 1QD, UK
+
+
+*Correspondence                   Abstract
+Douglas B. Kell, Department Chemistry, UMIST, Faraday            Single multiple resistance antibacterial drugs currently use spreading,
+Building, Sackville Street, PO Box   act small number molecular targets; finding novel
+88, Manchester, M60 1QD, UK.         targets anti-infectives great importance. protein sequences E-mail: dbk@umist.ac.uk              pathogens (Staphylococcus aureus, Mycobacterium tuberculosis Escherichia
+                                     coli O157:H7 EDL993) assessed comparative genomics methods                                      suitability antibacterial targets according number criteria, including                                      essentiality protein, level sequence conservation, distribution                                      pathogens, bacteria eukaryotes (especially humans). protein scored                                      ranked based weighted variants criteria order prioritize proteins                                      potential novel broad-spectrum targets antibacterial drugs. number proteins
+                                     proved score highly species robust variations scoring
+                                     used. Sensitivity analysis indicated quantitative contribution metric
+                                     overall score. analysis targets, tRNA methyltransferase
+                                     (trmD) translation initiation factor 1 (infA) emerged potential novel
+                                     antimicrobial targets worthy investigation. scoring strategy used
+                                     value areas post-genomic drug discovery. Copyright  2004
+  Received: 24 November 2003         John Wiley & Sons, 
+  Revised: 24 March 2004
+                                     Keywords: genomics; antibacterial; antimicrobial; pathogen; virulence; compara-
+  Accepted: 1 April 2004
+                                     tive genomics; antibiotics; bioinformatics
+
+
+
+
+Introduction                                                         gene transfer mechanisms allow resistance
+                                                                     passed different bacterial strains decades introduction peni-                      species (Davies, 1994; Heinemann, 1999).
+cillin, majority existing classes                      Antibacterial resistance developed steadily antibacterial drugs discovered                    new agents introduced, past
+atic screening natural product libraries. Remark-                 10–15 years shown dramatic increase ably, new chemical classes active antibacte-                   occurrence resistant populations microbes rial drugs successfully introduced                community hospital environments (Stru-
+30 years (Hancock Knowles, 1998). Table 1                        elens, 1998).
+shows restricted set modes action                     Measures chemical modification exist- major antibacterial drugs currently use.                      ing antibacterial drugs development    Microorganisms shown                      inhibitors resistance genes signif- extremely versatile overcoming effects                     icant impact antibacterial therapy short antibacterial drugs. Bacteria developed                      term.  obvious new drug tar- variety resistance mechanisms lateral                       gets need use antibacterial
+
+Copyright  2004 John Wiley & Sons, 
+ Assessment novel antibacterial targets                                                                                    305
+
+
+
+Table 1. Mode action principal established antibacterial drugs
+Drug/class                        Function inhibited                          Molecular target
+
+β-Lactams                         Peptidoglycan synthesis                     Transpeptidases carboxpeptidases
+Bacitracin                        Peptidoglycan synthesis                     Undecaprenyl pyrophosphate
+D-Cycloserine                     Peptidoglycan synthesis                     D-alanine racemase D-alanyl-D-alanine synthetase
+Fosfomycin                        Peptidoglycan synthesis                     UDP-N-acetylglucosamine enolpyruvyl transferase
+Glycopeptides                     Peptidoglycan synthesis                     Cell wall peptidoglycan
+Quinolones                        DNA replication/transcription               Gyrase topoisomerase IV
+Rifamycins                        Transcription                               RNA polymerase
+Aminoglycosides                   Protein synthesis                           30S ribosomal subunit
+Chloramphenicol                   Protein synthesis                           50S ribosomal subunit
+Fusidic adid                      Protein synthesis                           Elongation factor G
+Macrolides                        Protein synthesis                           50S ribosomal subunit
+Oxazolidinones                    Protein synthesis                           50S ribosomal subunit
+Streptogramins                    Protein synthesis                           50S ribosomal subunit
+Tetracyclines                     Protein synthesis                           30S ribosomal subunit
+Mupirocin                         Charging isoleucyl tRNA                  Isoleucyl tRNA synthetase
+Sulphonamides                     Folate synthesis                            Dihydropteroate synthetase
+Trimethoprim                      Folate synthesis                            Dihydrofolate reductase
+ Chopra et al. (2002).
+
+
+drugs continue successfully (Schmid, 1998).                 shown data-driven strate- end, genomic approaches providing                   gies used identify novel drug targets
+new strategy revealing new molecular targets                   (Spaltmann et al., 1999). number metrics giving rise novel antibacterial agents                chosen properties potential
+(Allsop Illingworth, 2002; Dougherty et al.,                  drug target, essentiality specificity.
+2002; Haney et al., 2002; Isaacson, 2002; Ji, 2002;               potential target genome McDevitt Rosenberg, 2001), new                       scored properties. scores agents unlikely face current problems                  weighted differently add emphasis established mechanisms resistance (McDevitt                 particular property. scoring Rosenberg, 2001). anti-infective research,                 tuned targets inevitable selection resistant strains means              identified score highly, showing scoring drugs multiple targets preferred                 capable identifying useful targets. Pre-
+(e.g. multiple penicillin-binding proteins multi-              viously unidentified genes score highly,
+ple forms component systems; Stephenson                    prioritized potential drug targets
+                                                                  study. scoring gene study Hoch, 2002; Stephenson Hoch, 2004).                                                                   carried Spaltmann et al. (1999) antifun- pharmaceutical areas encouraging                                                                   gal targets α,α-trehalose-phosphate synthase, rational utility traditional targets              gene suggested
+confirmed systematic knock studies (Zam-                   potential drug target. shows post-
+browicz Sands, 2003).                                         genomic research offer terms    release data numerous sequenc-                novel target identification (Allsop Illingworth,
+ing projects, number potential drug targets                2002; Buysse, 2001; Dougherty et al., 2002; Glass increased massively.                 et al., 2002; Haney et al., 2002; Isaacson, 2002;
+molecules drug targets (Hopkins                   Ji, 2002; Knowles King, 1998; McDevitt Groom, 2002), big challenge select                  Rosenberg, 2001; Payne et al., 2001a, 2001b;  targets relevant given situation (Ter-             ins et al., 2002).
+stappen Reggiani, 2001).                                         present study number criteria    Machine learning methods seek devise new                    chosen characterize proteins targets.
+ideas hypotheses unstruc-                   suggested extensive literature
+tured data (Gillies, 1996; Kell Oliver, 2004;                 subject  e.g. Alksne, 2002; Allsop Mitchell, 1997; Mjolsness DeCoste, 2001).                     Illingworth, 2002; McDevitt Rosenberg, 2001;
+
+Copyright  2004 John Wiley & Sons,                                                    Comp Funct Genom 2004; 5: 304–327.
+ 306                                                                             T.  White D. B. Kell
+
+
+
+Projan, 2002; Spaltmann et al., 1999; Terstappen        hit look table listed classifi- Reggiani, 2001). list criteria used   cation organism (http://ca.expasy.org/cgi- given Methods section.                        bin/speclist). list bacteria treated pathoge-
+                                                        nic study given Table 2. Bacteria                                                         act pathogens, depending cir-
+Methods                                                 cumstances host, list given                                                         covers broad range pathogens Data collection motives                             completely comprehensive.
+                                                           presence homologues mice 
+Data collected pathogenic bacterial     sidered important allow targets
+species, Staphylococcus aureus, Escherichia coli        present higher organisms O157:H7 EDL993 Mycobacterium tuberculo-             weighted, sis. species chosen represent        line target’s absence mice make animal broad cross-section bacterial types. Targets       trials effective. Lactobacillus spp.  prove score species        sidered beneficial probiotic bacteria, using probably good targets broad spec-      metric able prioritize targets trum pathogens.                                      diminish unwanted effects new drug.
+   entire set sequences proteins encoded         scores BLAST hits pathogens S. aureus, E. coli O157:H7 EDL993 M.             parsed conserved
+tuberculosis downloaded NCBI              particular gene pathogens. Obvi-
+website (http://www.ncbi.nlm.nih.gov/PMGifs/            ously protein conserved Genomes/micr.html). protein char-         pathogens make better target broad-
+acterized number criteria      spectrum antibacterial drugs. high degree used prioritize suitable proteins     conservation mean mutations potential antibacterial targets.                        protein tolerated, resistance    Perl program carried char-         likely emerge. numbers identical
+acterization automatically  Figure 1         residues pathogenic hit compared overview). protein parsed gene     query sequence summed divided index (gi) number protein.       number hits pathogens. number
+function protein known, function     normalized dividing length assigned protein basis        query sequence, ratio conservation sequence homology, noted.                 protein pathogens.
+   protein submitted BLAST              query protein submitted BLAST
+(Altschul et al., 1990, 1997) search (BLASTp,           separately human genome (protein
+using default parameters ‘expectation     sequences)      (ftp://ftp.ncbi.nih.gov/genomes/H
+value’ 0.01) local copy SwissProt   sapiens/protein/) number hits database (ftp://ftp.ebi.ac.uk/pub/). SwissProt      recorded. closest hit human protein
+database used curated,           recorded, ratio similarity given annotated, non-redundant, entries        number positive residue matches (matches easily parseable consistent format.      amino acids identical similar exist large number associated files     biochemical properties) divided length websites use SwissProt-style codes        query sequence. number positives species gene/protein names). Using SwissProt        chosen err caution. allows resources integrated       drug designed particular bacterial protein
+easily program, making efficient          act just human protein, automation possible.                                    certain key residues identical. Similar-
+   results BLAST search parsed         ity residues activity. homologues protein             metric included potential targets existed bacteria, pathogenic bacteria, eukary-       similar human proteins otes, mice Lactobacillus.          heavily penalized. human homo-
+comparing SwissProt species ID code         logue does exist, possible (e.g. using
+
+Copyright  2004 John Wiley & Sons,                                        Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                                 307
+
+
+
+                        Read genome                              query protein
+                        file split                              carry restricted
+                        individual protein                               BLAST search                         sequences (FASTA                                 essential genes Bacilus
+                        format)                                          subtilis, Escherichia coli K12,
+                                                                         Mycobacterium tuberculosis
+                                                                         Staphylococcus aureus
+                                                                         (expectation value 0.01)
+                        protein
+                        sequence turn                         parse gene
+                         gi number                         function                             query protein
+                        assigned                               carry restricted
+                        protein                                            BLAST search                                                                            virulence genes                                                                            Bacillus anthracis,
+                                                                           Escherichia coli O157:H7
+                                                                           EDL993, Mycobacterium
+                                                                           tuberculosis, Neisseria
+                        BLAST protein                                 Meningitidis                         SwissProt                              Staphylococcus aureus
+                        database (expectation                              (expectation value 0.01)
+                        value 0.01)
+
+
+
+
+                                                                          query protein
+                        Parse BLAST
+                                                                          carry BLAST
+                        output                                                                           search SwissProt                          protein                                                                           higher expectation value
+                        taxonomic distribution
+                                                                          1×10-10) parse output
+                        protein                                                                           hits                         conservation                                                                           known antibacterial targets
+                        pathogens
+                                                                          structure
+                                                                          Protein Data Bank
+
+
+
+                         BLAST protein
+                         protein
+                         sequences                                   Output information                          human (expectation                               protein file.                          value 0.01).                                used score
+                         number human                                  rank proteins
+                         homologues                                   according potential                          similarity closest                            novel broad-spectrum
+                         human hit.                                       drug targets
+
+
+Figure 1. Flow chart illustrating process data collection
+
+
+structure–activity relationship studies) design               target structural similarity thought
+drug targets bacterial version               safer report close homologues.
+protein.                                                             running BLAST algorithm, output
+   query gene submitted                      parsed query gene BLAST program homologues                         homologous known antibacterial target. known antibacterial targets structures                comparing SwissProt gene ID deciphered. time ‘expectation                    list SwissProt IDs  ExPASy
+value’ 1 × 10−10 used, infer suitability              website: http://ca.expasy.org/enzyme/) proteins
+
+Copyright  2004 John Wiley & Sons,                                                      Comp Funct Genom 2004; 5: 304–327.
+ 308                                                                                             T.  White D. B. Kell
+
+
+
+Table 2. List bacteria treated pathogenic study
+Acinetobacter calcoaceticus                Klebsiella pneumoniae                     Shigella dysenteriae
+Bacillus anthracis                         Legionella pneumophila                    Shigella flexneri
+Bacillus cereus                            Leptospira interrogans                    Staphylococcus aureus
+Bordetella pertussis                       Listeria monocytogenes                    Staphylococcus aureus strain Mu50/ATCC 700 699
+Borrelia burgdorferi                       Moraxella catarrhalis                     Staphylococcus aureus strain MW2
+Brucella abortus                           Moraxella lacunata                        Staphylococcus aureus strain N315
+Brucella melitensis                        Mycobacterium leprae                      Staphylococcus capitis
+Brucella suis                              Mycobacterium tuberculosis                Staphylococcus epidermidis
+Campylobacter jejuni                       Mycoplasma fermentans                     Staphylococcus saprophyticus
+Chlamydia muridarum                        Mycoplasma genitalium                     Streptococcus agalactiae
+Chlamydia pneumoniae                       Mycoplasma hominis                        Streptococcus agalactiae serotype III
+Chlamydia trachomatis                      Mycoplasma penetrans                      Streptococcus agalactiae serotype V
+Clostridium botulinum                      Mycoplasma pneumoniae                     Streptococcus mutans
+Clostridium perfringens                    Neisseria gonorrhoeae                     Streptococcus pneumoniae
+Clostridium tetani                         Neisseria meningitidis                    Streptococcus pyogenes
+Corynebacterium diphtheriae                Neisseria meningitidis serogroup        Streptococcus pyogenes serotype M18
+Enterococcus faecalis                      Neisseria meningitidis serogroup B        Streptococcus pyogenes serotype M3
+Enterococcus faecium                       Neisseria meningitidis serogroup C        Streptococcus pyogenes serotype M5
+Escherichia coli O111:H−                   Pasteurella multocida                     Treponema pallidum
+Escherichia coli O127:H6                   Propionibacterium acnes                   Tropheryma whipplei
+Escherichia coli O157:H7                   Proteus mirabilis                         Ureaplasma urealyticum
+Escherichia coli O6                        Providencia rettgeri                      Vibrio cholerae
+Flavobacterium meningosepticum             Providencia stuartii                      Vibrio parahaemolyticus
+Francisella tularensis                     Pseudomonas aeruginosa                    Vibrio vulnificus
+Fusobacterium nucleatum                    Rickettsia conorii                        Wolinella recta
+Haemophilus ducreyi                        Rickettsia prowazekii                     Wolinella succinogenes
+Haemophilus influenzae                     Salmonella cholerae-suis                  Xanthomonas maltophilia
+Haemophilus parainfluenzae                 Salmonella enteritidis                    Yersinia pestis
+Helicobacter pylori                        Salmonella typhi
+Helicobacter pylori J99                    Salmonella typhimurium
+
+
+ known antibacterial targets (Chittum                      homology protein known structure likely
+Champney, 1995; Egebjerg et al., 1989; Kornder,                        similar structure  2002; Lin et al., 1997; Neu Gootz, 1996;                           true) favoured potential
+Schnappinger Hillen, 1996). course,                     novel drug target.
+current drug targets perfect examples;                        protein submitted drugs target toxic                        restricted BLAST searches selected
+humans resistance begun emerge                           bacterial genomes. BLAST searches cases.  treatments utilize                     restricted gi number; specifically gi numbers targets shown effective                       genes essential involved disease control, novel targets possessing                       virulence. genomes chosen listed similar characteristics known targets                        Table 3.
+useful.                                                                  genomes selected cover   SwissProt species protein ID codes                        wide range bacterial types, hit BLAST results compared                            characterized look table (ftp://beta.rcsb.org/pub/pdb/                       species work carried uniformity/derived data/)                      great extent. species homologues query gene entry                       kind work  genomics methods
+PDB database (ftp://ftp.ncbi.nih.gov/genomes/H                         allow predict essentiality involve-
+sapiens/protein/). protein known struc-                       ment virulence. Proteins significant hits
+ture attractive point view fur-                 essential genes genes involved viru-
+ther research, structure-based drug design                   lence likely characteristics
+carried straightaway. protein sequence                      score highly potential
+
+Copyright  2004 John Wiley & Sons,                                                        Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                                309
+
+
+
+Table 3. List genomes used restricted BLAST                   importance, called control coefficients
+searches essential genes genes involved                (http://dbk.ch.umist.ac.uk/mca home.htm; Fell,
+virulence
+                                                                     1996; Heinrich Schuster, 1996; Kell West-
+Essential genes                                                      erhoff, 1986), enzyme controls   Genomes            Bacillus subtilis (Kobayashi et al., 2003)      flux metabolic pathway, fact                      Escherichia coli K12                            used relative importance variable
+                     (http://www.shigen.nig.ac.jp/ecoli/pec/
+                     html)
+                                                                     contributes total. equation giving
+                     Mycobacterium tuberculosis (Sassetti et al.,    sensitivity overall metric individual met-
+                     2003)                                           ric vi given (equation 1)
+                     Staphylococcus aureus (Forsyth et al., 2002)
+Virulence genes                                                                             vi  ∂ ln    Genomes           Bacillus anthracis (Hoffmaster Koehler,                   CiA =      · =                         (1)
+                     1999; Koehler, 2002)                                                  ∂vi  ∂ ln vi
+                     Escherichia coli O157:H7 EDL993 (Brunder
+                     et al., 2001; Sharma Dean-Nystrom,          discretized sensitivity analysis                      2003; Stuber et al., 2003; Wang et al., 2002)   target taking score                      Mycobacterium tuberculosis (Triccas         metric target, finding 1  score, divid-
+                     Gicquel, 2000)
+                     Neisseria meningitidis (Sun et al., 2000)
+                                                                     ing number total score multiply-
+                     Staphylococcus aureus (Dunman et al., 2001)     ing 100. metrics,
+                                                                     ‘contributions’ sum 1.  sensitivity
+                                                                     analysis asks,  altering score vari-
+drug targets. ‘model’ genomes                      able 1 , percentage change gene essential, likely                   induce total score?’. sensitivity analy- gene essential query               ses clearly variables species, greater potential target                  exerting little influence broad-spectrum antibacterial drug.                             total score weights opti-
+   Having assigned gene query genome                     mized accordingly. novel approach proved
+values number characteristics, values                 useful carefully modifying scoring weighted, summed ranked                         systems.
+produce list high-priority potential targets.                      Using different weighting schemes allowed ranking approach used instead                          analysis robust particular high-ranking
+machine learning-based approach, ‘training                    target weighting scheme. Clearly, set’ known antibacterial targets small                target scores highly having favourable necessarily optimal  Introduction).                    characteristics highly weighted metric ranking approach subjective, does                     good ranks highly number
+allow targets prioritized score better                   different scoring systems.
+according metrics currently known                           different scoring systems
+targets.                                                             (Table 4) used S. aureus, E. coli O157:H7
+                                                                     EDL993 M. tuberculosis 20 ranking
+                                                                     targets recorded. 20 lists Assigning weights robustness target
+                                                                     checked prioritization
+                                                                     robust targets emerged. 20 lists number different weighting schemes                         cross-checked targets tried weighting scheme refined                  robust species  Table 5). ‘vot- reflect relative importance various met-               ing’ method approach seen combining rics. weighting scheme run raw                    output weak learners, known data, scores metric summed                     effective approach data mining (Bauer total scores targets ranked.                     Kohavi, 1999; Dietterich, 2000; Hastie et al., refinement weightings                         2001).
+carrying sensitivity analysis metric                       scoring designed scores ranking targets. Sensitivity                  influence metrics felt analysis normally used biology                    important influence 
+Copyright  2004 John Wiley & Sons,                                                     Comp Funct Genom 2004; 5: 304–327.
+                                            Table 4. different scoring systems used test influence scoring ranking targets
+                                           Metric                                                                                                         Scoring                                                       310
+
+                                                                                                                     1                             2                        3                     4                   5
+
+                                           Copy number                                               20  copies gene       100  copies gene       1             1             1
+                                           Distribution homologues                                (50  homologues       (100  homologues       1             1             1
+                                                                                                     bacteria) ×              bacteria) ×                                                                                                       homologues pathogens        homologues pathogens
+                                           Species distribution                                      [(500/89) ×  distinct    [(100/89) ×  distinct     1             1             1
+                                                                                                     pathogens                 pathogens                                                                                                      homologues] −            homologues] −   
+
+
+
+Copyright  2004 John Wiley & Sons, 
+                                                                                                     distinct bacteria         distinct bacteria                                                                                                      homologues −  distinct   homologues −  distinct
+                                                                                                     pathogens)                     pathogens)
+                                           Conservation pathogens                                 Conservation ratio ×200        Conservation ratio ×100         1             1             Conservation
+                                                                                                                                                                                                                ratio ×400
+                                           Eukaryotic homologues                                     50/  eukaryotic          100/  eukaryotic          1             1             1
+                                                                                                     homologues + 1)                homologues + 1)
+                                           Human homologues                                          50/  human               100/  human               1             1             1
+                                                                                                     homologues + 1)                homologues + 1)
+                                           Proximity closest human                                100 − (proximity ratio         100 − (proximity ratio          1             1             1
+                                           homologue                                                 ×100)                          ×100)
+                                           Mouse homologues                                          10 −   mouse             100 −   mouse             1             1             1
+                                                                                                     homologues + 1)                homologues + 1)
+                                           Lactobacillus homologues                                  10 absent, 0 present     100 absent, 0 present     1             1             1
+                                           Function known                                            50 yes, 0             100 yes, 0             1             1             1
+                                           Homologous known target                                20 yes, 0             100 yes, 0             1             1             1
+                                           Homologous essential      Bacillus subtilis            50 yes, 0             100 yes, 0             1             150 yes, 0   1
+                                           gene                      Escherichia coli K12         50 yes, 0             100 yes, 0             1             150 yes, 0   1
+                                                                        Mycobacterium tuberculosis   20 yes, 0             100 yes, 0             1             100 yes, 0   1
+                                                                        Staphylococcus aureus        20 yes, 0             100 yes, 0             1             100 yes, 0   1
+                                           Homologous virulence      Bacillus anthracis           10 yes, 0             100 yes, 0             50 yes, 0    1             1
+                                           gene                      Escherichia coli K12         20 yes, 0             100 yes, 0             100 yes, 0   1             1
+                                                                        Mycobacterium tuberculosis   20 yes, 0             100 yes, 0             100 yes, 0   1             1
+                                                                        Neisseria meningitidis       20 yes, 0             100 yes, 0             100 yes, 0   1             1
+                                                                        Staphylococcus aureus        20 yes, 0             100 yes, 0             100 yes, 0   1             1
+                                           Homologous PDB entry                                   10 yes, 0             100 yes, 0             1             1             1
+
+
+
+
+   Comp Funct Genom 2004; 5: 304–327.
+                                                                                                                                                                                                                               T.  White D. B. Kell
+ Assessment novel antibacterial targets                                                                                                 311
+
+
+
+Table 5. overall ranking targets
+Rank            Gene description                                                                    Robustness               Total score
+
+ 1              tRNA methyltransferase (trmD)                                                                  15                     13 391
+ 2              UDP-N-Acetylmuramate-L-alanine ligase (murC)                                                   15                     13 229
+ 3              UDP-N-acetylglucosamine 1-carboxyvinyl transferase (murA)∗                                     13                     13 059
+ 4              Translation initiation factor 1 (infA)                                                      14                     13 019
+ 5              DNA polymerase III, α chain (dnaE)                                                             13                     12 992
+ 6              30S ribosomal protein S4 (rpsD)∗                                                               11                     12 779
+ 7              UDP-N-acetylmuramoylalanine-D-glutamate ligase (murD)                                          11                     12 766
+ 8              50S ribosomal protein L10 (rplJ)                                                               11                     12 755
+ 9              Chromosomal replication initiator protein (dnaA)                                               10                     12 716
+10              UDP-N-acetylmuramoylalanyl-D-glutamate-2,6-diaminopimelate ligase (murE)                        9                     12 573
+ targets rank highly species used rank 20s scoring systems used. Robustness times gene ranks 20 different scoring systems species used, giving maximum robustness score 15.
+Total score sum scores target scoring systems species used. maximum possible total score 24 120.
+∗ Indicates gene known target antibacterial drug (murA targeted fosfomycin rpsD target tetracyclines).
+
+
+
+felt important. Homology essential                         searched conserved motifs identified
+genes M. tuberculosis S. aureus, homol-                        BLAST, used ogy virulence genes Bacillus anthracis                         distantly related homologues query gene.
+weighted lower homology essential vir-                        approach able identify human
+ulence genes organisms.                         sequences  closely related reflect quality data organisms,                      terms sequence homology, sim- different methods used lists essential                     ilar terms structure biochemical proper- virulence genes complete.                              ties query gene. Multiple sequence align-
+   second scoring metrics                       ments phylogenetic trees created using
+weighted equally, maximum score                         ClustalX (Thompson et al., 1997) Mega2.1
+metric                           (Kumar et al., 2001). deter- scoring systems metrics                           distinct genes pathogens weighted                           homologues non-pathogens scoring homology virulence                         eukaryotes, just ‘active sites’
+genes given greater influence, fourth                          genes conserved differ-
+homology essential genes given greater                             ent pathogenic species. available literature weight, fifth level conservation                     searched gain insights sug- target pathogens given importance.                        gested targets.
+ investigation high-scoring targets                             Results discussion
+Having narrowed number potential
+drug targets using methods outlined                             Scores highest-scoring targets investi-                        According scoring systems used, major-
+gated greater  genes                         ity genes S. aureus, E. coli O157:H7 EDL993
+subjected BLAST search Swis-                             M. tuberculosis make poor antibac-
+sProt database determine pathogens                            terial targets  Figures 2–4). bacteria present. databases Genbank, EMBL                            high-scoring genes. DDBJ searched ENTREZ                                    highest ranking fairly robust
+(http://www.ncbi.nlm.nih.gov/entrez/query.fcgi)                           tend rank 20, regardless copy query gene                           scoring used  Table 5).
+existed specific pathogen, case                        apparent targets missed searching SwissProt database.                          perfect way. obtain perfect score
+PROSITE (http:/ expasy.org/prosite/)                          present metrics target present
+
+Copyright  2004 John Wiley & Sons,                                                                 Comp Funct Genom 2004; 5: 304–327.
+ 312                                                                                  T.  White D. B. Kell
+
+
+ copy, present pathogens            terms properties antibacterial drug tar- non-pathogens, eukaryotes humans.           possess.  scoring sys- perfectly conserved pathogens.            tem rates important properties ‘species
+function known, homologous           distribution’, ‘conservation pathogens’, ‘similar- known target, homologous essential              ity human’ ‘homology essential genes’.
+virulence genes model genomes used               target does perform structure known.            criteria probably make good
+highest-ranking targets achieve 50             drug target. emphasis accorded prop- perfect score.                                          erties means targets present   discouraging, means            wide range pathogens, conserved, little possibility development          similar targets humans, ‘magic bullet’ drug highly effective,             essential able score highly specifically targets pathogens, easy             prioritized. metric ‘species distri-
+develop immune problems emerg-             bution’ weighted target receive ing resistance.  likely            maximum score present bacteria
+prospect.                                                   treated pathogenic study non-
+  unusual peaks distribution graphs              pathogens. unlikely maximum genes unknown function              awarded target, property
+submitted BLAST expectation value             given high weighting compensate 0.01, did return hits. peaks             fact. useful properties target E. coli O157:H7 EDL993 target scores occur              possess  sense, bonuses scored reason, peak higher         reflect  target does necessarily need score genes return hits                                                             (directly) involved virulence order assigned sort function, presumably
+                                                            drug neutralize infection.  involve- methods.
+                                                            ment virulence bring benefits using                                                             target, target absent Scoring systems sensitivity analysis                    non-pathogens absent humans. scoring used designed               existence homologues humans does mat-
+reflect thought important             ter se;  similarity  lack) 
+                800
+
+                700
+
+                600
+
+                500
+    Frequency
+
+
+
+
+                400
+
+                300
+
+                200
+
+                100
+
+                 0
+                      0 19
+                      20 39
+                      40 59
+                      60 79
+                      80 99
+                      100 119
+                      120 139
+                      140 159
+                      160 179
+                      180 199
+                      200 219
+                      220 239
+                      240 259
+                      260 279
+                      280 299
+                      300 319
+                      320 339
+                      340 359
+                      360 379
+                      380 399
+                      400 419
+                      420 439
+                      440 459
+                      460 479
+                      480 499
+                      500 519
+                      520 539
+                      540 559
+                      560 579
+                      580 599
+                      600 619
+                      620 639
+                      640 659
+                      660 679
+                      680 699
+                      700 719
+
+
+
+
+                                                       Score 
+Figure 2. Frequency distribution scores potential targets Staphylococcus aureus, based scoring used
+
+
+Copyright  2004 John Wiley & Sons,                                             Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                            313
+
+
+
+                1200
+
+                1000
+
+                800
+    Frequency
+
+
+
+
+                600
+
+                400
+
+                200
+
+                  0
+                       0 19
+                       20 39
+                       40 59
+                       60 79
+                       80 99
+                       100 119
+                       120 139
+                       140 159
+                       160 179
+                       180 199
+                       200 219
+                       220 239
+                       240 259
+                       260 279
+                       280 299
+                       300 319
+                       320 339
+                       340 359
+                       360 379
+                       380 399
+                       400 419
+                       420 439
+                       440 459
+                       460 479
+                       480 499
+                       500 519
+                       520 539
+                       540 559
+                       560 579
+                       580 599
+                       600 619
+                       620 639
+                       640 659
+                       660 679
+                       680 699
+                       700 719
+                                                         Score 
+Figure 3. Frequency distribution scores potential targets Escherichia coli O157:H7 EDL993, based scoring used
+
+
+                1200
+
+                1000
+
+                 800
+    Frequency
+
+
+
+
+                 600
+
+                 400
+
+                 200
+
+                   0
+                       0 19
+                       20 39
+                       40 59
+                       60 79
+                       80 99
+                       100 119
+                       120 139
+                       140 159
+                       160 179
+                       180 199
+                       200 219
+                       220 239
+                       240 259
+                       260 279
+                       280 299
+                       300 319
+                       320 339
+                       340 359
+                       360 379
+                       380 399
+                       400 419
+                       420 439
+                       440 459
+                       460 479
+                       480 499
+                       500 519
+                       520 539
+                       540 559
+                       560 579
+                       580 599
+                       600 619
+                       620 639
+                       640 659
+                       660 679
+                       680 699
+
+
+
+
+                                                          Score 
+Figure 4. Frequency distribution scores potential targets Mycobacterium tuberculosis, based scoring used
+
+ target human homologue impor-               bacterial version protein. similar way
+tant.  reflected scoring          ‘known function’ ‘entry PDB’ crucial number human homologues                properties potential target possess. important proximity. course lack               simply imply known human homologues bring benefits,               targets used jumping- reduced need QSAR studies             point investigation. ‘Copy number’
+lead compounds selectively target              potentially important  protein exists
+
+Copyright  2004 John Wiley & Sons,                                                 Comp Funct Genom 2004; 5: 304–327.
+ 314                                                                                                                 T.  White D. B. Kell
+
+
+ copies drug targets copy,                                          perform vagaries possible non-targeted copy                                           scoring  function target, rendering                                             used sensitivity analyses drug useless.  likely drugs                                         ranking targets S. aureus dif- disrupt function copy disrupt                                        ferent scoring systems (Figures 5–9) function   copy number given                                            sensitivity analyses lowest-ranking low/intermediate weighting scoring sys-                                             (Figure 10) middle-ranking (Figure 11) targets
+tem. (Multiple paralogues make develop-                                             S. aureus scoring used.
+ment resistance likely.) properties                                         seen cases homology viru-
+‘eukaryotic homologues’ ‘mouse homologues’                                               lence genes does make contribution crucial, make process                                           total score ranking targets. drug development easier. target homo-                                              generally  unlike essential genes, viru-
+logues animal models useful                                             lence genes occur limited spectrum comes carrying animal trials. lack                                          pathogens. virulence genes tend eukaryotic homologues allow use                                              specific mode pathogenicity, target developing drugs livestock.                                            occur broad spectrum organ-
+property ‘homology known target’ weighted                                              isms consequently perform poorly metric
+fairly low scoring  Homology                                             ‘distribution bacteria’ ‘distribution homo- known target imply                                              logues’. Similarly, proteins homol-
+biochemical properties target                                              ogy virulence genes pathogen, relevant drug design process.  tar-                                           hits virulence genes gets currently use necessarily best                                           pathogens (e.g. Figure 5).
+available, problems toxicity resistance                                             ranking targets scoring indicate. study aimed finding novel                                          similar sensitivity pro-
+targets, property treated                                          files, generally homologous essen- important. scoring sys-                                              tial genes species used, having tems used variants scoring                                          homologues humans conserved exception second, simply                                               wide range pathogens. target pro-
+treats metrics equally important.                                           files differ extent gene’s dis-
+function scoring systems perturb                                          tribution pathogens, extent  ranking targets, weed targets                                         servation  , 
+                                                0.3
+
+
+                                               0.25
+                 Contribution total score
+
+
+
+
+                                                0.2                                                                             1st
+                                                                                                                                2nd
+                                               0.15                                                                             3rd
+                                                                                                                                4th
+                                                0.1                                                                             5th
+
+                                               0.05
+
+
+                                                 0
+                                                      1   2   3   4   5   6   7   8   9 10 11 12 13 14 15 16 17 18 19 20 21
+                                                                                          Metric
+
+Figure 5. contribution metric total score ranking targets Staphylococcus aureus, based scoring used. Numbers refer metrics described Table 6. trmD ranking (1st) target scoring 
+
+Copyright  2004 John Wiley & Sons,                                                                            Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                                                        315
+
+
+
+structure known, gene                                               Figure 7 shows profiles middle-ranking
+homologous known target,                                             targets vary. targets score target homologous virulence genes.                                             criteria poorly  number Figure 6 profiles                                              human homologues homology essential lowest-ranking targets metric ‘similar-                                           genes.
+ity human homologue’ relatively important. simply targets
+                                                                                             High-ranking targets
+score poorly metrics. lower-ranking targets hypo-                                                number genes rank consistently
+thetical unknown proteins return                                             highly scoring systems used,   hits submitted BLAST,                                                  appear 20 targets poorly characterized score accordingly.                                           genomes used study  Table 5). 
+
+                                               0.08
+
+                                               0.07
+                 Contribution total score
+
+
+
+
+                                               0.06
+                                                                                                                                  1st
+                                               0.05
+                                                                                                                                  2nd
+                                               0.04                                                                               3rd
+                                                                                                                                  4th
+                                               0.03
+                                                                                                                                  5th
+                                               0.02
+
+                                               0.01
+
+                                                 0
+                                                      1   2   3   4   5   6   7   8   9 10 11 12 13 14 15 16 17 18 19 20 21
+                                                                                          Metric
+
+Figure 6. contribution metric total score ranking targets Staphylococcus aureus, based second scoring used. Numbers refer metrics described Table 6
+
+                                                0.3
+
+                                               0.25
+                 Contribution total score
+
+
+
+
+                                                0.2                                                                               1st
+                                                                                                                                  2nd
+                                               0.15                                                                               3rd
+                                                                                                                                  4th
+                                                0.1
+                                                                                                                                  5th
+
+                                               0.05
+
+
+                                                 0
+                                                      1   2   3   4   5   6   7   8   9 10 11 12 13 14 15 16 17 18 19 20 21
+                                                                                          Metric
+
+Figure 7. contribution metric total score ranking targets Staphylococcus aureus, based scoring used. Numbers refer metrics described Table 6. trmD ranks fifth scoring 
+
+Copyright  2004 John Wiley & Sons,                                                                             Comp Funct Genom 2004; 5: 304–327.
+ 316                                                                                                                     T.  White D. B. Kell
+
+
+
+                                                   0.2
+                                                  0.18
+                    Contribution total score
+
+
+                                                  0.16
+                                                  0.14                                                                                1st
+                                                  0.12                                                                                2nd
+                                                   0.1                                                                                3rd
+                                                  0.08                                                                                4th
+                                                  0.06                                                                                5th
+
+                                                  0.04
+                                                  0.02
+                                                    0
+                                                         1   2   3   4   5   6   7   8   9 10 11 12 13 14 15 16 17 18 19 20 21
+                                                                                            Metric
+
+Figure 8. contribution metric total score ranking targets Staphylococcus aureus, based fourth scoring used. Numbers refer metrics described Table 6. trmD ranking target scoring  1 (infA) ranks fifth
+
+
+                                                  0.6
+               Contribution total score
+
+
+
+
+                                                  0.5
+
+                                                  0.4                                                                                 1st
+                                                                                                                                      2nd
+                                                  0.3                                                                                 3rd
+                                                                                                                                      4th
+                                                  0.2                                                                                 5th
+
+                                                  0.1
+
+                                                    0
+                                                         1   2   3   4   5   6   7   8   9 10 11 12 13 14 15 16 17 18 19 20 21
+                                                                                            Metric
+
+Figure 9. contribution metric total score ranking targets Staphylococcus aureus, based fifth scoring used. Numbers refer metrics described Table 6. 1 ranking target scoring  trmD ranks second
+
+UDP-N-acetylglucosamine 1-carboxyvinyltransfer-                                                 2001; Tanner et al., 1996). ribosome ase (murA) known target fosfomycin,                                                 course currently heavily targeted antibacterial 30S ribosomal subunit protein S4 (rpsD)                                                  drugs suggestions work riboso- known target tetracyclines.                                                  mal proteins previously (Knowles
+dnaE, murC, murD murE previ-                                                      King, 1998). existence known
+ously suggested potential drug targets (Bouhss                                               previously suggested targets overall et al., 1997; El Zoeiby et al., 2003; Inoue et al.,                                             10 ranking sense validates study, 2001; Marmor et al., 2001; Projan, 2002; Tanner                                                 indicates method target prioritization et al., 1996), work carried murC, murD                                               able identify useful targets. follows murE revealed effective inhibitors                                             brief discussion potential proteins (El Zoeiby et al., 2003; Marmor et al.,                                                novel targets suggested.
+
+Copyright  2004 John Wiley & Sons,                                                                                Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                                                                           317
+
+
+
+                                                                 0.7
+
+                                  Contribution total score    0.6
+
+                                                                 0.5
+                                                                                                                                          5th lowest
+                                                                 0.4                                                                      4th lowest
+                                                                                                                                          3rd lowest
+                                                                 0.3                                                                      2nd lowest
+                                                                                                                                          lowest
+                                                                 0.2
+
+                                                                 0.1
+
+                                                                      0
+                                                                              1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
+                                                                                                   Metric
+
+Figure 10. contribution metric total score lowest ranking targets Staphylococcus aureus
+based scoring used. Numbers refer metrics described Table 6
+
+                                                                0.3
+
+
+                                                           0.25
+                   Contribution total score
+
+
+
+
+                                                                0.2                                                                                    1
+                                                                                                                                                       2
+                                                           0.15                                                                                        3
+                                                                                                                                                       4
+                                                                0.1                                                                                    5
+
+                                                           0.05
+
+
+                                                                 0
+                                                                          1    2   3   4   5   6   7   8   9 10 11 12 13 14 15 16 17 18 19 20 21
+                                                                                                              Metric
+
+Figure 11. contribution metric total score mid-ranking targets Staphylococcus aureus based scoring used. Numbers refer metrics described Table 6
+
+
+tRNA methyltransferase (trmD)                                                                                       structure enzyme deter-
+                                                                                                                 mined available Protein Data
+                                                                                                                 Bank (http://www.rcsb.org/pdb/) (Accession Nos
+tRNA methyltransferase (trmD) catalyses trans-                                                               1UAJ, 1UAK, 1UAL 1UAM) (Ahn et al.,
+fer methyl group S-adenosyl-L-methio-                                                                  2003). active site regions enzyme, (AdoMet) G37 subset bacterial                                                                binds AdoMet tRNA, known tRNA species, G residue 36th                                                                 illustrated Figure 12. seen position (Ahn et al., 2003). essential                                                             active site regions highly conserved. maintenance correct reading frame                                                                  encouraging point view designing
+translation. enzyme probably bet-                                                                  broad-spectrum drug target enzyme ter target requiring inhibition                                                                terms reduced potential resistant
+protein–protein interactions, note                                                              mutants emerging.
+progress finding inhibitors                                                                TrmD  knowledge, rec- (Oneyama et al., 2002; Paulmurugan et al.,                                                                  ommended antibacterial drug target 2004).                                                                                                           scientific literature, — 
+Copyright  2004 John Wiley & Sons,                                                                                                Comp Funct Genom 2004; 5: 304–327.
+ 318                                                                                              T.  White D. B. Kell
+
+
+
+Table 6. Key metrics used                                  bacteria. seen, trmD present Number     Description metric
+                                                                  pathogens, Gram-positive Gram-negative,
+                                                                  indicating potential  1         Copy number                                            good broad-spectrum antibacterial drug target.  2         Distribution homologues  e.              enzyme appears function dimer (Ahn et al.,
+           homologues non-pathogens vs. pathogens?)
+                                                                  2003), probably seek target  3         Distribution pathogens  e. distinct
+           pathogens gene present       active site.
+           discrete non-pathogens?)                                 important know pathogens
+ 4         Conservation pathogens                              trmD absent. Table 7 shows  5         Number homologues eukaryotes                     pathogens  defined study) known
+ 6         Number human homologues
+                                                                  possess trmD. important note, 
+ 7         Similarity human homologue
+ 8         Number mouse homologues                              small number strains
+ 9         Lactobacillus plantarum homologues
+10         Function known?
+11         Homology known target                               Table 7. List pathogenic bacteria  defined 12         Homology essential gene Bacillus subtilis        study) known possess homologues 13         Homology essential gene Escherichia coli K12     trmD gene expectation value used
+14         Homology essential gene Mycobacterium
+           tuberculosis                                           Bacillus cereus                 Neisseria gonorrhoeae
+15         Homology essential gene Staphylococcus aureus    Bordetella pertussis            Neisseria meningitidis serogroup C
+16         Homology virulence gene Bacillus anthracis       Brucella abortus                Propionibacterium acnes
+17         Homology virulence gene Escherichia coli         Clostridium botulinum           Proteus mirabilis
+           O157:H7 EDL993                                         Clostridium tetani∗             Providencia rettgeri
+18         Homology virulence gene Mycobacterium            Corynebacterium diptheriae      Providencia stuartii
+           tuberculosis                                           Enterococcus faecium            Salmonella cholerae-suis
+19         Homology virulence gene Neisseria meningitidis   Escherichia coli 0111:H−        Salmonella enteritidis
+20         Homology virulence gene Staphylococcus aureus    Escherichia coli O127:H6        Shigella dysenteriae
+21         Homology PDB entry                                  Flavobacterium                  Staphylococcus capitis
+                                                                  meningosepticum                 Staphylococcus epidermidis∗
+                                                                  Francisella tularensis          Staphylococcus saprophyticus
+                                                                  Haemophilus parainfluenzae      Streptococcus agalactiae large batch bacterial proteins —                   Klebsiella pneumoniae           Streptococcus agalactiae serotype III∗ patented basis experiments                      Legionella pneumophila          Streptococcus pyogenes serotype M5∗
+S. aureus connection use drug tar-               Moraxella catarrhalis           Vibrio parahaemolyticus∗ (United States Patent Trademark Office                    Moraxella lacunata              Wolinella recta
+                                                                  Mycoplasma fermentans           Wolinella succinogenes
+http://www.uspto.gov/, Patent  6 187 541).                     Mycoplasma hominis              Xanthomonas maltophila
+   Figure 13 shows neighbour-joining tree trmD sequences pathogenic non-pathogenic                   ∗   Species/strains genomes entirely sequenced.
+
+
+
+Figure 12.   Alignment trmD sequences pathogens. trmD sequences S. aureus, E. coli O157:H7 EDL993 M. tuberculosis used BLAST queries (non-redundant) hits searches combined.
+BLAST run expectation value 0.01. sequence Acinetobacter calcoaceticus removed, considerably shorter  Active site regions highlighted black boxes labels function active site Ahn et al. (2003). Sequences aligned using ClustalX (Thompson et al., 1997). Names given SwissProt style ID codes: TRMD MYCPN trmD Mycoplasma pneumoniae; MYCGE, Mycoplasma genitalium;
+UREUR, Ureaplasma urealyticum; BORBU, Borrelia burgdorferi; TREPA, Treponema pallidum; LISMO, Listeria monocytogenes;
+BACAN, Bacillus anthracis; ENTFA, Enterococcus faecalis; STRPY, Streptococcus pyogenes; STRPN, Streptococcus pneumoniae;
+STRA5, Streptococcus agalactiae serotype V; STRMU, Streptococcus mutans; STAAN, Staphylococcus aureus N315; CLOPE,
+Clostridium perfringens; MYCTU, Mycobacterium tuberculosis; MYCLE, Mycobacterium leprae; TROWH, Tropheryma whipplei;
+CHLTR, Chlamydia trachomatis; CHLMU, Chlamydia muridarum; CHLPN, Chlamydia pneumoniae; ECO57, Escherichia coli
+O157:H7 EDL993; SHIFL, Shigella flexneri; SALTY, Salmonella typhimurium; YERPE, Yersinia pestis; VIBVU, Vibrio vulnificus;
+VIBCH, Vibrio cholerae; PASMU, Pasteurella multocida; HAEIN, Haemophilus influenzae; HAEDU, Haemophilus ducreyi; PSAEA,
+Pseudomonas aeruginosa; NEIMA, Neisseria meningitidis; RICPR, Rickettsia prowazekii; RICCN, Rickettsia conorii; BRUME,
+Brucella melitensis; CAMJE, Campylobacter jejuni; HELPY, Helicobacter pylori. (B) Alignment selected trmD sequences pathogenic bacteria human homologue (marked *). seen human homologue aligns bacterial proteins C-terminal end. Figure 12 information
+
+
+Copyright  2004 John Wiley & Sons,                                                         Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                             319
+
+
+
+                  
+
+
+
+                                   Recognition tRNA general structure         AdoMet binding pocket
+
+
+
+
+                                               AdoMet binding pocket       Lid
+
+
+
+
+                          Recognition tRNA general structure
+
+
+
+
+Copyright  2004 John Wiley & Sons,                                                  Comp Funct Genom 2004; 5: 304–327.
+ 320                                        T.  White D. B. Kell
+
+
+
+             B
+
+
+
+
+Figure 12. Continued
+
+
+Copyright  2004 John Wiley & Sons,    Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                                                   321
+
+
+
+                                                           55       TRMD Streptococcus pyogenes (serotype M3)
+                                                          99        TRMD Streptococcus pyogenes
+                                                        60
+                                                                    TRMD Streptococcus pyogenes (serotype M18)
+                                                        99           TRMD Streptococcus pneumoniae
+                                                     99              TRMD Streptococcus agalactiae (serotype V)
+                                                         53          TRMD Streptococcus mutans
+                                                                 TRMD Lactococcus lactis (subsp. lactis)
+                                                     92          TRMD Bacillus subtilis
+                                                   74              TRMD Bacillus anthracis
+                                                               TRMD Bacillus halodurans
+                                               79                     TRMD Enterococcus faecalis
+                                                                     TRMD Listeria monocytogenes
+                                                             99 TRMD Listeria innocua
+                                                                    TRMD Staphylococcus aureus (strain N315)
+                                                            99      TRMD Staphylococcus aureus (strain Mu50)
+                                                                    TRMD Staphylococcus aureus (strain MW2)
+                                                                TRMD Thermoanaerobacter teng congensis
+                                                                    TRMD Clostridium perfringens
+                                                    99             TRMD Clostridium acetobutylicum
+                                                  85                     TRMD Borrelia burgdorferi
+                                                                            TRMD Treponema pallidum
+                                                                         TRMD Aquifex aeolicus
+                                                                     TRMD Fusobacterium nucleatum (subsp. nucleatum)
+                                                                    TRMD Thermotoga maritima
+                                                                   99 TRMD Ureaplasma parvum
+                                                                           TRMD Ureaplasma urealyticum
+                                                                       TRMD Mycoplasma pulmonis
+                                                                          TRMD Mycoplasma gallisepticum
+                                                   89                       TRMD Mycoplasma pneumoniae
+                                                               99            TRMD Mycoplasma genitalium
+                                                              99        TRMD Chlamydia trachomatis
+                                                       99                TRMD Chlamydia muridarum
+                                                                       TRMD Chlamydia pneumoniae
+                                                        99          TRMD Buchnera aphidicola (subsp. Schizaphis graminum)
+                                                   98                TRMD Buchnera aphidicola (subsp. Acyrthosiphon pisum)
+                                                                     TRMD Buchnera aphidicola (subsp. Baizongia pistaciae)
+                                                               99      TRMD Neisseria meningitidis (serogroup B)
+                                               74                      TRMD Neisseria meningitidis (serogroup 
+                                                                  99 TRMD Xylella fastidiosa
+                                                54         99          TRMD Xylella fastidiosa (strain Temecula1)
+                                                                      TRMD Xanthomonas campestris (pv. campestris)
+                                                               99 TRMD Xanthomonas axonopodis (pv. citri)
+                                                                     TRMD Ralstonia solanacearum
+                                                                       TRMD Pseudomonas aeruginosa
+                                                           75         TRMD Pasteurella multocida
+                                                          87         TRMD Haemophilus influenzae
+                                                    74
+                                                                      TRMD Haemophilus ducreyi
+                                                            99        TRMD Vibrio vulnificus
+                                                        99            TRMD Vibrio cholerae
+                                                              93 TRMD Serratia marcescens
+                                                         66           TRMD Yersinia pestis
+                                                               99 TRMD Salmonella typhi
+                                                            99
+                                                                      TRMD Salmonella typhimurium
+                                                            70       TRMD Shigella flexneri
+                                                                     TRMD Escherichia coli O157:H7
+                                                             99 TRMD Escherichia coli
+                                                                     TRMD Escherichia coli O6
+                                           66                 99         TRMD Mycobacterium tuberculosis
+                                                     98                   TRMD Mycobacterium leprae
+                                                85                     TRMD   Corynebacterium glutamicum
+                                                       58               TRMD Streptomyces coelicolor
+                                                                          TRMD Tropheryma whipplei
+                                                                      TRMD Deinococcus radiodurans
+                                                                  99        TRMD Rickettsia prowazekii
+                                                                             TRMD Rickettsia conorii
+                                               68                         TRMD Caulobacter crescentus
+                                                    99                   TRMD  Brucella melitensis
+                                                         99         TRMD Rhizobium loti
+                                                           80         TRMD Agrobacterium tumefaciens (strain C58)
+                                                             93        TRMD Rhizobium meliloti
+                                                                    TRMD Chlorobium tepidum
+                                                                 TRMD Anabaena sp. (strain PCC 7120)
+                                                    99           TRMD Synechocystis sp. (strain PCC 6803)
+                                                                  TRMD Campylobacter jejuni
+                                            99                      TRMD Helicobacter pylori
+                                                           99       TRMD Helicobacter pylori J99
+                                                                      DCA3 Brassica juncea
+                                                                  99      DCA1 Arabidopsis thaliana
+
+                                  0.2
+
+
+
+
+Copyright  2004 John Wiley & Sons,                                                                        Comp Funct Genom 2004; 5: 304–327.
+ 322                                                                                      T.  White D. B. Kell
+
+
+
+Figure 13. Neighbour-joining tree showing distribution trmD pathogenic non-pathogenic bacteria. Sequences aligned ClustalX (Thompson et al., 1997) (trmD Acinetobacter calcoaceticus removed, considerably
+shorter trmD sequences). tree created using Mega 2.1 using default parameters (Kumar et al.,
+2001). Branches leading Gram-negative bacteria coloured blue, leading Gram-positive bacteria red, leading Cyanobacteria dark green. tree rooted using DCA3 Brassica juncea DCA1 Arabidopsis thaliana outgroup (branches highlighted purple). trmD sequences bacteria treated pathogenic study marked red diamond. Numbers branches bootstrap support groupings based 100
+replicates (values <50 shown). Scale bar shows number substitutions site
+
+ extensively sequenced  marked                 drug designed attack target *).  copy gene exist                     broad spectrum pathogens. number residues species/strains despite absence            identical sequences, indicat-
+databases. seen, small             ing high selection pressure mutation number species/strains entirely            positions. encouraging point
+sequenced possess copy                  view drug resistance. resistant strains
+trmD.                                                         arising mutation residues    version trmD humans,                severely attenuated compared wild-type human version protein covers                  form.
+covers C-terminal end bacterial protein,              observed 1 contains repeated illustrated Figure 12B. allow                sequence motif (S1-RM) selective drug developed targets              ribosomal protein S1  function enhance
+bacterial human version protein.           translational initiation Gram-negative bacteria)
+   issue importance development             (Gribskov, 1992).  drug designed tar- new drug ease assay development                motif attack different essential
+sop, 1998). copy protein exists yeast,           gene products time, vitro assay development fairly straight-           highly advantageous point view forward haploinsufficient phenotype (hp)-based            drug resistance. motif appears involved
+strategies (Giaever et al., 1999).  trmD           RNA binding.  motif homologue exists yeast, alternative strategy         eukaryotic translation initiation factor α- used  assays course             chains (http:/ expasy.org/prosite/) necessary cellular functional assays analy-           copies exist humans. Figure 14 shows
+sis vivo.                                                  sequences 1 pathogens aligned                                                               eIF-1α sequences humans.
+                                                              number positions alignment Translation initiation factor 1 (infA)
+                                                              highly conserved humans pathogens,
+Translation initiation factor 1 scores         skill required develop criteria homology virulence genes,              drug targets pathogens toxic
+homology known targets number                   humans. highlights problem using
+homologues eukaryotes. 1               overall sequence similarity determine close
+served pathogens, contributes signifi-            functional biochemical relatives gene
+cantly high score.                                     product.
+   precise function initiation factor 1              exist cases success-
+unknown.  known num-             ful drugs target proteins ber factors essential establishment         present humans, antifungal strobil-
+correct reading frame translation (Dahlquist           urins target cytochrome bc1 (Weber et al., Puglisi, 2000). determinant           1990). seen Figure 14 translation accuracy. 1 essential cell           number positions protein
+viability cells deficient 1 exhibit             pathogenic sequences polysomes (Cummings Hershey, 1994).                       residue  biochemically similar residues)    1 conserved                 human sequences possess biochemically
+species/strains present,            different residue.  plenty 
+Copyright  2004 John Wiley & Sons,                                                 Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                             323
+
+
+
+
+Figure 14. Alignment IF1 proteins pathogens human eIF-1α sequences  sequences, marked *). identical sequences close relatives species/strains shown omitted ease presentation. alignment created using ClustalX (Thompson et al., 1997). seen, number positions highly conserved human pathogen sequences. Black arrows mark positions majority pathogens share similar
+residues human sequences possess different residue. IF1 CHLTR 1 Chlamydia trachomatis;
+CHLPN, Chlamydia pneumoniae; MYCPE, Mycoplasma penetrans; UREUR, Ureaplasma urealyticum; MYCPN, Mycoplasma
+pneumoniae; MYCGE, Mycoplasma genitalium; CAMJE, Campylobacter jejuni; HELPY, Helicobacter pylori; NEIMA, Neisseria
+meningitidis serogroup  RICPR, Rickettsia prowazekii; RICCN, Rickettsia conorii; BRUME, Brucella melitensis; ECO57 Escherichia coli O157:H7 EDL993; YERPE, Yersinia pestis; VIBCH, Vibrio cholerae; HAEIN, Haemophilus influenzae; PASMU,
+Pasteurella multocida; PSEAE, Pseudomonas aeruginosa; STAAN, Staphylococcus aureus N315; BACAN, Bacillus anthracis;
+LISMO, Listeria monocytogenes; ENTFA, Enterococcus faecalis; STRPY, Streptococcus pyogenes; STRA5, Streptococcus agalactiae
+serotype V; CLOPE, Clostridium perfringens; MYCTU, Mycobacterium tuberculosis; TROWH, Tropheryma whipplei; LEPIN,
+Leptospira interrogans; TREPA, Treponema pallidum; BORBU, Borrelia burgdorferi; HUMAN, Homo sapiens
+
+potential development drug tar-               number pathogens 
+gets pathogens interfering human              1  Table 8).  form protein.                                           does necessarily mean pathogens   structure 1 determined                    possess copy, cases genome available Protein Data Bank                    sequencing carried  (http://www.rcsb.org/pdb/)         (Accession     Nos          seen, small number species
+1HRO 1AH9). 1 known function                   entirely sequenced monomer.                                                     1 absent.
+  Figure 15 shows phylogenetic tree 
+1 homologues. seen eukaryotic (chloroplast) sequences              Conclusions
+bacteria split fairly  Sequences humans pathogenic bacteria split easily.            study used simple rational collec- sequences pathogens non-pathogens                 tion criteria rate bacterial gene split, sequence level,         products potential broad-spectrum antibacterial prove impossible develop drug                   drug targets. assessed proteins targets 1 pathogens.              S. aureus, E. coli O157:H7 EDL993 M. tuber-
+necessarily overly concerned              culosis criteria distribution, essentiality  curing disease important               involvement virulence. proteins preserving commensal flora.                           organisms ranked order 
+Copyright  2004 John Wiley & Sons,                                                  Comp Funct Genom 2004; 5: 304–327.
+ 324                                                                                                T.  White D. B. Kell
+
+
+
+suitability potential drug target.                                          75 IF1C Amborella trichopoda
+                                                                                                    IF1C Cabomba caroliniana
+shown small proportion                                                      IF1C Cornus mas
+                                                                                                        IF1C Epifagus virginiana
+gene products genomes make                                           57 66 IF1C Leucophyllum frutescens
+                                                                                                  IF1C Hedera helix
+                                                                                        77 IF1C Garrya elliptica
+useful drug targets, rank highly                                               IF1C Brexia madagascariensis
+                                                                                                IF1C Zea mays fairly independently scoring used.                               68 98 IF1C Oryza sativa
+                                                                                         61 IF1C Triticum aestivum rankings                                                 IF1C Nicotiana tabacum
+                                                                                               IF1C Arabidopsis thaliana number proteins rank highly                                                IF1C Pinus thunbergii
+                                                                                                                                 IF1Y Homo sapiens
+                                                                                                                                 IF1X Homo sapiens different scoring systems used,                                                                          99
+                                                                                                                             71 IF1H Homo sapiens
+                                                                                          IF1C Nephroselmis olivacea rank highly genomes used.                                       IF1C Psilotum nudum
+                                                                                     IF1C Marchantia polymorpha targets described fur-                                     IF1C Chaetosphaeridium globosum
+                                                                                      IF1C Spirogyra maxima
+ther left suggestions                                    IF1C Mesostigma viride
+                                                                               62 IF1 Synechocystis sp. (strain PCC 6803) depth analysis.                                                              81 IF1 Synechococcus elongatus
+                                                                                64 IF1 Anabaena sp. (strain PCC 7120)
+                                                                                            IF1C Chlorella vulgaris
+                                                                                   IF1 Aquifex aeolicus
+                                                                             56      IF1 Thermoanaerobacter tengcongensis
+Table 8. List pathogenic bacteria  defined                                 IF1 Thermotoga maritima
+                                                                                      IF1 Bifidobacterium longum
+study) possess homologues infA                              IF1 Streptomyces coelicolor
+gene expectation value used                                                       IF1 Tropheryma whipplei
+                                                                             55 IF1 Corynebacterium efficiens
+                                                                                73
+                                                                              67 IF1 Corynebacterium glutamicum
+
+                               Neisseria meningitidis serogroup B∗
+                                                                               61         IF1    Mycobacterium tuberculosis
+Acinetobacter calcoaceticus                                                     95 IF1 Mycobacterium leprae
+                                                                                             IF1 Fusobacterium nucleatum (subsp. nucleatum)
+Bacillus cereus                Neisseria meningitidis serogroup C                    IF1 Chlorobium tepidum
+Bordetella pertussis           Propionibacterium acnes                         75
+                                                                                       99 IF1 Ureaplasma parvum
+                                                                                                   IF1 Ureaplasma urealyticum
+Brucella abortus               Proteus mirabilis                                                      IF1 Mycoplasma penetrans
+                                                                                                IF1 Mycoplasma gallisepticum
+Clostridium botulinum          Providencia rettgeri                              63                      IF1 Mycoplasma pneumoniae
+                                                                                                            IF1 Mycoplasma genitalium
+Clostridium tetani∗
+                                                                                               98
+                               Providencia stuartii                                    99 IF1 Helicobacter pylori
+                                                                                 89               IF1 Helicobacter pylori J99
+Corynebacterium diptheriae     Salmonella cholerae-suis                                         IF1 Campylobacter jejuni
+                                                                                       IF1 1Ralstonia solanacearum
+Enterococcus faecium           Salmonella enteritidis                          91              IF1 Neisseria meningitidis (serogroup 
+Escherichia coli O111:H−       Shigella dysenteriae                           98
+                                                                                     IF1 Leptospira interrogans
+                                                                                        IF1 Clostridium perfringens
+Escherichia coli O127:H6       Staphylococcus capitis                               IF1 Clostridium acetobutylicum
+                                                                                  IF1 Bacillus halodurans
+Flavobacterium                 Staphylococcus saprophyticus                              IF1 Staphylococcus aureus (strain N315)
+                                                                                67 IF1 Staphylococcus aureus (strain Mu50)
+                                                                               94
+meningosepticum                Streptococcus agalactiae                                  IF1 Staphylococcus aureus (strain MW2)
+
+                               Streptococcus agalactiae serotype III∗
+                                                                                          IF1 Staphylococcus epidermidis
+Francisella tularensis                                                                 IF1 Bacillus anthracis
+Haemophilus parainfluenzae     Streptococcus pyogenes serotype M18∗                IF1 Oceanobacillus iheyensis
+                                                                             57 IF1 Bacillus subtilis
+                                                                              54         IF1 Listeria monocytogenes
+Klebsiella pneumoniae          Streptococcus pyogenes serotype M5                        IF1 Enterococcus faecalis
+Legionella pneumophila         Vibrio parahaemolyticus∗                                IF1 Lactococcus lactis (subsp. lactis)
+                                                                                              IF1 Streptococcus mutans
+                               Vibrio vulnificus∗
+                                                                                79
+Moraxella catarrhalis                                                             89
+                                                                                               IF1 Streptococcus pneumoniae
+                                                                                              IF1 Streptococcus pyogenes (serotype M3)
+                                                                                  57
+Moraxella lacunata             Wolinella recta                                    59
+                                                                                              IF1 Streptococcus pyogenes
+                                                                                              IF1 Streptococcus agalactiae (serotype V)
+Mycoplasma fermentans          Wolinella succinogenes                                      IF1 Escherichia coli O157:H7
+                                                                                     IF1 Escherichia coli
+Mycoplasma hominis             Xanthomonas maltophila                           53        IF1 Salmonella typhi
+                                                                                          IF1 Shigella flexneri
+Neisseria gonorrhoeae                                                                     IF1 Escherichia coli O6
+                                                                                          IF1 Salmonella typhimurium
+                                                                                             IF1 Yersinia pestis
+∗ Species/strains   genomes entirely sequenced.                              IF1 Vibrio cholerae
+                                                                                               IF1 Haemophilus ducreyi
+                                                                                             IF1 Haemophilus influenzae
+                                                                                 62            IF1 Pasteurella multocida
+                                                                                      IF1 Shewanella oneidensis
+                                                                              69 IF1 Wigglesworthia glossinidia brevipalpis
+Figure 15. Neighbour-joining tree showing distribution                             IF1 Buchnera aphidicola (subsp. Schizaphis graminum) infA pathogenic non-pathogenic bacteria                                     IF1 Pseudomonas aeruginosa
+                                                                                              97 IF1 Chlamydia trachomatis
+eukaryotes. Sequences aligned ClustalX (Thompson                                  99           IF1 Chlamydia muridarum
+                                                                                                       IF1 Chlamydia pneumoniae
+et al., 1997). tree created using Mega 2.1                                            IF12 Ralstonia solanacearum
+                                                                                  86 IF1 Xanthomonas axonopodis (pv. citri)
+using default parameters (Kumar et al., 2001). Branches                          91 IF1 Xanthomonas campestris(pv. campestris)
+                                                                                             IF1 Xylella fastidiosa
+leading Gram-negative bacteria coloured blue,                            99 IF1 Xylella fastidiosa (strain Temecula1)
+                                                                              55 99              IF1 Rickettsia prowazekii
+leading Gram-positive bacteria red, leading                                          IF1 Rickettsia conorii Cyanobacteria dark green, leading                           74          IF1    Caulobacter crescentus
+                                                                                           IF1 Rhizobium loti
+                                                                                  90
+eukaryotes light green. tree rooted using RT12                                        IF1 Brucella suis
+                                                                                                IF1 Brucella melitensis Petunia hybrida, Brassica napus Raphanus sativus                                    IF1 Rhizobium meliloti
+                                                                                      65 IF1 Agrobacterium tumefaciens (strain C58) outgroup (branches highlighted purple). infA                                 IF1 Borrelia burgdorferi
+                                                                                           IF1 Treponema pallidum
+sequences bacteria treated pathogenic study                        IF1 Deinococcus radiodurans
+                                                                                   IF1 Mycoplasma pulmonis marked red diamond. Human sequences                        69                  IF1 Mycoplasma sp.
+marked green diamond. Numbers branches                                                 RT12 Petunia hybrida
+                                                                                                 99 RT12 Brassica napus
+bootstrap support groupings based 100 replicates                                           93 RT12 Raphanus sativus
+
+(values <50 shown). Scale bar shows number                   0.2
+
+substitutions site
+
+
+Copyright  2004 John Wiley & Sons,                                                          Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                                             325
+
+
+
+   number known previously suggested                        Altschul SF, Gish W, Miller W, Myers EW, Lipman DJ. 1990.
+targets figure prominently overall                      Basic local alignment search tool. J Mol Biol 215: 403–410.
+                                                                     Altschul SF, Madden TL, Schaffer AA. 1997. Gapped BLAST
+ranking. shows methods used                                                                        PSI-BLAST: new generation protein database search
+study successfully identify targets                     programs. Nucleic Acid Res 25: 3389–3402. potential useful effective treatment                Bauer E, Kohavi R. 1999. empirical comparison voting disease.                                                            classification algorithms: bagging, boosting variants.
+   study, number proteins                       Machine Learning 36: 105–139. suggested entirely novel drug targets.                   Bouhss  Mengin-Lecreulx D, Blanot D, van Heijenoort J,  proof post-genomics methods                         Parquet C. 1997. Invariant amino acids Mur peptide
+                                                                       synthetases bacterial peptidoglycan synthesis modi- successful development novel                       fication site-directed mutagenesis UDP–MurNAc:L-
+drug.  scoring metrics attempt                      alanine ligase Escherichia coli . Biochemistry 36: consider number ‘post-target-identification’                   11 556–11 563.
+criteria ‘ease assay’.   date                Brunder W, Khan  Hacker J, Karch H. 2001. Novel type antibacterial compounds identified target-based                     fimbriae encoded large plasmid sorbitol-fermenting
+screening advanced clinical testing,                    enterohemorrhagic Escherichia coli O157:H(–). Infect Immun
+                                                                       69: 4447–4457. used clinically treat bacterial infec-
+                                                                     Buysse JM. 2001. role genomics antibacterial target
+tions’ (Projan, 2002).  argue                      discovery. Curr Med Chem 8: 1713–1726. candidates identified (trmD infA),                   Chittum HS, Champney WS. 1995. Erythromycin inhibits methods exploited  provide promising                     assembly large ribosomal subunit growing Escherichia
+strategies identification novel antimi-                     coli cells. Curr Microbiol 30: 273–279.
+crobial targets, analysed iteratively                   Chopra  Hesse L, O’Neill AJ. 2002. Exploiting current  hypothesis driven methods (Kell Oliver,                        standing antibiotic action discovery new drugs. J Appl
+                                                                       Microbiol 92(suppl): 4S–15S.
+2004). Whilst, course, having good target                    Coello Coello CA, van Veldhuizen DA, Lamont GB. 2002.
+hardly having good drug inhibits                    Evolutionary Algorithms Solving Multi-objective Problems.  developments sensitivity-based scoring                      Kluwer Academic: Dordrecht.
+approach used virtual screening,                    Cummings HS, Hershey JW. 1994. Translation initiation factor scoring targets ‘druggability’ (Hopkins                  IF1 essential cell viability Escherichia coli . J Bacteriol Groom, 2002; Zambrowicz Sands, 2003)                           176: 198–205.
+                                                                     Dahlquist KD, Puglisi JD. 2000. Interaction translation compounds ‘drug-like’ qualities                                                                        initiation factor IF1 E. coli ribosomal site. J Mol ‘rule 5’ (Lipinski et al., 2001). sense,                Biol 299: 1–15.
+multi-objective optimization methods (e.g.                  Dasgupta P, Chakrabarti PP, DeSarkar SC. 1999. Multiobjective
+Coello Coello et al., 2002; Dasgupta et al., 1999;                     Heuristic Search. Vieweg: Braunschweig.
+Deb, 2001; Knowles et al., 2001; Zitzler, 1999)                      Davies J. 1994. Inactivation antibiotics dissemination used advantage.                                       resistance genes. Science 264: 375–382.
+                                                                     Deb K. 2001. Multi-objective Optimization Using Evolutionary
+                                                                       Algorithms. Wiley: Chichester.
+Acknowledgements                                                     Dietterich TG. 2000. experimental comparison DBK thanks BBSRC, EPSRC, NERC                              methods constructing ensembles decision trees: bagging,
+                                                                       boosting, randomization. Machine Learning 40: 139–157.
+RSC financial support.
+                                                                     Dougherty TJ, Barrett JF, Pucci MJ. 2002. Microbial genomics
+                                                                       novel antibiotic discovery: new technology search                                                                        new drugs. Curr Pharm Des 8: 1119–1135.
+References
+                                                                     Dunman PM, Murphy E, Haney S, et al. 2001. Transcription
+                                                                       profiling-based identification Staphylococcus aureus genes
+Ahn HJ, Kim HW, Yoon HJ, et al. 2003. Crystal structure   tRNA(m1G37)methyltransferase: insights tRNA recogni-            regulated agr sarA loci. J Bacteriol 183:
+  tion. EMBO J 22: 2593–2603.                                          7341–7353.
+Alksne LE. 2002. Virulence target antimicrobial             Egebjerg J, Douthwaite S, Garrett RA. 1989. Antibiotic interac-
+  chemotherapy. Expert Opin Investig Drugs 11: 1149–1159.              tions GTPase-associated centre Escherichia coli
+Allsop  Illingworth R. 2002. impact genomics related      23S rRNA. EMBO J 8: 607–611.
+  technologies search new antibiotics. J Appl Microbiol   El Zoeiby  Sanschagrin F, Levesque RC. 2003. Structure   92: 7–12.                                                            function Mur enzymes: development novel inhibitors.
+Allsop AE. 1998. New antibiotic discovery, novel screens, novel        Mol Microbiol 47: 1–12.
+  targets impact microbial genomics. Curr Opin Microbiol      Fell DA. 1996. Understanding Control Metabolism. Portland
+  1: 530–534.                                                          Press: London.
+
+
+Copyright  2004 John Wiley & Sons,                                                            Comp Funct Genom 2004; 5: 304–327.
+ 326                                                                                                  T.  White D. B. Kell
+
+
+
+Forsyth RA, Haselbeck RJ, Ohlsen KL, et al. 2002. genome-           Kumar S, Tamura K, Jakobsen IB, Nei M. 2001. MEGA2: molec-
+   wide strategy identification essential genes           ular evolutionary genetics analysis software. Bioinformatics 17:
+   Staphylococcus aureus. Mol Microbiol 43: 1387–1400.                  1244–1245.
+Giaever G, Shoemaker DD, Jones TW, et al. 1999. Genomic               Lin AH, Murray RW, Vidmar TJ, Marotti KR. 1997.    profiling drug sensitivities induced haploinsufficiency.      oxazolidinone eperezolid binds 50S ribosomal subunit
+   Nature Genet 21: 278–283.                                            competes binding chloramphenicol lincomycin.
+Gillies D. 1996. Artificial Intelligence Scientific Method.         Antimicrob Agents Chemother 41: 2127–2131.
+   Oxford University Press: Oxford.                                   Lipinski CA, Lombardo F, Dominy BW, Feeney PJ. 2001.
+Glass JI, Belanger AE, Robertson GT. 2002. Streptococcus                Experimental computational approaches estimate
+   pneumoniae genomics platform broad-spectrum                 solubility permeability drug discovery development
+   antibiotic discovery. Curr Opin Microbiol 5: 338–342.                settings. Adv Drug Deliv Rev 46: 3–26.
+Gribskov M. 1992. Translational initiation factors 1 eIF-      Marmor S, Petersen CP, Reck F, et al. 2001. Biochemical
+   2αshare RNA-binding motif prokaryotic ribosomal              characterization phosphinate inhibitor Escherichia coli
+   protein S1 polynucleotide phosphorylase. Gene 119:
+                                                                        MurC. Biochemistry 40: 12 207–12 214.
+   107–111.
+                                                                      McDevitt D, Rosenberg M. 2001. Exploiting genomics discover
+Hancock REW, Knowles D. 1998. approaching end                                                                         new antibiotics. Trends Microbiol 9: 611–617.
+   antibiotic era? Curr Opin Microbiol 1: 493–494.
+                                                                      Mitchell TM. 1997. Machine Learning. McGraw Hill: London.
+Haney SA, Alksne LE, Dunman PM, Murphy E, Projan SJ.
+                                                                      Mjolsness E, DeCoste D. 2001. Machine learning science: state
+   2002. Genomics anti-infective drug discovery — getting    endgame. Curr Pharm Des 8: 1099–1118.                                art future prospects. Science 293: 2051–2055.
+Hastie T, Tibshirani R, Friedman J. 2001. Elements             Neu HC, Gootz TD. 1996. Antimicrobial chemotherapy.    Statistical Learning: Data Mining, Inference Prediction.         Medical Microbiology, Baron S (ed.). University Texas
+   Springer-Verlag: Berlin.                                             Medical Branch.
+Heinemann JA. 1999. antibiotics cause antibiotic resistance.      Oneyama C, Nakano H, Sharma SV. 2002. UCS15A, novel
+   Drug Discov Today 4: 72–79.                                          small molecule, SH3 domain-mediated protein–protein interac-
+Heinrich R, Schuster S. 1996. Regulation Cellular Systems.       tion blocking drug. Oncogene 21: 2037–2050.
+   Chapman & Hall: London.                                            Paulmurugan R, Massoud TF, Huang J, Gambhir SS. 2004.
+Hoffmaster AR, Koehler TM. 1999. Control virulence gene              Molecular imaging drug-modulated protein–protein interac-
+   expression Bacillus anthracis. J Appl Microbiol 87: 279–281.      tions living subjects. Cancer Res 64: 2113–2119.
+Hopkins AL, Groom CR. 2002. druggable genome. Nat Rev             Payne DJ, Holmes DJ, Rosenberg M. 2001a. Delivering novel
+   Drug Discov 1: 727–730.                                              targets antibiotics genomics. Curr Opin Investig Drugs
+Inoue R, Kaito C, Tanabe M, et al. 2001. Genetic identification         2: 1028–1034.
+   distinct DNA polymerases, DnaE PolC,           Payne DJ, Warren PV, Holmes DJ, Ji Y, Lonsdale JT. 2001b.
+   essential chromosomal DNA replication Staphylococcus          Bacterial fatty-acid biosynthesis: genomics-driven target    aureus. Mol Genet Genom 266: 564–571.                                antibacterial drug discovery. Drug Discov Today 6: 537–544.
+Isaacson  2002. Genomics prospects discovery       Projan SJ. 2002. New  new) antibacterial tar-
+   new targets antibacterial antifungal agents. Curr         gets — novel drugs come? Curr
+   Pharm Des 8: 1091–1098.                                              Opin Pharmacol 2: 513–522.
+Ji Y. 2002. role genomics discovery novel targets    Sassetti CM, Boyd DH, Rubin EJ. 2003. Genes required    antibiotic therapy. Pharmacogenomics 3: 315–323.                 mycobacterial growth defined high density mutagenesis. Mol
+Kell DB, Oliver SG. 2004. evidence,             Microbiol 48: 77–84.
+   hypothesis? complementary roles inductive           Schmid MB. 1998. Novel approaches discovery    hypothesis-driven science post-genomic era. Bioessays         antimicrobial agents. Curr Opin Chem Biol 2: 529–534.
+   26: 99–105.
+                                                                      Schnappinger D, Hillen W. 1996. Tetracyclines: antibiotic action,
+Kell DB, Westerhoff HV. 1986. Metabolic control theory: role
+                                                                        uptake, resistance mechanisms. Arch Microbiol 165:
+   microbiology biotechnology. FEMS Microbiol Rev 39:
+                                                                        359–369.
+   305–320.
+                                                                      Sharma VK, Dean-Nystrom EA. 2003. Detection enterohemor-
+Knowles DJ, King F. 1998. impact bacterial genomics                                                                         rhagic Escherichia coli O157:H7 using multiplex real-time
+   antibacterial discovery. Adv Exp Med Biol 456: 183–195.
+Knowles JD, Watson RA, Corne DW. 2001. Reducing local                   PCR assay genes encoding intimin Shiga toxins. Vet
+   optima single-objective problems multi-objectivization.     Microbiol 93: 247–260.
+   Proceedings 1st International Conference Evolutionary    Spaltmann F, Blunck M, Ziegelbauer K. 1999. aided
+   Multi-criterion Optimization (EMO’01), E. Zitzler, et al. (eds).     target selection-prioritizing targets antifungal drug discovery.
+   Springer: Berlin; 269–283.                                           Drug Discov Today 4: 17–26.
+Kobayashi K, Ehrlich SD, Albertini  et al. 2003. Essential          Stephenson K, Hoch JA. 2002. component phosphorelay
+   Bacillus subtilis genes. Proc Natl Acad Sci USA 100:                 signal-transduction systems therapeutic targets. Curr Opin
+   4678–4683.                                                           Pharmacol 2: 507–512.
+Koehler TM. 2002. Bacillus anthracis genetics virulence gene      Stephenson K, Hoch JA. 2004. Developing inhibitors selec-
+   regulation. Curr Microbiol Immunol 271: 143–164.                 tively target component phosphorelay signal transduc-
+Kornder JD. 2002. Streptomycin revisited: molecular action       tion systems pathogenic microorganisms. Curr Med Chem 11:
+   microbial cell. Med Hypoth 58: 34–46.                                765–773.
+
+
+Copyright  2004 John Wiley & Sons,                                                             Comp Funct Genom 2004; 5: 304–327.
+ Assessment novel antibacterial targets                                                                                            327
+
+
+Struelens MJ. 1998. epidemiology antimicrobial resistance        Wang G, Clark CG, Rodgers FG. 2002. Detection Escherichia
+   hospital acquired infections: problems possible solutions.      coli genes encoding major virulence factors, genes
+   Br Med J 317: 652–654.                                                 defining O157:H7 serotype, components type
+Stuber K, Frey J, Burnens AP, Kuhnert P. 2003. Detection type          2 Shiga toxin family multiplex PCR. J Clin Microbiol 40:
+   III secretion genes general indicator bacterial virulence.     3613–3619.
+   Mol Cell Probes 17: 25–32.                                           Weber W, Anke T, Bross M, Steglich W. 1990. Strobilurin D
+Sun YH, Bakshi S, Chalmers R, Tang CM. 2000. Functional                   strobilurin F: new cytostatic antifungal (E)-β-
+   genomics Neisseria meningitidis pathogenesis. Nature Med            methoxyacrylate antibiotics Cyphellopsis anomala (1).
+   6: 1269–1273.                                                          Planta Med 56: 446–450.
+Tanner  Vaganay S, van Heijenoort J, Blanot D. 1996.                 Willins DA, Kessler M, Walker SS, Reyes GR, Cottarel G. 2002.
+   Phosphinate inhibitors D-glutamic acid-adding enzyme            Genomics strategies antifungal drug discovery —    peptidoglycan biosynthesis. J Org Chem 61: 1756–1760.               gene discovery compound screening. Curr Pharm Des 8:
+Terst

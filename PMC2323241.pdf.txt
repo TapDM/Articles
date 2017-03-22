@@ -1,0 +1,418 @@
+Combined analysis reveals core set cycling genes
+
+
+
+
+
+
+                                                                                                                                                             deposited research
+                 Abstract
+
+                 Background: Global transcript levels cell cycle characterized using
+                 microarrays species. Early analysis experiments focused individual species.
+                 recently, number studies concluded surprisingly small number genes
+                 conserved species periodically transcribed species. Combining                  comparing data multiple species challenging noise expression data,                  different synchronization scoring methods used, need determine accurate set 
+
+
+
+                                                                                                                                                             refereed research
+                 homologs.
+
+                 Results: solve problems, developed applied new algorithm analyze
+                 expression data multiple species simultaneously. Unlike previous studies,                  20  cycling genes budding yeast cycling homologs fission yeast 5  7                   cycling genes species cycling homologs species. conserved
+                 cycling genes display stronger cell cycle characteristics complementary high
+                 throughput datasets.
+
+                 Essentiality analysis yeast human genes confirms findings. Motif analysis indicates                                           interactions
+                 conservation corresponding regulatory mechanisms. Gene Ontology analysis analysis                  genes conserved sets sheds light evolution specific subfunctions cell
+                 cycle.
+
+                 Conclusion: results indicate conservation cyclic expression patterns                  greater previously thought. genes highly enriched cell cycle categories,
+                                                                                                                                                             information
+
+
+
+
+                 large percentage essential, supporting claim cross-species analysis                  identify core set cycling genes.
+
+
+
+
+                                                              Genome Biology 2007, 8:R146
+ R146.2 Genome Biology 2007,      Volume 8, Issue 7, Article R146      Lu et al.                                          http://genomebiology.com/2007/8/7/R146
+
+
+
+
+        Background                                                                      tion bias analysis prevent iden-
+        cell cycle series linked, fundamentally conserved                   tification accurate set conserved cycling genes.
+        processes result high-fidelity cell duplication. Global
+        transcript levels cell cycle charac-                   use algorithm analyzes data species
+        terized using microarray expression data species.                    concurrently. differs previous methods 
+        include humans [1], budding fission yeast [2-6],                      formed analysis separately species         plants [7], bacteria [8]. Early analysis experi-                   looked overlap. method overcomes         ments focused individual species. Hundreds genes                     obstacles discussed  use scoring method
+        identified transcripts oscillate cell                     species, include parameters allow gene         cycle, budding yeast estimated 15  genes               species influence score homologous gene          subject type control. Despite large cross-spe-              species). parameters         cies effort, number studies concluded surpris-                 continuous depend similarity genes.
+        ingly small number genes conserved species                    allow many mappings
+        periodically transcribed species. Rustici cow-                 genes; allow higher quality expression data
+        orkers [4] compared fission budding yeast expression                        species improve quality data         data. Dyczkowski Vingron [9] compared lists                        species.
+        cycling genes (budding fission yeast human),         Jensen colleagues [10] added fourth species (Arabidop-                    analyze expression data species: budding [2]
+        sis). studies concluded periodicity tran-                 fission yeast [4-6], human [1], plants [7]. pri-
+        script level conserved species small                       mary goal determine sets genes conserved         number cases.                                                                sequence transcript level subsets                                                                                         species. findings indicate set conserved
+        comparing cyclic expression patterns species,                       cycling genes larger previously thought.
+        researchers face challenges. cases lists                    findings validated explained using large
+        derived species generated using different                         number complementary high throughput datasets.
+        expression analysis methods. example, scoring meth-
+        ods used Spellman [2] Rustici [4] colleagues
+        different, makes direct comparison problematic.                       Results discussion
+        challenge arises determining set                            Combined analysis cell cycle expression data
+        homologs species analyzed.                           developed algorithm combining sequence         using curated databases results accurate set                   expression data order identify cycling genes [12].         served pairs, analysis limited small                      algorithm uses probabilistic graphical models, partic-
+        times biased) set genes. addition, binary assignment                  ular Markov random fields, combine data sources.
+        (ortholog  databases account com-                     Genes represented nodes graph 
+        plex similarity measures, represented using                   nected edges genes  species         continuous value  example, BLAST e-value). Relying                     species), based sequence similarity deter-
+        actual strength homology help looking                    mined BLAST score (Figure 1a). node (gene)         conserved sets. Finally, expression data noisy. Repeated                    assigned initial cycling score determined         experiments, species, result rel-                 expression data using method Lichtenberg         atively low agreement [5], differences species                      coworkers [13]. Starting score, propagate infor-
+        problematic radically different                        mation edges graph convergence. 
+        synchronization procedures used [11]. combina-                      node medium high score connected set 
+
+        Figure 1overview
+        Method       following page)
+        Method overview.   Genes (nodes graph) connected genes based sequence similarity. Species identity indicated shape         nodes. Genes connected 'score node', represents cycling expression score. Information propagated edges         convergence. Genes assigned posterior score cut applied select genes species. (b) subgraph containing         selected genes analyzed identifying multidomain homology cliques. Examples identified cliques conserved genes presented panels c
+        f. (c) Cyclins. Fission yeast Cig2 promotes onset S phase [45]. Human Ccna2 G2 checkpoint [46]. (d) Cdc6/Cdc18 conserved
+        essential component pre-replication complexes (pre-RCs). Orc1 largest subunit origin recognition complex (ORC), binds
+        specifically replication origins triggers assembly pre-RCs [47]. (e) TOG related proteins, family microtubule-associated proteins (MAPs).
+        Proteins group localize plus-end tips microtubules essential spindle pole organization. Alp14 component Mad2-
+        dependent spindle checkpoint cascade sharing redundant functions Dis1. Mutants genes knocked nonviable [48]. (f,g) Microtubule
+        component clique expression profiles fission yeast Nda3 experiments [4-6]. Nda3, known cell division gene [49], obtains high cycling
+        score 600 cycling fission genes based expression analysis. Using method, score correctly elevated         sequence similarity high scoring genes.
+
+
+
+        nodes high scores, information neigh-                    (Figure 2b). Similarly, list original list [1]         boring nodes used elevate belief assign-                   cycling human genes enriched binding known cell
+        ment node, vice versa. method allows                     cycle factors (Nrf1 E2f2; Additional data file 1 [Support-
+        identify cycling genes missed analy-                  ing Figure 4d]). Genes lists exhibit lower expression
+        sis focused single species result expression noise                 levels nonproliferating tissues (Figure 2c) higher
+        (Figure 1 Additional data file 1 [Supporting Figures 1                   expression levels cancer cells (Additional data file 1 [Sup-
+        3]). Similarly, genes marginal scores                    porting Figure 4c]). Expression data fission yeast         nected low scoring genes filtered cycling                  Arabidopsis support list species (Figure
+        gene lists. algorithm converges gene                           2d-e).
+        assigned posterior cycling score 0 1. com-
+        parison reasons, select species set genes                 Combined, results indicate species-specific lists
+        roughly equal size used original reports                        derived using method comparable quality          identity genes different), remove                 previously reported cell cycle gene lists. Additional data file
+        genes graph, consider subgraph                      2 (Supporting Tables 1 3) presents percentage overlap
+        induced selected genes. graph analyzed iden-                  lists cycling genes identified using method
+        tify multidomain homology cliques [14] (Figure 1b-e).                   previously reported cycling gene lists species.
+        cliques analyzed determine set species
+        included. findings reported cell cycle                   Conserved cycling genes
+        servation (CCC) sets conservation (budding                      Figure 3a presents number conserved genes dif-
+        fission yeast), (yeasts human cells),                 ferent evolutionary distances represented datasets.
+        species.                                                                        21  budding fission yeast cycling genes
+                                                                                        reside cliques containing genes species
+        Materials methods Additional data file 3 fur-                   (CCC2). adding human genes, roughly 10  cycling
+        ther details graph-based algorithm clique anal-                   yeast genes 8  cycling human genes included         ysis. supporting website [15] complete list               cliques (CCC3). Finally, 5  7  cycling
+        genes identified using algorithm.                                           genes species conserved sequence                                                                                         expression (CCC4). Additional data file 2 (Supporting Tables
+        Analysis identified cycling genes                                            4 10) presents list genes assigned CCC4 CCC3
+        method combines expression sequence data.                          species. note original
+        raises obvious question; quality lists compara-                sequence similarity criterion based BLAST e-values,
+        ble quality previous lists relied expression                  following clique analysis resulting sets         data  words, does method sacrifice                       good agreement curated homology databases [17].         accuracy respect set cycling genes spe-                  example, 82  budding yeast genes CCC2 curated
+        cies order obtain larger set conserved genes?                        fission yeast homolog CCC2. Similarly, 82  fission yeast
+                                                                                        genes CCC2 curated budding yeast homolog         possible way assess quality lists compar-                CCC2. supporting website [15] complete hom-
+        ing high-throughput data sources [13].                      ology references.
+        example, protein-DNA binding data available         budding yeast transcription factors known                        test agreement conserved lists complemen-
+        involved cell cycle specific transcription [16]. expected              tary high-throughput datasets, repeated         cycling genes bound factors.                        extended analysis discussed focusing         comparing genes list original list [2],                genes included CCC3 CCC4. Figures 2 3         exhibit threefold enrichment                      Additional data file 1 (Supporting Figure 4)  CCC3         interactions compared random gene list (Figure 2a).                      CCC4 genes exhibit stronger cell cycle characteristics
+        Stationary phase expression experiments yield similar results                   compared original set cycling genes 
+
+        Figure 2of         Analysis    cycling
+                       following
+                            genespage)
+                                  using complementary high throughput datasets
+        Analysis cycling genes using complementary high throughput datasets.   Number interactions cycling genes cell cycle
+        transcription factors. (b) Average expression level sets budding yeast genes stationary phase (data Gasch coworkers [50]). (c)
+        Expression levels human genes normal tissues, using data presented Shyamsundar colleagues [51]  Additional data file 1 [Supporting
+        Figure 4]). Genes conserved set lower expression levels nonproliferating normal tissues compared list list
+        presented Whitfield coworkers [1]. 26 36 normal tissues difference significant P value < 0.05. (d) Arabidopsis cells         developmental arrest experiments [52]. Flower cells mutants stop growing stage 11, cells stem grow normally.          conserved set expressed lower levels developmental arrest (P = 0.027 stages 11 12; P = 0.003 stages 13 14). (e) Expression data         studying sexual differentiation mating fission yeast [53].
+
+
+
+        species. example, protein-protein interaction dataset                 motif finders run dataset; SOMBRERO [24,25],
+        budding yeast [18,19], genes CCC3 involved                   BioProspector [26], Consensus [27], AlignACE [28]          times pair-wise interactions compared ran-                    Materials methods,  details). motif
+        dom set similar size set cycling genes (Fig-               finding algorithms able identify Swi6 motif BY6
+        ure 3c). indicates genes long                        FY6C, indicating motif conserved         involved function. Similarly, percentages                   species, conserved cycling genes
+        human genes bound cell cycle transcription factors                  (Additional data file 1 [Supporting Figures 6 7]). sharp
+        higher CCC3 CCC4 sets (Nrf1 E2f2 [20];                    contrast, motif finders able identify         Additional data file 1 [Supporting Figure 4d]).                       Swi6 motif upstream regions genes FY6NC.
+        humans CCC3 CCC4 sets repressed         nonproliferating tissues compared                   Mechanistic similarities differences cell
+        set cycling human genes (Figure 2c). Similarly, CCC4 genes                  cycle regulation budding fission yeast
+        exhibit stronger cell cycle characteristics Arabidopsis                 extended motif analysis discussed study
+        fission yeast expression experiments (Figure 2d-e).                            additional transcription factors determined                                                                                        play key role regulating cycling genes budding yeast
+        repeated analysis comparing lists                      [3,16]. factors extracted cycling bud-
+        subsets cycling genes high amplitude                   ding yeast genes determined bound factor [23]
+        species. shown Additional data file 1 (Support-                 fission yeast homologs. did Swi6, fur-
+        ing Figure 5), high amplitude genes exhibit similar cell cycle                 ther divided fission yeast genes sets; 
+        characteristics CCC3 CCC4 sets human                        tains fission yeast genes CCC2 second  negative
+        plants.  yeasts high amplitude                       control list) contains noncycling fission yeast homologs         genes similar set cycling genes.                  cycling budding yeast genes.  ran motif 
+        indicates expression analysis used                     ers dataset.
+        identify core set genes.
+                                                                                       results presented Table 1 Additional data file 1
+        Motif analysis budding fission yeast genes                             (Supporting Figures 6 17). Table 1 report         validate findings large overlap                number motif finders identified correct motif         cycling genes yeast species, turned motif                     factor percentage genes set 
+        analysis. transcription factors conserved                  tained motif. Similar results obtained Swi6,         budding fission yeast [21]. possible explanation                     G1/S factors, Swi4 Mbp1, exhibit         expression conservation  lack thereof) conserva-                  optimal motif conservation pattern; expected motifs         tion  lack conservation) binding motif                    fission yeast cell cycle genes positive
+        cycling genes.                                                                 control conserved budding yeast cell cycle genes,                                                                                        negative control set noncycling fission
+        started looking genes bound budding yeast                      yeast genes. Motif scan analysis (Additional data file 2 [Sup-
+        factor Swi6, regulates transcription G1/S transi-                 porting Table 11]) confirms results factors.         tion [22]. extracted lists factor.                 G2/M, Fkh2 sets display similar, significant,
+        denoted BY6, contained cycling budding yeast genes CCC2                     pattern  motif finders identified correct motif
+        determined bound Swi6 [23]. second list,                          cycling set).  Fkh1 Fkh2 motifs         denoted FY6C, contained fission yeast genes                  appear, strongly, negative control sets.         CCC2 homologs BY6. genes deter-                          total, FKH-like motifs present 11 negative
+        mined cycling conserved method.                     control datasets. M/G1 phase analysis complicated         list (FY6NC) contained noncycling fission yeast genes                     small dataset size. result lack conserva-
+        cycling budding yeast homologs bound Swi6.                      tion species phase [21]. result,
+        list serves negative control contains genes               motif match set weak (Swi5) nonexistent
+        lost cycling status species.                   (Mcm1 Yox1).
+
+
+        Figure 3          Conservation   following
+                          cyclingpage)
+                                  genes
+        Conservation cycling genes.   Percentage conserved cycling genes species. (b) Enrichment cell cycle related Gene Ontology         terms cycling genes CCC3 set budding yeast, fission yeast, humans. (c) Yeast protein-protein interactions [18]. counted         number interactions random set 80 cycling yeast genes.  1,000 sets sampled. histogram left plots number         interactions observed sets. X represents internal interactions CCC3 set, significantly internal interactions.
+
+
+        biologic importance core set cycling                              enriched lists obtained using CCC3         genes                                                                           CCC4 sets.  percentage climbs 16  (CCC3)
+        validate genes CCC3 CCC4 core                        17  (CCC4). findings highlight importance         cycling genes, studied importance using deletion                       conserved set support conclusion contains
+        data. Surprisingly, 15  cycling yeast genes essen-                  key cycling genes.
+        tial rich media conditions [29], roughly equal         overall percentage essential yeast genes (18 ).                      Conserved protein complexes regulated cell cycle
+         Figure 4 shows, 35  budding yeast genes                      determine cell cycle regulated protein complexes 
+        CCC3 list 46  genes CCC4 lists essential.                 served species, searched protein com-
+        test similar result obtained using                     plexes subunits CCC3 set using high-
+        sequence data  expression data species),                  throughput protein-protein interaction data. type data
+        extracted list cycling budding yeast genes                  far available budding yeast [18,19]. Additional
+        homologs species, taking                   data file 2 (Supporting Table 12) Additional data file 1
+        account cycling status species.                   (Supporting Figure 18) present protein com-
+        increased percentage essential genes  27 ),                      plexes identified. complexes known
+        percentages remained achieved                        regulate important events cell cycle. example,         CCC4, uses expression data.                                           origin recognition complex (ORC) conserved com-
+                                                                                        plex involved initiation DNA synthesis [31].
+        carried similar analyses human genes                       examples cohesin complex, responsible
+        using data RNA interference (RNAi) experiments [30].                       binding sister chromatids mitosis S phase
+        experiments 24,373 genes knocked using                       [32], ribonucleoside-diphosphate reductase (RNR)
+        RNAi assessed phenotypic influence cell growth.                      complex, involved maintenance cellular
+        1,152 (4.7 ) genes, resulting knockdown cells                    pool dNTPs [33].
+        presented phenotypic growth defects. Mukherji cow-
+        orkers [30] note report, roughly 6  cycling human                   Gene Ontology analysis conserved cycling genes
+        genes reported Whitfield colleagues [1] included                  CCC3 list gives look conserved core         list. Similar process conducted yeast,                 periodically transcribed genes evolution.         sidered sequence data extracted Whitfield                     CCC3 contains relatively genes (0.4  1.3  total
+        list genes homologs species.                  number genes species), genes play         list, percentage genes increases 10 .                  role key processes required growth. Using Gene Ontol-
+
+        Table 1
+
+        Summary motif-finding results
+
+        Budding yeast   Transcription     Fission yeast cell cycle     Negative control                Positive control              Extended positive control
+        phase           factor            genes                        (fission yeast non-cell-cycle   (conserved budding yeast       budding yeast CC
+                                                                       genes)                          cell-cycle genes)             genes)
+
+        G1/S                  Swi4           
+                              Swi6            
+                             Mbp1        
+
+        G2/M                  Fkh1          
+                              Fkh2         
+                             Ndd1           
+
+        M/G1                Mcm1a        
+                             Ace2          
+                              Swi5            
+                             Yox1      
+                             Yhp1         
+
+        Motif analysis conserved cycling genes budding fission yeast. set factor list number motif finders  
+        identified correct motif. motif finder recovers multiple correct motifs, motif associated list predicted
+        instances promoter regions. report percentage promoters contain instances predicted correct motifs.
+        columns CCC2 genes budding fission yeast, respectively. second column non-cycling fission yeast genes         homolog cycling budding yeast genes. Additional data file 3 details. aMcm1 regulates genes G2/M M/G1. bThese datasets contain
+        genes fewer. ~, weak matches known motif.
+
+
+                                                                     Genome Biology 2007, 8:R146
+ http://genomebiology.com/2007/8/7/R146                                                                                  Genome Biology 2007,   Volume 8, Issue 7, Article R146   Lu et al. R146.9
+
+
+
+
+                                                                                                                    centage cycling genes. indicates genes
+                                                    Percentage essential budding yeast genes                   associated functions conserved cyclic
+                                                                                                                    expression species. include categories
+                                         50
+
+
+
+
+                                                                                                                                                                                                    comment
+                                                   Spellman (15.3 )                           genes (17.9 )
+                                                                                                                    related DNA metabolism (P = 5.7 × 10-12 CCC3 P =
+         Percentage essential genes
+
+
+
+
+                                                   Spellman w/ homologs (27.0 )
+                                                   list (15.2 )
+                                                                                                                    1.1 × 10-6 list) chromatin assembly (P = 3.7 ×
+                                         40
+
+
+
+
+                                                   CCC3 (34.7 )
+                                                   CCC4 (45.9 )
+                                                                                                                    10-5 versus P = 0.01). contrast, number cate-
+                                                                                                                    gories enriched list, indicating
+                                         30
+
+
+
+
+                                                                                                                    probably evolved, greatly expanded,
+                                                                                                                    individual species. include categories                                          20
+
+
+
+
+                                                                                                                    mitosis fission yeast (P = 1.6 × 10-4 versus P = 3.6 × 10-7)
+                                                                                                                    cell wall category, exhibits great deal spe-
+                                         10
+
+
+
+
+                                                                                                                                                                                                    reviews
+                                                                                                                    cies-specific variation budding yeast, fission
+                                                                                                                    yeast, metazoans [35]. human list, DNA repair
+                                         0
+
+
+
+
+                                                                                                                    chromosome segregation significantly
+                                                                                                                    enriched set (P = 5.9 × 10-4 versus P = 7.3 × 10-5,                                                                                                                     P > 0.1 versus P = 9.0 × 10-8, respectively).                                                                                                                     functions conserved organisms, analysis
+   (b)                                    Percentage human genes strongly effecting cell cycle progression
+                                                                                                                    indicates genes cycling human
+                                                                                                                    cells, indicating functions                                          20
+
+
+
+
+                                                   Whitfield (5.6 )                           genes (4.7 )
+         Percentage essential genes
+
+
+
+
+                                                                                                                                                                                                    reports
+                                                   Whitfield w/ homologs (9.7 )
+                                                   list (7.4 )                                                  adapted accommodate longer cell cycle.
+                                                   CCC3 (15.7 )
+                                                   CCC4 (17.3 )
+                                         15
+
+
+
+
+                                                                                                                    Analysis specific CCC3 genes
+                                                                                                                    Partial functional knowledge available                                          10
+
+
+
+
+                                                                                                                    (YPL247C) 72 budding yeast genes CCC3. Sixteen                                                                                                                     genes encode products involved DNA repli-
+                                                                                                                    cation 23 involved chromosome organiza-
+
+
+
+
+                                                                                                                                                                                                    deposited research
+                                         5
+
+
+
+
+                                                                                                                    tion biogenesis. include structural components
+                                                                                                                    (Mcms, tubulins, histones) regulatory proteins
+                                         0
+
+
+
+
+                                                                                                                    (cyclins, Cdc20, Cin8). mcm2 (cdc19) mcm6
+                                                                                                                    genes previously known cyclic subunits                                                                                                                     highly conserved Mcm pre-replication complex fission
+                                                                                                                    yeast [5,36]. combined analysis indicates Figure
+    importance
+        4        core cycling genes importance core cycling genes.   Percentage essential                                               genes (mcm3 mcm5) periodic, similar genes different sets budding yeast genes [29]. 18                                                 budding yeast human Mcm subunits. large class
+
+
+
+
+                                                                                                                                                                                                    refereed research
+budding yeast genes essential, 15  cycling genes essential.                                         conserved cyclic genes involved chromosome segrega- analysis resolves apparent contradiction showing                                               tion (ASE1, KIP1, NUM1, STU2) cytokinesis (MOB1,
+conserved cycling genes lists contain higher percentage essential
+genes (35  46  CCC3 CCC4). Sequence                                                        HOF1, KEL2, IQG1). addition, list includes factors
+account high percentage (27 ), indicating importance                                            affect transcription globally (ARP7 TUP1) spe-
+combined analysis. (b) Similar analysis human lists using data                                         cifically (ACE2, FKH2, HCM1). Interestingly, S phase
+RNA interference knockdown experiments [30].                                                                        specific transcription factor Hcm1 conserved cyclic
+                                                                                                                    transcript, 22 predicted targets [3]. fact ogy   analysis [34], identified categories                                                          nearly 30  budding yeast CCC3 genes potential tar-
+enriched set. budding yeast categories                                                            gets Hcm1 consistent known role Hcm1 reg-
+include cell cycle (P = 3 × 10-15), DNA replication (P = 2 × 10-                                                    ulating genes involved chromosome dynamics [3,37].                           interactions
+13), mitosis (P = 1 × 10-7). Similar enrichments  human conserved cycling genes fission yeast.                                                        small number genes CCC3 example, cell cycle (P = 5 × 10-17), DNA replication (P = 7 × 10-                                                   obviously involved cell cycle specific processes. 14) cell division (P = 2 × 10-9) enriched humans,                                                    genes include involved metal homeostasis (SMF2,
+cell cycle (P = 10-9) chromatin assembly/disassembly (P                                                         SMF3, CTH2), cell wall proteins (FIG2, AGA1, = 10-9) enriched fission yeast. Figure 3 Additional                                                      SED1) alkaline phosphatase (PHO8). gene prod-
+data file 2 (Supporting Tables 13 21) present P values                                                       ucts involved unknown aspects cell division
+                                                                                                                                                                                                    information
+
+
+
+ various categories.                                                                                          cycle, evolutionarily related cell cycle
+                                                                                                                    proteins. categories enriched CCC3 set list. categories, CCC3 contains dispropor-
+tionate number genes compared overall 
+
+                                                                                                     Genome Biology 2007, 8:R146
+ R146.10 Genome Biology 2007,   Volume 8, Issue 7, Article R146   Lu et al.                                   http://genomebiology.com/2007/8/7/R146
+
+
+
+
+         Conclusion                                                              using expression experiments multiple species, including
+         applying combined analysis, coupled unbiased               immune response circadian rhythm.
+         homology metric, able identify large set genes
+         conserved sequence cycling status dif-
+         ferent species: budding fission yeast, human, Arabi-            Materials methods
+         dopsis.                                                                 Assigning cyclic status genes
+                                                                                 applied probabilistic graphical model combine micro-
+         number previous efforts compare cycling gene lists              array expression data sequence data identification          derived independently species concluded            cycling genes, described Lu coworkers [12]. used
+         small number genes conserved species.              microarray expression data reported Spellman [2], Rustici
+         example, Rustici coworkers [4] concluded              [4], Oliva [5], Peng [6], Whitfield [1], Menges [7]          5  10  cycling budding yeast genes cycling                 coworkers. downloaded protein sequences          homolog fission yeast. Jensen colleagues [10] identi-            National Center Biotechnology Information website [41].
+         fied orthologous groups conserved              method starts using gene specific expression data          species  1  cycling genes)             compute cycling score based amplitude          groups (2 ) species CCC3. differ-              periodicity [13]. run BLASTALL [42] calculate bit
+         ences conclusions attributed differ-            scores pairs sequences, Sharan
+         ences analysis expression sequence data,           coworkers [43]. use Markov random field model
+         mentioned Introduction  . note,                 joint likelihood data. (hidden) cycling status          results presented Oliva coworkers [5] provide           gene represented node graph,          partial support conclusions. did               nodes connected edge bit score          carry complete conservation analysis, 72          genes threshold. define potential functions          200 cycling fission yeast genes (36 )                nodes capture information cycling scores,          cycling homolog budding yeast. Earlier work used                assume scores cycling noncycling genes fol-
+         clustering methods look global expression similarities            low mixture extreme value distributions, define
+         species supports findings regarding                potential functions edges capture correlation          extent expression conservation [38,39]. anal-           cycling statuses similar genes. posterior beliefs
+         ysis identifies larger fraction conserved cycling tran-            cycling status genes estimated using loopy
+         scripts does conducted Jensen colleagues               belief propagation algorithm. Finally, rank genes          [10], striking occurrence cell cycle spe-        posterior use number used          cific phosphorylation gene products encode.              original papers (500 Arabidopsis, 800 budding yeast,
+         Additional data file 2 (Supporting Table 22) shows,                600 fission yeast genes, 1,000 human genes).          using data Cdk1 phosphorylation [40] 65              Additional data file 3 complete details.
+         tested CCC3 gene products phosphorylated Cdk1.          percentage twice percentage phosphorylated gene               Identifying conserved sets
+         products set tested cycling genes (33 )            Genes identified cycling species used iden-
+         times higher percentage tested random                 tify conserved sets cycling genes. using          genes (8 ). finding reinforces view           Markov clustering algorithm (MCL) [14] follows.           conserved core genes regulated multiple levels           start graph cycling genes. Edges graph
+         cell cycle eukaryotic cells.                         defined based bit score cut  mentioned
+                                                                                  Second, connected subgraph graph,          results strongly supported fact genes           use MCL break smaller subgraphs          served species display stronger cell cycle          30 nodes.  repeat previous step connected
+         characteristics list species.          subgraphs 30 nodes.
+         extensive interactions set, half          CCC4 yeast genes essential. observations               assign genes different conserved sets based          analysis indicates genes crucial compo-               species represented subgraph          nents cell cycle  Combined, findings sup-           belong. numbers genes conserved sets shown
+         port claim lists derive contain core                  Figure 3, sets organized tree reflecting
+         conserved set cycling genes.                                         evolutionary relation species.
+
+         findings indicate combined analysis expression              Motif discovery
+         sequence data leads refined lists containing core set          gene lists, appropriate intergenic region
+         specific genes. focused              extracted budding fission yeast genome.          cell cycle, analysis carried study          motif finders run dataset: SOMBRERO [24,25],
+         number biologic systems profiled                Consensus [27], BioProspector [26], AlignACE [28]. 
+ 
+
+SOMBRERO BioProspector require background model,                           background constructed intergenic                    
+regions  appropriate genome) cases. SOM-                                                                                                              comment
+BRERO run using default settings, simultaneously                  
+using known yeast motifs appropriate source prior               
+knowledge. Consensus BioProspector run using                            
+default settings requiring motifs reported.          
+AlignACE run using default settings (using seed motif                       
+length 10), provided background intergenic                 
+GC content (31.45  fission 35.3  budding).                
+Additional data file 3 details.                              
+
+P value analysis                                                                  enrichment P values computed using STEM [44],                               relies hyper-geometric distribution. Corrected P                     
+                                                                    
+values computed permutation analysis using STEM.  

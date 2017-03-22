@@ -1,0 +1,269 @@
+Zhong et al. BMC Genomics 2013, 14(Suppl 4):S7
+http://www.biomedcentral.com/1471-2164/14/S4/S7
+
+
+
+
+ RESEARCH                                                                                                                                     Open Access
+
+Prediction essential proteins based gene
+expression programming
+Jiancheng Zhong1,2, Jianxin Wang1*, Wei Peng1, Zhen Zhang1, Yi Pan3 IEEE International Conference Bioinformatics Biomedicine 2012
+Philadelphia, PA, USA. 4-7 October 2012
+
+
+  Abstract
+  Background: Essential proteins indispensable cell survive. Identifying essential proteins important   improving understanding way cell working. various types features related   essentiality proteins. methods proposed combine predict essential
+  proteins.  big challenge designing effective method predict integrating
+  different features, explaining selected features decide essentiality protein. Gene expression
+  programming (GEP) learning algorithm learns specifically relationships variables
+  sets data builds models explain relationships.
+  Results: work, propose GEP-based method predict essential protein combing biological
+  features topological features. carry experiments S. cerevisiae data. experimental results   method achieves better prediction performance methods using individual features.
+   method outperforms machine learning methods performs method   obtained combining outputs machine learning methods.
+  Conclusions: accuracy predicting essential proteins improved using GEP method combine
+  topological features biological features.
+
+
+Background                                                                              recent years, computational approaches Essential proteins indispensable support cellular                             presented identify essential proteins according
+life [1]. Identifying essential proteins help                           features. group researchers focus stand minimal requirements cell survival,                              detecting essential proteins based topological
+plays significant role emerging field synthetic                          features protein-protein interaction (PPI) networks,
+biology [2]. deleting, interrupting blocking                            previous studies shown removal of essential proteins leads death organisms,                               proteins larger number neighbours essential proteins serve candidates drug-targets                           PPI networks likely cause organism developing novel therapies diseases,                              die [5].  centrality methods cers infectious diseases [3].  studies                              come Degree Centrality (DC) [6], pointed essential proteins correlation                            Betweenness Centrality (BC) [7], Closeness Centrality human disease genes [4]. expensive                                (CC) [8], Subgraph Centrality (SC) [9], Eigenvector Cen- time-consuming experimentally identify essential                              trality (EC) [10], Information Centrality (IC) [11], Edge
+proteins.                                                                            Clustering Coefficient Centrality (NC) [12] 
+                                                                                      centrality methods lim-
+                                                                                      example, highly depend accuracy                                                                                      PPI networks ignore useful biological features.
+* Correspondence: jxwang@mail.csu.edu.cn
+1
+ School Information Science Engineering, Central South University,            Recently, new methods combine topological
+Changsha, Hunan 410083, PR China                                                     features biological ones developed. list author information available end article
+
+                                       © 2013 Zhong et al.; licensee BioMed Central  open access article distributed terms Creative Commons
+                                       Attribution License (http://creativecommons.org/licenses 2.0), permits unrestricted use, distribution, reproduction                                        medium, provided original work properly cited.
+Zhong et al. BMC Genomics 2013, 14(Suppl 4):S7                                                                  Page 2 8
+http://www.biomedcentral.com/1471-2164/14/S4/S7
+
+
+
+
+Hart fellows pointed essential-     separate classifiers (Naive Bayes classifier, logistical
+ity special property protein complex essential    regression model, C4.5 decision tree CN2 rule). proteins highly clustered certain protein        [18], approaches detecting essential protein complexes [13]. Based observation, Ren et al.         introduced discussed.
+[14] integrate PPI network topology protein com-            machine learning methods avail-
+plexes information predict essential proteins. Accord-     able software packages [23], easily
+ing fact proteins protein complexes tend       adapted predict essential proteins using input fea- expressed, Li et al. [15] propose new predic-      tures.  difficult explain tion method called PeC Tang et al [16] propose            features used classification.   WDC, integrates network topology           methods able automatically select appropriate fea- gene expression profiles. Considering fact      tures. Researchers tend analyse relationship
+essential proteins conserved non-essential      features essentiality proteins ones [17] frequently connects          statistical methods. decide features
+[13], Peng et al. [15] proposed iterative method      selected train classifiers [19,22]. Gene expression prediction essential proteins based         programming (GEP) learning algorithm orthology PPI networks. results       learns specifically relationships vari-
+accuracy predicting essential proteins              ables sets data, builds models improved combing biological features      relationships [24]. features weak
+topological features. methods mentioned          positive correlation essentiality proteins combine features essential proteins effi-       selected GEP classifier.
+ciently explain features work         work, propose GEP-based method pre-
+decide essentiality proteins, better methods needs     dict essential protein combining biological features, developed integrate appropriate features.       subcellular location, topological features, different types features relates    DC, BC, CC, SC, EC, IC, NC, com- protein essentiality, suggests multiple         posed features computed methods PeC, WDC
+aspects organisms contribute determining            ION using biological topological features. essentiality proteins [18].                                carry experiments S. cerevisiae (Baker’s yeast)
+   group researchers use machine learning          data. experimental results method
+algorithms, support vector machine (SVM) [19],        outperforms using features calculated decision tree [20], Naive Bayes[21]  detect      existing methods (DC, BC, CC, SC, EC, IC, NC, PeC,
+essential proteins. methods train classifier          WDC ION).  terms area according features known essential proteins         ROC curve (AUC), method achieves better results non-essential ones. test classifier       machine learning methods (SVM, SMO, Nai- organism organisms. example,            veBayes, Bayes Network, RBF Network, J48, Random
+Gustafson et al. [21] select lot essentiality related    Tree, Random Forest, NaiveBayes Tree), performs
+features including topological features,     method uses multiple machine learning
+degree centrality (DC) PPI networks, biological        methods.
+features, open reading frame (ORF) length, Phy-
+letic retention (PHY), paralogs, codon adaptation index       Results Discussion
+(CAI)  use Naive Bayes clas-        section, firstly analyze results 10-fold
+sifier make prediction. Hwang et al. [19] build SVM        cross-validation. compare prediction classifier combines biological features,    method existing methods calculate
+ORF length, strand PHY, topological features       individual features. methods com-
+PPI network, DC, BC, CC  Addition-          pared machine learning-based methods.
+ally, researchers combine classifiers pre-    Finally best classifier explain dict essential proteins. Acencio et al. [20] learn 12         combine individual features decide essentiality different network topological features (DC, BC, CC        protein.  integrated network biological
+features, cellular localization biological pro-   Comparison 10-fold cross-validation results
+cesses information. decision tree-based          classifiers 10-fold cross-validation
+classifiers trained tested based features.    section Methods). performance classi- best essentiality classifier obtained combining       fier compared terms ROC curves outputs diverse classifiers. Deng et al. [22]    areas curves (AUC). Figure 1 shown, train classifier combining results       AUC values classifiers range 0.6975 Zhong et al. BMC Genomics 2013, 14(Suppl 4):S7                                                                                       Page 3 8
+http://www.biomedcentral.com/1471-2164/14/S4/S7
+
+
+
+
+ Figure 1 ROC curves AUC values classifiers trained 10-fold cross-validation. Original data divided 10 equal
+ datasets, folds used train classifier remaining fold used testing. process repeated times  generated classifiers, datasets used exactly testing data. figure illustrates ROC curves  corresponding AUC values classifiers.
+
+
+
+
+0.8213. average AUC value 0.7730. perfor-                      ones. According known essential protein, values
+mance fluctuation depends datasets. work,                  sensitivity (SN), specificity (SP), positive predictive select average AUC value                          value (PPV), FPR, negative predictive value (NPV),
+classifiers perform following analyses.                            F-Measure, accuracy (ACC) Matthews Correlation
+                                                                          Coefficent (MCC) calculated method. Table
+Comparison existing methods                                    1 shows values SN, SP, PPV, NPV, F-Mea- classifier combines features calculated                  sure, ACC MCC GEP classifier 0.5467, existing methods DC, BC, CC, EC, IC, SC,                    0.8653, 0.5467, 0.8653, 0.5467, 0.7927 0.4120
+NC, PeC, WDC ION, compare predictability                       respectively, higher existing meth-  proteins PPI network                      ods. hand, FPR value GEP 0.1347,
+ranked descend order according scores                           lowest methods.
+assigned classifier existing meth-
+ods. values true positive rate (TPR)                Comparison machine learning-based methods
+false positive rate (FPR) computed method                    evaluate prediction performance different percentages proteins selected                    classifier, compare machine learning
+predicted essential proteins. values TPR FPR                   methods, SVM, SMO, NaiveBayes, Bayes Net- plotted ROC curves different cut values.                  work, RBF Network, J48, RandomTree, RandomForest, Figure 2 shown, ROC curve classifier                     NaiveBayes Tree, wildly used previous pre-
+obviously existing methods.                   diction methods [19,21]. Acencio et al [19] build AUC value GEP classifier 0.7761                        classifier combining decision tree classifiers (REP
+0.0237 higher ION best performance                     tree, naive bayes tree, random tree, random forest, J48, existing methods, 0.113 higher                    best decision tree, logistic model tree alternating average AUC value (= 0.6631) existing                        decision tree). compare classifier methods.                                                                  composited classifier (named Acencio).   Specially, select 1167 proteins ranked                   machine learning based methods implemented method predicted essential proteins. rest 3926                  using WEKA software package default parameters
+(= 5093-1167) proteins regarded non-essential                      setting carried 10-fold cross-validation based Zhong et al. BMC Genomics 2013, 14(Suppl 4):S7                                                                                                         Page 4 8
+http://www.biomedcentral.com/1471-2164/14/S4/S7
+
+
+
+
+     Figure 2 ROC curves AUC values GEP classifier methods using individual feature. select classifier      average prediction performance classifiers generated 10-fold cross-validation, test original data containing 5093
+     proteins available learning features. figure illustrates ROC curves classifier methods use individual feature.
+
+
+topological features biological features mentioned                            combined decide essentiality protein. section Method. average AUC values listed                               expression GEP classifier best prediction
+Table 2. Table 2 shown, average AUC value                                  performance obtained GEP achieves 0.773, outperforms machine
+learning methods. Compared Acencio classifier, GEP
+classifier possesses equal prediction performance term average AUC values.                                                   expression shown, ION predictive fea-
+                                                                                     tures. relates evolutionary conservation
+Analysis GEP classifier                                                           proteins, essential proteins highly  GEP classifier produces expression different                               served organisms [15]. proteins located types input features, describes features                            endoplasmic reticulum nucleus tend possess
+
+Table 1 Comparison GEP methods using individual feature
+Methods              SN               SP               FPR               PPV               NPV               F-measure             ACC               MCC
+GEP                  0.5467           0.8653           0.1347            0.5467            0.8653            0.5467                0.7927            0.4120
+DC                   0.4002           0.8217           0.1783            0.4002            0.8217            0.4002                0.7251            0.2219
+BC                   0.3505           0.8069           0.1931            0.3505            0.8069            0.3505                0.7023            0.1574
+CC                   0.3548           0.8082           0.1918            0.3548            0.8082            0.3548                0.7043            0.1630
+SC                   0.3676           0.8120           0.1880            0.3676            0.8120            0.3676                0.7102            0.1796
+EC                   0.3676           0.8120           0.1880            0.3676            0.8120            0.3676                0.7102            0.1796
+IC                   0.4010           0.8220           0.1780            0.4010            0.8220            0.4010                0.7255            0.2230
+NC                   0.4353           0.8321           0.1679            0.4353            0.8321            0.4353                0.7412            0.2674
+PeC                  0.4036           0.8227           0.1773            0.4036            0.8227            0.4036                0.7267            0.2263
+ION                  0.5124           0.8551           0.1449            0.5124            0.8551            0.5124                0.7766            0.3675
+WDC                  0.4576           0.8390           0.1610            0.4580            0.8388            0.4578                0.7516            0.2967 proteins PPI network ranked descend order according scores assigned classifier existing methods. select 1167
+proteins ranked method candidate essential proteins. rest 3926 (= 5093-1167) proteins regarded non-essential proteins. According known essential protein, values sensitivity (SN), specificity (SP), positive predictive value (PPV), FPR, negative predictive value (NPV), F-Measure, accuracy
+(ACC) Matthews Correlation Coefficent (MCC) calculated method. table lists results.
+Zhong et al. BMC Genomics 2013, 14(Suppl 4):S7                                                                              Page 5 8
+http://www.biomedcentral.com/1471-2164/14/S4/S7
+
+
+
+
+Table 2 Comparison average AUC GEP                         use individual features.  method effec- machine learning based methods.                                     tively combine range different features predict
+Methods                                                  AUC              essential proteins.
+GEP                                                      0.773
+SVM                                                      0.577            Methods
+SMO                                                      0.608            Experimental datasets
+NaiveBayes                                               0.744            implement experiments based data S. cerevi-
+Bayes Network                                            0.731            siae (Bakers’ Yeast) PPI gene essen-
+RBF Network                                              0.669            tiality data complete reliable J48                                                      0.687            various species. PPI data S. cerevisiae 
+Random Tree                                              0.612            loaded DIP database [27] using version pub-
+Random Forest                                            0.721            lished Oct.10, 2010, self-interactions NaiveBayes Tree                                          0.746            repeated interactions. total 5093 proteins
+Acencio                                                  0.778            24743 edges. table shows average AUC values GEP classifiers      list essential proteins integrated fol-
+machine learning methods.                                                 lowing databases: MIPS [28], SGD [29], DEG [1]                                                                           SGDP [30], contains 1285 essential proteins.
+indispensable functions, consistent                     1285 essential protein, 1167 proteins present
+observation Acencio et al. [25].  pro-                   PPI network. study, 1167 proteins teins located cytoplasm vacuole likely                  regarded essential proteins 3926(= 5093- essential proteins. Note input features                      1167) proteins nonessential proteins. present expression. GEP classifier                        information orthologous proteins used discards features effective                 method ION, download Version 7 predicting essentiality replaced features.                Paranoid database [31]. gene expression data example classifier selects localized topological fea-                 yeast retrieved Tu et al., 2005 [32], containing
+tures WDC SC instead global ones                      6,777 gene products (proteins) 36 samples total. BC, CC IC. localized centrality measures                   6777 proteins, 4858 proteins involved obtain better prediction performance glo-                    yeast PPI network. subcellular information bal ones [26]. WDC PeC depend fea-                        downloaded eSLDB database [33], cate-
+tures expression clustering essential                     gorizes 5093 proteins PPI network 16 differ-
+proteins, classifier uses terms                     ent subcellular localizations. capability prediction.
+                                                                          Features selection
+Conclusions                                                               GEP classifier constructed predict essential different types features relates essentiality             proteins based topological biological features.
+proteins, big challenge designing effec-             topological features include degree centrality,
+tive method predict integrating different fea-                 betweenness centrality, closeness centrality, subgraph
+tures explaining selected features decide                   centrality, eigenvector centrality, information centrality essentiality protein. work, propose                   edge clustering coefficient centrality PPI network,
+GEP-based prediction method combines topologi-                      calculated centrality methods DC, BC,
+cal biological features. Compared machine                    CC, SC, EC, IC NC, respectively. composited
+learning-based methods, able select predictive                   features calculated methods (PeC, WDC, ION)
+features automatically generates expression                   integrate topological features biological
+describes relationships  carry                    features used work.
+experiments S. cerevisiae (Baker’s yeast) data.(1)                    Additionally, biological features subcellu-
+classifiers obtained 10-fold cross-validation                    lar localization considered. subcellular loca-
+based input features. average AUC value                     tion plays crucial role protein function proteins
+0.7730. (2) terms average AUC values, method                    perform functions certain subcellular compart-
+outperforms number machine learning methods                          ments. Acencio et al. [25] proteins located comparable performance method                        nuclear subcellular compartments tend essential,
+combines output results decision trees. (3)                  essential biological processes cell viabi- evaluate classifier testing proteins               lity place nuclear. contrast, membrane
+PPI network available learning features.                     proteins functions transporters participate results indicate classifier performs better                metabolism related processes likely Zhong et al. BMC Genomics 2013, 14(Suppl 4):S7                                                                       Page 6 8
+http://www.biomedcentral.com/1471-2164/14/S4/S7
+
+
+
+
+nonessential. work, proteins PPI network involved 16 different localizations including
+Vacuole, Vesicles, Lysosome, Membrane, Mitochondrion,
+Peroxisome, Secretory pathway, Cell wall, Cytoskeleton,
+Endoplasmic reticulum, Golgi, Transmembrane, Cyto-
+plasm, Nucleus Endosome, Extracellular.
+  feature value ranges, 
+malize features dividing corresponding
+maximum values, ranges features value -1 1. coefficient (0.1, 0.2, 0.5, 1.0) added adjust contribution feature.
+
+Classifier design kind Evolutionary Algorithms (EA’s),
+Gene expression programming (GEP) genotype/phe-
+notype genetic algorithm combines merits genetic algorithms genetic programming [24]. chromosome GEP expressed using nonlinear
+entities represented fixed-length linear
+encoded string, mathematical expressions, poly-
+nomial constructs, logical expression, forth.
+Chromosomes evolved new ones gener-
+ated genetic operations mutation, transposi-
+tion recombination guided fitness function.
+GEP able global searches classification performs  seldom adopted solve clas-
+sification problem essential proteins.
+   build classifier predicting essential proteins
+using GEP following major steps needed: defin-
+ing chromosome using function terminal set,
+initializing population generating group chro-
+mosomes, defining fitness function evaluating
+chromosomes, selecting eugenic ones populations,
+reproducing group chromosomes gen-
+eration, deciding termination model. Fig-
+ure 3 illustrates flowchart building GEP classifier.
+   work, GEP developed predict essential
+proteins.  set functions terminals chosen define chromosomes expressed nonlinear entities. set functions contains arith-
+metic operators logic operators, add, sub-
+tract, multiply, divide, min, max, equal, sqrt, log, exp,
+abs, set terminals contains variables repre-
+senting features proteins  example, topological subcellular localization properties) relevant
+coefficients. build chromosomal structure.         Figure 3 Flowchart building GEP classifier. figure shows chromosome length head             flowchart building GEP classifier.
+number genes given.
+   second step randomly generate popula-
+tion. input parameter indicates size popula-        chose maximum, 12000, number tion. varied number populations 800         populations.
+12000, kept track results model produces.           step define fitness function evalu-
+According results, performance models           ate individual chromosome. obtain optimal 
+increases gradually number populations rises.        select SSPN fitness function Zhong et al. BMC Genomics 2013, 14(Suppl 4):S7                                                                                                  Page 7 8
+http://www.biomedcentral.com/1471-2164/14/S4/S7
+
+
+
+
+described product sensitivity (SN), specificity                      divided 10 equal datasets, folds used
+(SP), positive predictive value (PPV), negative pre-                       train classifier remaining fold used
+dictive value (NPV). formula follow:                                 testing. ratio essential non-essential
+                                                                               proteins original data 1:3.36 (essential pro-
+                                                                         (1)   teins: non-essential proteins = 1167:3926), fold
+  SN, SP, PPV, NPV calculated respectively                           data maintains ratio essential proteins using following formulae chromosome                                 nonessential proteins original data. cross-valida-
+                                                                               tion process repeated times generated clas-
+                                                                         (2)   sifiers, datasets used exactly                                                                                testing data.
+
+
+                                                                         (3)   Competing interests
+                                                                               authors declare competing interests.
+
+                                                                               Authors’ contributions
+                                                                               JCZ WP obtained protein-protein interaction data, essential proteins,
+                                                                         (4)   gene expression data Orthologous data. JCZ JXW designed                                                                                method. JCZ WP analyzed results. JCZ, WP, JXW discussed
+                                                                               extensively study drafted manuscript  ZZ YP
+                                                                               participated revising draft. authors read approved                                                                          (5)   manuscript
+
+                                                                               Acknowledgements
+   TPi, TNi, FPi, FNi indicate, respectively,                        work supported National Natural Science Foundation number true positives, true negatives, false posi-                      China Grant  61232001, 61128006 61003124; tives, false negatives. Given protein features, use                     Program New Century Excellent Talents University (NCET-12-0547);                                                                                U.S. National Science Foundation Grants CCF-0514750, CCF-0646102 fitness function compute scores chromo-                         CNS-0831634; Scientific Research Fund Hunan Provincial Education
+somes population.                                                           Department 12B080.
+   forth step select 30  populations                                                                                Declarations
+eugenic ones. fifth step performing set                  publication costs article funded corresponding
+genetic operations (including mutation, transposition                      author.
+crossover) eugenic ones reproduces chromosomes                           article published BMC Genomics Volume 14
+                                                                               Supplement S4, 2013: Selected articles IEEE International generation size                       Conference Bioinformatics Biomedicine 2012: Genomics.    Finally, chose maximum, 500, number                        contents supplement available online http://www.
+generations decide termination model.                         biomedcentral.com/bmcgenomics/supplements/14/S4. study, parameters used GEP classifier                      Authors’ details
+listed Table 3. develop program predicts                        1
+                                                                                School Information Science Engineering, Central South University,
+essential protein based GEP C++ Language.                                Changsha, Hunan 410083, PR China. 2Department Electronic                                                                                Information Engineering, Hunan Normal University, Changsha, Hunan
+                                                                               410083, PR China. 3Department Science, Georgia State
+Training testing set preparation                                           University, Atlanta, GA 30302-4110, USA. build evaluate classifiers terms 10-fold
+                                                                               Published: 1 October 2013
+cross-validation analysis, original data                                                                                References
+                                                                               1. Zhang R, Lin Y: DEG 5.0, database essential genes Table 3 Parameters used GEP method                                          prokaryotes eukaryotes. Nucleic acids research 2009, 37:D455-458.
+Parameter       Description parameter        Setting parameter           2. Glass JI, Hutchison CA, Smith HO, Venter JC: systems biology tour                                                                                    force near-minimal bacterium. Molecular systems biology 2009, 5:330.
+P1              Number Population            12000                          3. Clatworthy AE, Pierson E, Hung DT: Targeting virulence: new paradigm
+P2              Length Gene                  1                                  antimicrobial therapy. Nature chemical biology 2007, 3:541-548.
+                                                                               4. Furney S, Alba MM, Lopez-Bigas N: Differences evolutionary history
+P3              Length Chromosome            60
+                                                                                   disease genes affected dominant recessive mutations. BMC
+P4              Length Head                  20                                 Genomics 2006, 7:165.
+P5              Mutation rate                   0.25                           5. Jeong H, Mason SP, Barabasi AL, Oltvai ZN: Lethality centrality                                                                                    protein networks. Nature 2001, 411:41-42.
+P6              Cross rate                      0.1
+                              

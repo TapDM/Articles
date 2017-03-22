@@ -1,0 +1,512 @@
+JOURNAL BACTERIOLOGY, Aug. 2002, p. 4582–4593                                                                           Vol. 184,  16
+0021-9193/02/$04.00⫹0 DOI: 10.1128/JB.184.16.4582–4593.2002
+Copyright © 2002, American Society Microbiology. Rights Reserved.
+
+
+
+          Genome-Scale Metabolic Model Helicobacter pylori 26695
+              Christophe H. Schilling,1* Markus W. Covert,2 Iman Famili,2 George M. Church,3
+                              Jeremy S. Edwards,4 Bernhard O. Palsson2
+              Genomatica, , San Diego, California 921211; Department Bioengineering, University California,
+                   San Diego, La Jolla, California 920932; Department Genetics, Harvard Medical School,
+                            Boston, Massachusetts 021153; Department Chemical Engineering,
+                                       University Delaware, Newark, Delaware 197164
+                                            Received 17 January 2002/Accepted 14 2002
+
+           genome-scale metabolic model Helicobacter pylori 26695 constructed genome sequence anno-
+         tation, biochemical, physiological data. represents silico model largely derived genomic
+         information organism substantially biochemical information available relative          previously modeled organisms Escherichia coli. reconstructed metabolic network contains 388
+         enzymatic transport reactions accounts 291 open reading frames. paradigm          constraint-based modeling, extreme-pathway analysis flux balance analysis used explore          metabolic capabilities silico model. General network properties analyzed compared          similar results previously generated Haemophilus influenzae. minimal medium required model          generate required biomass constituents calculated, indicating requirement amino acids,          correspond essential human amino acids. addition list potential substrates capable fulfilling
+         bulk carbon requirements H. pylori identified. deletion study performed reactions
+         associated genes central metabolism deleted effects simulated variety          substrate availability conditions, yielding number reactions deemed essential. Deletion results
+         compared recently published vitro essentiality determinations 17 genes. silico model
+         accurately predicted 10 17 deletion cases, partial support additional cases. Collectively, results
+         presented suggest effective strategy combining silico modeling experimental technologies
+         enhance biological discovery characterized organisms genomes.
+
+
+  Genomics reshaped approaches studying                    number disease states, including gastritis, peptic ulcer-
+biology organism. possible studies com-               ation, gastric cancer (36, 52). organism serves parative genomics (1, 2, 17, 34), genome-wide transcriptional              good example learned primarily ge-
+profiling (16), host integrated analyses aimed              nome sequence specialized organisms derstanding systems biology organisms (14, 25, 68).                 limited supporting literature, particularly relates 
+  model organisms Escherichia coli Saccharo-               tabolism.
+myces cerevisiae genome sequencing generated wealth                  large availability complete genome
+insight physiology microbes.                 sequence microbe (23, 66), possible recon-
+availability extensive biological information literature            struct metabolic network assess organism’s meta-
+regarding organisms undoubtedly easier                bolic capabilities fitness. Previously reconstructed
+reconcile data genome interpret charac-
+                                                                           metabolic network Haemophilus influenzae Rd, based
+teristic properties genome genetic contents.
+                                                                           primarily genome sequence, performed extensive
+  date common model organisms                                                                            constraint-based metabolic modeling pathway analysis genomes sequenced current sequencing efforts                                                                            organism (18, 55a, 60). work report compa-
+naturally moving characterized organisms. begs question: learned characterized            rable analysis H. pylori 26695 present specific
+organisms genomic sequence relative absence              results comparisons metabolic poten- extensive previous laboratory research? Additionally,               tial fitness H. pylori H. influenzae. environment genome utilized assist guiding future research            lungs stomach shaped evolution discovery particular organism                     bacteria different ways. provide
+  explore aspect questions relates            excellent examples Darwinian evolution survival metabolism. particular focus metabolic physi-              exploited resources available creative
+ology capabilities characterized organism,              ways ensure survival fitness. silico analysis  Helicobacter pylori. H. pylori human pathogen            supports notion represents new form comparative
+colonizes gastric mucosa, resulting acute inflamma-              genomics.
+tory response damage epithelial cells progressing                comprehensive look metabolic
+                                                                           capabilities H. pylori present examination com-
+                                                                           puted essential genes, comparison experimentally
+  * Corresponding author. Mailing address: Genomatica, , 5405
+Morehouse Dr., Suite 210, San Diego, CA 92121. Phone: (858) 362-           validated essential genes. Taken  results aim 8550. Fax: (858) 824-1772. E-mail: cschilling@genomatica.com.              demonstrate learned genome 
+
+                                                                    4582
+ VOL. 184, 2002                                                                                              METABOLIC MODEL H. PYLORI                              4583
+
+
+
+
+  FIG. 1. Overview silico modeling methods conceptual basis.   Hypothetical network describing set metabolic
+reactions. Based genomic, biochemical, physiological data, reaction network reconstructed represent set chemical
+reactions predicted occur organism. (B) Extreme pathways calculated reconstructed reaction network. Reactions occur extreme pathways constitute unused reactions. Certain reactions participate active extreme
+pathway. groups concomitantly occurring reactions constitute reaction subsets, illustrated. (C) FBA used determine input
+substrates balanced reaction fluxes required meet demand producing metabolites J simultaneously fixed ratio. example substrate B available. (D) reaction metabolite B E eliminated, requiring use substrate meet production demands J. situation leads production metabolite H product. Note reaction essential substrate present.
+
+
+
+characterized organisms analyzed conjunction                          terization precise biochemical functions cell general nutrient uptake silico model.                                                                      characteristics (5, 7–9, 11, 13, 15, 17, 22, 24, 26–32, 34, 35, 37, 39–51, 53, 54, 55,
+                                                                                      56, 62–65).
+                                                                                        Pathway analysis. reaction index H. pylori defined mathemati-
+                        MATERIALS METHODS                                         cally form stoichiometric matrix, S, dimensions (m n)
+   overall procedures discussed model development simula-           m number metabolites reaction network n tion summarized Fig. 1. detailed computational methods theory          number reactions.  column represents reaction row work presented published collection       represents stoichiometric participation specific metabolite recent primary technical manuscripts reviews (14, 21, 57–59, 61).                 reactions. particular flux distribution network, v, indicates flux levels
+   Metabolic reconstruction. Beginning genomic sequence data, relevant           reactions. Based principles conservation mass genes primary metabolism identified assist reconstructing meta-      assumption steady state, flux distribution reaction network
+bolic network H. pylori. information complemented biochemical         characterized following equation:
+information cell physiology data used construct organism-
+specific reaction index  set reactions included reconstruction).                                         S 䡠 v ⫽ 0                                    (1) result process metabolic map illustrated Fig. 1A. reaction
+index underlying map represents best determination biochem-         equation possible determine chemically balanced
+ical reactions organism believed capable carrying based   metabolic routes network span entire range metabolic available data. detailed process metabolic reconstruction model        capabilities network. pathways referred extreme path-
+development recently reviewed (14).                                          ways, method calculation based principles convex analysis
+   metabolic genotype H. pylori determined annotated ge-          (59). Previously algorithm extreme-pathway calculation pub-
+nome sequence (66) provided TIGR Microbial Database              lished pathway classification scheme (59). Figure 1B illustrates GenBank (4). begin establishing metabolic reaction index H.           extreme pathways hypothetical reaction network. Note extreme
+pylori, annotation open reading frames (ORFs) carefully            pathways multiple input substrates multiple output products.
+examined, gene assignments based high level sequence similarity         large networks H. pylori H. influenzae, manageable pertaining metabolic enzymes membrane transporters selected        subdivide network smaller subsystems extreme-pathway calcula-
+inclusion metabolic genotype. general biochemistry complete set       tion. strategy extreme-pathway enumeration subdivided networks potential metabolic reactions carried associated gene products      discussed literature (60) used study determine determined. list reactions augmented using additional experimental        pathway structure H. pylori metabolic network previously used information literature pertaining genetic enzymatic charac-       study H. influenzae.
+ 4584        SCHILLING ET AL.                                                                                                                            J. BACTERIOL.
+
+   Briefly, metabolic network H. pylori subdivided discrete          TABLE 1. seven metabolites considered required subsystems, reactions assigned subsystems.               biomass generation maintenance H. pylori subsystems include amino acid biosynthesis degradation, nucleotide
+biosynthesis degradation, vitamin cofactor biosynthesis, lipid cell               Classification       Abbreviation              Complete envelope biosynthesis, central metabolism, transport energy-redox 
+                                                                                        Amino acids                 ALA           Alanine
+tabolism, including immediate assimilation dissimilation various car-
+                                                                                                                    ARG           Arginine
+bon sources. extreme pathways subsystems calcu-                                       ASN           Asparagine
+lated. extreme pathways list reactions appear                                    ASP           Aspartate pathways determined. addition reaction subsets identified                                   CYS           Cysteine sets reactions occur pathways fixed stoichiometric                                 GLU           Glutamate
+ratios  Fig. 1B examples).                                                                                  GLN           Glutamine
+   FBA. Using extreme pathways reaction network                                      GLY           Glycine
+connectivity allows calculation network properties                                                   Histidine use flux balance analysis (FBA). FBA method assess                                       ILE           Isoleucine
+production capabilities systemic properties metabolic network.                                         LEU           Leucine
+fundamentals FBA reviewed (6, 21, 58, 67). Extreme-                                          LYS           Lysine
+pathway analysis FBA share common theoretical basis                                            MET           Methionine
+described previously (57). Specifically, FBA utilizes principles                                   PHE           Phenylalanine
+linear programming (LP), subset convex analysis.                                                      PRO           Proline
+   Constraints placed individual reactions state upper lower                                    SER           Serine
+bounds range flux values reactions                                         THR           Threonine
+constraint described following form:                                                                      TRP           Tryptophan
+                                                                                                                    TYR           Tyrosine
+                                                                                                                    VAL           Valine
+                                   �? ⱕ vi ⱕ �?                                  (2)
+                                                                                        Polyamines                  PTRC          Putrescine �? lower bound flux vi �? upper bound. informa-                                    SPMD          Spermidine
+tion flux levels available, value �? set zero irreversible
+fluxes, cases �? �? left unconstrained, allowing flux   Ribonucleotides             ATP           Adenosine 5⬘-triphosphate value, positive negative. capabilities metabolic                                   GTP           Guanine 5⬘-triphosphate explored using LP (12, 67). reaction selected objective                                   CTP           Cytidine 5⬘-triphosphate
+function maximized minimized. solution calculated                                   UTP           Uridine 5⬘-triphosphate
+satisfies constraints equations 1 2. result optimal flux
+distribution allow highest flux chosen objective reaction.    Deoxyribonucleotides        DATP          Deoxyadenosine 5⬘-triphosphate
+LINDO used solve LP problems (LINDO Systems, , Chicago, Ill.).                                       DGTP          Deoxyguanine 5⬘-triphosphate
+   FBA used generate highly quantitative results                                     DCTP          Deoxycytidine 5⬘-triphosphate
+validated experimental data (19, 20), approach used primarily                                   DTTP          Deoxythymidine 5⬘-triphosphate assess qualitative metabolic capabilities H. pylori reaction network.
+Figure 1C D provide examples FBA used 
+                                                                                        Phospholipids               PS            Phosphatidyl serine
+                                                                                                                    PE            Phosphatidyl ethanolamine
+   Objective function. calculate optimal flux distribution, objective                                                                                                                     PG            Phosphatidyl glycerol defined. physiologically meaningful results, defined objective ability produce required components cellular biomass (e.g.,            Cell envelope               PEPTIDO       Peptidoglycan
+amino acids, nucleotides, phospholipids, ) enable organism                                      LPS           Lipopolysaccharide
+grow survive. growth objective mathematically defined output
+flux utilizing biomass precursor metabolite substrate. seven (45)       Isoprenoids                 OPP           Octaprenyl pyrophosphate
+metabolites selected required biomass constituents (Table 1). output                                     UDPP          Undecaprenyl pyrophosphate
+biomass reaction (exchange flux) created utilized constituents equal stoichiometric ratios used means assess ability          Vitamins cofactors      NAD           Nicotinamide adenine dinucleotide
+network produce required demands based particular substrate                                        NADP          Nicotinamide adenine dinucleotide
+availability conditions. reaction selected objective                                                  phosphate
+calculations. complete ability network produce biomass                                     FAD           Flavin adenine dinucleotide
+constituents leads positive flux value objective reaction.                                            CoA           Coenzyme    Minimal medium determination. Beginning extracellular                                         ACP           Acyl carrier protein
+tabolites available metabolic network, metabolites                                        PTH           Pantothenate
+moved individually determine required producing                                                    Thiamine
+biomass constituents. determination accomplished constraining                                       MTHF          Methyl-tetrahydrofolate
+exchange flux uptake reaction metabolite zero optimizing                                      MK            Menaquinone biomass objective reaction. thorough examination set metabolites
+                                                                                                                    DMK           Dimethylmenaquinone arrived removal metabolite render network unable produce biomass demands. set metabolites 
+stitutes defined minimal medium required silico model support           substrates available silico model screened determine growth H. pylori.                                                                    ability serve major source carbon organism. carbon
+   Alternative carbon source determination. minimal medium alanine           sources referred alternative carbon sources.
+arginine fulfill bulk carbon requirements network  presented         Deletion studies. reactions central metabolism examined Results section). determine major carbon sources used           determine essentiality reaction network variety network reactions used assimilate alanine arginine central          medium conditions. assess consequences deleting reaction metabolism simultaneously removed. accomplished removing               network, constraints particular reaction set zero. simulation D-amino acid dehydrogenase, alanine dehydrogenase, 1-pyrroline-5-               run network support growth optimizing carboxylate dehydrogenase. reactions removed, alanine arginine           biomass objective reaction. network support growth, utilized network fulfill certain biomass requirements;      deleted reaction deemed essential particular environment  broad utilization metabolic network longer possible         dium conditions used simulation.
+removal mentioned reactions. conditions, individual               different medium conditions presented deletion study. metabolites included minimal medium composition determine             include   silico minimal medium (described Results), (ii) minimal network support use biomass reaction. possible          medium plus glucose, (iii) minimal medium plus alternative carbon
+ VOL. 184, 2002                                                                                        METABOLIC MODEL H. PYLORI                    4585
+
+
+  TABLE 2. Comparison genomic characteristics silico                      abolic reconstruction (28). TCA cycle metabolic
+ metabolic model characteristics H. pylori H. influenzae (63)                reconstruction complete, traditional sense                                                          Bacterial strain           E. coli. reactions included �?�-ketoglutarate
+                  Properties                                                        oxidase (AKO) (55), succinyl coenzyme (CoA):acetoacetate
+                                                 H. pylori 26695 H. influenzae Rd
+                                                                                    CoA transferase (SCOT) (13), malate:quinone oxi-
+Genome characteristics                                                              doreductase (MQO) (31), allow complete connectivity
+ Genome length (bp)                             1,667,867       1,830,135
+ G⫹C content ( )                                       39              38
+                                                                                    metabolites TCA cycle,   ORFs                                        1,590           1,748           reactions typically considered TCA
+  identified database match                 1,091           1,011           cycle. Notably, fumarate reductase included recon-
+  database match                           499             732           struction reversible, evidenced experimental litera- silico metabolic networks
+                                                                                    ture, indicating oxidation succinate (11, 31) sup-
+   genes included (  known                   291 (⬇27)        400 (⬇40)    ported number modeling calculations agreement
+     ORF)                                                                           physiological findings.
+   associated reactions                        272              412              Extreme-pathway calculations. Based metabolic 
+   reactions                             116               49
+   metabolites (internal/external)            339/64           367/84         construction extreme pathways calculated    internal fluxes                             534              632           subsystems. total number pathways ratios    exchange fluxes                             115              135           pathways reactions provided Table 3. ratio   Dimensions S (metabolites reactions)      403 649       451 767
+                                                                                    pathways reactions subsystems similar
+                                                                                    results H. influenzae exception nu-
+                                                                                    cleotide subsystem, contained nearly 10 times fewer
+sources (described Results), (iv) minimal medium plus alter-
+native carbon sources amino acids.                                   pathways H. influenzae. difference
+                                                                                    indicates significantly flexibility H. pylori
+                                                                                    metabolic network respect processing nucleo-
+                                RESULTS
+                                                                                    tides lack catabolic pathways available provide
+   H. pylori metabolic reconstruction. present metabolic                     different nucleotide substrates cell environ-
+reconstruction H. pylori 291 genetic loci ORFs                     mental resources.
+included metabolic genotype, corresponding 272                            Unused reactions. H. influenzae number sociated reactions. Based experimental information                          reactions metabolic network appear literature, 116 additional reactions included, bringing                    extreme pathways. reactions used final number reactions H. pylori reaction index                    flux distribution representing metabolic activity network.
+388. 116 additional reactions fall categories,                       reason reactions present ex-
+reactions associated genetics unknown                         treme pathway supporting reactions generate sub-
+(ii) reactions associated genetics known                     strates consume products present network,
+organisms evidence existence                        flux active. list unused H. pylori genome. complete list reactions                         reactions H. pylori provided Table 4 associated genes provided online supplementary material                       comparison numbers H. influenzae. list metabolite abbreviations (http:                           unused reactions listed Table 4 used direct
+//gcrg.ucsd.edu/supplementary_data/JBACT/Hpylori.xls). Ta-                          questions related network reconstruction, ble 2 provides comparison basic characteristic                     genome annotation, biochemical function particular
+properties H. pylori genome metabolic model versus                       enzymes. example consider METB1 METB2 model previously developed H. influenzae.                                   reactions amino acid subsystem coded    Figure 2 provides graphical illustration central                     metB gene (locus HP0106). reactions unused tabolism subsystem reconstructed network. H. pylori                          typical role methionine biosynthesis  required amino
+contains glycolytic reactions;  key                     acid), indicates experimentation enzymes, including phosphofructokinase pyruvate kinase,                         necessary determine role metB gene product. identified. absence enzymes                          ILVC1 ILVC2 unused;  ILVC3 used, affects organism’s ability extract energy hexoses.                      suggest role ilvC gene (locus HP0330) pentose phosphate reactions present H. pylori                        solely related pantothenate biosynthesis having exception 6-phosphogluconate dehydrogenase,                             dual function branched-chain amino acid biosynthesis makes oxidative branch pathway incomplete.                         case H. influenzae E. coli silico models. reaction oxidative branch, glucose-6-phosphate                     interesting results include GALE reaction (galE,
+(G6P) dehydrogenase (G6PD), utilizes redox                        locus HP0360), used conversion carriers (NAD NADP). H. pylori reactions                          UDP-galactose UDP-glucose, Entner-Doudoroff pathway allowing carbon shunted                          reactions genes appear related UDP-galac-
+away pentose phosphate pathway glyceral-                          tose production utilization.
+dehyde 3-phosphate pyruvate. Furthermore,                            H. influenzae metabolic network reactions carboxylases identified convert phosphoenolpyruvate (PEP)                        biotin biosynthesis number thiamine biosynthetic  oxaloacetate, did identify anaplerotic reac-                     actions used. reason biotin reactions tion convert PEP tricarboxylic acid (TCA) cycle                        used fact initial steps unknown;  termediate.  included malic enzyme met-                         substrate supplied reactions. thiamine reac-
+ 4586     SCHILLING ET AL.                                                                                                          J. BACTERIOL.
+
+
+
+
+  FIG. 2. Reconstructed central metabolic subsystem H. pylori. different metabolite colors indicate ability metabolite leave subsystem participation reactions subsystems. (Supplementary data available http://gcrg.ucsd.edu/supplementary_data/
+JBACT/Hpylori.xls.)
+
+
+tions used missing steps biosynthetic            C4 C5.  majority genes subsets
+pathway, make thiamine auxotrophic requirement                located adjacent  H. pylori similar H. influenzae.                                        scattered far genome. Examples include follow-
+   Reaction subsets. reactions occur              ing subsets: A1, A4, A5, A7, C5, V1, V3, V4, N1, N2, N4, ratio extreme pathways            L6. implications results explored active calculated subsystems.             discussion section.
+reaction subsets expected contain reactions                 Growth requirements. H. pylori calculated set associated genes coregulated possibly exist            required substrates includes amino acids: alanine, argi- regulon. list calculated reaction subsets                histidine, isoleucine, leucine, methionine, phenylalanine,
+H. pylori provided Table 5.                                          valine, thiamine, oxygen, phosphate source
+   reactions coregulated, good           (inorganic phosphate), sulfate cysteine sulfur
+place begin examining regulation                  source. purine source required network capable
+genetic level, particular location genome              performing novo purine biosynthesis (38). Figure 3 illus-
+relative  subsets                 trates connectivity substrates bio-
+reactions associated genes located adjacent              mass constituents biosynthesis associated. genome appear                         requirement oxygen production NAD,
+operon. include subset T2, A2, C2, C6, portions               NADP, pyrimidine nucleotides (CTP UTP) 
+ VOL. 184, 2002                                                                                                    METABOLIC MODEL H. PYLORI                     4587
+
+
+                 TABLE 3. Subsystem characteristics pathway calculation results H. pylori indicating total number                                                     extreme pathways subsystema
+                                                                                      extreme                                                        Total                                   fluxes                                                             Total        Pathway/flux
+Subsystem                                                                           pathways type:                                                      H. influenzaee
+                 reactions                                     metabolites                                             pathways              ratio
+                                 Internal       External                                       II         III                                              pathways
+
+                  75              97             65              114             36            1          21             58               0.23                 65
+    C               34              55             38               48             50            1          17             68               0.55                 83
+    L               50              62             33               76             11            1          12             24               0.13                 36
+    N               68             105             49               86             51            8          36             95               0.38                764
+    T               86             129            122              154            102            3          20            125               0.42                210
+    V               75              80             45              113             16            1           5             22               0.14                 21
+      Abbreviations subsystems:  amino acid biosynthesis degradation; C, central core metabolism; L, lipid cell envelope biosynthesis; N, nucleotide
+biosynthesis degradation; T, transport energy-redox metabolism, (V) vitamin cofactor biosynthesis. Pathways classified according scheme
+presented reference,63 primary metabolic pathways functional significance type 
+
+
+
+
+oxynucleotides (dCTP dTTP) based need                          methods section). results deletion study electron acceptor electrons flavin-containing                      presented Tables 6 7.
+electron carrier, flavin adenine dinucleotide (FAD, oxidized;                          Table 6 enzymatic deletions render FADH, reduced). reaction network capable                         network incapable generating required energy bio-
+oxidizing FADH FAD transfer elec-                         mass constituents support growth conditions ex-
+trons menaquinone pool subsequent acceptance                          amined. corresponding genes reactions aceB, electrons oxygen. oxygen pathway combi-                          ppa, prsA, tpi. loss ppa does allow network
+nations unable balance generation FADH, vio-                          convert pyrophosphate (PPi) inorganic phosphate (Pi);
+lating mass balance equations governing                        reaction likely occur spontaneously number biomass constituents seen depen-                          reduced rate. prsA gene network capable
+dency oxygen.                                                                    generating phosphoribosyl pyrophosphate subsequently
+   Taking closer look connectivity Fig. 3, seen                   make nucleotides deoxynucleotides  alanine arginine major sources carbon                       quired growth. inability tpi silico mutant network responsible synthesis large number                      grow result H. pylori lacking phosphofructokinase
+biomass constituents considering minimal substrates.                       enzyme;  TPI reaction H. pylori unable utilize alanine organism use alanine deami-                         make dihydroxyacetone-phosphate. nase reaction converting alanine pyruvate, liberating                       tktA gene essential conditions TKTA1
+monia process. carbon fed central                           TKTA2, reactions simultaneously deleted. metabolism pyruvate, formation necessary pre-                         reactions network generate sedoheptu-
+cursor metabolites widespread biosynthesis accom-                        lose-7-phosphate erythrose-4-phosphate (E4P), required
+plished. case arginine, converted ornithine,               generation number biomass constituents. L-glutamate g-semialdehyde, glutamate,                             biochemical evidence suggesting malate syn-
+ultimately �?�-ketoglutarate, routed                        thase (ACEB) activity occurs H. pylori (27, 55).  majority central metabolism.
+   substrates capable fulfilling bulk car-
+bon requirements organism include glucose, pyruvate,                             TABLE 4. Reactions active extreme pathways lactate, malate, fumarate, succinate, �?�-ketoglutarate                                 subsystems H. influenzae H. pyloria
+amino acids asparagine, aspartate, glutamine, glutamate,                                                Total  serine, nucleosides adenosine guanosine.                              Sub-             unused reactions                   Unused reactions
+                                                                                       systemb                                                 H. pylori
+Collectively, 14 substrates referred alternative                                      H. influenzae   H. pylori
+carbon sources. Glucose enters central metabolic sub- Fig. 2 G6P. Lactate, alanine, serine                                            28             6          METB1, METB2, ILVC1, ILVC2,
+                                                                                                                                      ILVE1, ILVE3
+assimilated subsystem pyruvate. Glutamine                                C                  2             0
+glutamate assimilated �?�-ketoglutarate, aspartate                            L                  1             0 asparagine assimilated fumarate. nucleosides                              N                  4            10          ADK2, GMK2, DEOD1, DEOD3,
+                                                                                                                                       DEOD4, DEOD7, GPT1, DEOB1, assimilated ribose-5-phosphate.                                                                                            ADNUC, GNNUC
+   Deletion study. effect loss enzymatic function                          T                 11            11          DPEPTP, OPEPTP, GALE,
+corresponding gene deletion examined determine                                                                          GLACTP, PMI, DSERTP, metabolic network support production                                                                              NUPCTP2, NUPCTP3,
+                                                                                                                                       NUPCTP6, NARK, NMNTP
+required biomass constituents absence selected                             V                  6            10          BIOF, BIOA, BIOD, BIOB, UBIA,
+reaction. reaction central metabolic network                                                                            THIM, UNKRXNI, THID, THIB,
+H. pylori (depicted Fig. 2) individually eliminated                                                                        THIF network effects studied different                                                                                                                         Data unused reactions H. influenzae network reference 60.
+environmental/media conditions (compositions described                                b
+                                                                                             Table 3, footnote  subsystem abbreviations.
+ 4588       SCHILLING ET AL.                                                                                                                            J. BACTERIOL.
+
+
+              TABLE 5. Reaction subsets calculated extreme pathways subsystem H. pylori metabolic networka
+                                                                Metabolism group reaction subsets
+
+Amino acid
+ DHS1, AROB, AROQ, AROE, AROK, AROA, AROC
+ TRPD, TRPC1, TRPC2, TRPAB
+ TYRA1, TYRA2, ASPB2
+ METL2, THRB, THRC
+ DAPA, DAPB, DAPD, DAPC, DAPE, DAPF
+ ADCSASE_r, METH
+ SERA, SERC, SERB
+ SPEA, SPEB
+ SPED, SPEE, MTHAKN, MTHRKN, MTHIPIS, NE1PH, NE3UNK, TNSUNK
+ CYSDN, CYSC, CYSH, CYSU, CYSE, CYSK
+
+Central
+  FBP, FBA_r
+  GAP, PGK
+  PGM, ENO
+  PGL, EDD, EDA
+  GLTA, ACNB, ICD
+  SCOT, ATOB
+
+Lipid cell envelope
+  ACCABCD, FABD
+  FABH1, FABF
+  C120SN, DGKA, LPXA, ENVA, LPXD, USHA12, LPXB, LPXK, KDTAI, KDOLIPH, ASPISO, KDSA, KDOPH, KDSB, PAPHTSE, GMHA, LPSSYN
+  C141SY, C160SN, C161SY, C181SY, PLS
+  PGSA2, PGPP
+  GLMS, GLMM, GLMU
+  MURZ, MURB, MURC, MURD, MURE, MURF, GLR, DDLA, MRAY, MURG
+
+Nucleotide
+ PYRA, PYRB, PYRC, PYRD
+ PYRE, PYRF
+ PURF, PURD, PURL, PURM, PURK, PURE, PURC, PURB1, PURH1, PURH2
+ PURA, PURB2
+ GUAB, GUAA
+ NDK4, NRDAB4
+ NDK6, NRDAB1
+ NDK7, NRDAB3
+ NDK8, TMK1
+ DEOD2, DEOD8_r
+
+Transport
+  ADHE2, ETHTP_r
+  PTA, ACKA
+  GALU, ALGC1
+  GLCTP, GLK1
+  PROTPI, NATP_r
+  LACTP, DLD
+  BCRBTP_r, ICFA
+  GLCD, GLLDHR, KATA
+
+Vitamin cofactor
+  FOLE, DNTPH, DHPPH, FOLB, FOLK, PABB, PABC, FOLP, FOLC
+  FOLD1, FOLD2
+  GLTX, HEMA, HEML, HEMB, HEMC, HEMD, HEME, HEMF, HEMG, HEMH
+  RIBA, RIBD1, RIBD2, PMDPHT, RIBB, RIBE, RIBC, RIBF1, RIBF2
+  PANB, ILVC3, PAND, PANC, COAA, PCLIG, PCDCL, PATRAN, DPHCOAK
+  IPPPISO, ISPA1, ISPA2
+  NADB, NADA, NADC, NADD, NADE
+  MENF, MEND1, MEND2, MENC, MENE, MENB, MENA
+      set reactions occurs flux ratios type type II pathways particular fluxes active. Reverse enzymatic
+activity indicated suffix “_r�? end flux 
+
+
+ little evidence support isocitrate lyase activity,                     silico finding similar results GLCD reaction
+leading conclusion incomplete glyoxylate                      supported experimentally determined essentiality bypass H. pylori. silico model predicts ACEB                        glcD gene (HP0509) encoding glycolate oxidase.
+essential. result necessity reaction                      Table 7 contains series 17 deletion results comparing processing glyoxylate, produced net result                      silico-determined essentiality genes vitro essen- production glycolaldehyde. consistency                        tiality recently determined using vector-free allelic 
+ VOL. 184, 2002                                                                               METABOLIC MODEL H. PYLORI                   4589
+
+
+
+
+  FIG. 3. Minimal substrate requirements H. pylori generate 47 required biomass constituents synthesized. Lines
+connecting substrates biomass constituents indicate network unable generate product substrate. dashed lines
+indicate alanine arginine required production connected biomass requirement. Table 1 abbreviations.
+
+
+placement mutagenesis technique (10). 10 17                  essential;  experimental evidence
+cases silico model complete agreement             convincingly support requirement glucose growth
+vitro determinations. 2 remaining cases (fbp mqo)            clearly enhances growth rate. area partial agreement vitro data depending             investigation help refine model conditions considered.                                                 improve predictive capabilities. gpt gene encoding gua-
+   discrepancies silico deletion study              phosphoribosyl transferase essential vitro, experimental study lead interesting testable hypotheses             imply novo purine biosynthesis does occur. performed probe organisms’ capa-                genes purine biosynthesis removed bilities. example, consider eda edd genes             model, gpt calculated essential.
+Entner-Doudoroff pathway. genes essential 
+termined vitro, thought critical                                      DISCUSSION
+role catabolism glucose.  
+quired model glucose catabolism                      initiated silico model development
+quired. glucose used alternative carbon source              process H. pylori, characterized organism particularly
+alanine arginine, model predicts edd eda                 metabolic standpoint. complete genome se-
+ 4590       SCHILLING ET AL.                                                                                                             J. BACTERIOL.
+
+
+     TABLE 6. Model results reactions deleted central                            example, exploration reactions central
+  metabolism different substrate availability conditionsa                 metabolism allow conversion �?�-ketoglu-
+                               silico essentiality medium                      tarate succinate complete TCA cycle inves-
+Deleted                                                                              tigated. critical issue central metabolism,                                                                      Minimal ⫹
+reaction                  Minimal ⫹          Minimal ⫹                               appears fumarate reductase function reversible
+             Minimal                                              carbon sources ⫹
+                           glucose         carbon sources
+                                                                     amino acids     manner, allowing assimilation wide range
+ACEB            ⫺              ⫺                 ⫺                       ⫺           additional compounds. Growth studies designed ACNB            ⫹              ⫹                 ⫹                       ⫹           test ability organism utilize succinate, �?�-ke-
+AKO             ⫹              ⫹                 ⫹                       ⫹           toglutarate, compounds assimilated ATOB            ⫹              ⫹                 ⫹                       ⫹
+ENO             ⫺              ⫹                 ⫹                       ⫹
+                                                                                     �?�-ketoglutarate major carbon sources. function FBA             ⫺              ⫹                 ⫹                       ⫹           SCOT reaction associated loci HP0691 HP0692 FRD             ⫹              ⫹                 ⫹                       ⫹           investigated relation proposed AKO reaction
+FUMC            ⫹              ⫹                 ⫹                       ⫹           experiments introduce acetoacetate avail-
+G6PD1           ⫹              ⫹                 ⫹                       ⫹
+G6PD2           ⫹              ⫹                 ⫹                       ⫹           able substrate organism. way silico
+GAP             ⫺              ⫹                 ⫹                       ⫹           model used generate testable hypotheses GLTA            ⫹              ⫹                 ⫹                       ⫹           rapidly validated invalidated integration ICD             ⫹              ⫹                 ⫹                       ⫹
+MAEB            ⫹              ⫹                 ⫹                       ⫹
+                                                                                     experimentation, leading improved insight TCA
+PGI             ⫺              ⫹                 ⫹                       ⫹           cycle critical role plays H. pylori. PGK             ⫺              ⫹                 ⫹                       ⫹           simple example modeling strategies PGL             ⫹              ⫹                 ⫹                       ⫹           used drive experimental research organism.
+PGM             ⫺              ⫹                 ⫹                       ⫹
+PPA             ⫺              ⫺                 ⫺                       ⫺              H. pylori examination reaction subsets indicates
+PPSA            ⫺              ⫹                 ⫹                       ⫹           genetic order genes reaction subset PRSA            ⫺              ⫺                 ⫺                       ⫺           conserved terms operon structure. general result
+RPE             ⫺              ⫺                 ⫹                       ⫹
+RPI             ⫺              ⫺                 ⫹                       ⫹
+                                                                                     suggest coordinated regulation SCOT            ⫹              ⫹                 ⫹                       ⫹           genes ensure simultaneous expression. 
+TKTA1           ⫹              ⫹                 ⫹                       ⫹            original examination genome TKTA2           ⫺              ⫺                 ⫹                       ⫹           helix-turn-helix motifs entire
+TPI             ⫺              ⫺                 ⫺                       ⫺
+                                                                                     genome (66), relatively component systems
+      composition media described Results            (3), indicating limited regulation occurs
+section. Symbols: (⫹), ability make 47 biomass constituents absence indicated reaction; (⫺), inability make biomass constituents.          genetic level H. pylori. organism                                                                                      limited level transcriptional regulation, possible hy-
+                                                                                     pothesis genes organism (particularly
+quence available additional biochemical phys-                         calculated reaction subsets) constitutively ex-
+iological data, metabolic network organism                          pressed organism. investigated reconstructed. constraint-based modeling methodology                             use genome expression analysis examine ex- applied assess performance capabilities                       pression genes comprise particular subset. organism. assessment included use extreme-path-                          example subset investigation A5 set
+way analysis FBA. overall modeling process assist                        comprising reactions lysine biosynthesis, asso- accelerating pace biological discovery generating                       ciated genes widely dispersed genome (dapA-
+experimentally testable hypotheses. hypotheses                             HP1013, dapB-HP0510, dapD-HP0626, dapE-HP0212, represent novel insights organism, help support                          dapF-HP0566). Overall results reaction subset gene
+previous insights, resolve existing discrepancies                         locations tend support notion bacterium
+different sets experimental results inconclu-                        contains little regulation metabolic network inflexi-
+sive. silico model improved itera-                       ble, adapted limited range environmental
+tion modeling experimentation, provide                         conditions. concise representation organism’s known func-                           clear cell physiology H. pylori requires
+tional capabilities.                                                                 oxygen, precise dependence oxygen generate    examples topics model                             biomass constituents likely reason true
+assist exploring  examples include                        physiological requirement oxygen (33). oxygen novo biosynthesis alanine organism                          cell effectively accept electrons various carri-
+ability perform novo purine biosynthesis. case                         ers subsequently unable generate energy evidence literature interpreted                       oxidative phosphorylation. bacteria situation support sides argument ability                         overcome utilizing electron acceptors shift ganism produce biomass constituents.                            fermentative growth use substrate level phosphor-
+possible cases examined model used                            ylation glycolysis. reconstruction pathway
+design experiments defined media aimed determining                             analysis network clear H. pylori limited capabilities. combination experimental determi-                        ability perform substrate level phosphorylation nation genome expression patterns bioinformatic                         absence pyruvate kinase reaction complete glycolysis.
+sequence analysis, possible determine loca-                         particularly interesting conclusion stemming tion genes responsible metabolic activities.                            studies relates amino acid requirements organism.
+ VOL. 184, 2002                                                                                               METABOLIC MODEL H. PYLORI                           4591
+
+
+                     TABLE 7. silico results compared experimental results essentiality 17 genes modela
+                                                                                                               silico essentiality medium
+ Deleted                                                   Locus                   vitro                                                      Minimal ⫹        Agree-
+                        Gene(s)                                                                              Minimal ⫹        Minimal ⫹
+ reaction                                             identification(s)          essentiality   Minimal                                        carbon sources     ment
+                                                                                                              glucose       carbon sources
+                                                                                                                                               ⫹ amino acids
+
+ACPS           acpS                           HP0808                                 E              ⫺            ⫺                 ⫺                  ⫺             Yes
+AROQ           aroQ                           HP1038                                 E              ⫺            ⫺                 ⫺                  ⫺             Yes
+DCD            dcd                            HP0372                                 NE             ⫹            ⫹                 ⫹                  ⫹             Yes
+EDA            eda                            HP1099                                 E              ⫹            ⫹                 ⫹                  ⫹
+EDD            edd                            HP1100                                 E              ⫹            ⫹                 ⫹                  ⫹
+FBP            fbp                            HP1385                                 E              ⫺            ⫹                 ⫹                  ⫹
+GLCD           glcD                           HP0509                                 E              ⫺            ⫺                 ⫺                  ⫺             Yes
+GPT1/2/3       gpt                            HP0735                                 E              ⫹            ⫹                 ⫹                  ⫹
+MQO            mqo                            HP0086                                 E              ⫺            ⫺                 ⫹                  ⫹
+MURB           murB                           HP1418                                 E              ⫺            ⫺                 ⫺                  ⫺             Yes
+MURF           murF                           HP0740                                 E              ⫺            ⫺                 ⫺                  ⫺             Yes
+OOR            oorA, oorB, oorC, oorD         HP0589, HP0590, HP0591,                E              ⫹            ⫹                 ⫹                  ⫹
+                                               HP0588
+POR            porA, porB, porC, porD         HP1110, HP1111, HP1108,                E              ⫺            ⫺                 ⫺                  ⫺             Yes
+                                               HP1109
+PYRE           pyrE                           HP1257                                 E              ⫺            ⫺                 ⫺                  ⫺             Yes
+SPEE           speE                           HP0832                                 NE             ⫺            ⫺                 ⫺                  ⫺
+TAL            tal                            HP1495                                 NE             ⫹            ⫹                 ⫹                  ⫹             Yes
+TRXB           trxA, trxB                     HP0824, HP0825                         E              ⫺            ⫺                 ⫺                  ⫺             Yes
+        essential silico predictions shaded, ⫺ sign indicating inability produce biomass demands. vitro essentiality data taken reference 10 (E, essential; NE, essential).
+
+
+
+ human host H. pylori colonizes nutritional                               necessitate reprogramming genetic expression. quirements amino acids. referred                            lack regulation extremely human essential amino acids histidine, isoleucine,                          limited competition organism faces leucine, lysine, methionine, phenylalanine, threonine, trypto-                           lining stomach protected host’s
+phan, valine. careful examination require-                             immune response.
+ments, seen amino acids required                             role prominent human pathogen bacterium, amino acids human body                             identifying essential genes H. pylori. acquire nutritional sources. Alanine arginine                           deletion analysis clear essential nature gene amino acids H. pylori requires required                           dependent environmental conditions, human body (65).                                                                  genes essential conditions 
+   general strategy metabolic design ideal                           Seven genes identified predicted essential bacterium. appears evolved                               conditions examined, repre-
+eliminate genes enzymes energetically                             sent interesting candidates experimental validation studies.
+unfavorable biosynthetic pathways amino acid production,                             Currently limited studies focusing identifica- guaranteed presence host gastric envi-                          tion essential genes H. pylori, exception ronment proteolysis continuously occurring. H.                              recent study Chalker et al. (10). silico model 
+influenzae number required amino acids                              tained 24 genes corresponding 17 reactions ex-
+(glutamate, arginine, cysteine), human                             perimentally examined essentiality provide validation
+essential amino acids. amino acid requirements provide                             model. 17 case predictions (⬃60 ) example possible adaptations organ-                           accordance experimental data, 2 agreement
+isms particular environmental niche. fact,                           certain medium conditions. experimental medium
+use model suggests use amino acids                               conditions complex, making direct comparison diffi-
+major carbon source H. pylori leads significant increase                        cult. general results encouraging. inte- generation ammonia organism use                                grated modeling experimentation expected
+neutralize surrounding extracellular environment.                                    accuracy model increase result    comparative modeling distinct prop-                               enhanced biological discovery organism’s metabolic
+erties metabolism organisms fur-                            capabilities. accuracy prediction H. pylori ther support notion environmental adaptation.                              previously observed similar predictions E.
+include range preferred carbon substrates,                             coli S. cerevisiae, predictions gene deletions
+additional growth requirements. H. pylori                              80 90  accurate (20;  Famili, J. Foerster, J. Nielsen, evidence support coordinated regulation reac-                             B. O. Palsson, submitted publication). tions genes comprising reaction subsets                            silico models, improved accuracy anticipated, H. influenzae. finding indicate H. pylori does                         model organisms thoroughly character-
+witness significant changes environment                              ized.
+ 4592       SCHILLING ET AL.                                                                                                                              J. BACTERIOL.
+
+
+   outset posed question learned                         11. Chen, M., L. P. Andersen, L. Zhai,  Kharazmi. 1999. Characterization
+                                                                                          respiratory chain Helicobacter pylori. FEMS Immunol. Med. Mi- genomes characterized organisms.                                 crobiol. 24:169–174. use constraint-based modeling demonstrated                             12. Chvatal, V. 1983. Linear programming. W. H. Freeman Company, New derived genome                               York, N.Y.
+                                                                                      13. Corthesy-Theulaz,  E., G. E. Bergonzelli, H. Henry, D. Bachmann, D. F. examined parallel existing experimental data.                            Schorderet,  L. Blum, L. N. Ornston. 1997. Cloning character-
+tegrating genomic, biochemical, physiological data                                 ization Helicobacter pylori succinyl CoA:acetoacetate CoA-transferase, gether context silico model serves practical                         novel prokaryotic member CoA-transferase family. J. Biol. Chem.
+                                                                                          272:25659–25667.
+tool quest understand physiology organism.                      14. Covert, M. W., C. H. Schilling,  Famili, J. S. Edwards,   Goryanin, E. addition task data-driven model development,                                 Selkov, B. O. Palsson. 2001. Metabolic modeling microbial strains                                                                                           silico. Trends Biochem. Sci. 26:179–186. appears gained prospective im-                            15. Reuse, H.,  Labigne, D. Mengin-Lecreulx. 1997. Helicobacter
+plementation silico model biological discovery.                          pylori ureC gene codes phosphoglucosamine mutase. J. Bacteriol. 179:
+success model-driven discovery dependent                                3488–3493.
+                                                                                      16. Devaux, F., P. Marc, C. Jacq. 2001. Transcriptomes, transcription acti-
+ability design experimentally testable hypotheses carry                            vators microarrays. FEBS Lett. 498:140–144. studies support iterative model development                        17. Doig, P., B. L. Jonge, R.  Alm, E. D. Brown, M. Uria-Nickelsen, B.
+paradigm. characterized organisms notion                               Noonan, S. D. Mills, P. Tummino, G. Carmel, B. C. Guild, D. T. Moir, G. F.
+                                                                                          Vovis, T. J. Trust. 1999. Helicobacter pylori physiology predicted tegrating model experimentation lead                                genomic comparison strains. Microbiol. Mol. Biol. Rev. 63:675–707.
+efficient discovery, higher rate                      18. Edwards, J., B. Palsson. 1999. Systems properties Haemophilus
+common model organisms. paradigm efficient discov-                               influenzae Rd metabolic genotype. J. Biol. Chem. 274:17410–17416.
+                                                                                      19. Edwards, J. S., R. U. Ibarra, B. O. Palsson. 2001. silico predictions ery facilitated enabled information contained                            Escherichia coli metabolic capabilities consistent experimental data. genome, gained genome                              Nat. Biotechnol. 19:125–130.
+                                                                                      20. Edwards, J. S., B. O. Palsson. 2000. Escherichia coli MG1655 characterized organisms H. pylori, provided                             silico metabolic genotype: definition, characteristics, capabilities. methods developed capitalize wealth                               Proc. Natl. Acad. Sci. USA 97:5528–5533.
+information. genome-enabled science provides additional                          21. Edwards, J. S., R. Ramakrishna, C. H. Schilling, B. O. Palsson. 1999.
+                                                                                          Metabolic flux balance analysis, p. 13–57. S. Y. Lee E. T. Papoutsakis
+justification genome sequencing efforts.                                              (ed.), Metabolic engineering. Marcel Dekker, New York, N.Y.
+                                                                                      22. Finel, M. 1998. Does NADH play central role energy metabolism                           ACKNOWLEDGMENTS                                                 Helicobacter pylori? Trends Biochem. Sci. 23:412–413.
+                                                                                      23. Fleischmann, R. D., M. D. Adams, O. White, R.  Clayton, E. F. Kirkness,
+   acknowledge insightful highly constructive reviews                      R. Kerlavage, C. J. Bult, J. F. Tomb, B.  Dougherty, J. M. Merrick, K. received manuscript. reviews led number                        McKenney, G. Sutton, W. Fitzhugh, C. Fields, J. D. Gocayne, J. Scott, R.
+                                                                                          Shirley, L.  Liu,  Glodek, J. M. Kelley, J. F. Weidman, C.  Phillips, T.
+enhancements model terms biological content                                                                                           Spriggs, E. Hedblom, M. D. Cotton, T. R. Utterback, M. C. Hanna, D. T.
+improved predictive capabilities quality results pre-                      Nguyen, D. M. Saudek, R. C. Brandon, L. D. Fine, J. L. Fritchman, J. L.
+sented. exemplary true nature collaborative                         Fuhrmann, N. S. M. Geoghagen, C. L. Gnehm, L.  McDonald, K. V. Small,
+iterative model development.                                                              C. M. Fraser, H. O. Smith, J. C. Venter. 1995. genome random
+   work funded NIH (GM57089), NSF                             sequencing assembly Haemophilus influenzae Rd. Science 269:496–
+(MCB 73384 BES 14092) Whitaker Foundation                             498, 507–512.
+graduate student fellowships biomedical engineering (C.S. F.).               24. Ge, , D. E. Taylor. 1997. Helicobacter pylori gene encoding phos- acknowledge funding NSF, DOE, DARPA                               phatidylserine synthase: sequence, expression, insertional mutagenesis.
+                                                                                          J. Bacteriol. 179:4970–4976. Church Laboratory.
+                                                                                      25. Gombert,  K., J. Nielsen. 2000. Mathematical modelling metabo-
+                                                                                          lism. Curr. Opin. Biotechnol. 11:180–186.
+                                 REFERENCES                                           26. Hazell, S. L., G. L. Mendz. 1997. Helicobacter pylori works:  1. Alm, R. , J. Bina, B. M. Andrews, P. Doig, R. E. Hancock, T. J. Trust.          overview metabolism Helicobacter pylori. Helicobacter 2:1–12.
+    2000. Comparative genomics Helicobacter pylori: analysis outer          27. Hoffman, P. S.,  Goodwin, J. Johnsen, K. Magee, S. J. Veldhuyzen van
+    membrane protein families. Infect. Immun. 68:4155–4168.                               Zanten. 1996. Metabolic activities metronidazole-sensitive -resistant
+ 2. Arigoni, F., F. Talabot, M. Peitsch, M. D. Edgerton, E. Meldrum, E. Allet, R.         strains Helicobacter pylori: repression pyruvate oxidoreductase     Fish, T. Jamotte, M. L. Curchod, H. Loferer. 1998. genome-based                 expression isocitrate lyase activity correlate resistance. J. Bacteriol.
+    approach identification essential bacterial genes. Nat. Biotechnol.        178:4822–4829.
+    16:851–856.                                                                       28. Hughes, N. J., P.  Chalk, C. L. Clayton, D. J. Kelly. 1995. Identification
+ 3. Beier, D., R. Frank. 2000. Molecular characterization component            carboxylation enzymes characterization novel subunit pyru-
+    systems Helicobacter pylori. J. Bacteriol. 182:2068–2076.                          vate:flavodoxin oxidoreductase Helicobacter pylori. J. Bacteriol. 177:
+ 4. Benson, D. , M. S. Boguski, D. J. Lipman, J. Ostell, B. F. Ouellette.           3953–3959.
+    1998. GenBank. Nucleic Acids Res. 26:1–7.                                         29. Hughes, N. J., C. L. Clayton, P.  Chalk, D. J. Kelly. 1998. Helicobacter
+ 5. Birkholz, S., U. Knipp, E. Lemma,  Kroger, W. Opferkuch. 1994.                  pylori porCDAB oorDABC genes encode distinct pyruvate:flavodoxin     Fumarate reductase Helicobacter pylori immunogenic protein.                     2-oxoglutarate:acceptor oxidoreductases mediate electron transport     J. Med. Microbiol. 41:56–62.                                                          NADP. J. Bacteriol. 180:1119–1128.
+ 6. Bonarius, H. P. J., G. Schmid, J. Tramper. 1997. Flux analysis             30. Jorgensen, M. , J. Manos, G. L. Mendz, S. L. Hazell. 1998. mode
+    underdetermined metabolic networks: quest missing constraints.            action metronidazole Helicobacter pylori: futile cycling reduction?
+    Trends Biotechnol. 15:308–314.                                                        J. Antimicrob. Chemother. 41:67–75.
+ 7. Burns, B. P., S. L. Hazell, G. L. Mendz. 1995. Acetyl-CoA carboxylase         31. Kather, B., K. Stingl, M. E. van der Rest, K. Altendorf, D. Molenaar.
+    activity Helicobacter pylori requirement increased CO2              2000. unusual type citric acid cycle enzyme Helicobacter pylori:
+    growth. Microbiology 141:3113–3118.                                                   malate:quinone oxidoreductase. J. Bacteriol. 182:3204–3209.
+ 8. Burns, B. P., G. L. Mendz, S. L. Hazell. 1998. novel mechanism          32. Kelly, D. J. 1998. physiology metabolism human gastric
+    resistance antimetabolite N-phosphonoacetyl-L-aspartate Helico-             pathogen Helicobacter pylori. Adv. Microb. Physiol. 40:137–189.
+    bacter pylori. J. Bacteriol. 180:5574–5579.                                       33. Kelly, D. J., N. J. Hughes, R. K. Poole. 2001. Microaerobic physiology:
+ 9. Chalk, P. ,  D. Roberts, W. M. Blows. 1994. Metabolism pyruvate            aerobic respiration, anaerobic respiration, carbon dioxide metabolism,
+    glucose intact cells Helicobacter pylori studied 13C NMR spec-           p. 113–124. H. L. T. Mobley, G. L. Mendz, S. L. Hazell (ed.),
+    troscopy. Microbiology (Reading) 140:2085–2092.                                       Helicobacter pylori: physiology genetics. ASM Press, Washington, D.C.
+10. Chalker,  F., H. W. Minehart, N. J. Hughes, K. K. Koretke, M.  Lonetto,       34. Marais, , G. L. Mendz, S. L. Hazell, F. graud. 1999. Metabolism
+    K. K. Brinkman, P. V. Warren,  Lupas, M. J. Stanhope, J. R. Brown,              genetics Helicobacter pylori: genome era. Microbiol. Mol. Biol.
+    P. S. Hoffman. 2001. Syst. identification selective essential genes Heli-       Rev. 63:642–674.
+    cobacter pylori genome prioritization allelic replacement mutagenesis.     35. Marcelli, S. W., H. T. Chang, T. Chapman, P.  Chalk, R. J. Miles,     J. Bacteriol. 183:1259–1268.                                                          R. K. Poole. 1996. respiratory chain Helicobacter pylori: identification
+ VOL. 184, 2002                                                                                               METABOLIC MODEL H. PYLORI                           4593
+
+      cytochromes effects oxygen cytochrome menaquinone            55. Pitson, S. M., G. L. Mendz, S. Srinivasan, S. L. Hazell. 1999.       levels. FEMS Microbiol. Lett. 138:59–64.                                              tricarboxylic acid cycle Helicobacter pylori. Eur. J. Biochem. 260:258–267.
+36.   Marshall, B. J. 2001. years discovery rediscovery           55a.Price, N. D., J.  Papin, B. O. Palsson. 2002. Determination redun-
+      Helicobacter pylori association peptic ulcer disease, p. 19–24.       dancy systems properties metabolic network Helicobacter
+      H. L. Mobley, G. L. Mendz, S. L. Hazell (ed.), Helicobacter pylori:               pylori using genome-scale extreme pathway ana

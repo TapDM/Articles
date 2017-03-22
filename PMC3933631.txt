@@ -1,0 +1,488 @@
+Syst Synth Biol (2014) 8:73–81
+DOI 10.1007/s11693-013-9123-5
+
+ RESEARCH ARTICLE
+
+
+ organisational structure protein networks: revisiting centrality–lethality hypothesis
+Karthik Raman • Nandita Damaraju            •
+
+Govind Krishna Joshi
+
+
+
+
+Received: 3 June 2013 / Revised: 5 August 2013 / Accepted: 12 August 2013 / Published online: 27 August 2013
+Ó Springer Science+Business Media Dordrecht 2013
+
+
+Abstract Protein networks, describing physical interac-               lethality hypothesis hold goods large number tions functional associations proteins,            organisms, certain limitations. Betweenness centrality unravelled organisms recent past.           useful measure identify essential nodes, Databases STRING provide excellent resources              measures like closeness centrality pairwise disconnec- analysis networks. contribution,           tivity significantly higher essential nodes.
+revisit organisation protein networks, particularly centrality–lethality hypothesis, hypothesises              Keywords Protein–protein interactions  Lethality 
+nodes higher centrality network likely          Centrality  Network biology
+produce lethal phenotypes removal, compared nodes lower centrality. consider protein networks diverse set 20 organisms, essentiality information            Introduction
+available Database Essential Genes assess relationship centrality measures lethality.           Protein networks, describing functional associations organisms, obtained networks high-                physical interactions proteins, confidence interactions STRING database,                 unravelled organisms recent past. computed network parameters degree, betweenness               number methods developed identify pro-
+centrality, closeness centrality pairwise disconnectivity         tein–protein interactions, using experimental (Shoe-
+indices. observe networks considered             maker Panchenko 2007a) computational
+predominantly disassortative.  observe                techniques (Shoemaker Panchenko 2007b). Databases
+essential nodes network significantly higher              DIP (Xenarios et al. 2002) STRING
+average degree betweenness centrality, compared            (Szklarczyk et al. 2011) provide excellent resources network average. previous studies evaluated             building analysing networks proteins. organi-
+centrality–lethality hypothesis Saccharomyces cerevisi-           sation protein networks studied ae Escherichia coli; observe centrality–         past, particularly examining importance highly
+                                                                      connected proteins, ‘hubs’, terms essentiality,
+Nandita Damaraju Govind Krishna Joshi contributed equally    lethality (Batada et al. 2006; Zhang 2006; Jeong article.                                                      et al. 2001; Ning et al. 2010; Rodrigues et al. 2011; Song
+                                                                      Singh 2013). Previous studies addressed Electronic supplementary material online version          complex networks attacked, targeting specific
+article (doi:10.1007/s11693-013-9123-5) contains supplementary
+material, available authorized users.                     nodes, based centrality properties (Holme et al. 2002).
+                                                                      previous studies (Batada et al. 2006; K. Raman (&)  N. Damaraju  G. K. Joshi                              Zhang 2006; Jeong et al. 2001) focussed budding
+Department Biotechnology, Bhupat Jyoti Mehta School                                                                       yeast, Saccharomyces cerevisiae, model organism,
+Biosciences, Indian Institute Technology Madras,
+Chennai 600 036, India                                                focus yeast Escherichia coli (Ning et al.
+e-mail: kraman@iitm.ac                                             2010).
+
+
+                                                                                                                         123
+74                                                                                                                         K. Raman et al.
+
+
+   contribution, revisit organisation protein        organisms, essentiality data available
+networks, particularly centrality–lethality hypothesis             Database Essential Genes  .  Zhang 2006; Jeong et al. 2001), assessing                  STRING database (Szklarczyk et al. 2011) includes inter-
+importance set network parameters centrality               actions published literature describing experimentally
+measures, protein networks diverse set 20                  identified protein interactions, functional asso-
+organisms. networks consider functional asso-               ciations genome sequence analysis using 
+ciation networks STRING database;                  established methods based phylogenetic profiling,
+consider interactions associations reported          domain fusion gene neighbourhood concepts. high confidence. analyse various network parameters,                organism, considered high-confidence inter- degree centrality, betweenness centrality, closeness           actions, e. interactions STRING score greater centrality pairwise disconnectivity index.                         700.
+   particular, seek answer following questions,               Data essential genes obtained Data- diverse set 20 organisms: protein net-             base Essential Genes (DEG version 5.0; http://tubic.tju.
+works organised, structurally, terms connectivity         edu.cn/deg/). DEG indexes proteins using essential non-essential proteins? Does centrality–             NCBI GI numbers (GenInfo Identifiers), STRING
+lethality hypothesis hold good different types organ-           indexes proteins using RefSeq/ENSEMBL identifiers. isms? essential proteins hold special position             translated DEG identifiers STRING identifiers, using
+network organisation? important network                   aliases file provided STRING database (file
+metrics decide protein likely essential?        protein.aliases.v9.0.txt.gz). Based data DEG,
+                                                                       annotated proteins networks derived                                                                        STRING essential non-essential. essential
+Methods                                                                proteins high-confidence interactions;                                                                        leads small discrepancy number proteins
+Data                                                                   listed essential DEG organism, number
+                                                                       column Table 1. table lists obtained protein networks 20 organisms                 organisms considered study, statistics STRING database (STRING version 9.0; http://string.                network size, number essential proteins, embl ; file protein.links.v9.0.txt.gz). chose 20           total number interactions considered.
+
+
+Table 1 Summary                                   Organism (NCBI taxonomy ID)                          Nodes        Essential   ( )          Edges
+networks considered                                                                                        (proteins)   nodes                    (interactions)
+study
+                                  Acinetobacter baylyi (62977)                         2,546         468        (18.4  )      12,996
+                                  Arabidopsis thaliana (3702)                          7,090         195         (2.8  )      69,603
+                                  Bacillus subtilis (224308)                           3,347         219         (6.5  )      20,728
+                                  Caenorhabditis elegans (6239)                        5,184         192         (3.7  )      46,737
+                                  Escherichia coli (511145)                            3,789         672        (17.7  )      25,784
+                                  Francisella novicida (401614)                        1,415         362        (25.6  )       7,587
+                                  Haemophilus influenzae (71421)                       1,497         592        (39.5  )       8,877
+                                  Helicobacter pylori (85962)                          1,352         298        (22.0  )       7,915
+                                  Mycobacterium tuberculosis (83332)                   3,295         587        (17.8  )      18,445
+                                  Mycoplasma genitalium (243273)                         446         363        (81.4  )       3,376
+                                  Mycoplasma pulmonis (272635)                           616         288        (46.8  )       3,111
+                                  Pseudomonas aeruginosa (208963)                      4,556         296         (6.5  )      21,818
+                                  Saccharomyces cerevisiae (4932)                      5,477        1,109       (20.2  )     105,429 table lists organisms     Salmonella enterica serovar typhi (209261)           3,491         344         (9.9  )      19,650
+considered study    Salmonella typhimurium (99287)                       3,712         204         (5.5  )      20,985 NCBI taxonomy ID,      Staphylococcus aureus NCTC (93061)                   2,127         328        (15.4  )       9,500 number nodes (proteins), number essential nodes     Staphylococcus aureus subsp. aureus N315 (158879)    1,966         296        (15.1  )       9,207
+ obtained DEG),   Streptococcus pneumoniae (170187)                    1,718         109         (6.3  )       8,597
+number high-confidence         Streptococcus sanguinis (388919)                     1,801         215        (11.9  )       8,315
+interactions nodes
+                                  Vibrio cholerae (243277)                             2,958         537        (18.2  )      15,644
+ obtained STRING)
+
+
+123
+ organisational structure protein networks                                                                           75
+
+
+Network analyses                                                ‘‘fraction initially connected pairs vertices                                                                 network disconnected vertex v removed number biological networks analysed using        network’’:
+concepts graph theory science.                         N0  Nv
+excellent introduction network biology, science       DisðvÞ ¼
+                                                                              N0
+analysing biological networks, (Baraba´si Oltvai 2004). protein networks         N0 total number vertex pairs network
+discuss  nodes proteins, interactions      connected path length network, proteins comprise edges. Nodes networks          N-v number vertex pairs remain connected characterised parameters, evaluate          following removal vertex v. computed importance network’s structure, different     values node networks, using
+perspectives. important        MATLAB Boost Graph Library MATLAB
+network parameters, used study.          (http://dgleich.github.io/matlab-bgl/). comprehensive review networks network
+parameters (Boccaletti et al. 2006;      Assortativity
+Newman 2003b).
+                                                                Newman (2003a) defined measure quantify 
+Degree centrality                                               sortativity networks discrete types nodes.                                                                 networks, types nodes—essential non-
+Degree centrality, degree, represents number          essential. compute assortativity coefficient edges links node nodes network.   defined Newman:
+                                                                              
+                                                                     Tr e  e2 
+Betweenness centrality                                          r¼
+                                                                       1  ke2 k
+Betweenness centrality (CB) measures participation     e 2 9 2 matrix indicating fraction edges
+node shortest parts network. graph G(V,E)     nodes different types (essential non- n vertices (nodes), betweenness centrality        essential). eij matrix represents fraction edges
+vertex v defined                                          network node type node type
+            X rst ðvÞ                                           j. trace matrix sum main diagonal
+CB ðvÞ ¼                                                        elements, kk denotes sum elements          s6¼v6¼t2V
+                   rst
+                                                                corresponding matrix.  rst number shortest paths s t, rst(v) number shortest paths s t pass vertex v. Betweenness centrality          Results
+defined Freeman (1977).
+                                                                analysed relationships essentiality Closeness centrality                                            network parameters degree centrality, betweenness
+                                                                centrality, closeness centrality pairwise disconnectivity
+Closeness centrality (CC) defined reciprocal   index. performed analyses 20 organisms sum geodesic distances vertex      data available DEG. Arabidopsis thaliana vertices graph (Sabidussi 1966):                         smallest fraction essential genes,                   1                                             small organisms large fractions essential genes,
+CC ðvÞ ¼ P                                                      viz. Mycoplasma genitalium (81.4  ) M. pulmonis
+             t2V=v dG ðv; tÞ
+                                                                (46.8  ). understandable, given organ- dG(v,t) represents distance v t     isms small genomes, large number graph. Note closeness centrality generally          genes genomes redundant, computed fully connected graph.                      important functions survival                                                                 organism. S. cerevisiae 5,477 proteins connected
+Pairwise disconnectivity index                                  large number high confidence interactions.
+                                                                20   proteins S. cerevisiae essential. pairwise disconnectivity index defined Win-          E. coli 3,789 proteins network, 18  
+gender workers earlier (Potapov et al. 2008),     nodes essential.
+
+
+                                                                                                                   123
+76                                                                                                                                 K. Raman et al.
+
+
+Protein networks predominantly disassortative/                            networks  Zhang 2006; Jeong et al. 2001); essential proteins tend connect non-essential                           centrality–lethality hypothesis essentially implies proteins                                                                      proteins essential organism’s survival likely                                                                               higher degree (Jeong et al. 2001). examine observe nearly protein networks studied                    multiple metrics, addition degree, low assortativity. Table 2 illustrates distri-                  essential proteins networks differ terms metrics
+bution various edge types (essential–essential, non-                       betweenness centrality, closeness centrality essential–non-essential essential–non-essential)                  pairwise disconnectivity index. address question assortativity coefficients, computed according                      means simple statistical test: null hypothesis Newman (2003a). network assortative, vast                      essential nodes average value majority edges connect like nodes.                         metric (degree, betweenness centrality, ) entire
+protein network S. typhi, assortativity                       set nodes network. consider set essential
+coefficient 0.55, observe 85   connec-                      nodes (E) particular subsample entire set tions like nodes. networks,                  nodes (N). Following  create 106 random subsam-
+assortativity coefficient 0.5;                     ples size |E| N. compute p-value, number edges connect non-essential nodes                           probability observing mean value metric   relatively edges connect essential nodes                      random subsamples) greater equal  leading low overall assortativity.                     E. Table 3 lists values degree, betweenness cen-
+                                                                              trality, closeness centrality pairwise disconnectivity essential nodes differ significantly certain                            index, 20 organisms. example, S.
+metrics?                                                                      cerevisiae, observe degree betweenness
+                                                                              centrality significantly higher essential nodes, vis - previous studies highlighted critical roles                     vis entire network (p \ 10-6).  clearly
+played ‘hubs’, highly connected proteins protein                     seen average degree essential nodes 
+Table 2 Assortativity coefficients networks considered study
+Organism                                         Nodes (proteins)     Fractions edges different types        Total edges     Assortativity (r)
+                                                                      EE             NE             NN
+
+Arabidopsis thaliana                             7,090                0.002          0.066          0.932           69,603         0.034
+Caenorhabditis elegans                           5,184                0.005          0.100          0.895           46,737         0.041
+Helicobacter pylori                              1,352                0.105          0.390          0.505            7,915         0.071
+Streptococcus pneumoniae                         1,718                0.019          0.171          0.810            8,597         0.084
+Mycoplasma genitalium                             446                 0.825          0.158          0.017            3,376         0.088
+Haemophilus influenzae                           1,497                0.249          0.454          0.296            8,877         0.090
+Salmonella typhimurium                           3,712                0.020          0.145          0.836           20,985         0.135
+Saccharomyces cerevisiae                         5,477                0.193          0.371          0.436          105,429         0.212
+Pseudomonas aeruginosa                           4,556                0.047          0.168          0.785           21,818         0.265
+Mycobacterium tuberculosis                       3,295                0.141          0.294          0.565           18,445         0.284
+Escherichia coli                                 3,789                0.149          0.261          0.590           25,784         0.352
+Bacillus subtilis                                3,347                0.068          0.159          0.773           20,728         0.367
+Mycoplasma pulmonis                               616                 0.658          0.216          0.126            3,111         0.397
+Vibrio cholerae                                  2,958                0.176          0.251          0.573           15,644         0.404
+Streptococcus sanguinis                          1,801                0.184          0.252          0.565            8,315         0.411
+Staphylococcus aureus subsp. aureus N315         1,966                0.235          0.274          0.491            9,207         0.413
+Acinetobacter baylyi                             2,546                0.263          0.278          0.459           12,996         0.422
+Francisella novicida                             1,415                0.360          0.287          0.353            7,587         0.426
+Staphylococcus aureus NCTC                       2,127                0.245          0.238          0.517            9,500         0.486
+Salmonella enterica serovar typhi                3,491                0.137          0.149          0.714           19,650         0.554
+EE Essential–Essential, NE Non-essential–Essential, NN Non-essential–Non-essential table lists different organisms fraction different types edges assortativity coefficient, computed indicated text. list sorted increasing order assortativity coefficient (r)
+
+
+123
+ organisational structure protein networks                                                                                                 77
+
+
+Table 3 p-values significance deviation mean different metrics set essential nodes vis -vis nodes network
+Organism                                              p (degree)            p (Betweenness            p (Closeness           p (Pairwise
+                                                                            centrality)               centrality)            disconnectivity index)
+
+Acinetobacter baylyi                                 \ 10-6                 \ 10-6                    0.22                   0.14
+                                                                    -3
+Arabidopsis thaliana                                  8.52 9 10             0.05                      0.18                   0.15
+Bacillus subtilis                                    \ 10-6                 \ 10-6                    0.89                   0.40
+Caenorhabditis elegans                                8.40 9 10-5           0.25                      0.10                   0.01
+Escherichia coli                                     \ 10-6                 \ 10-6                    0.92                   0.98
+Francisella novicida                                 \ 10-6                 \ 10-6                    0.50                   0.49
+                                                           -6
+Haemophilus influenzae                               \ 10                   0.26                      0.22                   0.36
+Helicobacter pylori                                  \ 10-6                 6.55 9 10-4               0.86                   0.03
+Mycobacterium tuberculosis                           \ 10-6                 \ 10-6                    0.20                   0.07
+                                                           -6
+Mycoplasma genitalium                                \ 10                   0.05                      0.76                   0.18
+Mycoplasma pulmonis                                  \ 10-6                 \ 10-6                    0.87                   0.00
+Pseudomonas aeruginosa                               \ 10-6                 \ 10-6                    0.14                   0.05
+                                                           -6
+Saccharomyces cerevisiae                             \ 10                   \ 10-6                    0.28                   0.09
+Salmonella enterica serovar typhi                    \ 10-6                 \ 10-6                    0.92                   0.06
+Salmonella typhimurium                               \ 10-6                 0.0163                    0.85                   0.15
+Staphylococcus aureus NCTC                           \ 10-6                 \ 10-6                    0.24                   0.18
+Staphylococcus aureus subsp. aureus N315             \ 10-6                 \ 10-6                    0.96                   0.05
+                                                               -6                       -4
+Streptococcus pneumoniae                              2 9 10                7.14 9 10                 0.57                   0.11
+Streptococcus sanguinis                              \ 10-6                 \ 10-6                    0.61                  \ 10-6
+Vibrio cholerae                                      \ 10-6                 \ 10-6                    0.57                   0.89
+Poor p values (p [ 0.01) shown bold. table clearly shows metrics closeness centrality pairwise disconnectivity
+index used selectively delineate essential nodes
+
+
+
+significantly higher network average,                  degree distribution. vertical axis indicates 20 organisms considered. Interestingly, addition                  fraction essential nodes Nx [ N, Nx set degree centrality, betweenness centrality signifi-                                                                               d
+                                                                            nodes degrees xth percentile  e. N90
+cantly higher (p \ 0.01), 15 20 organisms                    set nodes degrees (indicated super-
+sidered                                                                script d) 90th percentile  10      stark contrast, closeness centrality pairwise dis-                nodes highest degrees). S. cerevisiae, connectivity index yeast significantly different                      d
+                                                                            N90 , 43.8   nodes essential, compared 20.2   essential nodes compared entire network                          entire network  Table 4). similar plot (p = 0.28 p = 0.09 respectively). clear                  betweenness centrality shown Fig. 2. N90     bc
+                                                                                                                                       table metrics closeness centrality pairwise                superscript bc denotes betweenness centrality), 29   disconnectivity index vary significantly essential               nodes essential. Online Resources 1 2 similar
+nodes, organisms considered                             plots remaining organisms. Table 4 summarises                                                                             N90 data degree betweenness centrality. Overall, Degree betweenness centrality correlate                                 observe  organisms, clear increase lethality organisms                                            fraction essential nodes (albeit gradual),                                                                             increase degree betweenness centrality.
+Does degree betweenness centrality form strong
+indicator lethality? address  computed                    Closeness centrality pairwise disconnectivity index
+fraction nodes essential, set proteins                  strong indicators essentiality
+having degree greater specified value. Figure 1
+shows plot end S. cerevisiae, E. coli, Staphy-                computed closeness centrality node 20
+lococcus aureus NCTC Mycobacterium tuberculosis:                        different networks. Online Resource 3 indicates varia- horizontal axis represents increasing node degrees,                     tion fraction essential nodes 20 organisms
+indicated percentiles (x); representation hints              increasing closeness centrality. Clearly, observe
+
+
+                                                                                                                                        123
+78                                                                                                                                                                                     K. Raman et al.
+
+Fig. 1 Variation fraction                                                   Saccharomyces cerevisiae                                                         (b)   Escherichia coli
+essential nodes, increase                                                                      1                                                                               1
+
+
+
+
+                                      Fraction essential nodes
+
+
+
+
+                                                                                                                      Fraction essential nodes
+degree. horizontal axis
+represents increasing node
+
+
+
+
+                                         higher degree
+
+
+
+
+                                                                                                                         higher degree
+                                                                    0.8                                                                             0.8
+degrees, indicated percentiles
+(x), vertical axis                                        0.6                                                                             0.6
+indicates fraction essential nodes Nxd , set                                 0.4                                                                             0.4
+nodes degrees xth
+percentile                                            0.2                                                                             0.2
+simplicity, example
+organisms shown: S.                                            0                                                                               0
+cerevisiae, b E. coli, c S. aureus                                        0   10 20 30 40 50 60 70 80 90 100                                              0   10 20 30 40 50 60 70 80 90 100
+NCTC d M. tuberculosis.                                                      Percentile nodes’ degree                                                    Percentile nodes’ degree illustrate, panel (d), M.                                                                                                                               (d)
+                                                                               (c)   Mycobacterium tuberculosis                                                     Staphylococcus aureus NCTC
+tuberculosis, 31                                         Fraction essential nodes
+
+
+
+                                                                     1                                                                               1
+
+
+
+
+                                                                                                                      Fraction essential nodes
+nodes highest 30                         d
+                                         higher degree
+
+
+
+
+degrees (nodes N70   ) 
+
+
+
+                                                                                                                         higher degree
+                                                                    0.8                                                                             0.8
+essential. increases 33  
+     d N90 . panel  , S.                                           0.6                                                                             0.6
+cerevisiae, 37               d
+nodes N70   essential,                                       0.4                                                                             0.4
+                            d rises 44   N90    . details, text                                           0.2                                                                             0.2
+
+                                                                     0                                                                               0
+                                                                          0   10 20 30 40 50 60 70 80 90 100                                              0   10 20 30 40 50 60 70 80 90 100
+                                                                                Percentile nodes’ degree                                                     Percentile nodes’ degree
+
+ increasing closeness centrality,                                                possible ask questions structural
+appreciable change fraction essential nodes.                                             organisation networks, examine roles cases, observe fraction essential                                             played different proteins networks. identi-
+nodes remains unaffected, instance, compares                                             fication analysis essential proteins organism
+   cc       cc
+N20   N80  .                                                                                      serves purpose: (1) proteins     computed pairwise disconnectivity index                                               functionally important, mediate number (Potapov et al. 2008) node                                                   biological processes (Batada et al. 2006), (2) proteins,
+organisms. Online Resource 4 indicates variation                                           particularly pathogenic organism, particular
+fraction essential nodes 20 organisms                                                  drug targets (Flo´rez et al. 2010; Verkhedkar
+increasing pairwise disconnectivity indices. sparse                                               et al. 2007). identification essential genes/proteins
+plots large gaps successive points                                             organism experimentally challenging, expensive
+plots indicate large fraction nodes share                                          time-consuming task.  important pairwise disconnectivity index;  fraction                                            identify likely essential proteins organisms essential nodes does increase                                                computational analyses. possible identify
+increase pairwise disconnectivity index, suggesting                                           important metabolic enzymes computational powerful metric evaluate lethality                                          techniques flux balance analysis (Joyce Palsson node. observations reiterate statistical tests                                         2008; Kauffman et al. 2003). methods illustrated Table 3, showed set                                                  powerful, require data stoichiometry essential nodes differ significantly set                                       individual reactions, restricted enzymes/meta-
+nodes network, terms metrics closeness                                           bolic genes. Protein networks, hand, encom-
+centrality pairwise disconnectivity index.                                                         pass entire proteome organism                                                                                                        analysis protein network structure provide better
+                                                                                                      picture essential proteins organism.
+Discussion                                                                                               metrics commonly used                                                                                                       graph theory network biology, clear
+Understanding structural organisation protein net-                                             understanding best metric predict essentiality/
+works holds key understanding biological function,                                             lethality biological systems. example, design principles biological networks.                                           betweenness centrality suggested important protein networks readily available,                                            metric identify critical nodes network (Holme et al.
+
+
+123
+ organisational structure protein networks                                                                                                                                                                          79
+
+
+Table 4 Fraction essential proteins 10   nodes  degree, betweenness centrality)
+                                                                                    d                                                                                                          bc 
+Organism                                       Nodes           Essential ( )       N  Essential ( )                                                                                           N       Essential    ( )
+                                                                                     90                                                                                                           90
+                                               (proteins) |N0| nodes                       nodes                                                                                                          nodes
+                                                               N0                           d                                                                                                              bc
+                                                                                           N90                                                                                                         N90
+
+Acinetobacter baylyi                                                               2,546                  468        (18.4)   258                138                                  (53.5)    257       101          (39.3)
+Arabidopsis thaliana                                                               7,090                  195         (2.8)   717                          29                          (4.0)    710        24           (3.4)
+Bacillus subtilis                                                                  3,347                  219         (6.5)   338                          71                         (21.0)    335        53          (15.8)
+Caenorhabditis elegans                                                             5,184                  192         (3.7)   519                          34                          (6.6)    519        27           (5.2)
+Escherichia coli                                                                   3,789                  672        (17.7)   407                150                                  (36.9)    379       118          (31.1)
+Francisella novicida                                                               1,415                  362        (25.6)   147                102                                  (69.4)    142        63          (44.4)
+Haemophilus influenzae                                                             1,497                  592        (39.5)   160                          89                         (55.6)    150        62          (41.3)
+Helicobacter pylori                                                                1,352                  298        (22.0)   140                          48                         (34.3)    136        40          (29.4)
+Mycobacterium tuberculosis                                                         3,295                  587        (17.8)   330                109                                  (33.0)    330        99          (30.0)
+Mycoplasma genitalium                                                                  446                363        (81.4)   45                           45                        (100.0)      46       40          (87.0)
+Mycoplasma pulmonis                                                                    616                288        (46.8)   63                           61                         (96.8)      62       45          (72.6)
+Pseudomonas aeruginosa                                                             4,556                  296         (6.5)   468                          77                         (16.5)    456        61          (13.4)
+Saccharomyces cerevisiae                                                           5,477                1,109        (20.2)   548                240                                  (43.8)    548       159          (29.0)
+Salmonella enterica serovar typhi                                                  3,491                  344         (9.9)   355                103                                  (29.0)    350        66          (18.9)
+Salmonella typhimurium                                                             3,712                  204         (5.5)   395                          45                         (11.4)    372        37           (9.9)
+Staphylococcus aureus NCTC                                                         2,127                  328        (15.4)   221                128                                  (57.9)    213        72          (33.8)
+Staphylococcus aureus subsp. aureus N315                                           1,966                  296        (15.1)   200                115                                  (57.5)    197        68          (34.5)
+Streptococcus pneumoniae                                                           1,718                  109         (6.3)   180                          25                         (13.9)    172        22          (12.8)
+Streptococcus sanguinis                                                            1,801                  215        (11.9)   181                          80                         (44.2)    181        58          (32.0)
+Vibrio cholerae                                                                    2,958                  537        (18.2)   314                130                                  (41.4)    296        83          (28.0) table lists organisms considered study, numbers fraction essential nodes entire network, sets nodes highest degree betweenness centralities. table clearly illustrates enrichment essential nodes N90 sets: cases, increase fraction essential proteins N90 sets, organisms compared 
+
+Fig. 2 Variation fraction                                                                Saccharomyces cerevisiae                                                                   (b) Escherichia coli
+                                       higher betwenness centrality
+
+
+
+
+                                                                                                                                    higher betwenness centrality
+
+
+
+
+essential nodes, increase                                                                               1                                                                                            1
+betweenness centrality.                                            Fraction essential nodes
+
+
+
+
+                                                                                                                                        Fraction essential nodes
+
+
+
+
+horizontal axis represents                                                   0.8                                                                                          0.8
+increasing node betweenness
+centralities, indicated                                                   0.6                                                                                          0.6
+percentiles (x), vertical axis indicates                                                  0.4                                                                                          0.4
+fraction essential nodes Nxbc , set nodes                                                 0.2                                                                                          0.2
+betweenness centralities xth percentile                                                  0                                                                                            0
+                                                                                   0    10 20 30 40 50 60 70 80 90 100                                                          0   10 20 30 40 50 60 70 80 90 100 details, text
+                                                                                    Percentile nodes’ betwenness centrality                                                  Percentile nodes’ betwenness centrality
+
+
+                                                                                         (c)    Mycobacterium tuberculosis                                                          (d)   Staphylococcus aureus NCTC
+                                       higher betwenness centrality
+
+
+
+
+                                                                                                                                    higher betwenness centrality
+
+
+
+
+                                                                              1                                                                                            1
+                                           Fraction essential nodes
+
+
+
+
+                                                                                                                                        Fraction essential nodes
+
+
+
+
+                                                                             0.8                                                                                          0.8
+
+                                                                             0.6                                                                                          0.6
+
+                                                                             0.4                                                                                          0.4
+
+                                                                             0.2                                                                                          0.2
+
+                                                                              0                                                                                            0
+                                                                                   0    10 20 30 40 50 60 70 80 90 100                                                          0   10 20 30 40 50 60 70 80 90 100
+                                                                                   Percentile nodes ’ betwenness centrality                                                  Percentile nodes’ betwenness centrality
+
+
+
+                                                                                                                                                                                                                   123
+80                                                                                                                       K. Raman et al.
+
+
+2002), researchers argued betweenness             gaps existing knowledge essential genes centrality informative cases (Potapov         organisms considered; particular, lim-
+et al. 2008).                                                     ited gaps DEG.
+   Following analysis multiple network measures             Overall, major contribution study study, make broad observations, set        identification hubs highly connected proteins diverse organisms. Firstly, observe nearly        insufficient identify essential proteins networks.
+protein networks considered study disassortative;     Importantly, perform extensive analysis protein agreement previous studies Newman              networks 20 diverse organisms,  knowl-
+(2002).  interactions happen non-               edge, carried  organisms
+essential proteins, essential non-essential        differ substantially number proteins, fraction
+proteins; interactions essential proteins        essential proteins, density interactions 
+rarer. Secondly, observe essential nodes            analysis diverse set organisms
+significantly higher average degree compared net-          scrutinises centrality–lethality hypothesis criti-
+work average organisms; centrality–lethality           cally, enables make general statements hypothesis appears hold larger set organ-        associations centrality lethality different
+isms.  rate fraction essential        organisms. degree centrality, betweenness cen-
+nodes increases, increase degree slow.             trality lethality correlated organisms, example, M. tuberculosis, 31   nodes        possible predict lethal nodes organism                                         d                         large degree accuracy using merely degree/betweenness.
+highest 30   degrees (nodes N70     ) essential.                              d
+increases 33   N90 . higher degrees        observe metrics like pairwise disconnec-
+ 2  ), does fraction essential nodes near 49  .        tivity index poorer indicators essentiality S. cerevisiae, 37   nodes N70    d
+                                                              protein networks, despite fact useful metric                                        d             d
+essential, rises 44   N90 ; N99         analyse critical nodes complex networks (Potapov et al.
+                                                                  2008).  results reiterate observation Roy
+observe nearly 73   essential nodes.                                                                    (Roy 2012; Roy Filkov 2009) indi-
+higher degree indicator lethality general,
+                                                                  vidual metrics sufficient analyse phe-
+high degree does automatically imply lethality.                                                                   notypes organism. results warrant average betweenness centrality essential proteins                                                                   exploration organisation protein networks; mere
+significantly higher compared network average                                                                   analysis hubs network completely explain organisms considered   similar                                                                   complex organisation protein networks.
+degree, high betweenness centrality does automatically
+imply essentiality.  fruitful explore      Acknowledgments Funding IIT Madras seed grant
+combinations metrics, stronger                BIO/12-13/579/NFSC/KARH gratefully acknowledged. KR wishes
+association lethality. Finally, observe metrics      thank Dr. Saketha Nath (IIT Bombay) useful closeness centrality pairwise disconnectivity         discussions.
+index, useful predict/analyse critical nodes          Conflict   authors declare conflict
+complex networks, insufficient predict lethality        
+proteins networks.
+   work does limitations. Firstly, consider
+protein networks composed physical           References
+interactions, functional associations.  consider high-confidence associations reported        Baraba´si L, Oltvai ZN (2004) Network biology: understanding                                                                         cell’s functional organization. Nat Rev Genet 5:101–113. doi:10. STRING database, considerably limit                                                                         1038/nrg1272
+false positive associations networks. advantage,       Batada NN, Hurst LD, Tyers M (2006) Evolutionary physiolog-   interactions present complete            ical importance hub proteins. PLoS Comput Biol 2:e88.
+view protein function cell, comparison              doi:10.1371/journal.pcbi.0020088
+                                                                  Boccaletti S, Latora V, Moreno Y et al (2006) Complex networks:
+networks composed merely physically interacting pro-
+                                                                        structure dynamics. Phys Rep 424:175–308. doi:10.1016/j.
+tein pairs. considered organisms                physrep.2005.10.009 previous studies, possible results     Flo´rez AF, Park D, Bhak J et al (2010) Protein network prediction altered consider larger               topological analysis Leishmania major tool drug target
+                                                                        selection. BMC Bioinformatics 11:484. doi:10.1186/1471-2105- diverse set organisms.  quite
+                                                                        11-484
+limited availability data gene essentiality       Freeman LC (1977) set measures centrality based various organisms.  currently limited               betweenness. Sociometry 40:35–41. doi:10.2307/3033543
+
+
+
+123
+ organisational structure protein networks                                                                                             81
+ X, Zhang J (2006) hubs tend essential protein       Roy S (2012) Systems biology degree, hubs scale-free
+    networks? PLoS Genet 2:e88. doi:10.1371/journal.pgen.0020088            networks: case multiple metrics complex networks.
+Holme P, Kim B, Yoon C, Han S (2002) Attack vulnerability complex        Syst Synth Biol 6:31–34. doi:10.1007/s11693-012-9094-y
+    networks. Phys Rev E65:056109. doi:10.1103/PhysRevE.65.            Roy S, Filkov V (2009) Strong associations microbe
+    056109                                                                  phenotypes network architecture. Phys Rev E80:040
+Jeong H, Mason SP, Baraba´si AL, Oltvai ZN (2001) Lethality             902. doi:10.1103/PhysRevE.80.040902
+    centrality protein networks. Nature 411:41–42. doi:10.1038/     Sabidussi G (1966) centrality index graph. Psychometrika
+    35075138                                                                31:581–603. doi:10.1007/BF02289527
+Joyce AR, Palsson BØ (2008) Predicting gene essentiality using         Shoemaker BA, Panchenko AR (2007a) Deciphering protein–protein
+    genome-scale silico models. Methods mole biol (Clifton, NJ)          interactions.  experimental techniques databases. PLoS
+    416:433–457. doi:10.1007/978-1-59745-321-9_30                           Comput Biol 3:e42. doi:10.1371/journal.pcbi.0030042
+Kauffman KJ, Prakash P, Edwards JS (2003) Advances flux             Shoemaker BA, Panchenko AR (2007b) Deciphering protein–protein
+    balance analysis. Curr Opin Biotechnol 14:491–496. doi:10.              interactions. II. computational methods predict protein
+    1016/j.copbio.2003.08.001                                               domain interaction partners. PLoS Comput Biol 3:e43.
+Newman M (2002) Assortative mixing networks. Phys Rev Lett               doi:10.1371/journal.pcbi.0030043
+    89:208701. doi:10.1103/PhysRevLett.89.208701                       Song J, Singh M (2013) hub proteins hub modules: Newman MEJ (2003a) Mixing patterns networks. Phys Rev E                  relationship essentiality centrality yeast
+    67:026126. doi: 10.1103/physreve.67.026126                              interactome different scales organization. PLoS Comput
+Newman MEJ (2003b) structure function complex networks.          Biol 9:e1002910. doi:10.1371/journal.pcbi.1002910
+    SIAM Rev 45:167–256. doi:10.1137/S003614450342480                  Szklarczyk D, Franceschini  Kuhn M et al (2011) STRING
+Ning K, Ng H, Srihari S et al (2010) Examination relationship        database 2011: functional interaction networks proteins,
+    essential genes PPI network hub proteins              globally integrated scored. Nucleic Acids Res 39:D561–
+    reverse nearest neighbor topology. BMC Bioinformatics. doi:10.          D568. doi:10.1093/nar/gkq973
+    1186/1471-2105-11-505                                              Verkhedkar KD, Raman K, Chandra NR, Vishveshwara S (2007)
+Potapov AP, Goemann B, Wingender E (2008) pairwise                      Metabolome Based Reaction Graphs M. tuberculosis M.
+    disconnectivity index new metric topological               leprae: Comparative Network Analysis. PLoS  doi:10.
+    analysis regulatory networks. BMC Bioinformatics 9:227.              1371/jour
